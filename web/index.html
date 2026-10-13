@@ -5,78 +5,139 @@
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>국뽕 영상 서칭</title>
 <style>
-:root{--bg:#f6f5fb;--card:#fff;--ink:#14121f;--mute:#6b6880;--line:#e6e3f2;--acc:#5b3df5;--new:#ef4444}
-@media(prefers-color-scheme:dark){:root{--bg:#0f0e17;--card:#1a1826;--ink:#f1effa;--mute:#9a96b3;--line:#2b2840;--acc:#8b74ff}}
+:root{--bg:#f6f5fb;--card:#fff;--ink:#14121f;--mute:#6b6880;--line:#e6e3f2;--acc:#5b3df5;--new:#ef4444;--ok:#16a34a}
+@media(prefers-color-scheme:dark){:root{--bg:#0f0e17;--card:#1a1826;--ink:#f1effa;--mute:#9a96b3;--line:#2b2840;--acc:#8b74ff;--ok:#4ade80}}
 *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Pretendard","Malgun Gothic",system-ui,sans-serif}
 header{padding:28px 16px 8px;max-width:1200px;margin:auto}
 h1{margin:0 0 4px;font-size:26px}.sub{color:var(--mute);font-size:13px}
-.bar{max-width:1200px;margin:12px auto;padding:0 16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.bar{max-width:1200px;margin:10px auto;padding:0 16px;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+.lbl{font-size:12px;color:var(--mute);width:100%;margin-bottom:-2px}
 .chip{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:6px 12px;border-radius:99px;cursor:pointer;font:inherit;font-size:13px}
-.chip.on{background:var(--acc);border-color:var(--acc);color:#fff}
-input,select{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:10px;font:inherit;font-size:13px}
+.chip.on{background:var(--acc);border-color:var(--acc);color:#fff}.chip small{opacity:.7;margin-left:4px}
+input,select,textarea{border:1px solid var(--line);background:var(--card);color:var(--ink);padding:7px 12px;border-radius:10px;font:inherit;font-size:13px}
 input{flex:1;min-width:140px}
 .grid{max-width:1200px;margin:auto;padding:8px 16px 48px;display:grid;grid-template-columns:repeat(auto-fill,minmax(250px,1fr));gap:16px}
 .card{background:var(--card);border:1px solid var(--line);border-radius:14px;overflow:hidden;position:relative;display:flex;flex-direction:column}
+.card.done{opacity:.55}.card.done .th img{filter:grayscale(1)}
 .th{position:relative;aspect-ratio:16/9;background:#000;cursor:pointer}.th img,.th iframe{width:100%;height:100%;object-fit:cover;border:0;display:block}
 .play{position:absolute;inset:0;display:grid;place-items:center;color:#fff;font-size:34px;text-shadow:0 2px 8px #0008;opacity:.85}
 .new{position:absolute;top:8px;left:8px;background:var(--new);color:#fff;font-size:11px;font-weight:700;padding:2px 8px;border-radius:99px;z-index:1}
 .body{padding:12px;display:flex;flex-direction:column;gap:6px;flex:1}
 .t{font-weight:600;font-size:14px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden;color:var(--ink);text-decoration:none}
-.m{color:var(--mute);font-size:12px}.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:auto}
+.m{color:var(--mute);font-size:12px}.tags{display:flex;gap:6px;flex-wrap:wrap}
 .tag{font-size:11px;padding:2px 8px;border-radius:99px;background:var(--bg);color:var(--mute)}.hot{background:#fff1d6;color:#a45a00}
 .fav{position:absolute;top:6px;right:8px;background:#0006;border:0;color:#fff;border-radius:99px;width:30px;height:30px;cursor:pointer;font-size:16px;z-index:1}
-.fav.on{color:#ffd23f}.empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:60px 0}
+.fav.on{color:#ffd23f}
+.act{display:flex;gap:6px;margin-top:auto}
+.btn{flex:1;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:5px 0;font:inherit;font-size:12px;cursor:pointer}
+.btn.on{border-color:var(--ok);color:var(--ok);font-weight:700}.btn.memo.on{border-color:var(--acc);color:var(--acc)}
+textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
+.empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:60px 0}
+.tools{max-width:1200px;margin:auto;padding:0 16px 40px;color:var(--mute);font-size:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 </style>
 </head>
 <body>
 <header><h1>🇰🇷🇯🇵 국뽕 영상 서칭</h1><div class="sub" id="upd"></div></header>
-<div class="bar" id="chips"></div>
+<div class="bar"><span class="lbl">분류</span><span id="cats" style="display:contents"></span></div>
+<div class="bar"><span class="lbl">보기</span><span id="chips" style="display:contents"></span></div>
 <div class="bar">
-  <input id="q" placeholder="제목·채널 검색">
+  <input id="q" placeholder="제목·채널·메모 검색">
   <select id="sort"><option value="new">새로 들어온 순</option><option value="pub">업로드 최신순</option><option value="views">조회수순</option><option value="ratio">구독자 대비 조회수순</option></select>
-  <select id="sub"><option value="">구독자 전체</option><option value="s">1천 미만</option><option value="m">1천~1만</option><option value="l">1만 이상</option></select>
+  <select id="seen"><option value="">전체</option><option value="todo">안 본 것만</option><option value="done">사용 완료만</option></select>
 </div>
 <div class="grid" id="grid"></div>
+<div class="tools">
+  <span>사용 완료·메모·저장은 이 브라우저에만 저장돼요.</span>
+  <button class="chip" id="exp">내보내기</button><button class="chip" id="imp">가져오기</button>
+  <input type="file" id="file" accept=".json" hidden>
+</div>
 <script src="videos.js"></script>
 <script>
 const V = window.VIDEOS || [];
+// 분류 기준: build_site.py 가 window.SETTINGS 를 주면 그 값을 쓰고, 없으면 discover.ini 기본값을 쓴다
+const S = Object.assign({subs_low:1000, subs_high:10000, high_views:3000, ratio_min:3, ratio_min_views:500}, window.SETTINGS || {});
 const fmt = n => n == null ? "?" : n >= 1e6 ? (n/1e6).toFixed(1)+"M" : n >= 1e3 ? (n/1e3).toFixed(1)+"K" : n;
 const ls = { get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}}, set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}} };
-let favs = new Set(ls.get("favs", [])), seenAt = ls.get("lastVisit", "");
-const FILTERS = [["all","전체"],["한국","🇰🇷 한국"],["일본","🇯🇵 일본"],["other","🏝 서울·부산 외"],["fav","⭐ 저장"]];
-let f = "all";
-const chips = document.getElementById("chips");
-FILTERS.forEach(([k,l]) => { const b = document.createElement("button"); b.className = "chip" + (k===f?" on":""); b.textContent = l;
-  b.onclick = () => { f = k; [...chips.children].forEach(c => c.classList.toggle("on", c === b)); render(); }; chips.append(b); });
+let favs = new Set(ls.get("favs", [])), done = new Set(ls.get("done", [])), memos = ls.get("memos", {});
+const seenAt = ls.get("lastVisit", "");
+
+const ratio = v => v.views / Math.max(v.subs || 1, 1);
+const isHot = v => v.views >= S.ratio_min_views && ratio(v) >= S.ratio_min;
+// 6개 분류: 구독자 규모 × 조회수 (5개) + 구독자 대비 조회수 높음 (겹쳐서 들어갈 수 있음)
+const ko = n => n >= 1e4 && n % 1e4 === 0 ? n / 1e4 + "만" : n >= 1e3 && n % 1e3 === 0 ? n / 1e3 + "천" : fmt(n);
+const CATS = [
+  ["s_lo", `구독자 ${ko(S.subs_low)} 미만 · 조회수 낮음`, v => v.subs < S.subs_low && v.views < S.high_views],
+  ["s_hi", `구독자 ${ko(S.subs_low)} 미만 · 조회수 높음`, v => v.subs < S.subs_low && v.views >= S.high_views],
+  ["m_lo", `${ko(S.subs_low)}~${ko(S.subs_high)} · 조회수 낮음`, v => v.subs >= S.subs_low && v.subs < S.subs_high && v.views < S.high_views],
+  ["m_hi", `${ko(S.subs_low)}~${ko(S.subs_high)} · 조회수 높음`, v => v.subs >= S.subs_low && v.subs < S.subs_high && v.views >= S.high_views],
+  ["l", `구독자 ${ko(S.subs_high)} 이상`, v => v.subs >= S.subs_high],
+  ["hot", "📈 구독자 대비 조회수 높음", isHot],
+];
+const withSubs = v => v.subs != null;
+let cat = "all", view = "all";
+
+function mkChip(parent, key, label, count, get, set) {
+  const b = document.createElement("button"); b.className = "chip"; b.dataset.k = key;
+  b.innerHTML = label + (count == null ? "" : `<small>${count}</small>`);
+  b.onclick = () => { set(key); [...parent.children].forEach(c => c.classList.toggle("on", c.dataset.k === key)); render(); };
+  parent.append(b); return b;
+}
+const catsEl = document.getElementById("cats");
+mkChip(catsEl, "all", "전체", V.length, null, k => cat = k).classList.add("on");
+CATS.forEach(([k, l, fn]) => mkChip(catsEl, k, l, V.filter(v => withSubs(v) && fn(v)).length, null, x => cat = x));
+const chipsEl = document.getElementById("chips");
+[["all","전체"],["한국","🇰🇷 한국"],["일본","🇯🇵 일본"],["other","🏝 서울·부산 외"],["fav","⭐ 저장"],["memo","📝 메모 있음"]]
+  .forEach(([k, l]) => mkChip(chipsEl, k, l, null, null, x => view = x));
+chipsEl.firstChild.classList.add("on");
 document.getElementById("upd").textContent = "마지막 갱신 " + (window.UPDATED || "-") + " · 영상 " + V.length + "개";
-const today = new Date().toISOString().slice(0,10);
-const isNew = v => v.first_seen > (seenAt || "9999") || v.first_seen === (window.UPDATED||"").slice(0,10);
+const isNew = v => v.first_seen > (seenAt || "9999") || v.first_seen === (window.UPDATED || "").slice(0, 10);
+const saveAll = () => { ls.set("favs", [...favs]); ls.set("done", [...done]); ls.set("memos", memos); };
+
 function render() {
-  const q = document.getElementById("q").value.trim().toLowerCase(), sub = document.getElementById("sub").value, sort = document.getElementById("sort").value;
-  let a = V.filter(v => (f==="all" || f===v.country || (f==="other" && v.section==="other") || (f==="fav" && favs.has(v.id)))
-    && (!q || (v.title+" "+v.channel).toLowerCase().includes(q))
-    && (!sub || (sub==="s" ? v.subs < 1000 : sub==="m" ? v.subs >= 1000 && v.subs < 10000 : v.subs >= 10000)));
-  const ratio = v => v.views / Math.max(v.subs || 1, 1);
-  a.sort((x,y) => sort==="views" ? y.views-x.views : sort==="ratio" ? ratio(y)-ratio(x) : sort==="pub" ? y.published.localeCompare(x.published) : (y.first_seen+y.published).localeCompare(x.first_seen+x.published));
+  const q = document.getElementById("q").value.trim().toLowerCase(), sort = document.getElementById("sort").value, seen = document.getElementById("seen").value;
+  const catFn = (CATS.find(c => c[0] === cat) || [])[2];
+  let a = V.filter(v => (cat === "all" || (withSubs(v) && catFn(v)))
+    && (view === "all" || view === v.country || (view === "other" && v.section === "other") || (view === "fav" && favs.has(v.id)) || (view === "memo" && memos[v.id]))
+    && (!q || (v.title + " " + v.channel + " " + (memos[v.id] || "")).toLowerCase().includes(q))
+    && (!seen || (seen === "done" ? done.has(v.id) : !done.has(v.id))));
+  a.sort((x, y) => sort === "views" ? y.views - x.views : sort === "ratio" ? ratio(y) - ratio(x) : sort === "pub" ? y.published.localeCompare(x.published) : (y.first_seen + y.published).localeCompare(x.first_seen + x.published));
   const g = document.getElementById("grid"); g.innerHTML = "";
   if (!a.length) g.innerHTML = '<div class="empty">조건에 맞는 영상이 없어요</div>';
   a.forEach(v => {
-    const c = document.createElement("div"); c.className = "card";
-    const hot = ratio(v) >= 3 && v.views >= 500;
+    const c = document.createElement("div"); c.className = "card" + (done.has(v.id) ? " done" : "");
     c.innerHTML = (isNew(v) ? '<span class="new">NEW</span>' : "") +
-      `<button class="fav ${favs.has(v.id)?"on":""}" title="저장">${favs.has(v.id)?"★":"☆"}</button>` +
+      `<button class="fav ${favs.has(v.id) ? "on" : ""}" title="저장">${favs.has(v.id) ? "★" : "☆"}</button>` +
       `<div class="th"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/mqdefault.jpg"><div class="play">▶</div></div>` +
       `<div class="body"><a class="t" target="_blank" rel="noopener" href="https://youtu.be/${v.id}"></a><div class="m"></div>` +
-      `<div class="tags"><span class="tag">${v.country==="한국"?"🇰🇷":"🇯🇵"} ${v.country}${v.section==="other"?" · 지방":""}</span><span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${hot?'<span class="tag hot">📈 급상승</span>':""}</div></div>`;
+      `<div class="tags"><span class="tag">${v.country === "한국" ? "🇰🇷" : "🇯🇵"} ${v.country}${v.section === "other" ? " · 지방" : ""}</span><span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${isHot(v) ? '<span class="tag hot">📈 급상승</span>' : ""}</div>` +
+      `<div class="act"><button class="btn dn ${done.has(v.id) ? "on" : ""}">${done.has(v.id) ? "✅ 사용 완료" : "☐ 사용 완료"}</button><button class="btn memo ${memos[v.id] ? "on" : ""}">📝 메모</button></div>` +
+      `<textarea hidden placeholder="메모 (어디에 쓸지, 번역 메모 등)"></textarea></div>`;
     c.querySelector(".t").textContent = v.title;
     c.querySelector(".m").textContent = v.channel + " · " + v.published;
     c.querySelector(".th").onclick = e => { e.currentTarget.innerHTML = `<iframe src="https://www.youtube.com/embed/${v.id}?autoplay=1" allow="autoplay;encrypted-media" allowfullscreen></iframe>`; e.currentTarget.onclick = null; };
-    c.querySelector(".fav").onclick = e => { favs.has(v.id) ? favs.delete(v.id) : favs.add(v.id); ls.set("favs", [...favs]); render(); };
+    c.querySelector(".fav").onclick = () => { favs.has(v.id) ? favs.delete(v.id) : favs.add(v.id); saveAll(); render(); };
+    c.querySelector(".dn").onclick = () => { done.has(v.id) ? done.delete(v.id) : done.add(v.id); saveAll(); render(); };
+    const ta = c.querySelector("textarea"), mb = c.querySelector(".memo");
+    ta.value = memos[v.id] || "";
+    mb.onclick = () => { ta.hidden = !ta.hidden; if (!ta.hidden) ta.focus(); };
+    ta.oninput = () => { ta.value.trim() ? memos[v.id] = ta.value : delete memos[v.id]; mb.classList.toggle("on", !!memos[v.id]); saveAll(); };
     g.append(c);
   });
 }
-["q","sort","sub"].forEach(i => document.getElementById(i).addEventListener("input", render));
-render(); ls.set("lastVisit", today);
+["q", "sort", "seen"].forEach(i => document.getElementById(i).addEventListener("input", render));
+document.getElementById("exp").onclick = () => {
+  const blob = new Blob([JSON.stringify({favs: [...favs], done: [...done], memos}, null, 1)], {type: "application/json"});
+  const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "gukppong-backup.json"; a.click();
+};
+document.getElementById("imp").onclick = () => document.getElementById("file").click();
+document.getElementById("file").onchange = async e => {
+  try {
+    const d = JSON.parse(await e.target.files[0].text());
+    favs = new Set([...favs, ...(d.favs || [])]); done = new Set([...done, ...(d.done || [])]); memos = Object.assign({}, d.memos || {}, memos);
+    saveAll(); render();
+  } catch { alert("가져올 수 없는 파일이에요."); }
+};
+render(); ls.set("lastVisit", new Date().toISOString().slice(0, 10));
 </script>
 </body>
 </html>
