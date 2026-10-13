@@ -1,6 +1,14 @@
+# 비밀 값 (절대 커밋 금지)
+.env
+.env.*
 config.ini
+*.key
+*secret*
+
+# 로컬 실행 기록
 discover_seen.json
 collection/
 collection_state.json
 seen.json
 __pycache__/
+*.pyc

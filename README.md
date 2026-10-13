@@ -1,0 +1,75 @@
+# 국뽕 영상 서칭
+
+외국인이 한국·일본을 방문한 후기/브이로그 영상을 유튜브에서 자동으로 찾아 **카드형 사이트**로 보여주고, 새 영상은 **텔레그램**으로 알려주는 프로젝트입니다.
+유튜브 검색 페이지를 직접 읽기 때문에 **YouTube API 키가 필요 없습니다.** 파이썬 기본 기능만 사용합니다(외부 패키지 없음).
+
+## 구조
+
+| 파일 | 역할 |
+|---|---|
+| `discover.py` | 유튜브 검색·필터링·구독자 수 확인 (핵심 검색 로직) |
+| `discover.ini` | 구독자/조회수 기준, 제외할 채널·영상, 검색 기간 설정 |
+| `build_site.py` | `discover.py`를 호출해 결과를 누적 저장 → `web/videos.js` 생성, `--notify` 시 텔레그램 발송 |
+| `notifier.py` | 텔레그램/이메일 알림, 채널 RSS 읽기 |
+| `collect.py` | 텔레그램 봇으로 보낸 링크·사진을 CSV로 저장 (사이트와 별개, 미연결) |
+| `web/index.html` | 사이트 화면 (정적 페이지, `videos.js`만 읽음) |
+| `web/videos.js` | 자동 생성되는 데이터 파일 (직접 수정하지 않음) |
+| `site_store.json` | 누적 영상·구독자 캐시 (다음 실행의 "새 영상" 구분용) |
+| `.github/workflows/update.yml` | 매일 자동 갱신 + GitHub Pages 배포 |
+
+## 실행 방법
+
+### 내 PC에서
+요구사항: Python 3.12 (Windows는 `py -3.12`).
+
+```bash
+py -3.12 build_site.py            # 새 영상 검색 → web/videos.js 갱신
+py -3.12 build_site.py --notify   # 위 + 새 영상 텔레그램 알림
+```
+
+그 뒤 `web/index.html`을 브라우저에서 열면 됩니다. Windows에서는 `업데이트하고_열기.bat`을 더블클릭해도 같습니다.
+처음 실행은 구독자 수를 확인하느라 몇 분 걸립니다.
+
+### 텔레그램 알림 설정 (선택)
+토큰은 코드/저장소에 넣지 않습니다. 아래 중 하나로만 설정하세요.
+
+- 환경변수: `TELEGRAM_BOT_TOKEN`, `TELEGRAM_CHAT_ID`
+- 로컬 파일 `config.ini` (`.gitignore`로 제외됨):
+  ```ini
+  [telegram]
+  bot_token = 여기에_봇_토큰
+  chat_id = 여기에_내_chat_id
+  ```
+- GitHub Actions: 저장소 Settings → Secrets and variables → Actions 에 같은 이름으로 등록
+
+봇 토큰은 텔레그램 @BotFather(`/mybots`), chat ID는 봇에 메시지를 보낸 뒤 `getUpdates`에서 확인합니다.
+
+### 자동 업데이트 + 공개 (GitHub Pages)
+1. 저장소 Settings → Pages → Source 를 **GitHub Actions** 로 선택
+2. Actions 탭 → "영상 업데이트 + 사이트 배포" → Run workflow
+3. 이후 매일 한국시간 07:00, 18:00에 자동 실행
+4. 주소: `https://loveme62981787-maker.github.io/gukppong-search/`
+
+## 현재 구현 상태
+
+완료
+- [x] 한국/일본 방문 영상 검색 및 필터 (`discover.py`, 백업에서 복구)
+- [x] 서울·부산 외 지방 도시 영상 별도 수집
+- [x] 결과 누적 저장, 60일 지난 영상 정리, NEW 표시
+- [x] 카드형 사이트: 국가/지방/저장 필터, 검색, 구독자 구간 필터, 정렬 4종, 카드 내 재생, 즐겨찾기(브라우저 저장), 다크모드
+- [x] 텔레그램 새 영상 알림 코드 (`--notify`)
+- [x] GitHub Actions 자동 갱신/배포 설정 파일
+
+미확인 / 남은 일
+- [ ] **GitHub Actions에서 유튜브 검색이 막히지 않는지 아직 검증 안 됨.** 막히면 영상 0개가 나올 수 있음 → 내 PC에서 `build_site.py` 실행 후 `web/videos.js`, `site_store.json`을 커밋하는 방식으로 대체
+- [ ] Pages 첫 배포 실행 확인
+- [ ] 텔레그램 토큰/chat ID 새로 설정 (이전 값은 복구되지 않음)
+- [ ] 영상 재생(임베드) 실제 클릭 테스트
+- [ ] `collect.py`(텔레그램 봇으로 링크 수집)를 사이트에 연결할지 결정
+- [ ] 모바일 화면 점검, 일본 영상 비율/품질 조정
+
+## 주의
+- 저장소가 Public이므로 사이트와 코드가 모두 공개됩니다. **API 키, 토큰, `.env`, `config.ini`는 커밋하지 마세요.**
+- 영상은 유튜브 공식 임베드/링크로만 보여주며 내려받지 않습니다.
+
+협업 규칙은 [`AGENTS.md`](AGENTS.md)를 참고하세요.
