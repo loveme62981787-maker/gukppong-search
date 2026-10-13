@@ -58,7 +58,7 @@ const V = window.VIDEOS || [];
 const S = Object.assign({subs_low:1000, subs_high:10000, high_views:3000, ratio_min:3, ratio_min_views:500}, window.SETTINGS || {});
 const fmt = n => n == null ? "?" : n >= 1e6 ? (n/1e6).toFixed(1)+"M" : n >= 1e3 ? (n/1e3).toFixed(1)+"K" : n;
 const ls = { get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{return d}}, set(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch{}} };
-let favs = new Set(ls.get("favs", [])), done = new Set(ls.get("done", [])), memos = ls.get("memos", {});
+let favs = new Set(ls.get("favs", [])), done = new Set(ls.get("done", [])), memos = ls.get("memos", {}), hidden = new Set(ls.get("hidden", []));
 const seenAt = ls.get("lastVisit", "");
 
 const ratio = v => v.views / Math.max(v.subs || 1, 1);
@@ -86,18 +86,20 @@ const catsEl = document.getElementById("cats");
 mkChip(catsEl, "all", "전체", V.length, null, k => cat = k).classList.add("on");
 CATS.forEach(([k, l, fn]) => mkChip(catsEl, k, l, V.filter(v => withSubs(v) && fn(v)).length, null, x => cat = x));
 const chipsEl = document.getElementById("chips");
-[["all","전체"],["한국","🇰🇷 한국"],["일본","🇯🇵 일본"],["other","🏝 서울·부산 외"],["fav","⭐ 저장"],["memo","📝 메모 있음"]]
-  .forEach(([k, l]) => mkChip(chipsEl, k, l, null, null, x => view = x));
+[["all","전체"],["한국","🇰🇷 한국"],["일본","🇯🇵 일본"],["other","🏝 서울·부산 외"],["fav","⭐ 저장"],["memo","📝 메모 있음"],["hidden","🗑 숨김"]]
+  .forEach(([k, l]) => mkChip(chipsEl, k, l, k === "hidden" ? hidden.size : null, null, x => view = x));
 chipsEl.firstChild.classList.add("on");
 document.getElementById("upd").textContent = "마지막 갱신 " + (window.UPDATED || "-") + " · 영상 " + V.length + "개";
 const isNew = v => v.first_seen > (seenAt || "9999") || v.first_seen === (window.UPDATED || "").slice(0, 10);
-const saveAll = () => { ls.set("favs", [...favs]); ls.set("done", [...done]); ls.set("memos", memos); };
+const saveAll = () => { ls.set("favs", [...favs]); ls.set("done", [...done]); ls.set("memos", memos); ls.set("hidden", [...hidden]); };
 
 function render() {
   const q = document.getElementById("q").value.trim().toLowerCase(), sort = document.getElementById("sort").value, seen = document.getElementById("seen").value;
   const catFn = (CATS.find(c => c[0] === cat) || [])[2];
-  let a = V.filter(v => (cat === "all" || (withSubs(v) && catFn(v)))
-    && (view === "all" || view === v.country || (view === "other" && v.section === "other") || (view === "fav" && favs.has(v.id)) || (view === "memo" && memos[v.id]))
+  const hc = document.querySelector('#chips [data-k="hidden"] small'); if (hc) hc.textContent = hidden.size;
+  let a = V.filter(v => (view === "hidden" ? hidden.has(v.id) : !hidden.has(v.id))   // 숨긴 영상은 '숨김' 보기에서만 나옴 (같은 채널의 다른 영상은 그대로)
+    && (cat === "all" || (withSubs(v) && catFn(v)))
+    && (view === "all" || view === "hidden" ||view === v.country || (view === "other" && v.section === "other") || (view === "fav" && favs.has(v.id)) || (view === "memo" && memos[v.id]))
     && (!q || (v.title + " " + v.channel + " " + (memos[v.id] || "")).toLowerCase().includes(q))
     && (!seen || (seen === "done" ? done.has(v.id) : !done.has(v.id))));
   a.sort((x, y) => sort === "views" ? y.views - x.views : sort === "ratio" ? ratio(y) - ratio(x) : sort === "pub" ? y.published.localeCompare(x.published) : (y.first_seen + y.published).localeCompare(x.first_seen + x.published));
@@ -110,13 +112,14 @@ function render() {
       `<div class="th"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/mqdefault.jpg"><div class="play">▶</div></div>` +
       `<div class="body"><a class="t" target="_blank" rel="noopener" href="https://youtu.be/${v.id}"></a><div class="m"></div>` +
       `<div class="tags"><span class="tag">${v.country === "한국" ? "🇰🇷" : "🇯🇵"} ${v.country}${v.section === "other" ? " · 지방" : ""}</span><span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${isHot(v) ? '<span class="tag hot">📈 급상승</span>' : ""}</div>` +
-      `<div class="act"><button class="btn dn ${done.has(v.id) ? "on" : ""}">${done.has(v.id) ? "✅ 사용 완료" : "☐ 사용 완료"}</button><button class="btn memo ${memos[v.id] ? "on" : ""}">📝 메모</button></div>` +
+      `<div class="act"><button class="btn dn ${done.has(v.id) ? "on" : ""}">${done.has(v.id) ? "✅ 사용 완료" : "☐ 사용 완료"}</button><button class="btn memo ${memos[v.id] ? "on" : ""}">📝 메모</button><button class="btn hd" title="이 영상만 안 보이게 (같은 채널의 다른 영상은 계속 나와요)">${hidden.has(v.id) ? "↩ 복구" : "🗑 숨김"}</button></div>` +
       `<textarea hidden placeholder="메모 (어디에 쓸지, 번역 메모 등)"></textarea></div>`;
     c.querySelector(".t").textContent = v.title;
     c.querySelector(".m").textContent = v.channel + " · " + v.published;
     c.querySelector(".th").onclick = e => { e.currentTarget.innerHTML = `<iframe src="https://www.youtube.com/embed/${v.id}?autoplay=1" allow="autoplay;encrypted-media" allowfullscreen></iframe>`; e.currentTarget.onclick = null; };
     c.querySelector(".fav").onclick = () => { favs.has(v.id) ? favs.delete(v.id) : favs.add(v.id); saveAll(); render(); };
     c.querySelector(".dn").onclick = () => { done.has(v.id) ? done.delete(v.id) : done.add(v.id); saveAll(); render(); };
+    c.querySelector(".hd").onclick = () => { hidden.has(v.id) ? hidden.delete(v.id) : hidden.add(v.id); saveAll(); render(); };
     const ta = c.querySelector("textarea"), mb = c.querySelector(".memo");
     ta.value = memos[v.id] || "";
     mb.onclick = () => { ta.hidden = !ta.hidden; if (!ta.hidden) ta.focus(); };
@@ -126,14 +129,14 @@ function render() {
 }
 ["q", "sort", "seen"].forEach(i => document.getElementById(i).addEventListener("input", render));
 document.getElementById("exp").onclick = () => {
-  const blob = new Blob([JSON.stringify({favs: [...favs], done: [...done], memos}, null, 1)], {type: "application/json"});
+  const blob = new Blob([JSON.stringify({favs: [...favs], done: [...done], hidden: [...hidden], memos}, null, 1)], {type: "application/json"});
   const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "gukppong-backup.json"; a.click();
 };
 document.getElementById("imp").onclick = () => document.getElementById("file").click();
 document.getElementById("file").onchange = async e => {
   try {
     const d = JSON.parse(await e.target.files[0].text());
-    favs = new Set([...favs, ...(d.favs || [])]); done = new Set([...done, ...(d.done || [])]); memos = Object.assign({}, d.memos || {}, memos);
+    favs = new Set([...favs, ...(d.favs || [])]); done = new Set([...done, ...(d.done || [])]); hidden = new Set([...hidden, ...(d.hidden || [])]); memos = Object.assign({}, d.memos || {}, memos);
     saveAll(); render();
   } catch { alert("가져올 수 없는 파일이에요."); }
 };
