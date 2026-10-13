@@ -1,0 +1,6 @@
+config.ini
+discover_seen.json
+collection/
+collection_state.json
+seen.json
+__pycache__/

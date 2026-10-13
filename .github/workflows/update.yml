@@ -1,0 +1,59 @@
+name: 영상 업데이트 + 사이트 배포
+
+on:
+  schedule:
+    - cron: "0 22 * * *"   # 매일 한국시간 오전 7시 (UTC 22시)
+    - cron: "0 9 * * *"    # 매일 한국시간 오후 6시
+  workflow_dispatch:        # Actions 탭에서 수동 실행도 가능
+  push:
+    branches: [main]
+    paths: ["web/index.html", ".github/workflows/update.yml"]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: update
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: 새 영상 검색 (텔레그램 Secrets 가 있으면 알림도 발송)
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
+        run: python build_site.py --notify
+
+      - name: 데이터 저장 (다음 실행 때 '새 영상' 구분용)
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          git add site_store.json web/videos.js
+          git diff --cached --quiet || git commit -m "영상 데이터 업데이트"
+          git push
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: web
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

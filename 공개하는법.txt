@@ -1,0 +1,31 @@
+무료 공개 + 자동 업데이트 (GitHub Pages) 설정 순서
+=====================================================
+
+1) https://github.com 가입 후 로그인
+
+2) 오른쪽 위 + → New repository
+   - 이름: 예) gukppong-search  (영문)
+   - Public 선택 (무료 Pages 는 Public 이 가장 간단)
+   - Create repository
+
+3) 만들어진 저장소 화면에서 "uploading an existing file" 링크 클릭
+   - 이 폴더 (D:\유튜브 국뽕 서칭) 안의 파일/폴더를 전부 끌어다 놓기
+     (.github 폴더, web 폴더, .py 파일들, site_store.json 포함)
+   - 아래쪽 Commit changes
+
+4) 저장소 Settings → Pages → Source 를 "GitHub Actions" 로 선택
+
+5) 저장소 Actions 탭 → "영상 업데이트 + 사이트 배포" → Run workflow
+   - 몇 분 뒤 초록색 체크가 뜨면 완료
+   - 사이트 주소:  https://내아이디.github.io/저장소이름/
+   - 이후 매일 오전 7시 / 오후 6시 (한국시간) 에 자동 갱신됩니다
+
+(선택) 텔레그램 알림:
+   저장소 Settings → Secrets and variables → Actions → New repository secret
+     TELEGRAM_BOT_TOKEN = 봇 토큰
+     TELEGRAM_CHAT_ID   = 내 chat ID
+
+주의
+- Public 저장소라 사이트와 코드가 누구에게나 보입니다. 토큰/비밀번호는 절대 파일에 넣지 말고 Secrets 에만 넣으세요.
+- 유튜브가 GitHub 서버의 접속을 막으면 영상이 0개로 나올 수 있어요. 그럴 때는 이 PC에서
+  업데이트하고_열기.bat 을 돌린 뒤 web\videos.js 를 저장소에 다시 올리면 됩니다.
