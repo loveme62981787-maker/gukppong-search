@@ -26,8 +26,27 @@ def to_item(v, country, section, now):
     return {
         "id": v["id"], "title": v["title"], "channel": v["channel"], "channel_id": v["channel_id"],
         "subs": v.get("subs"), "views": v["views"], "country": country, "section": section,
+        "length": v.get("length"), "duration_sec": v.get("duration_sec"), "is_short": v.get("is_short"),
         "published": (now - timedelta(hours=v["age_h"])).strftime("%Y-%m-%d"),
     }
+
+
+def merge_items(vids, found, today):
+    """재발견된 영상의 통계를 갱신하고 비어 있지 않은 길이 정보를 보충한다."""
+    new_items = []
+    for it in found:
+        old = vids.get(it["id"])
+        if old is not None:
+            old.update(views=it["views"], subs=it["subs"])
+            for key in ("length", "duration_sec", "is_short"):
+                value = it.get(key)
+                if value is not None and not (isinstance(value, str) and not value.strip()):
+                    old[key] = value
+        else:
+            it = dict(it, first_seen=today)
+            vids[it["id"]] = it
+            new_items.append(it)
+    return new_items
 
 
 def main():
@@ -52,15 +71,7 @@ def main():
                 found.append(to_item(v, name, "recent", now))
 
     vids = store["videos"]
-    new_items = []
-    for it in found:
-        old = vids.get(it["id"])
-        if old:
-            old.update(views=it["views"], subs=it["subs"])  # 조회수·구독자만 갱신
-        else:
-            it["first_seen"] = today
-            vids[it["id"]] = it
-            new_items.append(it)
+    new_items = merge_items(vids, found, today)
     cutoff = (now - timedelta(days=KEEP_DAYS)).strftime("%Y-%m-%d")
     store["videos"] = {k: v for k, v in vids.items() if v["first_seen"] >= cutoff}
     store["subs"] = cache
@@ -69,6 +80,8 @@ def main():
     os.makedirs(WEB, exist_ok=True)
     items = sorted(store["videos"].values(), key=lambda v: (v["first_seen"], v["published"]), reverse=True)
     with open(os.path.join(WEB, "videos.js"), "w", encoding="utf-8") as f:
+        public_settings = {key: st[key] for key in ("subs_low", "subs_high", "high_views", "ratio_min", "ratio_min_views")}
+        f.write("window.SETTINGS=%s;\n" % json.dumps(public_settings, ensure_ascii=False))
         f.write("window.UPDATED=%s;\nwindow.VIDEOS=%s;\n" % (
             json.dumps(now.strftime("%Y-%m-%d %H:%M"), ensure_ascii=False), json.dumps(items, ensure_ascii=False)))
     print(f"영상 {len(items)}개 저장 (새 영상 {len(new_items)}개) → web/videos.js")

@@ -88,6 +88,27 @@ def parse_count(text, word):
     return int(float(m.group(1).replace(",", "")) * {"": 1, "K": 1e3, "M": 1e6, "B": 1e9}[m.group(2)])
 
 
+def parse_duration(text):
+    """분:초 또는 시:분:초 표기를 초로 바꾼다. 미확인 값은 None이다."""
+    if not isinstance(text, str) or not re.fullmatch(r"[0-9]+:[0-5][0-9](?::[0-5][0-9])?", text.strip()):
+        return None
+    parts = [int(p) for p in text.strip().split(":")]
+    return parts[0] * 60 + parts[1] if len(parts) == 2 else parts[0] * 3600 + parts[1] * 60 + parts[2]
+
+
+def is_short(duration_sec, st):
+    return None if duration_sec is None else duration_sec <= st.get("short_max_sec", 180)
+
+
+def keep_longform(v, st):
+    """길이 판별과 롱폼 필터를 구독자 조회 전에 공통 적용한다."""
+    duration = v.get("duration_sec")
+    v["is_short"] = is_short(duration, st)
+    if duration is None:
+        return st.get("unknown_length", "keep") == "keep"
+    return not v["is_short"] and duration >= st.get("longform_min_sec", 181)
+
+
 def fmt_num(n):
     if n is None:
         return "?"
@@ -124,6 +145,8 @@ def search(query, window_days, any_time=False):
             return
         try:
             run = v["ownerText"]["runs"][0]
+            length = (v.get("lengthText") or {}).get("simpleText")
+            duration = parse_duration(length)
             out.append({
                 "id": v["videoId"],
                 "title": "".join(r["text"] for r in v["title"]["runs"]),
@@ -131,6 +154,8 @@ def search(query, window_days, any_time=False):
                 "channel_id": run["navigationEndpoint"]["browseEndpoint"]["browseId"],
                 "age_h": age_hours(v.get("publishedTimeText", {}).get("simpleText", "")),
                 "views": parse_count(v.get("viewCountText", {}).get("simpleText", ""), "views") or 0,
+                "length": length.strip() if duration is not None else None,
+                "duration_sec": duration,
             })
         except (KeyError, IndexError):
             pass
@@ -139,7 +164,7 @@ def search(query, window_days, any_time=False):
 
 
 def channel_subs(cid, cache):
-    if cid in cache:
+    if cache.get(cid) is not None:
         return cache[cid]
     try:
         subs = parse_count(get("https://www.youtube.com/channel/" + cid), "subscribers")
@@ -154,7 +179,12 @@ def load_settings():
     cp = configparser.ConfigParser()
     cp.read(INI, encoding="utf-8-sig")
     s = cp["settings"]
+    unknown_length = s.get("unknown_length", "keep").strip().lower()
+    if unknown_length not in ("keep", "drop"):
+        raise ValueError("unknown_length는 keep 또는 drop이어야 합니다.")
     return {"subs_low": s.getint("subs_low", 1000), "subs_high": s.getint("subs_high", 10000),
+            "short_max_sec": s.getint("short_max_sec", 180),
+            "longform_min_sec": s.getint("longform_min_sec", 181), "unknown_length": unknown_length,
             "high_views": s.getint("high_views", 3000), "ratio_min": s.getfloat("ratio_min", 3),
             "ratio_min_views": s.getint("ratio_min_views", 500), "per_group": s.getint("per_group", 5),
             "latest_top": s.getint("latest_top", 10),
@@ -254,10 +284,11 @@ def find_country(name, spec, st, seen, cache):
             continue  # 북한 / 호텔 리뷰 자동업로드 영상은 제외 (한국어·일본어 제목, 워킹투어는 포함)
         if not any(k in text for k in spec["keywords"]):
             continue
-        keep.append(v)
+        if keep_longform(v, st):
+            keep.append(v)
     print(f"[{name}] 후보 {len(keep)}개 (구독자 수 확인 중)")
     # 구독자 수는 채널마다 한 번만 확인 (이미 확인한 채널은 저장해 둔 값 사용), 6개씩 동시에 확인
-    todo = sorted({v["channel_id"] for v in keep if v["channel_id"] not in cache})
+    todo = sorted({v["channel_id"] for v in keep if cache.get(v["channel_id"]) is None})
     with ThreadPoolExecutor(6) as ex:
         list(ex.map(lambda c: channel_subs(c, cache), todo))
     for v in keep:
@@ -311,11 +342,12 @@ def find_other_cities(st, skip_ids, sent_ids, cache):
             continue
         if not any(k in text for k in spec["keywords"]):
             continue
-        cands.append(v)
+        if keep_longform(v, st):
+            cands.append(v)
     cands.sort(key=lambda v: v["age_h"])  # 가능하면 최신 영상부터
     want = st["other_cities_count"]
     pool = cands[: want * 3]  # 구독자 수를 확인할 후보 (필요한 만큼만)
-    todo = sorted({v["channel_id"] for v in pool if v["channel_id"] not in cache})
+    todo = sorted({v["channel_id"] for v in pool if cache.get(v["channel_id"]) is None})
     with ThreadPoolExecutor(6) as ex:
         list(ex.map(lambda c: channel_subs(c, cache), todo))
     out = []
