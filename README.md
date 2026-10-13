@@ -12,6 +12,8 @@
 | `build_site.py` | `discover.py`를 호출해 결과를 누적 저장 → `web/videos.js` 생성, `--notify` 시 텔레그램 발송 |
 | `notifier.py` | 텔레그램/이메일 알림, 채널 RSS 읽기 |
 | `collect.py` | 텔레그램 봇으로 보낸 링크·사진을 CSV로 저장 (사이트와 별개, 미연결) |
+| `channels_watch.py` | 비슷한 컨셉 채널 자동 발견·분석(롱폼/숏폼/둘 다 분류) → `web/channels.js` |
+| `seed_channels.txt` | 벤치마킹 시작점 채널 이름 목록 (여기에 한 줄씩 추가) |
 | `web/index.html` | 사이트 화면 (정적 페이지, `videos.js`만 읽음) |
 | `web/videos.js` | 자동 생성되는 데이터 파일 (직접 수정하지 않음) |
 | `site_store.json` | 누적 영상·구독자 캐시 (다음 실행의 "새 영상" 구분용) |

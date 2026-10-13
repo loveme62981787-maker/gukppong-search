@@ -32,26 +32,43 @@ input{flex:1;min-width:140px}
 .btn{flex:1;border:1px solid var(--line);background:var(--bg);color:var(--ink);border-radius:8px;padding:5px 0;font:inherit;font-size:12px;cursor:pointer}
 .btn.on{border-color:var(--ok);color:var(--ok);font-weight:700}.btn.memo.on{border-color:var(--acc);color:var(--acc)}
 textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
+[hidden]{display:none!important}
+.ch{padding:14px;gap:8px}.ch h3{margin:0;font-size:16px}.ch h3 a{color:var(--ink);text-decoration:none}
+.thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.thumbs a{position:relative;aspect-ratio:16/9;display:block;background:#000;border-radius:6px;overflow:hidden}
+.thumbs img{width:100%;height:100%;object-fit:cover}.thumbs span{position:absolute;right:2px;bottom:2px;font-size:9px;background:#000a;color:#fff;padding:0 4px;border-radius:4px}
+.k-long{background:#e0ecff;color:#1d4ed8}.k-short{background:#ffe4ec;color:#be123c}.k-both{background:#e7f8e8;color:#15803d}
 .empty{grid-column:1/-1;text-align:center;color:var(--mute);padding:60px 0}
 .tools{max-width:1200px;margin:auto;padding:0 16px 40px;color:var(--mute);font-size:12px;display:flex;gap:8px;flex-wrap:wrap;align-items:center}
 </style>
 </head>
 <body>
 <header><h1>🇰🇷🇯🇵 국뽕 영상 서칭</h1><div class="sub" id="upd"></div></header>
-<div class="bar"><span class="lbl">분류</span><span id="cats" style="display:contents"></span></div>
-<div class="bar"><span class="lbl">보기</span><span id="chips" style="display:contents"></span></div>
-<div class="bar">
+<div class="bar"><button class="chip on" id="mv">🎬 영상</button><button class="chip" id="mc">📺 채널 벤치마킹</button></div>
+<div id="chview" hidden>
+  <div class="bar"><span class="lbl">영상 형태</span><span id="ctype" style="display:contents"></span></div>
+  <div class="bar">
+    <input id="cq" placeholder="채널명·메모 검색">
+    <select id="csort"><option value="subs">구독자순</option><option value="avg">평균 조회수순</option><option value="last">최근 업로드순</option><option value="score">컨셉 일치순</option></select>
+    <select id="cview"><option value="">전체</option><option value="seed">내가 알려준 채널만</option><option value="fav">⭐ 저장만</option><option value="memo">📝 메모 있음</option><option value="hidden">🗑 숨김</option></select>
+  </div>
+  <div class="sub" style="max-width:1200px;margin:0 auto;padding:0 16px" id="cinfo"></div>
+  <div class="grid" id="cgrid"></div>
+</div>
+<div class="bar vmode"><span class="lbl">분류</span><span id="cats" style="display:contents"></span></div>
+<div class="bar vmode"><span class="lbl">보기</span><span id="chips" style="display:contents"></span></div>
+<div class="bar vmode">
   <input id="q" placeholder="제목·채널·메모 검색">
   <select id="sort"><option value="new">새로 들어온 순</option><option value="pub">업로드 최신순</option><option value="views">조회수순</option><option value="ratio">구독자 대비 조회수순</option></select>
   <select id="seen"><option value="">전체</option><option value="todo">안 본 것만</option><option value="done">사용 완료만</option></select>
 </div>
-<div class="grid" id="grid"></div>
+<div class="grid vmode" id="grid"></div>
 <div class="tools">
   <span>사용 완료·메모·저장은 이 브라우저에만 저장돼요.</span>
   <button class="chip" id="exp">내보내기</button><button class="chip" id="imp">가져오기</button>
   <input type="file" id="file" accept=".json" hidden>
 </div>
 <script src="videos.js"></script>
+<script src="channels.js" onerror="window.CHANNELS=[]"></script>
 <script>
 const V = window.VIDEOS || [];
 // 분류 기준: build_site.py 가 window.SETTINGS 를 주면 그 값을 쓰고, 없으면 discover.ini 기본값을 쓴다
@@ -87,7 +104,7 @@ mkChip(catsEl, "all", "전체", V.length, null, k => cat = k).classList.add("on"
 CATS.forEach(([k, l, fn]) => mkChip(catsEl, k, l, V.filter(v => withSubs(v) && fn(v)).length, null, x => cat = x));
 const chipsEl = document.getElementById("chips");
 [["all","전체"],["한국","🇰🇷 한국"],["일본","🇯🇵 일본"],["other","🏝 서울·부산 외"],["fav","⭐ 저장"],["memo","📝 메모 있음"],["hidden","🗑 숨김"]]
-  .forEach(([k, l]) => mkChip(chipsEl, k, l, k === "hidden" ? hidden.size : null, null, x => view = x));
+  .forEach(([k, l]) => mkChip(chipsEl, k, l, k === "hidden" ? [...hidden].filter(x => !x.startsWith("ch:")).length : null, null, x => view = x));
 chipsEl.firstChild.classList.add("on");
 document.getElementById("upd").textContent = "마지막 갱신 " + (window.UPDATED || "-") + " · 영상 " + V.length + "개";
 const isNew = v => v.first_seen > (seenAt || "9999") || v.first_seen === (window.UPDATED || "").slice(0, 10);
@@ -96,7 +113,7 @@ const saveAll = () => { ls.set("favs", [...favs]); ls.set("done", [...done]); ls
 function render() {
   const q = document.getElementById("q").value.trim().toLowerCase(), sort = document.getElementById("sort").value, seen = document.getElementById("seen").value;
   const catFn = (CATS.find(c => c[0] === cat) || [])[2];
-  const hc = document.querySelector('#chips [data-k="hidden"] small'); if (hc) hc.textContent = hidden.size;
+  const hc = document.querySelector('#chips [data-k="hidden"] small'); if (hc) hc.textContent = [...hidden].filter(x => !x.startsWith("ch:")).length;
   let a = V.filter(v => (view === "hidden" ? hidden.has(v.id) : !hidden.has(v.id))   // 숨긴 영상은 '숨김' 보기에서만 나옴 (같은 채널의 다른 영상은 그대로)
     && (cat === "all" || (withSubs(v) && catFn(v)))
     && (view === "all" || view === "hidden" ||view === v.country || (view === "other" && v.section === "other") || (view === "fav" && favs.has(v.id)) || (view === "memo" && memos[v.id]))
@@ -127,6 +144,49 @@ function render() {
     g.append(c);
   });
 }
+// ---- 채널 벤치마킹 ----
+const C = window.CHANNELS || [];
+let ctype = "all";
+const KIND = {long: "롱폼 위주", short: "숏폼 위주", both: "롱폼+숏폼"};
+const ctypeEl = document.getElementById("ctype");
+[["all", "전체"], ["long", "🎞 롱폼 위주"], ["short", "📱 숏폼 위주"], ["both", "🔀 둘 다"]].forEach(([k, l]) =>
+  mkChip(ctypeEl, k, l, k === "all" ? C.length : C.filter(c => c.type === k).length, null, x => ctype = x).classList.toggle("on", k === "all"));
+ctypeEl.querySelectorAll(".chip").forEach(b => b.addEventListener("click", renderCh));
+function renderCh() {
+  const q = document.getElementById("cq").value.trim().toLowerCase(), sort = document.getElementById("csort").value, vw = document.getElementById("cview").value;
+  const key = c => "ch:" + c.id;
+  let a = C.filter(c => (vw === "hidden" ? hidden.has(key(c)) : !hidden.has(key(c))) && (ctype === "all" || c.type === ctype)
+    && (!vw || vw === "hidden" || (vw === "seed" && c.seed) || (vw === "fav" && favs.has(key(c))) || (vw === "memo" && memos[key(c)]))
+    && (!q || (c.name + " " + (memos[key(c)] || "")).toLowerCase().includes(q)));
+  a.sort((x, y) => sort === "avg" ? y.avg_views - x.avg_views : sort === "last" ? y.last_upload.localeCompare(x.last_upload) : sort === "score" ? y.score - x.score : (y.subs || 0) - (x.subs || 0));
+  document.getElementById("cinfo").textContent = `채널 ${a.length}개 · 갱신 ${window.CH_UPDATED || "-"} · 평균 조회수는 최근 영상 15개 기준`;
+  const g = document.getElementById("cgrid"); g.innerHTML = "";
+  if (!a.length) g.innerHTML = '<div class="empty">조건에 맞는 채널이 없어요</div>';
+  a.forEach(c => {
+    const el = document.createElement("div"); el.className = "card ch";
+    el.innerHTML = `<button class="fav ${favs.has(key(c)) ? "on" : ""}" style="top:10px">${favs.has(key(c)) ? "★" : "☆"}</button>` +
+      `<h3><a target="_blank" rel="noopener" href="https://www.youtube.com/channel/${c.id}"></a></h3>` +
+      `<div class="tags"><span class="tag k-${c.type}">${KIND[c.type]}</span><span class="tag">👥 ${fmt(c.subs)}</span><span class="tag">👁 평균 ${fmt(c.avg_views)}</span>${c.seed ? '<span class="tag">내가 알려준 채널</span>' : ""}</div>` +
+      `<div class="m">최근 15개 중 롱폼 ${c.long_n} · 숏폼 ${c.short_n} · 마지막 업로드 ${c.last_upload} · 컨셉 일치 ${Math.round(c.score * 100)}%</div>` +
+      `<div class="thumbs">${c.latest.map(v => `<a target="_blank" rel="noopener" title="" href="https://youtu.be/${v.id}"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/mqdefault.jpg"><span>${v.short ? "쇼츠" : "롱"} · ${fmt(v.views)}</span></a>`).join("")}</div>` +
+      `<div class="act"><button class="btn memo ${memos[key(c)] ? "on" : ""}">📝 메모</button><button class="btn hd">${hidden.has(key(c)) ? "↩ 복구" : "🗑 숨김"}</button></div><textarea hidden placeholder="이 채널에서 배울 점, 벤치마킹 메모"></textarea>`;
+    el.querySelector("h3 a").textContent = c.name;
+    el.querySelectorAll(".thumbs a").forEach((a2, i) => a2.title = c.latest[i].title);
+    el.querySelector(".fav").onclick = () => { favs.has(key(c)) ? favs.delete(key(c)) : favs.add(key(c)); saveAll(); renderCh(); };
+    el.querySelector(".hd").onclick = () => { hidden.has(key(c)) ? hidden.delete(key(c)) : hidden.add(key(c)); saveAll(); renderCh(); };
+    const ta = el.querySelector("textarea"), mb = el.querySelector(".memo"); ta.value = memos[key(c)] || "";
+    mb.onclick = () => { ta.hidden = !ta.hidden; if (!ta.hidden) ta.focus(); };
+    ta.oninput = () => { ta.value.trim() ? memos[key(c)] = ta.value : delete memos[key(c)]; mb.classList.toggle("on", !!memos[key(c)]); saveAll(); };
+    g.append(el);
+  });
+}
+["cq", "csort", "cview"].forEach(i => document.getElementById(i).addEventListener("input", renderCh));
+function setMode(ch) {
+  document.getElementById("mv").classList.toggle("on", !ch); document.getElementById("mc").classList.toggle("on", ch);
+  document.querySelectorAll(".vmode").forEach(e => e.hidden = ch); document.getElementById("chview").hidden = !ch;
+  if (ch) renderCh();
+}
+document.getElementById("mv").onclick = () => setMode(false); document.getElementById("mc").onclick = () => setMode(true);
 ["q", "sort", "seen"].forEach(i => document.getElementById(i).addEventListener("input", render));
 document.getElementById("exp").onclick = () => {
   const blob = new Blob([JSON.stringify({favs: [...favs], done: [...done], hidden: [...hidden], memos}, null, 1)], {type: "application/json"});
