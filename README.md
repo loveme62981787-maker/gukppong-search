@@ -14,6 +14,7 @@
 | `collect.py` | 텔레그램 봇으로 보낸 링크·사진을 CSV로 저장 (사이트와 별개, 미연결) |
 | `channels_watch.py` | 비슷한 컨셉 채널 자동 발견·분석(롱폼/숏폼/둘 다 분류) → `web/channels.js` |
 | `viral_watch.py` | 오래된 영상 포함, 조회수·구독자 대비 조회수가 폭발한 화제 영상 수집 → `web/viral.js` (영상 길이 포함) |
+| `experience_watch.py` | 외국인 체험 영상(야구장·한복·찜질방·템플스테이 등) 수집 → `web/experience.js`. 체험 종류 기준(`TOPICS`)은 여기서만 관리 |
 | `seed_channels.txt` | 벤치마킹 시작점 채널 이름 목록 (여기에 한 줄씩 추가) |
 | `web/index.html` | 사이트 화면 (정적 페이지, `videos.js`만 읽음) |
 | `web/videos.js` | 자동 생성되는 데이터 파일 (직접 수정하지 않음) |
