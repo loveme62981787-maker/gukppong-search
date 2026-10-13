@@ -95,6 +95,16 @@ def channel_search(name):
     return out[0] if out else None
 
 
+def resolve_handle(handle):
+    """@핸들 로 채널 페이지를 열어 (id, 이름) 을 확정 (이름 검색보다 정확)"""
+    page = get("https://www.youtube.com/" + urllib.parse.quote(handle))
+    m = re.search(r'<link rel="canonical" href="https://www\.youtube\.com/channel/(UC[\w-]{22})"', page) or re.search(r'"externalId":"(UC[\w-]{22})"', page)
+    if not m:
+        return None
+    n = re.search(r'<meta property="og:title" content="([^"]*)"', page)
+    return m.group(1), (n.group(1) if n else handle)
+
+
 def video_search_channels(query):
     """영상 검색 결과(관련도순 + 이번 달)에서 채널을 모은다"""
     found = {}
@@ -163,7 +173,7 @@ def main():
             seeds = [l.strip() for l in f if l.strip() and not l.startswith("#")]
     for name in seeds:
         try:
-            r = channel_search(name)
+            r = resolve_handle(name) if name.startswith("@") else channel_search(name)
         except Exception as e:  # noqa: BLE001
             print(f"[시드 실패] {name}: {e}")
             continue

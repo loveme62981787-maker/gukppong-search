@@ -49,6 +49,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
   <div class="bar">
     <input id="cq" placeholder="채널명·메모 검색">
     <select id="csort"><option value="subs">구독자순</option><option value="avg">평균 조회수순</option><option value="last">최근 업로드순</option><option value="score">컨셉 일치순</option></select>
+    <select id="cdir"><option value="desc">내림차순 (큰 것부터)</option><option value="asc">오름차순 (작은 것부터)</option></select>
     <select id="cview"><option value="">전체</option><option value="seed">내가 알려준 채널만</option><option value="fav">⭐ 저장만</option><option value="memo">📝 메모 있음</option><option value="hidden">🗑 숨김</option></select>
   </div>
   <div class="sub" style="max-width:1200px;margin:0 auto;padding:0 16px" id="cinfo"></div>
@@ -59,7 +60,8 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <div class="bar vmode"><span class="lbl">보기 (여러 개 선택 가능 · 나라는 둘 중 하나, 나머지는 모두 만족)</span><span id="chips" style="display:contents"></span></div>
 <div class="bar vmode">
   <input id="q" placeholder="제목·채널·메모 검색">
-  <select id="sort"><option value="new">새로 들어온 순</option><option value="pub">업로드 최신순</option><option value="views">조회수순</option><option value="ratio">구독자 대비 조회수순</option></select></div>
+  <select id="sort"><option value="new">새로 들어온 순</option><option value="pub">업로드 최신순</option><option value="views">조회수순</option><option value="ratio">구독자 대비 조회수순</option><option value="subs">구독자순</option><option value="length">영상 길이순</option></select>
+  <select id="dir"><option value="desc">내림차순 (큰 것부터)</option><option value="asc">오름차순 (작은 것부터)</option></select></div>
 <div class="grid vmode" id="grid"></div>
 <div class="tools">
   <span>사용 완료·메모·저장은 이 브라우저에만 저장돼요.</span>
@@ -68,8 +70,11 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 </div>
 <script src="videos.js"></script>
 <script src="channels.js" onerror="window.CHANNELS=[]"></script>
+<script src="viral.js" onerror="window.VIRAL=[]"></script>
 <script>
-const V = window.VIDEOS || [];
+// 일반 수집 영상 + 화제 영상(오래된 영상 포함). 겹치는 영상은 화제 표시와 길이만 합친다
+const V = (window.VIDEOS || []).slice();
+(window.VIRAL || []).forEach(x => { const o = V.find(v => v.id === x.id); o ? Object.assign(o, {viral: true, buzz: x.buzz, age_text: x.age_text, length: x.length || o.length}) : V.push(x); });
 // 분류 기준: build_site.py 가 window.SETTINGS 를 주면 그 값을 쓰고, 없으면 discover.ini 기본값을 쓴다
 const S = Object.assign({subs_low:1000, subs_high:10000, high_views:3000, ratio_min:3, ratio_min_views:500}, window.SETTINGS || {});
 const fmt = n => n == null ? "?" : n >= 1e6 ? (n/1e6).toFixed(1)+"M" : n >= 1e3 ? (n/1e3).toFixed(1)+"K" : n;
@@ -109,7 +114,7 @@ const catSel = new Set(), viewSel = new Set(), upSel = new Set();
 const nHidden = () => [...hidden].filter(x => !x.startsWith("ch:")).length;
 mkMulti(document.getElementById("ups"), [["foreign", "🌏 외국인 업로드", V.filter(v => v._up === "foreign").length], ["ref", "🧭 레퍼런스 (국내 국뽕 채널)", V.filter(v => v._up === "ref").length]], upSel, V.length, () => render());
 mkMulti(document.getElementById("cats"), CATS.map(([k, l, fn]) => [k, l, V.filter(v => withSubs(v) && fn(v)).length]), catSel, V.length, () => render());
-mkMulti(document.getElementById("chips"), [["한국", "🇰🇷 한국"], ["일본", "🇯🇵 일본"], ["other", "🏝 서울·부산 외"], ["fav", "⭐ 저장"], ["memo", "📝 메모 있음"], ["done", "✅ 사용 완료", done.size], ["hidden", "🗑 숨김", nHidden()]], viewSel, null, () => render());
+mkMulti(document.getElementById("chips"), [["한국", "🇰🇷 한국"], ["일본", "🇯🇵 일본"], ["other", "🏝 서울·부산 외"], ["viral", "🔥 화제 영상 (과거 포함)", V.filter(v => v.viral).length], ["fav", "⭐ 저장"], ["memo", "📝 메모 있음"], ["done", "✅ 사용 완료", done.size], ["hidden", "🗑 숨김", nHidden()]], viewSel, null, () => render());
 document.getElementById("upd").textContent = "마지막 갱신 " + (window.UPDATED || "-") + " · 영상 " + V.length + "개";
 const isNew = v => v.first_seen > (seenAt || "9999") || v.first_seen === (window.UPDATED || "").slice(0, 10);
 const saveAll = () => { ls.set("favs", [...favs]); ls.set("done", [...done]); ls.set("memos", memos); ls.set("hidden", [...hidden]); };
@@ -126,9 +131,13 @@ function render() {
     && (!upSel.size || upSel.has(v._up))
     && (!catFns.length || (withSubs(v) && catFns.some(fn => fn(v))))
     && (!ctry.length || ctry.includes(v.country))
-    && (!viewSel.has("other") || v.section === "other") && (!viewSel.has("fav") || favs.has(v.id)) && (!viewSel.has("memo") || memos[v.id])
+    && (!viewSel.has("other") || v.section === "other") && (!viewSel.has("viral") || v.viral) && (!viewSel.has("fav") || favs.has(v.id)) && (!viewSel.has("memo") || memos[v.id])
     && (!q || (v.title + " " + v.channel + " " + (memos[v.id] || "")).toLowerCase().includes(q)));
-  a.sort((x, y) => sort === "views" ? y.views - x.views : sort === "ratio" ? ratio(y) - ratio(x) : sort === "pub" ? y.published.localeCompare(x.published) : (y.first_seen + y.published).localeCompare(x.first_seen + x.published));
+  const sec = s => (s || "").split(":").reduce((t, n) => t * 60 + (+n || 0), 0);   // "12:34" → 754초
+  const val = v => sort === "views" ? v.views : sort === "ratio" ? ratio(v) : sort === "subs" ? (v.subs ?? -1) : sort === "length" ? sec(v.length)
+    : sort === "pub" ? v.published : v.first_seen + v.published;
+  const dir = document.getElementById("dir").value === "asc" ? -1 : 1;
+  a.sort((x, y) => { const p = val(x), q2 = val(y); return dir * (typeof p === "string" ? q2.localeCompare(p) : q2 - p); });
   const g = document.getElementById("grid"); g.innerHTML = "";
   if (!a.length) g.innerHTML = '<div class="empty">조건에 맞는 영상이 없어요</div>';
   a.forEach(v => {
@@ -137,11 +146,11 @@ function render() {
       `<button class="fav ${favs.has(v.id) ? "on" : ""}" title="저장">${favs.has(v.id) ? "★" : "☆"}</button>` +
       `<div class="th"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/mqdefault.jpg"><div class="play">▶</div></div>` +
       `<div class="body"><a class="t" target="_blank" rel="noopener" href="https://youtu.be/${v.id}"></a><div class="m"></div>` +
-      `<div class="tags"><span class="tag">${v.country === "한국" ? "🇰🇷" : "🇯🇵"} ${v.country}${v.section === "other" ? " · 지방" : ""}</span><span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${isHot(v) ? '<span class="tag hot">📈 급상승</span>' : ""}</div>` +
+      `<div class="tags"><span class="tag">${v.country === "한국" ? "🇰🇷" : "🇯🇵"} ${v.country}${v.section === "other" ? " · 지방" : ""}</span><span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${v.length ? `<span class="tag">⏱ ${v.length}</span>` : ""}${v.viral ? `<span class="tag hot">🔥 ${v.buzz ? "이슈 " : ""}화제</span>` : ""}${isHot(v) ? '<span class="tag hot">📈 급상승</span>' : ""}</div>` +
       `<div class="act"><button class="btn dn ${done.has(v.id) ? "on" : ""}">${done.has(v.id) ? "✅ 사용 완료" : "☐ 사용 완료"}</button><button class="btn memo ${memos[v.id] ? "on" : ""}">📝 메모</button><button class="btn hd" title="이 영상만 안 보이게 (같은 채널의 다른 영상은 계속 나와요)">${hidden.has(v.id) ? "↩ 복구" : "🗑 숨김"}</button></div>` +
       `<textarea hidden placeholder="메모 (어디에 쓸지, 번역 메모 등)"></textarea></div>`;
     c.querySelector(".t").textContent = v.title;
-    c.querySelector(".m").textContent = v.channel + " · " + v.published;
+    c.querySelector(".m").textContent = v.channel + " · " + (v.viral && v.age_text ? v.age_text : v.published);
     c.querySelector(".th").onclick = e => { e.currentTarget.innerHTML = `<iframe src="https://www.youtube.com/embed/${v.id}?autoplay=1" allow="autoplay;encrypted-media" allowfullscreen></iframe>`; e.currentTarget.onclick = null; };
     c.querySelector(".fav").onclick = () => { favs.has(v.id) ? favs.delete(v.id) : favs.add(v.id); saveAll(); render(); };
     c.querySelector(".dn").onclick = () => { done.has(v.id) ? done.delete(v.id) : done.add(v.id); saveAll(); render(); };
@@ -164,7 +173,9 @@ function renderCh() {
   let a = C.filter(c => (vw === "hidden" ? hidden.has(key(c)) : !hidden.has(key(c))) && (!ctSel.size || ctSel.has(c.type))
     && (!vw || vw === "hidden" || (vw === "seed" && c.seed) || (vw === "fav" && favs.has(key(c))) || (vw === "memo" && memos[key(c)]))
     && (!q || (c.name + " " + (memos[key(c)] || "")).toLowerCase().includes(q)));
-  a.sort((x, y) => sort === "avg" ? y.avg_views - x.avg_views : sort === "last" ? y.last_upload.localeCompare(x.last_upload) : sort === "score" ? y.score - x.score : (y.subs || 0) - (x.subs || 0));
+  const cv = c => sort === "avg" ? c.avg_views : sort === "last" ? c.last_upload : sort === "score" ? c.score : (c.subs || 0);
+  const cd = document.getElementById("cdir").value === "asc" ? -1 : 1;
+  a.sort((x, y) => { const p = cv(x), q2 = cv(y); return cd * (typeof p === "string" ? q2.localeCompare(p) : q2 - p); });
   document.getElementById("cinfo").textContent = `채널 ${a.length}개 · 갱신 ${window.CH_UPDATED || "-"} · 평균 조회수는 최근 영상 15개 기준`;
   const g = document.getElementById("cgrid"); g.innerHTML = "";
   if (!a.length) g.innerHTML = '<div class="empty">조건에 맞는 채널이 없어요</div>';
@@ -186,14 +197,14 @@ function renderCh() {
     g.append(el);
   });
 }
-["cq", "csort", "cview"].forEach(i => document.getElementById(i).addEventListener("input", renderCh));
+["cq", "csort", "cdir", "cview"].forEach(i => document.getElementById(i).addEventListener("input", renderCh));
 function setMode(ch) {
   document.getElementById("mv").classList.toggle("on", !ch); document.getElementById("mc").classList.toggle("on", ch);
   document.querySelectorAll(".vmode").forEach(e => e.hidden = ch); document.getElementById("chview").hidden = !ch;
   if (ch) renderCh();
 }
 document.getElementById("mv").onclick = () => setMode(false); document.getElementById("mc").onclick = () => setMode(true);
-["q", "sort"].forEach(i => document.getElementById(i).addEventListener("input", render));
+["q", "sort", "dir"].forEach(i => document.getElementById(i).addEventListener("input", render));
 document.getElementById("exp").onclick = () => {
   const blob = new Blob([JSON.stringify({favs: [...favs], done: [...done], hidden: [...hidden], memos}, null, 1)], {type: "application/json"});
   const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "gukppong-backup.json"; a.click();

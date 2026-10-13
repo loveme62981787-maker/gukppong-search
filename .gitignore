@@ -12,3 +12,6 @@ collection_state.json
 seen.json
 __pycache__/
 *.pyc
+
+# local only
+.mcp.json
