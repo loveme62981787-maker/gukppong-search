@@ -22,6 +22,13 @@
 - 생성 파일(`web/videos.js`, `site_store.json`)은 커밋하지 않는다.
 - Claude가 diff와 테스트 결과를 검토한 뒤 main에 병합한다.
 
+## 구현·교차 검토 결과
+- **Codex 구현** (`codex/length-contract`): `parse_duration`/`is_short`/`keep_longform`, `discover.ini`에 `short_max_sec=180`, `longform_min_sec=181`, `unknown_length=keep` 추가 (숫자 기준은 합의에 없어 Codex가 기본값으로 정함), `build_site.merge_items` 분리, `window.SETTINGS` 다섯 값, `tests/test_length.py` 10개.
+- **Claude 검토**: diff 직접 확인, `py -3.12 -m unittest discover -s tests` 10개 통과를 직접 재현, 실제 수집(`build_site.py`)에서 684개 중 길이 340개, `is_short=True` 0개, 최소 198초, `window.SETTINGS` 다섯 값 확인.
+- **Claude 구현** (`web/index.html`): 화제 영상 병합에서 `duration_sec` 동시 처리, 길이순 정렬은 `duration_sec` 사용, 모르는 값은 방향과 상관없이 맨 뒤.
+- **Codex 교차 검토 → 버그 2건 발견, Claude 수정**: (1) 병합 시 길이 문자열만 바뀌고 초가 그대로 남던 문제, (2) 공백·오류 문자열이 기존 정상 길이를 덮던 문제. 수정 후 재현 시나리오(A 갱신, B 공백 보존, C 오류 보존, D 신규, E 무효 null)로 재검증.
+- **남은 사항**: 이미 저장된 영상은 재발견될 때까지 길이가 비어 있음(합의된 동작). `viral_watch.py` 결과에는 쇼츠가 섞일 수 있음(롱폼 필터 미적용, Claude 담당, 사용자 결정 필요).
+
 ## 합격 기준
 1. `py -3.12 -m unittest discover -s tests`: `12:34→754`, `1:02:03→3723`, 누락·오류→`null`, 기존 값 보존, 분류 경계
 2. `py -3.12 build_site.py`: "영상 N개 저장" 출력, 신규 영상에 길이 반영

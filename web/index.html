@@ -74,7 +74,19 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script>
 // 일반 수집 영상 + 화제 영상(오래된 영상 포함). 겹치는 영상은 화제 표시와 길이만 합친다
 const V = (window.VIDEOS || []).slice();
-(window.VIRAL || []).forEach(x => { const o = V.find(v => v.id === x.id); o ? Object.assign(o, {viral: true, buzz: x.buzz, age_text: x.age_text, length: x.length || o.length}) : V.push(x); });
+// 길이: 문자열 "1:02:03" 과 초(duration_sec)를 항상 함께 맞춘다. 값이 없으면 null (미확인), 빈 값으로 기존 값을 덮지 않는다
+const toSec = s => { const m = /^(\d+):([0-5]\d)(?::([0-5]\d))?$/.exec((s || "").trim()); return m ? (m[3] === undefined ? +m[1] * 60 + +m[2] : +m[1] * 3600 + +m[2] * 60 + +m[3]) : null; };
+(window.VIRAL || []).forEach(x => {
+  const o = V.find(v => v.id === x.id);
+  const sec = toSec(x.length);   // 유효한 길이만 채택 (공백·오류 값은 무시)
+  if (o) {
+    Object.assign(o, {viral: true, buzz: x.buzz, age_text: x.age_text});
+    if (sec != null) { o.length = x.length.trim(); o.duration_sec = sec; }   // 문자열과 초는 항상 함께 갱신
+  } else {
+    x.length = sec != null ? x.length.trim() : null; x.duration_sec = sec; V.push(x);
+  }
+});
+V.forEach(v => { if (v.duration_sec == null) v.duration_sec = toSec(v.length); });
 // 분류 기준: build_site.py 가 window.SETTINGS 를 주면 그 값을 쓰고, 없으면 discover.ini 기본값을 쓴다
 const S = Object.assign({subs_low:1000, subs_high:10000, high_views:3000, ratio_min:3, ratio_min_views:500}, window.SETTINGS || {});
 const fmt = n => n == null ? "?" : n >= 1e6 ? (n/1e6).toFixed(1)+"M" : n >= 1e3 ? (n/1e3).toFixed(1)+"K" : n;
@@ -133,11 +145,11 @@ function render() {
     && (!ctry.length || ctry.includes(v.country))
     && (!viewSel.has("other") || v.section === "other") && (!viewSel.has("viral") || v.viral) && (!viewSel.has("fav") || favs.has(v.id)) && (!viewSel.has("memo") || memos[v.id])
     && (!q || (v.title + " " + v.channel + " " + (memos[v.id] || "")).toLowerCase().includes(q)));
-  const sec = s => (s || "").split(":").reduce((t, n) => t * 60 + (+n || 0), 0);   // "12:34" → 754초
-  const val = v => sort === "views" ? v.views : sort === "ratio" ? ratio(v) : sort === "subs" ? (v.subs ?? -1) : sort === "length" ? sec(v.length)
+  const val = v => sort === "views" ? v.views : sort === "ratio" ? ratio(v) : sort === "subs" ? (v.subs ?? -1) : sort === "length" ? (v.duration_sec ?? -1)
     : sort === "pub" ? v.published : v.first_seen + v.published;
   const dir = document.getElementById("dir").value === "asc" ? -1 : 1;
-  a.sort((x, y) => { const p = val(x), q2 = val(y); return dir * (typeof p === "string" ? q2.localeCompare(p) : q2 - p); });
+  const unknown = v => (sort === "length" && v.duration_sec == null) || (sort === "subs" && v.subs == null);   // 값을 모르는 영상은 방향과 상관없이 맨 뒤
+  a.sort((x, y) => { if (unknown(x) || unknown(y)) return unknown(x) - unknown(y); const p = val(x), q2 = val(y); return dir * (typeof p === "string" ? q2.localeCompare(p) : q2 - p); });
   const g = document.getElementById("grid"); g.innerHTML = "";
   if (!a.length) g.innerHTML = '<div class="empty">조건에 맞는 영상이 없어요</div>';
   a.forEach(v => {
@@ -146,7 +158,7 @@ function render() {
       `<button class="fav ${favs.has(v.id) ? "on" : ""}" title="저장">${favs.has(v.id) ? "★" : "☆"}</button>` +
       `<div class="th"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/mqdefault.jpg"><div class="play">▶</div></div>` +
       `<div class="body"><a class="t" target="_blank" rel="noopener" href="https://youtu.be/${v.id}"></a><div class="m"></div>` +
-      `<div class="tags"><span class="tag">${v.country === "한국" ? "🇰🇷" : "🇯🇵"} ${v.country}${v.section === "other" ? " · 지방" : ""}</span><span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${v.length ? `<span class="tag">⏱ ${v.length}</span>` : ""}${v.viral ? `<span class="tag hot">🔥 ${v.buzz ? "이슈 " : ""}화제</span>` : ""}${isHot(v) ? '<span class="tag hot">📈 급상승</span>' : ""}</div>` +
+      `<div class="tags"><span class="tag">${v.country === "한국" ? "🇰🇷" : "🇯🇵"} ${v.country}${v.section === "other" ? " · 지방" : ""}</span><span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${v.length ? `<span class="tag">⏱ ${v.length}${v.is_short === true ? " · 숏폼" : ""}</span>` : ""}${v.viral ? `<span class="tag hot">🔥 ${v.buzz ? "이슈 " : ""}화제</span>` : ""}${isHot(v) ? '<span class="tag hot">📈 급상승</span>' : ""}</div>` +
       `<div class="act"><button class="btn dn ${done.has(v.id) ? "on" : ""}">${done.has(v.id) ? "✅ 사용 완료" : "☐ 사용 완료"}</button><button class="btn memo ${memos[v.id] ? "on" : ""}">📝 메모</button><button class="btn hd" title="이 영상만 안 보이게 (같은 채널의 다른 영상은 계속 나와요)">${hidden.has(v.id) ? "↩ 복구" : "🗑 숨김"}</button></div>` +
       `<textarea hidden placeholder="메모 (어디에 쓸지, 번역 메모 등)"></textarea></div>`;
     c.querySelector(".t").textContent = v.title;
