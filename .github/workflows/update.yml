@@ -2,12 +2,12 @@ name: 영상 업데이트 + 사이트 배포
 
 on:
   schedule:
-    - cron: "0 22 * * *"   # 매일 한국시간 오전 7시 (UTC 22시)
-    - cron: "0 9 * * *"    # 매일 한국시간 오후 6시
-  workflow_dispatch:        # Actions 탭에서 수동 실행도 가능
+    - cron: "0 22 * * *"   # 매일 한국시간 오전 7시 (UTC 22시) - 모든 수집 + 글로벌 콘텐츠 수집
+    - cron: "0 9 * * *"    # 매일 한국시간 오후 6시 - 글로벌 콘텐츠 수집(오래 걸림)은 건너뜀
+  workflow_dispatch:        # Actions 탭에서 수동 실행도 가능 (모든 수집 실행)
   push:
     branches: [main]
-    paths: ["web/index.html", ".github/workflows/update.yml"]
+    paths: ["web/index.html", ".github/workflows/update.yml"]   # 화면만 고쳤을 때는 수집 없이 바로 배포
 
 permissions:
   contents: write
@@ -29,33 +29,45 @@ jobs:
           python-version: "3.12"
 
       - name: 새 영상 검색 (텔레그램 Secrets 가 있으면 알림도 발송)
+        if: github.event_name != 'push'
         env:
           TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
           TELEGRAM_CHAT_ID: ${{ secrets.TELEGRAM_CHAT_ID }}
         run: python build_site.py --notify
 
       - name: 일본 주제 영상 갱신 - 가족·첫입·이자카야·친절 (실패해도 사이트 배포는 계속)
+        if: github.event_name != 'push'
         continue-on-error: true
         run: python japan_topics_watch.py
 
       - name: 벤치마킹 채널 목록 갱신 (실패해도 사이트 배포는 계속)
+        if: github.event_name != 'push'
         continue-on-error: true
         run: python channels_watch.py
 
       - name: 화제 영상(오래된 영상 포함) 갱신 (실패해도 사이트 배포는 계속)
+        if: github.event_name != 'push'
         continue-on-error: true
         run: python viral_watch.py
 
       - name: 외국인 체험 영상 갱신 (실패해도 사이트 배포는 계속)
+        if: github.event_name != 'push'
         continue-on-error: true
         run: python experience_watch.py
+
+      - name: 글로벌 콘텐츠 12개 갈래·140꼭지 갱신 - 오래 걸려서 아침 실행과 수동 실행에서만 (실패해도 사이트 배포는 계속)
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 22 * * *'
+        continue-on-error: true
+        timeout-minutes: 40
+        run: python global_topics_watch.py
 
       - name: 데이터 저장 (다음 실행 때 '새 영상' 구분용)
         run: |
           git config user.name "github-actions"
           git config user.email "actions@users.noreply.github.com"
-          git add site_store.json web/videos.js web/channels.js web/viral.js viral_store.json web/experience.js experience_store.json web/japan_topics.js japan_topics_store.json
+          git add site_store.json web/videos.js web/channels.js web/viral.js viral_store.json web/experience.js experience_store.json web/japan_topics.js japan_topics_store.json web/global_topics.js global_topics_store.json
           git diff --cached --quiet || git commit -m "영상 데이터 업데이트"
+          git pull --rebase
           git push
 
       - uses: actions/configure-pages@v5

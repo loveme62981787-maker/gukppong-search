@@ -33,6 +33,8 @@ input{flex:1;min-width:140px}
 .btn.on{border-color:var(--ok);color:var(--ok);font-weight:700}.btn.memo.on{border-color:var(--acc);color:var(--acc)}
 textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 [hidden]{display:none!important}
+.gdetails{max-width:1200px;margin:0 auto 6px;padding:0 16px;font-size:13px}.gdetails summary{cursor:pointer;color:var(--mute)}
+.gi-group{margin:8px 0;display:flex;flex-wrap:wrap;gap:6px;align-items:center}.gi-group b{width:100%;font-size:12px;color:var(--mute)}
 .ch{padding:14px;gap:8px}.ch h3{margin:0;font-size:16px}.ch h3 a{color:var(--ink);text-decoration:none}
 .thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.thumbs a{position:relative;aspect-ratio:16/9;display:block;background:#000;border-radius:6px;overflow:hidden}
 .thumbs img{width:100%;height:100%;object-fit:cover}.thumbs span{position:absolute;right:2px;bottom:2px;font-size:9px;background:#000a;color:#fff;padding:0 4px;border-radius:4px}
@@ -57,6 +59,8 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 </div>
 <div class="bar vmode"><span class="lbl">업로더 (여러 개 선택 가능)</span><span id="ups" style="display:contents"></span></div>
 <div class="bar vmode"><span class="lbl">🧳 외국인 여행 (여러 개 선택 가능)</span><span id="trv" style="display:contents"></span></div>
+<div class="bar vmode"><span class="lbl">🇰🇷 외국인이 겪는 한국 · 글로벌 콘텐츠 12개 갈래 (여러 개 선택 가능 · 칩에 마우스를 올리면 설명)</span><span id="gts" style="display:contents"></span></div>
+<details class="vmode gdetails"><summary>세부 꼭지 140개 펼치기 (고르면 갈래보다 우선 적용)</summary><button class="chip" id="gclear" style="margin:6px 0">꼭지 선택 모두 해제</button><div id="gitems"></div></details>
 <div class="bar vmode"><span class="lbl">🇯🇵 일본 · 아직 비어 있는데 터지는 주제 (여러 개 선택 가능 · 칩에 마우스를 올리면 참고 지표)</span><span id="jts" style="display:contents"></span></div>
 <div class="bar vmode"><span class="lbl">🎟 외국인 체험 (여러 개 선택 가능)</span><span id="exps" style="display:contents"></span></div>
 <div class="bar vmode"><span class="lbl">분류 (여러 개 선택 가능)</span><span id="cats" style="display:contents"></span></div>
@@ -76,6 +80,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script src="viral.js" onerror="window.VIRAL=[]"></script>
 <script src="experience.js" onerror="window.EXPERIENCE=[]; window.EXP_TOPICS={}"></script>
 <script src="japan_topics.js" onerror="window.JP_TOPIC_ITEMS=[]; window.JP_TOPICS={}"></script>
+<script src="global_topics.js" onerror="window.GLOBAL_ITEMS=[]; window.GLOBAL_TOPICS=[]"></script>
 <script>
 // 일반 수집 영상 + 화제 영상(오래된 영상 포함). 겹치는 영상은 화제 표시와 길이만 합친다
 const V = (window.VIDEOS || []).slice();
@@ -99,6 +104,12 @@ const toSec = s => { const m = /^(\d+):([0-5]\d)(?::([0-5]\d))?$/.exec((s || "")
 });
 // 일본 주제 영상: 같은 영상이면 길이만 합치고, 새 영상은 추가한다
 (window.JP_TOPIC_ITEMS || []).forEach(x => {
+  const o = V.find(v => v.id === x.id), sec = toSec(x.length);
+  if (o) { if (sec != null) { o.length = x.length.trim(); o.duration_sec = sec; } }
+  else { x.length = sec != null ? x.length.trim() : null; x.duration_sec = sec; V.push(x); }
+});
+// 글로벌 콘텐츠(외국인이 겪는 한국) 영상: 같은 영상이면 길이만 합치고, 새 영상은 추가한다
+(window.GLOBAL_ITEMS || []).forEach(x => {
   const o = V.find(v => v.id === x.id), sec = toSec(x.length);
   if (o) { if (sec != null) { o.length = x.length.trim(); o.duration_sec = sec; } }
   else { x.length = sec != null ? x.length.trim() : null; x.duration_sec = sec; V.push(x); }
@@ -145,6 +156,16 @@ V.forEach(v => { v._jpTrip = v._subj === "일본" && v._up === "foreign" && !has
 // 일본 '터지는 주제' 4가지 (japan_topics_watch.py 의 TOPICS 기준을 그대로 읽어, 기존 영상까지 제목으로 같이 분류). 일본이 주제인 영상만 해당
 const JPT = Object.fromEntries(Object.entries(window.JP_TOPICS || {}).map(([n, t]) => [n, new RegExp(t.rule, "i")]));
 V.forEach(v => { v._jt = v._subj === "일본" ? Object.keys(JPT).filter(n => JPT[n].test(v.title)) : []; });
+// 글로벌 콘텐츠 12개 갈래·140꼭지 (global_topics_watch.py 의 GROUPS 기준을 그대로 읽어, 기존 영상까지 제목으로 같이 분류). 한국이 주제인 영상만 해당
+const GT = (window.GLOBAL_TOPICS || []).map(g => ({cat: g.cat, note: g.note, items: g.items.map(i => ({name: i.name, re: new RegExp(i.rule, "i")}))}));
+const GT_EX = window.GLOBAL_EXCLUDE ? new RegExp(window.GLOBAL_EXCLUDE, "i") : null;   // 영어 강의·회화 교재형 영상은 제외
+V.forEach(v => {
+  // 수집기가 검색 결과 순위로 붙인 꼭지(g_items/g_cats)와, 제목 규칙으로 판별한 꼭지를 합친다
+  v._gc = [...(v.g_cats || [])]; v._gi = [...(v.g_items || [])];
+  if (v._subj !== "한국") { v._gc = []; v._gi = []; return; }
+  if (GT_EX && GT_EX.test(v.title)) { v._gc = []; v._gi = []; return; }
+  GT.forEach(g => g.items.forEach(i => { if (i.re.test(v.title)) { if (!v._gi.includes(i.name)) v._gi.push(i.name); if (!v._gc.includes(g.cat)) v._gc.push(g.cat); } }));
+});
 // 외국인 한국 여행: 한국이 주제 + 외국인 업로드 + 여행 단어. 일본인 등 다른 나라 사람이 한국을 여행하는 영상도 외국인이므로 일본어 채널도 포함한다
 V.forEach(v => { v._krTrip = v._subj === "한국" && v._up === "foreign" && hit(v.title.toLowerCase(), TRAVEL_W); });
 
@@ -158,12 +179,28 @@ function mkMulti(parent, items, sel, total, onChange) {
   btns.forEach(b => b.onclick = () => { sel.has(b.dataset.k) ? sel.delete(b.dataset.k) : sel.add(b.dataset.k); sync(); onChange(); });
   sync();
 }
-const catSel = new Set(), viewSel = new Set(), upSel = new Set(), expSel = new Set(), trvSel = new Set(), jtSel = new Set();
+const catSel = new Set(), viewSel = new Set(), upSel = new Set(), expSel = new Set(), trvSel = new Set(), jtSel = new Set(), gcSel = new Set(), giSel = new Set();
 const nHidden = () => [...hidden].filter(x => !x.startsWith("ch:")).length;
 mkMulti(document.getElementById("ups"), [["foreign", "🌏 외국인 업로드", V.filter(v => v._up === "foreign").length], ["ref", "🧭 레퍼런스 (국내 국뽕 채널)", V.filter(v => v._up === "ref").length]], upSel, V.length, () => render());
 mkMulti(document.getElementById("trv"), [["kr", "🇰🇷 외국인 한국 여행", V.filter(v => v._krTrip).length], ["jp", "🇯🇵 외국인 일본 여행", V.filter(v => v._jpTrip).length]], trvSel, V.length, () => render());
 mkMulti(document.getElementById("jts"), Object.keys(JPT).map(t => [t, t, V.filter(v => v._jt.includes(t)).length]), jtSel, V.length, () => render());
 document.querySelectorAll("#jts .chip").forEach(b => { const t = (window.JP_TOPICS || {})[b.dataset.k]; if (t) b.title = "참고 지표: " + t.info; });
+mkMulti(document.getElementById("gts"), GT.map(g => [g.cat, g.cat, V.filter(v => v._gc.includes(g.cat)).length]), gcSel, V.filter(v => v._gc.length).length, () => render());
+document.querySelectorAll("#gts .chip").forEach(b => { const g = GT.find(x => x.cat === b.dataset.k); if (g) b.title = g.note + " · 꼭지 " + g.items.length + "개"; });
+// 꼭지(세부 항목) 칩: 갈래별로 묶어서 펼쳐 보이게 한다. 하나라도 고르면 갈래 선택보다 꼭지 선택이 우선한다
+const giBox = document.getElementById("gitems");
+GT.forEach(g => {
+  const wrap = document.createElement("div"); wrap.className = "gi-group";
+  wrap.innerHTML = `<b></b>`; wrap.firstChild.textContent = g.cat;
+  g.items.forEach(i => {
+    const b = document.createElement("button"); b.className = "chip"; b.dataset.k = i.name;
+    b.innerHTML = ""; b.append(i.name); const s = document.createElement("small"); s.textContent = V.filter(v => v._gi.includes(i.name)).length; b.append(s);
+    b.onclick = () => { giSel.has(i.name) ? giSel.delete(i.name) : giSel.add(i.name); b.classList.toggle("on", giSel.has(i.name)); render(); };
+    wrap.append(b);
+  });
+  giBox.append(wrap);
+});
+document.getElementById("gclear").onclick = () => { giSel.clear(); giBox.querySelectorAll(".chip").forEach(b => b.classList.remove("on")); render(); };
 mkMulti(document.getElementById("exps"), [["_any", "🎟 체험 영상 전체", V.filter(v => v._topics.length).length]].concat(Object.keys(EXPT).map(t => [t, t, V.filter(v => v._topics.includes(t)).length])), expSel, V.length, () => render());
 mkMulti(document.getElementById("cats"), CATS.map(([k, l, fn]) => [k, l, V.filter(v => withSubs(v) && fn(v)).length]), catSel, V.length, () => render());
 mkMulti(document.getElementById("chips"), [["한국", "🇰🇷 한국이 주제"], ["일본", "🇯🇵 일본이 주제"], ["both", "🔁 한일 비교·반응"], ["other", "🏝 서울·부산 외"], ["viral", "🔥 화제 영상 (과거 포함)", V.filter(v => v.viral).length], ["fav", "⭐ 저장"], ["memo", "📝 메모 있음"], ["done", "✅ 사용 완료", done.size], ["hidden", "🗑 숨김", nHidden()]], viewSel, null, () => render());
@@ -184,6 +221,7 @@ function render() {
     && (!expSel.size || [...expSel].some(k => k === "_any" ? v._topics.length : v._topics.includes(k)))
     && (!catFns.length || (withSubs(v) && catFns.some(fn => fn(v))))
     && (!ctry.length || ctry.includes(v._subj))
+    && (giSel.size ? [...giSel].some(k => v._gi.includes(k)) : (!gcSel.size || [...gcSel].some(k => v._gc.includes(k))))
     && (!jtSel.size || [...jtSel].some(k => v._jt.includes(k)))
     && (!trvSel.size || (trvSel.has("kr") && v._krTrip) || (trvSel.has("jp") && v._jpTrip))
     && (!viewSel.has("other") || v.section === "other") && (!viewSel.has("viral") || v.viral) && (!viewSel.has("fav") || favs.has(v.id)) && (!viewSel.has("memo") || memos[v.id])
@@ -201,7 +239,7 @@ function render() {
       `<button class="fav ${favs.has(v.id) ? "on" : ""}" title="저장">${favs.has(v.id) ? "★" : "☆"}</button>` +
       `<div class="th"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/mqdefault.jpg"><div class="play">▶</div></div>` +
       `<div class="body"><a class="t" target="_blank" rel="noopener" href="https://youtu.be/${v.id}"></a><div class="m"></div>` +
-      `<div class="tags"><span class="tag">${v._subj === "한국" ? "🇰🇷 한국" : v._subj === "일본" ? "🇯🇵 일본" : "🔁 한일"}${v.section === "other" ? " · 지방" : ""}</span>${v._jpTrip ? '<span class="tag">🧳 일본 여행</span>' : ""}${v._krTrip ? '<span class="tag">🧳 한국 여행</span>' : ""}${[...v._jt].sort((a, b) => jtSel.has(b) - jtSel.has(a)).slice(0, 2).map(t => `<span class="tag hot">${t}</span>`).join("")}<span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${v.length ? `<span class="tag">⏱ ${v.length}${v.is_short === true ? " · 숏폼" : ""}</span>` : ""}${v.viral ? `<span class="tag hot">🔥 ${v.buzz ? "이슈 " : ""}화제</span>` : ""}${v._topics.slice(0, 2).map(t => `<span class="tag">${t}</span>`).join("")}${isHot(v) ? '<span class="tag hot">📈 급상승</span>' : ""}</div>` +
+      `<div class="tags"><span class="tag">${v._subj === "한국" ? "🇰🇷 한국" : v._subj === "일본" ? "🇯🇵 일본" : "🔁 한일"}${v.section === "other" ? " · 지방" : ""}</span>${v._jpTrip ? '<span class="tag">🧳 일본 여행</span>' : ""}${v._krTrip ? '<span class="tag">🧳 한국 여행</span>' : ""}${[...v._gc].sort((a, b) => gcSel.has(b) - gcSel.has(a)).slice(0, 1).map(t => `<span class="tag">${t}</span>`).join("")}${[...v._jt].sort((a, b) => jtSel.has(b) - jtSel.has(a)).slice(0, 2).map(t => `<span class="tag hot">${t}</span>`).join("")}<span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${v.length ? `<span class="tag">⏱ ${v.length}${v.is_short === true ? " · 숏폼" : ""}</span>` : ""}${v.viral ? `<span class="tag hot">🔥 ${v.buzz ? "이슈 " : ""}화제</span>` : ""}${v._topics.slice(0, 2).map(t => `<span class="tag">${t}</span>`).join("")}${isHot(v) ? '<span class="tag hot">📈 급상승</span>' : ""}</div>` +
       `<div class="act"><button class="btn dn ${done.has(v.id) ? "on" : ""}">${done.has(v.id) ? "✅ 사용 완료" : "☐ 사용 완료"}</button><button class="btn memo ${memos[v.id] ? "on" : ""}">📝 메모</button><button class="btn hd" title="이 영상만 안 보이게 (같은 채널의 다른 영상은 계속 나와요)">${hidden.has(v.id) ? "↩ 복구" : "🗑 숨김"}</button></div>` +
       `<textarea hidden placeholder="메모 (어디에 쓸지, 번역 메모 등)"></textarea></div>`;
     c.querySelector(".t").textContent = v.title;
