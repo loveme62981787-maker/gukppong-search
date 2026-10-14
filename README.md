@@ -15,6 +15,7 @@
 | `channels_watch.py` | 비슷한 컨셉 채널 자동 발견·분석(롱폼/숏폼/둘 다 분류) → `web/channels.js` |
 | `viral_watch.py` | 오래된 영상 포함, 조회수·구독자 대비 조회수가 폭발한 화제 영상 수집 → `web/viral.js` (영상 길이 포함) |
 | `experience_watch.py` | 외국인 체험 영상(야구장·한복·찜질방·템플스테이 등) 수집 → `web/experience.js`. 체험 종류 기준(`TOPICS`)은 여기서만 관리 |
+| `japan_topics_watch.py` | 일본 영상 중 "아직 비어 있는데 터지는 주제" 4가지(가족 첫 방일·서프라이즈 / 일식·첫입 리액션 / 이자카야·밤 술자리 / 접객·친절·배려)를 먼저 수집 → `web/japan_topics.js`. 주제 기준(`TOPICS`)은 여기서만 관리 |
 | `seed_channels.txt` | 벤치마킹 시작점 채널 이름 목록 (여기에 한 줄씩 추가) |
 | `web/index.html` | 사이트 화면 (정적 페이지, `videos.js`만 읽음) |
 | `web/videos.js` | 자동 생성되는 데이터 파일 (직접 수정하지 않음) |
