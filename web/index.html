@@ -56,6 +56,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
   <div class="grid" id="cgrid"></div>
 </div>
 <div class="bar vmode"><span class="lbl">업로더 (여러 개 선택 가능)</span><span id="ups" style="display:contents"></span></div>
+<div class="bar vmode"><span class="lbl">🧳 외국인 여행 (여러 개 선택 가능)</span><span id="trv" style="display:contents"></span></div>
 <div class="bar vmode"><span class="lbl">🎟 외국인 체험 (여러 개 선택 가능)</span><span id="exps" style="display:contents"></span></div>
 <div class="bar vmode"><span class="lbl">분류 (여러 개 선택 가능)</span><span id="cats" style="display:contents"></span></div>
 <div class="bar vmode"><span class="lbl">보기 (여러 개 선택 가능 · 나라는 둘 중 하나, 나머지는 모두 만족)</span><span id="chips" style="display:contents"></span></div>
@@ -123,6 +124,17 @@ const REF_IDS = new Set((window.CHANNELS || []).map(c => c.id));
 const hangulRatio = s => { const t = s.replace(/[\s\d\W_]/g, ""); return t ? (t.match(/[가-힣]/g) || []).length / t.length : 0; };
 V.forEach(v => { v._up = REF_IDS.has(v.channel_id) || /[가-힣]/.test(v.channel) || hangulRatio(v.title) >= 0.3 ? "ref" : "foreign"; });
 
+// 영상의 '주제 나라': 검색할 때 쓴 나라(v.country)가 아니라 제목에 나온 나라로 판단한다.
+// (한국 영상이 '일본 반응' 검색에 걸려 일본으로 표시되던 문제 해결) 둘 다 나오면 한일 비교·반응, 아무것도 없으면 검색한 나라를 쓴다.
+const KR_W = ["korea", "seoul", "busan", "jeju", "incheon", "hongdae", "k-pop", "kpop", "한국", "대한민국", "서울", "부산", "제주", "홍대", "한류", "한복", "韓国", "韓國"];
+const JP_W = ["japan", "tokyo", "osaka", "kyoto", "hokkaido", "fukuoka", "okinawa", "nippon", "일본", "도쿄", "오사카", "교토", "홋카이도", "후쿠오카", "오키나와", "日本", "東京", "大阪", "京都", "北海道", "福岡", "沖縄"];
+const hit = (t, ws) => ws.some(w => t.includes(w));
+V.forEach(v => { const t = v.title.toLowerCase(), kr = hit(t, KR_W), jp = hit(t, JP_W); v._subj = kr && jp ? "both" : kr ? "한국" : jp ? "일본" : v.country; });
+// 외국인 일본 여행: 일본이 주제 + 외국인 업로드(일본어로 만든 일본 현지 채널은 제외) + 여행 단어가 제목에 있는 영상
+const TRAVEL_W = ["travel", "trip", "vlog", "tour", "itinerary", "visit", "first time", "days in", "day trip", "vacation", "holiday", "guide", "backpack", "solo", "journey", "여행", "旅行"];
+const hasKana = s => /[぀-ヿ]/.test(s);
+V.forEach(v => { v._jpTrip = v._subj === "일본" && v._up === "foreign" && !hasKana(v.title + v.channel) && hit(v.title.toLowerCase(), TRAVEL_W); });
+
 // 여러 개 동시 선택: 같은 줄 안에서는 하나라도 맞으면(OR), 줄이 다르면 모두 맞아야(AND) 보여준다. '전체'를 누르면 그 줄의 선택이 풀린다.
 function mkMulti(parent, items, sel, total, onChange) {
   const mk = (k, label, count) => { const b = document.createElement("button"); b.className = "chip"; b.dataset.k = k;
@@ -133,12 +145,13 @@ function mkMulti(parent, items, sel, total, onChange) {
   btns.forEach(b => b.onclick = () => { sel.has(b.dataset.k) ? sel.delete(b.dataset.k) : sel.add(b.dataset.k); sync(); onChange(); });
   sync();
 }
-const catSel = new Set(), viewSel = new Set(), upSel = new Set(), expSel = new Set();
+const catSel = new Set(), viewSel = new Set(), upSel = new Set(), expSel = new Set(), trvSel = new Set();
 const nHidden = () => [...hidden].filter(x => !x.startsWith("ch:")).length;
 mkMulti(document.getElementById("ups"), [["foreign", "🌏 외국인 업로드", V.filter(v => v._up === "foreign").length], ["ref", "🧭 레퍼런스 (국내 국뽕 채널)", V.filter(v => v._up === "ref").length]], upSel, V.length, () => render());
+mkMulti(document.getElementById("trv"), [["jp", "🇯🇵 외국인 일본 여행", V.filter(v => v._jpTrip).length]], trvSel, V.length, () => render());
 mkMulti(document.getElementById("exps"), [["_any", "🎟 체험 영상 전체", V.filter(v => v._topics.length).length]].concat(Object.keys(EXPT).map(t => [t, t, V.filter(v => v._topics.includes(t)).length])), expSel, V.length, () => render());
 mkMulti(document.getElementById("cats"), CATS.map(([k, l, fn]) => [k, l, V.filter(v => withSubs(v) && fn(v)).length]), catSel, V.length, () => render());
-mkMulti(document.getElementById("chips"), [["한국", "🇰🇷 한국"], ["일본", "🇯🇵 일본"], ["other", "🏝 서울·부산 외"], ["viral", "🔥 화제 영상 (과거 포함)", V.filter(v => v.viral).length], ["fav", "⭐ 저장"], ["memo", "📝 메모 있음"], ["done", "✅ 사용 완료", done.size], ["hidden", "🗑 숨김", nHidden()]], viewSel, null, () => render());
+mkMulti(document.getElementById("chips"), [["한국", "🇰🇷 한국이 주제"], ["일본", "🇯🇵 일본이 주제"], ["both", "🔁 한일 비교·반응"], ["other", "🏝 서울·부산 외"], ["viral", "🔥 화제 영상 (과거 포함)", V.filter(v => v.viral).length], ["fav", "⭐ 저장"], ["memo", "📝 메모 있음"], ["done", "✅ 사용 완료", done.size], ["hidden", "🗑 숨김", nHidden()]], viewSel, null, () => render());
 document.getElementById("upd").textContent = "마지막 갱신 " + (window.UPDATED || "-") + " · 영상 " + V.length + "개";
 const isNew = v => v.first_seen > (seenAt || "9999") || v.first_seen === (window.UPDATED || "").slice(0, 10);
 const saveAll = () => { ls.set("favs", [...favs]); ls.set("done", [...done]); ls.set("memos", memos); ls.set("hidden", [...hidden]); };
@@ -146,7 +159,7 @@ const saveAll = () => { ls.set("favs", [...favs]); ls.set("done", [...done]); ls
 function render() {
   const q = document.getElementById("q").value.trim().toLowerCase(), sort = document.getElementById("sort").value;
   const catFns = CATS.filter(c => catSel.has(c[0])).map(c => c[2]);
-  const ctry = ["한국", "일본"].filter(k => viewSel.has(k));
+  const ctry = ["한국", "일본", "both"].filter(k => viewSel.has(k));
   const hc = document.querySelector('#chips [data-k="hidden"] small'); if (hc) hc.textContent = nHidden();
   const dc = document.querySelector('#chips [data-k="done"] small'); if (dc) dc.textContent = done.size;
   const sh = viewSel.has("hidden"), sd = viewSel.has("done");
@@ -155,7 +168,8 @@ function render() {
     && (!upSel.size || upSel.has(v._up))
     && (!expSel.size || [...expSel].some(k => k === "_any" ? v._topics.length : v._topics.includes(k)))
     && (!catFns.length || (withSubs(v) && catFns.some(fn => fn(v))))
-    && (!ctry.length || ctry.includes(v.country))
+    && (!ctry.length || ctry.includes(v._subj))
+    && (!trvSel.size || v._jpTrip)
     && (!viewSel.has("other") || v.section === "other") && (!viewSel.has("viral") || v.viral) && (!viewSel.has("fav") || favs.has(v.id)) && (!viewSel.has("memo") || memos[v.id])
     && (!q || (v.title + " " + v.channel + " " + (memos[v.id] || "")).toLowerCase().includes(q)));
   const val = v => sort === "views" ? v.views : sort === "ratio" ? ratio(v) : sort === "subs" ? (v.subs ?? -1) : sort === "length" ? (v.duration_sec ?? -1)
@@ -171,7 +185,7 @@ function render() {
       `<button class="fav ${favs.has(v.id) ? "on" : ""}" title="저장">${favs.has(v.id) ? "★" : "☆"}</button>` +
       `<div class="th"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/mqdefault.jpg"><div class="play">▶</div></div>` +
       `<div class="body"><a class="t" target="_blank" rel="noopener" href="https://youtu.be/${v.id}"></a><div class="m"></div>` +
-      `<div class="tags"><span class="tag">${v.country === "한국" ? "🇰🇷" : "🇯🇵"} ${v.country}${v.section === "other" ? " · 지방" : ""}</span><span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${v.length ? `<span class="tag">⏱ ${v.length}${v.is_short === true ? " · 숏폼" : ""}</span>` : ""}${v.viral ? `<span class="tag hot">🔥 ${v.buzz ? "이슈 " : ""}화제</span>` : ""}${v._topics.slice(0, 2).map(t => `<span class="tag">${t}</span>`).join("")}${isHot(v) ? '<span class="tag hot">📈 급상승</span>' : ""}</div>` +
+      `<div class="tags"><span class="tag">${v._subj === "한국" ? "🇰🇷 한국" : v._subj === "일본" ? "🇯🇵 일본" : "🔁 한일"}${v.section === "other" ? " · 지방" : ""}</span>${v._jpTrip ? '<span class="tag">🧳 일본 여행</span>' : ""}<span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${v.length ? `<span class="tag">⏱ ${v.length}${v.is_short === true ? " · 숏폼" : ""}</span>` : ""}${v.viral ? `<span class="tag hot">🔥 ${v.buzz ? "이슈 " : ""}화제</span>` : ""}${v._topics.slice(0, 2).map(t => `<span class="tag">${t}</span>`).join("")}${isHot(v) ? '<span class="tag hot">📈 급상승</span>' : ""}</div>` +
       `<div class="act"><button class="btn dn ${done.has(v.id) ? "on" : ""}">${done.has(v.id) ? "✅ 사용 완료" : "☐ 사용 완료"}</button><button class="btn memo ${memos[v.id] ? "on" : ""}">📝 메모</button><button class="btn hd" title="이 영상만 안 보이게 (같은 채널의 다른 영상은 계속 나와요)">${hidden.has(v.id) ? "↩ 복구" : "🗑 숨김"}</button></div>` +
       `<textarea hidden placeholder="메모 (어디에 쓸지, 번역 메모 등)"></textarea></div>`;
     c.querySelector(".t").textContent = v.title;
