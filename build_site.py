@@ -23,12 +23,31 @@ KEEP_DAYS = 60  # 이 기간이 지난 영상은 목록에서 뺌
 
 
 def to_item(v, country, section, now):
+    observed_at = now.astimezone(KST).isoformat()
+    views = v.get("views")
     return {
         "id": v["id"], "title": v["title"], "channel": v["channel"], "channel_id": v["channel_id"],
-        "subs": v.get("subs"), "views": v["views"], "country": country, "section": section,
+        "subs": v.get("subs"), "views": views,
+        "observed_at": observed_at, "subs_checked_at": v.get("subs_checked_at"),
+        "views_history": [[observed_at, views]] if valid_views(views) else [], "country": country, "section": section,
         "length": v.get("length"), "duration_sec": v.get("duration_sec"), "is_short": v.get("is_short"),
         "published": (now - timedelta(hours=v["age_h"])).strftime("%Y-%m-%d"),
     }
+
+
+def valid_views(value):
+    """조회수 이력에는 확인된 0 이상의 정수만 기록한다."""
+    return isinstance(value, int) and not isinstance(value, bool) and value >= 0
+
+
+def merge_history(history, observed_at, views):
+    """기존 관측을 우선 보존하고 시간순으로 최신 12개를 남긴다."""
+    merged = {}
+    for stamp, count in history or []:
+        merged.setdefault(datetime.fromisoformat(stamp), [stamp, count])
+    if observed_at is not None and valid_views(views):
+        merged.setdefault(datetime.fromisoformat(observed_at), [observed_at, views])
+    return [merged[key] for key in sorted(merged)[-12:]]
 
 
 def merge_items(vids, found, today):
@@ -37,13 +56,26 @@ def merge_items(vids, found, today):
     for it in found:
         old = vids.get(it["id"])
         if old is not None:
-            old.update(views=it["views"], subs=it["subs"])
+            if valid_views(it.get("views")):
+                old["views"] = it["views"]
+            if it.get("subs") is not None:
+                old["subs"] = it["subs"]
+            old["views_history"] = merge_history(
+                old.get("views_history"), it.get("observed_at"), it.get("views"))
+            for key in ("observed_at", "subs_checked_at"):
+                if it.get(key) is not None:
+                    old[key] = it[key]
+                else:
+                    old.setdefault(key, None)
             for key in ("length", "duration_sec", "is_short"):
                 value = it.get(key)
                 if value is not None and not (isinstance(value, str) and not value.strip()):
                     old[key] = value
         else:
             it = dict(it, first_seen=today)
+            it.setdefault("observed_at", None)
+            it.setdefault("subs_checked_at", None)
+            it["views_history"] = merge_history([], it["observed_at"], it.get("views"))
             vids[it["id"]] = it
             new_items.append(it)
     return new_items
@@ -57,16 +89,17 @@ def main():
     st["exclude_ids"] = discover.resolve_channels(st["exclude_links"])
     store = notifier.read_json(STORE, {"videos": {}, "subs": {}})
     cache = store["subs"]
+    checked_at = store.setdefault("subs_checked_at", {})
     now = datetime.now(KST)
     today = now.strftime("%Y-%m-%d")
     skip = set(st["exclude_videos"])
     found = []
 
-    others = discover.find_other_cities(st, skip, set(), cache)
+    others = discover.find_other_cities(st, skip, set(), cache, checked_at)
     found += [to_item(v, "한국", "other", now) for v in others]
     other_ids = {v["id"] for v in others}
     for name, spec in discover.COUNTRIES.items():
-        for v in discover.find_country(name, spec, st, skip, cache):
+        for v in discover.find_country(name, spec, st, skip, cache, checked_at):
             if v["id"] not in other_ids:
                 found.append(to_item(v, name, "recent", now))
 

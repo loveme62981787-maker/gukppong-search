@@ -21,6 +21,7 @@ import time
 import urllib.parse
 import urllib.request
 from concurrent.futures import ThreadPoolExecutor
+from datetime import datetime, timezone
 
 import notifier
 
@@ -163,7 +164,7 @@ def search(query, window_days, any_time=False):
     return out
 
 
-def channel_subs(cid, cache):
+def channel_subs(cid, cache, checked_at=None):
     if cache.get(cid) is not None:
         return cache[cid]
     try:
@@ -171,6 +172,8 @@ def channel_subs(cid, cache):
     except Exception:  # noqa: BLE001
         subs = None
     cache[cid] = subs
+    if subs is not None and checked_at is not None:
+        checked_at[cid] = datetime.now(timezone.utc).isoformat()
     time.sleep(0.6)
     return subs
 
@@ -257,7 +260,7 @@ def resolve_channels(entries):
     return ids
 
 
-def find_country(name, spec, st, seen, cache):
+def find_country(name, spec, st, seen, cache, checked_at=None):
     videos = {}
     failed = 0
     for q in spec["queries"]:
@@ -290,9 +293,11 @@ def find_country(name, spec, st, seen, cache):
     # 구독자 수는 채널마다 한 번만 확인 (이미 확인한 채널은 저장해 둔 값 사용), 6개씩 동시에 확인
     todo = sorted({v["channel_id"] for v in keep if cache.get(v["channel_id"]) is None})
     with ThreadPoolExecutor(6) as ex:
-        list(ex.map(lambda c: channel_subs(c, cache), todo))
+        list(ex.map(lambda c: channel_subs(c, cache) if checked_at is None
+                    else channel_subs(c, cache, checked_at), todo))
     for v in keep:
         v["subs"] = cache.get(v["channel_id"])
+        v["subs_checked_at"] = (checked_at or {}).get(v["channel_id"])
     keep = [v for v in keep if v["subs"] is not None]
     keep.sort(key=lambda v: v["age_h"])  # 최신순
     return keep
@@ -317,7 +322,7 @@ OTHER_CITIES = {
 }
 
 
-def find_other_cities(st, skip_ids, sent_ids, cache):
+def find_other_cities(st, skip_ids, sent_ids, cache, checked_at=None):
     """서울·부산 외 다른 도시 여행 영상을 찾는다. 이미 보냈던 영상은 빼서 매일 새로운 영상이 오게 한다."""
     spec = OTHER_CITIES
     found = {}
@@ -349,10 +354,12 @@ def find_other_cities(st, skip_ids, sent_ids, cache):
     pool = cands[: want * 3]  # 구독자 수를 확인할 후보 (필요한 만큼만)
     todo = sorted({v["channel_id"] for v in pool if cache.get(v["channel_id"]) is None})
     with ThreadPoolExecutor(6) as ex:
-        list(ex.map(lambda c: channel_subs(c, cache), todo))
+        list(ex.map(lambda c: channel_subs(c, cache) if checked_at is None
+                    else channel_subs(c, cache, checked_at), todo))
     out = []
     for v in pool:
         v["subs"] = cache.get(v["channel_id"])
+        v["subs_checked_at"] = (checked_at or {}).get(v["channel_id"])
         if v["subs"] is not None:
             out.append(v)
     print(f"[다른 도시] 검색 {len(found)}개 → 후보 {len(cands)}개 → 선택 {min(len(out), want)}개")
