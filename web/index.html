@@ -33,6 +33,7 @@ input{flex:1;min-width:140px}
 .btn.on{border-color:var(--ok);color:var(--ok);font-weight:700}.btn.memo.on{border-color:var(--acc);color:var(--acc)}
 textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 [hidden]{display:none!important}
+.grade-S{background:#ffe08a!important;color:#6b4200!important;font-weight:700}.grade-A{background:#dbe7ff!important;color:#1e3a8a!important;font-weight:600}.grade-B{background:#ececec!important;color:#555!important}
 .gdetails{max-width:1200px;margin:0 auto 6px;padding:0 16px;font-size:13px}.gdetails summary{cursor:pointer;color:var(--mute)}
 .gi-group{margin:8px 0;display:flex;flex-wrap:wrap;gap:6px;align-items:center}.gi-group b{width:100%;font-size:12px;color:var(--mute)}
 .ch{padding:14px;gap:8px}.ch h3{margin:0;font-size:16px}.ch h3 a{color:var(--ink);text-decoration:none}
@@ -58,6 +59,8 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
   <div class="grid" id="cgrid"></div>
 </div>
 <div class="bar vmode"><span class="lbl">업로더 (여러 개 선택 가능)</span><span id="ups" style="display:contents"></span></div>
+<div class="bar vmode"><span class="lbl">🏆 소재 검토 우선순위 (클릭률 예측이 아니라 조회수·화제성 기준 · 칩에 마우스를 올리면 설명, 카드 배지에 올리면 점수 근거)</span><span id="grd" style="display:contents"></span></div>
+<div class="bar vmode"><span class="lbl">🏆 소재 유형 (등급이 있는 영상 중에서)</span><span id="typ" style="display:contents"></span></div>
 <div class="bar vmode"><span class="lbl">🧳 외국인 여행 (여러 개 선택 가능)</span><span id="trv" style="display:contents"></span></div>
 <div class="bar vmode"><span class="lbl">🇰🇷 외국인이 겪는 한국 · 글로벌 콘텐츠 12개 갈래 (여러 개 선택 가능 · 칩에 마우스를 올리면 설명)</span><span id="gts" style="display:contents"></span></div>
 <details class="vmode gdetails"><summary>세부 꼭지 140개 펼치기 (고르면 갈래보다 우선 적용)</summary><button class="chip" id="gclear" style="margin:6px 0">꼭지 선택 모두 해제</button><div id="gitems"></div></details>
@@ -67,7 +70,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <div class="bar vmode"><span class="lbl">보기 (여러 개 선택 가능 · 나라는 둘 중 하나, 나머지는 모두 만족)</span><span id="chips" style="display:contents"></span></div>
 <div class="bar vmode">
   <input id="q" placeholder="제목·채널·메모 검색">
-  <select id="sort"><option value="new">새로 들어온 순</option><option value="pub">업로드 최신순</option><option value="views">조회수순</option><option value="ratio">구독자 대비 조회수순</option><option value="subs">구독자순</option><option value="length">영상 길이순</option></select>
+  <select id="sort"><option value="new">새로 들어온 순</option><option value="pub">업로드 최신순</option><option value="views">조회수순</option><option value="ratio">구독자 대비 조회수순</option><option value="score">🏆 검토 우선순위(점수)순</option><option value="subs">구독자순</option><option value="length">영상 길이순</option></select>
   <select id="dir"><option value="desc">내림차순 (큰 것부터)</option><option value="asc">오름차순 (작은 것부터)</option></select></div>
 <div class="grid vmode" id="grid"></div>
 <div class="tools">
@@ -81,6 +84,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script src="experience.js" onerror="window.EXPERIENCE=[]; window.EXP_TOPICS={}"></script>
 <script src="japan_topics.js" onerror="window.JP_TOPIC_ITEMS=[]; window.JP_TOPICS={}"></script>
 <script src="global_topics.js" onerror="window.GLOBAL_ITEMS=[]; window.GLOBAL_TOPICS=[]"></script>
+<script src="curation.js" onerror="window.CURATION={promote:[],demote:{},exclude:[]}"></script>
 <script>
 // 일반 수집 영상 + 화제 영상(오래된 영상 포함). 겹치는 영상은 화제 표시와 길이만 합친다
 const V = (window.VIDEOS || []).slice();
@@ -145,7 +149,7 @@ V.forEach(v => { v._up = REF_IDS.has(v.channel_id) || /[가-힣]/.test(v.channel
 
 // 영상의 '주제 나라': 검색할 때 쓴 나라(v.country)가 아니라 제목에 나온 나라로 판단한다.
 // (한국 영상이 '일본 반응' 검색에 걸려 일본으로 표시되던 문제 해결) 둘 다 나오면 한일 비교·반응, 아무것도 없으면 검색한 나라를 쓴다.
-const KR_W = ["korea", "seoul", "busan", "jeju", "incheon", "hongdae", "k-pop", "kpop", "한국", "대한민국", "서울", "부산", "제주", "홍대", "한류", "한복", "韓国", "韓國"];
+const KR_W = ["korea", "seoul", "busan", "jeju", "incheon", "hongdae", "k-pop", "kpop", "한국", "대한민국", "서울", "부산", "제주", "홍대", "한류", "한복", "韓国", "韓國", "bts", "방탄", "blackpink", "블랙핑크", "newjeans", "뉴진스", "aespa", "에스파", "stray kids", "riize"];
 const JP_W = ["japan", "tokyo", "osaka", "kyoto", "hokkaido", "fukuoka", "okinawa", "nippon", "일본", "도쿄", "오사카", "교토", "홋카이도", "후쿠오카", "오키나와", "日本", "東京", "大阪", "京都", "北海道", "福岡", "沖縄"];
 const hit = (t, ws) => ws.some(w => t.includes(w));
 V.forEach(v => { const t = v.title.toLowerCase(), kr = hit(t, KR_W), jp = hit(t, JP_W); v._subj = kr && jp ? "both" : kr ? "한국" : jp ? "일본" : v.country; });
@@ -153,6 +157,77 @@ V.forEach(v => { const t = v.title.toLowerCase(), kr = hit(t, KR_W), jp = hit(t,
 const TRAVEL_W = ["travel", "trip", "vlog", "tour", "itinerary", "visit", "first time", "days in", "day trip", "vacation", "holiday", "guide", "backpack", "solo", "journey", "여행", "旅行"];
 const hasKana = s => /[぀-ヿ]/.test(s);
 V.forEach(v => { v._jpTrip = v._subj === "일본" && v._up === "foreign" && !hasKana(v.title + v.channel) && hit(v.title.toLowerCase(), TRAVEL_W); });
+// ---- 소재 검토 우선순위 등급 (S/A/B) ----
+// 이 등급은 '조회수·화제성으로 본 소재 검토 우선순위'이며 클릭률 예측이 아니다. 근거: docs/collab/2026-10-15-grade-criteria.md (Claude + Codex 합의)
+//  1) 적합성 관문: 대상국(한국/일본) → 외국인의 체험·반응 또는 구체적 사건 → 역방향·단순 팬 리액션 제외. 통과하지 못하면 점수가 높아도 등급이 없다
+//  2) 점수(0~100) = 조회수 30(1만~1천만, 로그) + 구독자 대비 10(구독자 1천 이상만) + 사건 단어 15 + 후킹어 15 + 최신성 10 + 외국인 체험 10 + 주제 적합 10
+//     (+ 조회수 증가 속도 최대 5: 수집기가 조회수 이력을 2회 이상 기록한 영상만)
+//  3) 수동 검수(web/curation.js): 승격·강등·제외. 승격도 관문과 공식 기관 상한(최대 A)을 우회하지 않는다. 사건 확인이 필요한 영상은 '확인 대기'로 표시
+// 사건 단어는 '구체적 사건·성과'를 가리키는 강한 단어만 쓴다. 난리·화제·실화·역대급·viral 같은 약한 단어는 후킹어로 센다 (Codex 검토 반영)
+const ISSUE_W = ["논란", "controversy", "scandal", "outrage", "사건", "속보", "breaking", "폭로", "월드컵", "world cup", "올림픽", "olympic", "노벨", "nobel", "대통령", "열병식", "방산", "수출", "금메달", "gold medal", "우승", "신기록", "world record", "세계 최초", "최초", "first ever", "historic"];
+const HOOK_W = ["난리", "화제", "실화", "역대급", "viral", "trending", "충격", "경악", "놀란", "놀랐", "감동", "극찬", "찬사", "열광", "깜짝", "눈물", "멘붕", "압도", "부러워", "자부심", "레전드", "대박", "미쳤", "세계가", "전 세계", "전세계", "shocked", "amazed", "jaw", "blown away", "mind-blown", "mind blown", "can't believe", "cant believe", "unbelievable", "incredible", "obsessed", "speechless", "stunned", "envy", "jealous", "better than"];
+// 외국인의 체험·반응이 제목에 드러나는지: 외국인·관광객·반응·처음 같은 단어, 또는 외국 국적·직업(할리우드 감독 등) 표시
+// 국적 단어는 '사람' 단어와 붙어 있을 때만 근거로 인정한다 ('미국 야구 하이라이트' 같은 것은 통과시키지 않는다)
+const NAT_KO = "미국|영국|프랑스|독일|캐나다|호주|브라질|러시아|인도|베트남|태국|필리핀|터키|튀르키예|네덜란드|이탈리아|스페인|아일랜드|벨기에|폴란드|스웨덴|일본|중국|아프리카|남미|유럽";
+const PEOPLE_KO = "인|사람|가족|대가족|부부|커플|부모님|부모|할머니|할아버지|친구들|친구|여성|남성|여자|남자|여고생|학생|관광객|유튜버|셰프|감독|배우";
+const NAT_EN = "american|british|canadian|australian|french|german|indian|dutch|brazilian|russian|italian|spanish|irish|swedish|polish|turkish|vietnamese|thai|filipino|chinese|japanese";
+const PEOPLE_EN = "couple|family|parents|tourists?|girls?|guys?|men|man|women|woman|friends|kids|grandma|grandpa|mom|dad|youtuber|chef|students?|actors?|director|visitors?";
+const FOREIGN_RE = new RegExp("foreigner|tourist|expat|react|reaction|first time|my first|i tried|we tried|trying|living in|moved to|외국인|외국 ?사람|해외 ?반응|해외 ?네티즌|처음|반응|(할리우드|헐리웃|헐리우드) ?(감독|배우)|hollywood (director|actor|actors|stars?)|(" + NAT_KO + ")(" + PEOPLE_KO + ")|(" + NAT_EN + ") (" + PEOPLE_EN + ")", "i");
+const REVERSE_RE = /koreans? (shocked|react|reaction|surprised|see|try|tries|are|in|visit|visits|travel)|한국인.{0,12}(놀라|충격|반응|깜짝)|한국인(의|이) .{0,10}(미국|일본|중국|유럽|해외).{0,6}(여행|방문)/i;   // 한국인이 외국 것을 보고 놀라거나 외국에 가는 역방향
+const FANGRP = "bts|방탄|blackpink|블랙핑크|newjeans|뉴진스|aespa|에스파|stray kids|enhypen|seventeen|riize";
+const FAN_RE = new RegExp("(" + FANGRP + ").{0,30}(reaction|react|mv|music video|리액션|반응|뮤직비디오)|(reaction|react|리액션|반응).{0,15}(" + FANGRP + ")", "i");   // 단순 팬 리액션
+const OTHER_RE = /중국|china|chinese|베트남|vietnam|인도\s|india/i;   // 소재가 제3국인 영상 (한국이 함께 나오지 않으면 대상국 관문에서 제외)
+const PROMO_RE = /seoul syndrome|main film|official (mv|music video|trailer|teaser|film)|\bteaser\b|\btrailer\b|공식 (영상|티저|트레일러)/i;   // 공식 홍보 영상
+const OFFICIAL_CH_RE = /대한민국정부|visit ?seoul|visit ?korea|한국관광공사|korea\.net|kocis|문화체육관광부|서울특별시|official|공식/i;           // 정부·공식 기관 채널
+const GRADE_CUT = {S: 60, A: 50, B: 42};   // 점수 기준선 (관문을 통과한 영상의 점수 분포를 보고 정함)
+const CUR = window.CURATION || {promote: [], demote: {}, exclude: []};
+const nowMs = Date.now();
+const issueCount = t => { const m = ISSUE_W.filter(w => t.includes(w)); return m.filter(w => !m.some(o => o !== w && o.includes(w))).length; };   // '세계 최초'가 걸리면 '최초'는 세지 않는다
+function momentum(v) {   // 조회수 증가 속도(하루 증가율). 유효 관측이 2개 이상일 때만 계산, 그 외 null
+  if (!Array.isArray(v.views_history)) return null;
+  const h = v.views_history.filter(x => Array.isArray(x) && x.length === 2 && typeof x[0] === "string" && !isNaN(Date.parse(x[0])) && typeof x[1] === "number" && isFinite(x[1]) && x[1] >= 0)
+    .sort((a, b) => Date.parse(a[0]) - Date.parse(b[0]));
+  if (h.length < 2) return null;
+  const a = h[0], b = h[h.length - 1], hours = (Date.parse(b[0]) - Date.parse(a[0])) / 3600000;
+  return hours >= 6 ? ((b[1] - a[1]) / hours * 24) / Math.max(a[1], 1) : null;
+}
+function scoreAll() {   // 모든 분류(_gc, _topics, _jt ...)가 끝난 뒤에 호출한다
+V.forEach(v => {
+  const t = v.title.toLowerCase(), views = v.views || 0, why = [];
+  // 1) 관문
+  const target = ["한국", "일본", "both"].includes(v._subj);
+  const ic = issueCount(t);
+  // 외국인 체험·반응의 근거는 제목의 외국인 표시뿐이다. '비한글 채널'이나 분류된 주제는 근거가 아니다 (한국인이 운영하는 영어 채널이 섞이므로)
+  const exp = FOREIGN_RE.test(v.title);
+  const offTopic = OTHER_RE.test(v.title) && v._subj !== "한국";   // 중국 등이 소재인 영상 ('중국 사건에 대한 일본 반응' 등)
+  v._gate = target && !offTopic && !REVERSE_RE.test(v.title) && !FAN_RE.test(v.title) && (exp || ic >= 1);
+  v._type = ic >= 1 ? "사건형" : "체험형";
+  v._pending = false;
+  // 2) 점수
+  let s = 0;
+  s += Math.max(0, Math.min(30, (Math.log10(Math.max(views, 1)) - 4) / 3 * 30)); why.push("조회수 " + fmt(views));
+  if (v.subs != null && views >= 20000) { const r = views / Math.max(v.subs, 1000); s += Math.min(r / 15, 1) * 10; if (r >= 3) why.push("구독자 대비 " + r.toFixed(1) + "배" + (v.subs < 1000 ? " (구독자 1천 미만은 1천으로 보정)" : "")); }   // 구독자 결측은 1로 대체하지 않고, 극소 분모는 1천으로 보정
+  if (ic) { s += ic >= 2 ? 15 : 10; why.push("사건 단어 " + ic); }
+  const hw = HOOK_W.filter(w => t.includes(w)).length; if (hw) { s += hw >= 3 ? 15 : hw === 2 ? 12 : 8; why.push("후킹어 " + hw); }
+  v._hook = hw + ic;   // S 조건: 후킹어나 사건 단어가 하나는 있어야 한다 (조회수만 높은 일반 브이로그를 S로 올리지 않기 위해)
+  const days = v.published ? (nowMs - new Date(v.published).getTime()) / 86400000 : 999;
+  if (days <= 14) { s += 10; why.push("최근 2주"); } else if (days <= 30) { s += 7; why.push("최근 한 달"); } else if (days <= 90) s += 4;
+  if (exp) { s += 10; why.push("외국인 체험·반응"); }
+  if (v._gc.length || v._topics.length || v._jt.length) { s += 10; why.push("분류된 주제"); }
+  const mo = momentum(v); if (mo != null && mo > 0) { s += Math.min(mo / 0.05, 1) * 5; why.push("조회수 일 +" + (mo * 100).toFixed(1) + "%"); }   // 증가 가점은 0~5 (감소해도 감점하지 않음)
+  v._score = Math.max(0, Math.min(100, Math.round(s)));
+  // 3) 등급 (관문을 통과한 영상만) + 상한 + 수동 검수
+  let g = v._gate ? (v._score >= GRADE_CUT.S ? "S" : v._score >= GRADE_CUT.A ? "A" : v._score >= GRADE_CUT.B ? "B" : "") : "";
+  if (!v._gate) why.push("관문 미통과(대상국·외국인 체험/사건·역방향 여부)");
+  const official = OFFICIAL_CH_RE.test(v.channel) || PROMO_RE.test(v.title);
+  if (CUR.promote.includes(v.id) && v._gate && !official) { g = "S"; why.push("수동 검수: S 승격"); }
+  if (g === "S" && !v._hook && !CUR.promote.includes(v.id)) { g = "A"; why.push("S는 후킹어·사건 단어가 필요해 A"); }
+  if (official && g === "S") { g = "A"; why.push("공식 기관·홍보 영상은 최대 A"); }
+  if (v.id in CUR.demote) { if (g === "S") g = "A"; why.push("수동 검수: 최대 A" + (CUR.demote[v.id] === "pending" ? " (사건·성과 확인 대기)" : "")); if (CUR.demote[v.id] === "pending") v._pending = true; }
+  if (CUR.exclude.includes(v.id)) { g = ""; why.push("수동 검수: 등급 제외"); }
+  v._grade = g; v._why = why.join(" · ");
+});
+}
 // 일본 '터지는 주제' 4가지 (japan_topics_watch.py 의 TOPICS 기준을 그대로 읽어, 기존 영상까지 제목으로 같이 분류). 일본이 주제인 영상만 해당
 const JPT = Object.fromEntries(Object.entries(window.JP_TOPICS || {}).map(([n, t]) => [n, new RegExp(t.rule, "i")]));
 V.forEach(v => { v._jt = v._subj === "일본" ? Object.keys(JPT).filter(n => JPT[n].test(v.title)) : []; });
@@ -168,6 +243,7 @@ V.forEach(v => {
 });
 // 외국인 한국 여행: 한국이 주제 + 외국인 업로드 + 여행 단어. 일본인 등 다른 나라 사람이 한국을 여행하는 영상도 외국인이므로 일본어 채널도 포함한다
 V.forEach(v => { v._krTrip = v._subj === "한국" && v._up === "foreign" && hit(v.title.toLowerCase(), TRAVEL_W); });
+scoreAll();
 
 // 여러 개 동시 선택: 같은 줄 안에서는 하나라도 맞으면(OR), 줄이 다르면 모두 맞아야(AND) 보여준다. '전체'를 누르면 그 줄의 선택이 풀린다.
 function mkMulti(parent, items, sel, total, onChange) {
@@ -179,9 +255,14 @@ function mkMulti(parent, items, sel, total, onChange) {
   btns.forEach(b => b.onclick = () => { sel.has(b.dataset.k) ? sel.delete(b.dataset.k) : sel.add(b.dataset.k); sync(); onChange(); });
   sync();
 }
-const catSel = new Set(), viewSel = new Set(), upSel = new Set(), expSel = new Set(), trvSel = new Set(), jtSel = new Set(), gcSel = new Set(), giSel = new Set();
+const catSel = new Set(), viewSel = new Set(), upSel = new Set(), expSel = new Set(), trvSel = new Set(), jtSel = new Set(), gcSel = new Set(), giSel = new Set(), grdSel = new Set(), typSel = new Set();
 const nHidden = () => [...hidden].filter(x => !x.startsWith("ch:")).length;
 mkMulti(document.getElementById("ups"), [["foreign", "🌏 외국인 업로드", V.filter(v => v._up === "foreign").length], ["ref", "🧭 레퍼런스 (국내 국뽕 채널)", V.filter(v => v._up === "ref").length]], upSel, V.length, () => render());
+mkMulti(document.getElementById("grd"), [["S", "🏆 S", V.filter(v => v._grade === "S").length], ["A", "A", V.filter(v => v._grade === "A").length], ["B", "B", V.filter(v => v._grade === "B").length]], grdSel, V.length, () => render());
+{ const tips = {S: "S: 적합성 관문을 통과하고 점수가 가장 높은 소재 (개수는 결과이며 상위 몇 %로 강제하지 않아요)", A: "A: 좋은 소재. 공식 기관 채널·홍보 영상, 사건·성과 확인이 필요한 영상은 최대 A", B: "B: 참고할 만한 소재"};
+  document.querySelectorAll("#grd .chip").forEach(b => { if (tips[b.dataset.k]) b.title = tips[b.dataset.k]; }); }
+mkMulti(document.getElementById("typ"), [["사건형", "⚡ 사건형", V.filter(v => v._grade && v._type === "사건형").length], ["체험형", "🙂 체험형", V.filter(v => v._grade && v._type === "체험형").length]], typSel, V.filter(v => v._grade).length, () => render());
+document.querySelectorAll("#typ .chip").forEach(b => { b.title = b.dataset.k === "사건형" ? "사건형: 제목에 구체적 사건·이슈 단어(월드컵·열병식·논란·세계 최초 등)가 있는 소재" : "체험형: 외국인이 한국·일본을 체험하고 반응하는 상시 소재"; });
 mkMulti(document.getElementById("trv"), [["kr", "🇰🇷 외국인 한국 여행", V.filter(v => v._krTrip).length], ["jp", "🇯🇵 외국인 일본 여행", V.filter(v => v._jpTrip).length]], trvSel, V.length, () => render());
 mkMulti(document.getElementById("jts"), Object.keys(JPT).map(t => [t, t, V.filter(v => v._jt.includes(t)).length]), jtSel, V.length, () => render());
 document.querySelectorAll("#jts .chip").forEach(b => { const t = (window.JP_TOPICS || {})[b.dataset.k]; if (t) b.title = "참고 지표: " + t.info; });
@@ -222,11 +303,12 @@ function render() {
     && (!catFns.length || (withSubs(v) && catFns.some(fn => fn(v))))
     && (!ctry.length || ctry.includes(v._subj))
     && (giSel.size ? [...giSel].some(k => v._gi.includes(k)) : (!gcSel.size || [...gcSel].some(k => v._gc.includes(k))))
+    && (!grdSel.size || grdSel.has(v._grade)) && (!typSel.size || (v._grade && typSel.has(v._type)))
     && (!jtSel.size || [...jtSel].some(k => v._jt.includes(k)))
     && (!trvSel.size || (trvSel.has("kr") && v._krTrip) || (trvSel.has("jp") && v._jpTrip))
     && (!viewSel.has("other") || v.section === "other") && (!viewSel.has("viral") || v.viral) && (!viewSel.has("fav") || favs.has(v.id)) && (!viewSel.has("memo") || memos[v.id])
     && (!q || (v.title + " " + v.channel + " " + (memos[v.id] || "")).toLowerCase().includes(q)));
-  const val = v => sort === "views" ? v.views : sort === "ratio" ? ratio(v) : sort === "subs" ? (v.subs ?? -1) : sort === "length" ? (v.duration_sec ?? -1)
+  const val = v => sort === "score" ? (v._score ?? 0) : sort === "views" ? v.views : sort === "ratio" ? ratio(v) : sort === "subs" ? (v.subs ?? -1) : sort === "length" ? (v.duration_sec ?? -1)
     : sort === "pub" ? v.published : v.first_seen + v.published;
   const dir = document.getElementById("dir").value === "asc" ? -1 : 1;
   const unknown = v => (sort === "length" && v.duration_sec == null) || (sort === "subs" && v.subs == null);   // 값을 모르는 영상은 방향과 상관없이 맨 뒤
@@ -239,7 +321,7 @@ function render() {
       `<button class="fav ${favs.has(v.id) ? "on" : ""}" title="저장">${favs.has(v.id) ? "★" : "☆"}</button>` +
       `<div class="th"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/mqdefault.jpg"><div class="play">▶</div></div>` +
       `<div class="body"><a class="t" target="_blank" rel="noopener" href="https://youtu.be/${v.id}"></a><div class="m"></div>` +
-      `<div class="tags"><span class="tag">${v._subj === "한국" ? "🇰🇷 한국" : v._subj === "일본" ? "🇯🇵 일본" : "🔁 한일"}${v.section === "other" ? " · 지방" : ""}</span>${v._jpTrip ? '<span class="tag">🧳 일본 여행</span>' : ""}${v._krTrip ? '<span class="tag">🧳 한국 여행</span>' : ""}${[...v._gc].sort((a, b) => gcSel.has(b) - gcSel.has(a)).slice(0, 1).map(t => `<span class="tag">${t}</span>`).join("")}${[...v._jt].sort((a, b) => jtSel.has(b) - jtSel.has(a)).slice(0, 2).map(t => `<span class="tag hot">${t}</span>`).join("")}<span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${v.length ? `<span class="tag">⏱ ${v.length}${v.is_short === true ? " · 숏폼" : ""}</span>` : ""}${v.viral ? `<span class="tag hot">🔥 ${v.buzz ? "이슈 " : ""}화제</span>` : ""}${v._topics.slice(0, 2).map(t => `<span class="tag">${t}</span>`).join("")}${isHot(v) ? '<span class="tag hot">📈 급상승</span>' : ""}</div>` +
+      `<div class="tags">${v._grade ? `<span class="tag grade-${v._grade}" title="${v._why}">🏆 ${v._grade} · ${v._type}${v._pending ? " · ⏳ 확인 대기" : ""}</span>` : ""}<span class="tag">${v._subj === "한국" ? "🇰🇷 한국" : v._subj === "일본" ? "🇯🇵 일본" : "🔁 한일"}${v.section === "other" ? " · 지방" : ""}</span>${v._jpTrip ? '<span class="tag">🧳 일본 여행</span>' : ""}${v._krTrip ? '<span class="tag">🧳 한국 여행</span>' : ""}${[...v._gc].sort((a, b) => gcSel.has(b) - gcSel.has(a)).slice(0, 1).map(t => `<span class="tag">${t}</span>`).join("")}${[...v._jt].sort((a, b) => jtSel.has(b) - jtSel.has(a)).slice(0, 2).map(t => `<span class="tag hot">${t}</span>`).join("")}<span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${v.length ? `<span class="tag">⏱ ${v.length}${v.is_short === true ? " · 숏폼" : ""}</span>` : ""}${v.viral ? `<span class="tag hot">🔥 ${v.buzz ? "이슈 " : ""}화제</span>` : ""}${v._topics.slice(0, 2).map(t => `<span class="tag">${t}</span>`).join("")}${isHot(v) ? '<span class="tag hot">📈 급상승</span>' : ""}</div>` +
       `<div class="act"><button class="btn dn ${done.has(v.id) ? "on" : ""}">${done.has(v.id) ? "✅ 사용 완료" : "☐ 사용 완료"}</button><button class="btn memo ${memos[v.id] ? "on" : ""}">📝 메모</button><button class="btn hd" title="이 영상만 안 보이게 (같은 채널의 다른 영상은 계속 나와요)">${hidden.has(v.id) ? "↩ 복구" : "🗑 숨김"}</button></div>` +
       `<textarea hidden placeholder="메모 (어디에 쓸지, 번역 메모 등)"></textarea></div>`;
     c.querySelector(".t").textContent = v.title;
