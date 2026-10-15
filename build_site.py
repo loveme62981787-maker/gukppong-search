@@ -73,7 +73,8 @@ def merge_items(vids, found, today):
     for it in found:
         old = vids.get(it["id"])
         if old is not None:
-            if valid_views(it.get("views")):
+            # 구형 호출은 호환하되, 새 수집에서 관측 실패로 표시한 0은 저장값을 지우지 않는다.
+            if valid_views(it.get("views")) and ("observed_at" not in it or valid_timestamp(it["observed_at"]) is not None):
                 old["views"] = it["views"]
             if it.get("subs") is not None:
                 old["subs"] = it["subs"]

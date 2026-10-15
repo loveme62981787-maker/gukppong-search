@@ -28,6 +28,15 @@ class ObservationValidationTests(unittest.TestCase):
             item = build_site.to_item(row, '한국', 'recent', datetime.now(build_site.KST))
             self.assertEqual(item['observed_at'] is not None, known)
             self.assertEqual(len(item['views_history']), 1 if known else 0)
+            previous = '2026-10-14T00:00:00Z'
+            saved = dict(row, views=5000, observed_at=previous, views_history=[[previous, 5000]])
+            build_site.merge_items({'video': saved}, [item], '2026-10-15')
+            self.assertEqual(saved['views'], row['views'] if known else 5000)
+            self.assertEqual(len(saved['views_history']), 2 if known else 1)
+
+    def test_duplicate_timestamp_preserves_first_value(self):
+        stamp = '2026-10-15T00:00:00Z'
+        self.assertEqual(build_site.merge_history([[stamp, 5000]], stamp, 0), [[stamp, 5000]])
 
     def test_bad_incoming_timestamp_does_not_replace_valid(self):
         stamp = '2026-10-15T00:00:00Z'

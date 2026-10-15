@@ -138,7 +138,7 @@ def search(query, window_days, any_time=False):
     else:
         sp = "CAISBAgDEAE%3D" if window_days <= 7 else "CAISBAgEEAE%3D"
     d = initial_data(get("https://www.youtube.com/results?search_query=" + urllib.parse.quote(query) + "&sp=" + sp))
-    observed_at = datetime.now(timezone.utc).isoformat()
+    observed_at = datetime.now(timezone.utc).isoformat()  # 검색 페이지 단위 실제 관측 시각
     out = []
 
     def f(o):
