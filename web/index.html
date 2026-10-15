@@ -81,6 +81,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
   <div class="qg"><b>🏆 등급</b><span id="grd" style="display:contents"></span></div>
   <div class="qg"><b>유형</b><span id="typ" style="display:contents"></span></div>
   <div class="qg"><b>나라</b><span id="cty" style="display:contents"></span></div>
+  <div class="qg"><b>길이</b><select id="lenmode" title="기본은 숏폼(180초 이하)을 뺀 목록이에요. 길이를 모르는 영상은 기본에서도 보여요."><option value="default">기본 (숏폼 제외)</option><option value="all">전체</option><option value="long">롱폼만 (181초+)</option><option value="short">숏폼만 (180초 이하)</option><option value="unk">길이 미확인만</option></select></div>
 </div>
 <details class="sub note vmode"><summary>🏆 등급은 <b>잠정 검수</b>예요 (제목·조회수 기준) — 눌러서 자세히</summary>클릭률 예측이 아니라 조회수·화제성 기준이에요. 제목·조회수만 봤고 영상 내용·출처는 직접 확인하지 않았어요. 칩에 마우스를 올리면 설명, 카드의 등급 배지에 올리면 점수 근거가 보여요.</details>
 <div class="active vmode" id="active"></div>
@@ -122,39 +123,31 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script src="global_topics.js" onerror="window.GLOBAL_ITEMS=[]; window.GLOBAL_TOPICS=[]"></script>
 <script src="curation.js" onerror="window.CURATION={promote:[],demote:{},exclude:[]}"></script>
 <script>
-// 일반 수집 영상 + 화제 영상(오래된 영상 포함). 겹치는 영상은 화제 표시와 길이만 합친다
+// 일반 수집 영상 + 화제·체험·일본 주제·글로벌 영상. 겹치는 영상은 표시와 길이만 합친다
 const V = (window.VIDEOS || []).slice();
-// 길이: 문자열 "1:02:03" 과 초(duration_sec)를 항상 함께 맞춘다. 값이 없으면 null (미확인), 빈 값으로 기존 값을 덮지 않는다
+const LONG_MIN_SEC = 181;   // 롱폼 최소 길이(초). 180초 이하는 숏폼. discover.ini 의 longform_min_sec 기본값과 같은 값 (근거: docs/collab/2026-10-15-shorts-handling.md)
 const toSec = s => { const m = /^(\d+):([0-5]\d)(?::([0-5]\d))?$/.exec((s || "").trim()); return m ? (m[3] === undefined ? +m[1] * 60 + +m[2] : +m[1] * 3600 + +m[2] * 60 + +m[3]) : null; };
-(window.VIRAL || []).forEach(x => {
-  const o = V.find(v => v.id === x.id);
-  const sec = toSec(x.length);   // 유효한 길이만 채택 (공백·오류 값은 무시)
-  if (o) {
-    Object.assign(o, {viral: true, buzz: x.buzz, age_text: x.age_text});
-    if (sec != null) { o.length = x.length.trim(); o.duration_sec = sec; }   // 문자열과 초는 항상 함께 갱신
-  } else {
-    x.length = sec != null ? x.length.trim() : null; x.duration_sec = sec; V.push(x);
-  }
-});
-// 체험 영상(야구장·한복·찜질방 ...): 같은 영상이면 체험 표시와 길이만 합치고, 새 영상은 추가한다
-(window.EXPERIENCE || []).forEach(x => {
-  const o = V.find(v => v.id === x.id), sec = toSec(x.length);
-  if (o) { o.exp = true; if (sec != null) { o.length = x.length.trim(); o.duration_sec = sec; } }
-  else { x.length = sec != null ? x.length.trim() : null; x.duration_sec = sec; V.push(x); }
-});
-// 일본 주제 영상: 같은 영상이면 길이만 합치고, 새 영상은 추가한다
-(window.JP_TOPIC_ITEMS || []).forEach(x => {
-  const o = V.find(v => v.id === x.id), sec = toSec(x.length);
-  if (o) { if (sec != null) { o.length = x.length.trim(); o.duration_sec = sec; } }
-  else { x.length = sec != null ? x.length.trim() : null; x.duration_sec = sec; V.push(x); }
-});
-// 글로벌 콘텐츠(외국인이 겪는 한국) 영상: 같은 영상이면 길이만 합치고, 새 영상은 추가한다
-(window.GLOBAL_ITEMS || []).forEach(x => {
-  const o = V.find(v => v.id === x.id), sec = toSec(x.length);
-  if (o) { if (sec != null) { o.length = x.length.trim(); o.duration_sec = sec; } }
-  else { x.length = sec != null ? x.length.trim() : null; x.duration_sec = sec; V.push(x); }
-});
-V.forEach(v => { if (v.duration_sec == null) v.duration_sec = toSec(v.length); });
+const validSec = n => typeof n === "number" && isFinite(n) && n >= 0;
+const fmtSec = s => { const h = Math.floor(s / 3600), m = Math.floor(s % 3600 / 60), c = s % 60; return h ? `${h}:${String(m).padStart(2, "0")}:${String(c).padStart(2, "0")}` : `${m}:${String(c).padStart(2, "0")}`; };
+// 길이 정규화 (모든 병합 경로 공통): 유효한 duration_sec(초) 우선, 없으면 length 문자열 파싱, 둘 다 없으면 null(미확인).
+// 문자열은 초와 일치하면 보존하고, 없거나 어긋나면 초에서 만든다. 판정(숏폼/롱폼)·배지·정렬·등급이 모두 이 값을 쓴다.
+function normLen(x) {
+  const sec = validSec(x.duration_sec) ? Math.floor(x.duration_sec) : toSec(x.length);
+  if (sec == null) return {sec: null, text: null};
+  const own = typeof x.length === "string" ? x.length.trim() : "";
+  return {sec, text: toSec(own) === sec ? own : fmtSec(sec)};
+}
+function absorb(x, mark) {   // 같은 영상이면 표시와 길이만 합치고(유효한 기존 길이를 null 로 덮지 않음), 새 영상이면 추가한다
+  const o = V.find(v => v.id === x.id), n = normLen(x);
+  if (o) { if (mark) Object.assign(o, mark); if (n.sec != null) { o.duration_sec = n.sec; o.length = n.text; } }
+  else { x.duration_sec = n.sec; x.length = n.text; V.push(x); }
+}
+(window.VIRAL || []).forEach(x => absorb(x, {viral: true, buzz: x.buzz, age_text: x.age_text}));   // 화제 영상(오래된 영상 포함)
+(window.EXPERIENCE || []).forEach(x => absorb(x, {exp: true}));                                    // 체험 영상(야구장·한복·찜질방 ...)
+(window.JP_TOPIC_ITEMS || []).forEach(x => absorb(x));                                             // 일본 '터지는 주제'
+(window.GLOBAL_ITEMS || []).forEach(x => absorb(x));                                               // 글로벌 콘텐츠(외국인이 겪는 한국)
+// 길이 형태: 미확인(unk) / 숏폼(short, 181초 미만) / 롱폼(long). is_short 필드와 충돌해도 길이 기준을 따른다
+V.forEach(v => { const n = normLen(v); v.duration_sec = n.sec; v.length = n.text; v._form = n.sec == null ? "unk" : n.sec >= LONG_MIN_SEC ? "long" : "short"; });
 // 체험 종류는 수집기(experience_watch.py)의 TOPICS 기준으로, 기존 영상까지 제목·채널명으로 같이 판별한다
 const EXPT = window.EXP_TOPICS || {};
 V.forEach(v => { const t = (v.title + " " + v.channel).toLowerCase(); v._topics = Object.keys(EXPT).filter(n => EXPT[n].some(w => t.includes(w))); });
@@ -216,7 +209,6 @@ const FAN_RE = new RegExp("(" + FANGRP + ").{0,30}(reaction|react|mv|music video
 const OTHER_RE = /중국|china|chinese|베트남|vietnam|인도\s|india/i;   // 소재가 제3국인 영상 (한국이 함께 나오지 않으면 대상국 관문에서 제외)
 const PROMO_RE = /seoul syndrome|main film|official (mv|music video|trailer|teaser|film)|\bteaser\b|\btrailer\b|공식 (영상|티저|트레일러)/i;   // 공식 홍보 영상
 const OFFICIAL_CH_RE = /대한민국정부|visit ?seoul|visit ?korea|한국관광공사|korea\.net|kocis|문화체육관광부|서울특별시|official|공식/i;           // 정부·공식 기관 채널
-const LONG_MIN_SEC = 181;   // 롱폼 최소 길이 (discover.ini 의 longform_min_sec 기본값과 같은 값)
 const GRADE_CUT = {S: 60, A: 50, B: 42};   // 점수 기준선 (관문을 통과한 영상의 점수 분포를 보고 정함)
 const CUR = window.CURATION || {promote: [], demote: {}, exclude: []};
 const nowMs = Date.now();
@@ -359,26 +351,36 @@ const liveGroups = () => MULTIS.filter(m => !m.parent.closest("#chview"));   // 
 function clearFilters() {   // 필터와 검색만 해제한다. 저장·메모·사용 완료·숨김 '데이터'는 그대로 둔다 (내 작업 칩의 선택만 풀린다)
   liveGroups().forEach(m => { m.keys.forEach(k => m.sel.delete(k)); m.sync(); });
   document.getElementById("q").value = "";
+  document.getElementById("lenmode").value = "default";   // 길이도 기본(숏폼 제외)으로 되돌린다
   render();
 }
-function updateUI(shown) {
+const LEN_LABEL = {all: "길이: 전체", long: "길이: 롱폼만", short: "길이: 숏폼만", unk: "길이: 미확인만"};
+function updateUI(shown, info) {
   const pills = []; const tabCount = {};
   liveGroups().forEach(m => m.keys.filter(k => m.sel.has(k)).forEach(k => {
     pills.push({label: chipLabel(m, k), m, k});
     const p = m.parent.closest(".fpanel"); if (p) tabCount[p.dataset.g] = (tabCount[p.dataset.g] || 0) + 1;   // 접힌 탭에 든 선택은 탭 배지로도 표시
   }));
-  const qv = document.getElementById("q").value.trim();
+  const qv = document.getElementById("q").value.trim(), lm = info.lm;
   activeEl.innerHTML = "";
-  if (pills.length || qv) {
+  if (pills.length || qv || lm !== "default") {
     const lab = document.createElement("span"); lab.textContent = "선택한 필터"; lab.style.color = "var(--mute)"; activeEl.append(lab);
     if (qv) { const p = document.createElement("span"); p.className = "pill"; p.append("검색: " + qv); const x = document.createElement("button"); x.textContent = "×"; x.title = "검색어 지우기";
       x.onclick = () => { document.getElementById("q").value = ""; render(); }; p.append(x); activeEl.append(p); }
+    if (lm !== "default") {   // 길이를 기본이 아닌 값으로 바꾸면 제거 가능한 칩으로 표시한다 (기본 모드는 칩을 늘리지 않는다)
+      const p = document.createElement("span"); p.className = "pill"; p.append(LEN_LABEL[lm]); const x = document.createElement("button"); x.textContent = "×"; x.title = "길이 조건을 기본(숏폼 제외)으로";
+      x.onclick = () => { document.getElementById("lenmode").value = "default"; render(); }; p.append(x); activeEl.append(p);
+    }
     pills.forEach(({label, m, k}) => { const p = document.createElement("span"); p.className = "pill"; p.append(label); const x = document.createElement("button"); x.textContent = "×"; x.title = "이 필터 해제";
       x.onclick = () => { m.sel.delete(k); m.sync(); render(); }; p.append(x); activeEl.append(p); });
     const c = document.createElement("button"); c.className = "clearall"; c.textContent = "전체 초기화"; c.title = "필터와 검색어를 모두 해제해요 (저장·메모·사용 완료 데이터는 그대로예요)"; c.onclick = clearFilters; activeEl.append(c);
   }
   ftabsEl.querySelectorAll(".ftab").forEach(b => { const n = tabCount[b.dataset.g] || 0, s = b.querySelector(".cnt"); s.textContent = n; s.hidden = !n; });
-  resultEl.textContent = `${shown.toLocaleString()}개 표시` + (pills.length || qv ? ` (전체 ${V.length.toLocaleString()}개 중, 필터 적용 중)` : ` · 전체 ${V.length.toLocaleString()}개`);
+  resultEl.textContent = `${shown.toLocaleString()}개 표시` + (pills.length || qv || lm !== "default" ? ` (전체 ${V.length.toLocaleString()}개 중, 필터 적용 중)` : ` · 전체 ${V.length.toLocaleString()}개`);
+  if (info.lenExcluded > 0) {   // 길이 때문에 빠진 영상 수 = 다른 조건을 통과한 영상 중 숏폼. 내 작업 필터로 제한이 풀렸으면 표시하지 않는다
+    resultEl.append(` · 숏폼 ${info.lenExcluded.toLocaleString()}개 제외 중 `);
+    const bt = document.createElement("button"); bt.className = "clearall"; bt.textContent = "길이: 전체로 보기"; bt.onclick = () => { document.getElementById("lenmode").value = "all"; render(); }; resultEl.append(bt);
+  }
 }
 
 function render() {
@@ -388,8 +390,13 @@ function render() {
   const hc = document.querySelector('#mine [data-k="hidden"] small'); if (hc) hc.textContent = nHidden();
   const dc = document.querySelector('#mine [data-k="done"] small'); if (dc) dc.textContent = done.size;
   const sh = viewSel.has("hidden"), sd = viewSel.has("done");
+  // 길이 필터(단일 선택): 기본은 숏폼만 제외(길이 미확인은 유지). 내 작업 필터(저장·메모·사용 완료·숨김)를 고르면 기본 제한을 풀어 내가 저장한 숏폼이 사라지지 않게 한다. 직접 고른 값이 우선
+  const lm = document.getElementById("lenmode").value;
+  const mineSel = ["fav", "memo", "done", "hidden"].some(k => viewSel.has(k));
+  const eff = lm === "default" ? (mineSel ? "all" : "default") : lm;
+  const lenOK = v => eff === "all" || (eff === "default" ? v._form !== "short" : eff === "long" ? v._form === "long" : eff === "short" ? v._form === "short" : v._form === "unk");
   // 숨김·사용 완료 영상은 기본 목록에서 빠지고, 각각의 보기에서만 나온다 (같은 채널의 다른 영상은 그대로)
-  let a = V.filter(v => ((!sh && !sd) ? !hidden.has(v.id) && !done.has(v.id) : (sh && hidden.has(v.id)) || (sd && done.has(v.id)))
+  const pass = v => ((!sh && !sd) ? !hidden.has(v.id) && !done.has(v.id) : (sh && hidden.has(v.id)) || (sd && done.has(v.id)))
     && (!upSel.size || upSel.has(v._up))
     && (!expSel.size || [...expSel].some(k => k === "_any" ? v._topics.length : v._topics.includes(k)))
     && (!catFns.length || (withSubs(v) && catFns.some(fn => fn(v))))
@@ -399,22 +406,34 @@ function render() {
     && (!jtSel.size || [...jtSel].some(k => v._jt.includes(k)))
     && (!trvSel.size || (trvSel.has("kr") && v._krTrip) || (trvSel.has("jp") && v._jpTrip))
     && (!viewSel.has("other") || v.section === "other") && (!viewSel.has("viral") || v.viral) && (!viewSel.has("fav") || favs.has(v.id)) && (!viewSel.has("memo") || memos[v.id]) && (!viewSel.has("new") || isNew(v))
-    && (!q || (v.title + " " + v.channel + " " + (memos[v.id] || "")).toLowerCase().includes(q)));
+    && (!q || (v.title + " " + v.channel + " " + (memos[v.id] || "")).toLowerCase().includes(q));
+  const a0 = V.filter(pass), a = a0.filter(lenOK);   // a0: 길이 말고 다른 조건을 모두 통과한 영상 (길이 때문에 빠진 수를 세기 위해 따로 둔다)
+  const lenExcluded = eff === "default" ? a0.length - a.length : 0;
   const val = v => sort === "score" ? (v._score ?? 0) : sort === "views" ? v.views : sort === "ratio" ? ratio(v) : sort === "subs" ? (v.subs ?? -1) : sort === "length" ? (v.duration_sec ?? -1)
     : sort === "pub" ? v.published : v.first_seen + v.published;
   const dir = document.getElementById("dir").value === "asc" ? -1 : 1;
   const unknown = v => (sort === "length" && v.duration_sec == null) || ((sort === "subs" || sort === "ratio") && v.subs == null);   // 값을 모르는 영상은 방향과 상관없이 맨 뒤
   a.sort((x, y) => { if (unknown(x) || unknown(y)) return unknown(x) - unknown(y); const p = val(x), q2 = val(y); return dir * (typeof p === "string" ? q2.localeCompare(p) : q2 - p); });
-  updateUI(a.length);
+  updateUI(a.length, {lenExcluded, lm});
   const g = document.getElementById("grid"); g.innerHTML = "";
-  if (!a.length) g.innerHTML = '<div class="empty">조건에 맞는 영상이 없어요. 위의 선택한 필터에서 하나씩 해제해 보세요.</div>';
+  if (!a.length) {
+    const box = document.createElement("div"); box.className = "empty";
+    // 0건 안내는 길이 조건과 등급·유형 조건이 실제로 충돌할 때만 원인을 말한다 (숏폼·길이 미확인은 등급을 받지 않음). 해제는 '전체'로 바꿀 뿐 결과가 생긴다고 약속하지 않는다
+    // 충돌 조건 (Codex 검토 반영): 숏폼은 등급 칩(길이 확인 필요 포함)·유형을 하나라도 고르면 항상 0건. 미확인은 유형을 고르거나, 등급 S/A/B 를 '길이 확인 필요' 없이 고를 때만 0건(등급 칩은 OR 이라 '길이 확인 필요'가 같이 있으면 통과)
+    const shortConflict = lm === "short" && (grdSel.size > 0 || typSel.size > 0);
+    const unkConflict = lm === "unk" && (typSel.size > 0 || (["S", "A", "B"].some(k => grdSel.has(k)) && !grdSel.has("len")));
+    const why = shortConflict ? "숏폼(180초 이하)은 등급을 받지 않아요. 등급은 181초 이상 영상에만 붙어요." : unkConflict ? "길이를 모르는 영상은 아직 등급을 판정하지 못해요." : "";
+    box.append((why ? why + " " : "") + "조건에 맞는 영상이 없어요. 위의 선택한 필터에서 하나씩 해제해 보세요.");
+    if (why) { box.append(document.createElement("br")); const bt = document.createElement("button"); bt.className = "chip"; bt.textContent = "길이 조건을 '전체'로"; bt.onclick = () => { document.getElementById("lenmode").value = "all"; render(); }; box.append(bt); }
+    g.append(box);
+  }
   a.forEach(v => {
     const c = document.createElement("div"); c.className = "card" + (done.has(v.id) ? " done" : "");
     c.innerHTML = (isNew(v) ? '<span class="new">NEW</span>' : "") +
       `<button class="fav ${favs.has(v.id) ? "on" : ""}" title="저장">${favs.has(v.id) ? "★" : "☆"}</button>` +
       `<div class="th"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/mqdefault.jpg"><div class="play">▶</div></div>` +
       `<div class="body"><a class="t" target="_blank" rel="noopener" href="https://youtu.be/${v.id}"></a><div class="m"></div>` +
-      `<div class="tags">${v._grade ? `<span class="tag grade-${v._grade}" title="잠정(제목·조회수 기준) · ${v._why}">🏆 ${v._grade} · ${v._type}${v._pending ? " · ⏳ 확인 대기" : ""}</span>` : ""}<span class="tag">${v._subj === "한국" ? "🇰🇷 한국" : v._subj === "일본" ? "🇯🇵 일본" : "🔁 한일"}${v.section === "other" ? " · 지방" : ""}</span>${v._jpTrip ? '<span class="tag">🧳 일본 여행</span>' : ""}${v._krTrip ? '<span class="tag">🧳 한국 여행</span>' : ""}${[...v._gc].sort((a, b) => gcSel.has(b) - gcSel.has(a)).slice(0, 1).map(t => `<span class="tag">${t}</span>`).join("")}${[...v._jt].sort((a, b) => jtSel.has(b) - jtSel.has(a)).slice(0, 2).map(t => `<span class="tag hot">${t}</span>`).join("")}<span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${v.length ? `<span class="tag">⏱ ${v.length}${v.is_short === true ? " · 숏폼" : ""}</span>` : ""}${v.viral ? `<span class="tag hot">🔥 ${v.buzz ? "이슈 " : ""}화제</span>` : ""}${v._topics.slice(0, 2).map(t => `<span class="tag">${t}</span>`).join("")}${isHot(v) ? '<span class="tag hot" title="평생 조회수 ÷ 구독자 비율이 높음 (증가 속도가 아님)">📈 구독자 대비 높음</span>' : ""}${v._pendingLen ? '<span class="tag" title="길이를 확인하면 등급을 판정해요">⏱ 길이 확인 필요</span>' : ""}</div>` +
+      `<div class="tags">${v._grade ? `<span class="tag grade-${v._grade}" title="잠정(제목·조회수 기준) · ${v._why}">🏆 ${v._grade} · ${v._type}${v._pending ? " · ⏳ 확인 대기" : ""}</span>` : ""}<span class="tag">${v._subj === "한국" ? "🇰🇷 한국" : v._subj === "일본" ? "🇯🇵 일본" : "🔁 한일"}${v.section === "other" ? " · 지방" : ""}</span>${v._jpTrip ? '<span class="tag">🧳 일본 여행</span>' : ""}${v._krTrip ? '<span class="tag">🧳 한국 여행</span>' : ""}${[...v._gc].sort((a, b) => gcSel.has(b) - gcSel.has(a)).slice(0, 1).map(t => `<span class="tag">${t}</span>`).join("")}${[...v._jt].sort((a, b) => jtSel.has(b) - jtSel.has(a)).slice(0, 2).map(t => `<span class="tag hot">${t}</span>`).join("")}<span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${v.length ? `<span class="tag">⏱ ${v.length}${v._form === "short" ? " · 숏폼" : ""}</span>` : ""}${v.viral ? `<span class="tag hot">🔥 ${v.buzz ? "이슈 " : ""}화제</span>` : ""}${v._topics.slice(0, 2).map(t => `<span class="tag">${t}</span>`).join("")}${isHot(v) ? '<span class="tag hot" title="평생 조회수 ÷ 구독자 비율이 높음 (증가 속도가 아님)">📈 구독자 대비 높음</span>' : ""}${v._pendingLen ? '<span class="tag" title="길이를 확인하면 등급을 판정해요">⏱ 길이 확인 필요</span>' : ""}</div>` +
       `<div class="act"><button class="btn dn ${done.has(v.id) ? "on" : ""}">${done.has(v.id) ? "✅ 사용 완료" : "☐ 사용 완료"}</button><button class="btn memo ${memos[v.id] ? "on" : ""}">📝 메모</button><button class="btn hd" title="이 영상만 안 보이게 (같은 채널의 다른 영상은 계속 나와요)">${hidden.has(v.id) ? "↩ 복구" : "🗑 숨김"}</button></div>` +
       `<textarea hidden placeholder="메모 (어디에 쓸지, 번역 메모 등)"></textarea></div>`;
     c.querySelector(".t").textContent = v.title;
@@ -472,7 +491,7 @@ function setMode(ch) {
   if (ch) renderCh();
 }
 document.getElementById("mv").onclick = () => setMode(false); document.getElementById("mc").onclick = () => setMode(true);
-["q", "sort", "dir"].forEach(i => document.getElementById(i).addEventListener("input", render));
+["q", "sort", "dir", "lenmode"].forEach(i => document.getElementById(i).addEventListener("input", render));
 document.getElementById("exp").onclick = () => {
   const blob = new Blob([JSON.stringify({favs: [...favs], done: [...done], hidden: [...hidden], memos}, null, 1)], {type: "application/json"});
   const a = document.createElement("a"); a.href = URL.createObjectURL(blob); a.download = "gukppong-backup.json"; a.click();
