@@ -34,7 +34,21 @@ input{flex:1;min-width:140px}
 textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 [hidden]{display:none!important}
 .grade-S{background:#ffe08a!important;color:#6b4200!important;font-weight:700}.grade-A{background:#dbe7ff!important;color:#1e3a8a!important;font-weight:600}.grade-B{background:#ececec!important;color:#555!important}
-.gdetails{max-width:1200px;margin:0 auto 6px;padding:0 16px;font-size:13px}.gdetails summary{cursor:pointer;color:var(--mute)}
+.gdetails{margin:6px 0;font-size:13px}.gdetails summary{cursor:pointer;color:var(--mute)}
+/* 필터 정리: 자주 쓰는 것만 위에 두고 나머지는 탭으로 접는다 */
+.quick{max-width:1200px;margin:8px auto 0;padding:0 16px;display:flex;flex-wrap:wrap;gap:8px 20px;align-items:center}
+.qg{display:flex;flex-wrap:wrap;gap:6px;align-items:center}.qg>b{font-size:12px;color:var(--mute);font-weight:600}
+.note{max-width:1200px;margin:6px auto 0;padding:0 16px}.note summary{cursor:pointer}
+.active{max-width:1200px;margin:8px auto 0;padding:0 16px;display:flex;flex-wrap:wrap;gap:6px;align-items:center;font-size:12px}.active:empty{display:none}
+.pill{display:inline-flex;align-items:center;gap:4px;background:var(--acc);color:#fff;border-radius:99px;padding:3px 4px 3px 10px;font-size:12px}
+.pill button{border:0;background:#fff3;color:#fff;border-radius:99px;width:18px;height:18px;cursor:pointer;line-height:1;padding:0}
+.clearall{border:1px solid var(--line);background:var(--card);color:var(--mute);border-radius:99px;padding:3px 10px;font:inherit;font-size:12px;cursor:pointer}
+.ftabs{max-width:1200px;margin:10px auto 0;padding:0 16px;display:flex;flex-wrap:wrap;gap:6px}
+.ftab.open{border-color:var(--acc);color:var(--acc);font-weight:700}.ftab .cnt{background:var(--acc);color:#fff;border-radius:99px;padding:0 7px;font-size:11px;margin-left:6px}
+.fpanel{max-width:1168px;margin:8px auto 0;padding:6px 14px 10px;border:1px solid var(--line);border-radius:12px;background:var(--card)}
+.fpanel .bar{margin:8px 0;padding:0;max-width:none}
+.result{max-width:1200px;margin:12px auto 0;padding:0 16px;font-size:13px;color:var(--mute)}
+@media(max-width:600px){.quick{gap:6px 12px}.fpanel{margin-left:16px;margin-right:16px}}
 .gi-group{margin:8px 0;display:flex;flex-wrap:wrap;gap:6px;align-items:center}.gi-group b{width:100%;font-size:12px;color:var(--mute)}
 .ch{padding:14px;gap:8px}.ch h3{margin:0;font-size:16px}.ch h3 a{color:var(--ink);text-decoration:none}
 .thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.thumbs a{position:relative;aspect-ratio:16/9;display:block;background:#000;border-radius:6px;overflow:hidden}
@@ -58,20 +72,42 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
   <div class="sub" style="max-width:1200px;margin:0 auto;padding:0 16px" id="cinfo"></div>
   <div class="grid" id="cgrid"></div>
 </div>
-<div class="bar vmode"><span class="lbl">업로더 (여러 개 선택 가능)</span><span id="ups" style="display:contents"></span></div>
-<div class="bar vmode"><span class="lbl">🏆 소재 검토 우선순위 — 클릭률 예측이 아니라 조회수·화제성 기준이고, 제목·조회수만 본 <b>잠정 검수</b>예요 (영상 내용·출처는 직접 확인하지 않았어요. 칩에 마우스를 올리면 설명, 카드 배지에 올리면 점수 근거)</span><span id="grd" style="display:contents"></span></div>
-<div class="bar vmode"><span class="lbl">🏆 소재 유형 (등급이 있는 영상 중에서)</span><span id="typ" style="display:contents"></span></div>
-<div class="bar vmode"><span class="lbl">🧳 외국인 여행 (여러 개 선택 가능)</span><span id="trv" style="display:contents"></span></div>
-<div class="bar vmode"><span class="lbl">🇰🇷 외국인이 겪는 한국 · 글로벌 콘텐츠 12개 갈래 (여러 개 선택 가능 · 칩에 마우스를 올리면 설명)</span><span id="gts" style="display:contents"></span></div>
-<details class="vmode gdetails"><summary>세부 꼭지 140개 펼치기 (고르면 갈래보다 우선 적용)</summary><button class="chip" id="gclear" style="margin:6px 0">꼭지 선택 모두 해제</button><div id="gitems"></div></details>
-<div class="bar vmode"><span class="lbl">🇯🇵 일본 · 아직 비어 있는데 터지는 주제 (여러 개 선택 가능 · 칩에 마우스를 올리면 참고 지표)</span><span id="jts" style="display:contents"></span></div>
-<div class="bar vmode"><span class="lbl">🎟 외국인 체험 (여러 개 선택 가능)</span><span id="exps" style="display:contents"></span></div>
-<div class="bar vmode"><span class="lbl">분류 (여러 개 선택 가능)</span><span id="cats" style="display:contents"></span></div>
-<div class="bar vmode"><span class="lbl">보기 (여러 개 선택 가능 · 나라는 둘 중 하나, 나머지는 모두 만족)</span><span id="chips" style="display:contents"></span></div>
+<!-- 위에서 아래로: 검색·정렬 → 자주 쓰는 필터(등급·유형·나라) → 선택한 필터 요약 → 접힌 세부 필터 탭 → 결과 수 → 카드 -->
 <div class="bar vmode">
   <input id="q" placeholder="제목·채널·메모 검색">
   <select id="sort"><option value="new">새로 들어온 순</option><option value="pub">업로드 최신순</option><option value="views">조회수순</option><option value="ratio">구독자 대비 조회수순</option><option value="score">🏆 검토 우선순위(점수)순</option><option value="subs">구독자순</option><option value="length">영상 길이순</option></select>
   <select id="dir"><option value="desc">내림차순 (큰 것부터)</option><option value="asc">오름차순 (작은 것부터)</option></select></div>
+<div class="quick vmode">
+  <div class="qg"><b>🏆 등급</b><span id="grd" style="display:contents"></span></div>
+  <div class="qg"><b>유형</b><span id="typ" style="display:contents"></span></div>
+  <div class="qg"><b>나라</b><span id="cty" style="display:contents"></span></div>
+</div>
+<details class="sub note vmode"><summary>🏆 등급은 <b>잠정 검수</b>예요 (제목·조회수 기준) — 눌러서 자세히</summary>클릭률 예측이 아니라 조회수·화제성 기준이에요. 제목·조회수만 봤고 영상 내용·출처는 직접 확인하지 않았어요. 칩에 마우스를 올리면 설명, 카드의 등급 배지에 올리면 점수 근거가 보여요.</details>
+<div class="active vmode" id="active"></div>
+<div class="ftabs vmode" id="ftabs"></div>
+<div class="vmode" id="fpanels">
+  <div class="fpanel" data-g="kr" hidden>
+    <div class="bar"><span class="lbl">외국인이 겪는 한국 — 글로벌 콘텐츠 12개 갈래 (칩에 마우스를 올리면 설명)</span><span id="gts" style="display:contents"></span></div>
+    <div class="bar"><span class="lbl">외국인 한국 여행</span><span id="trvkr" style="display:contents"></span></div>
+    <details class="gdetails"><summary>세부 꼭지 140개 펼치기 (고르면 갈래보다 우선 적용)</summary><button class="chip" id="gclear" style="margin:6px 0">꼭지 선택 모두 해제</button><div id="gitems"></div></details>
+  </div>
+  <div class="fpanel" data-g="jp" hidden>
+    <div class="bar"><span class="lbl">일본 — 아직 비어 있는데 터지는 주제 (칩에 마우스를 올리면 참고 지표)</span><span id="jts" style="display:contents"></span></div>
+    <div class="bar"><span class="lbl">외국인 일본 여행</span><span id="trvjp" style="display:contents"></span></div>
+  </div>
+  <div class="fpanel" data-g="exp" hidden>
+    <div class="bar"><span class="lbl">외국인이 한국·일본에서 하는 체험</span><span id="exps" style="display:contents"></span></div>
+  </div>
+  <div class="fpanel" data-g="more" hidden>
+    <div class="bar"><span class="lbl">업로더</span><span id="ups" style="display:contents"></span></div>
+    <div class="bar"><span class="lbl">구독자·조회수 분류</span><span id="cats" style="display:contents"></span></div>
+    <div class="bar"><span class="lbl">그 밖의 조건</span><span id="ext" style="display:contents"></span></div>
+  </div>
+  <div class="fpanel" data-g="mine" hidden>
+    <div class="bar"><span class="lbl">내 작업 상태 (사용 완료·숨김은 기본 목록에서 빠지고 여기서만 보여요)</span><span id="mine" style="display:contents"></span></div>
+  </div>
+</div>
+<div class="result vmode" id="result"></div>
 <div class="grid vmode" id="grid"></div>
 <div class="tools">
   <span>사용 완료·메모·저장은 이 브라우저에만 저장돼요.</span>
@@ -254,13 +290,17 @@ V.forEach(v => { v._krTrip = v._subj === "한국" && v._up === "foreign" && hit(
 scoreAll();
 
 // 여러 개 동시 선택: 같은 줄 안에서는 하나라도 맞으면(OR), 줄이 다르면 모두 맞아야(AND) 보여준다. '전체'를 누르면 그 줄의 선택이 풀린다.
+// 같은 선택 집합(sel)을 여러 그룹이 나눠 쓸 수 있어서, '전체'와 선택 표시는 그 그룹의 칩(keys)에만 적용한다.
+const MULTIS = [];   // 칩 그룹 목록: 선택한 필터 요약, 전체 초기화, 탭 배지에 쓴다
 function mkMulti(parent, items, sel, total, onChange) {
   const mk = (k, label, count) => { const b = document.createElement("button"); b.className = "chip"; b.dataset.k = k;
     b.innerHTML = label + (count == null ? "" : `<small>${count}</small>`); parent.append(b); return b; };
+  const keys = items.map(i => i[0]);
   const all = mk("all", "전체", total), btns = items.map(([k, l, n]) => mk(k, l, n));
-  const sync = () => { all.classList.toggle("on", sel.size === 0); btns.forEach(b => b.classList.toggle("on", sel.has(b.dataset.k))); };
-  all.onclick = () => { sel.clear(); sync(); onChange(); };
+  const sync = () => { all.classList.toggle("on", !keys.some(k => sel.has(k))); btns.forEach(b => b.classList.toggle("on", sel.has(b.dataset.k))); };
+  all.onclick = () => { keys.forEach(k => sel.delete(k)); sync(); onChange(); };
   btns.forEach(b => b.onclick = () => { sel.has(b.dataset.k) ? sel.delete(b.dataset.k) : sel.add(b.dataset.k); sync(); onChange(); });
+  MULTIS.push({parent, sel, keys, sync});
   sync();
 }
 const catSel = new Set(), viewSel = new Set(), upSel = new Set(), expSel = new Set(), trvSel = new Set(), jtSel = new Set(), gcSel = new Set(), giSel = new Set(), grdSel = new Set(), typSel = new Set();
@@ -271,7 +311,8 @@ mkMulti(document.getElementById("grd"), [["S", "🏆 S", V.filter(v => v._grade 
   document.querySelectorAll("#grd .chip").forEach(b => { if (tips[b.dataset.k]) b.title = tips[b.dataset.k]; }); }
 mkMulti(document.getElementById("typ"), [["사건형", "⚡ 사건형", V.filter(v => v._grade && v._type === "사건형").length], ["체험형", "🙂 체험형", V.filter(v => v._grade && v._type === "체험형").length]], typSel, V.filter(v => v._grade).length, () => render());
 document.querySelectorAll("#typ .chip").forEach(b => { b.title = b.dataset.k === "사건형" ? "사건형: 제목에 구체적 사건·이슈 단어(월드컵·열병식·논란·세계 최초 등)가 있는 소재" : "체험형: 외국인이 한국·일본을 체험하고 반응하는 상시 소재"; });
-mkMulti(document.getElementById("trv"), [["kr", "🇰🇷 외국인 한국 여행", V.filter(v => v._krTrip).length], ["jp", "🇯🇵 외국인 일본 여행", V.filter(v => v._jpTrip).length]], trvSel, V.length, () => render());
+mkMulti(document.getElementById("trvkr"), [["kr", "🇰🇷 외국인 한국 여행", V.filter(v => v._krTrip).length]], trvSel, V.length, () => render());
+mkMulti(document.getElementById("trvjp"), [["jp", "🇯🇵 외국인 일본 여행", V.filter(v => v._jpTrip).length]], trvSel, V.length, () => render());
 mkMulti(document.getElementById("jts"), Object.keys(JPT).map(t => [t, t, V.filter(v => v._jt.includes(t)).length]), jtSel, V.length, () => render());
 document.querySelectorAll("#jts .chip").forEach(b => { const t = (window.JP_TOPICS || {})[b.dataset.k]; if (t) b.title = "참고 지표: " + t.info; });
 mkMulti(document.getElementById("gts"), GT.map(g => [g.cat, g.cat, V.filter(v => v._gc.includes(g.cat)).length]), gcSel, V.filter(v => v._gc.length).length, () => render());
@@ -289,20 +330,63 @@ GT.forEach(g => {
   });
   giBox.append(wrap);
 });
-document.getElementById("gclear").onclick = () => { giSel.clear(); giBox.querySelectorAll(".chip").forEach(b => b.classList.remove("on")); render(); };
+const giSync = () => giBox.querySelectorAll(".chip").forEach(b => b.classList.toggle("on", giSel.has(b.dataset.k)));
+MULTIS.push({parent: giBox, sel: giSel, keys: GT.flatMap(g => g.items.map(i => i.name)), sync: giSync});
+document.getElementById("gclear").onclick = () => { giSel.clear(); giSync(); render(); };
 mkMulti(document.getElementById("exps"), [["_any", "🎟 체험 영상 전체", V.filter(v => v._topics.length).length]].concat(Object.keys(EXPT).map(t => [t, t, V.filter(v => v._topics.includes(t)).length])), expSel, V.length, () => render());
 mkMulti(document.getElementById("cats"), CATS.map(([k, l, fn]) => [k, l, V.filter(v => withSubs(v) && fn(v)).length]), catSel, V.length, () => render());
-mkMulti(document.getElementById("chips"), [["한국", "🇰🇷 한국이 주제"], ["일본", "🇯🇵 일본이 주제"], ["both", "🔁 한일 비교·반응"], ["other", "🏝 서울·부산 외"], ["viral", "🔥 화제 영상 (과거 포함)", V.filter(v => v.viral).length], ["fav", "⭐ 저장"], ["memo", "📝 메모 있음"], ["done", "✅ 사용 완료", done.size], ["hidden", "🗑 숨김", nHidden()]], viewSel, null, () => render());
+// 한 선택 집합(viewSel)을 세 그룹이 나눠 쓴다: 나라(자주 쓰는 줄), 그 밖의 조건(상세 탭), 내 작업(내 작업 탭). 나라는 둘 중 하나, 나머지 조건은 모두 만족해야 보인다
+mkMulti(document.getElementById("cty"), [["한국", "🇰🇷 한국이 주제"], ["일본", "🇯🇵 일본이 주제"], ["both", "🔁 한일 비교·반응"]], viewSel, V.length, () => render());
+mkMulti(document.getElementById("ext"), [["other", "🏝 서울·부산 외"], ["viral", "🔥 화제 영상 (과거 포함)", V.filter(v => v.viral).length]], viewSel, null, () => render());
+mkMulti(document.getElementById("mine"), [["new", "🆕 새로 들어온"], ["fav", "⭐ 저장"], ["memo", "📝 메모 있음"], ["done", "✅ 사용 완료", done.size], ["hidden", "🗑 숨김", nHidden()]], viewSel, null, () => render());
 document.getElementById("upd").textContent = "마지막 갱신 " + (window.UPDATED || "-") + " · 영상 " + V.length + "개";
 const isNew = v => v.first_seen > (seenAt || "9999") || v.first_seen === (window.UPDATED || "").slice(0, 10);
 const saveAll = () => { ls.set("favs", [...favs]); ls.set("done", [...done]); ls.set("memos", memos); ls.set("hidden", [...hidden]); };
+
+// ---- 필터 화면 정리: 선택한 필터 요약(제거 가능한 칩), 탭 배지, 전체 초기화, 결과 수 ----
+// 접힌 탭 안의 선택도 항상 위의 요약에 보여서, 숨은 조건 때문에 결과가 0이 되어도 원인을 바로 알 수 있다.
+const fpanelsEl = document.getElementById("fpanels"), ftabsEl = document.getElementById("ftabs"), activeEl = document.getElementById("active"), resultEl = document.getElementById("result");
+const TABS = [["kr", "🇰🇷 한국 소재"], ["jp", "🇯🇵 일본 소재"], ["exp", "🎟 외국인 체험"], ["more", "📊 상세 조건"], ["mine", "⭐ 내 작업"]];
+let openTab = null;
+const syncTabs = () => { ftabsEl.querySelectorAll(".ftab").forEach(b => b.classList.toggle("open", b.dataset.g === openTab)); fpanelsEl.querySelectorAll(".fpanel").forEach(p => p.hidden = p.dataset.g !== openTab); };
+TABS.forEach(([g, label]) => {
+  const b = document.createElement("button"); b.className = "chip ftab"; b.dataset.g = g; b.innerHTML = label + '<span class="cnt" hidden></span>';
+  b.onclick = () => { openTab = openTab === g ? null : g; syncTabs(); };
+  ftabsEl.append(b);
+});
+const chipLabel = (m, k) => { const b = [...m.parent.querySelectorAll(".chip")].find(x => x.dataset.k === k); return b ? [...b.childNodes].filter(n => n.nodeType === 3).map(n => n.textContent).join("").trim() : k; };
+const liveGroups = () => MULTIS.filter(m => !m.parent.closest("#chview"));   // 채널 화면의 칩은 제외
+function clearFilters() {   // 필터와 검색만 해제한다. 저장·메모·사용 완료·숨김 '데이터'는 그대로 둔다 (내 작업 칩의 선택만 풀린다)
+  liveGroups().forEach(m => { m.keys.forEach(k => m.sel.delete(k)); m.sync(); });
+  document.getElementById("q").value = "";
+  render();
+}
+function updateUI(shown) {
+  const pills = []; const tabCount = {};
+  liveGroups().forEach(m => m.keys.filter(k => m.sel.has(k)).forEach(k => {
+    pills.push({label: chipLabel(m, k), m, k});
+    const p = m.parent.closest(".fpanel"); if (p) tabCount[p.dataset.g] = (tabCount[p.dataset.g] || 0) + 1;   // 접힌 탭에 든 선택은 탭 배지로도 표시
+  }));
+  const qv = document.getElementById("q").value.trim();
+  activeEl.innerHTML = "";
+  if (pills.length || qv) {
+    const lab = document.createElement("span"); lab.textContent = "선택한 필터"; lab.style.color = "var(--mute)"; activeEl.append(lab);
+    if (qv) { const p = document.createElement("span"); p.className = "pill"; p.append("검색: " + qv); const x = document.createElement("button"); x.textContent = "×"; x.title = "검색어 지우기";
+      x.onclick = () => { document.getElementById("q").value = ""; render(); }; p.append(x); activeEl.append(p); }
+    pills.forEach(({label, m, k}) => { const p = document.createElement("span"); p.className = "pill"; p.append(label); const x = document.createElement("button"); x.textContent = "×"; x.title = "이 필터 해제";
+      x.onclick = () => { m.sel.delete(k); m.sync(); render(); }; p.append(x); activeEl.append(p); });
+    const c = document.createElement("button"); c.className = "clearall"; c.textContent = "전체 초기화"; c.title = "필터와 검색어를 모두 해제해요 (저장·메모·사용 완료 데이터는 그대로예요)"; c.onclick = clearFilters; activeEl.append(c);
+  }
+  ftabsEl.querySelectorAll(".ftab").forEach(b => { const n = tabCount[b.dataset.g] || 0, s = b.querySelector(".cnt"); s.textContent = n; s.hidden = !n; });
+  resultEl.textContent = `${shown.toLocaleString()}개 표시` + (pills.length || qv ? ` (전체 ${V.length.toLocaleString()}개 중, 필터 적용 중)` : ` · 전체 ${V.length.toLocaleString()}개`);
+}
 
 function render() {
   const q = document.getElementById("q").value.trim().toLowerCase(), sort = document.getElementById("sort").value;
   const catFns = CATS.filter(c => catSel.has(c[0])).map(c => c[2]);
   const ctry = ["한국", "일본", "both"].filter(k => viewSel.has(k));
-  const hc = document.querySelector('#chips [data-k="hidden"] small'); if (hc) hc.textContent = nHidden();
-  const dc = document.querySelector('#chips [data-k="done"] small'); if (dc) dc.textContent = done.size;
+  const hc = document.querySelector('#mine [data-k="hidden"] small'); if (hc) hc.textContent = nHidden();
+  const dc = document.querySelector('#mine [data-k="done"] small'); if (dc) dc.textContent = done.size;
   const sh = viewSel.has("hidden"), sd = viewSel.has("done");
   // 숨김·사용 완료 영상은 기본 목록에서 빠지고, 각각의 보기에서만 나온다 (같은 채널의 다른 영상은 그대로)
   let a = V.filter(v => ((!sh && !sd) ? !hidden.has(v.id) && !done.has(v.id) : (sh && hidden.has(v.id)) || (sd && done.has(v.id)))
@@ -314,15 +398,16 @@ function render() {
     && (!grdSel.size || grdSel.has(v._grade) || (grdSel.has("len") && v._pendingLen)) && (!typSel.size || (v._grade && typSel.has(v._type)))
     && (!jtSel.size || [...jtSel].some(k => v._jt.includes(k)))
     && (!trvSel.size || (trvSel.has("kr") && v._krTrip) || (trvSel.has("jp") && v._jpTrip))
-    && (!viewSel.has("other") || v.section === "other") && (!viewSel.has("viral") || v.viral) && (!viewSel.has("fav") || favs.has(v.id)) && (!viewSel.has("memo") || memos[v.id])
+    && (!viewSel.has("other") || v.section === "other") && (!viewSel.has("viral") || v.viral) && (!viewSel.has("fav") || favs.has(v.id)) && (!viewSel.has("memo") || memos[v.id]) && (!viewSel.has("new") || isNew(v))
     && (!q || (v.title + " " + v.channel + " " + (memos[v.id] || "")).toLowerCase().includes(q)));
   const val = v => sort === "score" ? (v._score ?? 0) : sort === "views" ? v.views : sort === "ratio" ? ratio(v) : sort === "subs" ? (v.subs ?? -1) : sort === "length" ? (v.duration_sec ?? -1)
     : sort === "pub" ? v.published : v.first_seen + v.published;
   const dir = document.getElementById("dir").value === "asc" ? -1 : 1;
   const unknown = v => (sort === "length" && v.duration_sec == null) || ((sort === "subs" || sort === "ratio") && v.subs == null);   // 값을 모르는 영상은 방향과 상관없이 맨 뒤
   a.sort((x, y) => { if (unknown(x) || unknown(y)) return unknown(x) - unknown(y); const p = val(x), q2 = val(y); return dir * (typeof p === "string" ? q2.localeCompare(p) : q2 - p); });
+  updateUI(a.length);
   const g = document.getElementById("grid"); g.innerHTML = "";
-  if (!a.length) g.innerHTML = '<div class="empty">조건에 맞는 영상이 없어요</div>';
+  if (!a.length) g.innerHTML = '<div class="empty">조건에 맞는 영상이 없어요. 위의 선택한 필터에서 하나씩 해제해 보세요.</div>';
   a.forEach(v => {
     const c = document.createElement("div"); c.className = "card" + (done.has(v.id) ? " done" : "");
     c.innerHTML = (isNew(v) ? '<span class="new">NEW</span>' : "") +
