@@ -59,7 +59,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
   <div class="grid" id="cgrid"></div>
 </div>
 <div class="bar vmode"><span class="lbl">업로더 (여러 개 선택 가능)</span><span id="ups" style="display:contents"></span></div>
-<div class="bar vmode"><span class="lbl">🏆 소재 검토 우선순위 (클릭률 예측이 아니라 조회수·화제성 기준 · 칩에 마우스를 올리면 설명, 카드 배지에 올리면 점수 근거)</span><span id="grd" style="display:contents"></span></div>
+<div class="bar vmode"><span class="lbl">🏆 소재 검토 우선순위 — 클릭률 예측이 아니라 조회수·화제성 기준이고, 제목·조회수만 본 <b>잠정 검수</b>예요 (영상 내용·출처는 직접 확인하지 않았어요. 칩에 마우스를 올리면 설명, 카드 배지에 올리면 점수 근거)</span><span id="grd" style="display:contents"></span></div>
 <div class="bar vmode"><span class="lbl">🏆 소재 유형 (등급이 있는 영상 중에서)</span><span id="typ" style="display:contents"></span></div>
 <div class="bar vmode"><span class="lbl">🧳 외국인 여행 (여러 개 선택 가능)</span><span id="trv" style="display:contents"></span></div>
 <div class="bar vmode"><span class="lbl">🇰🇷 외국인이 겪는 한국 · 글로벌 콘텐츠 12개 갈래 (여러 개 선택 가능 · 칩에 마우스를 올리면 설명)</span><span id="gts" style="display:contents"></span></div>
@@ -129,8 +129,9 @@ const ls = { get(k,d){try{return JSON.parse(localStorage.getItem(k))??d}catch{re
 let favs = new Set(ls.get("favs", [])), done = new Set(ls.get("done", [])), memos = ls.get("memos", {}), hidden = new Set(ls.get("hidden", []));
 const seenAt = ls.get("lastVisit", "");
 
-const ratio = v => v.views / Math.max(v.subs || 1, 1);
-const isHot = v => v.views >= S.ratio_min_views && ratio(v) >= S.ratio_min;
+// 구독자 대비 조회수: 구독자 결측은 1로 대체하지 않고(비율 없음 → 정렬 맨 뒤, 급상승 표기 안 함), 극소 구독자 분모는 1천으로 보정한다
+const ratio = v => v.subs == null ? null : v.views / Math.max(v.subs, 1000);
+const isHot = v => { const r = ratio(v); return r != null && v.views >= S.ratio_min_views && r >= S.ratio_min; };
 // 6개 분류: 구독자 규모 × 조회수 (5개) + 구독자 대비 조회수 높음 (겹쳐서 들어갈 수 있음)
 const ko = n => n >= 1e4 && n % 1e4 === 0 ? n / 1e4 + "만" : n >= 1e3 && n % 1e3 === 0 ? n / 1e3 + "천" : fmt(n);
 const CATS = [
@@ -242,7 +243,10 @@ V.forEach(v => {
   GT.forEach(g => g.items.forEach(i => { if (i.re.test(v.title)) { if (!v._gi.includes(i.name)) v._gi.push(i.name); if (!v._gc.includes(g.cat)) v._gc.push(g.cat); } }));
 });
 // 외국인 한국 여행: 한국이 주제 + 외국인 업로드 + 여행 단어. 일본인 등 다른 나라 사람이 한국을 여행하는 영상도 외국인이므로 일본어 채널도 포함한다
-V.forEach(v => { v._krTrip = v._subj === "한국" && v._up === "foreign" && hit(v.title.toLowerCase(), TRAVEL_W); });
+// 한국 여행은 'Korean' 같은 단어가 아니라 실제 한국 장소명이 있어야 하고, 해외 도시(Boston·Toronto 등)가 나오면 제외한다 ('해외 도시의 한국 음식' 오분류 방지)
+const KR_PLACE_RE = /seoul|busan|jeju|incheon|gyeongju|jeonju|daegu|daejeon|gangneung|sokcho|suwon|yeosu|andong|tongyeong|namhae|ulleung|hongdae|myeongdong|gangnam|south korea|in korea|to korea|korea (trip|travel|vlog)|서울|부산|제주|인천|경주|전주|대구|한국 여행/i;
+const ABROAD_CITY_RE = /boston|toronto|new york|\bnyc\b|los angeles|london|vancouver|sydney|paris|chicago|houston|dallas|atlanta|seattle|san francisco|melbourne|auckland|berlin|dubai|singapore|bangkok|manila|jakarta|tokyo|osaka|kyoto/i;
+V.forEach(v => { v._krTrip = v._subj === "한국" && v._up === "foreign" && hit(v.title.toLowerCase(), TRAVEL_W) && KR_PLACE_RE.test(v.title) && !ABROAD_CITY_RE.test(v.title); });
 scoreAll();
 
 // 여러 개 동시 선택: 같은 줄 안에서는 하나라도 맞으면(OR), 줄이 다르면 모두 맞아야(AND) 보여준다. '전체'를 누르면 그 줄의 선택이 풀린다.
@@ -311,7 +315,7 @@ function render() {
   const val = v => sort === "score" ? (v._score ?? 0) : sort === "views" ? v.views : sort === "ratio" ? ratio(v) : sort === "subs" ? (v.subs ?? -1) : sort === "length" ? (v.duration_sec ?? -1)
     : sort === "pub" ? v.published : v.first_seen + v.published;
   const dir = document.getElementById("dir").value === "asc" ? -1 : 1;
-  const unknown = v => (sort === "length" && v.duration_sec == null) || (sort === "subs" && v.subs == null);   // 값을 모르는 영상은 방향과 상관없이 맨 뒤
+  const unknown = v => (sort === "length" && v.duration_sec == null) || ((sort === "subs" || sort === "ratio") && v.subs == null);   // 값을 모르는 영상은 방향과 상관없이 맨 뒤
   a.sort((x, y) => { if (unknown(x) || unknown(y)) return unknown(x) - unknown(y); const p = val(x), q2 = val(y); return dir * (typeof p === "string" ? q2.localeCompare(p) : q2 - p); });
   const g = document.getElementById("grid"); g.innerHTML = "";
   if (!a.length) g.innerHTML = '<div class="empty">조건에 맞는 영상이 없어요</div>';
@@ -321,7 +325,7 @@ function render() {
       `<button class="fav ${favs.has(v.id) ? "on" : ""}" title="저장">${favs.has(v.id) ? "★" : "☆"}</button>` +
       `<div class="th"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/mqdefault.jpg"><div class="play">▶</div></div>` +
       `<div class="body"><a class="t" target="_blank" rel="noopener" href="https://youtu.be/${v.id}"></a><div class="m"></div>` +
-      `<div class="tags">${v._grade ? `<span class="tag grade-${v._grade}" title="${v._why}">🏆 ${v._grade} · ${v._type}${v._pending ? " · ⏳ 확인 대기" : ""}</span>` : ""}<span class="tag">${v._subj === "한국" ? "🇰🇷 한국" : v._subj === "일본" ? "🇯🇵 일본" : "🔁 한일"}${v.section === "other" ? " · 지방" : ""}</span>${v._jpTrip ? '<span class="tag">🧳 일본 여행</span>' : ""}${v._krTrip ? '<span class="tag">🧳 한국 여행</span>' : ""}${[...v._gc].sort((a, b) => gcSel.has(b) - gcSel.has(a)).slice(0, 1).map(t => `<span class="tag">${t}</span>`).join("")}${[...v._jt].sort((a, b) => jtSel.has(b) - jtSel.has(a)).slice(0, 2).map(t => `<span class="tag hot">${t}</span>`).join("")}<span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${v.length ? `<span class="tag">⏱ ${v.length}${v.is_short === true ? " · 숏폼" : ""}</span>` : ""}${v.viral ? `<span class="tag hot">🔥 ${v.buzz ? "이슈 " : ""}화제</span>` : ""}${v._topics.slice(0, 2).map(t => `<span class="tag">${t}</span>`).join("")}${isHot(v) ? '<span class="tag hot">📈 급상승</span>' : ""}</div>` +
+      `<div class="tags">${v._grade ? `<span class="tag grade-${v._grade}" title="잠정(제목·조회수 기준) · ${v._why}">🏆 ${v._grade} · ${v._type}${v._pending ? " · ⏳ 확인 대기" : ""}</span>` : ""}<span class="tag">${v._subj === "한국" ? "🇰🇷 한국" : v._subj === "일본" ? "🇯🇵 일본" : "🔁 한일"}${v.section === "other" ? " · 지방" : ""}</span>${v._jpTrip ? '<span class="tag">🧳 일본 여행</span>' : ""}${v._krTrip ? '<span class="tag">🧳 한국 여행</span>' : ""}${[...v._gc].sort((a, b) => gcSel.has(b) - gcSel.has(a)).slice(0, 1).map(t => `<span class="tag">${t}</span>`).join("")}${[...v._jt].sort((a, b) => jtSel.has(b) - jtSel.has(a)).slice(0, 2).map(t => `<span class="tag hot">${t}</span>`).join("")}<span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${v.length ? `<span class="tag">⏱ ${v.length}${v.is_short === true ? " · 숏폼" : ""}</span>` : ""}${v.viral ? `<span class="tag hot">🔥 ${v.buzz ? "이슈 " : ""}화제</span>` : ""}${v._topics.slice(0, 2).map(t => `<span class="tag">${t}</span>`).join("")}${isHot(v) ? '<span class="tag hot">📈 급상승</span>' : ""}</div>` +
       `<div class="act"><button class="btn dn ${done.has(v.id) ? "on" : ""}">${done.has(v.id) ? "✅ 사용 완료" : "☐ 사용 완료"}</button><button class="btn memo ${memos[v.id] ? "on" : ""}">📝 메모</button><button class="btn hd" title="이 영상만 안 보이게 (같은 채널의 다른 영상은 계속 나와요)">${hidden.has(v.id) ? "↩ 복구" : "🗑 숨김"}</button></div>` +
       `<textarea hidden placeholder="메모 (어디에 쓸지, 번역 메모 등)"></textarea></div>`;
     c.querySelector(".t").textContent = v.title;
