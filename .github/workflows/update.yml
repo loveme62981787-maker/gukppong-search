@@ -55,6 +55,11 @@ jobs:
         continue-on-error: true
         run: python experience_watch.py
 
+      - name: 별도 레퍼런스 채널 영상 전체 갱신 (실패해도 사이트 배포는 계속)
+        if: github.event_name != 'push'
+        continue-on-error: true
+        timeout-minutes: 30
+        run: python reference_watch.py
       - name: 글로벌 콘텐츠 12개 갈래·140꼭지 갱신 - 오래 걸려서 아침 실행과 수동 실행에서만 (실패해도 사이트 배포는 계속)
         if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 22 * * *'
         continue-on-error: true
@@ -65,7 +70,7 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@users.noreply.github.com"
-          git add site_store.json web/videos.js web/channels.js web/viral.js viral_store.json web/experience.js experience_store.json web/japan_topics.js japan_topics_store.json web/global_topics.js global_topics_store.json
+          git add site_store.json web/videos.js web/channels.js web/viral.js viral_store.json web/experience.js experience_store.json web/japan_topics.js japan_topics_store.json web/global_topics.js global_topics_store.json web/reference.js reference_store.json
           git diff --cached --quiet || git commit -m "영상 데이터 업데이트"
           git pull --rebase
           git push

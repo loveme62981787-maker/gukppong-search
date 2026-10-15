@@ -14,6 +14,7 @@
 | `collect.py` | 텔레그램 봇으로 보낸 링크·사진을 CSV로 저장 (사이트와 별개, 미연결) |
 | `channels_watch.py` | 비슷한 컨셉 채널 자동 발견·분석(롱폼/숏폼/둘 다 분류) → `web/channels.js` |
 | `viral_watch.py` | 오래된 영상 포함, 조회수·구독자 대비 조회수가 폭발한 화제 영상 수집 → `web/viral.js` (영상 길이 포함) |
+| `reference_watch.py` | `reference_channels.txt` 에 적은 별도 레퍼런스 채널의 동영상 탭 전체 수집 → `web/reference.js` (사이트의 '📌 별도 레퍼런스' 목록, 다른 목록에는 섞이지 않음) |
 | `experience_watch.py` | 외국인 체험 영상(야구장·한복·찜질방·템플스테이 등) 수집 → `web/experience.js`. 체험 종류 기준(`TOPICS`)은 여기서만 관리 |
 | `japan_topics_watch.py` | 일본 영상 중 "아직 비어 있는데 터지는 주제" 4가지(가족 첫 방일·서프라이즈 / 일식·첫입 리액션 / 이자카야·밤 술자리 / 접객·친절·배려)를 먼저 수집 → `web/japan_topics.js`. 주제 기준(`TOPICS`)은 여기서만 관리 |
 | `global_topics_watch.py` | "글로벌 콘텐츠" 12개 갈래·140꼭지(안전·치안, 대중교통, 편의·속도, 음식, 카페, 밤·놀거리, 뷰티·쇼핑, 도시·풍경, 전통, 사회 시스템, 예의·정서, K팝) 중 외국인이 한국에서 사용·경험·말하는 영상을 수집 → `web/global_topics.js`. 꼭지 기준(`GROUPS`)은 여기서만 관리. 수집이 오래 걸려 아침 실행과 수동 실행에서만 돈다 |

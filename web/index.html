@@ -35,7 +35,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 [hidden]{display:none!important}
 /* 출처 구분: 카드 위쪽 색 띠와 배지로 항상 구분한다 */
 .card.kd-foreign{border-top:4px solid #0ea5e9}.card.kd-local{border-top:4px solid #f59e0b}.card.kd-inst{border-top:4px solid #8b5cf6}.card.kd-unk{border-top:4px solid #9ca3af}
-.kind-foreign{background:#e0f2fe!important;color:#075985!important;font-weight:700}.kind-local{background:#fef3c7!important;color:#92400e!important;font-weight:700}.kind-inst{background:#ede9fe!important;color:#5b21b6!important;font-weight:700}.kind-unk{background:#ececec!important;color:#555!important;font-weight:700}
+.kind-foreign{background:#e0f2fe!important;color:#075985!important;font-weight:700}.kind-local{background:#fef3c7!important;color:#92400e!important;font-weight:700}.kind-inst{background:#ede9fe!important;color:#5b21b6!important;font-weight:700}.kind-unk{background:#ececec!important;color:#555!important;font-weight:700}.kind-ref{background:#dcfce7!important;color:#166534!important;font-weight:700}
 .kindseg .chip{font-size:14px;padding:7px 14px;font-weight:600}.kindrow{margin-top:10px}
 .kd{margin-top:4px;font-size:12px;color:var(--mute)}.kd summary{cursor:pointer}.kd select{margin:4px 4px 0 0;font-size:12px;padding:4px 8px}.kd label{margin-right:6px;font-size:12px}
 .grade-S{background:#ffe08a!important;color:#6b4200!important;font-weight:700}.grade-A{background:#dbe7ff!important;color:#1e3a8a!important;font-weight:600}.grade-B{background:#ececec!important;color:#555!important}
@@ -84,7 +84,9 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
   <select id="dir"><option value="desc">내림차순 (큰 것부터)</option><option value="asc">오름차순 (작은 것부터)</option></select></div>
 <div class="quick vmode kindrow">
   <div class="qg kindseg"><b>🏷 출처</b><span id="kinds" style="display:contents"></span></div>
+  <div class="qg"><b>🗺 지방</b><button class="chip" id="rgq"></button></div>
 </div>
+<div class="quick vmode" id="refrow" hidden><div class="qg"><b>📌 레퍼런스 채널</b><span id="refch" style="display:contents"></span></div></div>
 <div class="quick vmode">
   <div class="qg"><b>🏆 등급</b><span id="grd" style="display:contents"></span></div>
   <div class="qg"><b>소재</b><span id="typ" style="display:contents"></span></div>
@@ -130,6 +132,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script src="experience.js" onerror="window.EXPERIENCE=[]; window.EXP_TOPICS={}"></script>
 <script src="japan_topics.js" onerror="window.JP_TOPIC_ITEMS=[]; window.JP_TOPICS={}"></script>
 <script src="global_topics.js" onerror="window.GLOBAL_ITEMS=[]; window.GLOBAL_TOPICS=[]"></script>
+<script src="reference.js" onerror="window.REFERENCE=[]"></script>
 <script src="curation.js" onerror="window.CURATION={promote:[],demote:{},exclude:[]}"></script>
 <script>
 // 일반 수집 영상 + 화제·체험·일본 주제·글로벌 영상. 겹치는 영상은 표시와 길이만 합친다
@@ -155,6 +158,8 @@ function absorb(x, mark) {   // 같은 영상이면 표시와 길이만 합치�
 (window.EXPERIENCE || []).forEach(x => absorb(x, {exp: true}));                                    // 체험 영상(야구장·한복·찜질방 ...)
 (window.JP_TOPIC_ITEMS || []).forEach(x => absorb(x));                                             // 일본 '터지는 주제'
 (window.GLOBAL_ITEMS || []).forEach(x => absorb(x));                                               // 글로벌 콘텐츠(외국인이 겪는 한국)
+(window.REFERENCE || []).forEach(x => absorb(x, {ref: true}));                                     // 별도 레퍼런스 채널(reference_channels.txt)의 영상 전체 — 다른 목록과 섞이지 않게 따로 보여준다
+const nRef = () => V.filter(v => v.ref).length;
 // 길이 형태: 미확인(unk) / 숏폼(short, 181초 미만) / 롱폼(long). is_short 필드와 충돌해도 길이 기준을 따른다
 V.forEach(v => { const n = normLen(v); v.duration_sec = n.sec; v.length = n.text; v._form = n.sec == null ? "unk" : n.sec >= LONG_MIN_SEC ? "long" : "short"; });
 // 체험 종류는 수집기(experience_watch.py)의 TOPICS 기준으로, 기존 영상까지 제목·채널명으로 같이 판별한다
@@ -320,7 +325,7 @@ V.forEach(v => { const r = regionsOf(v); v._rg = r.rg; v._rgMixed = r.mixed; });
 // 근거: docs/collab/2026-10-15-uploader-kind.md (Claude + Codex 토론). 자동 판정은 '추정'이고 확정이 아니다. 우선순위:
 //  개인 보정(영상) > 개인 보정(채널) > 공통 검토(영상) > 공통 검토(채널, web/curation.js) > 자동 추정. 근거가 부족하면 '미확인'으로 둔다.
 // '외국인'은 대상국(한국·일본) 기준이다. 개인 보정은 소재 분류만 바꾸며, 공식 기관 등급 상한(최대 A)은 해제하지 않는다.
-const KIND_LABEL = {foreign: "🌏 외국인 원본", local: "🧭 현지 편집·소개", inst: "🏛 기관·방송", unk: "❓ 미확인"};
+const KIND_LABEL = {foreign: "🌏 외국인 원본", local: "🧭 국뽕 채널", ref: "📌 별도 레퍼런스", inst: "🏛 기관·방송", unk: "❓ 미확인"};
 const KINDS = new Set(Object.keys(KIND_LABEL));
 const own = (o, k) => !!o && typeof k === "string" && Object.prototype.hasOwnProperty.call(o, k);
 // 저장값·가져온 값은 믿지 않는다: 허용된 kind 문자열만 받고, 프로토타입이 없는 객체에 담아 'toString'·'__proto__' 같은 키가 영향을 주지 못하게 한다
@@ -333,6 +338,7 @@ const NON_EN_RE = new RegExp("(?:[\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u017F\
 // 일인칭·직접 촬영 근거: 'my/our/we/I/me', 'first time/day', 'vlog', 또는 국적+사람 표현(예: Indian student). react·tourist·living 같은 제3자도 쓰는 단어는 근거로 쓰지 않는다
 const FIRST_PERSON_RE = new RegExp("\\b(my|our|we|i|i'm|i've|me|vlog|first (time|day))\\b|\\b(" + NAT_EN + ") (" + PEOPLE_EN + ")\\b", "i");
 const kindOf = v => {
+  if (v.ref) return ["ref", "별도 레퍼런스: 사용자가 알려 준 채널의 영상 (분류 보정과 무관)"];
   if (own(kindVid, v.id)) return [kindVid[v.id], "개인 보정(이 영상)"];
   if (own(kindCh, v.channel_id)) return [kindCh[v.channel_id], "개인 보정(이 채널)"];
   const cv = own(CURK.videos, v.id) ? CURK.videos[v.id] : null; if (cv && KINDS.has(cv.kind)) return [cv.kind, "공통 검토(영상, " + (cv.reviewed || "") + "): " + (cv.note || "")];
@@ -373,12 +379,12 @@ function mkMulti(parent, items, sel, total, onChange) {
   MULTIS.push({parent, sel, keys, sync});
   sync();
 }
-const catSel = new Set(), viewSel = new Set(), kindSel = new Set(), expSel = new Set(), trvSel = new Set(), jtSel = new Set(), gcSel = new Set(), giSel = new Set(), grdSel = new Set(), typSel = new Set(), rgSel = new Set();
+const catSel = new Set(), viewSel = new Set(), kindSel = new Set(), expSel = new Set(), trvSel = new Set(), jtSel = new Set(), gcSel = new Set(), giSel = new Set(), grdSel = new Set(), typSel = new Set(), rgSel = new Set(), refSel = new Set();
 const nHidden = () => [...hidden].filter(x => !x.startsWith("ch:")).length;
 // 출처 선택: 외국인 원본 / 현지 편집·소개(내 채널과 비슷한 국뽕 채널) / 기관·방송 / 미확인. 마지막 선택은 이 브라우저에 기억한다
 const kindsEl = document.getElementById("kinds");
-mkMulti(kindsEl, Object.keys(KIND_LABEL).map(k => [k, KIND_LABEL[k], V.filter(v => v._kind === k).length]), kindSel, V.length, () => render());
-{ const kt = {foreign: "외국인이 직접 찍은 원본으로 추정되는 영상 (외국어 제목 + 일인칭·체험 표현, 한글 채널명·기관·벤치마킹 채널 아님). 확정이 아니라 추정이에요.", local: "한국인·일본인 등 현지 채널이 편집·번역해서 소개하는 영상 — 내 채널과 비슷한 국뽕 채널 (한국어 제목 등)", inst: "방송·기관·정부·공식 매체 채널 (공식 소개로 확인한 채널 ID 목록)", unk: "근거가 부족해서 아직 분류하지 못한 영상. 카드의 '분류 바꾸기'로 확정할 수 있어요."};
+mkMulti(kindsEl, Object.keys(KIND_LABEL).map(k => [k, KIND_LABEL[k], V.filter(v => v._kind === k).length]), kindSel, V.length - nRef(), () => render());
+{ const kt = {ref: "내가 채널 이름을 알려 준 별도 레퍼런스 채널의 영상 전부. 다른 목록(전체 포함)에는 섞이지 않고 이 칩을 눌러야 보여요.", foreign: "외국인이 직접 찍은 원본으로 추정되는 영상 (외국어 제목 + 일인칭·체험 표현, 한글 채널명·기관·벤치마킹 채널 아님). 확정이 아니라 추정이에요.", local: "한국인·일본인 등 현지 국뽕 채널이 편집·번역해서 소개하는 영상 — 내 채널과 비슷한 채널 (한국어 제목 등)", inst: "방송·기관·정부·공식 매체 채널 (공식 소개로 확인한 채널 ID 목록)", unk: "근거가 부족해서 아직 분류하지 못한 영상. 카드의 '분류 바꾸기'로 확정할 수 있어요."};
   kindsEl.querySelectorAll(".chip").forEach(b => { if (kt[b.dataset.k]) b.title = kt[b.dataset.k]; }); }
 { const saved = ls.get("kindSeg", []); const m = MULTIS[MULTIS.length - 1];   // 잘못된 저장값(배열이 아니거나 허용되지 않는 값)은 무시한다
   (Array.isArray(saved) ? saved : []).filter(k => typeof k === "string" && KINDS.has(k)).forEach(k => kindSel.add(k)); m.sync(); }
@@ -396,6 +402,11 @@ mkMulti(document.getElementById("typ"), [["사건형", "⚡ 사건형", V.filter
 document.querySelectorAll("#typ .chip").forEach(b => { b.title = b.dataset.k === "사건형" ? "사건형: 제목에 구체적 사건·이슈 단어(월드컵·열병식·논란·세계 최초 등)가 있는 소재" : "체험형: 외국인이 한국·일본을 체험하고 반응하는 상시 소재"; });
 mkMulti(document.getElementById("trvkr"), [["kr", "🇰🇷 외국인 한국 여행", V.filter(v => v._krTrip).length]], trvSel, V.length, () => render());
 mkMulti(document.getElementById("rgs"), [["_any", "🗺 지방 여행 전체", V.filter(v => v._rg.length).length]].concat(REGIONS.map(r => [r[0], r[1], V.filter(v => v._rg.includes(r[0])).length])), rgSel, V.length, () => render());
+{ const rgq = document.getElementById("rgq"); rgq.innerHTML = `🗺 지방 여행<small>${V.filter(v => v._rg.length).length}</small>`;   // 자주 쓰는 줄의 바로가기: 세부 지역은 '한국 소재' 탭에서 고른다
+  rgq.title = "서울·부산 말고 다른 지역(제주·경상·전라·강원·충청·인천·경기) 여행 영상. 지역별로 고르려면 '한국 소재' 탭을 여세요.";
+  rgq.onclick = () => { rgSel.has("_any") ? rgSel.delete("_any") : rgSel.add("_any"); MULTIS.forEach(m => m.sync()); render(); }; }
+{ const rc = new Map(); V.filter(v => v.ref).forEach(v => { const o = rc.get(v.channel_id) || {name: v.channel, n: 0}; o.n++; rc.set(v.channel_id, o); });   // 레퍼런스 채널별 보기 (출처에서 '별도 레퍼런스'를 골랐을 때만 나온다)
+  if (rc.size) mkMulti(document.getElementById("refch"), [...rc].sort((a, b) => b[1].n - a[1].n).map(([id, o]) => [id, o.name, o.n]), refSel, nRef(), () => render()); }
 document.querySelectorAll("#rgs .chip").forEach(b => { b.title = b.dataset.k === "_any" ? "서울·부산이 아닌 지역 이름이 제목에 있는 영상 (서울·부산이 함께 나오면 '서울·부산 언급'으로 표시)" : "제목에 이 지역의 장소 이름이 있는 영상"; });
 mkMulti(document.getElementById("trvjp"), [["jp", "🇯🇵 외국인 일본 여행", V.filter(v => v._jpTrip).length]], trvSel, V.length, () => render());
 mkMulti(document.getElementById("jts"), Object.keys(JPT).map(t => [t, t, V.filter(v => v._jt.includes(t)).length]), jtSel, V.length, () => render());
@@ -469,7 +480,7 @@ function updateUI(shown, info) {
     const c = document.createElement("button"); c.className = "clearall"; c.textContent = "전체 초기화"; c.title = "필터와 검색어를 모두 해제해요 (저장·메모·사용 완료 데이터는 그대로예요)"; c.onclick = clearFilters; activeEl.append(c);
   }
   ftabsEl.querySelectorAll(".ftab").forEach(b => { const n = tabCount[b.dataset.g] || 0, s = b.querySelector(".cnt"); s.textContent = n; s.hidden = !n; });
-  resultEl.textContent = `${shown.toLocaleString()}개 표시` + (pills.length || qv || lm !== "default" ? ` (전체 ${V.length.toLocaleString()}개 중, 필터 적용 중)` : ` · 전체 ${V.length.toLocaleString()}개`);
+  resultEl.textContent = `${shown.toLocaleString()}개 표시` + (pills.length || qv || lm !== "default" ? ` (전체 ${(V.length - nRef()).toLocaleString()}개 중, 필터 적용 중)` : ` · 전체 ${(V.length - nRef()).toLocaleString()}개`) + (nRef() && !kindSel.has("ref") ? ` · 별도 레퍼런스 ${nRef().toLocaleString()}개는 따로` : "");
   if (info.lenExcluded > 0) {   // 길이 때문에 빠진 영상 수 = 다른 조건을 통과한 영상 중 숏폼. 내 작업 필터로 제한이 풀렸으면 표시하지 않는다
     resultEl.append(` · 숏폼 ${info.lenExcluded.toLocaleString()}개 제외 중 `);
     const bt = document.createElement("button"); bt.className = "clearall"; bt.textContent = "길이: 전체로 보기"; bt.onclick = () => { document.getElementById("lenmode").value = "all"; render(); }; resultEl.append(bt);
@@ -477,7 +488,10 @@ function updateUI(shown, info) {
 }
 
 function render() {
-  const q = document.getElementById("q").value.trim().toLowerCase(), sort = document.getElementById("sort").value;
+  if (!kindSel.has("ref") && refSel.size) { refSel.clear(); MULTIS.forEach(m => m.sync()); }   // 레퍼런스를 끄면 채널 선택도 같이 풀린다
+  document.getElementById("refrow").hidden = !(kindSel.has("ref") && document.querySelector("#refch .chip"));
+  document.getElementById("rgq").classList.toggle("on", rgSel.has("_any"));
+  const q =document.getElementById("q").value.trim().toLowerCase(), sort = document.getElementById("sort").value;
   const catFns = CATS.filter(c => catSel.has(c[0])).map(c => c[2]);
   const ctry = ["한국", "일본", "both"].filter(k => viewSel.has(k));
   const hc = document.querySelector('#mine [data-k="hidden"] small'); if (hc) hc.textContent = nHidden();
@@ -490,7 +504,8 @@ function render() {
   const lenOK = v => eff === "all" || (eff === "default" ? v._form !== "short" : eff === "long" ? v._form === "long" : eff === "short" ? v._form === "short" : v._form === "unk");
   // 숨김·사용 완료 영상은 기본 목록에서 빠지고, 각각의 보기에서만 나온다 (같은 채널의 다른 영상은 그대로)
   const pass = v => ((!sh && !sd) ? !hidden.has(v.id) && !done.has(v.id) : (sh && hidden.has(v.id)) || (sd && done.has(v.id)))
-    && (!kindSel.size || kindSel.has(v._kind))
+    && (kindSel.size ? kindSel.has(v._kind) : v._kind !== "ref")   // 레퍼런스는 고르기 전에는 다른 목록에 섞이지 않는다
+    && (!refSel.size || refSel.has(v.channel_id))
     && (!expSel.size || [...expSel].some(k => k === "_any" ? v._topics.length : v._topics.includes(k)))
     && (!catFns.length || (withSubs(v) && catFns.some(fn => fn(v))))
     && (!ctry.length || ctry.includes(v._subj))
@@ -544,7 +559,7 @@ function render() {
       if (kone.checked) { k === "auto" ? delete kindVid[v.id] : (kindVid[v.id] = k); }
       else { delete kindVid[v.id]; k === "auto" ? delete kindCh[v.channel_id] : (kindCh[v.channel_id] = k); }
       ls.set("kindCh", kindCh); ls.set("kindVid", kindVid); computeKinds(); refreshKindCounts(); render(); };
-    kd.append(ksel, klab, kbtn); c.querySelector(".body").append(kd);
+    kd.append(ksel, klab, kbtn); if (!v.ref) c.querySelector(".body").append(kd);   // 레퍼런스 영상은 분류 보정 대상이 아니다
     c.querySelector(".th").onclick = e => { e.currentTarget.innerHTML = `<iframe src="https://www.youtube.com/embed/${v.id}?autoplay=1" allow="autoplay;encrypted-media" allowfullscreen></iframe>`; e.currentTarget.onclick = null; };
     c.querySelector(".fav").onclick = () => { favs.has(v.id) ? favs.delete(v.id) : favs.add(v.id); saveAll(); render(); };
     c.querySelector(".dn").onclick = () => { done.has(v.id) ? done.delete(v.id) : done.add(v.id); saveAll(); render(); };
