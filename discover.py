@@ -138,6 +138,7 @@ def search(query, window_days, any_time=False):
     else:
         sp = "CAISBAgDEAE%3D" if window_days <= 7 else "CAISBAgEEAE%3D"
     d = initial_data(get("https://www.youtube.com/results?search_query=" + urllib.parse.quote(query) + "&sp=" + sp))
+    observed_at = datetime.now(timezone.utc).isoformat()
     out = []
 
     def f(o):
@@ -148,13 +149,15 @@ def search(query, window_days, any_time=False):
             run = v["ownerText"]["runs"][0]
             length = (v.get("lengthText") or {}).get("simpleText")
             duration = parse_duration(length)
+            views = parse_count(v.get("viewCountText", {}).get("simpleText", ""), "views")
             out.append({
                 "id": v["videoId"],
                 "title": "".join(r["text"] for r in v["title"]["runs"]),
                 "channel": run["text"],
                 "channel_id": run["navigationEndpoint"]["browseEndpoint"]["browseId"],
                 "age_h": age_hours(v.get("publishedTimeText", {}).get("simpleText", "")),
-                "views": parse_count(v.get("viewCountText", {}).get("simpleText", ""), "views") or 0,
+                "views": views if views is not None else 0,
+                "observed_at": observed_at if views is not None else None,
                 "length": length.strip() if duration is not None else None,
                 "duration_sec": duration,
             })
