@@ -35,7 +35,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 [hidden]{display:none!important}
 /* 출처 구분: 카드 위쪽 색 띠와 배지로 항상 구분한다 */
 .card.kd-foreign{border-top:4px solid #0ea5e9}.card.kd-local{border-top:4px solid #f59e0b}.card.kd-inst{border-top:4px solid #8b5cf6}.card.kd-unk{border-top:4px solid #9ca3af}
-.kind-foreign{background:#e0f2fe!important;color:#075985!important;font-weight:700}.kind-local{background:#fef3c7!important;color:#92400e!important;font-weight:700}.kind-inst{background:#ede9fe!important;color:#5b21b6!important;font-weight:700}.kind-unk{background:#ececec!important;color:#555!important;font-weight:700}.kind-ref{background:#dcfce7!important;color:#166534!important;font-weight:700}
+.kind-foreign{background:#e0f2fe!important;color:#075985!important;font-weight:700}.kind-local{background:#fef3c7!important;color:#92400e!important;font-weight:700}.kind-inst{background:#ede9fe!important;color:#5b21b6!important;font-weight:700}.kind-unk{background:#ececec!important;color:#555!important;font-weight:700}.tag.nt{background:#fce7f3!important;color:#9d174d!important;font-weight:700}.kind-ref{background:#dcfce7!important;color:#166534!important;font-weight:700}
 .kindseg .chip{font-size:14px;padding:7px 14px;font-weight:600}.kindrow{margin-top:10px}
 .kd{margin-top:4px;font-size:12px;color:var(--mute)}.kd summary{cursor:pointer}.kd select{margin:4px 4px 0 0;font-size:12px;padding:4px 8px}.kd label{margin-right:6px;font-size:12px}
 .grade-S{background:#ffe08a!important;color:#6b4200!important;font-weight:700}.grade-A{background:#dbe7ff!important;color:#1e3a8a!important;font-weight:600}.grade-B{background:#ececec!important;color:#555!important}
@@ -85,6 +85,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <div class="quick vmode kindrow">
   <div class="qg kindseg"><b>🏷 출처</b><span id="kinds" style="display:contents"></span></div>
   <div class="qg"><b>🗺 지방</b><button class="chip" id="rgq"></button></div>
+  <div class="qg" id="srcgrp" hidden><b>📓 노션</b><span id="srcs" style="display:contents"></span></div>
 </div>
 <div class="quick vmode" id="refrow" hidden><div class="qg"><b>📌 레퍼런스 채널</b><span id="refch" style="display:contents"></span></div></div>
 <div class="quick vmode">
@@ -149,16 +150,28 @@ function normLen(x) {
   const own = typeof x.length === "string" ? x.length.trim() : "";
   return {sec, text: toSec(own) === sec ? own : fmtSec(sec)};
 }
-function absorb(x, mark) {   // 같은 영상이면 표시와 길이만 합치고(유효한 기존 길이를 null 로 덮지 않음), 새 영상이면 추가한다
+// 수집 경로(sources): 같은 영상이 여러 목록에 있으면 합집합으로 모은다. 'notion' = 노션 수집 목록, 그 밖은 자동 수집 경로
+const SRC_NAMES = new Set(["discovery", "notion", "viral", "experience", "japan", "global", "reference"]);
+const addSrc = (o, s) => { if (!Array.isArray(o.sources)) o.sources = []; if (s && !o.sources.includes(s)) o.sources.push(s); };
+function absorb(x, mark, src) {   // 같은 영상이면 표시와 길이만 합치고(유효한 기존 길이를 null 로 덮지 않음), 새 영상이면 추가한다
   const o = V.find(v => v.id === x.id), n = normLen(x);
-  if (o) { if (mark) Object.assign(o, mark); if (n.sec != null) { o.duration_sec = n.sec; o.length = n.text; } }
-  else { x.duration_sec = n.sec; x.length = n.text; V.push(x); }
+  if (o) { if (mark) Object.assign(o, mark); if (n.sec != null) { o.duration_sec = n.sec; o.length = n.text; } addSrc(o, src); }
+  else { x.duration_sec = n.sec; x.length = n.text; addSrc(x, src); V.push(x); }
 }
-(window.VIRAL || []).forEach(x => absorb(x, {viral: true, buzz: x.buzz, age_text: x.age_text}));   // 화제 영상(오래된 영상 포함)
-(window.EXPERIENCE || []).forEach(x => absorb(x, {exp: true}));                                    // 체험 영상(야구장·한복·찜질방 ...)
-(window.JP_TOPIC_ITEMS || []).forEach(x => absorb(x));                                             // 일본 '터지는 주제'
-(window.GLOBAL_ITEMS || []).forEach(x => absorb(x));                                               // 글로벌 콘텐츠(외국인이 겪는 한국)
-(window.REFERENCE || []).forEach(x => absorb(x, {ref: true}));                                     // 별도 레퍼런스 채널(reference_channels.txt)의 영상 전체 — 다른 목록과 섞이지 않게 따로 보여준다
+(window.VIRAL || []).forEach(x => absorb(x, {viral: true, buzz: x.buzz, age_text: x.age_text}, "viral"));   // 화제 영상(오래된 영상 포함)
+(window.EXPERIENCE || []).forEach(x => absorb(x, {exp: true}, "experience"));                              // 체험 영상(야구장·한복·찜질방 ...)
+(window.JP_TOPIC_ITEMS || []).forEach(x => absorb(x, null, "japan"));                                      // 일본 '터지는 주제'
+(window.GLOBAL_ITEMS || []).forEach(x => absorb(x, null, "global"));                                       // 글로벌 콘텐츠(외국인이 겪는 한국)
+(window.REFERENCE || []).forEach(x => absorb(x, {ref: true}, "reference"));                                // 별도 레퍼런스 채널(reference_channels.txt)의 영상 전체 — 다른 목록과 섞이지 않게 따로 보여준다
+// 수집 경로 정리 (데이터 계약: build_site.py 가 sources / notion.grade 를 줌. 없으면 자동 수집으로 간주). 허용된 이름만 받고 노션 원본 등급은 S/A/B/C 한 글자만 받는다
+V.forEach(v => {
+  v.sources = [...new Set((Array.isArray(v.sources) ? v.sources : []).filter(s => typeof s === "string" && SRC_NAMES.has(s)))];
+  if (!v.sources.length) v.sources = ["discovery"];
+  v._notion = v.sources.includes("notion");
+  v._dup = v._notion && v.sources.some(s => s !== "notion");   // 노션 목록과 자동 수집에 둘 다 있는 영상
+  const g = v.notion && typeof v.notion === "object" ? String(v.notion.grade || "").trim().toUpperCase() : "";
+  v._ngrade = /^[SABC]$/.test(g) ? g : "";
+});
 const nRef = () => V.filter(v => v.ref).length;
 // 길이 형태: 미확인(unk) / 숏폼(short, 181초 미만) / 롱폼(long). is_short 필드와 충돌해도 길이 기준을 따른다
 V.forEach(v => { const n = normLen(v); v.duration_sec = n.sec; v.length = n.text; v._form = n.sec == null ? "unk" : n.sec >= LONG_MIN_SEC ? "long" : "short"; });
@@ -379,7 +392,7 @@ function mkMulti(parent, items, sel, total, onChange) {
   MULTIS.push({parent, sel, keys, sync});
   sync();
 }
-const catSel = new Set(), viewSel = new Set(), kindSel = new Set(), expSel = new Set(), trvSel = new Set(), jtSel = new Set(), gcSel = new Set(), giSel = new Set(), grdSel = new Set(), typSel = new Set(), rgSel = new Set(), refSel = new Set();
+const catSel = new Set(), viewSel = new Set(), kindSel = new Set(), expSel = new Set(), trvSel = new Set(), jtSel = new Set(), gcSel = new Set(), giSel = new Set(), grdSel = new Set(), typSel = new Set(), rgSel = new Set(), refSel = new Set(), srcSel = new Set();
 const nHidden = () => [...hidden].filter(x => !x.startsWith("ch:")).length;
 // 출처 선택: 외국인 원본 / 현지 편집·소개(내 채널과 비슷한 국뽕 채널) / 기관·방송 / 미확인. 마지막 선택은 이 브라우저에 기억한다
 const kindsEl = document.getElementById("kinds");
@@ -405,6 +418,12 @@ mkMulti(document.getElementById("rgs"), [["_any", "🗺 지방 여행 전체", V
 { const rgq = document.getElementById("rgq"); rgq.innerHTML = `🗺 지방 여행<small>${V.filter(v => v._rg.length).length}</small>`;   // 자주 쓰는 줄의 바로가기: 세부 지역은 '한국 소재' 탭에서 고른다
   rgq.title = "서울·부산 말고 다른 지역(제주·경상·전라·강원·충청·인천·경기) 여행 영상. 지역별로 고르려면 '한국 소재' 탭을 여세요.";
   rgq.onclick = () => { rgSel.has("_any") ? rgSel.delete("_any") : rgSel.add("_any"); MULTIS.forEach(m => m.sync()); render(); }; }
+if (V.some(v => v._notion)) {   // 노션 수집 목록이 데이터에 있을 때만 나온다 (build_site.py 의 sources 필드)
+  document.getElementById("srcgrp").hidden = false;
+  mkMulti(document.getElementById("srcs"), [["notion", "📓 노션 수집 목록", V.filter(v => v._notion).length], ["dup", "🔁 중복 수집 (노션 + 자동 수집)", V.filter(v => v._dup).length]], srcSel, V.length - nRef(), () => render());
+  const st = {notion: "노션 목록에서 가져온 영상. 노션 원본 등급은 우리 S/A/B 점수와 별개예요 (카드에 따로 표시).", dup: "노션 목록과 자동 수집 양쪽에서 찾은 영상 (같은 영상은 한 카드로 합쳐 저장·메모·사용 완료를 공유해요)"};
+  document.querySelectorAll("#srcs .chip").forEach(b => { if (st[b.dataset.k]) b.title = st[b.dataset.k]; });
+}
 { const rc = new Map(); V.filter(v => v.ref).forEach(v => { const o = rc.get(v.channel_id) || {name: v.channel, n: 0}; o.n++; rc.set(v.channel_id, o); });   // 레퍼런스 채널별 보기 (출처에서 '별도 레퍼런스'를 골랐을 때만 나온다)
   if (rc.size) mkMulti(document.getElementById("refch"), [...rc].sort((a, b) => b[1].n - a[1].n).map(([id, o]) => [id, o.name, o.n]), refSel, nRef(), () => render()); }
 document.querySelectorAll("#rgs .chip").forEach(b => { b.title = b.dataset.k === "_any" ? "서울·부산이 아닌 지역 이름이 제목에 있는 영상 (서울·부산이 함께 나오면 '서울·부산 언급'으로 표시)" : "제목에 이 지역의 장소 이름이 있는 영상"; });
@@ -506,6 +525,7 @@ function render() {
   const pass = v => ((!sh && !sd) ? !hidden.has(v.id) && !done.has(v.id) : (sh && hidden.has(v.id)) || (sd && done.has(v.id)))
     && (kindSel.size ? kindSel.has(v._kind) : v._kind !== "ref")   // 레퍼런스는 고르기 전에는 다른 목록에 섞이지 않는다
     && (!refSel.size || refSel.has(v.channel_id))
+    && (!srcSel.size || [...srcSel].some(k => k === "dup" ? v._dup : v._notion))
     && (!expSel.size || [...expSel].some(k => k === "_any" ? v._topics.length : v._topics.includes(k)))
     && (!catFns.length || (withSubs(v) && catFns.some(fn => fn(v))))
     && (!ctry.length || ctry.includes(v._subj))
@@ -543,7 +563,7 @@ function render() {
       `<button class="fav ${favs.has(v.id) ? "on" : ""}" title="저장">${favs.has(v.id) ? "★" : "☆"}</button>` +
       `<div class="th"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/mqdefault.jpg"><div class="play">▶</div></div>` +
       `<div class="body"><a class="t" target="_blank" rel="noopener" href="https://youtu.be/${v.id}"></a><div class="m"></div>` +
-      `<div class="tags"><span class="tag kindtag kind-${v._kind}"></span>${v._grade ?`<span class="tag grade-${v._grade}" title="잠정(제목·조회수 기준) · ${v._why}">🏆 ${v._grade} · ${v._type}${v._pending ? " · ⏳ 확인 대기" : ""}</span>` : ""}<span class="tag">${v._subj === "한국" ? "🇰🇷 한국" : v._subj === "일본" ? "🇯🇵 일본" : "🔁 한일"}</span>${v._rg.length ? `<span class="tag">${REGIONS.filter(r => v._rg.includes(r[0])).slice(0, 2).map(r => r[1]).join(" · ")}${v._rgMixed ? " · 서울·부산 언급" : ""}</span>` : ""}${v._jpTrip ? '<span class="tag">🧳 일본 여행</span>' : ""}${v._krTrip ? '<span class="tag">🧳 한국 여행</span>' : ""}${[...v._gc].sort((a, b) => gcSel.has(b) - gcSel.has(a)).slice(0, 1).map(t => `<span class="tag">${t}</span>`).join("")}${[...v._jt].sort((a, b) => jtSel.has(b) - jtSel.has(a)).slice(0, 2).map(t => `<span class="tag hot">${t}</span>`).join("")}<span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${v.length ? `<span class="tag">⏱ ${v.length}${v._form === "short" ? " · 숏폼" : ""}</span>` : ""}${v.viral ? `<span class="tag hot">🔥 ${v.buzz ? "이슈 " : ""}화제</span>` : ""}${v._topics.slice(0, 2).map(t => `<span class="tag">${t}</span>`).join("")}${isHot(v) ? '<span class="tag hot" title="평생 조회수 ÷ 구독자 비율이 높음 (증가 속도가 아님)">📈 구독자 대비 높음</span>' : ""}${v._pendingLen ? '<span class="tag" title="길이를 확인하면 등급을 판정해요">⏱ 길이 확인 필요</span>' : ""}</div>` +
+      `<div class="tags"><span class="tag kindtag kind-${v._kind}"></span>${v._notion ? `<span class="tag nt" title="노션 수집 목록의 원본 등급이에요. 우리 S/A/B 점수와 무관하고, 계산 방식이 공개되지 않아 그대로 보관만 해요.">📓 노션${v._ngrade ? " 원본 " + v._ngrade : ""}</span>` : ""}${v._dup ? '<span class="tag nt" title="노션 목록과 자동 수집 양쪽에서 찾은 영상">🔁 중복 수집</span>' : ""}${v._grade ?`<span class="tag grade-${v._grade}" title="잠정(제목·조회수 기준) · ${v._why}">🏆 ${v._grade} · ${v._type}${v._pending ? " · ⏳ 확인 대기" : ""}</span>` : ""}<span class="tag">${v._subj === "한국" ? "🇰🇷 한국" : v._subj === "일본" ? "🇯🇵 일본" : "🔁 한일"}</span>${v._rg.length ? `<span class="tag">${REGIONS.filter(r => v._rg.includes(r[0])).slice(0, 2).map(r => r[1]).join(" · ")}${v._rgMixed ? " · 서울·부산 언급" : ""}</span>` : ""}${v._jpTrip ? '<span class="tag">🧳 일본 여행</span>' : ""}${v._krTrip ? '<span class="tag">🧳 한국 여행</span>' : ""}${[...v._gc].sort((a, b) => gcSel.has(b) - gcSel.has(a)).slice(0, 1).map(t => `<span class="tag">${t}</span>`).join("")}${[...v._jt].sort((a, b) => jtSel.has(b) - jtSel.has(a)).slice(0, 2).map(t => `<span class="tag hot">${t}</span>`).join("")}<span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${v.length ? `<span class="tag">⏱ ${v.length}${v._form === "short" ? " · 숏폼" : ""}</span>` : ""}${v.viral ? `<span class="tag hot">🔥 ${v.buzz ? "이슈 " : ""}화제</span>` : ""}${v._topics.slice(0, 2).map(t => `<span class="tag">${t}</span>`).join("")}${isHot(v) ? '<span class="tag hot" title="평생 조회수 ÷ 구독자 비율이 높음 (증가 속도가 아님)">📈 구독자 대비 높음</span>' : ""}${v._pendingLen ? '<span class="tag" title="길이를 확인하면 등급을 판정해요">⏱ 길이 확인 필요</span>' : ""}</div>` +
       `<div class="act"><button class="btn dn ${done.has(v.id) ? "on" : ""}">${done.has(v.id) ? "✅ 사용 완료" : "☐ 사용 완료"}</button><button class="btn memo ${memos[v.id] ? "on" : ""}">📝 메모</button><button class="btn hd" title="이 영상만 안 보이게 (같은 채널의 다른 영상은 계속 나와요)">${hidden.has(v.id) ? "↩ 복구" : "🗑 숨김"}</button></div>` +
       `<textarea hidden placeholder="메모 (어디에 쓸지, 번역 메모 등)"></textarea></div>`;
     c.querySelector(".t").textContent = v.title;
