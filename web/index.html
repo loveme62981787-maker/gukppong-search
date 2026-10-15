@@ -353,7 +353,7 @@ const FIRST_PERSON_RE = new RegExp("\\b(my|our|we|i|i'm|i've|me|vlog|first (time
 const kindOf = v => {
   if (v.ref) return ["ref", "별도 레퍼런스: 사용자가 알려 준 채널의 영상 (분류 보정과 무관)"];
   if (own(kindVid, v.id)) return [kindVid[v.id], "개인 보정(이 영상)"];
-  if (own(kindCh, v.channel_id)) return [kindCh[v.channel_id], "개인 보정(이 채널)"];
+  if (v.channel_id && own(kindCh, v.channel_id)) return [kindCh[v.channel_id], "개인 보정(이 채널)"];   // 채널 ID 가 비어 있는 영상(노션 일부)에는 채널 단위 보정을 적용하지 않는다
   const cv = own(CURK.videos, v.id) ? CURK.videos[v.id] : null; if (cv && KINDS.has(cv.kind)) return [cv.kind, "공통 검토(영상, " + (cv.reviewed || "") + "): " + (cv.note || "")];
   const cc = own(CURK.channels, v.channel_id) ? CURK.channels[v.channel_id] : null; if (cc && KINDS.has(cc.kind)) return [cc.kind, "공통 검토(채널, " + (cc.reviewed || "") + "): " + (cc.note || "")];
   if (!v.title || !v.channel) return ["unk", "추정: 제목이나 채널명이 비어 있음"];
@@ -577,6 +577,7 @@ function render() {
     const kbtn = document.createElement("button"); kbtn.className = "chip"; kbtn.textContent = "적용";
     kbtn.onclick = () => { const k = ksel.value;
       if (kone.checked) { k === "auto" ? delete kindVid[v.id] : (kindVid[v.id] = k); }
+      else if (!v.channel_id) { k === "auto" ? delete kindVid[v.id] : (kindVid[v.id] = k); }   // 채널 ID 가 없으면 이 영상만 보정한다
       else { delete kindVid[v.id]; k === "auto" ? delete kindCh[v.channel_id] : (kindCh[v.channel_id] = k); }
       ls.set("kindCh", kindCh); ls.set("kindVid", kindVid); computeKinds(); refreshKindCounts(); render(); };
     kd.append(ksel, klab, kbtn); if (!v.ref) c.querySelector(".body").append(kd);   // 레퍼런스 영상은 분류 보정 대상이 아니다
