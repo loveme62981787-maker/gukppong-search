@@ -98,6 +98,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
   <div class="fpanel" data-g="kr" hidden>
     <div class="bar"><span class="lbl">외국인이 겪는 한국 — 글로벌 콘텐츠 12개 갈래 (칩에 마우스를 올리면 설명)</span><span id="gts" style="display:contents"></span></div>
     <div class="bar"><span class="lbl">외국인 한국 여행</span><span id="trvkr" style="display:contents"></span></div>
+    <div class="bar"><span class="lbl">🗺 지방 여행 — 서울·부산 말고 다른 지역 (제목의 지역 이름으로 분류 · 영상 출처와 같이 고를 수 있어요)</span><span id="rgs" style="display:contents"></span></div>
     <details class="gdetails"><summary>세부 꼭지 140개 펼치기 (고르면 갈래보다 우선 적용)</summary><button class="chip" id="gclear" style="margin:6px 0">꼭지 선택 모두 해제</button><div id="gitems"></div></details>
   </div>
   <div class="fpanel" data-g="jp" hidden>
@@ -282,6 +283,39 @@ V.forEach(v => {
 // 한국 여행은 'Korean' 같은 단어가 아니라 실제 한국 장소명이 있어야 하고, 해외 도시(Boston·Toronto 등)가 나오면 제외한다 ('해외 도시의 한국 음식' 오분류 방지)
 const KR_PLACE_RE = /seoul|busan|jeju|incheon|gyeongju|jeonju|daegu|daejeon|gangneung|sokcho|suwon|yeosu|andong|tongyeong|namhae|ulleung|hongdae|myeongdong|gangnam|south korea|in korea|to korea|korea (trip|travel|vlog)|서울|부산|제주|인천|경주|전주|대구|한국 여행/i;
 const ABROAD_CITY_RE = /boston|toronto|new york|\bnyc\b|los angeles|london|vancouver|sydney|paris|chicago|houston|dallas|atlanta|seattle|san francisco|melbourne|auckland|berlin|dubai|singapore|bangkok|manila|jakarta|tokyo|osaka|kyoto/i;
+// ---- 지방 여행(서울·부산 외 대한민국 여행) 분류: 근거 docs/collab/2026-10-15-regional-travel.md (Claude + Codex 합의) ----
+// 한국이 주제인 영상의 제목에 지역 장소명이 있으면 해당 지역. 여행 단어는 요구하지 않고 강한 비여행 문맥(뉴스·사건·선거·분양 등)만 제외한다.
+// 서울·부산이 함께 나오면 포함하되 '서울·부산 언급'으로 표시. 인천공항 문구만 지우고 판정. 광주·세종·남해 단독 등 모호한 이름은 배정하지 않는다.
+// 영문 지명은 단어 경계(\b)로, 한글·한자 표기는 그대로 묶어 하나의 정규식으로 만든다 ('pohangxyz' 같은 글자 일부 일치를 막는다)
+const rx = (ascii, other) => new RegExp("\\b(?:" + ascii.join("|") + ")\\b" + (other ? "|" + other : ""), "i");
+const REGIONS = [
+  ["jeju", "🌴 제주", rx(["jeju", "udo", "seongsan ilchulbong", "hallasan", "seogwipo"], "제주|濟州|済州|우도|성산일출봉|한라산|서귀포")],
+  ["gyeongbuk", "🏯 경주·대구·경북", rx(["gyeongju", "daegu", "andong", "pohang", "ulleung(?:do)?", "dokdo", "gyeongbuk", "yeongju", "mungyeong", "bulguksa", "hahoe"], "경주|慶州|대구|大邱|안동|포항|울릉|독도|경북|영주시|문경|불국사|하회")],
+  ["jeolla", "🍚 전라·광주", rx(["jeonju", "yeosu", "suncheon", "mokpo", "damyang", "namwon", "gunsan", "boseong", "jeolla", "jeonnam", "jeonbuk"], "전주|全州|여수|麗水|순천|목포|담양|남원|군산|보성|전라|전남|전북")],
+  ["gangwon", "⛰ 강원", rx(["gangneung", "sokcho", "chuncheon", "pyeongchang", "yangyang", "seorak(?:san)?", "gangwon", "jeongseon", "nami island"], "강릉|江陵|속초|束草|춘천|春川|평창|양양|설악|강원|정선|남이섬")],
+  // 우리말 동음이의어 주의: 공주(공주시/princess), 부여(부여군/'의미 부여'), 진주(진주시/pearl), 강화(강화도/'보안 강화'), 경기(경기도/game), 영주(영주시/'영주권')는 지역 표현이 분명할 때만 인정한다
+  ["chungcheong", "🌾 충청·대전", rx(["daejeon", "cheongju", "gongju", "buyeo", "taean", "danyang", "boryeong", "chungcheong", "chungnam", "chungbuk", "sejong city"], "대전|大田|청주|공주시|공산성|무령왕릉|부여군|부여 (?:궁남지|부소산|여행)|扶餘|태안|단양|보령|충청|충남|충북|세종시")],
+  ["gyeongnam", "🌊 경남·울산", rx(["tongyeong", "geoje", "namhae", "jinju", "changwon", "ulsan", "hadong", "gimhae", "gyeongnam"], "통영|統營|統営|거제|巨濟|巨済|남해군|남해 (?:독일마을|보리암|다랭이)|진주시|진주성|창원|울산|蔚山|하동|김해|경남")],
+  ["gyeonggi", "🚆 인천·경기", rx(["incheon", "suwon", "gapyeong", "paju", "ganghwa", "yongin", "yangpyeong", "gyeonggi"], "인천|仁川|수원|水原|가평|加平|파주|강화도|강화군|용인|양평|경기도")],
+];
+// 서울·부산 관련어 (혼합 표시용). '성수기'가 걸리지 않게 '성수동'만, 부산 지명(서면·남포동·센텀·감천 등)도 포함한다
+const SEOUL_BUSAN_RE = rx(["seoul", "busan", "hongdae", "myeongdong", "gangnam", "itaewon", "haeundae", "gwangalli", "seongsu", "dongdaemun", "gyeongbokgung", "insadong", "bukchon", "jamsil", "yeouido", "jongno", "seomyeon", "nampo", "centum", "gamcheon", "taejongdae", "jagalchi"],
+  "서울|首爾|首尔|ソウル|부산|釜山|プサン|홍대|명동|강남|이태원|해운대|광안리|광안대교|성수동|동대문|경복궁|인사동|북촌|잠실|여의도|종로|서면|남포동|센텀|감천|태종대|자갈치");
+const AIRPORT_RE = /incheon (international )?airport|인천 ?(국제)?공항/ig;
+// 강한 비여행 문맥만 제외한다. '사고'는 구매 동사로도 쓰이므로 사건 의미(교통사고·사고 현장 등)만, K리그 경기 영상(vs·FC·유나이티드)도 제외. 병원·공장·유학생 같은 약한 단어는 쓰지 않는다
+const NONTRAVEL_RE = /뉴스|속보|사건|교통사고|사고 (?:현장|발생|영상|소식|원인)|참사|사망|실종|화재|선거|대선|총선|시위|분양|부동산|재건축|검찰|재판|뺑소니|공개방송|직캠|fancam|\bnews\b|breaking|election|protest|murder|crime|lawsuit|real estate|유나이티드|\bk ?league\b|k리그|\bvs\.?\s|(?:^|[^a-z])fc(?:[^a-z]|$)/i;
+const AIRPORT_ANY_RE = /airport|공항|limousine bus|arex|공항철도/i;
+const GYEONGGI_OTHER_RE = /suwon|수원|gapyeong|가평|paju|파주|ganghwa|강화|yongin|용인|yangpyeong|양평|gyeonggi|경기도/i;
+const INCHEON_SIGHTS_RE = /chinatown|차이나타운|wolmido|월미도|songdo|송도|sorae|소래|dongincheon|동인천|개항장|sinpo|신포|지하상가|underground/i;   // 인천 관광지가 명시되면 공항 문구가 있어도 지방 여행으로 본다
+const regionsOf = v => {
+  if (v._subj !== "한국" || NONTRAVEL_RE.test(v.title)) return {rg: [], mixed: false};
+  const t = v.title.replace(AIRPORT_RE, " ");   // 인천공항 문구는 지우고 판정 (공항 도착만 있는 영상은 지방 여행이 아님)
+  let rg = REGIONS.filter(r => r[2].test(t)).map(r => r[0]);
+  // '인천'만 나오고 공항·공항버스·공항철도 이동이 주제면 지방 여행이 아니다 (수원 등 다른 경기 지역이 함께 나오면 유지)
+  if (rg.includes("gyeonggi") && AIRPORT_ANY_RE.test(t) && !GYEONGGI_OTHER_RE.test(t) && !INCHEON_SIGHTS_RE.test(t)) rg = rg.filter(k => k !== "gyeonggi");
+  return {rg, mixed: rg.length > 0 && SEOUL_BUSAN_RE.test(t)};
+};
+V.forEach(v => { const r = regionsOf(v); v._rg = r.rg; v._rgMixed = r.mixed; });
 // ---- 영상 출처(유형): 🌏 외국인 원본 / 🧭 현지 편집·소개 / 🏛 기관·방송 / ❓ 미확인 ----
 // 근거: docs/collab/2026-10-15-uploader-kind.md (Claude + Codex 토론). 자동 판정은 '추정'이고 확정이 아니다. 우선순위:
 //  개인 보정(영상) > 개인 보정(채널) > 공통 검토(영상) > 공통 검토(채널, web/curation.js) > 자동 추정. 근거가 부족하면 '미확인'으로 둔다.
@@ -339,7 +373,7 @@ function mkMulti(parent, items, sel, total, onChange) {
   MULTIS.push({parent, sel, keys, sync});
   sync();
 }
-const catSel = new Set(), viewSel = new Set(), kindSel = new Set(), expSel = new Set(), trvSel = new Set(), jtSel = new Set(), gcSel = new Set(), giSel = new Set(), grdSel = new Set(), typSel = new Set();
+const catSel = new Set(), viewSel = new Set(), kindSel = new Set(), expSel = new Set(), trvSel = new Set(), jtSel = new Set(), gcSel = new Set(), giSel = new Set(), grdSel = new Set(), typSel = new Set(), rgSel = new Set();
 const nHidden = () => [...hidden].filter(x => !x.startsWith("ch:")).length;
 // 출처 선택: 외국인 원본 / 현지 편집·소개(내 채널과 비슷한 국뽕 채널) / 기관·방송 / 미확인. 마지막 선택은 이 브라우저에 기억한다
 const kindsEl = document.getElementById("kinds");
@@ -361,6 +395,8 @@ mkMulti(document.getElementById("grd"), [["S", "🏆 S", V.filter(v => v._grade 
 mkMulti(document.getElementById("typ"), [["사건형", "⚡ 사건형", V.filter(v => v._grade && v._type === "사건형").length], ["체험형", "🙂 체험형", V.filter(v => v._grade && v._type === "체험형").length]], typSel, V.filter(v => v._grade).length, () => render());
 document.querySelectorAll("#typ .chip").forEach(b => { b.title = b.dataset.k === "사건형" ? "사건형: 제목에 구체적 사건·이슈 단어(월드컵·열병식·논란·세계 최초 등)가 있는 소재" : "체험형: 외국인이 한국·일본을 체험하고 반응하는 상시 소재"; });
 mkMulti(document.getElementById("trvkr"), [["kr", "🇰🇷 외국인 한국 여행", V.filter(v => v._krTrip).length]], trvSel, V.length, () => render());
+mkMulti(document.getElementById("rgs"), [["_any", "🗺 지방 여행 전체", V.filter(v => v._rg.length).length]].concat(REGIONS.map(r => [r[0], r[1], V.filter(v => v._rg.includes(r[0])).length])), rgSel, V.length, () => render());
+document.querySelectorAll("#rgs .chip").forEach(b => { b.title = b.dataset.k === "_any" ? "서울·부산이 아닌 지역 이름이 제목에 있는 영상 (서울·부산이 함께 나오면 '서울·부산 언급'으로 표시)" : "제목에 이 지역의 장소 이름이 있는 영상"; });
 mkMulti(document.getElementById("trvjp"), [["jp", "🇯🇵 외국인 일본 여행", V.filter(v => v._jpTrip).length]], trvSel, V.length, () => render());
 mkMulti(document.getElementById("jts"), Object.keys(JPT).map(t => [t, t, V.filter(v => v._jt.includes(t)).length]), jtSel, V.length, () => render());
 document.querySelectorAll("#jts .chip").forEach(b => { const t = (window.JP_TOPICS || {})[b.dataset.k]; if (t) b.title = "참고 지표: " + t.info; });
@@ -386,7 +422,7 @@ mkMulti(document.getElementById("exps"), [["_any", "🎟 체험 영상 전체", 
 mkMulti(document.getElementById("cats"), CATS.map(([k, l, fn]) => [k, l, V.filter(v => withSubs(v) && fn(v)).length]), catSel, V.length, () => render());
 // 한 선택 집합(viewSel)을 세 그룹이 나눠 쓴다: 나라(자주 쓰는 줄), 그 밖의 조건(상세 탭), 내 작업(내 작업 탭). 나라는 둘 중 하나, 나머지 조건은 모두 만족해야 보인다
 mkMulti(document.getElementById("cty"), [["한국", "🇰🇷 한국이 주제"], ["일본", "🇯🇵 일본이 주제"], ["both", "🔁 한일 비교·반응"]], viewSel, V.length, () => render());
-mkMulti(document.getElementById("ext"), [["other", "🏝 서울·부산 외"], ["viral", "🔥 화제 영상 (과거 포함)", V.filter(v => v.viral).length]], viewSel, null, () => render());
+mkMulti(document.getElementById("ext"), [["viral", "🔥 화제 영상 (과거 포함)", V.filter(v => v.viral).length]], viewSel, null, () => render());   // '서울·부산 외' 칩은 '한국 소재 > 🗺 지방 여행'으로 대체
 mkMulti(document.getElementById("mine"), [["new", "🆕 새로 들어온"], ["fav", "⭐ 저장"], ["memo", "📝 메모 있음"], ["done", "✅ 사용 완료", done.size], ["hidden", "🗑 숨김", nHidden()]], viewSel, null, () => render());
 document.getElementById("upd").textContent = "마지막 갱신 " + (window.UPDATED || "-") + " · 영상 " + V.length + "개";
 const isNew = v => v.first_seen > (seenAt || "9999") || v.first_seen === (window.UPDATED || "").slice(0, 10);
@@ -460,9 +496,10 @@ function render() {
     && (!ctry.length || ctry.includes(v._subj))
     && (giSel.size ? [...giSel].some(k => v._gi.includes(k)) : (!gcSel.size || [...gcSel].some(k => v._gc.includes(k))))
     && (!grdSel.size || grdSel.has(v._grade) || (grdSel.has("len") && v._pendingLen)) && (!typSel.size || (v._grade && typSel.has(v._type)))
+    && (!rgSel.size || [...rgSel].some(k => k === "_any" ? v._rg.length : v._rg.includes(k)))
     && (!jtSel.size || [...jtSel].some(k => v._jt.includes(k)))
     && (!trvSel.size || (trvSel.has("kr") && v._krTrip) || (trvSel.has("jp") && v._jpTrip))
-    && (!viewSel.has("other") || v.section === "other") && (!viewSel.has("viral") || v.viral) && (!viewSel.has("fav") || favs.has(v.id)) && (!viewSel.has("memo") || memos[v.id]) && (!viewSel.has("new") || isNew(v))
+    && (!viewSel.has("viral") || v.viral) && (!viewSel.has("fav") || favs.has(v.id)) && (!viewSel.has("memo") || memos[v.id]) && (!viewSel.has("new") || isNew(v))
     && (!q || (v.title + " " + v.channel + " " + (memos[v.id] || "")).toLowerCase().includes(q));
   const a0 = V.filter(pass), a = a0.filter(lenOK);   // a0: 길이 말고 다른 조건을 모두 통과한 영상 (길이 때문에 빠진 수를 세기 위해 따로 둔다)
   const lenExcluded = eff === "default" ? a0.length - a.length : 0;
@@ -491,7 +528,7 @@ function render() {
       `<button class="fav ${favs.has(v.id) ? "on" : ""}" title="저장">${favs.has(v.id) ? "★" : "☆"}</button>` +
       `<div class="th"><img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/mqdefault.jpg"><div class="play">▶</div></div>` +
       `<div class="body"><a class="t" target="_blank" rel="noopener" href="https://youtu.be/${v.id}"></a><div class="m"></div>` +
-      `<div class="tags"><span class="tag kindtag kind-${v._kind}"></span>${v._grade ?`<span class="tag grade-${v._grade}" title="잠정(제목·조회수 기준) · ${v._why}">🏆 ${v._grade} · ${v._type}${v._pending ? " · ⏳ 확인 대기" : ""}</span>` : ""}<span class="tag">${v._subj === "한국" ? "🇰🇷 한국" : v._subj === "일본" ? "🇯🇵 일본" : "🔁 한일"}${v.section === "other" ? " · 지방" : ""}</span>${v._jpTrip ? '<span class="tag">🧳 일본 여행</span>' : ""}${v._krTrip ? '<span class="tag">🧳 한국 여행</span>' : ""}${[...v._gc].sort((a, b) => gcSel.has(b) - gcSel.has(a)).slice(0, 1).map(t => `<span class="tag">${t}</span>`).join("")}${[...v._jt].sort((a, b) => jtSel.has(b) - jtSel.has(a)).slice(0, 2).map(t => `<span class="tag hot">${t}</span>`).join("")}<span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${v.length ? `<span class="tag">⏱ ${v.length}${v._form === "short" ? " · 숏폼" : ""}</span>` : ""}${v.viral ? `<span class="tag hot">🔥 ${v.buzz ? "이슈 " : ""}화제</span>` : ""}${v._topics.slice(0, 2).map(t => `<span class="tag">${t}</span>`).join("")}${isHot(v) ? '<span class="tag hot" title="평생 조회수 ÷ 구독자 비율이 높음 (증가 속도가 아님)">📈 구독자 대비 높음</span>' : ""}${v._pendingLen ? '<span class="tag" title="길이를 확인하면 등급을 판정해요">⏱ 길이 확인 필요</span>' : ""}</div>` +
+      `<div class="tags"><span class="tag kindtag kind-${v._kind}"></span>${v._grade ?`<span class="tag grade-${v._grade}" title="잠정(제목·조회수 기준) · ${v._why}">🏆 ${v._grade} · ${v._type}${v._pending ? " · ⏳ 확인 대기" : ""}</span>` : ""}<span class="tag">${v._subj === "한국" ? "🇰🇷 한국" : v._subj === "일본" ? "🇯🇵 일본" : "🔁 한일"}</span>${v._rg.length ? `<span class="tag">${REGIONS.filter(r => v._rg.includes(r[0])).slice(0, 2).map(r => r[1]).join(" · ")}${v._rgMixed ? " · 서울·부산 언급" : ""}</span>` : ""}${v._jpTrip ? '<span class="tag">🧳 일본 여행</span>' : ""}${v._krTrip ? '<span class="tag">🧳 한국 여행</span>' : ""}${[...v._gc].sort((a, b) => gcSel.has(b) - gcSel.has(a)).slice(0, 1).map(t => `<span class="tag">${t}</span>`).join("")}${[...v._jt].sort((a, b) => jtSel.has(b) - jtSel.has(a)).slice(0, 2).map(t => `<span class="tag hot">${t}</span>`).join("")}<span class="tag">👥 ${fmt(v.subs)}</span><span class="tag">👁 ${fmt(v.views)}</span>${v.length ? `<span class="tag">⏱ ${v.length}${v._form === "short" ? " · 숏폼" : ""}</span>` : ""}${v.viral ? `<span class="tag hot">🔥 ${v.buzz ? "이슈 " : ""}화제</span>` : ""}${v._topics.slice(0, 2).map(t => `<span class="tag">${t}</span>`).join("")}${isHot(v) ? '<span class="tag hot" title="평생 조회수 ÷ 구독자 비율이 높음 (증가 속도가 아님)">📈 구독자 대비 높음</span>' : ""}${v._pendingLen ? '<span class="tag" title="길이를 확인하면 등급을 판정해요">⏱ 길이 확인 필요</span>' : ""}</div>` +
       `<div class="act"><button class="btn dn ${done.has(v.id) ? "on" : ""}">${done.has(v.id) ? "✅ 사용 완료" : "☐ 사용 완료"}</button><button class="btn memo ${memos[v.id] ? "on" : ""}">📝 메모</button><button class="btn hd" title="이 영상만 안 보이게 (같은 채널의 다른 영상은 계속 나와요)">${hidden.has(v.id) ? "↩ 복구" : "🗑 숨김"}</button></div>` +
       `<textarea hidden placeholder="메모 (어디에 쓸지, 번역 메모 등)"></textarea></div>`;
     c.querySelector(".t").textContent = v.title;
