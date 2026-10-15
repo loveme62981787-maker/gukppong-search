@@ -23,13 +23,15 @@ KEEP_DAYS = 60  # 이 기간이 지난 영상은 목록에서 뺌
 
 
 def to_item(v, country, section, now):
-    observed_at = now.astimezone(KST).isoformat()
+    observed_at = v.get("observed_at", now.astimezone(KST).isoformat())
+    if valid_timestamp(observed_at) is None:
+        observed_at = None
     views = v.get("views")
     return {
         "id": v["id"], "title": v["title"], "channel": v["channel"], "channel_id": v["channel_id"],
         "subs": v.get("subs"), "views": views,
         "observed_at": observed_at, "subs_checked_at": v.get("subs_checked_at"),
-        "views_history": [[observed_at, views]] if valid_views(views) else [], "country": country, "section": section,
+        "views_history": [[observed_at, views]] if observed_at and valid_views(views) else [], "country": country, "section": section,
         "length": v.get("length"), "duration_sec": v.get("duration_sec"), "is_short": v.get("is_short"),
         "published": (now - timedelta(hours=v["age_h"])).strftime("%Y-%m-%d"),
     }
@@ -40,13 +42,28 @@ def valid_views(value):
     return isinstance(value, int) and not isinstance(value, bool) and value >= 0
 
 
+def valid_timestamp(value):
+    """잘못된 시각이나 시간대 없는 값은 증가 속도 계산에 사용하지 않는다."""
+    try:
+        stamp = datetime.fromisoformat(value)
+        return stamp if stamp.utcoffset() is not None else None
+    except (TypeError, ValueError):
+        return None
+
+
 def merge_history(history, observed_at, views):
     """기존 관측을 우선 보존하고 시간순으로 최신 12개를 남긴다."""
     merged = {}
-    for stamp, count in history or []:
-        merged.setdefault(datetime.fromisoformat(stamp), [stamp, count])
-    if observed_at is not None and valid_views(views):
-        merged.setdefault(datetime.fromisoformat(observed_at), [observed_at, views])
+    for row in history if isinstance(history, list) else []:
+        if not isinstance(row, (list, tuple)) or len(row) != 2:
+            continue
+        stamp, count = row
+        parsed = valid_timestamp(stamp)
+        if parsed is not None and valid_views(count):
+            merged.setdefault(parsed, [stamp, count])
+    parsed = valid_timestamp(observed_at)
+    if parsed is not None and valid_views(views):
+        merged.setdefault(parsed, [observed_at, views])
     return [merged[key] for key in sorted(merged)[-12:]]
 
 
@@ -56,14 +73,15 @@ def merge_items(vids, found, today):
     for it in found:
         old = vids.get(it["id"])
         if old is not None:
-            if valid_views(it.get("views")):
+            # 구형 호출은 호환하되, 새 수집에서 관측 실패로 표시한 0은 저장값을 지우지 않는다.
+            if valid_views(it.get("views")) and ("observed_at" not in it or valid_timestamp(it["observed_at"]) is not None):
                 old["views"] = it["views"]
             if it.get("subs") is not None:
                 old["subs"] = it["subs"]
             old["views_history"] = merge_history(
                 old.get("views_history"), it.get("observed_at"), it.get("views"))
             for key in ("observed_at", "subs_checked_at"):
-                if it.get(key) is not None:
+                if valid_timestamp(it.get(key)) is not None and (key != "observed_at" or valid_views(it.get("views"))):
                     old[key] = it[key]
                 else:
                     old.setdefault(key, None)
