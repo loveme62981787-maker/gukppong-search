@@ -22,6 +22,17 @@ KST = timezone(timedelta(hours=9))
 KEEP_DAYS = 60  # 이 기간이 지난 영상은 목록에서 뺌
 
 
+def load_notion_videos():
+    """확인한 외부 원본 목록을 읽는다. 공개 데이터에는 연락처·노션 URL을 넣지 않는다."""
+    path = os.path.join(BASE, "data", "notion_videos.json")
+    data = notifier.read_json(path, {"videos": []})
+    videos = data.get("videos", []) if isinstance(data, dict) else []
+    if not isinstance(videos, list):
+        print("[원본 목록] 데이터 형식을 확인해 주세요. 기존 저장 목록은 유지합니다.")
+        return []
+    return videos
+
+
 def to_item(v, country, section, now):
     observed_at = v.get("observed_at", now.astimezone(KST).isoformat())
     if valid_timestamp(observed_at) is None:
@@ -72,7 +83,33 @@ def merge_items(vids, found, today):
     new_items = []
     for it in found:
         old = vids.get(it["id"])
+        incoming_sources = set(it.get("sources") or ["discovery"])
+        incoming_categories = set(it.get("categories") or [it.get("section", "recent")])
         if old is not None:
+            old_sources = set(old.get("sources") or (["notion"] if old.get("section") == "notion" else ["discovery"]))
+            old["sources"] = sorted(old_sources | incoming_sources)
+            old["categories"] = sorted(set(old.get("categories") or [old.get("section", "recent")]) | incoming_categories)
+            old["is_duplicate_source"] = "notion" in old["sources"] and len(old["sources"]) > 1
+            if "notion" in it:
+                old["notion"] = it["notion"]
+            # 원본 노션 통계는 스냅샷으로 보존하며 자동수집의 최신 통계를 덮지 않는다.
+            if incoming_sources == {"notion"} and "discovery" in old_sources:
+                if old.get("duration_sec") is None and it.get("duration_sec") is not None:
+                    for key in ("duration_sec", "length", "is_short", "duration_source"):
+                        old[key] = it.get(key)
+                continue
+            if incoming_sources == {"notion"} and old_sources == {"notion"}:
+                # 원본 목록만 있는 영상은 스냅샷 갱신을 반영하되 조회수 관측 이력을 만들지 않는다.
+                for key in ("title", "channel", "channel_id", "channel_url", "country", "published",
+                            "views", "subs", "duration_sec", "length", "is_short", "duration_source"):
+                    if it.get(key) is not None and it.get(key) != "":
+                        old[key] = it[key]
+                continue
+            # 노션만 있던 영상이 자동수집되면 실제 채널·게시일 정보를 보충한다.
+            if "discovery" in incoming_sources and old_sources == {"notion"}:
+                for key in ("title", "channel", "channel_id", "published", "country", "section"):
+                    if it.get(key):
+                        old[key] = it[key]
             # 구형 호출은 호환하되, 새 수집에서 관측 실패로 표시한 0은 저장값을 지우지 않는다.
             if valid_views(it.get("views")) and ("observed_at" not in it or valid_timestamp(it["observed_at"]) is not None):
                 old["views"] = it["views"]
@@ -91,6 +128,9 @@ def merge_items(vids, found, today):
                     old[key] = value
         else:
             it = dict(it, first_seen=today)
+            it["sources"] = sorted(incoming_sources)
+            it["categories"] = sorted(incoming_categories)
+            it["is_duplicate_source"] = "notion" in incoming_sources and len(incoming_sources) > 1
             it.setdefault("observed_at", None)
             it.setdefault("subs_checked_at", None)
             it["views_history"] = merge_history([], it["observed_at"], it.get("views"))
@@ -103,8 +143,9 @@ def main():
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     notify = "--notify" in sys.argv
+    offline = "--offline" in sys.argv
     st = discover.load_settings()
-    st["exclude_ids"] = discover.resolve_channels(st["exclude_links"])
+    st["exclude_ids"] = discover.resolve_channels(st["exclude_links"]) if not offline else set()
     store = notifier.read_json(STORE, {"videos": {}, "subs": {}})
     cache = store["subs"]
     checked_at = store.setdefault("subs_checked_at", {})
@@ -113,18 +154,19 @@ def main():
     skip = set(st["exclude_videos"])
     found = []
 
-    others = discover.find_other_cities(st, skip, set(), cache, checked_at)
+    others = discover.find_other_cities(st, skip, set(), cache, checked_at) if not offline else []
     found += [to_item(v, "한국", "other", now) for v in others]
     other_ids = {v["id"] for v in others}
-    for name, spec in discover.COUNTRIES.items():
+    for name, spec in (discover.COUNTRIES.items() if not offline else []):
         for v in discover.find_country(name, spec, st, skip, cache, checked_at):
             if v["id"] not in other_ids:
                 found.append(to_item(v, name, "recent", now))
 
     vids = store["videos"]
     new_items = merge_items(vids, found, today)
+    merge_items(vids, load_notion_videos(), today)
     cutoff = (now - timedelta(days=KEEP_DAYS)).strftime("%Y-%m-%d")
-    store["videos"] = {k: v for k, v in vids.items() if v["first_seen"] >= cutoff}
+    store["videos"] = {k: v for k, v in vids.items() if "notion" in v.get("sources", []) or v["first_seen"] >= cutoff}
     store["subs"] = cache
     notifier.write_json(STORE, store)
 

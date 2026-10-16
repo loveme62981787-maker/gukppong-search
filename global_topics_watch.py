@@ -193,15 +193,24 @@ GROUPS = [
         ("지하철 아이돌 생일 광고", r"birthday (ad|ads|advertisement)|subway (ad|ads|advertis)|idol (ad|ads)|지하철 광고|생일 광고|fan (ad|ads)|cheering ad|bus ad", "K-pop idol birthday subway ads foreigners"),
     ]),
 ]
+JP = "--jp" in sys.argv   # 일본 버전: 같은 12갈래·140꼭지를 일본 상황으로 옮긴 global_topics_jp_groups.py 를 쓴다
+if JP:
+    from global_topics_jp_groups import GROUPS_JP
+    GROUPS = GROUPS_JP
+    OUT = os.path.join(BASE, "web", "global_topics_jp.js")
+    STORE = os.path.join(BASE, "global_topics_jp_store.json")
+COUNTRY = "일본" if JP else "한국"
 EXPECT = [12, 14, 18, 18, 8, 12, 8, 14, 8, 12, 9, 7]
 SORTS = ["EgIQAQ%3D%3D", "CAISBAgEEAE%3D"]   # 관련도순 / 이번 달 최신순 (꼭지 영어 검색은 앞의 것만, 갈래 검색은 둘 다)
 KR_WORDS = ["korea", "korean", "seoul", "busan", "jeju", "incheon", "k-pop", "kpop", "k-drama", "kdrama", "k-beauty", "han river", "한국", "서울", "부산", "제주", "한류", "한강", "한복", "韓国"]
 # 외국인 시선(사용·경험·반응)이 제목에 드러나는지. '해외' 한 단어만으로는 통과시키지 않는다 (경제 뉴스 등이 섞임)
+JP_WORDS = ["japan", "japanese", "tokyo", "osaka", "kyoto", "hokkaido", "okinawa", "fukuoka", "nara", "hiroshima", "nagoya", "j-pop", "jpop", "anime", "manga", "shinkansen", "일본", "도쿄", "오사카", "교토", "후쿠오카", "삿포로", "오키나와", "日本", "東京", "大阪", "京都"]
+WORDS = JP_WORDS if JP else KR_WORDS
 FOREIGN_VIEW = re.compile(r"foreigners?|tourists?|expats?|first time|react|reaction|\btry\b|\btried\b|trying|experience|living in|moved to|vlog|외국인|외국 ?사람|해외 ?(반응|네티즌|감동)|반응|체험|처음|첫|놀란|충격|감동", re.I)
 # 영어 강의·회화 교재형 영상은 외국인의 경험이 아니므로 제외 (수집과 사이트 분류에 모두 적용)
-EXCLUDE = r"영어 ?회화|회화 표현|english (lesson|conversation|phrases)|learn english|영어 ?공부|한국어 ?(강의|수업)|korean lesson|learn korean"
+EXCLUDE = r"영어 ?회화|회화 표현|english (lesson|conversation|phrases)|learn english|영어 ?공부|한국어 ?(강의|수업)|korean lesson|learn korean|일본어 ?(강의|수업|회화)|japanese (lesson|class|course|conversation|phrases)|learn japanese|keigo lesson|日本語.{0,4}(講座|レッスン)"
 EXCLUDE_RE = re.compile(EXCLUDE, re.I)
-PROVENANCE_TOP = 5  # 꼭지별 영어 검색 결과 상위 몇 개를, 제목에 규칙 단어가 없어도 그 꼭지로 인정할지
+PROVENANCE_TOP = 0 if "--jp" in sys.argv else 5  # (일본 버전은 검색 순위만으로 꼭지를 붙이지 않고 제목 규칙이 맞을 때만 분류한다 — Codex 검토 반영)꼭지별 영어 검색 결과 상위 몇 개를, 제목에 규칙 단어가 없어도 그 꼭지로 인정할지
 PATTERNS = []  # [(갈래 인덱스, 꼭지 이름, 컴파일된 규칙)]
 for _gi, (_c, _n, _items) in enumerate(GROUPS):
     for _name, _rule, _q in _items:
@@ -225,7 +234,7 @@ def queries():
         for name, _rule, en in items:
             qs.append((cat, en, SORTS[:1], name))
             qs.append((cat, "외국인 " + re.sub(r"[()+·\"]", " ", name).strip(), SORTS[:1], name))
-        qs.append((cat, "외국인 " + re.sub(r"[·]", " ", cat.split(" ", 1)[1]) + " 한국 반응", SORTS, None))
+        qs.append((cat, "외국인 " + re.sub(r"[·]", " ", cat.split(" ", 1)[1]) + " " + COUNTRY + " 반응", SORTS, None))
     return qs
 
 
@@ -252,6 +261,25 @@ def main():
     if not check():
         print("꼭지 수가 슬라이드와 달라 중단합니다 (check 참고)")
         sys.exit(1)
+    if "--refilter" in sys.argv:   # 검색 없이, 저장된 결과를 현재 규칙으로 다시 걸러 낸다 (규칙·판별을 고친 뒤 빠르게 반영)
+        kc, ki = ("jg_cats", "jg_items") if JP else ("g_cats", "g_items")
+        txt = open(OUT, encoding="utf-8").read()
+        saved = json.loads(re.search(r"window\.GLOBAL_ITEMS\w*=(\[.*\]);", txt, re.S).group(1))
+        kept = []
+        for it in saved:
+            t = it["title"]
+            cats, items = classify(t)
+            if not cats or EXCLUDE_RE.search(t) or not any(w in t.lower() for w in WORDS):
+                continue
+            it[kc], it[ki] = cats, items
+            kept.append(it)
+        topics = [{"cat": c, "note": n, "items": [{"name": nm, "rule": r} for nm, r, _q in its]} for c, n, its in GROUPS]
+        sfx = "_JP" if JP else ""
+        with open(OUT, "w", encoding="utf-8") as f:
+            f.write("window.GLOBAL_EXCLUDE=%s;\nwindow.GLOBAL_TOPICS%s=%s;\nwindow.GLOBAL_ITEMS%s=%s;\n" % (
+                json.dumps(EXCLUDE, ensure_ascii=False), sfx, json.dumps(topics, ensure_ascii=False), sfx, json.dumps(kept, ensure_ascii=False)))
+        print(f"다시 거름: {len(saved)}개 → {len(kept)}개")
+        return
     dry = "--dry" in sys.argv
     now = datetime.now(KST)
     today = now.strftime("%Y-%m-%d")
@@ -287,8 +315,8 @@ def main():
                 if v["age_h"] is None or not cats or EXCLUDE_RE.search(title):
                     continue
                 hangul = bool(re.search(r"[가-힣]", title + v["channel"]))
-                if not (any(w in title.lower() for w in KR_WORDS) or hangul):
-                    continue  # 한국이 주제인 영상만
+                if not (any(w in title.lower() for w in WORDS) or (hangul and not JP)):
+                    continue  # 한국(일본 버전은 일본)이 주제인 영상만. 일본 버전은 한글 제목만으로는 일본 영상이라 보지 않고 제목에 일본 표현이 있어야 한다
                 if not (FOREIGN_VIEW.search(title) or not hangul):
                     continue  # 외국인 시선(사용·경험·반응)이 드러나거나, 외국인 채널이 올린 영상
                 if v["duration_sec"] is not None and v["duration_sec"] < MIN_SEC:
@@ -307,26 +335,28 @@ def main():
     with ThreadPoolExecutor(6) as ex:
         subs = dict(zip(ids, ex.map(ew.channel_subs, ids)))
     items = [{"id": v["id"], "title": v["title"], "channel": v["channel"], "channel_id": v["channel_id"], "subs": subs.get(v["channel_id"]),
-              "views": v["views"], "country": "한국", "section": "global_topic", "g_cats": v["g_cats"], "g_items": v["g_items"],
+              "views": v["views"], "country": COUNTRY, "section": "global_topic_jp" if JP else "global_topic", ("jg_cats" if JP else "g_cats"): v["g_cats"], ("jg_items" if JP else "g_items"): v["g_items"],
               "age_text": v["age_text"], "length": v["length"], "duration_sec": v["duration_sec"],
               "published": (now - timedelta(hours=v["age_h"])).strftime("%Y-%m-%d"), "first_seen": store.get(v["id"], today)}
              for v in found.values()]
     items.sort(key=lambda x: (x["first_seen"], x["views"]), reverse=True)
     items = items[:MAX_ITEMS]
-    by_cat = {g[0]: sum(g[0] in i["g_cats"] for i in items) for g in GROUPS}
+    kc, ki = ("jg_cats", "jg_items") if JP else ("g_cats", "g_items")
+    by_cat = {g[0]: sum(g[0] in i[kc] for i in items) for g in GROUPS}
     print(f"수집 {len(items)}개", by_cat)
     if dry:
         for i in items[:15]:
-            print(f"  {','.join(i['g_items'])[:22]:22} {i['length'] or '-':>8} 조회 {i['views']:>9,} {i['channel']} | {i['title'][:42]}")
+            print(f"  {','.join(i[ki])[:22]:22} {i['length'] or '-':>8} 조회 {i['views']:>9,} {i['channel']} | {i['title'][:42]}")
         return
     with open(STORE, "w", encoding="utf-8") as f:
         json.dump({i["id"]: i["first_seen"] for i in items}, f, ensure_ascii=False)
     topics = [{"cat": c, "note": n, "items": [{"name": nm, "rule": r} for nm, r, _q in its]} for c, n, its in GROUPS]
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
-        f.write("window.GLOBAL_EXCLUDE=%s;\nwindow.GLOBAL_TOPICS=%s;\nwindow.GLOBAL_ITEMS=%s;\n" % (
-            json.dumps(EXCLUDE, ensure_ascii=False), json.dumps(topics, ensure_ascii=False), json.dumps(items, ensure_ascii=False)))
-    print("저장: web/global_topics.js")
+        sfx = "_JP" if JP else ""
+        f.write("window.GLOBAL_EXCLUDE=%s;\nwindow.GLOBAL_TOPICS%s=%s;\nwindow.GLOBAL_ITEMS%s=%s;\n" % (
+            json.dumps(EXCLUDE, ensure_ascii=False), sfx, json.dumps(topics, ensure_ascii=False), sfx, json.dumps(items, ensure_ascii=False)))
+    print("저장:", os.path.relpath(OUT, BASE))
 
 
 if __name__ == "__main__":
