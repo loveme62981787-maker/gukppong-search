@@ -144,6 +144,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script src="global_topics_jp.js" onerror="window.GLOBAL_ITEMS_JP=[]; window.GLOBAL_TOPICS_JP=[]"></script>
 <script src="topic_candidates.js" onerror="window.TOPIC_CANDIDATES=[]"></script>
 <script src="experience_assignments.js" onerror="window.EXPERIENCE_ASSIGNMENTS={}"></script>
+<script src="channel_country.js" onerror="window.CHANNEL_COUNTRY={}"></script>
 <script src="reference.js" onerror="window.REFERENCE=[]"></script>
 <script src="curation.js" onerror="window.CURATION={promote:[],demote:{},exclude:[]}"></script>
 <script>
@@ -390,6 +391,7 @@ const INST_IDS = new Set(Object.keys(CURK.channels || {}).filter(id => CURK.chan
 const NON_EN_RE = new RegExp("(?:[\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u017F\\u1E00-\\u1EFF][^]*){2}|(?:[\\u0370-\\u03FF\\u0400-\\u04FF\\u0600-\\u06FF\\u0900-\\u097F\\u0E00-\\u0E7F][^]*){2}");
 // 일인칭·직접 촬영 근거: 'my/our/we/I/me', 'first time/day', 'vlog', 또는 국적+사람 표현(예: Indian student). react·tourist·living 같은 제3자도 쓰는 단어는 근거로 쓰지 않는다
 const FIRST_PERSON_RE = new RegExp("\\b(my|our|we|i|i'm|i've|me|vlog|first (time|day))\\b|\\b(" + NAT_EN + ") (" + PEOPLE_EN + ")\\b", "i");
+const CHANNEL_COUNTRY = window.CHANNEL_COUNTRY || {};
 const kindOf = v => {
   if (v.ref) return ["ref", "별도 레퍼런스: 사용자가 알려 준 채널의 영상 (분류 보정과 무관)"];
   if (own(kindVid, v.id)) return [kindVid[v.id], "개인 보정(이 영상)"];
@@ -403,6 +405,10 @@ const kindOf = v => {
   if (/[가-힣]/.test(v.channel)) return ["unk", "추정: 제목은 외국어인데 채널명이 한글이라 누가 운영하는지 알 수 없음 (확인 후 분류 바꾸기)"];
   if (REF_IDS.has(v.channel_id)) return ["unk", "추정: 벤치마킹 목록에 있는 채널이라 원본으로 단정할 수 없음"];
   if (!["한국", "일본"].includes(v._subj)) return ["unk", "추정: 대상국이 불분명하거나 한일 혼합"];
+  { const cc = Object.prototype.hasOwnProperty.call(CHANNEL_COUNTRY, v.channel_id) ? CHANNEL_COUNTRY[v.channel_id] : "";   // 채널 정보 페이지의 위치: 한국·일본이 아닌 해외 위치면 외국인 운영 근거 (한국·일본 위치는 판정에 쓰지 않는다: 현지에 사는 외국인 채널도 같은 값)
+    // 소재 국가가 수집 경로에서 붙은 값일 수 있어, 제목에도 그 나라 표현이 있을 때만 쓴다 ('Another World' 웹툰 요약 같은 오분류 방지)
+    const titleHas = v._subj === "한국" ? /korea|k-?pop|k-?drama|k-?beauty|kimchi|hangul|hanbok|seoul|busan|jeju|한국|서울|부산|제주|韓国/i.test(v.title) : /japan|tokyo|osaka|kyoto|hokkaido|okinawa|anime|manga|shinkansen|ramen|sushi|일본|도쿄|오사카|교토|日本|東京|大阪|京都/i.test(v.title);
+    if (cc && cc !== "South Korea" && cc !== "Japan" && titleHas) return ["foreign", "추정: 채널 위치가 해외(" + cc + ")라 외국인이 만든 영상으로 봄 (채널 정보 페이지 기준, 국적을 확인한 것은 아님)"]; }
   if (NON_EN_RE.test(v.title)) return ["foreign", "추정: 한국어·일본어·영어가 아닌 언어(스페인어·러시아어 등)로 만든 영상이라 외국인이 만든 것으로 봄 (확정은 아님)"];
   if (FIRST_PERSON_RE.test(v.title)) return ["foreign", "추정: 영어 제목에 일인칭·직접 촬영 표현(my/we/I/vlog/first time 등)이 있고, 한글 채널명·기관·벤치마킹 채널이 아님 (확정은 아님)"];
   return ["unk", "추정: 외국어 제목이지만 직접 촬영했다는 신호가 없음"];
@@ -420,13 +426,17 @@ function computeKinds() {
 //  📓 노션: 노션 수집 목록 / 🇰🇷 한국 체험: 외국인 원본(추정) + 한국 소재 / 🇯🇵 일본 체험: 외국인 원본(추정) + 일본 소재
 //  🧭 국뽕채널·한국: 현지 국뽕 채널 영상(한국 소재) + 별도 레퍼런스 채널 / 🎌 국뽕채널·일본: 현지 국뽕 채널 영상(일본 소재)
 //  '외국인 원본'과 '현지 채널' 판정은 제목·채널 정보로 한 추정이며 영상 내용을 보고 확인한 것이 아니다. 근거가 부족한 영상(미확인·기관·한일 혼합 등)은 억지로 넣지 않는다.
-const JP_PLACE_RE = /tokyo|osaka|kyoto|hokkaido|okinawa|fukuoka|nara\b|hiroshima|nagoya|shinjuku|shibuya|in japan|to japan|japan (trip|travel|vlog)|도쿄|오사카|교토|후쿠오카|일본 여행|東京|大阪|京都/i;
+// 체험 목록 진입 조건 (Codex 정확도 검토 반영): 퀴즈·작품 요약·안내서·다큐 해설처럼 '체험이 아닌 것으로 분명한' 제목은 직접 체험 신호(I·my·we·first time·vlog·trip 등)가 없으면 넣지 않고 보류한다
+const NONEXP_RE = /\bquiz\b|guess (the )?\d*|\brecaps?\b|plot summary|isekai|manhwa|webtoon|another world|explained|documentary|what is (a|an|the)\b|how to (rent|buy|get|apply|use|book)|data plans?|ultimate guide|complete guide|beginner'?s guide|top ?\d+|\d+ (best|places|things|reasons|facts)|why (this|japan|korea|japan's|korea's)|statistics|aging|workforce|history of|\bnews\b|breaking/i;
+const EXPSIG_RE = /\bi\b|\bi'|\bmy\b|\bwe\b|\bour\b|\bme\b|first time|vlog|trying|tried|visit|trip|going to|went to|go to|what is it like|travel|day in|days in|living in|moved to|exploring|explored|tour\b|experience|stay\b|hotel|lost in|walking|eating|reacts? to my/i;
+const expOK = v => !NONEXP_RE.test(v.title) || EXPSIG_RE.test(v.title);
+const JP_PLACE_RE =/tokyo|osaka|kyoto|hokkaido|okinawa|fukuoka|nara\b|hiroshima|nagoya|shinjuku|shibuya|in japan|to japan|japan (trip|travel|vlog)|도쿄|오사카|교토|후쿠오카|일본 여행|東京|大阪|京都/i;
 function computeLists() {
   V.forEach(v => {
     const C = [];   // 내용 목록(체험·국뽕채널). 노션은 출처 목록이라 내용 분류와 독립이고, 내용 목록이 하나도 없으면 '분류 보류'에도 동시에 속한다
     // 한일 혼합(both)은 제목에 해당 나라의 장소 신호가 있을 때만 그 나라 체험에 넣는다 (두 나라 모두 있으면 두 목록)
-    if (v._kind === "foreign" && (v._subj === "한국" || (v._subj === "both" && KR_PLACE_RE.test(v.title)))) C.push("krexp");
-    if (v._kind === "foreign" && (v._subj === "일본" || (v._subj === "both" && JP_PLACE_RE.test(v.title)))) C.push("jpexp");
+    if (v._kind === "foreign" && expOK(v) && (v._subj === "한국" || (v._subj === "both" && KR_PLACE_RE.test(v.title)))) C.push("krexp");
+    if (v._kind === "foreign" && expOK(v) && (v._subj === "일본" || (v._subj === "both" && JP_PLACE_RE.test(v.title)))) C.push("jpexp");
     if (v.ref || (v._kind === "local" && v._subj === "한국")) C.push("krguk");
     if (v._kind === "local" && v._subj === "일본") C.push("jpguk");
     v._cl = C; v._hold = !C.length;

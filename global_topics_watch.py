@@ -210,7 +210,9 @@ FOREIGN_VIEW = re.compile(r"foreigners?|tourists?|expats?|first time|react|react
 # 영어 강의·회화 교재형 영상은 외국인의 경험이 아니므로 제외 (수집과 사이트 분류에 모두 적용)
 EXCLUDE = r"영어 ?회화|회화 표현|english (lesson|conversation|phrases)|learn english|영어 ?공부|한국어 ?(강의|수업)|korean lesson|learn korean|일본어 ?(강의|수업|회화)|japanese (lesson|class|course|conversation|phrases)|learn japanese|keigo lesson|日本語.{0,4}(講座|レッスン)"
 EXCLUDE_RE = re.compile(EXCLUDE, re.I)
-PROVENANCE_TOP = 0 if "--jp" in sys.argv else 5  # (일본 버전은 검색 순위만으로 꼭지를 붙이지 않고 제목 규칙이 맞을 때만 분류한다 — Codex 검토 반영)꼭지별 영어 검색 결과 상위 몇 개를, 제목에 규칙 단어가 없어도 그 꼭지로 인정할지
+FILL = "--fill" in sys.argv   # 영상이 적은 꼭지(WEAK_MAX 미만)만 검색어를 늘려 더 깊게 찾아 기존 결과에 합친다 (검색 순위만으로 꼭지를 붙이지 않는다)
+WEAK_MAX = 8
+PROVENANCE_TOP = 0 if ("--jp" in sys.argv or FILL) else 5  # (일본 버전은 검색 순위만으로 꼭지를 붙이지 않고 제목 규칙이 맞을 때만 분류한다 — Codex 검토 반영)꼭지별 영어 검색 결과 상위 몇 개를, 제목에 규칙 단어가 없어도 그 꼭지로 인정할지
 PATTERNS = []  # [(갈래 인덱스, 꼭지 이름, 컴파일된 규칙)]
 for _gi, (_c, _n, _items) in enumerate(GROUPS):
     for _name, _rule, _q in _items:
@@ -227,9 +229,38 @@ def classify(title):
     return cats, items
 
 
+def load_saved():
+    """저장된 결과(OUT)의 영상 목록 (없으면 빈 목록)"""
+    try:
+        txt = open(OUT, encoding="utf-8").read()
+        return json.loads(re.search(r"window\.GLOBAL_ITEMS\w*=(\[.*\]);", txt, re.S).group(1))
+    except (OSError, AttributeError, json.JSONDecodeError):
+        return []
+
+
+def weak_topics():
+    """저장된 영상을 제목 규칙으로 다시 세어, 영상이 WEAK_MAX 개 미만인 꼭지 이름 집합"""
+    cnt = {name: 0 for g in GROUPS for name, _r, _q in g[2]}
+    for it in load_saved():
+        for n in classify(it["title"])[1]:
+            cnt[n] += 1
+    return {n for n, c in cnt.items() if c < WEAK_MAX}
+
+
 def queries():
     """(갈래, 검색어, 정렬들, 꼭지 이름 또는 None). 꼭지 이름이 있는 검색은 상위 결과를 그 꼭지로 인정한다."""
     qs = []
+    if FILL:   # 영상이 적은 꼭지만, 검색어 변형 3개 × 정렬 3개(관련도·이번 달·조회수)로 더 깊게
+        weak = weak_topics()
+        print("영상이 적은 꼭지", len(weak), "개를 더 찾습니다")
+        for cat, _note, items in GROUPS:
+            for name, _rule, en in items:
+                if name not in weak:
+                    continue
+                kor = "외국인 " + re.sub(r"[()+·\"]", " ", name).strip() + " " + COUNTRY
+                for q in (en, en + " vlog first time", en + " reaction experience", kor):
+                    qs.append((cat, q, SORTS + ["CAMSAhAB"], name))
+        return qs
     for cat, _note, items in GROUPS:
         for name, _rule, en in items:
             qs.append((cat, en, SORTS[:1], name))
@@ -339,8 +370,22 @@ def main():
               "age_text": v["age_text"], "length": v["length"], "duration_sec": v["duration_sec"],
               "published": (now - timedelta(hours=v["age_h"])).strftime("%Y-%m-%d"), "first_seen": store.get(v["id"], today)}
              for v in found.values()]
+    if FILL:   # 기존 결과에 합친다: 같은 영상이면 꼭지를 합치고, 새 영상은 추가
+        kc, ki = ("jg_cats", "jg_items") if JP else ("g_cats", "g_items")
+        merged = {i["id"]: i for i in load_saved()}
+        added = 0
+        for it in items:
+            old = merged.get(it["id"])
+            if old:
+                old[kc] = list(dict.fromkeys(list(old.get(kc, [])) + it[kc]))
+                old[ki] = list(dict.fromkeys(list(old.get(ki, [])) + it[ki]))
+            else:
+                merged[it["id"]] = it
+                added += 1
+        print(f"기존 {len(merged) - added}개 + 새 영상 {added}개")
+        items = list(merged.values())
     items.sort(key=lambda x: (x["first_seen"], x["views"]), reverse=True)
-    items = items[:MAX_ITEMS]
+    items = items[:3000 if FILL else MAX_ITEMS]
     kc, ki = ("jg_cats", "jg_items") if JP else ("g_cats", "g_items")
     by_cat = {g[0]: sum(g[0] in i[kc] for i in items) for g in GROUPS}
     print(f"수집 {len(items)}개", by_cat)
