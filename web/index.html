@@ -466,8 +466,9 @@ const nHidden = () => [...hidden].filter(x => !x.startsWith("ch:")).length;
 const kindsEl = document.getElementById("kinds");
 // 목록 선택(한 번에 하나): 노션 / 한국 체험 / 일본 체험 / 국뽕채널·한국 / 국뽕채널·일본 + 분류 보류. 마지막 선택은 이 브라우저에 기억한다
 const LISTTAG = {krexp: "🇰🇷 한국 체험(추정)", jpexp: "🇯🇵 일본 체험(추정)", krguk: "🧭 국뽕채널·한국(추정)", jpguk: "🎌 국뽕채널·일본(추정)"};
-const LISTS = [["notion", "📓 노션 수집 목록"], ["krexp", "🇰🇷 한국 체험"], ["jpexp", "🇯🇵 일본 체험"], ["krguk", "🧭 국뽕채널 · 한국"], ["jpguk", "🎌 국뽕채널 · 일본"], ["hold", "🗂 분류 보류"]];
+const LISTS = [["all", "📂 전체"], ["notion", "📓 노션 수집 목록"], ["krexp", "🇰🇷 한국 체험"], ["jpexp", "🇯🇵 일본 체험"], ["krguk", "🧭 국뽕채널 · 한국"], ["jpguk", "🎌 국뽕채널 · 일본"], ["hold", "🗂 분류 보류"]];
 const LIST_NOTE = {
+  all: "모든 목록(노션·한국 체험·일본 체험·국뽕채널·분류 보류)의 영상을 한꺼번에 보여줘요. 같은 영상은 한 번만 나와요. 카드의 태그로 어느 목록인지 알 수 있어요.",
   notion: "노션 목록에서 가져온 영상이에요. 노션 원본 등급은 우리 점수와 별개예요. 다른 목록에도 속하면 거기서도 보여요.",
   krexp: "한국 사람이 아닌 외국인이 한국을 여행·체험·경험하는 영상 (외국인이 만든 원본으로 추정). 제목·채널 정보로 한 추정이라 영상 내용을 보고 확인한 것은 아니에요.",
   jpexp: "일본 사람이 아닌 외국인이 일본을 여행·체험·경험하는 영상 (외국인이 만든 원본으로 추정). 제목·채널 정보로 한 추정이에요.",
@@ -477,8 +478,8 @@ const LIST_NOTE = {
 };
 const savedList = ls.get("list", "krexp");
 let listSel = LISTS.some(l => l[0] === savedList) ? savedList : "krexp";
-const inList = v => listSel === "hold" ? v._hold : v._lists.includes(listSel);
-const listCount = k => V.filter(v => k === "hold" ? v._hold : v._lists.includes(k)).length;
+const inList = v => listSel === "all" ? true : listSel === "hold" ? v._hold : v._lists.includes(listSel);
+const listCount = k => k === "all" ? V.length : V.filter(v => k === "hold" ? v._hold : v._lists.includes(k)).length;
 const listsEl = document.getElementById("lists");
 LISTS.forEach(([k, l]) => { const b = document.createElement("button"); b.className = "chip"; b.dataset.k = k; b.append(l); const s = document.createElement("small"); s.textContent = listCount(k); b.append(s);
   b.onclick = () => { listSel = k; ls.set("list", k); render(); }; listsEl.append(b); });
