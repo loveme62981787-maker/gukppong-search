@@ -2,6 +2,7 @@
 """별도 레퍼런스 채널의 영상을 전부 모아 web/reference.js 로 저장
 
     python reference_watch.py            reference_channels.txt 의 채널 → web/reference.js
+    python reference_watch.py --bm       benchmark_channels.txt 의 채널(내가 벤치마킹할 채널, 레퍼런스와 따로 관리) → web/benchmark.js
     python reference_watch.py --dry      저장 없이 요약만 출력
     python reference_watch.py --max 300  채널당 최대 영상 수 (기본 3000)
 
@@ -21,9 +22,11 @@ import channels_watch as cw
 from viral_watch import age_hours, get, initial_data, parse_count, walk
 
 BASE = os.path.dirname(os.path.abspath(__file__))
-LIST = os.path.join(BASE, "reference_channels.txt")
-OUT = os.path.join(BASE, "web", "reference.js")
-STORE = os.path.join(BASE, "reference_store.json")
+BM = "--bm" in sys.argv   # 벤치마킹 채널: 레퍼런스와 따로 관리 (benchmark_channels.txt → web/benchmark.js, 영상에 bm 표시)
+NAME = "benchmark" if BM else "reference"
+LIST = os.path.join(BASE, NAME + "_channels.txt")
+OUT = os.path.join(BASE, "web", NAME + ".js")
+STORE = os.path.join(BASE, NAME + "_store.json")
 KST = timezone(timedelta(hours=9))
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 MAX_PER_CHANNEL = 3000
@@ -167,7 +170,7 @@ def main():
         subs = parse_count(get("https://www.youtube.com/channel/" + cid), "subscribers")
         vids = channel_videos(cid, cname, now, today, first_seen, limit)
         for v in vids:
-            v.update({"subs": subs, "country": "", "section": "reference", "ref": True})
+            v.update({"subs": subs, "country": "", "section": NAME, ("bm" if BM else "ref"): True})
         items += vids
         channels.append({"channel_id": cid, "channel": cname, "videos": len(vids)})
         print(f"[{cname}] 영상 {len(vids)}개 (구독자 {subs})")
@@ -178,8 +181,8 @@ def main():
         json.dump({i["id"]: i["first_seen"] for i in items}, f, ensure_ascii=False)
     os.makedirs(os.path.dirname(OUT), exist_ok=True)
     with open(OUT, "w", encoding="utf-8") as f:
-        f.write("window.REFERENCE=%s;\n" % json.dumps(items, ensure_ascii=False))
-    print("저장: web/reference.js")
+        f.write("window.%s=%s;\n" % ("BENCHMARK" if BM else "REFERENCE", json.dumps(items, ensure_ascii=False)))
+    print("저장: web/" + NAME + ".js")
 
 
 if __name__ == "__main__":

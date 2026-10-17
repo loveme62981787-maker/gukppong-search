@@ -7,7 +7,7 @@ on:
   workflow_dispatch:        # Actions 탭에서 수동 실행도 가능 (모든 수집 실행)
   push:
     branches: [main]
-    paths: ["web/index.html", "web/reference.js", "web/videos.js", "web/global_topics_jp.js", "web/topic_candidates.js", "web/experience_assignments.js",".github/workflows/update.yml"]   # 화면만 고쳤을 때는 수집 없이 바로 배포
+    paths: ["web/index.html", "web/reference.js", "web/benchmark.js", "web/videos.js", "web/global_topics_jp.js", "web/topic_candidates.js", "web/experience_assignments.js",".github/workflows/update.yml"]   # 화면만 고쳤을 때는 수집 없이 바로 배포
 
 permissions:
   contents: write
@@ -61,6 +61,12 @@ jobs:
         timeout-minutes: 30
         run: python reference_watch.py
 
+      - name: 벤치마킹 채널 영상 전체 갱신 - 레퍼런스와 따로 관리 (실패해도 사이트 배포는 계속)
+        if: github.event_name != 'push'
+        continue-on-error: true
+        timeout-minutes: 30
+        run: python reference_watch.py --bm
+
       - name: 글로벌 콘텐츠 12개 갈래·140꼭지 갱신 - 오래 걸려서 아침 실행과 수동 실행에서만 (실패해도 사이트 배포는 계속)
         if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 22 * * *'
         continue-on-error: true
@@ -77,7 +83,7 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@users.noreply.github.com"
-          git add site_store.json web/videos.js web/channels.js web/viral.js viral_store.json web/experience.js experience_store.json web/japan_topics.js japan_topics_store.json web/global_topics.js global_topics_store.json web/global_topics_jp.js global_topics_jp_store.json web/reference.js reference_store.json
+          git add site_store.json web/videos.js web/channels.js web/viral.js viral_store.json web/experience.js experience_store.json web/japan_topics.js japan_topics_store.json web/global_topics.js global_topics_store.json web/global_topics_jp.js global_topics_jp_store.json web/reference.js reference_store.json web/benchmark.js benchmark_store.json
           git diff --cached --quiet || git commit -m "영상 데이터 업데이트"
           git pull --rebase
           git push
