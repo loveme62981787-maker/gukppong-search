@@ -440,7 +440,8 @@ function computeLists() {
     if (v.ref || (v._kind === "local" && v._subj === "한국")) C.push("krguk");
     if (v._kind === "local" && v._subj === "일본") C.push("jpguk");
     v._cl = C; v._hold = !C.length;
-    v._lists = v._notion ? ["notion", ...C] : C;
+    v._lists = v._notion ? ["notion", ...C] : [...C];
+    if (v.ref) v._lists.push("ref");   // 레퍼런스 모음: 내가 채널을 알려 준 별도 레퍼런스 채널의 영상 전부 (국뽕채널·한국에도 함께 속한다)
   });
 }
 computeKinds();
@@ -466,13 +467,14 @@ const nHidden = () => [...hidden].filter(x => !x.startsWith("ch:")).length;
 const kindsEl = document.getElementById("kinds");
 // 목록 선택(한 번에 하나): 노션 / 한국 체험 / 일본 체험 / 국뽕채널·한국 / 국뽕채널·일본 + 분류 보류. 마지막 선택은 이 브라우저에 기억한다
 const LISTTAG = {krexp: "🇰🇷 한국 체험(추정)", jpexp: "🇯🇵 일본 체험(추정)", krguk: "🧭 국뽕채널·한국(추정)", jpguk: "🎌 국뽕채널·일본(추정)"};
-const LISTS = [["all", "📂 전체"], ["notion", "📓 노션 수집 목록"], ["krexp", "🇰🇷 한국 체험"], ["jpexp", "🇯🇵 일본 체험"], ["krguk", "🧭 국뽕채널 · 한국"], ["jpguk", "🎌 국뽕채널 · 일본"], ["hold", "🗂 분류 보류"]];
+const LISTS = [["all", "📂 전체"], ["notion", "📓 노션 수집 목록"], ["krexp", "🇰🇷 한국 체험"], ["jpexp", "🇯🇵 일본 체험"], ["krguk", "🧭 국뽕채널 · 한국"], ["jpguk", "🎌 국뽕채널 · 일본"], ["ref", "📌 레퍼런스 모음"], ["hold", "🗂 분류 보류"]];
 const LIST_NOTE = {
   all: "모든 목록(노션·한국 체험·일본 체험·국뽕채널·분류 보류)의 영상을 한꺼번에 보여줘요. 같은 영상은 한 번만 나와요. 카드의 태그로 어느 목록인지 알 수 있어요.",
   notion: "노션 목록에서 가져온 영상이에요. 노션 원본 등급은 우리 점수와 별개예요. 다른 목록에도 속하면 거기서도 보여요.",
   krexp: "한국 사람이 아닌 외국인이 한국을 여행·체험·경험하는 영상 (외국인이 만든 원본으로 추정). 제목·채널 정보로 한 추정이라 영상 내용을 보고 확인한 것은 아니에요.",
   jpexp: "일본 사람이 아닌 외국인이 일본을 여행·체험·경험하는 영상 (외국인이 만든 원본으로 추정). 제목·채널 정보로 한 추정이에요.",
   krguk: "내 채널과 비슷한 한국 국뽕 채널의 영상 (한국 현지 채널이 편집·소개한 영상 + 내가 알려 준 레퍼런스 채널 영상 전체).",
+  ref: "내가 채널 주소를 알려 준 레퍼런스 채널의 영상을 채널별로 모아 둔 목록이에요 (그 채널의 일반 동영상 전부, 쇼츠 제외). 아래 '레퍼런스 채널' 칩으로 채널을 골라 볼 수 있어요. 국뽕채널·한국에도 함께 들어 있어요.",
   jpguk: "일본 현지 채널이 일본을 소개·자랑하는 영상 (일본어 제목 + 일본 소재로 추정).",
   hold: "외국인 원본인지 현지 채널인지 근거가 부족해서 아직 어느 목록에도 넣지 못한 영상이에요 (미확인·기관·방송·한일 혼합 등). 카드의 '출처 유형 바꾸기'로 외국인 원본·현지 채널 여부를 고르면 해당 목록으로 옮겨져요."
 };
@@ -625,11 +627,11 @@ function updateUI(shown, info) {
 function render() {
   // 목록을 옮기면 그 목록에서만 쓰는 필터는 같이 풀린다 (지방 여행: 한국 목록, 노션 중복: 노션 목록, 레퍼런스 채널: 국뽕채널·한국)
   { let ch = false;
-    if (!hasList("krguk") && refSel.size) { refSel.clear(); ch = true; }
+    if (!hasList("krguk") && !hasList("ref") && refSel.size) { refSel.clear(); ch = true; }
     if (!hasList("krexp") && rgSel.size) { rgSel.clear(); ch = true; }
     if (!hasList("notion") && srcSel.size) { srcSel.clear(); ch = true; }
     if (ch) MULTIS.forEach(m => m.sync()); }
-  document.getElementById("refrow").hidden = !(hasList("krguk") && document.querySelector("#refch .chip"));
+  document.getElementById("refrow").hidden = !((hasList("krguk") || hasList("ref")) && document.querySelector("#refch .chip"));
   document.getElementById("rggrp").hidden = !hasList("krexp");   // 지방 여행 바로가기는 한국 체험 목록을 고른 때만
   document.getElementById("srcgrp").hidden = !(hasList("notion") && V.some(v => v._notion));   // 중복 수집 필터는 노션 목록을 고른 때만
   document.getElementById("rgq").classList.toggle("on", rgSel.has("_any"));
