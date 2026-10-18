@@ -631,7 +631,10 @@ function updateUI(shown, info) {
   }
 }
 
-function render() {
+const PAGE = 48;   // 한 번에 만드는 카드 수
+let renderedCount = 0, moreObs = null, moreFn = null;
+addEventListener("scroll", () => { if (!moreFn) return; const s = document.querySelector("#grid .more"); if (s && s.getBoundingClientRect().top < innerHeight + 1200) moreFn(); }, {passive: true});
+function render(opts) {
   // 목록을 옮기면 그 목록에서만 쓰는 필터는 같이 풀린다 (지방 여행: 한국 목록, 노션 중복: 노션 목록, 레퍼런스 채널: 국뽕채널·한국)
   { let ch = false;
     if (!hasList("krguk") && !hasList("ref") && refSel.size) { refSel.clear(); ch = true; }
@@ -697,7 +700,7 @@ function render() {
     if (why) { box.append(document.createElement("br")); const bt = document.createElement("button"); bt.className = "chip"; bt.textContent = "길이 조건을 '전체'로"; bt.onclick = () => { document.getElementById("lenmode").value = "all"; render(); }; box.append(bt); }
     g.append(box);
   }
-  a.forEach(v => {
+  const mkCard = v => {
     const c = document.createElement("div"); c.className = "card kd-" + v._kind + (done.has(v.id) ? " done" : "");
     c.innerHTML = (isNew(v) ? '<span class="new">NEW</span>' : "") +
       `<button class="fav ${favs.has(v.id) ? "on" : ""}" title="저장">${favs.has(v.id) ? "★" : "☆"}</button>` +
@@ -723,15 +726,32 @@ function render() {
       ls.set("kindCh", kindCh); ls.set("kindVid", kindVid); computeKinds(); refreshKindCounts(); render(); };
     kd.append(ksel, klab, kbtn); if (!v.ref) c.querySelector(".body").append(kd);   // 레퍼런스 영상은 분류 보정 대상이 아니다
     c.querySelector(".th").onclick = e => { e.currentTarget.innerHTML = `<iframe src="https://www.youtube.com/embed/${v.id}?autoplay=1" allow="autoplay;encrypted-media" allowfullscreen></iframe>`; e.currentTarget.onclick = null; };
-    c.querySelector(".fav").onclick = () => { favs.has(v.id) ? favs.delete(v.id) : favs.add(v.id); saveAll(); render(); };
-    c.querySelector(".dn").onclick = () => { done.has(v.id) ? done.delete(v.id) : done.add(v.id); saveAll(); render(); };
-    c.querySelector(".hd").onclick = () => { hidden.has(v.id) ? hidden.delete(v.id) : hidden.add(v.id); saveAll(); render(); };
+    c.querySelector(".fav").onclick = () => { favs.has(v.id) ? favs.delete(v.id) : favs.add(v.id); saveAll(); render({keep: true}); };
+    c.querySelector(".dn").onclick = () => { done.has(v.id) ? done.delete(v.id) : done.add(v.id); saveAll(); render({keep: true}); };
+    c.querySelector(".hd").onclick = () => { hidden.has(v.id) ? hidden.delete(v.id) : hidden.add(v.id); saveAll(); render({keep: true}); };
     const ta = c.querySelector("textarea"), mb = c.querySelector(".memo");
     ta.value = memos[v.id] || "";
     mb.onclick = () => { ta.hidden = !ta.hidden; if (!ta.hidden) ta.focus(); };
     ta.oninput = () => { ta.value.trim() ? memos[v.id] = ta.value : delete memos[v.id]; mb.classList.toggle("on", !!memos[v.id]); saveAll(); };
-    g.append(c);
-  });
+    return c;
+  };
+  // 빠른 반응을 위해 카드를 한꺼번에 다 만들지 않고 PAGE 개씩 만든다 (스크롤이 끝에 가까워지면 다음 묶음을 이어서 붙인다). 결과 수·필터·정렬은 전체 기준 그대로다
+  const upto = (opts && opts.keep) ? Math.max(PAGE, renderedCount) : PAGE;   // 저장·사용 완료·숨김처럼 카드 안에서 누른 경우에는 지금까지 펼친 개수를 유지한다
+  if (moreObs) { moreObs.disconnect(); moreObs = null; }
+  moreFn = null; renderedCount = 0;
+  const sentinel = document.createElement("div"); sentinel.className = "more"; sentinel.style.cssText = "grid-column:1/-1;text-align:center;padding:14px;color:var(--mute);font-size:13px";
+  const loadMore = () => {
+    const end = Math.min(a.length, renderedCount + PAGE), frag = document.createDocumentFragment();
+    for (; renderedCount < end; renderedCount++) frag.append(mkCard(a[renderedCount]));
+    g.insertBefore(frag, sentinel);
+    if (renderedCount >= a.length) { sentinel.remove(); moreFn = null; if (moreObs) { moreObs.disconnect(); moreObs = null; } }
+    else sentinel.textContent = `${renderedCount.toLocaleString()} / ${a.length.toLocaleString()}개 표시 중 — 아래로 내리면 더 나와요`;
+  };
+  if (a.length) { g.append(sentinel); while (renderedCount < Math.min(upto, a.length)) loadMore();
+    moreFn = renderedCount < a.length ? loadMore : null;   // 스크롤 이벤트로도 다음 묶음을 불러온다 (관찰자가 동작하지 않는 환경 대비)
+    if (renderedCount < a.length) {
+      if ("IntersectionObserver" in window) { moreObs = new IntersectionObserver(es => { if (es.some(e => e.isIntersecting)) loadMore(); }, {rootMargin: "1200px"}); moreObs.observe(sentinel); }
+      else { const bt = document.createElement("button"); bt.className = "chip"; bt.textContent = "더 보기"; bt.onclick = loadMore; sentinel.append(" ", bt); } } }
 }
 // ---- 채널 벤치마킹 ----
 const C = window.CHANNELS || [];
