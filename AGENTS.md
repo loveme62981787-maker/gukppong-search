@@ -21,7 +21,7 @@ py -3.12 build_site.py     # 에러 없이 끝나고 "영상 N개 저장" 출력
 
 ## 담당 파일 (2026-10-14 합의, 근거: docs/collab/2026-10-14-length-contract.md)
 - **Codex**: `discover.py`, `discover.ini`, `build_site.py`, `tests/`
-- **Claude**: `web/index.html`, `channels_watch.py`, `viral_watch.py`, `seed_channels.txt`, `.github/workflows/update.yml`, README '현재 구현 상태'
+- **Claude**: `web/index.html`, `channels_watch.py`, `viral_watch.py`, `seed_channels.txt`, `.github/workflows/update.yml`, README '현재 구현 상태', `web/scorer.js`·`web/scores.js`(🎯 국뽕 점수 기준·채점 기록)·`tests/test_scorer.mjs`(Codex 검토 요청)
 - **공유**: `AGENTS.md`, 데이터 스키마 — 바꾸기 전에 상대에게 알린다.
 - 중요한 변경은 서로 해결책을 제안하고 반박·수정하는 토론(2~3라운드)을 거치고, 합의 내용과 역할은 `docs/collab/`에 기록한다. 구현 후에는 상대가 diff와 테스트 결과를 검토한다.
 

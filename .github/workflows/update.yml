@@ -7,7 +7,7 @@ on:
   workflow_dispatch:        # Actions 탭에서 수동 실행도 가능 (모든 수집 실행)
   push:
     branches: [main]
-    paths: ["web/index.html", "web/reference.js", "web/benchmark.js", "web/videos.js", "web/global_topics_jp.js", "web/topic_candidates.js", "web/experience_assignments.js",".github/workflows/update.yml"]   # 화면만 고쳤을 때는 수집 없이 바로 배포
+    paths: ["web/index.html", "web/reference.js", "web/benchmark.js", "web/videos.js", "web/global_topics_jp.js", "web/topic_candidates.js", "web/experience_assignments.js", "web/scorer.js", "web/scores.js", ".github/workflows/update.yml"]   # 화면만 고쳤을 때는 수집 없이 바로 배포
 
 permissions:
   contents: write
