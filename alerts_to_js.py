@@ -63,6 +63,7 @@ def main():
             items.append({"id": vid, "title": g("title") or "(제목 없음)", "channel": g("channel"), "channel_id": g("channel_id") if re.fullmatch(r"UC[\w-]{22}", g("channel_id")) else "",
                           "subs": num(g("subs")), "views": num(g("views")), "length": g("length"), "published": g("published"),
                           "country": "일본" if "일본" in country or country.lower() in ("jp", "japan") else "한국", "section": "alert", "alert": True,
+                          "alert_country": "일본" if "일본" in country or country.lower() in ("jp", "japan") else "한국",
                           "alert_date": g("date") or fallback_date, "first_seen": g("date") or fallback_date})
     if not items:
         print("유효한 알림 영상 없음: 기존 사이트 데이터를 유지합니다.")
