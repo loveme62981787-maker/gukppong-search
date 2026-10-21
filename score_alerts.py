@@ -145,7 +145,8 @@ def export():
 })();
 '''
     counts = (BASE / 'web/list_counts.js').read_text(encoding='utf-8')
-    atomic(OUT, 'window.AUTO_SCORES=' + json.dumps({'items':clean},ensure_ascii=False) + ';\n' + bridge + counts)
+    my_scores = (BASE / 'web/my_scores.js').read_text(encoding='utf-8')
+    atomic(OUT, 'window.AUTO_SCORES=' + json.dumps({'items':clean},ensure_ascii=False) + ';\n' + bridge + counts + my_scores)
     print(json.dumps({'exported':len(clean)}))
 
 
