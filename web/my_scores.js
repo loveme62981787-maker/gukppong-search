@@ -7,14 +7,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const style = ce('style');
   style.textContent = '#scgrp{display:none!important} #my-score-view[hidden]{display:none} #my-score-view .grid{padding:0;margin:16px 0} #my-score-view .bar{padding:0;margin:10px 0} #my-score-view .my-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px} #my-score-view .my-card{padding:12px} #my-score-view .my-card>a{color:var(--ink);text-decoration:none} #my-score-view .my-card h3{font-size:15px;line-height:1.5;margin:10px 0}';
   document.head.append(style);
-  scGSel.clear(); scVSel.clear(); MULTIS.forEach(m => m.sync());
+  // 제목·조회수로 추정한 등급은 표시하지 않는다. 기존 선택도 해제한다.
+  document.getElementById('grd')?.closest('.qg')?.setAttribute('hidden', '');
+  for (const detail of document.querySelectorAll('details.vmode')) {
+    if (detail.querySelector('summary')?.textContent.includes('등급은')) detail.hidden = true;
+  }
+  style.textContent += ' .qg[hidden],details.vmode[hidden],.tag.grade-S,.tag.grade-A,.tag.grade-B{display:none!important}';
+  grdSel.clear(); scGSel.clear(); scVSel.clear(); MULTIS.forEach(m => m.sync());
+  for (const option of document.querySelectorAll('select option')) {
+    if (option.textContent.includes('검토 우선순위(점수)')) {
+      const select = option.parentElement;
+      if (option.selected) select.selectedIndex = 0;
+      option.remove();
+    }
+  }
   const state = {lists:new Set(listSel), grade:'scored', query:'', sort:'score'};
   let active = false;
-  const poolFor = () => V.filter(v => !state.lists.size || [...state.lists].some(k => k === 'hold' ? v._hold : v._lists.includes(k)));
+  const poolFor = () => V.filter(v => !hidden.has(v.id) && (!state.lists.size || [...state.lists].some(k => k === 'hold' ? v._hold : v._lists.includes(k))));
   const matches = (v, grade) => grade === 'unscored' ? !v._sc : grade === 'held' ? v._sc?.held : grade === 'scored' ? v._sc && !v._sc.held : scGradeOK(v, grade);
   const draw = () => {
     panel.replaceChildren();
-    panel.append(ce('h2', '', '내 채점 · FM 기준'), ce('p', 'sc-mute', '자막을 읽고 검증한 점수입니다. 영상 탭의 제목·조회수 기반 잠정 등급과 별도로 조회합니다. 숫자는 선택한 목록 기준이며, 검색 전 개수입니다.'));
+    panel.append(ce('h2', '', '내 채점 · FM 기준'), ce('p', 'sc-mute', '자막을 읽고 검증한 점수입니다. 숫자는 선택한 목록 기준이며, 검색 전 개수입니다.'));
     const search = ce('input'); search.placeholder = '채점 영상 제목·채널 검색'; search.setAttribute('aria-label', search.placeholder); search.value = state.query;
     const sort = ce('select'); sort.setAttribute('aria-label', '내 채점 정렬');
     for (const [key,label] of [['score','점수 높은 순'],['new','업로드 최신순']]) { const o=ce('option','',label); o.value=key; sort.append(o); }
@@ -39,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards=()=>{
       grid.replaceChildren();
       const q=state.query.trim().toLowerCase();
-      const rows=pool.filter(v=>matches(v,state.grade)&&(!q||(v.title+' '+v.channel).toLowerCase().includes(q)));
+      const rows=pool.filter(v=>!hidden.has(v.id)&&matches(v,state.grade)&&(!q||(v.title+' '+v.channel).toLowerCase().includes(q)));
       rows.sort((a,b)=>{
         const c=v=>v._sc&&!v._sc.held&&scGrade(v._sc)==='C'?1:0;
         return c(a)-c(b)||(state.sort==='new'?String(b.published||'').localeCompare(String(a.published||'')):(b._sc&&!b._sc.held?scTot(b._sc):-1)-(a._sc&&!a._sc.held?scTot(a._sc):-1));
@@ -54,7 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const actions=ce('div','bar'), used=ce('button','chip',(done.has(v.id)?'☑':'☐')+' 사용 완료'), memo=ce('button','chip',memos[v.id]?'📝 메모 있음':'📝 메모');
         used.onclick=()=>{done.has(v.id)?done.delete(v.id):done.add(v.id);saveAll();cards();};
         memo.onclick=()=>{const value=prompt('영상 메모',memos[v.id]||'');if(value!==null){if(value.trim())memos[v.id]=value;else delete memos[v.id];saveAll();cards();}};
-        actions.append(used,memo);card.append(actions);grid.append(card);
+        const hide=ce('button','chip','🙈 숨기기');
+        hide.onclick=()=>{hidden.add(v.id);saveAll();render();cards();};
+        actions.append(used,memo,hide);card.append(actions);grid.append(card);
       }
       if(rows.length>visible){const more=ce('button','chip','더 보기 ('+Math.min(visible,rows.length)+' / '+rows.length+')');more.onclick=()=>{visible+=48;cards();};grid.append(more);}
     };

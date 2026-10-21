@@ -1,4 +1,6 @@
 window.AUTO_SCORES={"items": [{"id": "-uwvmDapKq4", "ver": "jp", "t": "Travelling South Japan In A Micro Camper-Van - Full Journey from Hiroshima To Fukuoka", "source": "claude_fm", "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26", "transcript_sha256": "a347ce500a1583a55f7a6d6649693cbda5d485a3e3eec2d2f1895fb0cbb2d3bb", "checked_at": "2026-10-21T14:08:39.736893+00:00", "min": 29.78, "p": 7.0, "s": [15, 14, 12, 13, 7, 9], "warn": ["Claude FM 채점. 자막 전문과 한국판·일본판 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."]}, {"id": "67IRq5gUPLw", "ver": "kr", "t": "Mi amiga española se casa en Corea en el PALACIO GYEONGBOKGUNG 🇰🇷💍🇪🇸", "source": "gemini_fm", "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1", "transcript_sha256": "0ac5de9f3f501913aae966bbb8c8bbeb652511f947899d9991cebea5ea8aa6ee", "checked_at": "2026-10-21T15:29:07.425543+00:00", "min": 10.8, "p": 3.0, "s": [13, 11, 10, 13, 7, 7], "warn": ["Gemini 1차 채점 · Codex 검증. 자막 전문과 한국판·일본판 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."]}]};
+window.TAIWAN_ITEMS=[{"id": "Omk4X543OfA", "title": "FIRST TIME IN TAIWAN WITH TEAM HITIK🇹🇼 | TRAVEL VLOG✈️❤️", "channel": "Melot", "channel_id": "UC8xIA640di6JhzhYVqzpV9Q", "views": 13945, "subs": 144000, "length": "29:31", "duration_sec": 1771, "published": "2026-10-21", "age_text": "8h ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "QDqgSHnxLC0", "title": "Taipei Street Food in the Rain | Raohe Night Market", "channel": "WanderMark", "channel_id": "UCAH-Rsq8eA9qmjKPTJt51IA", "views": 209, "subs": 42, "length": "28:56", "duration_sec": 1736, "published": "2026-10-18", "age_text": "3d ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "PCjsZAAKSvs", "title": "A Love Letter to Taiwan 🇹🇼 | Taipei Travel Vlog: Airport Arrival, Hooters & Ximending Night Market", "channel": "Sofia Ocfemia", "channel_id": "UC1EWAthPGtS8G_MdoJ1fl6g", "views": 168, "subs": 155, "length": "27:26", "duration_sec": 1646, "published": "2026-10-17", "age_text": "3d ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "hSi0UGCJOTo", "title": "We found Taiwan's most Magical Places ! Jiufen & Shifen Travel Vlog", "channel": "Ash & Jay Travel", "channel_id": "UCRW_spnRffB6yUto4FognyA", "views": 292, "subs": 937, "length": "14:08", "duration_sec": 848, "published": "2026-10-17", "age_text": "3d ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "B7C2i-1gwhQ", "title": "Taiwan Travel Vlog Part 6 - Taichung", "channel": "boss raprap vlogs", "channel_id": "UCR084GEhr-ZxPLtOLwnOvsg", "views": 61, "subs": 9120, "length": "16:20", "duration_sec": 980, "published": "2026-10-16", "age_text": "4d ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "SvgX9rbju-Y", "title": "the beginning of my travel diaries 🌏 | taiwan vlog #1", "channel": "Hannah Gwyneth", "channel_id": "UCXMFE9oVXN_yjlxtCuETzaA", "views": 100, "subs": 63, "length": "37:10", "duration_sec": 2230, "published": "2026-10-15", "age_text": "5d ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "OeEimAQZt3k", "title": "My First Time in Taiwan | Night Markets, Jiufen & More", "channel": "Samy Chattali", "channel_id": "UCayCh6e7yq7ZSU7kDS_55Zw", "views": 318, "subs": 75, "length": "13:14", "duration_sec": 794, "published": "2026-10-15", "age_text": "5d ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "KRBKjYRTdH0", "title": "Travelling the East Coast of Taiwan | Taitung to Hualien", "channel": "Hannah Flitcroft", "channel_id": "UCVuZFjXu5XIDwcN56b-ba-A", "views": 21766, "subs": 1830, "length": "21:35", "duration_sec": 1295, "published": "2026-10-15", "age_text": "6d ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "bvGr3ZOw-HA", "title": "TAIWAN VLOG 🇹🇼 | DAY 02: KLOOK TOUR Exploring Taichung 🌸 Rainbow Village, Miyahara & Gaomei Wetlands", "channel": "Danesa", "channel_id": "UCYAdjvU_6gbIca-tUQ6I7tg", "views": 85, "subs": 89, "length": "20:30", "duration_sec": 1230, "published": "2026-10-15", "age_text": "5d ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "VCj8kwfiZRc", "title": "🇹🇼 VLOG 11 - LEAVING THE COUNTRYSIDE TO HEAD BACK TO TAIPEI! - TAIWAN", "channel": "TIC & TAC Les Aventuriers", "channel_id": "UC9YYokC6iS76JesQIPOT-yg", "views": 1810, "subs": 7460, "length": "31:34", "duration_sec": 1894, "published": "2026-10-13", "age_text": "7d ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "ycOgviAbVJU", "title": "First Day in Taiwan | Traveling with Family & Seniors", "channel": "Dave Guino", "channel_id": "UCYlXMQRjnXRgRiV8HGHYuOQ", "views": 11696, "subs": 71200, "length": "28:37", "duration_sec": 1717, "published": "2026-10-12", "age_text": "8d ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "WsU4UMjLk4A", "title": "FIRST Time in Taipei, Taiwan 🇹🇼 Asia's MOST UNDERRATED Gem?", "channel": "Rob and Jomara", "channel_id": "UCbXl6vFnFCxvSaduUEUgg7g", "views": 12172, "subs": 28200, "length": "27:11", "duration_sec": 1631, "published": "2026-10-10", "age_text": "11d ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "U__G4YsNtiw", "title": "Foreigners First Time In Taipei Taiwan During Taiwan National Day 🇹🇼", "channel": "Chase and Shelbs", "channel_id": "UCEuGm8IDX_VTw1iojxak1wg", "views": 29892, "subs": 161000, "length": "48:49", "duration_sec": 2929, "published": "2026-10-10", "age_text": "10d ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "Cga4kCh2T3o", "title": "Shall We Explore the Taiwan Countryside? 😍🇹🇼 | Jiufen, Shifen Sky Lantern | Taiwan Day 2 Telugu Vlog", "channel": "Keerthi in Korea", "channel_id": "UCKMA9UcHe0T-b2uEr1s-Urw", "views": 2216, "subs": 398000, "length": "25:12", "duration_sec": 1512, "published": "2026-10-10", "age_text": "11d ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "40mfQfDBUbw", "title": "tainan in 4 days", "channel": "Sam and Victor", "channel_id": "UCfQx-K9zBExhMLfKQmXBxJg", "views": 188914, "subs": 531000, "length": "50:46", "duration_sec": 3046, "published": "2026-10-05", "age_text": "2w ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "Fzipszj2Ma4", "title": "I Finally Visited Taiwan 🇹🇼 | My First Impressions of Taipei", "channel": "ShawnPH", "channel_id": "UC-ZGbtImb8FadA1QYoyyYqg", "views": 420, "subs": 1220, "length": "18:43", "duration_sec": 1123, "published": "2026-10-04", "age_text": "2w ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "j7-PsRQlcpU", "title": "🇹🇼 TAIWAN FIRST TIME! 48 Hours in Taipei | Country #23", "channel": "Kat and Sourabh", "channel_id": "UCIj4WTRAXhX_2vYDbYvebZA", "views": 23653, "subs": 100000, "length": "14:40", "duration_sec": 880, "published": "2026-10-03", "age_text": "2w ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "fTUvJLbZzpw", "title": "Why You Shouldn't Skip Taiwan's Oldest City (Tainan)", "channel": "Max Abroad", "channel_id": "UCwOoErGTvXnfOhc9qy9ZLNQ", "views": 150, "subs": 16, "length": "11:47", "duration_sec": 707, "published": "2026-10-03", "age_text": "2w ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "G2cICamw2Fc", "title": "【Solo Trip to Taitung】Taiwan’s Breathtaking Countryside! Cycling Through Chishang & Guanshan 🇹🇼", "channel": "HIKOLOG / TAIWAN", "channel_id": "UCRlas8oTIyoo3WzPwkSblCw", "views": 51898, "subs": 43800, "length": "18:14", "duration_sec": 1094, "published": "2026-10-03", "age_text": "2w ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "hn_JT5M6wM8", "title": "TAINAN DIARY 🇹🇼 | เที่ยวไถหนานเองครั้งแรก,ใช้ชีวิต slow life แบบชาว local 🌿", "channel": "tonnwann", "channel_id": "UCj9ADlrCW-TAE2TVbTuu_DA", "views": 270, "subs": 532, "length": "18:15", "duration_sec": 1095, "published": "2026-10-02", "age_text": "2w ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "ejBdG2XdR9k", "title": "Keelung Day Trip from Taipei with local | Beautiful Port City, Alive at Night", "channel": "DK.Travel from Japan", "channel_id": "UCSmDRo5X5xZ8DKcuxTcPPrw", "views": 105, "subs": 2950, "length": "15:05", "duration_sec": 905, "published": "2026-10-02", "age_text": "2w ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "4i5bTyaV28s", "title": "It Feels Like a Movie… | My First Taiwan Trip [Part 1/3]🇹🇼", "channel": "rheyniel", "channel_id": "UCO7XrXIy1oV50U5lmFr2_JA", "views": 307, "subs": 50, "length": "10:19", "duration_sec": 619, "published": "2026-09-30", "age_text": "2w ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "YHxvujJ393A", "title": "travel diary pt.1:  taitung  + hualien", "channel": "Trinity Angellyn", "channel_id": "UCQbM4ZjMFqTkEacNM2UwY9A", "views": 77, "subs": 9, "length": "15:22", "duration_sec": 922, "published": "2026-09-30", "age_text": "2w ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}, {"id": "rwWXpIJv0LM", "title": "Taiwan’s Best Kept Secret 🇹🇼🌴 | Kenting Travel Vlog", "channel": "Hannah Flitcroft", "channel_id": "UCVuZFjXu5XIDwcN56b-ba-A", "views": 12532, "subs": 1830, "length": "19:33", "duration_sec": 1173, "published": "2026-09-23", "age_text": "4w ago", "country": "대만", "section": "taiwan", "sources": ["discovery"], "first_seen": "2026-10-22", "observed_at": "2026-10-21T16:15:31.819536+00:00"}];
+window.VIDEOS=window.VIDEOS||[];for(const v of window.TAIWAN_ITEMS){if(!window.VIDEOS.some(x=>x.id===v.id))window.VIDEOS.push(v);}
 
 // 수동 채점은 같은 영상의 자동 채점보다 우선한다. 화면 담당 파일과 분리한다.
 (() => {
@@ -66,14 +68,27 @@ document.addEventListener('DOMContentLoaded', () => {
   const style = ce('style');
   style.textContent = '#scgrp{display:none!important} #my-score-view[hidden]{display:none} #my-score-view .grid{padding:0;margin:16px 0} #my-score-view .bar{padding:0;margin:10px 0} #my-score-view .my-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px} #my-score-view .my-card{padding:12px} #my-score-view .my-card>a{color:var(--ink);text-decoration:none} #my-score-view .my-card h3{font-size:15px;line-height:1.5;margin:10px 0}';
   document.head.append(style);
-  scGSel.clear(); scVSel.clear(); MULTIS.forEach(m => m.sync());
+  // 제목·조회수로 추정한 등급은 표시하지 않는다. 기존 선택도 해제한다.
+  document.getElementById('grd')?.closest('.qg')?.setAttribute('hidden', '');
+  for (const detail of document.querySelectorAll('details.vmode')) {
+    if (detail.querySelector('summary')?.textContent.includes('등급은')) detail.hidden = true;
+  }
+  style.textContent += ' .qg[hidden],details.vmode[hidden],.tag.grade-S,.tag.grade-A,.tag.grade-B{display:none!important}';
+  grdSel.clear(); scGSel.clear(); scVSel.clear(); MULTIS.forEach(m => m.sync());
+  for (const option of document.querySelectorAll('select option')) {
+    if (option.textContent.includes('검토 우선순위(점수)')) {
+      const select = option.parentElement;
+      if (option.selected) select.selectedIndex = 0;
+      option.remove();
+    }
+  }
   const state = {lists:new Set(listSel), grade:'scored', query:'', sort:'score'};
   let active = false;
-  const poolFor = () => V.filter(v => !state.lists.size || [...state.lists].some(k => k === 'hold' ? v._hold : v._lists.includes(k)));
+  const poolFor = () => V.filter(v => !hidden.has(v.id) && (!state.lists.size || [...state.lists].some(k => k === 'hold' ? v._hold : v._lists.includes(k))));
   const matches = (v, grade) => grade === 'unscored' ? !v._sc : grade === 'held' ? v._sc?.held : grade === 'scored' ? v._sc && !v._sc.held : scGradeOK(v, grade);
   const draw = () => {
     panel.replaceChildren();
-    panel.append(ce('h2', '', '내 채점 · FM 기준'), ce('p', 'sc-mute', '자막을 읽고 검증한 점수입니다. 영상 탭의 제목·조회수 기반 잠정 등급과 별도로 조회합니다. 숫자는 선택한 목록 기준이며, 검색 전 개수입니다.'));
+    panel.append(ce('h2', '', '내 채점 · FM 기준'), ce('p', 'sc-mute', '자막을 읽고 검증한 점수입니다. 숫자는 선택한 목록 기준이며, 검색 전 개수입니다.'));
     const search = ce('input'); search.placeholder = '채점 영상 제목·채널 검색'; search.setAttribute('aria-label', search.placeholder); search.value = state.query;
     const sort = ce('select'); sort.setAttribute('aria-label', '내 채점 정렬');
     for (const [key,label] of [['score','점수 높은 순'],['new','업로드 최신순']]) { const o=ce('option','',label); o.value=key; sort.append(o); }
@@ -98,7 +113,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const cards=()=>{
       grid.replaceChildren();
       const q=state.query.trim().toLowerCase();
-      const rows=pool.filter(v=>matches(v,state.grade)&&(!q||(v.title+' '+v.channel).toLowerCase().includes(q)));
+      const rows=pool.filter(v=>!hidden.has(v.id)&&matches(v,state.grade)&&(!q||(v.title+' '+v.channel).toLowerCase().includes(q)));
       rows.sort((a,b)=>{
         const c=v=>v._sc&&!v._sc.held&&scGrade(v._sc)==='C'?1:0;
         return c(a)-c(b)||(state.sort==='new'?String(b.published||'').localeCompare(String(a.published||'')):(b._sc&&!b._sc.held?scTot(b._sc):-1)-(a._sc&&!a._sc.held?scTot(a._sc):-1));
@@ -113,7 +128,9 @@ document.addEventListener('DOMContentLoaded', () => {
         const actions=ce('div','bar'), used=ce('button','chip',(done.has(v.id)?'☑':'☐')+' 사용 완료'), memo=ce('button','chip',memos[v.id]?'📝 메모 있음':'📝 메모');
         used.onclick=()=>{done.has(v.id)?done.delete(v.id):done.add(v.id);saveAll();cards();};
         memo.onclick=()=>{const value=prompt('영상 메모',memos[v.id]||'');if(value!==null){if(value.trim())memos[v.id]=value;else delete memos[v.id];saveAll();cards();}};
-        actions.append(used,memo);card.append(actions);grid.append(card);
+        const hide=ce('button','chip','🙈 숨기기');
+        hide.onclick=()=>{hidden.add(v.id);saveAll();render();cards();};
+        actions.append(used,memo,hide);card.append(actions);grid.append(card);
       }
       if(rows.length>visible){const more=ce('button','chip','더 보기 ('+Math.min(visible,rows.length)+' / '+rows.length+')');more.onclick=()=>{visible+=48;cards();};grid.append(more);}
     };
@@ -126,5 +143,79 @@ document.addEventListener('DOMContentLoaded', () => {
   };
   tab.onclick=()=>setMode('my');
   // 최초 진입 때 숨겨진 FM 필터의 선택이 영상 목록에 남지 않게 한다.
+  render();
+});
+// 대만 수집 목록과 숨긴 영상 관리. index.html과 분리해 유지한다.
+document.addEventListener('DOMContentLoaded', () => {
+  const twIds = new Set((window.TAIWAN_ITEMS || []).map(v => v.id));
+  LISTS.splice(4, 0, ['twexp', '🇹🇼 대만 체험']);
+  LISTKEYS.add('twexp'); LISTTAG.twexp = '🇹🇼 대만 체험 후보';
+  LIST_NOTE.twexp = '외국인의 대만 여행·체험을 검색한 롱폼 후보입니다. 제목·채널 기준으로 선별했고, 영상 전문 검수와 FM 채점은 아직 하지 않았습니다.';
+  const originalLists = computeLists;
+  computeLists = function() {
+    originalLists();
+    V.forEach(v => {
+      if (!twIds.has(v.id)) return;
+      if (!v._lists.includes('twexp')) v._lists.push('twexp');
+      v._hold = false;
+      if (v.country === '대만') v._subj = '대만';
+    });
+  };
+  computeLists();
+  refreshListCounts();
+  document.querySelector('header h1, header h2, h1').textContent = '🇰🇷🇯🇵🇹🇼 국뽕 영상 서칭';
+  const tw = ce('button', 'chip', '🇹🇼 대만 체험'); tw.dataset.k = 'twexp'; tw.append(ce('small', '', String(twIds.size)));
+  tw.onclick = () => { listSel.has('twexp') ? listSel.delete('twexp') : listSel.add('twexp'); ls.set('lists', [...listSel]); render(); };
+  document.querySelector('#lists [data-k="jpexp"]').after(tw);
+  if ((ls.get('lists', []) || []).includes('twexp')) listSel.add('twexp');
+
+  const button = ce('button', 'chip', '🙈 숨긴 영상'); button.id = 'hidden-videos-tab';
+  document.getElementById('mmy').after(button);
+  const panel = ce('section', 'sc-wrap'); panel.hidden = true; panel.id = 'hidden-videos-view';
+  document.getElementById('my-score-view').after(panel);
+  let showing = false;
+  const draw = () => {
+    panel.replaceChildren(ce('h2', '', '숨긴 영상'), ce('p', 'sc-mute', '목록·국가 필터와 관계없이 이 브라우저에서 숨긴 영상을 모두 보여줍니다. 복원하면 기존 목록으로 돌아갑니다.'));
+    const search = ce('input'); search.placeholder = '숨긴 영상 제목·채널 검색'; search.setAttribute('aria-label', search.placeholder); panel.append(search);
+    const grid = ce('div', 'grid'); panel.append(grid);
+    const show = () => {
+      grid.replaceChildren();
+      const q = search.value.trim().toLowerCase();
+      const rows = V.filter(v => hidden.has(v.id) && (!q || (v.title + ' ' + v.channel).toLowerCase().includes(q)));
+      if (!rows.length) grid.append(ce('p', 'empty', '숨긴 영상이 없습니다.'));
+      for (const v of rows) {
+        const card = ce('article', 'card my-card'), a = ce('a', 't', v.title); a.href = 'https://youtu.be/' + v.id; a.target = '_blank'; a.rel = 'noopener';
+        const img = ce('img'); img.src = 'https://i.ytimg.com/vi/' + v.id + '/mqdefault.jpg'; img.alt = ''; img.loading = 'lazy';
+        const restore = ce('button', 'chip', '↩ 숨김 해제 · 복원');
+        restore.onclick = () => { hidden.delete(v.id); saveAll(); render(); draw(); };
+        card.append(img, a, ce('p', 'sc-mute', v.channel), restore); grid.append(card);
+      }
+    };
+    search.oninput = show; show();
+  };
+  const previousMode = setMode;
+  setMode = function(m) {
+    showing = m === 'hidden-videos'; previousMode(showing ? 's' : m); panel.hidden = !showing; button.classList.toggle('on', showing);
+    if (showing) { document.getElementById('scview').hidden = true; document.getElementById('ms').classList.remove('on'); draw(); }
+  };
+  button.onclick = () => setMode('hidden-videos');
+  const previousRender = render;
+  render = function(...args) {
+    previousRender.apply(this, args);
+    button.textContent = '🙈 숨긴 영상 ' + V.filter(v => hidden.has(v.id)).length;
+    for (const card of document.querySelectorAll('.card')) {
+      const a = card.querySelector('a.t'); if (!a) continue;
+      const id = a.getAttribute('href').split('/').pop();
+      const hide = card.querySelector('.hd');
+      if (hide) { hide.textContent = hidden.has(id) ? '↩ 숨김 해제' : '🙈 숨기기'; hide.title = '상단 숨긴 영상에서 확인하고 복원할 수 있습니다.'; }
+      for (const tag of card.querySelectorAll('.tag')) {
+        if (tag.title.includes('🏆 등급은')) tag.title = '아직 스크립트를 읽고 채점하지 않은 영상입니다.';
+        if (twIds.has(id)) {
+          if (tag.textContent === '🌐 기타') tag.textContent = '🇹🇼 대만';
+          if (tag.title.includes('대상국이 불분명')) tag.title = '대만 여행·체험 후보. 외국인 원본 여부는 아직 전문 검수 전입니다.';
+        }
+      }
+    }
+  };
   render();
 });

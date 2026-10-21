@@ -18,6 +18,8 @@ OUT = BASE / 'web' / 'auto_scores.js'
 SKILLS = Path('D:/코리아탐방록/.claude/skills')
 CAPS = [25, 20, 20, 15, 10, 10]
 ID = re.compile(r'^[A-Za-z0-9_-]{11}$')
+# 사용자가 보존하도록 지정한 Claude 비교 기준 영상. 재채점하지 않는다.
+CLAUDE_REVIEWED_IDS = {'3l-QftM5c94', 'Oso_M_zQ70k', '-uwvmDapKq4'}
 
 
 def read_json(path, default):
@@ -146,12 +148,16 @@ def export():
 '''
     counts = (BASE / 'web/list_counts.js').read_text(encoding='utf-8')
     my_scores = (BASE / 'web/my_scores.js').read_text(encoding='utf-8')
-    atomic(OUT, 'window.AUTO_SCORES=' + json.dumps({'items':clean},ensure_ascii=False) + ';\n' + bridge + counts + my_scores)
+    taiwan = read_json(BASE / 'data/taiwan_videos.json', {'items': []})['items']
+    taiwan_ui = (BASE / 'web/taiwan_hidden.js').read_text(encoding='utf-8')
+    taiwan_data = 'window.TAIWAN_ITEMS=' + json.dumps(taiwan, ensure_ascii=False) + ';\n'
+    taiwan_data += 'window.VIDEOS=window.VIDEOS||[];for(const v of window.TAIWAN_ITEMS){if(!window.VIDEOS.some(x=>x.id===v.id))window.VIDEOS.push(v);}\n'
+    atomic(OUT, 'window.AUTO_SCORES=' + json.dumps({'items':clean},ensure_ascii=False) + ';\n' + taiwan_data + bridge + counts + my_scores + taiwan_ui)
     print(json.dumps({'exported':len(clean)}))
 
 
 def queue(limit):
-    done = manual_ids() | {x['id'] for x in read_json(PUBLIC, {'items':[]})['items']}
+    done = manual_ids() | CLAUDE_REVIEWED_IDS | {x['id'] for x in read_json(PUBLIC, {'items':[]})['items']}
     states = read_json(PRIVATE/'pending.json', {})
     now = datetime.now(timezone.utc)
     result = []
@@ -173,7 +179,7 @@ def queue(limit):
 def score_unlocked(vid, path, provider='gemini', review_file=None):
     if not ID.fullmatch(vid):
         raise ValueError('영상 ID 오류')
-    if vid in manual_ids() or vid in {x['id'] for x in read_json(PUBLIC,{'items':[]})['items']}:
+    if vid in manual_ids() or vid in CLAUDE_REVIEWED_IDS or vid in {x['id'] for x in read_json(PUBLIC,{'items':[]})['items']}:
         print(json.dumps({'id':vid,'status':'already_scored'})); return
     video = next(x for x in alerts() if x['id']==vid)
     ver = {'한국':'kr','일본':'jp'}[video['country']]
