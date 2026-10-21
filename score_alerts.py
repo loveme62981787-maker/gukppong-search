@@ -144,7 +144,8 @@ def export():
   });
 })();
 '''
-    atomic(OUT, 'window.AUTO_SCORES=' + json.dumps({'items':clean},ensure_ascii=False) + ';\n' + bridge)
+    counts = (BASE / 'web/list_counts.js').read_text(encoding='utf-8')
+    atomic(OUT, 'window.AUTO_SCORES=' + json.dumps({'items':clean},ensure_ascii=False) + ';\n' + bridge + counts)
     print(json.dumps({'exported':len(clean)}))
 
 
