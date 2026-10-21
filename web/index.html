@@ -179,6 +179,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script src="experience_assignments.js" onerror="window.EXPERIENCE_ASSIGNMENTS={}"></script>
 <script src="channel_country.js" onerror="window.CHANNEL_COUNTRY={}"></script>
 <script src="benchmark.js" onerror="window.BENCHMARK=[]"></script>
+<script src="alerts.js" onerror="window.ALERTS=[]"></script>
 <script src="reference.js" onerror="window.REFERENCE=[]"></script>
 <script src="curation.js" onerror="window.CURATION={promote:[],demote:{},exclude:[]}"></script>
 <script src="scorer.js" onerror="window.GukScore=null"></script>
@@ -199,7 +200,7 @@ function normLen(x) {
   return {sec, text: toSec(own) === sec ? own : fmtSec(sec)};
 }
 // 수집 경로(sources): 같은 영상이 여러 목록에 있으면 합집합으로 모은다. 'notion' = 노션 수집 목록, 그 밖은 자동 수집 경로
-const SRC_NAMES = new Set(["discovery", "notion", "viral", "experience", "japan", "global", "global_jp", "topic_search", "reference", "benchmark"]);
+const SRC_NAMES = new Set(["discovery", "notion", "viral", "experience", "japan", "global", "global_jp", "topic_search", "reference", "benchmark", "alert"]);
 const addSrc = (o, s) => { if (!Array.isArray(o.sources)) o.sources = []; if (s && !o.sources.includes(s)) o.sources.push(s); };
 function absorb(x, mark, src) {   // 같은 영상이면 표시와 길이만 합치고(유효한 기존 길이를 null 로 덮지 않음), 새 영상이면 추가한다
   const o = V.find(v => v.id === x.id), n = normLen(x);
@@ -225,6 +226,7 @@ V.forEach(v => {
   v._ngrade = /^[SABC]$/.test(g) ? g : "";
 });
 (window.BENCHMARK || []).forEach(x => absorb(x, {bm: true}, "benchmark"));                                  // 벤치마킹 채널(benchmark_channels.txt): 내가 따로 관리하는 채널이라 다른 목록(체험·국뽕채널·레퍼런스)에는 넣지 않는다
+(window.ALERTS || []).forEach(x => absorb(x, {alert: true, alert_date: x.alert_date}, "alert"));              // 텔레그램 알림으로 받은 영상(alerts/*.csv): 다른 목록에도 그대로 속하고, 알림 목록에서 따로 모아 보며 점수를 확인한다
 const nRef = () => V.filter(v => v.ref).length;
 // 길이 형태: 미확인(unk) / 숏폼(short, 181초 미만) / 롱폼(long). is_short 필드와 충돌해도 길이 기준을 따른다
 V.forEach(v => { const n = normLen(v); v.duration_sec = n.sec; v.length = n.text; v._form = n.sec == null ? "unk" : n.sec >= LONG_MIN_SEC ? "long" : "short"; });
@@ -470,7 +472,7 @@ const expOK = v => !NONEXP_RE.test(v.title) || EXPSIG_RE.test(v.title);
 const JP_PLACE_RE =/tokyo|osaka|kyoto|hokkaido|okinawa|fukuoka|nara\b|hiroshima|nagoya|shinjuku|shibuya|in japan|to japan|japan (trip|travel|vlog)|도쿄|오사카|교토|후쿠오카|일본 여행|東京|大阪|京都/i;
 function computeLists() {
   V.forEach(v => {
-    if (v.bm) { v._cl = []; v._hold = false; v._lists = v._notion ? ["notion", "bm"] : ["bm"]; return; }   // 벤치마킹 채널은 따로 관리: 다른 내용 목록에는 넣지 않는다
+    if (v.bm) { v._cl = []; v._hold = false; v._lists = v._notion ? ["notion", "bm"] : ["bm"]; if (v.alert) v._lists.push("alert"); return; }   // 벤치마킹 채널은 따로 관리: 다른 내용 목록에는 넣지 않는다
     const C = [];   // 내용 목록(체험·국뽕채널). 노션은 출처 목록이라 내용 분류와 독립이고, 내용 목록이 하나도 없으면 '분류 보류'에도 동시에 속한다
     // 한일 혼합(both)은 제목에 해당 나라의 장소 신호가 있을 때만 그 나라 체험에 넣는다 (두 나라 모두 있으면 두 목록)
     if (v._kind === "foreign" && expOK(v) && (v._subj === "한국" || (v._subj === "both" && KR_PLACE_RE.test(v.title)))) C.push("krexp");
@@ -479,6 +481,7 @@ function computeLists() {
     if (v._kind === "local" && v._subj === "일본") C.push("jpguk");
     v._cl = C; v._hold = !C.length;
     v._lists = v._notion ? ["notion", ...C] : [...C];
+    if (v.alert) v._lists.push("alert");
     if (v.ref) v._lists.push("ref");   // 레퍼런스 모음: 내가 채널을 알려 준 별도 레퍼런스 채널의 영상 전부 (국뽕채널·한국에도 함께 속한다)
   });
 }
@@ -539,8 +542,8 @@ const nHidden = () => [...hidden].filter(x => !x.startsWith("ch:")).length;
 // 출처 선택: 외국인 원본 / 현지 편집·소개(내 채널과 비슷한 국뽕 채널) / 기관·방송 / 미확인. 마지막 선택은 이 브라우저에 기억한다
 const kindsEl = document.getElementById("kinds");
 // 목록 선택(한 번에 하나): 노션 / 한국 체험 / 일본 체험 / 국뽕채널·한국 / 국뽕채널·일본 + 분류 보류. 마지막 선택은 이 브라우저에 기억한다
-const LISTTAG = {krexp: "🇰🇷 한국 체험(추정)", jpexp: "🇯🇵 일본 체험(추정)", krguk: "🧭 국뽕채널·한국(추정)", jpguk: "🎌 국뽕채널·일본(추정)", bm: "🎯 벤치마킹 채널"};
-const LISTS = [["all", "📂 전체"], ["notion", "📓 노션 수집 목록"], ["krexp", "🇰🇷 한국 체험"], ["jpexp", "🇯🇵 일본 체험"], ["krguk", "🧭 국뽕채널 · 한국"], ["jpguk", "🎌 국뽕채널 · 일본"], ["ref", "📌 레퍼런스 모음"], ["bm", "🎯 벤치마킹 채널"], ["hold", "🗂 분류 보류"]];
+const LISTTAG = {krexp: "🇰🇷 한국 체험(추정)", jpexp: "🇯🇵 일본 체험(추정)", krguk: "🧭 국뽕채널·한국(추정)", jpguk: "🎌 국뽕채널·일본(추정)", bm: "🎯 벤치마킹 채널", alert: "🔔 알림 영상"};
+const LISTS = [["all", "📂 전체"], ["notion", "📓 노션 수집 목록"], ["krexp", "🇰🇷 한국 체험"], ["jpexp", "🇯🇵 일본 체험"], ["krguk", "🧭 국뽕채널 · 한국"], ["jpguk", "🎌 국뽕채널 · 일본"], ["ref", "📌 레퍼런스 모음"], ["bm", "🎯 벤치마킹 채널"], ["alert", "🔔 알림 영상"], ["hold", "🗂 분류 보류"]];
 const LIST_NOTE = {
   all: "모든 목록(노션·한국 체험·일본 체험·국뽕채널·분류 보류)의 영상을 한꺼번에 보여줘요. 같은 영상은 한 번만 나와요. 카드의 태그로 어느 목록인지 알 수 있어요.",
   notion: "노션 목록에서 가져온 영상이에요. 노션 원본 등급은 우리 점수와 별개예요. 다른 목록에도 속하면 거기서도 보여요.",
@@ -548,6 +551,7 @@ const LIST_NOTE = {
   jpexp: "일본 사람이 아닌 외국인이 일본을 여행·체험·경험하는 영상 (외국인이 만든 원본으로 추정). 제목·채널 정보로 한 추정이에요.",
   krguk: "내 채널과 비슷한 한국 국뽕 채널의 영상 (한국 현지 채널이 편집·소개한 영상 + 내가 알려 준 레퍼런스 채널 영상 전체).",
   ref: "내가 채널 주소를 알려 준 레퍼런스 채널의 영상을 채널별로 모아 둔 목록이에요 (그 채널의 일반 동영상 전부, 쇼츠 제외). 아래 '레퍼런스 채널' 칩으로 채널을 골라 볼 수 있어요. 국뽕채널·한국에도 함께 들어 있어요.",
+  alert: "텔레그램 알림으로 받은 영상이에요 (alerts 폴더의 알림 기록). 점수·등급은 제목·조회수·구독자 기준의 잠정 검수예요. 다른 목록에도 함께 속해요.",
   bm: "내가 벤치마킹하려고 주소를 따로 알려 준 채널의 영상 전부예요 (레퍼런스와 따로 관리, 다른 목록에는 섞이지 않아요). 아래 칩으로 채널별로 볼 수 있어요.",
   jpguk: "일본 현지 채널이 일본을 소개·자랑하는 영상 (일본어 제목 + 일본 소재로 추정).",
   hold: "외국인 원본인지 현지 채널인지 근거가 부족해서 아직 어느 목록에도 넣지 못한 영상이에요 (미확인·기관·방송·한일 혼합 등). 카드의 '출처 유형 바꾸기'로 외국인 원본·현지 채널 여부를 고르면 해당 목록으로 옮겨져요."
@@ -563,7 +567,8 @@ const listCount = k => k === "all" ? V.length : V.filter(v => k === "hold" ? v._
 const listsEl = document.getElementById("lists");
 LISTS.forEach(([k, l]) => { const b = document.createElement("button"); b.className = "chip"; b.dataset.k = k; b.append(l); const s = document.createElement("small"); s.textContent = listCount(k); b.append(s);
   b.onclick = () => { if (k === "all") listSel.clear(); else if (listSel.has(k)) listSel.delete(k); else listSel.add(k); ls.set("lists", [...listSel]); render(); }; listsEl.append(b); });
-const refreshListCounts = () => listsEl.querySelectorAll(".chip").forEach(b => { b.querySelector("small").textContent = listCount(b.dataset.k); });
+const refreshListCounts = () => listsEl.querySelectorAll(".chip").forEach(b => { const n = listCount(b.dataset.k); b.querySelector("small").textContent = n; if (b.dataset.k === "alert") b.hidden = !n; });   // 알림 영상이 없으면 이 칩은 숨긴다
+refreshListCounts();
 mkMulti(kindsEl, Object.keys(KIND_LABEL).map(k => [k, KIND_LABEL[k], V.filter(v => v._kind === k).length]), kindSel, V.length, () => render());
 { const kt = {ref: "내가 채널 이름을 알려 준 별도 레퍼런스 채널의 영상 전부 (국뽕채널·한국 목록에 포함돼요).", foreign: "외국인이 직접 찍은 원본으로 추정되는 영상 (외국어 제목 + 일인칭·체험 표현, 한글 채널명·기관·벤치마킹 채널 아님). 확정이 아니라 추정이에요.", local: "한국인·일본인 등 현지 국뽕 채널이 편집·번역해서 소개하는 영상 — 내 채널과 비슷한 채널 (한국어 제목 등)", inst: "방송·기관·정부·공식 매체 채널 (공식 소개로 확인한 채널 ID 목록)", unk: "근거가 부족해서 아직 분류하지 못한 영상. 카드의 '분류 바꾸기'로 확정할 수 있어요."};
   kindsEl.querySelectorAll(".chip").forEach(b => { if (kt[b.dataset.k]) b.title = kt[b.dataset.k]; }); }

@@ -7,7 +7,7 @@ on:
   workflow_dispatch:        # Actions 탭에서 수동 실행도 가능 (모든 수집 실행)
   push:
     branches: [main]
-    paths: ["web/index.html", "web/reference.js", "web/benchmark.js", "web/videos.js", "web/global_topics_jp.js", "web/topic_candidates.js", "web/experience_assignments.js", "web/scorer.js", "web/scores.js", ".github/workflows/update.yml"]   # 화면만 고쳤을 때는 수집 없이 바로 배포
+    paths: ["web/index.html", "web/reference.js", "web/benchmark.js", "web/alerts.js", "alerts/**", "web/videos.js", "web/global_topics_jp.js", "web/topic_candidates.js", "web/experience_assignments.js", "web/scorer.js", "web/scores.js", ".github/workflows/update.yml"]   # 화면만 고쳤을 때는 수집 없이 바로 배포
 
 permissions:
   contents: write
@@ -79,11 +79,15 @@ jobs:
         timeout-minutes: 40
         run: python global_topics_watch.py --jp
 
+      - name: 텔레그램 알림 영상 기록(alerts 폴더)을 사이트 데이터로 변환 (네트워크 없음)
+        run: python alerts_to_js.py
+
       - name: 데이터 저장 (다음 실행 때 '새 영상' 구분용)
         run: |
           git config user.name "github-actions"
           git config user.email "actions@users.noreply.github.com"
-          git add site_store.json web/videos.js web/channels.js web/viral.js viral_store.json web/experience.js experience_store.json web/japan_topics.js japan_topics_store.json web/global_topics.js global_topics_store.json web/global_topics_jp.js global_topics_jp_store.json web/reference.js reference_store.json web/benchmark.js benchmark_store.json
+          git add site_store.json web/videos.js web/channels.js web/viral.js viral_store.json web/experience.js experience_store.json web/japan_topics.js japan_topics_store.json web/global_topics.js global_topics_store.json web/global_topics_jp.js global_topics_jp_store.json web/reference.js reference_store.json web/benchmark.js benchmark_store.json web/alerts.js
+          if [ -d alerts ]; then git add alerts; fi   # 알림으로 보낸 영상 기록(alerts/날짜.csv)이 있으면 함께 저장
           git diff --cached --quiet || git commit -m "영상 데이터 업데이트"
           git pull --rebase
           git push
