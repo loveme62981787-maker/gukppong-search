@@ -489,7 +489,8 @@ computeKinds();
 scoreAll();
 // ---- 🎯 국뽕 점수 (스크립트 채점 기록, web/scores.js): 기존 🏆 등급(제목·조회수 기준)과 별개다. 같은 영상 ID 로 카드에 붙이고, 채점 기록 화면에서는 ID 가 없는 영상도 보여준다 ----
 const GS = window.GukScore;   // scorer.js 가 안 읽히면 null: 점수 화면과 필터만 숨기고 나머지 기능은 그대로 둔다
-const SCI = GS && window.SCORES && Array.isArray(window.SCORES.items) ? window.SCORES.items.filter(x => x && typeof x.t === "string" && (x.held || (Array.isArray(x.s) && x.s.length === 6))) : [];
+// 점수 6개는 모두 유한 숫자이고 각 항목 만점(RUBRIC.max) 이내여야 채점으로 받아들인다. 그렇지 않으면 합계가 NaN 이 되어 gradeOf 가 조건을 모두 못 맞추고 배열의 마지막 값(C)로 잘못 떨어질 수 있다 (미채점·보류를 C로 취급하면 안 되므로 여기서 막는다)
+const SCI = GS && window.SCORES && Array.isArray(window.SCORES.items) ? window.SCORES.items.filter(x => x && typeof x.t === "string" && (x.held || (Array.isArray(x.s) && x.s.length === 6 && x.s.every((n, i) => typeof n === "number" && isFinite(n) && n >= 0 && n <= GS.RUBRIC[i].max)))) : [];
 const scTot = x => x.held ? null : x.s.reduce((a, b) => a + b, 0);
 const scGrade = x => x.held ? "H" : GS.gradeOf(scTot(x));
 const SC_BY_ID = new Map(SCI.filter(x => typeof x.id === "string" && x.id).map(x => [x.id, x]));
@@ -542,8 +543,8 @@ const nHidden = () => [...hidden].filter(x => !x.startsWith("ch:")).length;
 // 출처 선택: 외국인 원본 / 현지 편집·소개(내 채널과 비슷한 국뽕 채널) / 기관·방송 / 미확인. 마지막 선택은 이 브라우저에 기억한다
 const kindsEl = document.getElementById("kinds");
 // 목록 선택(한 번에 하나): 노션 / 한국 체험 / 일본 체험 / 국뽕채널·한국 / 국뽕채널·일본 + 분류 보류. 마지막 선택은 이 브라우저에 기억한다
-const LISTTAG = {krexp: "🇰🇷 한국 체험(추정)", jpexp: "🇯🇵 일본 체험(추정)", krguk: "🧭 국뽕채널·한국(추정)", jpguk: "🎌 국뽕채널·일본(추정)", bm: "🎯 벤치마킹 채널", alert: "🔔 알림 영상"};
-const LISTS = [["all", "📂 전체"], ["notion", "📓 노션 수집 목록"], ["krexp", "🇰🇷 한국 체험"], ["jpexp", "🇯🇵 일본 체험"], ["krguk", "🧭 국뽕채널 · 한국"], ["jpguk", "🎌 국뽕채널 · 일본"], ["ref", "📌 레퍼런스 모음"], ["bm", "🎯 벤치마킹 채널"], ["alert", "🔔 알림 영상"], ["hold", "🗂 분류 보류"]];
+const LISTTAG = {krexp: "🇰🇷 한국 체험(추정)", jpexp: "🇯🇵 일본 체험(추정)", krguk: "🧭 국뽕채널·한국(추정)", jpguk: "🎌 국뽕채널·일본(추정)", bm: "🎯 벤치마킹 채널", alert: "🔔 [텔레그램]"};
+const LISTS = [["all", "📂 전체"], ["notion", "📓 노션 수집 목록"], ["krexp", "🇰🇷 한국 체험"], ["jpexp", "🇯🇵 일본 체험"], ["krguk", "🧭 국뽕채널 · 한국"], ["jpguk", "🎌 국뽕채널 · 일본"], ["ref", "📌 레퍼런스 모음"], ["bm", "🎯 벤치마킹 채널"], ["alert", "🔔 [텔레그램] 알림 영상"], ["hold", "🗂 분류 보류"]];
 const LIST_NOTE = {
   all: "모든 목록(노션·한국 체험·일본 체험·국뽕채널·분류 보류)의 영상을 한꺼번에 보여줘요. 같은 영상은 한 번만 나와요. 카드의 태그로 어느 목록인지 알 수 있어요.",
   notion: "노션 목록에서 가져온 영상이에요. 노션 원본 등급은 우리 점수와 별개예요. 다른 목록에도 속하면 거기서도 보여요.",
@@ -551,7 +552,7 @@ const LIST_NOTE = {
   jpexp: "일본 사람이 아닌 외국인이 일본을 여행·체험·경험하는 영상 (외국인이 만든 원본으로 추정). 제목·채널 정보로 한 추정이에요.",
   krguk: "내 채널과 비슷한 한국 국뽕 채널의 영상 (한국 현지 채널이 편집·소개한 영상 + 내가 알려 준 레퍼런스 채널 영상 전체).",
   ref: "내가 채널 주소를 알려 준 레퍼런스 채널의 영상을 채널별로 모아 둔 목록이에요 (그 채널의 일반 동영상 전부, 쇼츠 제외). 아래 '레퍼런스 채널' 칩으로 채널을 골라 볼 수 있어요. 국뽕채널·한국에도 함께 들어 있어요.",
-  alert: "텔레그램 알림으로 받은 영상이에요 (alerts 폴더의 알림 기록). 점수·등급은 제목·조회수·구독자 기준의 잠정 검수예요. 다른 목록에도 함께 속해요.",
+  alert: "[텔레그램] 알림으로 받은 영상이에요 (alerts 폴더의 알림 기록). 점수·등급은 제목·조회수·구독자 기준의 잠정 검수이고, 스크립트를 읽고 매긴 🎯 채점과는 달라요. 다른 목록에도 함께 속해요.",
   bm: "내가 벤치마킹하려고 주소를 따로 알려 준 채널의 영상 전부예요 (레퍼런스와 따로 관리, 다른 목록에는 섞이지 않아요). 아래 칩으로 채널별로 볼 수 있어요.",
   jpguk: "일본 현지 채널이 일본을 소개·자랑하는 영상 (일본어 제목 + 일본 소재로 추정).",
   hold: "외국인 원본인지 현지 채널인지 근거가 부족해서 아직 어느 목록에도 넣지 못한 영상이에요 (미확인·기관·방송·한일 혼합 등). 카드의 '출처 유형 바꾸기'로 외국인 원본·현지 채널 여부를 고르면 해당 목록으로 옮겨져요."
@@ -768,8 +769,11 @@ function render(opts) {
   const val = v => sort === "score" ? (v._score ?? 0) : sort === "myscore" ? (v._sc && !v._sc.held ? scTot(v._sc) : -1) : sort === "views" ? v.views : sort === "ratio" ? ratio(v) : sort === "subs" ? (v.subs ?? -1) : sort === "length" ? (v.duration_sec ?? -1)
     : sort === "pub" ? v.published : v.first_seen + v.published;
   const dir = document.getElementById("dir").value === "asc" ? -1 : 1;
-  const unknown = v => (sort === "length" && v.duration_sec == null) || ((sort === "subs" || sort === "ratio") && v.subs == null) || (sort === "myscore" && !(v._sc && !v._sc.held));   // 채점하지 않은 영상은 방향과 상관없이 맨 뒤   // 값을 모르는 영상은 방향과 상관없이 맨 뒤
-  a.sort((x, y) => { if (unknown(x) || unknown(y)) return unknown(x) - unknown(y); const p = val(x), q2 = val(y); return dir * (typeof p === "string" ? q2.localeCompare(p) : q2 - p); });
+  // C 등급(보류 아님)은 정렬 기준과 방향에 상관없이 항상 맨 아래. 미채점·보류는 C보다 앞에 온다. 값을 모르는 영상(길이·구독자 미확인)은 방향과 상관없이 해당 그룹 안에서 맨 뒤. C 여부가 같을 때는 기존의 unknown·val 정렬을 그대로 유지한다
+  const cTier = v => Boolean(v._sc && !v._sc.held && scGrade(v._sc) === "C") ? 1 : 0;
+  const tier = v => sort === "myscore" ? (!v._sc || v._sc.held ? 1 : 0)
+    : ((sort === "length" && v.duration_sec == null) || ((sort === "subs" || sort === "ratio") && v.subs == null)) ? 1 : 0;
+  a.sort((x, y) => { const cx = cTier(x), cy = cTier(y); if (cx !== cy) return cx - cy; const tx = tier(x), ty = tier(y); if (tx !== ty) return tx - ty; const p = val(x), q2 = val(y); return dir * (typeof p === "string" ? q2.localeCompare(p) : q2 - p); });
   updateUI(a.length, {lenExcluded, lm});
   ls.set("kindSeg", [...kindSel]);   // 출처 선택을 기억한다
   const g = document.getElementById("grid"); g.innerHTML = "";
@@ -795,6 +799,7 @@ function render(opts) {
       `<textarea hidden placeholder="메모 (어디에 쓸지, 번역 메모 등)"></textarea></div>`;
     c.querySelector(".t").textContent = v.title;
     if (v._sc) { c.querySelector(".tags").prepend(scTagEl(v._sc)); c.querySelector(".body").insertBefore(scDetailEl(v._sc), c.querySelector(".act")); }   // 🎯 스크립트 채점 결과가 있는 영상만
+    else if (v.alert) { const ut = ce("span", "tag", "🎯 미채점"); ut.title = "[텔레그램] 알림 영상인데 아직 스크립트를 읽고 채점하지 않았어요. 🏆 등급은 제목·조회수 기준이라 이 채점과는 별개예요."; c.querySelector(".tags").prepend(ut); }   // 텔레그램 알림 영상 중 아직 채점하지 않은 것은 미채점임을 바로 보여준다 (제목 기준 _grade 를 대신 쓰지 않는다)
     c.querySelector(".m").textContent = v.channel + " · " + (v.viral && v.age_text ? v.age_text : v.published);
     c.querySelectorAll(".lst").forEach(t => { t.title = "목록 분류는 제목·채널 정보로 한 추정이에요. 영상 내용을 보고 확인한 것은 아니에요. 근거: " + (v.bm ? "사용자 지정 채널 기준(벤치마킹 채널)" : v.ref ? "사용자 지정 채널 기준(별도 레퍼런스 채널이라 국뽕채널·한국에 포함)" : v._kindWhy); });   // 근거는 DOM 으로 넣어 HTML 로 해석되지 않게 한다
     const kt = c.querySelector(".kindtag"); kt.textContent = KIND_LABEL[v._kind]; kt.title = v._kindWhy;   // 근거는 DOM 으로 넣어 HTML 로 해석되지 않게 한다
