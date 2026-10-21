@@ -78,6 +78,9 @@ def validate_review(review, text, info):
         raise ValueError('포인트 근거 누락')
     flat = re.sub(r'\s+', ' ', re.sub(r'^\[\d+(?::\d+){1,2}\]\s*', '', text, flags=re.M))
     seen = set()
+    lines = {}
+    for stamp, words in re.findall(r'^\[(\d+(?::\d+){1,2})\]\s*(.*)$',text,re.M):
+        lines.setdefault(seconds(stamp),[]).append(re.sub(r'\s+',' ',words).strip())
     for point in points:
         quote = re.sub(r'\s+', ' ', str(point.get('evidence', ''))).strip()
         if len(quote) < 3 or quote not in flat:
@@ -86,6 +89,8 @@ def validate_review(review, text, info):
             raise ValueError('포인트 가중치 오류')
         if (info['timestamps'] and point.get('start_sec') not in info['timestamps']) or (not info['timestamps'] and point.get('start_sec') is not None):
             raise ValueError('포인트 시각 오류')
+        if info['timestamps'] and (type(point.get('start_sec')) is not int or not any(quote in line for line in lines.get(point['start_sec'],[]))):
+            raise ValueError('인용문과 해당 시각의 자막이 일치하지 않습니다')
         key = (point['start_sec'], quote)
         if key in seen:
             raise ValueError('동일 포인트 중복')
@@ -96,7 +101,7 @@ def safe_public(item):
     """공개 파일에도 임의 키·원문이 섞이지 않도록 다시 검증한다."""
     if not ID.fullmatch(str(item.get('id', ''))) or item.get('ver') not in ('kr', 'jp'):
         raise ValueError('공개 영상 ID/국가 오류')
-    if item.get('source') != 'claude_fm':
+    if item.get('source') not in ('claude_fm', 'gemini_fm'):
         raise ValueError('FM 채점 출처 오류')
     result = {k: item[k] for k in ('id','ver','t','source','fm_sha256','transcript_sha256','checked_at','min','p')}
     if any(not isinstance(result[k], str) for k in ('t','checked_at')):
@@ -114,7 +119,8 @@ def safe_public(item):
         if not isinstance(scores,list) or len(scores)!=6 or any(type(n) is not int or not 0<=n<=cap for n,cap in zip(scores,CAPS)):
             raise ValueError('공개 점수 오류')
         result['s'] = scores
-    result['warn'] = ['Claude가 자막 전문과 한국판·일본판 FM으로 자동 채점했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다.']
+    author = 'Gemini 1차 채점 · Codex 검증' if item['source'] == 'gemini_fm' else 'Claude FM 채점'
+    result['warn'] = [author + '. 자막 전문과 한국판·일본판 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다.']
     return result
 
 
@@ -162,7 +168,7 @@ def queue(limit):
     print(json.dumps(mixed[:limit],ensure_ascii=True))
 
 
-def score_unlocked(vid, path):
+def score_unlocked(vid, path, provider='gemini', review_file=None):
     if not ID.fullmatch(vid):
         raise ValueError('영상 ID 오류')
     if vid in manual_ids() or vid in {x['id'] for x in read_json(PUBLIC,{'items':[]})['items']}:
@@ -182,27 +188,39 @@ def score_unlocked(vid, path):
               '자막에 시각이 없으면 start_sec는 null로 하세요. evidence는 해당 자막 한 줄에서 3자 이상을 정확히 복사하세요. 번역/말줄임표/바꿔쓰기 금지. rationale은 항목별 1문장씩 간결히.\nFM:\n'+fm+
               '\n영상 메타데이터:\n'+json.dumps({'id':vid,'title':video['title'],'duration_sec':info['duration']},ensure_ascii=False)+
               '\n<untrusted_transcript>\n'+text+'\n</untrusted_transcript>')
-    cli = shutil.which('claude')
-    if not cli:
-        raise ValueError('Claude CLI 없음')
-    cmd=[cli,'-p','--output-format','json','--tools','','--strict-mcp-config','--mcp-config','{"mcpServers":{}}','--no-session-persistence','--max-turns','3']
-    run = subprocess.run(cmd,input=prompt,text=True,encoding='utf-8',capture_output=True,timeout=600,cwd=PRIVATE)
-    if run.returncode:
-        raise ValueError('Claude 채점 호출 실패: 원문/인증정보는 로그에 출력하지 않습니다')
-    envelope=json.loads(run.stdout)
-    if envelope.get('is_error'):
-        raise ValueError('Claude가 오류를 반환했습니다')
-    response=envelope.get('result','').strip()
-    if response.startswith('```'):
-        response=re.sub(r'^```(?:json)?\s*|\s*```$','',response)
-    review=json.loads(response)
+    if review_file:
+        review=read_json(review_file, None)
+    else:
+        if provider == 'gemini':
+            cli=os.environ.get('GEMINI_CLI_PATH') or shutil.which('agy') or str(BASE.parent.parent/'agy.exe')
+            cmd=[cli,'-p',prompt,'--output-format','json','--print-timeout','180s']
+            stdin=None
+        else:
+            cli=shutil.which('claude')
+            if not cli: raise ValueError('Claude CLI 없음')
+            cmd=[cli,'-p','--output-format','json','--tools','','--strict-mcp-config','--mcp-config','{"mcpServers":{}}','--no-session-persistence','--max-turns','3']
+            stdin=prompt
+        run=subprocess.run(cmd,input=stdin,text=True,encoding='utf-8',capture_output=True,timeout=600,cwd=PRIVATE)
+        if run.returncode: raise ValueError('채점 호출 실패: 원문/인증정보는 로그에 출력하지 않습니다')
+        envelope=json.loads(run.stdout)
+        if envelope.get('is_error') or (provider=='gemini' and envelope.get('status')!='SUCCESS'):
+            raise ValueError('채점 모델이 오류를 반환했습니다')
+        response=envelope.get('response' if provider=='gemini' else 'result','').strip()
+        if response.startswith('```'):
+            response=re.sub(r'^```(?:json)?\s*|\s*```$','',response)
+        review=json.loads(response)
     atomic(PRIVATE/'reviews'/f'{vid}-unvalidated.json',json.dumps(review,ensure_ascii=False,indent=2))
     body=re.sub(r'^\[.*?\]\s*','',text.split('\n\n',1)[-1],flags=re.M)
     if len(body.strip())<300:
         review={'status':'held','reason':'too_short'}
     validate_review(review,text,info)
     atomic(PRIVATE/'reviews'/f'{vid}.json',json.dumps(review,ensure_ascii=False,indent=2))
-    item={'id':vid,'ver':ver,'t':video['title'],'source':'claude_fm','fm_sha256':hashlib.sha256(fm.encode()).hexdigest(),
+    if not review_file:
+        total=sum(review.get('scores',[]))
+        ambiguous=review['status']=='held' or any(abs(total-cut)<=2 for cut in (55,70,85))
+        print(json.dumps({'id':vid,'status':'review_required','claude_review_recommended':ambiguous,'total':total}))
+        return
+    item={'id':vid,'ver':ver,'t':video['title'],'source':provider+'_fm','fm_sha256':hashlib.sha256(fm.encode()).hexdigest(),
           'transcript_sha256':hashlib.sha256(text.encode()).hexdigest(),'checked_at':datetime.now(timezone.utc).isoformat(),
           'min':round(info['duration']/60,2),'p':sum(x['weight'] for x in review.get('points',[]))}
     if review['status']=='held': item['held']=True
@@ -215,7 +233,7 @@ def score_unlocked(vid, path):
     print(json.dumps({'id':vid,'status':review['status'],'total':sum(item['s']) if 's' in item else None}))
 
 
-def score(vid, path):
+def score(vid, path, provider='gemini', review_file=None):
     PRIVATE.mkdir(parents=True,exist_ok=True)
     lock=PRIVATE/'score.lock'
     try:
@@ -225,7 +243,7 @@ def score(vid, path):
     try:
         os.write(fd,str(os.getpid()).encode())
         os.close(fd)
-        score_unlocked(vid,path)
+        score_unlocked(vid,path,provider,review_file)
     finally:
         lock.unlink(missing_ok=True)
 
@@ -237,6 +255,8 @@ def main():
     parser.add_argument('--id')
     parser.add_argument('--transcript',type=Path)
     parser.add_argument('--complete',action='store_true')
+    parser.add_argument('--provider',choices=['gemini','claude'],default='gemini')
+    parser.add_argument('--review-file',type=Path,help='Codex가 내용까지 검증한 비공개 채점 JSON. 지정해야 공개 데이터에 반영')
     args=parser.parse_args()
     if args.command=='export': export()
     elif args.command=='queue': queue(args.limit)
@@ -256,7 +276,7 @@ def main():
         atomic(PRIVATE/'pending.json',json.dumps(state,indent=2))
     else:
         if not args.id or not args.transcript: parser.error('--id 와 --transcript가 필요합니다')
-        score(args.id,args.transcript)
+        score(args.id,args.transcript,args.provider,args.review_file)
 
 
 if __name__=='__main__':

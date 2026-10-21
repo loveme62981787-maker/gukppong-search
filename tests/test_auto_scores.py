@@ -50,6 +50,11 @@ class ScoreTests(unittest.TestCase):
         self.assertNotIn('points',public)
         self.assertNotIn('email',public)
         self.assertEqual(public['p'],2.5)
+        item['source']='gemini_fm'
+        self.assertIn('Gemini',score.safe_public(item)['warn'][0])
+        item['source']='deepseek_fm'
+        with self.assertRaises(ValueError): score.safe_public(item)
+        item['source']='gemini_fm'
         item['held']=True
         public=score.safe_public(item)
         self.assertNotIn('s',public)
@@ -60,6 +65,11 @@ class ScoreTests(unittest.TestCase):
         review={'status':'scored','scores':[20,15,10,9,7,9],'points':[point,point]}
         with self.assertRaises(ValueError):
             score.validate_review(review,'a clean station',{'timestamps':{0}})
+
+    def test_quote_must_match_its_timestamp(self):
+        review={'status':'scored','scores':[20,15,10,9,7,9], 'points':[{'start_sec':0,'weight':1,'evidence':'clean station'}]}
+        with self.assertRaises(ValueError):
+            score.validate_review(review,'[0:00] hello\n[0:10] clean station',{'timestamps':{0,10}})
 
 
 if __name__=='__main__': unittest.main()
