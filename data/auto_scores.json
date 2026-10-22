@@ -526,6 +526,29 @@
       "warn": [
         "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "p4zEa8XpPZY",
+      "ver": "tw",
+      "t": "A look back at the city of Tainan in Taiwan",
+      "source": "claude_fm",
+      "fm_sha256": "950b953a44406d1a786ff56233001eea1a8e13c7e066e6707a4e57631f523dd4",
+      "transcript_sha256": "ee3e25a8fc32dc150501e0027d83b3cf953e24da5783917164a748d55d44605b",
+      "checked_at": "2026-10-22T22:34:52.951185+09:00",
+      "min": 14.55,
+      "p": 5,
+      "s": [
+        15,
+        12,
+        8,
+        8,
+        5,
+        6
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
