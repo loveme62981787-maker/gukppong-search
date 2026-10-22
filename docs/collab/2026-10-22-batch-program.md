@@ -103,3 +103,12 @@ Python 59개 테스트 통과. 독립 검토에서 공개 재생/ID/응답 검�
 
 ## 대만 채점 추가
 사용자 요청으로 대만을 자동 채점에 포함한다. Claude가 KR/JP와 동일 배점·등급의 대만 FM을 비공개 ../telegram-score-private/fm/tw.md에 작성하고 Gemini가 교차 검토했다. 대만 출신 아닌 외국인의 현지 경험만 인정하고 불확실성은 Claude 검수로 넘긴다. 국가 순환은 한국·일본·대만이며 기존 채점 제외 규칙을 유지한다. 대만 배지는 별도 my_scores.js에서 처리하며 index.html은 변경하지 않는다. FM 원문은 공개 커밋에서 제외한다. 실행 중 작업은 건드리지 않고 다음 프로세스부터 새 기준을 읽는다.
+
+## 시간 초과 후 일반 프로그램 재개
+사용자 요청에 따라 모델 외부 대기 상한을 240초에서 600초로 늘렸다. Gemini 내부 제한은 660초로 두어 외부 시간 초과 처리가 먼저 동작하게 했다. subprocess.TimeoutExpired는 ModelTimeout으로 구분하고 해당 영상만 보류한 뒤 다음 영상으로 진행한다. 자동 재호출은 하지 않는다.
+중단된 동일20개 시험은 일회성 resume_timeout_once.py가 기존 완료8개를 보존하고 시간초과1개+미처리11개만 이어서 처리한다. 일일 이력에 명시 재시도1회를 추가하고 기존 결과/사용량을 아카이브한다. 종료 후 비교 결과를 파일로 저장한다. 예약 작업 설치/활성화 및 새 시험 결과 게시 없음. Codex 반복 폴링 없이 별도 Python 프로세스로 실행한다.
+
+## JSON 오류 수정과 자동채점 재개 승인
+이미 통과한 4개 게시를 사용자가 승인했고, JSON 오류를 수정한 뒤 자동채점 재개를 승인했다. 문제는 호출(returncode/상태) 자체는 성공했는데 Gemini 응답 텍스트가 유효한 JSON 객체가 아닌 경우, 기존 코드가 이를 `call_model`의 공통 `ValueError` 처리로 묶어 `ModelFailure`(RuntimeError)로 올려서 회로차단(`state['enabled']=False`, `fatal=True`)을 트리거해 나머지 후보 처리를 멈췄던 것이다.
+`ReviewFormatError(ValueError)`를 새로 추가해 이 경우만 분리했다: markdown 펜스 제거 후 `json.loads` 실패이거나 결과가 객체(dict)가 아니면 `ReviewFormatError`를 던진다(부분 추출·점수 복구 없음, 전체 객체만 허용). 인증/한도/빈 CLI 출력/논제로 종료/claude 구조화 출력 스키마 위반 등 기존 `ModelFailure` 경로는 그대로 두어 회로차단을 유지한다. `run_batch`의 held 처리에서 `ReviewFormatError`는 `RuntimeError`가 아니므로 기존처럼 해당 영상만 보류하고 다음 후보로 진행하며, held 이유 문자열에 원인(`invalid_review_json`/`review_not_object`)을 그대로 남긴다. `model_review`의 캐시 읽기도 동일하게 손상된 캐시 JSON을 `ReviewFormatError`로 구분해 영상별 보류로 처리하고 모델을 다시 호출하지 않는다.
+타임아웃(`ModelTimeout`, 2026-10-22 앞서 추가) 처리 방식과 동일한 패턴이며 기존 240초→600초/660초 타임아웃 변경은 보존했다. 테스트 4종을 `tests/test_batch_score.py`에 추가: 성공 응답이 비JSON/비객체일 때 `ReviewFormatError`, 그 보류가 다음 영상 처리를 막지 않음, 손상된 캐시 JSON이 모델 재호출 없이 보류됨, 실제 CLI 실패(`ModelFailure`)는 여전히 회로차단한다는 회귀 검증. 커밋·상태 변경·게시는 하지 않았다.

@@ -279,6 +279,64 @@ class BatchTests(unittest.TestCase):
                 b.process(video)
             self.assertEqual(call.call_count, 2)
 
+    def test_timeout_is_bounded_and_does_not_stop_remaining_videos(self):
+        with patch.object(b.subprocess, 'run', side_effect=subprocess.TimeoutExpired('model', 600)) as call:
+            with self.assertRaises(b.ModelTimeout):
+                b.call_model('gemini', 'prompt')
+            self.assertEqual(call.call_args.kwargs['timeout'], 600)
+            self.assertIn('660s', call.call_args.args[0])
+        state = b.default_state()
+        state['enabled'] = True
+        b.save(state)
+        with patch.object(b, 'candidates', return_value=([self.video(), self.video(1)], {})), patch.object(b, 'process', side_effect=[b.ModelTimeout('model_timeout'), (None, 'held')]):
+            summary = b.run_batch()
+        self.assertEqual(summary['attempted'], 2)
+        self.assertFalse(b.s.read_json(b.STATE, {})['enabled'])
+
+    def test_review_format_error_on_malformed_success_response(self):
+        envelope = json.dumps({'status': 'SUCCESS', 'response': 'not-json-at-all'})
+        with patch.object(b.subprocess, 'run', return_value=subprocess.CompletedProcess([], 0, envelope, '')):
+            with self.assertRaises(b.ReviewFormatError):
+                b.call_model('gemini', 'prompt')
+        envelope = json.dumps({'status': 'SUCCESS', 'response': '["not", "an", "object"]'})
+        with patch.object(b.subprocess, 'run', return_value=subprocess.CompletedProcess([], 0, envelope, '')):
+            with self.assertRaises(b.ReviewFormatError):
+                b.call_model('gemini', 'prompt')
+
+    def test_review_format_error_holds_video_and_continues_without_circuit_break(self):
+        state = b.default_state()
+        state['enabled'] = True
+        b.save(state)
+        with patch.object(b, 'candidates', return_value=([self.video(), self.video(1)], {})), \
+             patch.object(b, 'process', side_effect=[b.ReviewFormatError('invalid_review_json'), (None, 'held')]):
+            summary = b.run_batch()
+        self.assertEqual(summary['attempted'], 2)
+        record = b.s.read_json(b.STATE, {})['videos'][self.video()['id']]
+        self.assertEqual(record['status'], 'held')
+        self.assertEqual(record['reason'], 'invalid_review_json')
+        self.assertNotIn('fatal', record)
+
+    def test_cached_review_invalid_json_holds_without_calling_model(self):
+        video = self.video()
+        fingerprint = b.hashlib.sha256(('gemini\0' + b.model_name('gemini') + '\0prompt\0t\0f\0').encode()).hexdigest()
+        path = self.root / 'batch_reviews' / f'{video["id"]}-gemini-{fingerprint}.json'
+        b.s.atomic(path, 'not-json')
+        with patch.object(b, 'call_model') as call:
+            with self.assertRaises(b.ReviewFormatError):
+                b.model_review('gemini', 'prompt', video, 't', 'f')
+        call.assert_not_called()
+
+    def test_cli_failure_still_trips_circuit_breaker_unlike_review_format_error(self):
+        state = b.default_state()
+        state['enabled'] = True
+        b.save(state)
+        with patch.object(b, 'candidates', return_value=([self.video(), self.video(1)], {})), \
+             patch.object(b, 'process', side_effect=b.ModelFailure('model_call_failed')):
+            summary = b.run_batch()
+        self.assertEqual(summary['attempted'], 1)
+        record = b.s.read_json(b.STATE, {})['videos'][self.video()['id']]
+        self.assertTrue(record['fatal'])
+
     def test_failed_push_retries_without_model_or_early_published(self):
         vid = self.video()['id']
         state = b.default_state()

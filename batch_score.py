@@ -42,8 +42,16 @@ def model_name(provider):
     return os.environ.get('GEMINI_BATCH_MODEL', 'gemini-3.8-flash-medium') if provider == 'gemini' else os.environ.get('CLAUDE_REVIEW_MODEL', 'sonnet')
 
 
+class ModelTimeout(ValueError):
+    """개별 영상 응답 시간 초과. 같은 실행에서 재호출하지 않고 다음 영상으로 진행."""
+
+
 class ModelFailure(RuntimeError):
     """모델 공통 실패는 나머지 200개 호출로 전파하지 않고 중단한다."""
+
+
+class ReviewFormatError(ValueError):
+    """호출은 성공했지만 응답이 유효한 JSON 객체가 아니다. 해당 영상만 보류하고 다음 영상으로 진행한다."""
 
 
 REVIEW_SCHEMA = {
@@ -255,7 +263,7 @@ def call_model(provider, prompt):
     if provider == 'gemini':
         cli = os.environ.get('GEMINI_CLI_PATH') or str(s.BASE.parent.parent / 'agy.exe')
         cmd = [cli, '-p', '', '--model', model_name(provider), '--input-format', 'stream-json', '--output-format', 'stream-json',
-               '--disable-slash-commands', '--sandbox', '--print-timeout', '180s']
+               '--disable-slash-commands', '--sandbox', '--print-timeout', '660s']
     else:
         cli = shutil.which('claude')
         if not cli:
@@ -276,7 +284,7 @@ def call_model(provider, prompt):
             METRICS[provider + '_calls'] += 1
         input_text = (json.dumps({'event': 'user', 'message': {'content': prompt}}, ensure_ascii=False) + '\n') if provider == 'gemini' else prompt
         result = subprocess.run(cmd, input=input_text, text=True, encoding='utf-8', capture_output=True,
-                                timeout=240, cwd=s.PRIVATE, env=env)
+                                timeout=600, cwd=s.PRIVATE, env=env)
         if provider == 'gemini':
             events = [json.loads(line) for line in result.stdout.splitlines() if line.strip().startswith('{')]
             final_event = next((event for event in reversed(events) if event.get('event') == 'result' or 'status' in event or 'response' in event), {})
@@ -296,7 +304,20 @@ def call_model(provider, prompt):
             return review
         response = envelope.get('response', envelope.get('result', '')).strip()
         response = re.sub(r'^```(?:json)?\s*|\s*```$', '', response)
-        return json.loads(response)
+        try:
+            review = json.loads(response)
+        except json.JSONDecodeError:
+            raise ReviewFormatError('invalid_review_json') from None
+        if not isinstance(review, dict):
+            raise ReviewFormatError('review_not_object')
+        return review
+    except subprocess.TimeoutExpired:
+        if not recorded:
+            record_usage(provider, started, result=result, error='TimeoutExpired')
+        raise ModelTimeout('model_timeout') from None
+    except ReviewFormatError:
+        # 호출 자체는 이미 record_usage로 기록됐다. 영상별 실패로만 다루고 회로차단하지 않는다.
+        raise
     except (OSError, subprocess.SubprocessError, ValueError, TypeError, AttributeError) as error:
         if not recorded:
             record_usage(provider, started, result=result, error=type(error).__name__)
@@ -309,7 +330,13 @@ def model_review(provider, prompt, video, text, fm, context=''):
     if path.exists():
         if METRICS is not None:
             METRICS['cache_hits'] += 1
-        return s.read_json(path, None)
+        try:
+            cached = s.read_json(path, None)
+        except (ValueError, UnicodeDecodeError):
+            raise ReviewFormatError('cached_review_invalid') from None
+        if not isinstance(cached, dict):
+            raise ReviewFormatError('cached_review_not_object')
+        return cached
     review = call_model(provider, prompt)
     s.atomic(path, json.dumps(review, ensure_ascii=False))
     return review
@@ -467,7 +494,7 @@ def run_batch():
                 state['videos'][vid] = {'status': 'staged' if item else 'held', 'reason': reason}
             except Exception as error:
                 # CLI 원문/인증정보를 출력하지 않는다. 공통 호출 실패는 즉시 회로 차단.
-                state['videos'][vid] = {'status': 'held', 'reason': str(error) if isinstance(error, (CaptionFailure, ModelFailure)) else type(error).__name__}
+                state['videos'][vid] = {'status': 'held', 'reason': str(error) if isinstance(error, (CaptionFailure, ModelFailure, ReviewFormatError)) else type(error).__name__}
                 summary['held'] += 1
                 if isinstance(error, (RuntimeError, subprocess.SubprocessError, FileNotFoundError)):
                     state['videos'][vid]['fatal'] = True
