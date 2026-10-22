@@ -1,5 +1,12 @@
 // FM 채점 전용 화면. 잠정 등급 필터와 상태를 공유하지 않는다.
 document.addEventListener('DOMContentLoaded', () => {
+  SC_VER.tw = '🇹🇼 대만판';
+  const previousScoreTag = scTagEl;
+  scTagEl = function(x) {
+    const tag = previousScoreTag(x);
+    if (x.ver === 'tw') tag.textContent = tag.textContent.replace('🇰🇷', '🇹🇼');
+    return tag;
+  };
   const tab = ce('button', 'chip', '✅ 내 채점'); tab.id = 'mmy';
   document.getElementById('ms').after(tab);
   const panel = ce('section', 'sc-wrap'); panel.id = 'my-score-view'; panel.hidden = true;

@@ -4,6 +4,15 @@ import fs from 'node:fs';
 import vm from 'node:vm';
 
 const html = fs.readFileSync(new URL('../web/index.html', import.meta.url), 'utf8');
+test('대만 채점 배지는 대만 국기와 국가 이름을 사용한다', () => {
+  const code = fs.readFileSync(new URL('../web/my_scores.js', import.meta.url), 'utf8');
+  const part = code.slice(code.indexOf('  SC_VER.tw'), code.indexOf('  const tab'));
+  const context = {SC_VER:{kr:'한국판'}, scTagEl:()=>({textContent:'🎯 70 · A 🇰🇷'})};
+  vm.runInNewContext(part, context);
+  assert.equal(context.SC_VER.tw, '🇹🇼 대만판');
+  assert.equal(context.scTagEl({ver:'tw'}).textContent, '🎯 70 · A 🇹🇼');
+  assert.equal(context.scTagEl({ver:'kr'}).textContent, '🎯 70 · A 🇰🇷');
+});
 const start = html.indexOf('  const val = v => sort === "score"');
 const end = html.indexOf('  updateUI(a.length', start);
 assert.ok(start >= 0 && end > start);

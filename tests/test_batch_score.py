@@ -41,6 +41,16 @@ class BatchTests(unittest.TestCase):
         process.assert_not_called()
         cmd.assert_not_called()
 
+    def test_taiwan_candidates_and_private_fm(self):
+        rows = [dict(self.video(i), country=c) for i, c in enumerate(['한국', '일본', '대만'])]
+        with patch.object(b.s, 'alerts', return_value=rows), patch.object(b.s, 'manual_ids', return_value=set()):
+            selected, _ = b.candidates(b.default_state())
+        self.assertEqual([v['country'] for v in selected], ['한국', '일본', '대만'])
+        self.assertEqual(b.s.fm_path('tw'), self.root / 'fm' / 'tw.md')
+        with patch.object(b.s, 'alerts', return_value=rows), patch.object(b.s, 'manual_ids', return_value={rows[2]['id']}):
+            selected, _ = b.candidates(b.default_state())
+        self.assertNotIn(rows[2]['id'], [v['id'] for v in selected])
+
     def test_pilot_20_cumulative_and_restart(self):
         state = b.default_state()
         state.update(enabled=True, pilot_attempts=18)
