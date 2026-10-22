@@ -54,6 +54,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 .fpanel .bar{margin:8px 0;padding:0;max-width:none}
 .result{max-width:1200px;margin:12px auto 0;padding:0 16px;font-size:13px;color:var(--mute)}
 @media(max-width:600px){.quick{gap:6px 12px}.fpanel{margin-left:16px;margin-right:16px}}
+.topicref{max-width:1200px;margin:28px auto 60px;padding:0 16px}.topicref h2{font-size:18px;margin:0 0 6px}.topicref .tg{border:1px solid var(--line,#e5e7eb);border-radius:12px;padding:12px 14px;margin:10px 0;background:var(--card,#fff)}.topicref .tg h3{font-size:15px;margin:0 0 2px}.topicref .tg p{margin:0 0 8px;font-size:12px;color:var(--mute)}.topicref .tg .items{display:flex;flex-wrap:wrap;gap:6px}
 .gi-group{margin:8px 0;display:flex;flex-wrap:wrap;gap:6px;align-items:center}.gi-group b{width:100%;font-size:12px;color:var(--mute)}
 .ch{padding:14px;gap:8px}.ch h3{margin:0;font-size:16px}.ch h3 a{color:var(--ink);text-decoration:none}
 .thumbs{display:grid;grid-template-columns:repeat(4,1fr);gap:4px}.thumbs a{position:relative;aspect-ratio:16/9;display:block;background:#000;border-radius:6px;overflow:hidden}
@@ -91,7 +92,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 </head>
 <body>
 <header><h1>🇰🇷🇯🇵 국뽕 영상 서칭</h1><div class="sub" id="upd"></div></header>
-<div class="bar"><button class="chip on" id="mv">🎬 영상</button><button class="chip" id="mc">📺 채널 벤치마킹</button><button class="chip" id="ms" hidden>🎯 국뽕 점수</button></div>
+<div class="bar"><button class="chip on" id="mv">🎬 영상</button><button class="chip" id="mc">📺 채널 벤치마킹</button><button class="chip" id="mt" title="맨 아래 주제 목록(12갈래·140꼭지)으로 이동">📚 주제 목록 ↓</button><button class="chip" id="ms" hidden>🎯 국뽕 점수</button></div>
 <!-- 🎯 국뽕 점수: 점수 기준 / 채점 기록 / 간이 채점기. 내용은 아래 스크립트가 scorer.js(기준)와 scores.js(기록)로 채운다 -->
 <div id="scview" hidden>
   <div class="bar"><button class="chip sctab on" data-t="rubric">📏 점수 기준</button><button class="chip sctab" data-t="log">🏆 채점 기록 <small id="sc-n"></small></button><button class="chip sctab" data-t="tool">🧮 간이 채점기</button></div>
@@ -168,6 +169,13 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
   <button class="chip" id="exp">내보내기</button><button class="chip" id="imp">가져오기</button>
   <input type="file" id="file" accept=".json" hidden>
 </div>
+<!-- 맨 아래: 글로벌 콘텐츠 12갈래·140꼭지 주제 목록 (슬라이드의 그 주제들). 꼭지를 누르면 위 목록에서 그 주제 영상만 걸러서 본다 -->
+<section class="vmode topicref" id="topicref">
+  <h2>📚 해당 주제 목록 — 글로벌 콘텐츠 12갈래·140꼭지</h2>
+  <div class="sub">외국인이 한국·일본에서 사용·활용·경험하는 체험 영상을 찾는 기준 주제예요. 꼭지를 누르면 위 목록에서 그 주제 영상만 걸러서 보여줘요 (숫자는 지금 사이트에 있는 영상 수, 제목 기준 분류).</div>
+  <div class="bar"><button class="chip on" data-c="kr">🇰🇷 한국</button><button class="chip" data-c="jp">🇯🇵 일본</button></div>
+  <div id="trgroups"></div>
+</section>
 <script src="videos.js"></script>
 <script src="channels.js" onerror="window.CHANNELS=[]"></script>
 <script src="viral.js" onerror="window.VIRAL=[]"></script>
@@ -662,6 +670,25 @@ GTJ.forEach(g => {
 const jgSync = () => jgBox.querySelectorAll(".chip").forEach(b => b.classList.toggle("on", jgiSel.has(b.dataset.k)));
 MULTIS.push({parent: jgBox, sel: jgiSel, keys: GTJ.flatMap(g => g.items.map(i => i.name)), sync: jgSync});
 document.getElementById("jgclear").onclick = () => { jgiSel.clear(); jgSync(); render(); };
+// 맨 아래 '해당 주제 목록': 12갈래·140꼭지를 한국/일본별로 보여주고, 꼭지를 누르면 그 꼭지만 고른 상태로 위 목록을 필터한다
+function renderTopicRef(c) {
+  const T = c === "kr" ? GT : GTJ, fld = c === "kr" ? "_gi" : "_jgi", box = document.getElementById("trgroups"); box.textContent = "";
+  document.querySelectorAll("#topicref .bar .chip").forEach(b => b.classList.toggle("on", b.dataset.c === c));
+  T.forEach(g => {
+    const d = document.createElement("div"); d.className = "tg";
+    const h = document.createElement("h3"); h.textContent = g.cat + " (" + g.items.length + ")"; d.append(h);
+    const p = document.createElement("p"); p.textContent = g.note || ""; d.append(p);
+    const it = document.createElement("div"); it.className = "items";
+    g.items.forEach(i => { const b = document.createElement("button"); b.className = "chip"; b.append(i.name); const s = document.createElement("small"); s.textContent = V.filter(v => v[fld].includes(i.name)).length; b.append(s);
+      b.onclick = () => { giSel.clear(); jgiSel.clear(); gcSel.clear(); jgcSel.clear(); (c === "kr" ? giSel : jgiSel).add(i.name);
+        listSel.clear(); ls.set("lists", []);   // 주제는 한국·일본 모든 영상에서 찾는다 (선택돼 있던 다른 나라 목록 때문에 0건이 되지 않게 '전체'로 바꾼다)
+        MULTIS.forEach(m => m.sync()); render(); window.scrollTo({top: 0, behavior: "smooth"}); };
+      it.append(b); });
+    d.append(it); box.append(d); });
+}
+document.querySelectorAll("#topicref .bar .chip").forEach(b => b.onclick = () => renderTopicRef(b.dataset.c));
+renderTopicRef("kr");
+document.getElementById("mt").onclick = () => { const t = document.getElementById("topicref"); if (t.offsetParent) t.scrollIntoView({behavior: "smooth"}); };
 const giSync = () => giBox.querySelectorAll(".chip").forEach(b => b.classList.toggle("on", giSel.has(b.dataset.k)));
 MULTIS.push({parent: giBox, sel: giSel, keys: GT.flatMap(g => g.items.map(i => i.name)), sync: giSync});
 document.getElementById("gclear").onclick = () => { giSel.clear(); giSync(); render(); };
