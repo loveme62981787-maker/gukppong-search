@@ -687,6 +687,29 @@
       "warn": [
         "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "9flG-0cSf74",
+      "ver": "tw",
+      "t": "Teach Afternoons in Taiwan Bushibans",
+      "source": "claude_fm",
+      "fm_sha256": "950b953a44406d1a786ff56233001eea1a8e13c7e066e6707a4e57631f523dd4",
+      "transcript_sha256": "938ac0692e9cf2da1b4962a5a0196dec28d6eb30f032a3439c73db1ae687db55",
+      "checked_at": "2026-10-22T22:56:37.890513+09:00",
+      "min": 16.3,
+      "p": 2.5,
+      "s": [
+        8,
+        8,
+        4,
+        12,
+        4,
+        9
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
