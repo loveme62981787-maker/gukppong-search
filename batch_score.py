@@ -503,10 +503,21 @@ def staged_hashes(state):
 def approve_production(state, accepted_hash):
     report = s.read_json(s.PRIVATE / 'batch_report.json', {})
     digest = hashlib.sha256(json.dumps(report, sort_keys=True).encode()).hexdigest()
+    # 시험 결과를 별도로 게시했어도 공개 값과 원본 해시가 일치해야 승인한다.
+    public = {x['id']: x for x in s.read_json(s.PUBLIC, {'items': []})['items']}
+    expected = report.get('staged_hashes', {})
+    checked = {}
+    for vid in expected:
+        record = state['videos'].get(vid, {})
+        path = s.PRIVATE / 'batch_staged' / f'{vid}.json'
+        if not path.exists():
+            continue
+        if record.get('status') == 'staged' or (record.get('status') == 'published' and public.get(vid) == s.safe_public(s.read_json(path, {}))):
+            checked[vid] = hashlib.sha256(path.read_bytes()).hexdigest()
     if (not state.get('pilot_report_ready') or state['pilot_attempts'] == 0
-            or not any(x.get('status') == 'staged' for x in state['videos'].values())
+            or not expected
             or report.get('infrastructure_failed') or accepted_hash != digest
-            or accepted_hash != state.get('report_hash') or report.get('staged_hashes') != staged_hashes(state)):
+            or accepted_hash != state.get('report_hash') or expected != checked):
         raise ValueError('successful_pilot_and_current_report_acceptance_required')
     state['phase'] = 'production'
     state['enabled'] = False
