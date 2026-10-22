@@ -36,7 +36,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 /* 출처 구분: 카드 위쪽 색 띠와 배지로 항상 구분한다 */
 .card.kd-foreign{border-top:4px solid #0ea5e9}.card.kd-local{border-top:4px solid #f59e0b}.card.kd-inst{border-top:4px solid #8b5cf6}.card.kd-unk{border-top:4px solid #9ca3af}
 .kind-foreign{background:#e0f2fe!important;color:#075985!important;font-weight:700}.kind-local{background:#fef3c7!important;color:#92400e!important;font-weight:700}.kind-inst{background:#ede9fe!important;color:#5b21b6!important;font-weight:700}.kind-unk{background:#ececec!important;color:#555!important;font-weight:700}.tag.nt{background:#fce7f3!important;color:#9d174d!important;font-weight:700}.kind-ref{background:#dcfce7!important;color:#166534!important;font-weight:700}
-.kindseg .chip{font-size:14px;padding:7px 14px;font-weight:600}.kindrow{margin-top:10px}
+.lsep{color:var(--line);font-size:18px;align-self:center;margin:0 2px;user-select:none}.kindseg .chip{font-size:14px;padding:7px 14px;font-weight:600}.kindrow{margin-top:10px}
 .kd{margin-top:4px;font-size:12px;color:var(--mute)}.kd summary{cursor:pointer}.kd select{margin:4px 4px 0 0;font-size:12px;padding:4px 8px}.kd label{margin-right:6px;font-size:12px}
 .grade-S{background:#ffe08a!important;color:#6b4200!important;font-weight:700}.grade-A{background:#dbe7ff!important;color:#1e3a8a!important;font-weight:600}.grade-B{background:#ececec!important;color:#555!important}
 .gdetails{margin:6px 0;font-size:13px}.gdetails summary{cursor:pointer;color:var(--mute)}
@@ -486,6 +486,14 @@ const alertListKeys = v => { const c = String(v.alert_country || v.country || ""
   if (ALERT_KR_RE.test(c)) return ["alert_kr"];
   if (ALERT_JP_RE.test(c)) return ["alert_jp"];
   return ["alert_kr", "alert_jp"]; };
+// 국뽕채널 판정 (2026-10-22 사용자 기준): 채널 닉네임·제목의 언어 + 소재 나라를 함께 본다. 썸네일 글자는 읽을 수 없어 쓰지 않는다.
+//  한국: 채널 닉네임이 한글 + 한국이 소재 / 일본: 닉네임에 가나(히라가나·가타카나) + 일본이 소재 / 대만: 번체 중국어(번체에만 쓰는 글자) + 대만이 소재
+//  이미 '외국인 원본'(채널 위치 해외 등)이나 기관·방송으로 판정된 영상은 닉네임 언어만으로 국뽕채널로 옮기지 않는다 (추정이며 카드에서 출처 유형을 바꿀 수 있다)
+const TRAD_CHARS = /[臺灣體國學與來為說這們會開關門時間點長買賣愛謝頭電話語樣麼車線號領處區義裡讓還進過邊總師歲歷觀動場廣麵雞鍋馬鳥魚貓龍東聽書從當實對將應該嗎]/;
+const TW_SUBJ_RE = /台灣|臺灣|台湾|台北|台中|台南|高雄|夜市|taiwan|taipei|kaohsiung|대만|타이완|타이베이/i;
+const hanCh = v => /[가-힣]/.test(v.channel || "");
+const kanaCh = v => hasKana(v.channel || "");
+const isTradZh = v => { const s = (v.title || "") + " " + (v.channel || ""); return /[一-鿿]/.test(s) && !hasKana(s) && !/[가-힣]/.test(s) && TRAD_CHARS.test(s); };
 function computeLists() {
   V.forEach(v => {
     if (v.bm) { v._cl = []; v._hold = false; v._lists = v._notion ? ["notion", "bm"] : ["bm"]; if (v.alert) v._lists.push(...alertListKeys(v)); return; }   // 벤치마킹 채널은 따로 관리: 다른 내용 목록에는 넣지 않는다
@@ -493,8 +501,10 @@ function computeLists() {
     // 한일 혼합(both)은 제목에 해당 나라의 장소 신호가 있을 때만 그 나라 체험에 넣는다 (두 나라 모두 있으면 두 목록)
     if (v._kind === "foreign" && expOK(v) && (v._subj === "한국" || (v._subj === "both" && KR_PLACE_RE.test(v.title)))) C.push("krexp");
     if (v._kind === "foreign" && expOK(v) && (v._subj === "일본" || (v._subj === "both" && JP_PLACE_RE.test(v.title)))) C.push("jpexp");
-    if (v.ref || (v._kind === "local" && v._subj === "한국")) C.push("krguk");
-    if (v._kind === "local" && v._subj === "일본") C.push("jpguk");
+    const open = v._kind !== "foreign" && v._kind !== "inst";   // 외국인 원본·기관으로 이미 판정된 영상은 닉네임 언어만으로 옮기지 않는다
+    if (v.ref || (v._kind === "local" && v._subj === "한국") || (open && hanCh(v) && v._subj === "한국")) C.push("krguk");
+    if ((v._kind === "local" && v._subj === "일본") || (open && kanaCh(v) && v._subj === "일본")) C.push("jpguk");
+    if (open && isTradZh(v) && (v._subj === "대만" || TW_SUBJ_RE.test(v.title || ""))) C.push("twguk");
     v._cl = C; v._hold = !C.length;
     v._lists = v._notion ? ["notion", ...C] : [...C];
     if (v.alert) v._lists.push(...alertListKeys(v));
@@ -559,19 +569,20 @@ const nHidden = () => [...hidden].filter(x => !x.startsWith("ch:")).length;
 // 출처 선택: 외국인 원본 / 현지 편집·소개(내 채널과 비슷한 국뽕 채널) / 기관·방송 / 미확인. 마지막 선택은 이 브라우저에 기억한다
 const kindsEl = document.getElementById("kinds");
 // 목록 선택(한 번에 하나): 노션 / 한국 체험 / 일본 체험 / 국뽕채널·한국 / 국뽕채널·일본 + 분류 보류. 마지막 선택은 이 브라우저에 기억한다
-const LISTTAG = {krexp: "🇰🇷 한국 체험(추정)", jpexp: "🇯🇵 일본 체험(추정)", krguk: "🧭 국뽕채널·한국(추정)", jpguk: "🎌 국뽕채널·일본(추정)", bm: "🎯 벤치마킹 채널", alert_kr: "🔔 [텔레그램]", alert_jp: "🔔 [텔레그램]"};
-const LISTS = [["all", "📂 전체"], ["notion", "📓 노션 수집 목록"], ["krexp", "🇰🇷 한국 체험"], ["jpexp", "🇯🇵 일본 체험"], ["krguk", "🧭 국뽕채널 · 한국"], ["jpguk", "🎌 국뽕채널 · 일본"], ["ref", "📌 레퍼런스 모음"], ["bm", "🎯 벤치마킹 채널"], ["alert_kr", "🔔 [텔레그램] 한국"], ["alert_jp", "🔔 [텔레그램] 일본"], ["hold", "🗂 분류 보류"]];
+const LISTTAG = {krexp: "🇰🇷 한국 체험(추정)", jpexp: "🇯🇵 일본 체험(추정)", krguk: "🧭 국뽕채널·한국(추정)", jpguk: "🎌 국뽕채널·일본(추정)", twguk: "🀄 국뽕채널·대만(추정)", bm: "🎯 벤치마킹 채널", alert_kr: "🔔 [텔레그램]", alert_jp: "🔔 [텔레그램]"};
+const LISTS = [["all", "📂 전체"], ["notion", "📓 노션 수집 목록"], ["krexp", "🇰🇷 한국 체험"], ["jpexp", "🇯🇵 일본 체험"], ["krguk", "🧭 국뽕채널 · 한국"], ["jpguk", "🎌 국뽕채널 · 일본"], ["twguk", "🀄 국뽕채널 · 대만"], ["ref", "📌 레퍼런스 모음"], ["bm", "🎯 벤치마킹 채널"], ["alert_kr", "🔔 [텔레그램] 한국"], ["alert_jp", "🔔 [텔레그램] 일본"], ["hold", "🗂 분류 보류"]];
 const LIST_NOTE = {
   all: "모든 목록(노션·한국 체험·일본 체험·국뽕채널·분류 보류)의 영상을 한꺼번에 보여줘요. 같은 영상은 한 번만 나와요. 카드의 태그로 어느 목록인지 알 수 있어요.",
   notion: "노션 목록에서 가져온 영상이에요. 노션 원본 등급은 우리 점수와 별개예요. 다른 목록에도 속하면 거기서도 보여요.",
   krexp: "한국 사람이 아닌 외국인이 한국을 여행·체험·경험하는 영상 (외국인이 만든 원본으로 추정). 제목·채널 정보로 한 추정이라 영상 내용을 보고 확인한 것은 아니에요.",
   jpexp: "일본 사람이 아닌 외국인이 일본을 여행·체험·경험하는 영상 (외국인이 만든 원본으로 추정). 제목·채널 정보로 한 추정이에요.",
-  krguk: "내 채널과 비슷한 한국 국뽕 채널의 영상 (한국 현지 채널이 편집·소개한 영상 + 내가 알려 준 레퍼런스 채널 영상 전체).",
+  krguk: "내 채널과 비슷한 한국 국뽕 채널의 영상 (채널 닉네임·제목이 한글 + 한국 소재로 추정, 내가 알려 준 레퍼런스 채널 영상 포함).",
   ref: "내가 채널 주소를 알려 준 레퍼런스 채널의 영상을 채널별로 모아 둔 목록이에요 (그 채널의 일반 동영상 전부, 쇼츠 제외). 아래 '레퍼런스 채널' 칩으로 채널을 골라 볼 수 있어요. 국뽕채널·한국에도 함께 들어 있어요.",
   alert_kr: "[텔레그램] 한국 알림방에서 받은 영상이에요 (alerts 폴더의 알림 기록 중 한국). 점수·등급은 제목·조회수·구독자 기준의 잠정 검수이고, 스크립트를 읽고 매긴 🎯 채점과는 달라요. 다른 목록에도 함께 속해요.",
   alert_jp: "[텔레그램] 일본 알림방에서 받은 영상이에요 (alerts 폴더의 알림 기록 중 일본). 점수·등급은 제목·조회수·구독자 기준의 잠정 검수이고, 스크립트를 읽고 매긴 🎯 채점과는 달라요. 다른 목록에도 함께 속해요.",
   bm: "내가 벤치마킹하려고 주소를 따로 알려 준 채널의 영상 전부예요 (레퍼런스와 따로 관리, 다른 목록에는 섞이지 않아요). 아래 칩으로 채널별로 볼 수 있어요.",
-  jpguk: "일본 현지 채널이 일본을 소개·자랑하는 영상 (일본어 제목 + 일본 소재로 추정).",
+  jpguk: "일본 현지 채널이 일본을 소개·자랑하는 영상 (채널 닉네임·제목이 일본어 + 일본 소재로 추정).",
+  twguk: "대만 현지 채널이 대만을 소개·자랑하는 영상 (채널 닉네임·제목이 번체 중국어 + 대만 소재로 추정). 새로 만든 목록이라 아직 영상이 적을 수 있어요.",
   hold: "외국인 원본인지 현지 채널인지 근거가 부족해서 아직 어느 목록에도 넣지 못한 영상이에요 (미확인·기관·방송·한일 혼합 등). 카드의 '출처 유형 바꾸기'로 외국인 원본·현지 채널 여부를 고르면 해당 목록으로 옮겨져요."
 };
 // 여러 목록을 함께 고를 수 있다 (고른 목록 중 하나라도 속하면 보인다). 아무것도 안 고르거나 '전체'를 누르면 모든 목록. 마지막 선택은 이 브라우저에 기억한다
@@ -584,7 +595,9 @@ const inList = v => !listSel.size || [...listSel].some(k => k === "hold" ? v._ho
 const listCount = k => k === "all" ? V.length : V.filter(v => k === "hold" ? v._hold : v._lists.includes(k)).length;
 const listsEl = document.getElementById("lists");
 LISTS.forEach(([k, l]) => { const b = document.createElement("button"); b.className = "chip"; b.dataset.k = k; b.append(l); const s = document.createElement("small"); s.textContent = listCount(k); b.append(s);
-  b.onclick = () => { if (k === "all") listSel.clear(); else if (listSel.has(k)) listSel.delete(k); else listSel.add(k); ls.set("lists", [...listSel]); render(); }; listsEl.append(b); });
+  b.onclick = () => { if (k === "all") listSel.clear(); else if (listSel.has(k)) listSel.delete(k); else listSel.add(k); ls.set("lists", [...listSel]); render(); }; listsEl.append(b);
+  // 그룹 구분선: 전체 | 노션 | 체험 | 국뽕채널 | 레퍼런스·벤치마킹 | 텔레그램 | 분류 보류 (다른 스크립트가 칩을 같은 그룹 안에 끼워 넣어도 구분선은 그룹 끝에 남는다)
+  if (["all", "notion", "jpexp", "twguk", "bm", "alert_jp"].includes(k)) { const s = document.createElement("span"); s.className = "lsep"; s.textContent = "|"; s.setAttribute("aria-hidden", "true"); listsEl.append(s); } });
 const refreshListCounts = () => listsEl.querySelectorAll(".chip").forEach(b => { const n = listCount(b.dataset.k); b.querySelector("small").textContent = n; if (b.dataset.k === "alert_kr" || b.dataset.k === "alert_jp") b.hidden = !n; });   // 텔레그램 알림 영상이 없으면 그 나라 칩은 숨긴다
 refreshListCounts();
 mkMulti(kindsEl, Object.keys(KIND_LABEL).map(k => [k, KIND_LABEL[k], V.filter(v => v._kind === k).length]), kindSel, V.length, () => render());
