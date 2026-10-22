@@ -147,10 +147,12 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 // 대만 수집 목록과 숨긴 영상 관리. index.html과 분리해 유지한다.
 document.addEventListener('DOMContentLoaded', () => {
-  const twIds = new Set((window.TAIWAN_ITEMS || []).map(v => v.id));
+  // 공개 소개에서 비대만인 출연자와 대만 현지 체험을 확인한 영상만 포함한다.
+  // 기존 후보 데이터는 전체 목록에 보존하며, 국적/현지 체험 불명은 자동 승격하지 않는다.
+  const twIds = new Set(["IKIwmB4zXNw", "U__G4YsNtiw", "kBE3UhVhsNI", "ZiBKnAIBD9U", "4u76mAAGrcw", "lz-EgkDnpTk", "j7-PsRQlcpU", "dnRPz16grio", "G2cICamw2Fc", "QkYBHJQwyk0", "vyu92BFHbKs", "pKlg2N1DrI4", "KknlT4bm4V0", "iNE5034ES-s", "lY831BJYsqs", "xXtlEkslsTg", "ix9q4OpCTAo", "4-HxQiZCT_U", "d2ci74qsbKg", "80g1CvTRsJM", "5Roqlrzlw8A", "rjtZsB5TeAw", "Y8qTC2x_04M", "zc8I4K5hzcY", "P0_woHrNcmU", "_cgQXAlgtyk", "_qerpc9lxqk", "G0-UFWOLMvI", "ZzH-Cd-6RXU", "2UPkezZ4lcI", "1pukmFkZJTg", "X6gG_5KUy4Q", "FhC_2oJI2X0", "4zStevSrTww", "t1Gu01Lu31M", "IqnjfZdYM-w", "847F9dESXZg", "WsU4UMjLk4A", "Cga4kCh2T3o"]);
   LISTS.splice(4, 0, ['twexp', '🇹🇼 대만체험']);
-  LISTKEYS.add('twexp'); LISTTAG.twexp = '🇹🇼 대만체험 후보';
-  LIST_NOTE.twexp = '외국인의 대만 여행·체험을 검색한 롱폼 후보입니다. 제목·채널 기준으로 선별했고, 영상 전문 검수와 FM 채점은 아직 하지 않았습니다.';
+  LISTKEYS.add('twexp'); LISTTAG.twexp = '🇹🇼 대만체험';
+  LIST_NOTE.twexp = '대만 사람이 아닌 출연자의 대만 현지 체험·생활 경험 영상입니다. 공개 영상 설명과 채널 소개를 확인해 선별했으며, 영상 전문 검수와 FM 채점 완료를 뜻하지 않습니다.';
   const originalLists = computeLists;
   computeLists = function() {
     originalLists();
@@ -225,7 +227,7 @@ document.addEventListener('DOMContentLoaded', () => {
         if (tag.title.includes('🏆 등급은')) tag.title = '아직 스크립트를 읽고 채점하지 않은 영상입니다.';
         if (twIds.has(id)) {
           if (tag.textContent === '🌐 기타') tag.textContent = '🇹🇼 대만';
-          if (tag.title.includes('대상국이 불분명')) tag.title = '대만 여행·체험 후보. 외국인 원본 여부는 아직 전문 검수 전입니다.';
+          if (tag.title.includes('대상국이 불분명')) tag.title = '공개 소개에서 비대만인 출연자의 대만 현지 체험을 확인했습니다. 영상 전문 검수·채점은 별도입니다.';
         }
       }
     }
