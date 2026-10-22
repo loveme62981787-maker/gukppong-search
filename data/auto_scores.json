@@ -940,6 +940,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "8yT2Rux8SII",
+      "ver": "kr",
+      "t": "98 THOUGHTS IN KOREA | VLOG 4 : JE VOUS CULTIVE Á HAUTEUR DE 335€ (ça ne s'arrêtera jamais)",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "e7ca9076159f9c1f494a02325ca49ddaa84a9d7823753f77c6c52249203ec680",
+      "checked_at": "2026-10-22T23:31:36.539179+09:00",
+      "min": 23.533333333333335,
+      "p": 4.0,
+      "s": [
+        11,
+        11,
+        9,
+        11,
+        4,
+        5
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
