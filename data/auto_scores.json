@@ -503,6 +503,29 @@
       "warn": [
         "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "Ptr7VuDswz0",
+      "ver": "jp",
+      "t": "Japanese Sigma Slav Lifestyle (no homo)",
+      "source": "claude_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "26919f070c6cd83a19354775c892b03cf4fb4db49ea98c2de66aa7a6319e8251",
+      "checked_at": "2026-10-22T22:33:09.781650+09:00",
+      "min": 22.4,
+      "p": 6.5,
+      "s": [
+        12,
+        10,
+        9,
+        11,
+        5,
+        4
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
