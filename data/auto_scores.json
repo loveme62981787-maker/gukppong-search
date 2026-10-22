@@ -779,6 +779,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "pb_pDqiHwmA",
+      "ver": "jp",
+      "t": "High school sophomore who dropped out and went to Osaka with a friend, no plan | Osaka | Japan | ...",
+      "source": "gemini_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "f1e1bdd35ae1ad4ea907537ab837596df3a9e5357279eb43b4088a96907d8c19",
+      "checked_at": "2026-10-22T23:05:07.199818+09:00",
+      "min": 10.5,
+      "p": 1.5,
+      "s": [
+        4,
+        3,
+        2,
+        3,
+        3,
+        4
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
