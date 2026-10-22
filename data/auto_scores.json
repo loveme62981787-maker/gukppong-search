@@ -273,6 +273,98 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 한국판·일본판 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "dOBBAZYw_hc",
+      "ver": "kr",
+      "t": "Korea Vlog | First time using hanbok and sunset picnic at Han River",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "4918d35eabf9fbcd746b34feb39064b23369692e3a68b68cc5b91671bdaeed3c",
+      "checked_at": "2026-10-22T21:18:05.792312+09:00",
+      "min": 18.433333333333334,
+      "p": 4,
+      "s": [
+        15,
+        12,
+        6,
+        4,
+        5,
+        7
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
+    },
+    {
+      "id": "35RDzFk9pUg",
+      "ver": "jp",
+      "t": "Japan (revisited) 2026",
+      "source": "gemini_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "5c9eea7f17785cfefd4b3a896aa01e7da364424b433c11f65f9b56a93d3506b8",
+      "checked_at": "2026-10-22T21:20:14.279180+09:00",
+      "min": 42.0,
+      "p": 5.0,
+      "s": [
+        5,
+        7,
+        5,
+        6,
+        3,
+        7
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
+    },
+    {
+      "id": "2-758mHpuOI",
+      "ver": "jp",
+      "t": "JAPAN TRAVEL VLOG 2026 🇯🇵 | Osaka, Nara & Kobe with Kids!",
+      "source": "claude_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "99ae5dfa27f8cc2631e9f0c0a701e1488f4443764fde9ba60d8a145b0cb1affe",
+      "checked_at": "2026-10-22T21:25:02.017794+09:00",
+      "min": 30.016666666666666,
+      "p": 11.5,
+      "s": [
+        14,
+        9,
+        8,
+        8,
+        5,
+        7
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
+    },
+    {
+      "id": "lZ6o49Qn6B8",
+      "ver": "jp",
+      "t": "Road Trip to Kyoto: First Time Seeing the Real Japan 🇯🇵",
+      "source": "claude_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "42d9dddc7b92794028ba592f6e47d562268850f3deecac31ee04c2281082652d",
+      "checked_at": "2026-10-22T21:27:25.011860+09:00",
+      "min": 25.333333333333332,
+      "p": 5.0,
+      "s": [
+        8,
+        7,
+        8,
+        9,
+        4,
+        6
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
