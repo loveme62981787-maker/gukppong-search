@@ -284,7 +284,8 @@ class BatchTests(unittest.TestCase):
             with self.assertRaises(b.ModelTimeout):
                 b.call_model('gemini', 'prompt')
             self.assertEqual(call.call_args.kwargs['timeout'], 600)
-            self.assertIn('660s', call.call_args.args[0])
+            cmd = call.call_args.args[0]
+            self.assertEqual(cmd[cmd.index('--print-timeout') + 1], '0')
         state = b.default_state()
         state['enabled'] = True
         b.save(state)
@@ -356,6 +357,64 @@ class BatchTests(unittest.TestCase):
             daily.recover_deployment()
             model.assert_not_called()
         self.assertEqual(b.s.read_json(b.STATE, {})['videos'][vid]['status'], 'published')
+
+    def test_first_staged_video_deploys_before_second_video_processes(self):
+        order = []
+        state = b.default_state()
+        state.update(enabled=True, phase='production')
+        b.save(state)
+        videos = [self.video(0), self.video(1)]
+        def process(video):
+            order.append(('process', video['id']))
+            return ({'id': video['id']}, 'staged') if video['id'] == videos[0]['id'] else (None, 'held')
+        def deploy(alert_path, locked_state=None):
+            order.append(('deploy', locked_state is not None))
+            return {'deployment': 'pushed_waiting_for_github_actions'}
+        on_staged = lambda locked_state: deploy(Path('alerts.js'), locked_state=locked_state)
+        with patch.object(b, 'candidates', return_value=(videos, {})), patch.object(b, 'process', side_effect=process):
+            b.run_batch(on_staged=on_staged)
+        self.assertEqual(order, [('process', videos[0]['id']), ('deploy', True), ('process', videos[1]['id'])])
+
+    def test_pilot_phase_has_no_on_staged_callback(self):
+        state = b.default_state()
+        state.update(enabled=True, phase='pilot')
+        on_staged = (lambda locked_state: daily.deploy(Path('x'), locked_state=locked_state)) if state['phase'] == 'production' else None
+        self.assertIsNone(on_staged)
+
+    def test_already_locked_publish_and_recover_do_not_reacquire_lock(self):
+        vid = self.video()['id']
+        state = b.default_state()
+        state.update(enabled=True, phase='production', videos={vid: {'status': 'staged'}})
+        b.save(state)
+        b.s.atomic(self.root / 'batch_staged' / f'{vid}.json', json.dumps(b.s.safe_public(
+            {'id': vid, 'ver': 'kr', 't': 'test', 'source': 'gemini_fm', 'fm_sha256': 'a' * 64,
+             'transcript_sha256': 'b' * 64, 'checked_at': 'today', 'min': 11, 'p': 1,
+             's': [20, 10, 10, 10, 5, 5], 'verified_by': 'program'})))
+        with b.locked():
+            with patch.object(b.s, 'export'):
+                result = b.publish(locked_state=state)
+        self.assertEqual(result['ids'], [vid])
+        daily.write_journal({'phase': 'pushed', 'ids': [vid], 'hashes': {}})
+        with b.locked(), patch.object(daily, 'check_changes'), patch.object(daily, 'file_hashes', return_value={}):
+            result = daily.recover_deployment(locked_state=state)
+        self.assertEqual(result['deployment'], 'pushed_waiting_for_github_actions')
+        self.assertEqual(state['videos'][vid]['status'], 'published')
+
+    def test_on_staged_failure_preserves_score_and_stops_without_recalling_model(self):
+        state = b.default_state()
+        state.update(enabled=True, phase='production')
+        b.save(state)
+        def on_staged(locked_state):
+            raise RuntimeError('deploy_offline')
+        with patch.object(b, 'candidates', return_value=([self.video(), self.video(1)], {})), \
+             patch.object(b, 'process', side_effect=[({'id': self.video()['id']}, 'staged'), (None, 'held')]) as proc:
+            summary = b.run_batch(on_staged=on_staged)
+        self.assertEqual(summary['attempted'], 1)
+        self.assertEqual(proc.call_count, 1)
+        record = b.s.read_json(b.STATE, {})['videos'][self.video()['id']]
+        self.assertEqual(record['status'], 'staged')
+        self.assertNotIn('fatal', record)
+        self.assertTrue(b.s.read_json(b.STATE, {})['enabled'])
 
     def test_changed_file_blocks_recovery(self):
         state = b.default_state()

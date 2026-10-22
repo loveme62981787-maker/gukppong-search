@@ -112,3 +112,11 @@ Python 59개 테스트 통과. 독립 검토에서 공개 재생/ID/응답 검�
 이미 통과한 4개 게시를 사용자가 승인했고, JSON 오류를 수정한 뒤 자동채점 재개를 승인했다. 문제는 호출(returncode/상태) 자체는 성공했는데 Gemini 응답 텍스트가 유효한 JSON 객체가 아닌 경우, 기존 코드가 이를 `call_model`의 공통 `ValueError` 처리로 묶어 `ModelFailure`(RuntimeError)로 올려서 회로차단(`state['enabled']=False`, `fatal=True`)을 트리거해 나머지 후보 처리를 멈췄던 것이다.
 `ReviewFormatError(ValueError)`를 새로 추가해 이 경우만 분리했다: markdown 펜스 제거 후 `json.loads` 실패이거나 결과가 객체(dict)가 아니면 `ReviewFormatError`를 던진다(부분 추출·점수 복구 없음, 전체 객체만 허용). 인증/한도/빈 CLI 출력/논제로 종료/claude 구조화 출력 스키마 위반 등 기존 `ModelFailure` 경로는 그대로 두어 회로차단을 유지한다. `run_batch`의 held 처리에서 `ReviewFormatError`는 `RuntimeError`가 아니므로 기존처럼 해당 영상만 보류하고 다음 후보로 진행하며, held 이유 문자열에 원인(`invalid_review_json`/`review_not_object`)을 그대로 남긴다. `model_review`의 캐시 읽기도 동일하게 손상된 캐시 JSON을 `ReviewFormatError`로 구분해 영상별 보류로 처리하고 모델을 다시 호출하지 않는다.
 타임아웃(`ModelTimeout`, 2026-10-22 앞서 추가) 처리 방식과 동일한 패턴이며 기존 240초→600초/660초 타임아웃 변경은 보존했다. 테스트 4종을 `tests/test_batch_score.py`에 추가: 성공 응답이 비JSON/비객체일 때 `ReviewFormatError`, 그 보류가 다음 영상 처리를 막지 않음, 손상된 캐시 JSON이 모델 재호출 없이 보류됨, 실제 CLI 실패(`ModelFailure`)는 여전히 회로차단한다는 회귀 검증. 커밋·상태 변경·게시는 하지 않았다.
+
+## 통과 영상 즉시 게시 연결
+사용자가 통과 영상마다 즉시 사이트 게시를 요청했다. `run_batch(on_staged=None)`에 선택적 콜백을 추가해 영상 하나를 `batch_staged`에 저장하고 상태를 `staged`로 저장한 직후 호출한다. 콜백은 `state`를 그대로 전달받는다.
+`batch_daily.py`의 `daily()`는 production 단계에서만 `on_staged = lambda locked_state: deploy(alert_path, locked_state=locked_state)`를 연결한다. pilot 단계는 콜백을 연결하지 않아 시험 결과를 게시하지 않는다(기존 규칙 유지).
+`run_batch`가 score.lock을 실행 전체 동안 쥐고 있어 콜백 안에서 `publish`/`recover_deployment`가 같은 잠금을 다시 열면 같은 프로세스에서 `FileExistsError`가 난다. `publish(locked_state=None)`과 `recover_deployment(locked_state=None)`에 `locked_state` 인자를 추가해, 값이 주어지면 잠금을 새로 걸지 않고 그 state를 그대로 쓴다. 기본 CLI 경로(`publish()`, `batch_daily.py recover`)는 인자를 주지 않아 기존처럼 각자 잠그고 새로 읽는다.
+콜백이 예외를 내면(배포 실패) 이미 저장된 staged 점수는 그대로 두고 해당 실행은 그 영상에서 멈춘다(모델 재호출 없음). `enabled`는 바꾸지 않으므로 다음 `daily()` 실행이 재개하며, 실패한 배포는 `deployment.json` 저널과 `batch_daily.py recover`가 모델 호출 없이 재시도한다.
+운영 중인 프로세스는 이미 안전하게 종료되는 구조라 별도 graceful-stop(`stop_after_current`) 파일 지원은 추가하지 않았다.
+새 테스트 4종을 `tests/test_batch_score.py`에 추가: 첫 영상이 staged된 즉시(둘째 영상 `process` 전) 콜백이 호출됨, pilot 단계는 콜백이 없음, `locked_state`를 넘긴 `publish`/`recover_deployment`가 score.lock을 다시 걸지 않음, 콜백 실패 시 점수는 `staged`로 보존되고 `enabled`는 유지되며 모델이 다시 호출되지 않음. Python 75개 테스트 통과. 커밋·실행 중 프로세스·상태·게시는 하지 않았다.

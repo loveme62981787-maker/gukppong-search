@@ -1,6 +1,6 @@
 """Codex 호출 없는 로컬 일괄 채점. 기본 중지, 최초 20개 시험 후 명시적 승인."""
 import argparse
-from contextlib import contextmanager
+from contextlib import contextmanager, nullcontext
 from datetime import datetime, timedelta, timezone
 import hashlib
 import json
@@ -260,10 +260,19 @@ def transcript(video):
 
 def call_model(provider, prompt):
     # 긴 자막을 Windows 명령행 인자로 넘기지 않고 stdin으로 보낸다.
+    timeout_seconds = int(os.environ.get('BATCH_MODEL_TIMEOUT_SECONDS', '600'))
+    if not 60 <= timeout_seconds <= 1200:
+        raise ValueError('model_timeout_out_of_range')
     if provider == 'gemini':
         cli = os.environ.get('GEMINI_CLI_PATH') or str(s.BASE.parent.parent / 'agy.exe')
         cmd = [cli, '-p', '', '--model', model_name(provider), '--input-format', 'stream-json', '--output-format', 'stream-json',
-               '--disable-slash-commands', '--sandbox', '--print-timeout', '660s']
+               '--disable-slash-commands', '--sandbox', '--print-timeout', '0']
+        # 종료 시한은 부모 프로그램 한 곳에서 관리한다. 재시험은 추론 강도를 명시할 수 있다.
+        effort = os.environ.get('GEMINI_BATCH_EFFORT')
+        if effort:
+            if effort not in ('low', 'medium', 'high', 'xhigh', 'max'):
+                raise ValueError('invalid_gemini_effort')
+            cmd += ['--effort', effort]
     else:
         cli = shutil.which('claude')
         if not cli:
@@ -284,7 +293,7 @@ def call_model(provider, prompt):
             METRICS[provider + '_calls'] += 1
         input_text = (json.dumps({'event': 'user', 'message': {'content': prompt}}, ensure_ascii=False) + '\n') if provider == 'gemini' else prompt
         result = subprocess.run(cmd, input=input_text, text=True, encoding='utf-8', capture_output=True,
-                                timeout=600, cwd=s.PRIVATE, env=env)
+                                timeout=timeout_seconds, cwd=s.PRIVATE, env=env)
         if provider == 'gemini':
             events = [json.loads(line) for line in result.stdout.splitlines() if line.strip().startswith('{')]
             final_event = next((event for event in reversed(events) if event.get('event') == 'result' or 'status' in event or 'response' in event), {})
@@ -311,7 +320,12 @@ def call_model(provider, prompt):
         if not isinstance(review, dict):
             raise ReviewFormatError('review_not_object')
         return review
-    except subprocess.TimeoutExpired:
+    except subprocess.TimeoutExpired as error:
+        # 중단 직전 출력도 비공개 저장해 다음 진단에서 원인을 잃지 않는다.
+        partial = error.stdout or b''
+        if isinstance(partial, bytes):
+            partial = partial.decode('utf-8', errors='replace')
+        s.atomic(s.PRIVATE / 'batch_responses' / (provider + '-timeout-' + str(time.time_ns()) + '.txt'), partial)
         if not recorded:
             record_usage(provider, started, result=result, error='TimeoutExpired')
         raise ModelTimeout('model_timeout') from None
@@ -457,7 +471,7 @@ def process(video):
     return s.safe_public(item), 'staged'
 
 
-def run_batch():
+def run_batch(on_staged=None):
     global METRICS
     with locked():
         state = s.read_json(STATE, default_state())
@@ -489,9 +503,19 @@ def run_batch():
                 if item:
                     s.atomic(s.PRIVATE / 'batch_staged' / f'{vid}.json', json.dumps(item, ensure_ascii=False))
                     summary['staged'] += 1
+                    state['videos'][vid] = {'status': 'staged', 'reason': reason}
+                    save(state)
+                    if on_staged is not None:
+                        # 게시 실패는 이미 저장된 점수를 보존하고 그대로 멈춘다. 모델은 다시 부르지 않는다.
+                        try:
+                            on_staged(state)
+                        except Exception:
+                            state['videos'][vid]['elapsed_seconds'] = round(time.monotonic() - video_started, 2)
+                            save(state)
+                            break
                 else:
                     summary['held'] += 1
-                state['videos'][vid] = {'status': 'staged' if item else 'held', 'reason': reason}
+                    state['videos'][vid] = {'status': 'held', 'reason': reason}
             except Exception as error:
                 # CLI 원문/인증정보를 출력하지 않는다. 공통 호출 실패는 즉시 회로 차단.
                 state['videos'][vid] = {'status': 'held', 'reason': str(error) if isinstance(error, (CaptionFailure, ModelFailure, ReviewFormatError)) else type(error).__name__}
@@ -550,10 +574,11 @@ def approve_production(state, accepted_hash):
     state['enabled'] = False
 
 
-def publish():
+def publish(locked_state=None):
     # 별도 명령: 시험 단계는 게시하지 않고 결과 확인을 기다린다.
-    with locked():
-        state = s.read_json(STATE, default_state())
+    # locked_state는 호출자(run_batch)가 score.lock을 이미 쥐고 있을 때만 그 state를 그대로 넘긴다. 기본 CLI는 새로 잠그고 새로 읽는다.
+    with (nullcontext() if locked_state is not None else locked()):
+        state = locked_state if locked_state is not None else s.read_json(STATE, default_state())
         if state['phase'] != 'production' or not state['enabled']:
             raise ValueError('production_resume_required')
         items = s.read_json(s.PUBLIC, {'items': []})['items']

@@ -1,4 +1,5 @@
 """하루 한 번 실행하는 일반 프로그램. 중지 상태에서는 외부 호출 없음."""
+from contextlib import nullcontext
 import hashlib
 import json
 import os
@@ -39,12 +40,13 @@ def check_changes():
         raise RuntimeError('unrelated_changes_stop_deployment')
 
 
-def recover_deployment():
-    """실패한 배포만 복구. 모델을 다시 호출하지 않는다."""
+def recover_deployment(locked_state=None):
+    """실패한 배포만 복구. 모델을 다시 호출하지 않는다.
+    locked_state는 호출자가 score.lock을 이미 쥐고 있을 때만 그 state를 그대로 넘긴다."""
     j = b.s.read_json(journal_path(), None)
     if not j or j['phase'] == 'done':
         return {'deployment': 'nothing_pending'}
-    state = b.s.read_json(b.STATE, b.default_state())
+    state = locked_state if locked_state is not None else b.s.read_json(b.STATE, b.default_state())
     if not state['enabled'] or state['phase'] != 'production':
         return {'status': 'paused'}
     if j['phase'] == 'preparing':
@@ -93,8 +95,8 @@ def recover_deployment():
         j['phase'] = 'pushed'
         write_journal(j)
     if j['phase'] == 'pushed':
-        with b.locked():
-            state = b.s.read_json(b.STATE, b.default_state())
+        with (nullcontext() if locked_state is not None else b.locked()):
+            state = locked_state if locked_state is not None else b.s.read_json(b.STATE, b.default_state())
             for vid in j['ids']:
                 if vid in state['videos']:
                     state['videos'][vid]['status'] = 'published'
@@ -104,17 +106,17 @@ def recover_deployment():
     return {'deployment': 'pushed_waiting_for_github_actions'}
 
 
-def deploy(alert_path):
+def deploy(alert_path, locked_state=None):
     preflight()
     base = command(['git', 'rev-parse', 'HEAD'])
     j = {'phase': 'preparing', 'base': base, 'ids': []}
     write_journal(j)
     # 공개용으로 만들어진 목록만 복사한다. 원본 CSV/자막은 포함하지 않는다.
     b.s.atomic(b.s.BASE / 'web/alerts.js', alert_path.read_text(encoding='utf-8'))
-    published = b.publish()
+    published = b.publish(locked_state=locked_state)
     j.update(phase='ready', ids=published['ids'], hashes=file_hashes())
     write_journal(j)
-    return recover_deployment()
+    return recover_deployment(locked_state=locked_state)
 
 
 def preflight():
@@ -173,11 +175,9 @@ def daily():
         if not alert_path.exists():
             return {'status': 'no_alert_csv_keep_existing_data'}
         b.INPUT_ALERTS = alert_path
-        summary = b.run_batch()
-        state = b.s.read_json(b.STATE, b.default_state())
-        if state['phase'] == 'pilot' or not state['enabled']:
-            return summary
-        summary.update(deploy(alert_path))
+        # 통과한 영상마다 즉시 게시한다. 시험 단계는 콜백을 연결하지 않는다.
+        on_staged = (lambda locked_state: deploy(alert_path, locked_state=locked_state)) if state['phase'] == 'production' else None
+        summary = b.run_batch(on_staged=on_staged)
         return summary
     finally:
         b.INPUT_ALERTS = previous_input
