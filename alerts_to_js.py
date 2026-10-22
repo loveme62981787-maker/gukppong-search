@@ -4,7 +4,7 @@
     python alerts_to_js.py                 alerts/*.csv → web/alerts.js
     python alerts_to_js.py --dir 경로      다른 폴더의 csv 를 읽는다 (시험용)
 
-CSV 열(첫 줄 제목, 한글·영문 모두 허용): 날짜(date) / 나라(country: 한국·일본) / 영상ID(id) / 링크(link) / 제목(title) / 채널(channel) / 채널ID(channel_id) /
+CSV 열(첫 줄 제목, 한글·영문 모두 허용): 날짜(date) / 나라(country: 한국·일본·대만) / 영상ID(id) / 링크(link) / 제목(title) / 채널(channel) / 채널ID(channel_id) /
 구독자(subs) / 조회수(views) / 길이(length, 12:34 형식) / 게시일(published, YYYY-MM-DD).  영상ID 가 없으면 링크에서 뽑는다. 같은 영상은 한 번만(가장 먼저 알림이 온 날짜 기준).
 기존 제목 기반 등급과 스크립트 채점은 별개다. 이 변환기는 점수를 만들지 않는다.
 """
@@ -59,11 +59,18 @@ def main():
             if not re.fullmatch(r"[\w-]{11}", vid or "") or vid in seen:
                 continue
             seen.add(vid)
-            country = g("country")
+            raw_country = g("country").strip().lower()
+            country = next((name for name, aliases in {
+                "한국": ("한국", "kr", "korea", "south korea"),
+                "일본": ("일본", "jp", "japan"),
+                "대만": ("대만", "tw", "taiwan", "台灣", "台湾"),
+            }.items() if raw_country in aliases), None)
+            if country is None:
+                raise ValueError("알림 국가를 확인할 수 없습니다. 기존 출력은 유지됩니다.")
             items.append({"id": vid, "title": g("title") or "(제목 없음)", "channel": g("channel"), "channel_id": g("channel_id") if re.fullmatch(r"UC[\w-]{22}", g("channel_id")) else "",
                           "subs": num(g("subs")), "views": num(g("views")), "length": g("length"), "published": g("published"),
-                          "country": "일본" if "일본" in country or country.lower() in ("jp", "japan") else "한국", "section": "alert", "alert": True,
-                          "alert_country": "일본" if "일본" in country or country.lower() in ("jp", "japan") else "한국",
+                          "country": country, "section": "alert", "alert": True,
+                          "alert_country": country,
                           "alert_date": g("date") or fallback_date, "first_seen": g("date") or fallback_date})
     if not items:
         print("유효한 알림 영상 없음: 기존 사이트 데이터를 유지합니다.")

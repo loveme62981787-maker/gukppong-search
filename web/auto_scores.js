@@ -157,12 +157,25 @@ document.addEventListener('DOMContentLoaded', () => {
   computeLists = function() {
     originalLists();
     V.forEach(v => {
+      if (v.alert && v.alert_country === '대만') {
+        v._lists = v._lists.filter(k => k !== 'alert_kr' && k !== 'alert_jp');
+        if (!v._lists.includes('alert_tw')) v._lists.push('alert_tw');
+      }
+    });
+    V.forEach(v => {
       if (!twIds.has(v.id)) return;
       if (!v._lists.includes('twexp')) v._lists.push('twexp');
       v._hold = false;
       if (v.country === '대만') v._subj = '대만';
     });
   };
+  LISTS.splice(LISTS.findIndex(x => x[0] === 'alert_jp') + 1, 0, ['alert_tw', '🔔 텔레그램(대만)']);
+  LISTKEYS.add('alert_tw'); LISTTAG.alert_tw = '🔔 텔레그램(대만)';
+  LIST_NOTE.alert_tw = '대만 텔레그램 알림으로 받은 영상입니다. 대만체험 편입과 스크립트 채점은 별도 검토합니다.';
+  const twAlert = ce('button', 'chip', '🔔 텔레그램(대만)'); twAlert.dataset.k = 'alert_tw'; twAlert.append(ce('small', '', '0'));
+  twAlert.onclick = () => { listSel.has('alert_tw') ? listSel.delete('alert_tw') : listSel.add('alert_tw'); ls.set('lists', [...listSel]); render(); };
+  document.querySelector('#lists [data-k="alert_jp"]').after(twAlert);
+  if ((ls.get('lists', []) || []).includes('alert_tw')) listSel.add('alert_tw');
   computeLists();
   refreshListCounts();
   document.querySelector('header h1, header h2, h1').textContent = '🇰🇷🇯🇵🇹🇼 국뽕 영상 서칭';

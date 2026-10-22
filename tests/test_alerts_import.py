@@ -40,6 +40,23 @@ class AlertsImportTests(unittest.TestCase):
                     mod.main()
                 self.assertEqual(out.read_text(), 'previous')
 
+    def test_countries_and_unknown_preserve_output(self):
+        with tempfile.TemporaryDirectory() as folder:
+            root = Path(folder)
+            csv = root / '2026-10-22.csv'
+            csv.write_text('나라,영상id\n한국,aaaaaaaaaaa\n일본,bbbbbbbbbbb\n대만,ccccccccccc\nTaiwan,ddddddddddd\n', encoding='utf-8')
+            out = root / 'out.js'
+            with patch.object(mod, 'OUT', str(out)), patch.object(mod.sys, 'argv', ['import', '--dir', folder]):
+                mod.main()
+                text = out.read_text(encoding='utf-8')
+                items = json.loads(text.split('=', 1)[1].rstrip(';\n'))
+                self.assertEqual([x['country'] for x in items], ['한국', '일본', '대만', '대만'])
+                self.assertEqual([x['alert_country'] for x in items], ['한국', '일본', '대만', '대만'])
+                csv.write_text('나라,영상id\nunknown,eeeeeeeeeee\n', encoding='utf-8')
+                with self.assertRaises(ValueError):
+                    mod.main()
+                self.assertEqual(out.read_text(encoding='utf-8'), text)
+
     def test_numbers(self):
         self.assertEqual(mod.num('1.5K'), 1500)
         self.assertEqual(mod.num('0'), 0)
