@@ -894,6 +894,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "g5aPgsoo2GQ",
+      "ver": "jp",
+      "t": "Visitamos 8 lugares INCREÍBLES en KIOTO 🇯🇵 | Japón Vlog",
+      "source": "gemini_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "46af04de3f3a993c8bf3db2ea0ec2d6641f9eab23a7f1d7de9ded043f405255e",
+      "checked_at": "2026-10-22T23:15:17.693842+09:00",
+      "min": 16.866666666666667,
+      "p": 13,
+      "s": [
+        22,
+        16,
+        13,
+        7,
+        8,
+        9
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
