@@ -148,8 +148,8 @@ document.addEventListener('DOMContentLoaded', () => {
 // 대만 수집 목록과 숨긴 영상 관리. index.html과 분리해 유지한다.
 document.addEventListener('DOMContentLoaded', () => {
   const twIds = new Set((window.TAIWAN_ITEMS || []).map(v => v.id));
-  LISTS.splice(4, 0, ['twexp', '🇹🇼 대만 체험']);
-  LISTKEYS.add('twexp'); LISTTAG.twexp = '🇹🇼 대만 체험 후보';
+  LISTS.splice(4, 0, ['twexp', '🇹🇼 대만체험']);
+  LISTKEYS.add('twexp'); LISTTAG.twexp = '🇹🇼 대만체험 후보';
   LIST_NOTE.twexp = '외국인의 대만 여행·체험을 검색한 롱폼 후보입니다. 제목·채널 기준으로 선별했고, 영상 전문 검수와 FM 채점은 아직 하지 않았습니다.';
   const originalLists = computeLists;
   computeLists = function() {
@@ -164,10 +164,23 @@ document.addEventListener('DOMContentLoaded', () => {
   computeLists();
   refreshListCounts();
   document.querySelector('header h1, header h2, h1').textContent = '🇰🇷🇯🇵🇹🇼 국뽕 영상 서칭';
-  const tw = ce('button', 'chip', '🇹🇼 대만 체험'); tw.dataset.k = 'twexp'; tw.append(ce('small', '', String(twIds.size)));
+  const tw = ce('button', 'chip', '🇹🇼 대만체험'); tw.dataset.k = 'twexp'; tw.append(ce('small', '', String(twIds.size)));
   tw.onclick = () => { listSel.has('twexp') ? listSel.delete('twexp') : listSel.add('twexp'); ls.set('lists', [...listSel]); render(); };
   document.querySelector('#lists [data-k="jpexp"]').after(tw);
   if ((ls.get('lists', []) || []).includes('twexp')) listSel.add('twexp');
+  // 목록 키와 클릭 동작은 유지하고 사용자 요청 표시명만 통일한다.
+  const names = {notion:'📓 노션 수집목록', krexp:'🇰🇷 한국체험', jpexp:'🇯🇵 일본체험', twexp:'🇹🇼 대만체험', krguk:'🧭 국뽕채널(한국)', jpguk:'🎌 국뽕채널(일본)', ref:'📌 레퍼런스모음', bm:'🎯 벤치마킹', alert_kr:'🔔 텔레그램(한국)', alert_jp:'🔔 텔레그램(일본)', hold:'🗂 분류보류'};
+  for (const entry of LISTS) {
+    if (!names[entry[0]]) continue;
+    entry[1] = names[entry[0]];
+    const chip = document.querySelector('#lists [data-k="' + entry[0] + '"]');
+    if (chip) {
+      const count = chip.querySelector('small');
+      chip.replaceChildren(document.createTextNode(entry[1]));
+      if (count) chip.append(count);
+    }
+  }
+
 
   const button = ce('button', 'chip', '🙈 숨긴 영상'); button.id = 'hidden-videos-tab';
   document.getElementById('mmy').after(button);

@@ -668,7 +668,7 @@ document.getElementById("gclear").onclick = () => { giSel.clear(); giSync(); ren
 mkMulti(document.getElementById("exps"), [["_any", "🎟 체험 영상 전체", V.filter(v => v._topics.length).length]].concat(Object.keys(EXPT).map(t => [t, t, V.filter(v => v._topics.includes(t)).length])), expSel, V.length, () => render());
 mkMulti(document.getElementById("cats"), CATS.map(([k, l, fn]) => [k, l, V.filter(v => withSubs(v) && fn(v)).length]), catSel, V.length, () => render());
 // 한 선택 집합(viewSel)을 세 그룹이 나눠 쓴다: 나라(자주 쓰는 줄), 그 밖의 조건(상세 탭), 내 작업(내 작업 탭). 나라는 둘 중 하나, 나머지 조건은 모두 만족해야 보인다
-mkMulti(document.getElementById("cty"), [["한국", "🇰🇷 한국이 주제"], ["일본", "🇯🇵 일본이 주제"], ["both", "🔁 한일 비교·반응"]], viewSel, V.length, () => render());
+mkMulti(document.getElementById("cty"), [["한국", "🇰🇷 한국이 주제"], ["일본", "🇯🇵 일본이 주제"], ["대만", "🇹🇼 대만이 주제"]], viewSel, V.length, () => render());
 mkMulti(document.getElementById("ext"), [["viral", "🔥 화제 영상 (과거 포함)", V.filter(v => v.viral).length]], viewSel, null, () => render());   // '서울·부산 외' 칩은 '한국 소재 > 🗺 지방 여행'으로 대체
 mkMulti(document.getElementById("mine"), [["new", "🆕 새로 들어온"], ["fav", "⭐ 저장"], ["memo", "📝 메모 있음"], ["done", "✅ 사용 완료", done.size], ["hidden", "🗑 숨김", nHidden()]], viewSel, null, () => render());
 document.getElementById("upd").textContent = "마지막 갱신 " + (window.UPDATED || "-") + " · 영상 " + V.length + "개";
@@ -744,7 +744,7 @@ function render(opts) {
   document.getElementById("listnote").textContent = !listSel.size ? LIST_NOTE.all : listSel.size === 1 ? LIST_NOTE[[...listSel][0]] : "고른 " + listSel.size + "개 목록 중 하나라도 속한 영상을 합쳐서 보여줘요. 같은 영상은 한 번만 나와요.";
   const q =document.getElementById("q").value.trim().toLowerCase(), sort = document.getElementById("sort").value;
   const catFns = CATS.filter(c => catSel.has(c[0])).map(c => c[2]);
-  const ctry = ["한국", "일본", "both"].filter(k => viewSel.has(k));
+  const ctry = ["한국", "일본", "대만"].filter(k => viewSel.has(k));
   const hc = document.querySelector('#mine [data-k="hidden"] small'); if (hc) hc.textContent = nHidden();
   const dc = document.querySelector('#mine [data-k="done"] small'); if (dc) dc.textContent = done.size;
   const sh = viewSel.has("hidden"), sd = viewSel.has("done");
