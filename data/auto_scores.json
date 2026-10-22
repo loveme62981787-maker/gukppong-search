@@ -756,6 +756,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "M2FJCxccmcU",
+      "ver": "kr",
+      "t": "I became a Korean WARRIOR MONK for a day 🇰🇷 | S8, EP166",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "075819d3e1ccb1ade0c34700ea5c1dbe8c68bb5ace7af3bcda4c4dacedb56a0e",
+      "checked_at": "2026-10-22T23:02:32.044067+09:00",
+      "min": 20.483333333333334,
+      "p": 5.0,
+      "s": [
+        19,
+        14,
+        14,
+        14,
+        8,
+        9
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
