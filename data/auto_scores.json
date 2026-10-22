@@ -43,6 +43,236 @@
       "warn": [
         "Gemini 1차 채점 · Codex 검증. 자막 전문과 한국판·일본판 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "MSzcIM1iPP0",
+      "ver": "kr",
+      "t": "finally.... korea travel vlog | ep. 17",
+      "source": "claude_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "bf10e22113445529eb3037e31d9398b414d3f156d676fe16bf9a78ca56887673",
+      "checked_at": "2026-10-22T14:57:36.307833+09:00",
+      "min": 26.8,
+      "p": 5.5,
+      "s": [
+        17,
+        12,
+        9,
+        11,
+        7,
+        8
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 한국판·일본판 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
+    },
+    {
+      "id": "EmfQz7BbeGU",
+      "ver": "jp",
+      "t": "First Time in Tokyo? Watch This Before You Go!",
+      "source": "claude_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "8ae58fc24a43f89925fa2ebf1604ce66095e6be9b2940685b90426ab4d582815",
+      "checked_at": "2026-10-22T14:59:04.018358+09:00",
+      "min": 17.116666666666667,
+      "p": 5.0,
+      "s": [
+        10,
+        8,
+        7,
+        5,
+        4,
+        6
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 한국판·일본판 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
+    },
+    {
+      "id": "KUIoKO7BW88",
+      "ver": "jp",
+      "t": "Izu Japan Vlog | Family Trip, Airbnb & Beautiful Ocean Views🇯🇵 #IzuJapan #JapanVlog #FamilyVlog",
+      "source": "claude_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "8a2a8a53950bb60c55e237b1b0495738b83e1b506b2b8704ea007bbacd0d18e0",
+      "checked_at": "2026-10-22T15:03:12.788393+09:00",
+      "min": 25.733333333333334,
+      "p": 5.0,
+      "s": [
+        9,
+        12,
+        11,
+        12,
+        6,
+        9
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 한국판·일본판 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
+    },
+    {
+      "id": "A4tKR2qG4I8",
+      "ver": "kr",
+      "t": "First Time in Seoul, South Korea 🇰🇷 | Food, Shopping & Sightseeing",
+      "source": "claude_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "2e9b03df4fa6f2dc0a50e17455c9e29402bbd0054a8b64eacbe6d017a99975c0",
+      "checked_at": "2026-10-22T15:04:41.325282+09:00",
+      "min": 11.966666666666667,
+      "p": 10.5,
+      "s": [
+        24,
+        13,
+        8,
+        5,
+        5,
+        8
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 한국판·일본판 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
+    },
+    {
+      "id": "4u64Fcwccb0",
+      "ver": "jp",
+      "t": "「最高の誕生日だよ…」日本旅行のサプライズを知った瞬間、海外の子どもたちが見せた表情【海外の反応】",
+      "source": "claude_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "86728684229d94dac0c9d5baff6c9c45587bcbb1605df7a6a2f41ae9f530c605",
+      "checked_at": "2026-10-22T15:05:51.034250+09:00",
+      "min": 12.983333333333333,
+      "p": 5.5,
+      "s": [
+        15,
+        13,
+        15,
+        10,
+        8,
+        8
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 한국판·일본판 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
+    },
+    {
+      "id": "mPC7vxJUwrs",
+      "ver": "kr",
+      "t": "My First Time ALONE In A Foreign Country.. (24 Hour Korea Vlog)",
+      "source": "claude_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "14c5c041a5b5f8959f781a5eda19eeff3d270086894bd7893e22b8b12902e30f",
+      "checked_at": "2026-10-22T15:07:00.480405+09:00",
+      "min": 16.166666666666668,
+      "p": 5.0,
+      "s": [
+        19,
+        14,
+        9,
+        9,
+        6,
+        8
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 한국판·일본판 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
+    },
+    {
+      "id": "Wv7Dd3J9UHc",
+      "ver": "jp",
+      "t": "How Japan Got So Clean (without any trash cans)",
+      "source": "claude_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "99632eb7c0f3f3c0de6aeac2d8fb07ed36f8c788c5a6b2efc0ca10967c52738d",
+      "checked_at": "2026-10-22T15:08:20.527827+09:00",
+      "min": 11.3,
+      "p": 2.0,
+      "s": [
+        8,
+        8,
+        16,
+        13,
+        8,
+        6
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 한국판·일본판 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
+    },
+    {
+      "id": "xvhU6Apo1ss",
+      "ver": "kr",
+      "t": "$580 vs $200 Seoul Hotels: Is K-Drama Life Worth It?",
+      "source": "claude_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "bfbcd5bb156df15bacad3b0c96ed623d75d5b38cd5e3aac1ff290b54459863ee",
+      "checked_at": "2026-10-22T15:09:35.578347+09:00",
+      "min": 14.65,
+      "p": 6.0,
+      "s": [
+        21,
+        13,
+        17,
+        11,
+        7,
+        8
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 한국판·일본판 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
+    },
+    {
+      "id": "ATsM52Wl0ns",
+      "ver": "kr",
+      "t": "야구 규칙도 모르던 영국인, 한국에서 소름 돋았다며 카메라를 돌린 이유",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "1ee5bda200bbf49d14f032f0f3178910b55bb823cd4a01b62f1092ae63531691",
+      "checked_at": "2026-10-22T15:15:37.774859+09:00",
+      "min": 12.233333333333333,
+      "p": 3.0,
+      "s": [
+        17,
+        16,
+        16,
+        10,
+        8,
+        9
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 한국판·일본판 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
+    },
+    {
+      "id": "xX0RSu2U4Nw",
+      "ver": "kr",
+      "t": "\"한국인들 진짜 단체로 미친 거예요?!\" 야구 규칙조차 모르던 해외 여행 유튜버 2인조 경기장 전체가 들썩이자 두 사람 넋이 나간 이유",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "ead7b91f59fe49763423a6a861c2d8dbd0e4dd80f5826e93e298fde5b36239c5",
+      "checked_at": "2026-10-22T15:19:19.008169+09:00",
+      "min": 11.283333333333333,
+      "p": 3.5,
+      "s": [
+        18,
+        14,
+        15,
+        9,
+        8,
+        10
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 한국판·일본판 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
