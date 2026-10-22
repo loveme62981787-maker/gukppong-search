@@ -710,6 +710,29 @@
       "warn": [
         "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "8YZbiwFp0zo",
+      "ver": "kr",
+      "t": "Exploring ANDONG 🇰🇷 | Korea’s Beautiful Traditional Cultural Village 🏡✨ | Korea Vlog #8",
+      "source": "claude_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "255b11fdb49dd194151e2344020a15d9dd1141146caf42bcaf660e24a429e292",
+      "checked_at": "2026-10-22T22:58:56.091341+09:00",
+      "min": 11.216666666666667,
+      "p": 3.5,
+      "s": [
+        12,
+        9,
+        3,
+        10,
+        4,
+        6
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
