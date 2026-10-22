@@ -825,6 +825,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "Wf4ah1R5sfU",
+      "ver": "kr",
+      "t": "jeju vlog | days with sea breeze, warm coffee and green tangerine",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "6f58829ebce861eb80c74b35a44ea66b6b865e58e93b1a6d80b172d38aa2c073",
+      "checked_at": "2026-10-22T23:10:03.585343+09:00",
+      "min": 31.75,
+      "p": 5.0,
+      "s": [
+        13,
+        7,
+        4,
+        6,
+        4,
+        10
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
