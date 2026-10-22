@@ -848,6 +848,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "991CffKniUE",
+      "ver": "jp",
+      "t": "día uno y dos en Kioto | ryokan | santuario Fushimi Inari | parque de ciervos de Nara | tren bala...",
+      "source": "gemini_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "71bae3d5a71124e02d29559453e18454ed4826eeaba8b481423d18c5980a1dfe",
+      "checked_at": "2026-10-22T23:11:44.923584+09:00",
+      "min": 18.15,
+      "p": 2,
+      "s": [
+        5,
+        8,
+        6,
+        4,
+        3,
+        4
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
