@@ -1170,6 +1170,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "BR5ko9i3YuU",
+      "ver": "tw",
+      "t": "[Cycling Around Taiwan #2] Aiming for Tainan: A City of History and Gourmet Food, 180km! / TdT D2...",
+      "source": "gemini_fm",
+      "fm_sha256": "950b953a44406d1a786ff56233001eea1a8e13c7e066e6707a4e57631f523dd4",
+      "transcript_sha256": "2938c96eef9aaa59b3145ad751fddbade5214a552136e9172608ffa706842e1b",
+      "checked_at": "2026-10-22T23:55:42.487503+09:00",
+      "min": 13.516666666666667,
+      "p": 6.0,
+      "s": [
+        23,
+        14,
+        12,
+        13,
+        7,
+        7
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
