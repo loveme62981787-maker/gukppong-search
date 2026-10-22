@@ -121,7 +121,12 @@ def safe_public(item):
         if not isinstance(scores,list) or len(scores)!=6 or any(type(n) is not int or not 0<=n<=cap for n,cap in zip(scores,CAPS)):
             raise ValueError('공개 점수 오류')
         result['s'] = scores
-    author = 'Gemini 1차 채점 · Codex 검증' if item['source'] == 'gemini_fm' else 'Claude FM 채점'
+    verifier = item.get('verified_by', 'codex' if item['source'] == 'gemini_fm' else 'claude')
+    if verifier not in ('codex', 'program', 'claude'):
+        raise ValueError('검수 출처 오류')
+    result['verified_by'] = verifier
+    author = ('Gemini 1차 채점 · ' + {'codex': 'Codex 검증', 'program': '프로그램 형식·인용 검사', 'claude': 'Claude 검수'}[verifier]
+              if item['source'] == 'gemini_fm' else 'Claude FM 채점·검수')
     result['warn'] = [author + '. 자막 전문과 한국판·일본판 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다.']
     return result
 

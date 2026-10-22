@@ -35,6 +35,9 @@ def num(s):
 
 
 def main():
+    global OUT
+    if "--out" in sys.argv:
+        OUT = os.path.abspath(sys.argv[sys.argv.index("--out") + 1])
     d = os.path.join(BASE, "alerts")
     if "--dir" in sys.argv:
         d = sys.argv[sys.argv.index("--dir") + 1]
