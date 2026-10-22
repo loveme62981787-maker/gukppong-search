@@ -733,6 +733,29 @@
       "warn": [
         "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "AKVD2_c4_Ww",
+      "ver": "tw",
+      "t": "Taiwan Food Trip + North Coast Adventure | The AdventuRets Travel Vlog",
+      "source": "gemini_fm",
+      "fm_sha256": "950b953a44406d1a786ff56233001eea1a8e13c7e066e6707a4e57631f523dd4",
+      "transcript_sha256": "17e49f17e2532ae916b17b769f0d6f7b709d02309f7bb8797b1cc0c50b39cad7",
+      "checked_at": "2026-10-22T23:01:08.298030+09:00",
+      "min": 35.6,
+      "p": 6.5,
+      "s": [
+        22,
+        13,
+        8,
+        7,
+        6,
+        8
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
