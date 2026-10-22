@@ -365,6 +365,52 @@
       "warn": [
         "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "zPkfZgbV1aM",
+      "ver": "kr",
+      "t": "we went to the island koreans go on holiday",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "2772e77a2a500bb99ef4b22af7f39173c41b698a1753089474b62bf5d8b3e6fe",
+      "checked_at": "2026-10-22T22:15:43.475336+09:00",
+      "min": 15.316666666666666,
+      "p": 7,
+      "s": [
+        22,
+        13,
+        8,
+        11,
+        6,
+        7
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
+    },
+    {
+      "id": "Mfa_kwFqsNM",
+      "ver": "tw",
+      "t": "RAINBOW HOTEL XIMENDING ROOM TOUR | NIGHT LIFE IN TAIWAN🇹🇼 | NAGFOOD TRIP KAMI🍜🍱",
+      "source": "claude_fm",
+      "fm_sha256": "950b953a44406d1a786ff56233001eea1a8e13c7e066e6707a4e57631f523dd4",
+      "transcript_sha256": "3baf6332616d02915eca05a9c9fcdf6f787d9ca27bd9396320418ba67300829d",
+      "checked_at": "2026-10-22T22:17:23.007497+09:00",
+      "min": 24.633333333333333,
+      "p": 5,
+      "s": [
+        22,
+        14,
+        8,
+        6,
+        7,
+        8
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
