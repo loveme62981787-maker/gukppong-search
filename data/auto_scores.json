@@ -2274,6 +2274,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "a_nwGkFAQC4",
+      "ver": "kr",
+      "t": "Jeju Island Travel Vlog : 7 days in Jeju with my boyfriend : A Filipino Traveler's Experience",
+      "source": "claude_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "500d8b390ccfc3fec096ef2aaba95970843d300154f5e0600d090a15e4123cfc",
+      "checked_at": "2026-10-26T21:13:53.094234+09:00",
+      "min": 19.483333333333334,
+      "p": 5.0,
+      "s": [
+        15,
+        9,
+        8,
+        8,
+        5,
+        9
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
