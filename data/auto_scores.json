@@ -1354,6 +1354,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "N8nztAXE6vU",
+      "ver": "kr",
+      "t": "SOUTH KOREA WITH KIDS 🇰🇷 We didn't expect to experience ALL OF THIS! 😱 | Part 2",
+      "source": "claude_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "9a3e0340aedbfcb2846c3809d8b63c6a4fdb64ec80784ed80877f37f04adce0c",
+      "checked_at": "2026-10-26T19:32:16.302116+09:00",
+      "min": 40.3,
+      "p": 9.5,
+      "s": [
+        20,
+        15,
+        10,
+        10,
+        7,
+        7
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
