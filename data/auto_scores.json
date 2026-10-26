@@ -3309,6 +3309,29 @@
       "warn": [
         "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "KToAhjysFg0",
+      "ver": "tw",
+      "t": "[Taiwan 4 Days 3 Nights] Eat, Play, Stream! Enjoying Taiwan to the Fullest",
+      "source": "claude_fm",
+      "fm_sha256": "950b953a44406d1a786ff56233001eea1a8e13c7e066e6707a4e57631f523dd4",
+      "transcript_sha256": "46ea019612589d39fd587f65ca382c9d2744fee5689ab84dfe41d2c1e8c05b48",
+      "checked_at": "2026-10-26T23:49:18.775833+09:00",
+      "min": 13.716666666666667,
+      "p": 3.0,
+      "s": [
+        14,
+        16,
+        6,
+        7,
+        7,
+        10
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
