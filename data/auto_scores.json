@@ -3033,6 +3033,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "MjH5xh4Bnnk",
+      "ver": "kr",
+      "t": "I Wasnt Expecting This In Seoul South Korea NightLife 🇰🇷",
+      "source": "claude_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "1cff055546251b62237e8957765d9b5510ae0593fbf5f3a7a7a0152c79e0a5a0",
+      "checked_at": "2026-10-26T22:49:49.713962+09:00",
+      "min": 82.75,
+      "p": 5.0,
+      "s": [
+        8,
+        8,
+        5,
+        6,
+        3,
+        2
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
