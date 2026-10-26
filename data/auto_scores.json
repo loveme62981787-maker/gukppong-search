@@ -1929,6 +1929,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "AeunsvQ11VE",
+      "ver": "tw",
+      "t": "KAOHSIUNG TAIWAN TRAVEL GUIDE🇹🇼 | FO GUANG SHAN, LOTUS POND & LIUHE NIGHT MARKET",
+      "source": "gemini_fm",
+      "fm_sha256": "950b953a44406d1a786ff56233001eea1a8e13c7e066e6707a4e57631f523dd4",
+      "transcript_sha256": "508b56a3470f10242705f49fc3067eda92b173d3f0a1e02d740b3a99e939674c",
+      "checked_at": "2026-10-26T20:40:00.395473+09:00",
+      "min": 20.6,
+      "p": 3.5,
+      "s": [
+        12,
+        8,
+        3,
+        6,
+        4,
+        8
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
