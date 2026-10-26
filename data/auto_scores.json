@@ -1653,6 +1653,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "iXwfTQYyhM4",
+      "ver": "kr",
+      "t": "I WENT TO THE SAME SKIN CLINIC AS KIM KARDASHIAN! (Seoul, South Korea) - #RomeAroundTheWorld",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "8f8e3d20e634e7641d5eb9f0b14b11006357294207e0e3f7eeb69810ccc3c74d",
+      "checked_at": "2026-10-26T20:12:48.445612+09:00",
+      "min": 16.55,
+      "p": 4,
+      "s": [
+        18,
+        15,
+        14,
+        13,
+        8,
+        9
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
