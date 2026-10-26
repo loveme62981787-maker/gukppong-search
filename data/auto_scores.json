@@ -1584,6 +1584,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "F_leOZQSM_Q",
+      "ver": "kr",
+      "t": "South Korea's success story is starting to crack 🇰🇷 | S8, EP167",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "22cb4a56c0baa89a1bcdae1fedd68e80e26a3770026cda483ce84156ba4654eb",
+      "checked_at": "2026-10-26T20:08:50.084698+09:00",
+      "min": 27.383333333333333,
+      "p": 4.5,
+      "s": [
+        13,
+        12,
+        7,
+        10,
+        5,
+        3
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
