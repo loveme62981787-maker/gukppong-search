@@ -2895,6 +2895,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "n6dXOMbICx4",
+      "ver": "kr",
+      "t": "a collection of autumn days in seoul: rainy cafe dates, museums, new friends, life in korea",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "e2f00e1552fa2ff45183212d913df2542d95cdebcd5b3432654c1477fd59120e",
+      "checked_at": "2026-10-26T22:34:59.502531+09:00",
+      "min": 33.31666666666667,
+      "p": 3.0,
+      "s": [
+        8,
+        8,
+        4,
+        6,
+        3,
+        8
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
