@@ -2090,6 +2090,29 @@
       "warn": [
         "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "dGRa0SNm0p4",
+      "ver": "jp",
+      "t": "Osaka to Kyoto Complete Travel Guide 🇯🇵 |Train, Budget Stay & Kyoto Tourist Spots",
+      "source": "gemini_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "b6cb0fbe00f8c6bea091fdcefea2be49e765ce8c10f193bdd01fe657ed6604af",
+      "checked_at": "2026-10-26T20:54:34.162080+09:00",
+      "min": 24.25,
+      "p": 5.5,
+      "s": [
+        8,
+        6,
+        5,
+        4,
+        3,
+        7
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
