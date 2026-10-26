@@ -1,8 +1,11 @@
 name: 텔레그램 알림 동기화
 on:
   schedule:
-    - cron: '7,37 * * * *'
+    - cron: '0 9 * * *'   # 매일 한국시간 오후 6시 (UTC 9시) — 텔레그램 알림이 보통 오후 5시 전후로 와서 그 뒤에 한 번 반영한다 (사용자 지정 2026-10-26)
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/sync-alerts.yml']   # 이 파일을 고치면 바로 한 번 동기화한다 (수동 실행 버튼 대신)
 permissions:
   contents: write
   pages: write
