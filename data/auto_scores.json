@@ -3056,6 +3056,29 @@
       "warn": [
         "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "zGNq4lGKaf8",
+      "ver": "kr",
+      "t": "first time in South Korea 🇰🇷🍜🏯🍚🏙️🥢(book shopping, starfield library, bookish friends, etc.)",
+      "source": "claude_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "ea020dc0481ae25c870a2e99a9f065abaa31275417c324be411606eed5214ad5",
+      "checked_at": "2026-10-26T22:56:09.483103+09:00",
+      "min": 83.61666666666666,
+      "p": 10,
+      "s": [
+        13,
+        12,
+        6,
+        9,
+        5,
+        6
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
