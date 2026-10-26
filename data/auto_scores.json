@@ -3355,6 +3355,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "belYT7x-YDY",
+      "ver": "tw",
+      "t": "Taiwan Travel Vlog: Setting Off to Become the Adult I Dreamed of in My 30s",
+      "source": "gemini_fm",
+      "fm_sha256": "950b953a44406d1a786ff56233001eea1a8e13c7e066e6707a4e57631f523dd4",
+      "transcript_sha256": "35fee0e6eaf3c1b3552bc9e0899c1cfb2167a61d716d550919f6ddac3db0e2f0",
+      "checked_at": "2026-10-26T23:55:23.634404+09:00",
+      "min": 13.7,
+      "p": 3.0,
+      "s": [
+        13,
+        10,
+        9,
+        6,
+        6,
+        5
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
