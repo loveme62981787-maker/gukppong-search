@@ -2044,6 +2044,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "vWi6OC1IxQs",
+      "ver": "tw",
+      "t": "We cycled through Taroko Gorge (and the rest of the east coast) | Cycling trip through Taiwan",
+      "source": "gemini_fm",
+      "fm_sha256": "950b953a44406d1a786ff56233001eea1a8e13c7e066e6707a4e57631f523dd4",
+      "transcript_sha256": "737c52f72bcf80d4f682071c9d2e3f52e5abbc0ebda643354e6a71b1047a85c8",
+      "checked_at": "2026-10-26T20:50:46.954576+09:00",
+      "min": 13.733333333333333,
+      "p": 4.0,
+      "s": [
+        15,
+        12,
+        11,
+        13,
+        7,
+        5
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
