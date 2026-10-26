@@ -1768,6 +1768,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "KO27qH6BjA8",
+      "ver": "kr",
+      "t": "Free Banchan in Korea has rules! What you can't do. 🚫 #KoreanFood #Banchan #Korea #koreanstyle",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "ba14bb15bb281700ca3ed62ee1c069a0409467c78d6b30890d6d3c276fea5806",
+      "checked_at": "2026-10-26T20:28:35.505806+09:00",
+      "min": 10.15,
+      "p": 1.5,
+      "s": [
+        6,
+        4,
+        8,
+        6,
+        4,
+        9
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
