@@ -2458,6 +2458,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "veCvmDC1VKE",
+      "ver": "kr",
+      "t": "solo in seoul ⋆⭒˚.⋆ good eats + delivery, shopping & a whole day in seongsu",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "3dc8d54a8744447f2967d1c3450cbed9c9e0dbd1dc59eca07c2c6565f61742b8",
+      "checked_at": "2026-10-26T21:32:23.863090+09:00",
+      "min": 18.866666666666667,
+      "p": 7,
+      "s": [
+        19,
+        12,
+        9,
+        6,
+        6,
+        9
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
