@@ -2412,6 +2412,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "kXu_6wRDuos",
+      "ver": "jp",
+      "t": "A 33-Year-Old’s Zero-Plan Trip to Japan: No Energy, No Itinerary",
+      "source": "gemini_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "9085d847f632589348a2179b179d0f979466a083b0a0a08da115e4addafa5d8b",
+      "checked_at": "2026-10-26T21:29:38.087572+09:00",
+      "min": 36.75,
+      "p": 5.0,
+      "s": [
+        8,
+        7,
+        6,
+        5,
+        4,
+        5
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
