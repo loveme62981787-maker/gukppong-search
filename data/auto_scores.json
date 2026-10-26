@@ -2780,6 +2780,29 @@
       "warn": [
         "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "LTiKGszzbv4",
+      "ver": "kr",
+      "t": "Korea Vlog ☁️ | summer in korea, first time in busan, visiting hybe, touring yonsei university",
+      "source": "claude_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "fbdbc909ef644313b1d044e3a61360d29a875e7404350b855cb505cef523b8bf",
+      "checked_at": "2026-10-26T22:28:30.759947+09:00",
+      "min": 31.366666666666667,
+      "p": 5.0,
+      "s": [
+        13,
+        11,
+        6,
+        8,
+        6,
+        9
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
