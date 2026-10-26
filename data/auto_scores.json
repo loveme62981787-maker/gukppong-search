@@ -1975,6 +1975,29 @@
       "warn": [
         "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "YtMxn13a6gs",
+      "ver": "jp",
+      "t": "4 rainy days in TOKYO 🇯🇵 old towns, local food, kitchenware shopping, yanaka ginza | new vlog camera",
+      "source": "claude_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "3dbf5dce8983ea5c3315be121e386e55cf60907a3bb51a559b5b59764968c982",
+      "checked_at": "2026-10-26T20:43:53.687893+09:00",
+      "min": 35.666666666666664,
+      "p": 7.5,
+      "s": [
+        12,
+        10,
+        6,
+        10,
+        4,
+        7
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
