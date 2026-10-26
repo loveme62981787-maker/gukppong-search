@@ -3263,6 +3263,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "_kkJBBRZdQo",
+      "ver": "kr",
+      "t": "Our First Day in Seoul 🇰🇷 | Hanbok, N Seoul Tower & Myeongdong | South Korea Vlog",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "2521f0ae81e5958628c44cabf339be1f58c09fbc523928ea8f7f66b168d40a90",
+      "checked_at": "2026-10-26T23:44:47.281745+09:00",
+      "min": 21.283333333333335,
+      "p": 2.0,
+      "s": [
+        6,
+        5,
+        5,
+        4,
+        4,
+        7
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
