@@ -2366,6 +2366,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "t8g7DZFEwa4",
+      "ver": "jp",
+      "t": "OUR FIRST TIME IN JAPAN! 🇯🇵 Travel Day to Tokyo Disney Resort & Disneyland Hotel ✈️✨",
+      "source": "claude_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "379e21d27a358fd027f6537cda131236034d165ede6d46b78f2576b73d813d3c",
+      "checked_at": "2026-10-26T21:24:24.681163+09:00",
+      "min": 39.11666666666667,
+      "p": 5.5,
+      "s": [
+        8,
+        11,
+        8,
+        7,
+        6,
+        7
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
