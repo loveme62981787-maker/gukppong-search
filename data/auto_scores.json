@@ -1906,6 +1906,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "7fRejukFbdU",
+      "ver": "jp",
+      "t": "A Quiet Rainy Night in Tokyo with My Daughter｜Life in Japan",
+      "source": "gemini_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "4b128499a8523dbb07c10802cc0a5a6d8c63441d09c7f2839b59ec4bdffbb372",
+      "checked_at": "2026-10-26T20:38:32.961556+09:00",
+      "min": 23.383333333333333,
+      "p": 6,
+      "s": [
+        14,
+        12,
+        10,
+        8,
+        6,
+        9
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
