@@ -3240,6 +3240,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "1Ehcqe2-c34",
+      "ver": "tw",
+      "t": "Why Is Tainan Called Taiwan's Food Capital? I Ate All Day 🇹🇼 | Taiwan Solo Travel Vlog",
+      "source": "gemini_fm",
+      "fm_sha256": "950b953a44406d1a786ff56233001eea1a8e13c7e066e6707a4e57631f523dd4",
+      "transcript_sha256": "fb6be18636ba72d9f826f6698861822e5a98a15b99d199d3916b9a6a426ef854",
+      "checked_at": "2026-10-26T23:43:10.453828+09:00",
+      "min": 23.183333333333334,
+      "p": 11,
+      "s": [
+        24,
+        16,
+        17,
+        14,
+        8,
+        10
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
