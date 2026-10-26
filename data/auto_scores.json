@@ -2113,6 +2113,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "rzzudOhNlFc",
+      "ver": "kr",
+      "t": "4 Days in Jeju Island 🇰🇷 | Scenic Road Trip 🚗 Snoopy Garden, Secret Cliffs & Best Cafés",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "65ed0131ad5aa59518fdf8a4c51bd5ab95404833dbc5c5d528adf2143c6632fd",
+      "checked_at": "2026-10-26T20:59:55.461108+09:00",
+      "min": 29.6,
+      "p": 5.0,
+      "s": [
+        12,
+        6,
+        4,
+        8,
+        5,
+        9
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
