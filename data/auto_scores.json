@@ -2205,6 +2205,29 @@
       "warn": [
         "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "DR0r333qMG4",
+      "ver": "tw",
+      "t": "Taipei, Taiwan with my family | parents first ever international travel (flight & hotel cost)",
+      "source": "claude_fm",
+      "fm_sha256": "950b953a44406d1a786ff56233001eea1a8e13c7e066e6707a4e57631f523dd4",
+      "transcript_sha256": "2f7aec2fdce1800431c6cc5bc36b4925f97e132f13bb70bcb5d80f7d6003b3de",
+      "checked_at": "2026-10-26T21:06:16.769145+09:00",
+      "min": 24.3,
+      "p": 3,
+      "s": [
+        10,
+        11,
+        8,
+        7,
+        7,
+        7
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
