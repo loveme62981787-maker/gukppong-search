@@ -1722,6 +1722,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "4uk596fNnbo",
+      "ver": "jp",
+      "t": "Las 6 LEYENDAS URBANAS más LOCAS de JAPÓN ¡Ni Messi se lo cree!",
+      "source": "gemini_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "8b38879a845d93c8eae726da06f4664a6feeec290bc1e3295e72b6e5d73310ff",
+      "checked_at": "2026-10-26T20:20:37.669199+09:00",
+      "min": 16.933333333333334,
+      "p": 0,
+      "s": [
+        0,
+        0,
+        0,
+        0,
+        0,
+        0
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
