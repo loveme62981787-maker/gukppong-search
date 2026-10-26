@@ -1791,6 +1791,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "a99dewfcWko",
+      "ver": "tw",
+      "t": "Sun Moon Lake Day Trip: Street Food, Ci’en Pagoda & More 🇹🇼 | Day 10",
+      "source": "gemini_fm",
+      "fm_sha256": "950b953a44406d1a786ff56233001eea1a8e13c7e066e6707a4e57631f523dd4",
+      "transcript_sha256": "c69a5c9a7898d435fe5fcabf4ed3086625ca67dc45c715dffe518afc4cc11d7a",
+      "checked_at": "2026-10-26T20:30:06.715751+09:00",
+      "min": 20.383333333333333,
+      "p": 5.0,
+      "s": [
+        17,
+        13,
+        11,
+        8,
+        7,
+        6
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
