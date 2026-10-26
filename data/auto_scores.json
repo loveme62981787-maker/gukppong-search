@@ -2228,6 +2228,29 @@
       "warn": [
         "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "WPW_PvD3q8k",
+      "ver": "kr",
+      "t": "HAN RIVER RAMEN | Ttukseom Hangang River Park | 뚝섬한강공 | Life in Korea | Filipino American Family",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "dfd42fee1436c86903243521df33c67efb83c96f89ab55c82a83a66ff78a0fe2",
+      "checked_at": "2026-10-26T21:08:47.039480+09:00",
+      "min": 12.8,
+      "p": 5,
+      "s": [
+        18,
+        13,
+        9,
+        7,
+        7,
+        10
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
