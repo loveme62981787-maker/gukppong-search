@@ -2803,6 +2803,29 @@
       "warn": [
         "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "RxkxAO1dEbI",
+      "ver": "jp",
+      "t": "Okinawa Travel VLOG 🇯🇵 Hyatt Regency Seragaki Review | Okinawa Soba, Yakiniku & Scuba Diving",
+      "source": "gemini_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "32760983b69da79e05cf3317e7c0047bd63cb53c1e453f6e4c054c2a97cb6f6e",
+      "checked_at": "2026-10-26T22:29:25.652557+09:00",
+      "min": 23.616666666666667,
+      "p": 3.5,
+      "s": [
+        9,
+        7,
+        6,
+        7,
+        5,
+        7
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
