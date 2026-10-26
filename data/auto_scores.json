@@ -1699,6 +1699,29 @@
       "warn": [
         "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "tgGiqJ8WAUY",
+      "ver": "kr",
+      "t": "Visité el SUPERMERCADO MÁS CARO de COREA 🇰🇷 (feat. @TanoVillar )",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "2478812902bb18f67b5aa37d9f2853d1aa26ca69d0d0d8fa0e44442744eebf15",
+      "checked_at": "2026-10-26T20:18:08.155067+09:00",
+      "min": 34.233333333333334,
+      "p": 8.0,
+      "s": [
+        18,
+        15,
+        17,
+        13,
+        9,
+        7
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
