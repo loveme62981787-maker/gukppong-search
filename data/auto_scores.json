@@ -1239,6 +1239,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "Yu-b9Wo5nk0",
+      "ver": "kr",
+      "t": "Vlog | A Day in Korea 🇰🇷 From Seoul to Jeonju | Bibimbap + OliveYoung and K-Drama Locations!❤️🎬",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "a1cae664424e6d67e0a4f59aa7f02a7d7d594fc280f08ad1a99b0e9d16eb5601",
+      "checked_at": "2026-10-26T19:03:26.955647+09:00",
+      "min": 20.383333333333333,
+      "p": 5.0,
+      "s": [
+        19,
+        16,
+        12,
+        12,
+        8,
+        9
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
