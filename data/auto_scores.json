@@ -1469,6 +1469,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "j4bi77B44nY",
+      "ver": "kr",
+      "t": "🇰🇷 Seoul Travel Vlog Part 2 | Inwangsan Mountain Hike, Gwangjang Market & Aquafield Goyang 🇰🇷",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "ba9ad96ba41d18aecb7161ce865dc48c64471407ae9bff7cb976cd1a6e9d815b",
+      "checked_at": "2026-10-26T19:47:48.848381+09:00",
+      "min": 23.966666666666665,
+      "p": 4.5,
+      "s": [
+        16,
+        12,
+        10,
+        11,
+        7,
+        9
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
