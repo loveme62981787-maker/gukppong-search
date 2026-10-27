@@ -3424,6 +3424,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "p-y6Ps-niOo",
+      "ver": "jp",
+      "t": "Japan Travel Vlog: OSAKA/ KYOTO. Shinkansen, Nara, round 1, Hozugawa Boat, Aquarium, Sumo,Thrifting!",
+      "source": "gemini_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "509be61bcfff19dbae7619db58a6d54b557f65897fbaebb7c74115fc7fe23e55",
+      "checked_at": "2026-10-27T19:02:23.985333+09:00",
+      "min": 14.783333333333333,
+      "p": 7.0,
+      "s": [
+        13,
+        10,
+        8,
+        7,
+        5,
+        7
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
