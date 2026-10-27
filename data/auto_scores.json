@@ -3654,6 +3654,29 @@
       "warn": [
         "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "E3JoLg-TDBM",
+      "ver": "tw",
+      "t": "TAIWAN NIGHT MARKET 🇹🇼 STREET FOOD TRIP! Sobrang Ganda ng Taiwan | Family Gala Day 1",
+      "source": "gemini_fm",
+      "fm_sha256": "950b953a44406d1a786ff56233001eea1a8e13c7e066e6707a4e57631f523dd4",
+      "transcript_sha256": "1707fec44ad326845084f82d217c476539474ce1f2daba1b33b7558eea5a9382",
+      "checked_at": "2026-10-27T19:31:11.252892+09:00",
+      "min": 17.733333333333334,
+      "p": 1.5,
+      "s": [
+        5,
+        4,
+        3,
+        4,
+        3,
+        3
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
