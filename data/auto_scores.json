@@ -3562,6 +3562,29 @@
       "warn": [
         "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "7eY0pXjX-XE",
+      "ver": "kr",
+      "t": "Reality of 4 months Solo Travelling, Food & New Friends in Seoul, SK | Digital Nomad at 22 | EP 46",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "8b0fd701e7fc18f76a14b9899af4b4e695ddb45f5343cc2354fe99ed557f678b",
+      "checked_at": "2026-10-27T19:20:44.814245+09:00",
+      "min": 38.833333333333336,
+      "p": 4.5,
+      "s": [
+        11,
+        11,
+        8,
+        7,
+        5,
+        6
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
