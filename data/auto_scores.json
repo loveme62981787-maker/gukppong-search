@@ -3516,6 +3516,29 @@
       "warn": [
         "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "mL6oop6PrTg",
+      "ver": "jp",
+      "t": "TOKYO SOLO 🇯🇵 Harajuku• Designer Shopping• Clubbing (for the girls!)",
+      "source": "claude_fm",
+      "fm_sha256": "f124fa5a3f08e626c2225890f152f001bb70814afb946722acc2ce43c5762a26",
+      "transcript_sha256": "ffc209378484d7c6e79c3ae3af7a8d4fbb46a008a946284a4134d539df1b95ac",
+      "checked_at": "2026-10-27T19:17:18.243291+09:00",
+      "min": 21.25,
+      "p": 7.0,
+      "s": [
+        15,
+        14,
+        11,
+        8,
+        8,
+        8
+      ],
+      "verified_by": "claude",
+      "warn": [
+        "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
