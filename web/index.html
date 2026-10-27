@@ -187,6 +187,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script src="experience_assignments.js" onerror="window.EXPERIENCE_ASSIGNMENTS={}"></script>
 <script src="channel_country.js" onerror="window.CHANNEL_COUNTRY={}"></script>
 <script src="benchmark.js" onerror="window.BENCHMARK=[]"></script>
+<script src="taiwan_exp.js" onerror="window.TAIWAN_EXP=[]"></script>
 <script src="alerts.js" onerror="window.ALERTS=[]"></script>
 <script src="reference.js" onerror="window.REFERENCE=[]"></script>
 <script src="curation.js" onerror="window.CURATION={promote:[],demote:{},exclude:[]}"></script>
@@ -209,7 +210,7 @@ function normLen(x) {
   return {sec, text: toSec(own) === sec ? own : fmtSec(sec)};
 }
 // 수집 경로(sources): 같은 영상이 여러 목록에 있으면 합집합으로 모은다. 'notion' = 노션 수집 목록, 그 밖은 자동 수집 경로
-const SRC_NAMES = new Set(["discovery", "notion", "viral", "experience", "japan", "global", "global_jp", "topic_search", "reference", "benchmark", "alert"]);
+const SRC_NAMES = new Set(["discovery", "notion", "viral", "experience", "japan", "global", "global_jp", "topic_search", "reference", "benchmark", "alert", "taiwan_exp"]);
 const addSrc = (o, s) => { if (!Array.isArray(o.sources)) o.sources = []; if (s && !o.sources.includes(s)) o.sources.push(s); };
 function absorb(x, mark, src) {   // 같은 영상이면 표시와 길이만 합치고(유효한 기존 길이를 null 로 덮지 않음), 새 영상이면 추가한다
   const o = V.find(v => v.id === x.id), n = normLen(x);
@@ -236,6 +237,7 @@ V.forEach(v => {
 });
 (window.BENCHMARK || []).forEach(x => absorb(x, {bm: true}, "benchmark"));                                  // 벤치마킹 채널(benchmark_channels.txt): 내가 따로 관리하는 채널이라 다른 목록(체험·국뽕채널·레퍼런스)에는 넣지 않는다
 (window.ALERTS || []).forEach(x => absorb(x, {alert: true, alert_date: x.alert_date, alert_country: x.alert_country || x.country}, "alert"));   // 텔레그램 알림으로 받은 영상(alerts/*.csv): 다른 목록에도 그대로 속하고, 알림 목록에서 따로 모아 보며 점수를 확인한다. alert_country(없으면 country)로 한국·일본 텔레그램을 구분한다
+(window.TAIWAN_EXP || []).forEach(x => absorb(x, null, "taiwan_exp"));                                      // 대만 체험 영상 수집(taiwan_watch.py): 외국인이 대만을 여행·체험하는 영상을 넓게 모은다 (외국인 여부·체험 여부는 아래 규칙으로 추정)
 const nRef = () => V.filter(v => v.ref).length;
 // 길이 형태: 미확인(unk) / 숏폼(short, 181초 미만) / 롱폼(long). is_short 필드와 충돌해도 길이 기준을 따른다
 V.forEach(v => { const n = normLen(v); v.duration_sec = n.sec; v.length = n.text; v._form = n.sec == null ? "unk" : n.sec >= LONG_MIN_SEC ? "long" : "short"; });
@@ -447,6 +449,15 @@ const kindOf = v => {
   const cv = own(CURK.videos, v.id) ? CURK.videos[v.id] : null; if (cv && KINDS.has(cv.kind)) return [cv.kind, "공통 검토(영상, " + (cv.reviewed || "") + "): " + (cv.note || "")];
   const cc = own(CURK.channels, v.channel_id) ? CURK.channels[v.channel_id] : null; if (cc && KINDS.has(cc.kind)) return [cc.kind, "공통 검토(채널, " + (cc.reviewed || "") + "): " + (cc.note || "")];
   if (!v.title || !v.channel) return ["unk", "추정: 제목이나 채널명이 비어 있음"];
+  if (v._subj === "대만") {   // 대만이 소재일 때 (2026-10-27 사용자 요청: 대만체험 확대). 한국어·일본어 제목은 대만 현지 채널이 아니라 한국·일본 사람이 만든 영상이라는 근거다. 번체 중국어만 대만 현지로 본다
+    if (isTradZh(v)) return ["local", "추정: 번체 중국어 제목·채널명 + 대만 소재라 대만 현지 채널로 봄"];
+    const cc = Object.prototype.hasOwnProperty.call(CHANNEL_COUNTRY, v.channel_id) ? CHANNEL_COUNTRY[v.channel_id] : "";   // 채널 위치가 대만(Taiwan)이어도 판정에 쓰지 않는다: 현지에 사는 외국인 채널도 같은 값
+    if (cc && cc !== "Taiwan") return ["foreign", "추정: 채널 위치가 해외(" + cc + ")라 대만 사람이 아닌 외국인이 만든 영상으로 봄 (채널 정보 페이지 기준, 국적을 확인한 것은 아님)"];
+    if (/[가-힣]/.test(v.title) || hasKana(v.title)) return ["foreign", "추정: 한국어·일본어 제목의 대만 영상이라 대만 사람이 아닌 외국인이 만든 것으로 봄 (확정은 아님)"];
+    if (NON_EN_RE.test(v.title)) return ["foreign", "추정: 중국어·영어가 아닌 언어로 만든 대만 영상이라 외국인이 만든 것으로 봄 (확정은 아님)"];
+    if (FIRST_PERSON_RE.test(v.title)) return ["foreign", "추정: 영어 제목에 일인칭·직접 촬영 표현이 있는 대만 영상 (확정은 아님)"];
+    return ["unk", "추정: 대만 영상이지만 외국인이 직접 촬영했다는 신호가 없음"];
+  }
   const hr = hangulRatio(v.title);
   if (hr >= 0.3) return ["local", "추정: 한국어 제목(한글 비율 " + Math.round(hr * 100) + "%)이라 현지 채널이 편집·소개한 영상으로 봄 (외국인이 한국어로 운영하는 채널이면 분류 바꾸기)"];
   if (hasKana(v.title)) return v._subj === "일본" ? ["local", "추정: 일본어 제목 + 일본 주제라 현지 편집·소개로 봄"] : ["unk", "추정: 일본어 제목이지만 주제가 한국·혼합이라 원본인지 알 수 없음"];
@@ -478,6 +489,9 @@ function computeKinds() {
 const NONEXP_RE = /\bquiz\b|guess (the )?\d*|\brecaps?\b|plot summary|isekai|manhwa|webtoon|another world|explained|documentary|what is (a|an|the)\b|how to (rent|buy|get|apply|use|book)|data plans?|ultimate guide|complete guide|beginner'?s guide|top ?\d+|\d+ (best|places|things|reasons|facts)|why (this|japan|korea|japan's|korea's)|statistics|aging|workforce|history of|\bnews\b|breaking/i;
 const EXPSIG_RE = /\bi\b|\bi'|\bmy\b|\bwe\b|\bour\b|\bme\b|first time|vlog|trying|tried|visit|trip|going to|went to|go to|what is it like|travel|day in|days in|living in|moved to|exploring|explored|tour\b|experience|stay\b|hotel|lost in|walking|eating|reacts? to my/i;
 const expOK = v => !NONEXP_RE.test(v.title) || EXPSIG_RE.test(v.title);
+// 대만 소재 판정: 대만 지명이 제목에 있고 한국·일본 지명이 없을 때 (국적 표현 'Taiwanese' 만으로는 대만 소재가 아니다). 지정학·뉴스·칩 산업 영상은 체험이 아니므로 대만체험에서 제외한다
+const TW_RE = /\btaiwan\b|taipei|kaohsiung|tainan|taichung|hualien|taitung|jiufen|shifen|alishan|sun moon lake|kenting|tamsui|danshui|ximending|shilin|raohe|台灣|臺灣|台湾|台北|高雄|台南|台中|花蓮|花莲|九份|대만|타이완|타이베이|가오슝|타이난|타이중|지우펀/i;
+const NONTW_RE = /strait|invasion|\bpla\b|military|\btsmc\b|\bchips?\b|semiconductor|election|president|geopolit|\bwar\b|missile|tariff|trump|biden|\bnews\b|breaking|해협|침공|군사|반도체|선거|대통령|지정학|台海|兩岸|兩岸|两岸|解放軍|選舉|總統|\bguerre\b|\bchine\b|conflit|\bkrieg\b|\bguerra\b|\bchina\b.{0,12}\b(vs|versus|conflict|threat)|politique|elecciones|presidente|militar|\bchiny\b|ukraine|война/i;
 const JP_PLACE_RE =/tokyo|osaka|kyoto|hokkaido|okinawa|fukuoka|nara\b|hiroshima|nagoya|shinjuku|shibuya|in japan|to japan|japan (trip|travel|vlog)|도쿄|오사카|교토|후쿠오카|일본 여행|東京|大阪|京都/i;
 // 텔레그램 알림 출처(한국/일본) 구분: alert_country(있으면)·country 값으로 판정한다. 둘 다 아니면(판정 불가) 두 목록 모두에 넣어 숨겨지지 않게 한다.
 // 'alert' 플래그·sources의 "alert" 자체는 그대로 둔다(원래 출처 표시): 여기서 나누는 것은 목록(_lists) 키뿐이다 (근거: 2026-10-21 요청, alert_kr/alert_jp 분리)
@@ -501,6 +515,7 @@ function computeLists() {
     // 한일 혼합(both)은 제목에 해당 나라의 장소 신호가 있을 때만 그 나라 체험에 넣는다 (두 나라 모두 있으면 두 목록)
     if (v._kind === "foreign" && expOK(v) && (v._subj === "한국" || (v._subj === "both" && KR_PLACE_RE.test(v.title)))) C.push("krexp");
     if (v._kind === "foreign" && expOK(v) && (v._subj === "일본" || (v._subj === "both" && JP_PLACE_RE.test(v.title)))) C.push("jpexp");
+    if (v._kind === "foreign" && expOK(v) && v._subj === "대만" && !NONTW_RE.test(v.title)) C.push("twexp");   // 대만체험: 외국인 원본(추정) + 대만 소재 (칩은 taiwan_hidden.js 가 넣는다)
     const open = v._kind !== "foreign" && v._kind !== "inst";   // 외국인 원본·기관으로 이미 판정된 영상은 닉네임 언어만으로 옮기지 않는다
     if (v.ref || (v._kind === "local" && v._subj === "한국") || (open && hanCh(v) && v._subj === "한국")) C.push("krguk");
     if ((v._kind === "local" && v._subj === "일본") || (open && kanaCh(v) && v._subj === "일본")) C.push("jpguk");
@@ -511,6 +526,8 @@ function computeLists() {
     if (v.ref) v._lists.push("ref");   // 레퍼런스 모음: 내가 채널을 알려 준 별도 레퍼런스 채널의 영상 전부 (국뽕채널·한국에도 함께 속한다)
   });
 }
+// 대만 소재: 제목에 대만 지명이 있고 한국·일본 지명은 없으면 소재를 대만으로 본다 (국적 표현만 있는 제목은 해당 없음). 한국·일본 소재 판정(_subj)보다 우선하지만 한국·일본 지명이 함께 있으면 건드리지 않는다
+V.forEach(v => { if (TW_RE.test(v.title || "") && !KR_PLACE_RE.test(v.title || "") && !JP_PLACE_RE.test(v.title || "")) v._subj = "대만"; });
 computeKinds();
 scoreAll();
 // ---- 🎯 국뽕 점수 (스크립트 채점 기록, web/scores.js): 기존 🏆 등급(제목·조회수 기준)과 별개다. 같은 영상 ID 로 카드에 붙이고, 채점 기록 화면에서는 ID 가 없는 영상도 보여준다 ----
@@ -768,6 +785,7 @@ const PAGE = 48;   // 한 번에 만드는 카드 수
 let renderedCount = 0, moreObs = null, moreFn = null;
 addEventListener("scroll", () => { if (!moreFn) return; const s = document.querySelector("#grid .more"); if (s && s.getBoundingClientRect().top < innerHeight + 1200) moreFn(); }, {passive: true});
 function render(opts) {
+  refreshListCounts();   // 다른 스크립트가 나중에 끼워 넣은 칩(대만체험 등)의 숫자도 실제 목록 기준으로 맞춘다
   // 목록을 옮기면 그 목록에서만 쓰는 필터는 같이 풀린다 (지방 여행: 한국 목록, 노션 중복: 노션 목록, 레퍼런스 채널: 국뽕채널·한국)
   { let ch = false;
     if (!hasList("krguk") && !hasList("ref") && refSel.size) { refSel.clear(); ch = true; }

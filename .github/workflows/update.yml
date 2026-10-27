@@ -7,7 +7,7 @@ on:
   workflow_dispatch:        # Actions 탭에서 수동 실행도 가능 (모든 수집 실행)
   push:
     branches: [main]
-    paths: ["web/index.html", "web/reference.js", "web/benchmark.js", "web/alerts.js", "alerts/**", "web/videos.js", "web/global_topics_jp.js", "web/topic_candidates.js", "web/experience_assignments.js", "web/scorer.js", "web/scores.js", "web/auto_scores.js", ".github/workflows/update.yml"]   # 화면만 고쳤을 때는 수집 없이 바로 배포
+    paths: ["web/index.html", "web/reference.js", "web/benchmark.js", "web/taiwan_exp.js", "web/alerts.js", "alerts/**", "web/videos.js", "web/global_topics_jp.js", "web/topic_candidates.js", "web/experience_assignments.js", "web/scorer.js", "web/scores.js", "web/auto_scores.js", ".github/workflows/update.yml"]   # 화면만 고쳤을 때는 수집 없이 바로 배포
 
 permissions:
   contents: write
@@ -75,6 +75,12 @@ jobs:
         timeout-minutes: 40
         run: python global_topics_watch.py
 
+      - name: 대만 체험 영상 수집 - 외국인이 대만을 여행·체험하는 영상 (아침 실행과 수동 실행에서만, 실패해도 사이트 배포는 계속)
+        if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 22 * * *'
+        continue-on-error: true
+        timeout-minutes: 40
+        run: python taiwan_watch.py
+
       - name: 글로벌 콘텐츠 일본 버전 12개 갈래·140꼭지 갱신 - 아침 실행과 수동 실행에서만 (실패해도 사이트 배포는 계속)
         if: github.event_name == 'workflow_dispatch' || github.event.schedule == '0 22 * * *'
         continue-on-error: true
@@ -103,7 +109,7 @@ jobs:
         run: |
           git config user.name "github-actions"
           git config user.email "actions@users.noreply.github.com"
-          git add site_store.json web/videos.js web/channels.js web/viral.js viral_store.json web/experience.js experience_store.json web/japan_topics.js japan_topics_store.json web/global_topics.js global_topics_store.json web/global_topics_jp.js global_topics_jp_store.json web/reference.js reference_store.json web/benchmark.js benchmark_store.json web/alerts.js
+          git add site_store.json web/videos.js web/channels.js web/viral.js viral_store.json web/experience.js experience_store.json web/japan_topics.js japan_topics_store.json web/global_topics.js global_topics_store.json web/global_topics_jp.js global_topics_jp_store.json web/reference.js reference_store.json web/benchmark.js benchmark_store.json web/taiwan_exp.js taiwan_exp_store.json web/alerts.js
           git diff --cached --quiet || git commit -m "영상 데이터 업데이트"
           git pull --rebase
           git push
