@@ -3608,6 +3608,29 @@
       "warn": [
         "Claude FM 채점·검수. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
       ]
+    },
+    {
+      "id": "dYcFgPyE5IY",
+      "ver": "kr",
+      "t": "exploring jeju & busan with my cousin",
+      "source": "gemini_fm",
+      "fm_sha256": "914b35b93e2306592c1d1a561865711532cfbe36abe3752d579160aa1f1a5ad1",
+      "transcript_sha256": "ecc8a1e8ebc983ce1121403f071edad8cc80376ad54ff2ebdc9f77cd91f183a9",
+      "checked_at": "2026-10-27T19:28:35.544450+09:00",
+      "min": 22.116666666666667,
+      "p": 3.0,
+      "s": [
+        8,
+        7,
+        5,
+        6,
+        5,
+        4
+      ],
+      "verified_by": "program",
+      "warn": [
+        "Gemini 1차 채점 · 프로그램 형식·인용 검사. 자막 전문과 해당 국가의 FM을 사용했습니다. 자동 생성·번역 자막 오류 가능성이 있으며 영상 화면은 검증하지 않았습니다. 원문 근거는 공개하지 않습니다."
+      ]
     }
   ]
 }
