@@ -142,13 +142,18 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
     <div class="bar"><span class="lbl">외국인이 겪는 한국 — 글로벌 콘텐츠 12개 갈래 (칩에 마우스를 올리면 설명)</span><span id="gts" style="display:contents"></span></div>
     <div class="bar"><span class="lbl">외국인 한국 여행</span><span id="trvkr" style="display:contents"></span></div>
     <div class="bar"><span class="lbl">🗺 지방 여행 — 서울·부산 말고 다른 지역 (제목의 지역 이름으로 분류 · 영상 출처와 같이 고를 수 있어요)</span><span id="rgs" style="display:contents"></span></div>
+    <div class="bar"><span class="lbl">대표 도시 제외 — 다른 지역 이름이 제목에 있는 영상만 (위치를 모르는 영상은 포함하지 않아요)</span><span id="rxkr" style="display:contents"></span></div>
     <details class="gdetails"><summary>세부 꼭지 140개 펼치기 (고르면 갈래보다 우선 적용)</summary><button class="chip" id="gclear" style="margin:6px 0">꼭지 선택 모두 해제</button><div id="gitems"></div></details>
   </div>
   <div class="fpanel" data-g="jp" hidden>
     <div class="bar"><span class="lbl">일본 — 아직 비어 있는데 터지는 주제 (칩에 마우스를 올리면 참고 지표)</span><span id="jts" style="display:contents"></span></div>
     <div class="bar"><span class="lbl">외국인이 겪는 일본 — 글로벌 콘텐츠 12개 갈래 (한국 버전과 같은 구성, 칩에 마우스를 올리면 설명)</span><span id="jgts" style="display:contents"></span></div>
     <div class="bar"><span class="lbl">외국인 일본 여행</span><span id="trvjp" style="display:contents"></span></div>
+    <div class="bar"><span class="lbl">대표 도시 제외 — 다른 지역 이름이 제목에 있는 영상만 (위치를 모르는 영상은 포함하지 않아요)</span><span id="rxjp" style="display:contents"></span></div>
     <details class="gdetails"><summary>일본 세부 꼭지 140개 펼치기 (고르면 갈래보다 우선 적용)</summary><button class="chip" id="jgclear" style="margin:6px 0">꼭지 선택 모두 해제</button><div id="jgitems"></div></details>
+  </div>
+  <div class="fpanel" data-g="tw" hidden>
+    <div class="bar"><span class="lbl">대만 소재 — 대표 도시 제외: 다른 지역 이름이 제목에 있는 영상만 (신베이는 타이베이와 별개 · 위치를 모르는 영상은 포함하지 않아요)</span><span id="rxtw" style="display:contents"></span></div>
   </div>
   <div class="fpanel" data-g="exp" hidden>
     <div class="bar"><span class="lbl">외국인이 한국·일본에서 하는 체험</span><span id="exps" style="display:contents"></span></div>
@@ -528,6 +533,32 @@ function computeLists() {
 }
 // 대만 소재: 제목에 대만 지명이 있고 한국·일본 지명은 없으면 소재를 대만으로 본다 (국적 표현만 있는 제목은 해당 없음). 한국·일본 소재 판정(_subj)보다 우선하지만 한국·일본 지명이 함께 있으면 건드리지 않는다
 V.forEach(v => { if (TW_RE.test(v.title || "") && !KR_PLACE_RE.test(v.title || "") && !JP_PLACE_RE.test(v.title || "")) v._subj = "대만"; });
+// <regional-exclusions>
+// 사용자 요청(2026-10-28): 소재 나라 안에서 대표 도시를 뺀 '다른 지역' 영상만 보는 화면 필터. 데이터·점수·분류는 바꾸지 않는다. 근거: docs/collab/2026-10-28-regional-exclusions.md
+// 조건(모두 충족): 해당 나라가 소재 + 제목에 다른 지역 이름이 명시 + 제외 도시 언급 없음 + 다른 나라 지명 없음(혼합 여정 제외). 지역 근거가 없는 영상(위치 미확인)은 지방으로 추정하지 않는다
+// 수도: 일본=도쿄, 대만=타이베이(신베이는 별개 지역). 한국은 서울·부산·제주(제주도 전역)를 뺀다
+const RX_EXCL = {
+  kr_ex: new RegExp(SEOUL_BUSAN_RE.source + "|" + REGIONS[0][2].source, "i"),   // 기존 서울·부산 관련어 + 제주 전역
+  jp_ex: /tokyo|shinjuku|shibuya|asakusa|akihabara|ginza|harajuku|ikebukuro|ueno\b|roppongi|odaiba|도쿄|동경|신주쿠|시부야|아사쿠사|아키하바라|긴자|하라주쿠|이케부쿠로|우에노|롯폰기|오다이바|東京|新宿|渋谷|浅草|秋葉原|銀座|原宿|池袋|上野|六本木|お台場|トウキョウ|とうきょう/i,
+  tw_ex: /taipei|ximending|shilin|raohe|beitou|maokong|elephant mountain|타이베이|台北|臺北|西門町|士林|饒河|北投|시먼딩|스린|라오허|베이터우|마오콩/i
+};
+const RX_NEW_TAIPEI_RE = /new taipei|新北|신베이/ig;   // 신베이(新北)는 타이베이와 다른 지역이라 제외 판정 전에 지운다
+const RX_OTHER = {   // 제외 도시가 아닌 지역 이름 (한국은 REGIONS 의 제주 외 지역을 쓴다)
+  jp_ex: /osaka|kyoto|hokkaido|okinawa|fukuoka|\bnara\b|hiroshima|nagoya|sapporo|kobe|kanazawa|nagasaki|kumamoto|kagoshima|beppu|yokohama|kamakura|hakone|otaru|sendai|shikoku|오사카|교토|홋카이도|오키나와|후쿠오카|나라현|히로시마|나고야|삿포로|고베|가나자와|나가사키|구마모토|가고시마|벳푸|요코하마|가마쿠라|하코네|오타루|센다이|시코쿠|大阪|京都|北海道|沖縄|福岡|奈良|広島|名古屋|札幌|神戸|金沢|長崎|熊本|鹿児島|別府|横浜|鎌倉|箱根|小樽|仙台/i,
+  tw_ex: /kaohsiung|tainan|taichung|hualien|taitung|jiufen|shifen|alishan|sun moon lake|kenting|tamsui|danshui|yilan|pingtung|chiayi|nantou|keelung|taoyuan|hsinchu|taroko|penghu|kinmen|yehliu|new taipei|高雄|台南|臺南|台中|臺中|花蓮|花莲|台東|九份|十分|阿里山|日月潭|墾丁|垦丁|淡水|宜蘭|屏東|嘉義|南投|基隆|桃園|新竹|太魯閣|澎湖|金門|野柳|新北|가오슝|타이난|타이중|화롄|타이둥|지우펀|스펀|아리산|르웨탄|컨딩|단수이|핑둥|난터우|지룽|타오위안|신주시|타로코|펑후|진먼|예류|신베이/i
+};
+const RX_ABROAD = {   // 다른 나라 지명이 함께 있으면 혼합 여정으로 보고 뺀다
+  kr_ex: [JP_PLACE_RE, TW_RE], jp_ex: [KR_PLACE_RE, TW_RE], tw_ex: [KR_PLACE_RE, JP_PLACE_RE]
+};
+const RX_SUBJ = {kr_ex: "한국", jp_ex: "일본", tw_ex: "대만"};
+const rxMatch = (v, k) => {
+  if (v._subj !== RX_SUBJ[k]) return false;
+  const t = v.title || "";
+  const t2 = k === "tw_ex" ? t.replace(RX_NEW_TAIPEI_RE, " ") : t;
+  if (RX_EXCL[k].test(t2) || RX_ABROAD[k].some(re => re.test(t))) return false;
+  return k === "kr_ex" ? regionsOf(v).rg.some(r => r !== "jeju") : RX_OTHER[k].test(t);
+};
+// </regional-exclusions>
 computeKinds();
 scoreAll();
 // ---- 🎯 국뽕 점수 (스크립트 채점 기록, web/scores.js): 기존 🏆 등급(제목·조회수 기준)과 별개다. 같은 영상 ID 로 카드에 붙이고, 채점 기록 화면에서는 ID 가 없는 영상도 보여준다 ----
@@ -581,7 +612,7 @@ function mkMulti(parent, items, sel, total, onChange) {
   MULTIS.push({parent, sel, keys, sync});
   sync();
 }
-const catSel = new Set(), viewSel = new Set(), kindSel = new Set(), expSel = new Set(), trvSel = new Set(), jtSel = new Set(), gcSel = new Set(), giSel = new Set(), grdSel = new Set(), typSel = new Set(), rgSel = new Set(), refSel = new Set(), srcSel = new Set(), jgcSel = new Set(), jgiSel = new Set(), xstSel = new Set(), bmSel = new Set();
+const catSel = new Set(), viewSel = new Set(), kindSel = new Set(), expSel = new Set(), trvSel = new Set(), jtSel = new Set(), gcSel = new Set(), giSel = new Set(), grdSel = new Set(), typSel = new Set(), rgSel = new Set(), refSel = new Set(), srcSel = new Set(), jgcSel = new Set(), jgiSel = new Set(), xstSel = new Set(), bmSel = new Set(), rxSel = new Set();
 const nHidden = () => [...hidden].filter(x => !x.startsWith("ch:")).length;
 // 출처 선택: 외국인 원본 / 현지 편집·소개(내 채널과 비슷한 국뽕 채널) / 기관·방송 / 미확인. 마지막 선택은 이 브라우저에 기억한다
 const kindsEl = document.getElementById("kinds");
@@ -643,6 +674,10 @@ if (SCI.length) {
   mkMulti(document.getElementById("scv"), [["kr", "🇰🇷 한국판", V.filter(v => v._sc && v._sc.ver === "kr").length], ["jp", "🇯🇵 일본판", V.filter(v => v._sc && v._sc.ver === "jp").length]], scVSel, V.length, () => render());
   document.querySelectorAll("#scg .chip").forEach(b => { const t = {scored: "스크립트를 읽고 직접 채점한 영상만 (제목·조회수 기준 🏆 등급과 별개)", A: "70점 이상 (S 85+, A 70~84)", B: "55~69점", C: "54점 이하 — 단독으로는 약하고 장면만 컷으로 쓰기 좋은 영상", H: "대사가 거의 없어 점수를 내지 않은 영상"}[b.dataset.k]; if (t) b.title = t; });
 }
+[["rxkr", "kr_ex", "🚫 서울·부산·제주 제외", "한국 소재 영상 중 제목에 다른 지역 이름(경주·강원·전라·경남 등)이 있고, 서울·부산·제주(제주도 전역)와 다른 나라 지명은 없는 영상. 지역 근거가 없으면 지방으로 보지 않아요. 데이터는 지우지 않고 화면에서만 걸러요."],
+  ["rxjp", "jp_ex", "🚫 도쿄 제외", "일본 소재 영상 중 제목에 다른 지역 이름(오사카·교토·홋카이도 등)이 있고, 도쿄와 다른 나라 지명은 없는 영상. 지역 근거가 없으면 지방으로 보지 않아요."],
+  ["rxtw", "tw_ex", "🚫 타이베이 제외", "대만 소재 영상 중 제목에 다른 지역 이름(가오슝·타이난·지우펀·신베이 등)이 있고, 타이베이와 다른 나라 지명은 없는 영상. 신베이는 타이베이와 별개 지역으로 봐요. 지역 근거가 없으면 지방으로 보지 않아요."]
+].forEach(([id, k, label, tip]) => { mkMulti(document.getElementById(id), [[k, label, V.filter(v => rxMatch(v, k)).length]], rxSel, V.length, () => render()); document.querySelector("#" + id + ' .chip[data-k="' + k + '"]').title = tip; });
 mkMulti(document.getElementById("trvkr"), [["kr", "🇰🇷 외국인 한국 여행", V.filter(v => v._krTrip).length]], trvSel, V.length, () => render());
 mkMulti(document.getElementById("rgs"), [["_any", "🗺 지방 여행 전체 (제목에 서울 없음)", V.filter(v => v._rgAny && v._lists.includes("krexp")).length]].concat(REGIONS.map(r => [r[0], r[1], V.filter(v => v._rg.includes(r[0])).length])), rgSel, V.length, () => render());
 { const rgq = document.getElementById("rgq"); rgq.innerHTML = `🗺 지방 여행 (제목에 서울 없음)<small>${V.filter(v => v._rgAny && v._lists.includes("krexp")).length}</small>`;   // 자주 쓰는 줄의 바로가기: 세부 지역은 '한국 소재' 탭에서 고른다
@@ -735,7 +770,7 @@ const saveAll = () => { ls.set("favs", [...favs]); ls.set("done", [...done]); ls
 // ---- 필터 화면 정리: 선택한 필터 요약(제거 가능한 칩), 탭 배지, 전체 초기화, 결과 수 ----
 // 접힌 탭 안의 선택도 항상 위의 요약에 보여서, 숨은 조건 때문에 결과가 0이 되어도 원인을 바로 알 수 있다.
 const fpanelsEl = document.getElementById("fpanels"), ftabsEl = document.getElementById("ftabs"), activeEl = document.getElementById("active"), resultEl = document.getElementById("result");
-const TABS = [["kr", "🇰🇷 한국 소재"], ["jp", "🇯🇵 일본 소재"], ["exp", "🎟 외국인 체험"], ["more", "📊 상세 조건"], ["mine", "⭐ 내 작업"]];
+const TABS = [["kr", "🇰🇷 한국 소재"], ["jp", "🇯🇵 일본 소재"], ["tw", "🇹🇼 대만 소재"],["exp", "🎟 외국인 체험"], ["more", "📊 상세 조건"], ["mine", "⭐ 내 작업"]];
 let openTab = null;
 const syncTabs = () => { ftabsEl.querySelectorAll(".ftab").forEach(b => b.classList.toggle("open", b.dataset.g === openTab)); fpanelsEl.querySelectorAll(".fpanel").forEach(p => p.hidden = p.dataset.g !== openTab); };
 TABS.forEach(([g, label]) => {
@@ -827,6 +862,7 @@ function render(opts) {
     && (!grdSel.size || grdSel.has(v._grade) || (grdSel.has("len") && v._pendingLen)) && (!typSel.size || (v._grade && typSel.has(v._type)))
     && (!scGSel.size || [...scGSel].some(k => scGradeOK(v, k))) && (!scVSel.size || (v._sc && scVSel.has(v._sc.ver)))
     && (!rgSel.size || [...rgSel].some(k => k === "_any" ? v._rgAny : v._rg.includes(k)))
+    && (!rxSel.size || [...rxSel].some(k => rxMatch(v, k)))   // 대표 도시 제외 칩: 나라가 다르면 둘 중 하나, 다른 줄의 조건과는 AND
     && (!jtSel.size || [...jtSel].some(k => v._jt.includes(k)))
     && (!trvSel.size || (trvSel.has("kr") && v._krTrip) || (trvSel.has("jp") && v._jpTrip))
     && (!viewSel.has("viral") || v.viral) && (!viewSel.has("fav") || favs.has(v.id)) && (!viewSel.has("memo") || memos[v.id]) && (!viewSel.has("new") || isNew(v))

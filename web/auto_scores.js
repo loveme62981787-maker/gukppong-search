@@ -26,6 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
       grd: (v, k) => k === 'len' ? v._pendingLen : v._grade === k,
       typ: (v, k) => v._grade && (k === 'all' || v._type === k),
       cty: (v, k) => v._subj === k,
+      rxkr: (v, k) => rxMatch(v, k), rxjp: (v, k) => rxMatch(v, k), rxtw: (v, k) => rxMatch(v, k),
       kinds: (v, k) => v._kind === k,
       trvkr: v => v._krTrip, trvjp: v => v._jpTrip,
       rgs: (v, k) => k === '_any' ? v._rgAny && v._lists.includes('krexp') : v._rg.includes(k),
