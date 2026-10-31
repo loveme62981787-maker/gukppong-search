@@ -212,8 +212,41 @@ def free_use_rule(description):
     return None
 
 
+KST = timezone(timedelta(hours=9))
+_TS = re.compile(r"^(\d{4}-\d{2}-\d{2})(?:T(\d{2}:\d{2}:\d{2})(?:\.\d+)?(Z|[+-]\d{2}:\d{2})?)?$")
+
+
+def kst_date(v):
+    """ISO 날짜/시각 문자열 → 한국시간(UTC+9) 'YYYY-MM-DD'. 날짜만 있으면 그대로, 시간대가 있으면 KST 로 변환한다. 형식이 틀리면 None"""
+    m = _TS.match(v.strip()) if isinstance(v, str) else None
+    if not m:
+        return None
+    try:
+        if not m.group(2):
+            return datetime.strptime(m.group(1), "%Y-%m-%d").date()
+        dt = datetime.strptime(m.group(1) + "T" + m.group(2), "%Y-%m-%dT%H:%M:%S")
+        if m.group(3):
+            off = timedelta(0) if m.group(3) == "Z" else timedelta(hours=int(m.group(3)[1:3]), minutes=int(m.group(3)[4:6]))
+            if m.group(3)[0] == "-":
+                off = -off
+            return dt.replace(tzinfo=timezone(off)).astimezone(KST).date()
+        return dt.date()   # 시간대 없는 시각은 변환할 근거가 없어 날짜 부분만
+    except ValueError:
+        return None
+
+
+def upload_date(mf, today=None):
+    """playerMicroformatRenderer 의 publishDate/uploadDate → 한국시간 기준 'YYYY-MM-DD'. 형식이 틀리거나 범위 밖(2005년 이전·내일 이후)이면 ''(추정하지 않는다)"""
+    today = today or now_utc().astimezone(KST).date()
+    for k in ("publishDate", "uploadDate"):
+        d = kst_date(mf.get(k))
+        if d and datetime(2005, 1, 1).date() <= d <= today + timedelta(days=1):
+            return d.isoformat()
+    return ""
+
+
 def parse_watch(page, vid):
-    """반환: ('ok', {license, free_rule, has_desc}) 또는 ('err', 코드). 대상 영상 ID 가 정확히 같을 때만 ok"""
+    """반환: ('ok', {license, free_rule, has_desc, published}) 또는 ('err', 코드). 대상 영상 ID 가 정확히 같을 때만 ok"""
     pr = _json_after(page, "ytInitialPlayerResponse")
     if not isinstance(pr, dict):
         return "err", "blocked"   # 동의/차단/봇 확인 화면 등 정상 watch 페이지가 아님
@@ -233,7 +266,8 @@ def parse_watch(page, vid):
         return "err", "identity_mismatch"
     mf = (pr.get("microformat") or {}).get("playerMicroformatRenderer") or {}
     desc = _text(mf.get("description")) or (pr.get("videoDetails") or {}).get("shortDescription")
-    return "ok", {"license": license_from_data(data), "free_rule": free_use_rule(desc), "has_desc": bool(desc) or "description" in mf or "shortDescription" in (pr.get("videoDetails") or {})}
+    return "ok", {"license": license_from_data(data), "free_rule": free_use_rule(desc), "has_desc": bool(desc) or "description" in mf or "shortDescription" in (pr.get("videoDetails") or {}),
+                  "published": upload_date(mf)}   # 영상 ID 가 일치한 페이지의 업로드 날짜만 (없으면 '')
 
 
 # ---------------------------------------------------------------- 상태 갱신 (실패해도 확인된 기록을 지우지 않는다)

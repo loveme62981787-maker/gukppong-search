@@ -180,7 +180,7 @@ test('실제 연결: 전체 초기화는 탭만 풀고 숨김 데이터는 그�
 });
 
 test('index.html 배선: 로드 실패 대체값, 필터·카드 연결, 아래쪽 중복 줄 없음', () => {
-  assert.match(html, /<script src="video_licenses\.js" onerror="window\.VIDEO_LICENSES=\{schema:1,items:\{\}\}"><\/script>/);
+  assert.match(html, /<script src="video_licenses\.js(?:\?v=\w+)?" onerror="window\.VIDEO_LICENSES=\{schema:1,items:\{\}\}"><\/script>/);
   assert.match(html, /licPass\(v\.id, viewSel\)/);
   assert.doesNotMatch(html, /id="licrow"|id="lic"/);   // 목록·패널 아래 별도 줄 없음
   assert.doesNotMatch(html, /innerHTML[^\n]*licNotes/);   // 안내 문구는 DOM 텍스트로만 넣는다

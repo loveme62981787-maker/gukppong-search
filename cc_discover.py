@@ -5,7 +5,7 @@
 
 저장: data/cc_candidates.json (후보 큐 + 검색 기록. 설명 원문·연락처 없음, 제목·채널 같은 공개 메타데이터만)
       data/video_licenses.json (license_watch 와 공유: 확인 결과 기록)  →  web/cc_videos.js (현재 CC BY 로 확인된 영상만)
-실행: python cc_discover.py [--per-country N] [--max-candidates N] [--workers N] [--export-only]
+실행: python cc_discover.py [--per-country N] [--max-candidates N] [--workers N] [--export-only] [--backfill-dates] [--refresh-dates]
 설계 근거: docs/collab/2026-11-01-cc-discovery.md
 차단(429/403/비정상 화면)이 보이면 즉시 멈춘다. 프록시·우회 없음.
 """
@@ -153,6 +153,8 @@ def apply_verdict(store, lic_store, vid, res, now):
         it["error"] = res[1]
         return
     it["fail_count"], it["error"] = 0, None
+    if res[1].get("published"):
+        it["published"] = res[1]["published"]   # 비어 있는 결과로 기존 날짜를 지우지 않는다
     it["status"] = "verified" if res[1]["license"] == "cc_by" else "rejected"
 
 
@@ -164,10 +166,42 @@ def export_js(store, lic_store, out=OUT):
         if it.get("status") != "verified" or (lic_store["items"].get(vid) or {}).get("license") != "cc_by":
             continue
         items.append({"id": vid, "title": it["title"], "channel": it["channel"], "channel_id": it["channel_id"], "views": it.get("views", 0), "length": it.get("length"),
-                      "duration_sec": it.get("duration_sec"), "country": it["country"], "first_seen": it["first_seen"], "published": "", "sources": ["cc_discovery"],
+                      "duration_sec": it.get("duration_sec"), "country": it["country"], "first_seen": it["first_seen"], "published": it.get("published") or "", "sources": ["cc_discovery"],
                       "foreign": "unknown"})   # 외국인 여부는 확인하지 않았다
     lw._atomic_write(out, "window.CC_VIDEOS=" + json.dumps(items, ensure_ascii=False, separators=(",", ":")) + ";\n")
     return len(items)
+
+
+# ---------------------------------------------------------------- 업로드 날짜 보충 (라이선스 재평가 없음)
+def backfill_dates(workers=2, fetch=discover.get, sleep=time.sleep, now_fn=now_utc, store_path=STORE, lic_path=lw.STORE, out_path=OUT, refresh=False):
+    """확인된(verified) 후보 중 업로드 날짜가 없는 영상(refresh=True 면 전부, 기존 날짜도 한국시간 기준으로 다시)만 watch 페이지에서 날짜를 읽어 채운다. 검색·라이선스 판정은 건드리지 않고,
+    실패하면 기존 값을 그대로 둔다. 차단성 오류가 2번 연속이면 즉시 멈춘다. 반환: (채움, 실패 ID 목록, 중단 사유)"""
+    store, lic = load_store(store_path), lw.load_store(lic_path)
+    todo = [i for i, it in sorted(store["items"].items()) if it.get("status") == "verified" and (refresh or not it.get("published"))]
+    filled, failed, stopped, blocks = 0, [], "", 0
+    try:
+        with ThreadPoolExecutor(max_workers=min(max(workers, 1), 2)) as ex:
+            for s in range(0, len(todo), 2):
+                chunk = todo[s:s + 2]
+                for vid, res in zip(chunk, ex.map(lambda v: lw.fetch_one(v, fetch, sleep), chunk)):
+                    pub = res[1].get("published") if res[0] == "ok" else ""
+                    if pub:
+                        store["items"][vid]["published"] = pub
+                        filled += 1
+                    else:
+                        failed.append(vid + ":" + (res[1] if res[0] == "err" else "no_date"))
+                    blocks = blocks + 1 if res[0] == "err" and res[1] in BLOCK_ERRS else 0
+                if blocks >= 2:
+                    stopped = "확인 중 차단 의심"
+                    break
+                sleep(1)
+    finally:
+        if filled:
+            store["updated"] = lw.iso(now_fn())
+            save_store(store, store_path)
+        export_js(store, lic, out_path)
+    print(f"업로드 날짜 보충 대상 {len(todo)}개 · 채움 {filled}개 · 실패 {failed}" + (f" · 중단: {stopped}" if stopped else ""))
+    return filled, failed, stopped
 
 
 # ---------------------------------------------------------------- 실행
@@ -217,11 +251,15 @@ def main():
     ap.add_argument("--per-country", type=int, default=1, help="나라마다 이번에 돌릴 검색어 수 (기본 1)")
     ap.add_argument("--max-candidates", type=int, default=5, help="나라마다 새 후보 상한 (기본 5)")
     ap.add_argument("--workers", type=int, default=2, help="동시 확인 수 (기본 2, 최대 2)")
+    ap.add_argument("--backfill-dates", action="store_true", help="검색 없이, 확인된 영상 중 업로드 날짜가 빈 것만 watch 페이지에서 채운다 (순차/최대 2동시, 차단 시 중단)")
+    ap.add_argument("--refresh-dates", action="store_true", help="확인된 영상 전부의 업로드 날짜를 한국시간 기준으로 다시 읽어 갱신한다 (실패하면 기존 값 보존)")
     ap.add_argument("--export-only", action="store_true", help="네트워크 없이 data → web/cc_videos.js 만 다시 만든다")
     a = ap.parse_args()
     if hasattr(sys.stdout, "reconfigure"):
         sys.stdout.reconfigure(encoding="utf-8", errors="replace")
     try:
+        if a.backfill_dates or a.refresh_dates:
+            return 2 if backfill_dates(a.workers, refresh=a.refresh_dates)[2] else 0
         if a.export_only:
             print(f"내보내기만: 공개 CC BY {export_js(load_store(), lw.load_store())}개")
         else:

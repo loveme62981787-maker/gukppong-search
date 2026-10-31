@@ -140,5 +140,79 @@ class RunTest(unittest.TestCase):
             self.assertIn(D, lw.load_inventory(web))   # 확인된 CC 가 라이선스 입력 재고에 포함
 
 
+def dated(vid, pub, key="publishDate", rows=(CC,)):
+    return page(vid, list(rows)).replace('"playerMicroformatRenderer": {', '"playerMicroformatRenderer": {"%s": "%s", ' % (key, pub))
+
+
+class DateTest(unittest.TestCase):
+    def test_extract_validates_date_and_identity(self):
+        self.assertEqual(lw.parse_watch(dated(A, "2024-05-01T10:00:00-07:00"), A)[1]["published"], "2024-05-02")   # 한국시간 변환
+        self.assertEqual(lw.parse_watch(dated(A, "2023-02-03", "uploadDate"), A)[1]["published"], "2023-02-03")
+        for bad in ("2024-13-40", "not a date", "2099-01-01", "1999-01-01", ""):
+            self.assertEqual(lw.parse_watch(dated(A, bad), A)[1]["published"], "", bad)   # 날짜를 지어내지 않는다
+        self.assertEqual(lw.parse_watch(page(A, [CC]), A)[1]["published"], "")
+        self.assertEqual(lw.parse_watch(dated(B, "2024-05-01"), A), ("err", "identity_mismatch"))   # 다른 영상 페이지의 날짜는 쓰지 않는다
+        self.assertEqual(lw.parse_watch(dated(A, "2024-05-01", rows=(STD,)), A)[1]["license"], "standard")   # 날짜가 라이선스 판정에 영향 없음
+
+    def test_verdict_keeps_date_and_exports(self):
+        store, lic = cc.empty_store(), {"items": {}}
+        cc.add_candidates(store, [cand(A)], "한국", "q", lic["items"], NOW, 5)
+        cc.apply_verdict(store, lic, A, lw.parse_watch(dated(A, "2024-05-01"), A), NOW)
+        cc.apply_verdict(store, lic, A, lw.parse_watch(page(A, [CC]), A), NOW)   # 이후 날짜가 빈 결과로 덮지 않는다
+        cc.apply_verdict(store, lic, A, ("err", "blocked"), NOW)
+        self.assertEqual(store["items"][A]["published"], "2024-05-01")
+        with tempfile.TemporaryDirectory() as d:
+            p = os.path.join(d, "o.js")
+            cc.export_js(store, lic, p)
+            self.assertEqual(read_js(p)[0]["published"], "2024-05-01")
+            self.assertNotIn("description", json.dumps(store))
+
+    def test_backfill_fills_only_missing_and_keeps_on_failure(self):
+        store, lic = cc.empty_store(), {"items": {}}
+        cc.add_candidates(store, [cand(A), cand(B), cand(C), cand(D)], "한국", "q", lic["items"], NOW, 5)
+        for v in (A, B, C, D):
+            cc.apply_verdict(store, lic, v, lw.parse_watch(page(v, [CC]), v), NOW)
+        store["items"][D]["published"] = "2020-01-01"
+        calls = []
+
+        def fetch(url):
+            vid = url.split("=")[-1]
+            calls.append(vid)
+            if vid == B:
+                return "<html>nothing</html>"   # 정상 페이지 아님 → 실패, 날짜는 그대로 빈 값
+            return dated(vid, "2024-06-07")
+        with tempfile.TemporaryDirectory() as d:
+            sp, lp, op = (os.path.join(d, n) for n in ("c.json", "l.json", "o.js"))
+            cc.save_store(store, sp)
+            lw.save_store(lic, lp)
+            before = json.dumps(lw.load_store(lp), sort_keys=True)
+            filled, failed, stopped = cc.backfill_dates(2, fetch, lambda s: None, lambda: NOW, sp, lp, op)
+            self.assertEqual((filled, stopped), (2, ""))
+            self.assertEqual(failed, [B + ":blocked"])
+            self.assertNotIn(D, calls)   # 이미 날짜가 있으면 다시 요청하지 않는다
+            self.assertEqual(json.dumps(lw.load_store(lp), sort_keys=True), before)   # 라이선스 기록은 재평가하지 않는다
+            pubs = {x["id"]: x["published"] for x in read_js(op)}
+            self.assertEqual(pubs, {A: "2024-06-07", B: "", C: "2024-06-07", D: "2020-01-01"})
+
+    def test_backfill_stops_on_block(self):
+        store, lic = cc.empty_store(), {"items": {}}
+        ids = ["a" * 10 + x for x in "12345678"]
+        cc.add_candidates(store, [cand(i) for i in ids], "한국", "q", lic["items"], NOW, 9)
+        for i in ids:
+            store["items"][i]["status"] = "verified"
+        calls = []
+
+        def fetch(url):
+            calls.append(url)
+            raise OSError("blocked")
+        with tempfile.TemporaryDirectory() as d:
+            sp, lp, op = (os.path.join(d, n) for n in ("c.json", "l.json", "o.js"))
+            cc.save_store(store, sp)
+            lw.save_store(lic, lp)
+            r = cc.backfill_dates(2, fetch, lambda s: None, lambda: NOW, sp, lp, op)
+        self.assertTrue(r[2])
+        self.assertLessEqual(len(calls), 6)   # 첫 묶음(2개, 재시도 포함)에서 멈춘다
+
+
 if __name__ == "__main__":
     unittest.main()

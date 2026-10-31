@@ -202,7 +202,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script src="scorer.js" onerror="window.GukScore=null"></script>
 <script src="scores.js" onerror="window.SCORES={items:[]}"></script>
 <script src="auto_scores.js" onerror="window.AUTO_SCORES={items:[]}"></script>
-<script src="cc_videos.js?v=40644e2" onerror="window.CC_VIDEOS=[]"></script>
+<script src="cc_videos.js?v=pub1101" onerror="window.CC_VIDEOS=[]"></script>
 <script src="video_licenses.js?v=40644e2" onerror="window.VIDEO_LICENSES={schema:1,items:{}}"></script>
 <script>
 // 일반 수집 영상 + 화제·체험·일본 주제·글로벌 영상. 겹치는 영상은 표시와 길이만 합친다
@@ -224,8 +224,8 @@ const SRC_NAMES = new Set(["discovery", "notion", "viral", "experience", "japan"
 const addSrc = (o, s) => { if (!Array.isArray(o.sources)) o.sources = []; if (s && !o.sources.includes(s)) o.sources.push(s); };
 function absorb(x, mark, src) {   // 같은 영상이면 표시와 길이만 합치고(유효한 기존 길이를 null 로 덮지 않음), 새 영상이면 추가한다
   const o = V.find(v => v.id === x.id), n = normLen(x);
-  if (o) { if (mark) Object.assign(o, mark); if (n.sec != null) { o.duration_sec = n.sec; o.length = n.text; } addSrc(o, src); }
-  else { x.duration_sec = n.sec; x.length = n.text; addSrc(x, src); V.push(x); }
+  if (o) { if (mark) Object.assign(o, mark); if (n.sec != null) { o.duration_sec = n.sec; o.length = n.text; } if (src === "cc_discovery" && x.published) { o.published = x.published; o.pub_actual = true; } else if (!o.published && x.published) o.published = x.published; addSrc(o, src); }   // 실제 업로드일(KST)은 화제 영상의 추정 날짜보다 우선
+  else { x.duration_sec = n.sec; x.length = n.text; if (src === "cc_discovery" && x.published) x.pub_actual = true; addSrc(x, src); V.push(x); }
 }
 (window.VIRAL || []).forEach(x => absorb(x, {viral: true, buzz: x.buzz, age_text: x.age_text}, "viral"));   // 화제 영상(오래된 영상 포함)
 (window.EXPERIENCE || []).forEach(x => absorb(x, {exp: true}, "experience"));                              // 체험 영상(야구장·한복·찜질방 ...)
@@ -973,7 +973,8 @@ function render(opts) {
     { const notes = licNotes(licRec(v.id), viewSel.has("lic_unk"));   // 라이선스 상태 한 줄 (고정 문구 + 확인한 watch 페이지 링크)
       if (notes.length) { const li = document.createElement("div"); li.className = "licline"; li.append(notes.join(" · ") + " · 참고용(사용 보증 아님) · ");
         const a = document.createElement("a"); a.href = "https://www.youtube.com/watch?v=" + v.id; a.target = "_blank"; a.rel = "noopener"; a.textContent = "확인한 페이지"; li.append(a); c.querySelector(".body").insertBefore(li, c.querySelector(".act")); } }
-    c.querySelector(".m").textContent = v.channel + " · " + (v.viral && v.age_text ? v.age_text : v.published);
+    c.querySelector(".m").textContent = v.channel + " · " + (v.pub_actual && /^\d{4}-\d{2}-\d{2}/.test(v.published || "") ? "업로드 " + v.published.slice(0, 10) : v.viral && v.age_text ? v.age_text : /^\d{4}-\d{2}-\d{2}/.test(v.published || "") ? "업로드 " + v.published.slice(0, 10) : "업로드 날짜 미확인");   // 수집일(first_seen)은 업로드일로 보여주지 않는다
+    if (v.pub_actual) c.querySelector(".m").title = "업로드 날짜는 한국시간(KST) 기준이에요.";
     c.querySelectorAll(".lst").forEach(t => { t.title = "목록 분류는 제목·채널 정보로 한 추정이에요. 영상 내용을 보고 확인한 것은 아니에요. 근거: " + (v.bm ? "사용자 지정 채널 기준(벤치마킹 채널)" : v.ref ? "사용자 지정 채널 기준(별도 레퍼런스 채널이라 국뽕채널·한국에 포함)" : v._kindWhy); });   // 근거는 DOM 으로 넣어 HTML 로 해석되지 않게 한다
     const kt = c.querySelector(".kindtag"); kt.textContent = KIND_LABEL[v._kind]; kt.title = v._kindWhy;   // 근거는 DOM 으로 넣어 HTML 로 해석되지 않게 한다
     // 분류 바꾸기: 기본은 이 채널 전체, '이 영상만'을 체크하면 이 영상만. 이 브라우저에만 저장되고, 공식 기관 등급 상한에는 영향이 없다
