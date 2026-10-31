@@ -31,7 +31,8 @@ SCHEMA = 1
 # 사이트가 읽는 영상 목록 (파일, 변수). 모든 수집 경로를 합쳐 영상 ID 로 중복을 없앤다
 INPUTS = [("videos.js", "VIDEOS"), ("viral.js", "VIRAL"), ("experience.js", "EXPERIENCE"), ("japan_topics.js", "JP_TOPIC_ITEMS"),
           ("global_topics.js", "GLOBAL_ITEMS"), ("global_topics_jp.js", "GLOBAL_ITEMS_JP"), ("topic_candidates.js", "TOPIC_CANDIDATES"),
-          ("reference.js", "REFERENCE"), ("benchmark.js", "BENCHMARK"), ("alerts.js", "ALERTS"), ("taiwan_exp.js", "TAIWAN_EXP")]
+          ("reference.js", "REFERENCE"), ("benchmark.js", "BENCHMARK"), ("alerts.js", "ALERTS"), ("taiwan_exp.js", "TAIWAN_EXP"),
+          ("cc_videos.js", "CC_VIDEOS")]   # cc_discover.py 가 CC BY 로 확인한 영상도 재확인 대상에 포함
 ID_RE = re.compile(r"^[A-Za-z0-9_-]{11}$")
 
 # 다시 확인하는 주기 (확인에 성공한 기록 / 실패 기록의 재시도 간격)

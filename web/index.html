@@ -202,6 +202,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script src="scorer.js" onerror="window.GukScore=null"></script>
 <script src="scores.js" onerror="window.SCORES={items:[]}"></script>
 <script src="auto_scores.js" onerror="window.AUTO_SCORES={items:[]}"></script>
+<script src="cc_videos.js" onerror="window.CC_VIDEOS=[]"></script>
 <script src="video_licenses.js" onerror="window.VIDEO_LICENSES={schema:1,items:{}}"></script>
 <script>
 // 일반 수집 영상 + 화제·체험·일본 주제·글로벌 영상. 겹치는 영상은 표시와 길이만 합친다
@@ -219,7 +220,7 @@ function normLen(x) {
   return {sec, text: toSec(own) === sec ? own : fmtSec(sec)};
 }
 // 수집 경로(sources): 같은 영상이 여러 목록에 있으면 합집합으로 모은다. 'notion' = 노션 수집 목록, 그 밖은 자동 수집 경로
-const SRC_NAMES = new Set(["discovery", "notion", "viral", "experience", "japan", "global", "global_jp", "topic_search", "reference", "benchmark", "alert", "taiwan_exp"]);
+const SRC_NAMES = new Set(["discovery", "notion", "viral", "experience", "japan", "global", "global_jp", "topic_search", "reference", "benchmark", "alert", "taiwan_exp", "cc_discovery"]);
 const addSrc = (o, s) => { if (!Array.isArray(o.sources)) o.sources = []; if (s && !o.sources.includes(s)) o.sources.push(s); };
 function absorb(x, mark, src) {   // 같은 영상이면 표시와 길이만 합치고(유효한 기존 길이를 null 로 덮지 않음), 새 영상이면 추가한다
   const o = V.find(v => v.id === x.id), n = normLen(x);
@@ -247,6 +248,7 @@ V.forEach(v => {
 (window.BENCHMARK || []).forEach(x => absorb(x, {bm: true}, "benchmark"));                                  // 벤치마킹 채널(benchmark_channels.txt): 내가 따로 관리하는 채널이라 다른 목록(체험·국뽕채널·레퍼런스)에는 넣지 않는다
 (window.ALERTS || []).forEach(x => absorb(x, {alert: true, alert_date: x.alert_date, alert_country: x.alert_country || x.country}, "alert"));   // 텔레그램 알림으로 받은 영상(alerts/*.csv): 다른 목록에도 그대로 속하고, 알림 목록에서 따로 모아 보며 점수를 확인한다. alert_country(없으면 country)로 한국·일본 텔레그램을 구분한다
 (window.TAIWAN_EXP || []).forEach(x => absorb(x, null, "taiwan_exp"));                                      // 대만 체험 영상 수집(taiwan_watch.py): 외국인이 대만을 여행·체험하는 영상을 넓게 모은다 (외국인 여부·체험 여부는 아래 규칙으로 추정)
+(window.CC_VIDEOS || []).forEach(x => absorb(x, null, "cc_discovery"));                                    // CC BY 새로 찾기(cc_discover.py): 영상 페이지에서 CC BY 로 확인된 영상만. 같은 ID 는 기존 목록·저장 상태 그대로 합친다 (외국인 여부는 미확인)
 const nRef = () => V.filter(v => v.ref).length;
 // 길이 형태: 미확인(unk) / 숏폼(short, 181초 미만) / 롱폼(long). is_short 필드와 충돌해도 길이 기준을 따른다
 V.forEach(v => { const n = normLen(v); v.duration_sec = n.sec; v.length = n.text; v._form = n.sec == null ? "unk" : n.sec >= LONG_MIN_SEC ? "long" : "short"; });

@@ -45,6 +45,11 @@ jobs:
           git config user.email "actions@users.noreply.github.com"
           git pull --rebase
 
+      - name: CC BY 새로 찾기 (나라마다 검색 1개·후보 5개, 차단 보이면 즉시 중단 / 실패해도 계속)
+        continue-on-error: true
+        timeout-minutes: 5
+        run: python cc_discover.py --per-country 1 --max-candidates 5 --workers 2
+
       - name: 영상 라이선스 확인 (최대 10분, 실패해도 계속)
         continue-on-error: true
         timeout-minutes: 10
@@ -59,7 +64,7 @@ jobs:
       - name: 바뀐 것이 있으면 저장
         id: save
         run: |
-          for f in data/video_licenses.json web/video_licenses.js; do [ -f "$f" ] && git add "$f" || true; done
+          for f in data/video_licenses.json web/video_licenses.js data/cc_candidates.json web/cc_videos.js; do [ -f "$f" ] && git add "$f" || true; done
           if git diff --cached --quiet; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
