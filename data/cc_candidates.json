@@ -1,5 +1,61 @@
 {
  "items": {
+  "-7hkG_6gYPg": {
+   "channel": "TheTimoTalks",
+   "channel_id": "UCQQFtMqkX13_Ig8z_L3PRLg",
+   "country": "한국",
+   "duration_sec": 852,
+   "fail_count": 0,
+   "first_seen": "2026-10-31",
+   "id": "-7hkG_6gYPg",
+   "length": "14:12",
+   "query": "first time in Korea",
+   "status": "pending",
+   "title": "First Time in Myeongdong, Seoul's Most Chaotic Shopping District (Olive Young, Kodak, Korean Food)",
+   "views": 1272
+  },
+  "1SIwgWeBSWQ": {
+   "channel": "The Wanderlust Wallet",
+   "channel_id": "UCEkwRqnNXXdmDfdxsLKfCgA",
+   "country": "대만",
+   "duration_sec": 482,
+   "fail_count": 0,
+   "first_seen": "2026-10-31",
+   "id": "1SIwgWeBSWQ",
+   "length": "8:02",
+   "query": "first time in Taiwan",
+   "status": "pending",
+   "title": "If I Visited Taiwan for the First Time in 2026, I’d Do This",
+   "views": 191
+  },
+  "1l8pu4px57g": {
+   "channel": "日本食冒険記Tokyo Food Adventures",
+   "channel_id": "UCXz4C2UgKkskK8ZcEbgRDVA",
+   "country": "일본",
+   "duration_sec": 1656,
+   "fail_count": 0,
+   "first_seen": "2026-10-31",
+   "id": "1l8pu4px57g",
+   "length": "27:36",
+   "query": "first time in Japan",
+   "status": "pending",
+   "title": "First Trip to Japan as a Family! Tears Over the Sushi That Fulfilled Our Parents' Dream...",
+   "views": 81667
+  },
+  "1o0b8HNFVsw": {
+   "channel": "Nomad Journal",
+   "channel_id": "UCPEJfPBrEZJXUp0OUeLgL4w",
+   "country": "대만",
+   "duration_sec": 453,
+   "fail_count": 0,
+   "first_seen": "2026-10-31",
+   "id": "1o0b8HNFVsw",
+   "length": "7:33",
+   "query": "first time in Taiwan",
+   "status": "pending",
+   "title": "Best Area to Stay in Taipei for First-Timers (And Who Should Skip Each One)",
+   "views": 146
+  },
   "4Z2fSN57GJ0": {
    "attempted_at": "2026-10-31T16:15:42Z",
    "channel": "Sittie Saheda",
@@ -16,6 +72,52 @@
    "status": "verified",
    "title": "TAIWAN 2026 🇹🇼 5D4N travel to Taipei, Daytrip to Keelung, Foodtrip and more! Pt. 1 | Sittie Saheda",
    "views": 24715
+  },
+  "4nb-FKb9Dps": {
+   "attempted_at": "2026-10-31T19:59:45Z",
+   "channel": "LackySteps",
+   "channel_id": "UCL3HlMAu0owjj4fiuTCNMEw",
+   "country": "한국",
+   "duration_sec": 742,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-10-31",
+   "id": "4nb-FKb9Dps",
+   "length": "12:22",
+   "query": "first time in Korea",
+   "status": "pending",
+   "title": "Japan to Korea for the First Time — Busan Surprised Me!!!",
+   "views": 322
+  },
+  "5MkE4VxdlOk": {
+   "attempted_at": "2026-10-31T19:59:45Z",
+   "channel": "Dannika Ocampo",
+   "channel_id": "UCafTOxXknBBiGKh4E1_n0hA",
+   "country": "한국",
+   "duration_sec": 264,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-10-31",
+   "id": "5MkE4VxdlOk",
+   "length": "4:24",
+   "query": "first time in Korea",
+   "status": "pending",
+   "title": "First Time in Korea + Epic Fail Arrival | #DannikaTravels",
+   "views": 4714
+  },
+  "6Y_lgB0infw": {
+   "channel": "Dannika Ocampo",
+   "channel_id": "UCafTOxXknBBiGKh4E1_n0hA",
+   "country": "일본",
+   "duration_sec": 883,
+   "fail_count": 0,
+   "first_seen": "2026-10-31",
+   "id": "6Y_lgB0infw",
+   "length": "14:43",
+   "query": "first time in Japan",
+   "status": "pending",
+   "title": "Visiting Tokyo JAPAN for the FIRST TIME | #DannikaTravels",
+   "views": 6661
   },
   "9-A5WRZAp14": {
    "attempted_at": "2026-10-31T16:15:40Z",
@@ -85,6 +187,20 @@
    "title": "🇰🇷 Michael's family visited Korea, and after their trip, they’re obsessed with ‘this’…😳",
    "views": 12092650
   },
+  "JmelsPOzqJk": {
+   "channel": "Constanette",
+   "channel_id": "UCcGNZYZtHzAieTgVn4TEVwQ",
+   "country": "한국",
+   "duration_sec": 513,
+   "fail_count": 0,
+   "first_seen": "2026-10-31",
+   "id": "JmelsPOzqJk",
+   "length": "8:33",
+   "query": "first time in Korea",
+   "status": "pending",
+   "title": "Why I Went to Korea... The First Time",
+   "views": 35
+  },
   "KjQdimh-pPI": {
    "attempted_at": "2026-10-31T16:15:42Z",
    "channel": "Cecilia Chen Chinese",
@@ -101,6 +217,20 @@
    "status": "verified",
    "title": "Little foodie trip in Taipei _ Taiwanese Mandarin Vlog 台北美食小旅行",
    "views": 6785
+  },
+  "LPQMfQSuwbM": {
+   "channel": "J&K Lovett",
+   "channel_id": "UCiZZYObHX2T4SvEpBLYou8Q",
+   "country": "한국",
+   "duration_sec": 338,
+   "fail_count": 0,
+   "first_seen": "2026-10-31",
+   "id": "LPQMfQSuwbM",
+   "length": "5:38",
+   "query": "first time in Korea",
+   "status": "pending",
+   "title": "Traveling to Korea in 2022 - Vlog 29",
+   "views": 1366
   },
   "Lv3PhYQu_xI": {
    "attempted_at": "2026-10-31T16:15:34Z",
@@ -170,6 +300,20 @@
    "title": "JAPAN TRIP 2026 🇯🇵🍜⛩️ tokyo + kyoto ",
    "views": 202941
   },
+  "QXnqAp2WI94": {
+   "channel": "Opentiera",
+   "channel_id": "UCVOy6wNnmVJicMO42Amjngw",
+   "country": "대만",
+   "duration_sec": 776,
+   "fail_count": 0,
+   "first_seen": "2026-10-31",
+   "id": "QXnqAp2WI94",
+   "length": "12:56",
+   "query": "first time in Taiwan",
+   "status": "pending",
+   "title": "Taiwan Explained in 13 Minutes (History, Geography, And Culture)",
+   "views": 67546
+  },
   "RKq47l8JjE4": {
    "attempted_at": "2026-10-31T16:15:36Z",
    "channel": "JayOnFilm",
@@ -203,6 +347,20 @@
    "status": "verified",
    "title": "GIRLS TRIP TO SOUTH KOREA 🇰🇷 How much I spent in 48 hours? #TravelWSar",
    "views": 181856
+  },
+  "e1Tfa_tHbkE": {
+   "channel": "日本食冒険記Tokyo Food Adventures",
+   "channel_id": "UCXz4C2UgKkskK8ZcEbgRDVA",
+   "country": "일본",
+   "duration_sec": 1757,
+   "fail_count": 0,
+   "first_seen": "2026-10-31",
+   "id": "e1Tfa_tHbkE",
+   "length": "29:17",
+   "query": "first time in Japan",
+   "status": "pending",
+   "title": "A foreign family's reaction to their first sushi experience: \"I want to move to Japan\"",
+   "views": 2098013
   },
   "eHrBTMfVdSw": {
    "attempted_at": "2026-10-31T16:15:36Z",
@@ -254,6 +412,62 @@
    "status": "verified",
    "title": "japan vlog ♡ first days in tokyo~ harajuku, sanrio shopping, kawaii cafes, jirai kei clothes",
    "views": 29883
+  },
+  "jsbB1Ui_6oI": {
+   "channel": "Vince Lawrence",
+   "channel_id": "UC6mFbwcdsSoCrCUbpEKredg",
+   "country": "대만",
+   "duration_sec": 702,
+   "fail_count": 0,
+   "first_seen": "2026-10-31",
+   "id": "jsbB1Ui_6oI",
+   "length": "11:42",
+   "query": "first time in Taiwan",
+   "status": "pending",
+   "title": "FIRST TIME INTERNATIONAL TRAVELERS ✈️ Manila to Taipei 🇹🇼 | Philippine Immigration Questions & Tips",
+   "views": 913
+  },
+  "qOp1qSIDIUA": {
+   "channel": "LackySteps",
+   "channel_id": "UCL3HlMAu0owjj4fiuTCNMEw",
+   "country": "대만",
+   "duration_sec": 875,
+   "fail_count": 0,
+   "first_seen": "2026-10-31",
+   "id": "qOp1qSIDIUA",
+   "length": "14:35",
+   "query": "first time in Taiwan",
+   "status": "pending",
+   "title": "First Time in TAIWAN - Is It SAFE in 2024? - Exploring New Taipei",
+   "views": 2440
+  },
+  "wVhe8pnMUV4": {
+   "channel": "Naverino",
+   "channel_id": "UCixOeND_bLBT_3gv55peMog",
+   "country": "일본",
+   "duration_sec": 836,
+   "fail_count": 0,
+   "first_seen": "2026-10-31",
+   "id": "wVhe8pnMUV4",
+   "length": "13:56",
+   "query": "first time in Japan",
+   "status": "pending",
+   "title": "MY FIRST TIME IN JAPAN! (an otaku' dream come true)",
+   "views": 4240
+  },
+  "xpXXVGO3He4": {
+   "channel": "JoCat",
+   "channel_id": "UCRDVE5L1LTWhmPAKKbUBGtg",
+   "country": "일본",
+   "duration_sec": 3294,
+   "fail_count": 0,
+   "first_seen": "2026-10-31",
+   "id": "xpXXVGO3He4",
+   "length": "54:54",
+   "query": "first time in Japan",
+   "status": "pending",
+   "title": "My First Trip to Japan - JoCat Storytime | 僕の日本への初めての旅です -  ジョキャットのストーリータイム",
+   "views": 885565
   }
  },
  "schema": 1,
@@ -262,14 +476,26 @@
    "at": "2026-10-31T16:15:30Z",
    "found": 20
   },
+  "대만|first time in Taiwan": {
+   "at": "2026-10-31T19:59:42Z",
+   "found": 19
+  },
   "일본|Japan travel vlog": {
    "at": "2026-10-31T16:15:27Z",
+   "found": 20
+  },
+  "일본|first time in Japan": {
+   "at": "2026-10-31T19:59:40Z",
    "found": 20
   },
   "한국|Korea travel vlog": {
    "at": "2026-10-31T16:15:24Z",
    "found": 20
+  },
+  "한국|first time in Korea": {
+   "at": "2026-10-31T19:59:37Z",
+   "found": 20
   }
  },
- "updated": "2026-10-31T17:08:43Z"
+ "updated": "2026-10-31T19:59:45Z"
 }
