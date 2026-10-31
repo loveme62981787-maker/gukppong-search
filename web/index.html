@@ -88,6 +88,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 #sc-text{width:100%;min-height:190px;font-size:13px}
 .sc-tool-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
 .sc-big{font-size:34px;font-weight:800;line-height:1}
+.licline{font-size:12px;color:var(--mute);margin:4px 0 0}.licline a{color:var(--acc)}
 </style>
 </head>
 <body>
@@ -167,6 +168,8 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
     <div class="bar"><span class="lbl">출처 분류 보정 (카드의 '분류 바꾸기'로 고친 것 · 이 브라우저에만 저장돼요)</span><span id="kindcnt" class="sub"></span><button class="chip" id="kindreset">분류 보정 모두 초기화</button></div>
   </div>
 </div>
+<!-- 🪪 라이선스 탭 3개는 맨 위 탭 줄의 '🙈 숨긴 영상' 바로 뒤에 스크립트가 넣는다. 목록·나라·주제·길이 필터와 함께 쓰는 보기 필터이고, 같은 영상 ID 는 저장·메모·사용 완료·숨김을 그대로 공유한다 -->
+<div class="sub vmode" id="licnote" style="max-width:1200px;margin:0 auto;padding:2px 16px 0"></div>
 <div class="result vmode" id="result"></div>
 <div class="grid vmode" id="grid"></div>
 <div class="tools">
@@ -199,6 +202,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script src="scorer.js" onerror="window.GukScore=null"></script>
 <script src="scores.js" onerror="window.SCORES={items:[]}"></script>
 <script src="auto_scores.js" onerror="window.AUTO_SCORES={items:[]}"></script>
+<script src="video_licenses.js" onerror="window.VIDEO_LICENSES={schema:1,items:{}}"></script>
 <script>
 // 일반 수집 영상 + 화제·체험·일본 주제·글로벌 영상. 겹치는 영상은 표시와 길이만 합친다
 const V = (window.VIDEOS || []).slice();
@@ -763,6 +767,66 @@ mkMulti(document.getElementById("cats"), CATS.map(([k, l, fn]) => [k, l, V.filte
 mkMulti(document.getElementById("cty"), [["한국", "🇰🇷 한국이 주제"], ["일본", "🇯🇵 일본이 주제"], ["대만", "🇹🇼 대만이 주제"]], viewSel, V.length, () => render());
 mkMulti(document.getElementById("ext"), [["viral", "🔥 화제 영상 (과거 포함)", V.filter(v => v.viral).length]], viewSel, null, () => render());   // '서울·부산 외' 칩은 '한국 소재 > 🗺 지방 여행'으로 대체
 mkMulti(document.getElementById("mine"), [["new", "🆕 새로 들어온"], ["fav", "⭐ 저장"], ["memo", "📝 메모 있음"], ["done", "✅ 사용 완료", done.size], ["hidden", "🗑 숨김", nHidden()]], viewSel, null, () => render());
+// <license-view>
+// 라이선스 탭 3개 (CC BY 확인 / 무료 사용 표기 / 라이선스 미확인). 데이터: license_watch.py → video_licenses.js (영상 ID 로 조회).
+// 참고용 상태 표시일 뿐 재사용 허가를 보증하지 않는다. 표준 라이선스로 확인되고 무료 사용 문구도 없는 영상은 세 탭 모두에서 빠진다. 같은 영상 ID 는 V 에 한 번만 있고 숨김·사용 완료·저장·메모를 그대로 공유한다
+const VLD = window.VIDEO_LICENSES || {}, VL = VLD.items || {};
+const LIC_KEYS = ["lic_cc", "lic_free", "lic_unk"];
+const licRec = id => Object.prototype.hasOwnProperty.call(VL, id) ? VL[id] : null;
+const licUnkWhy = r => !r ? "unchecked" : r.l !== "unknown" ? "" : r.u === "no_marker" ? "no_marker" : r.u === "unrecognized" ? "unrecognized" : "failed";   // 확인 전 / 확인 실패 / CC 표기 없음 / 알 수 없는 표기
+const LIC_WHY = {unchecked: "확인 전", failed: "확인 실패", no_marker: "CC 표기 없음(표준으로 단정하지 않음)", unrecognized: "알 수 없는 라이선스 표기"};
+const licMatch = (r, k) => k === "lic_cc" ? !!r && r.l === "cc_by" : k === "lic_free" ? !!r && !!r.f : k === "lic_unk" ? !r || r.l === "unknown" : false;
+const licPass = (id, sel) => { const ks = LIC_KEYS.filter(k => sel.has(k)); return !ks.length || ks.some(k => licMatch(licRec(id), k)); };   // 고른 탭 중 하나라도 맞으면 보인다 (다른 필터와는 AND)
+const licCount = k => V.filter(v => licMatch(licRec(v.id), k)).length;
+const licNotes = (r, showUnk) => {   // 카드 안내 문구 (고정 문구만, 설명란 원문은 쓰지 않는다)
+  const n = [], stale = r && r.s ? " · ⚠ 재확인에 실패해 지난 확인 기준이에요" : "";
+  if (r && r.l === "cc_by") n.push("🪪 영상 자체의 라이선스 표기가 CC BY(출처 표기 조건)로 확인됨" + (r.c ? " · " + r.c + " 확인" : "") + stale);
+  if (r && r.f) n.push("📝 설명란에 이 영상 자체의 무료 사용 허용 문구가 있음(원문은 공개하지 않아요)" + (r.c ? " · " + r.c + " 확인" : "") + (r.l === "cc_by" ? "" : stale));
+  if (showUnk && licMatch(r, "lic_unk")) n.push("❔ " + LIC_WHY[licUnkWhy(r)] + (r && r.c ? " · " + r.c + " 확인" : "") + stale);
+  return n;
+};
+// </license-view>
+// <license-tabs>
+// 맨 위 탭 줄: '🙈 숨긴 영상'(auto_scores.js 가 DOMContentLoaded 에서 넣음) 바로 뒤에 라이선스 탭 3개를 넣는다. 이 파일의 처리기는 그보다 늦게 등록돼 순서가 보장된다.
+// 탭은 영상 화면의 보기 필터이고(한 번에 하나) viewSel 을 공유한다: 요약 칩·전체 초기화·0건 안내가 그대로 동작하고, 다른 화면(영상·채널·채점·내 채점·숨긴 영상)으로 옮기면 라이선스 선택이 풀린다
+const LIC_TABS = [["lic_cc", "🪪 CC BY 확인", "영상 자체의 라이선스 표기가 CC BY(출처 표기 조건의 재사용 허용)로 확인된 영상. 채널·이름·검색 결과로 추정하지 않아요."],
+  ["lic_free", "📝 무료 사용 표기", "설명란에 이 영상 자체를 무료로 써도 된다는 문구가 있는 영상. 배경음악·스톡 소스 표기나 '허락 없이 금지' 같은 문구가 있으면 제외해요."],
+  ["lic_unk", "❔ 라이선스 미확인", "확인 전 · 확인 실패 · CC 표기 없음. 표기가 없다고 표준 라이선스로 단정하지 않아요."]];
+document.addEventListener("DOMContentLoaded", () => {
+  const anchor = ["hidden-videos-tab", "mmy", "ms", "mc"].map(id => document.getElementById(id)).find(Boolean) || document.getElementById("mv");
+  const btns = LIC_TABS.map(([k, label, tip]) => { const b = document.createElement("button"); b.className = "chip lictab"; b.dataset.k = k; b.title = tip; b.append(label);
+    const s = document.createElement("small"); b.append(s); return b; });
+  anchor.after(...btns);
+  const inVideoMode = () => { const e = document.querySelector(".vmode"); return !!e && !e.hidden; };
+  const sync = () => {   // 탭 강조는 선택 상태 그대로, '🎬 영상'은 라이선스 탭을 고른 동안 꺼지고 해제(초기화)하면 영상 화면일 때 다시 켜진다
+    btns.forEach(b => b.classList.toggle("on", viewSel.has(b.dataset.k)));
+    const mv = document.getElementById("mv");
+    if (LIC_KEYS.some(k => viewSel.has(k))) mv.classList.remove("on"); else if (inVideoMode()) mv.classList.add("on");
+  };
+  MULTIS.push({parent: anchor.parentNode, sel: viewSel, keys: LIC_KEYS, sync});
+  const refresh = () => {   // 개수는 지금 고른 📂 목록 기준 (목록을 바꾸거나 숨김·분류 보정을 해도 render 마다 다시 센다)
+    const inL = V.filter(inList), unk = {};
+    btns.forEach(b => { b.querySelector("small").textContent = inL.filter(v => licMatch(licRec(v.id), b.dataset.k)).length; });
+    inL.forEach(v => { const w = licUnkWhy(licRec(v.id)); if (w) unk[w] = (unk[w] || 0) + 1; });
+    const up = (VLD.updated || "").slice(0, 10), n = x => (x || 0).toLocaleString();
+    document.getElementById("licnote").textContent = (Object.keys(VL).length ? `이 목록 ${n(inL.length)}개 중 ${n(inL.filter(v => (licRec(v.id) || {}).c).length)}개의 watch 페이지를 확인${up ? " (" + up + " 갱신)" : ""}` + ` · 미확인 ${n(inL.filter(v => licMatch(licRec(v.id), "lic_unk")).length)}개 = 확인 전 ${n(unk.unchecked)} + 확인 실패 ${n(unk.failed)} + CC 표기 없음 ${n(unk.no_marker)}` + (unk.unrecognized ? ` + 알 수 없는 표기 ${n(unk.unrecognized)}` : "") : "라이선스 확인 기록이 아직 없어요 (license_watch.py 실행 전)") + " · 참고용 상태이며 재사용 허가를 보증하지 않아요. 쓰기 전에 원본 영상 페이지를 직접 확인하세요.";
+  };
+  let activating = false;
+  const prevMode = setMode;
+  setMode = function (m) {   // 가장 바깥 래퍼: 라이선스 탭에서 온 호출이 아니면 선택을 먼저 풀고 나서 화면을 바꾼다 (영상 화면 render 가 풀린 상태로 돈다)
+    if (!activating) LIC_KEYS.forEach(k => viewSel.delete(k));
+    prevMode.call(this, m); sync();
+  };
+  const prevRender = render;
+  render = function (...a) { prevRender.apply(this, a); refresh(); sync(); };
+  btns.forEach(b => b.onclick = () => {
+    const k = b.dataset.k, on = !viewSel.has(k);
+    LIC_KEYS.forEach(x => viewSel.delete(x)); if (on) viewSel.add(k);   // 한 번에 하나 (다시 누르면 해제)
+    activating = on; try { setMode(false); } finally { activating = false; }   // 어느 화면에서든 영상 화면으로 돌아와 같은 목록·나라·주제·길이 필터와 함께 적용
+  });
+  refresh(); sync();
+});
+// </license-tabs>
 document.getElementById("upd").textContent = "마지막 갱신 " + (window.UPDATED || "-") + " · 영상 " + V.length + "개";
 const isNew = v => v.first_seen > (seenAt || "9999") || v.first_seen === (window.UPDATED || "").slice(0, 10);
 const saveAll = () => { ls.set("favs", [...favs]); ls.set("done", [...done]); ls.set("memos", memos); ls.set("hidden", [...hidden]); };
@@ -865,6 +929,7 @@ function render(opts) {
     && (!rxSel.size || [...rxSel].some(k => rxMatch(v, k)))   // 대표 도시 제외 칩: 나라가 다르면 둘 중 하나, 다른 줄의 조건과는 AND
     && (!jtSel.size || [...jtSel].some(k => v._jt.includes(k)))
     && (!trvSel.size || (trvSel.has("kr") && v._krTrip) || (trvSel.has("jp") && v._jpTrip))
+    && licPass(v.id, viewSel)   // 라이선스 탭: 같은 영상 ID 의 상태로 걸러서 목록·나라·주제·길이 필터와 함께 쓴다
     && (!viewSel.has("viral") || v.viral) && (!viewSel.has("fav") || favs.has(v.id)) && (!viewSel.has("memo") || memos[v.id]) && (!viewSel.has("new") || isNew(v))
     && (!q || (v.title + " " + v.channel + " " + (memos[v.id] || "")).toLowerCase().includes(q));
   const a0 = V.filter(pass), a = a0.filter(lenOK);   // a0: 길이 말고 다른 조건을 모두 통과한 영상 (길이 때문에 빠진 수를 세기 위해 따로 둔다)
@@ -903,6 +968,9 @@ function render(opts) {
     c.querySelector(".t").textContent = v.title;
     if (v._sc) { c.querySelector(".tags").prepend(scTagEl(v._sc)); c.querySelector(".body").insertBefore(scDetailEl(v._sc), c.querySelector(".act")); }   // 🎯 스크립트 채점 결과가 있는 영상만
     else if (v.alert) { const ut = ce("span", "tag", "🎯 미채점"); ut.title = "[텔레그램] 알림 영상인데 아직 스크립트를 읽고 채점하지 않았어요. 🏆 등급은 제목·조회수 기준이라 이 채점과는 별개예요."; c.querySelector(".tags").prepend(ut); }   // 텔레그램 알림 영상 중 아직 채점하지 않은 것은 미채점임을 바로 보여준다 (제목 기준 _grade 를 대신 쓰지 않는다)
+    { const notes = licNotes(licRec(v.id), viewSel.has("lic_unk"));   // 라이선스 상태 한 줄 (고정 문구 + 확인한 watch 페이지 링크)
+      if (notes.length) { const li = document.createElement("div"); li.className = "licline"; li.append(notes.join(" · ") + " · 참고용(사용 보증 아님) · ");
+        const a = document.createElement("a"); a.href = "https://www.youtube.com/watch?v=" + v.id; a.target = "_blank"; a.rel = "noopener"; a.textContent = "확인한 페이지"; li.append(a); c.querySelector(".body").insertBefore(li, c.querySelector(".act")); } }
     c.querySelector(".m").textContent = v.channel + " · " + (v.viral && v.age_text ? v.age_text : v.published);
     c.querySelectorAll(".lst").forEach(t => { t.title = "목록 분류는 제목·채널 정보로 한 추정이에요. 영상 내용을 보고 확인한 것은 아니에요. 근거: " + (v.bm ? "사용자 지정 채널 기준(벤치마킹 채널)" : v.ref ? "사용자 지정 채널 기준(별도 레퍼런스 채널이라 국뽕채널·한국에 포함)" : v._kindWhy); });   // 근거는 DOM 으로 넣어 HTML 로 해석되지 않게 한다
     const kt = c.querySelector(".kindtag"); kt.textContent = KIND_LABEL[v._kind]; kt.title = v._kindWhy;   // 근거는 DOM 으로 넣어 HTML 로 해석되지 않게 한다

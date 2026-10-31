@@ -23,6 +23,7 @@
 | `web/index.html` | 사이트 화면 (정적 페이지, `videos.js`만 읽음) |
 | `web/scorer.js` | 🎯 국뽕 점수 기준(6항목 100점·등급·한국/일본 12갈래)과 브라우저 '간이 채점기' (참고용 규칙 기반). 사이트의 '점수 기준' 화면이 이 파일을 그대로 읽는다 |
 | `web/scores.js` | 🎯 스크립트 채점 기록 (Claude 스킬 결과를 손으로 옮긴 파일, 생성 파일 아님). 영상 ID가 같으면 카드에 점수 배지가 붙는다 |
+| `license_watch.py` | 사이트의 모든 영상 ID(중복 제거)의 watch 페이지를 읽어 영상 자체의 CC BY 표기·설명란 무료 사용 문구를 기록 → `data/video_licenses.json`, `web/video_licenses.js` (🪪 라이선스 탭 3개). 참고용이며 재사용 허가를 보증하지 않음. 근거: `docs/collab/2026-10-31-license-tabs.md` |
 | `web/videos.js` | 자동 생성되는 데이터 파일 (직접 수정하지 않음) |
 | `site_store.json` | 누적 영상·구독자 캐시 (다음 실행의 "새 영상" 구분용) |
 | `.github/workflows/update.yml` | 매일 자동 갱신 + GitHub Pages 배포 |
@@ -76,8 +77,10 @@ py -3.12 build_site.py --notify   # 위 + 새 영상 텔레그램 알림
 - [x] 카드형 사이트: 국가/지방/저장 필터, 검색, 구독자 구간 필터, 정렬 4종, 카드 내 재생, 즐겨찾기(브라우저 저장), 다크모드
 - [x] 텔레그램 새 영상 알림 코드 (`--notify`)
 - [x] GitHub Actions 자동 갱신/배포 설정 파일
+- [x] 🪪 라이선스 탭 3개(CC BY 확인 / 무료 사용 표기 / 라이선스 미확인) + `license_watch.py` 수집기·Actions 단계 (코드 완료, Codex 검토 대기)
 
 미확인 / 남은 일
+- [ ] 라이선스 확인 backfill: 사이트 영상 약 14,000개 중 일부만 확인됨. 수동 실행의 `license_limit` 또는 매일 자동 실행(400개씩)으로 채워진다. 내 PC: `python license_watch.py --limit 300`, 화면 파일만 다시 만들기: `python license_watch.py --export-only`, 테스트: `node --test tests/test_license_tabs.mjs`
 - [ ] **GitHub Actions에서 유튜브 검색이 막히지 않는지 아직 검증 안 됨.** 막히면 영상 0개가 나올 수 있음 → 내 PC에서 `build_site.py` 실행 후 `web/videos.js`, `site_store.json`을 커밋하는 방식으로 대체
 - [ ] Pages 첫 배포 실행 확인
 - [ ] 텔레그램 토큰/chat ID 새로 설정 (이전 값은 복구되지 않음)
