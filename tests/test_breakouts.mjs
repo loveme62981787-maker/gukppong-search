@@ -8,16 +8,16 @@ const load = () => {
   vm.runInContext(fs.readFileSync(new URL('../web/breakouts.js', import.meta.url), 'utf8'), ctx);
   return ctx;
 };
-const isHot = v => v.views / Math.max(v.subs, 1000) >= 3 && v.views >= 500;
-const mk = o => ({id: 'x', subs: 1000, views: 5000, _kind: 'foreign', _lists: ['krexp'], ...o});
+const mk = o => ({id: 'x', subs: 2000, views: 30000, _kind: 'foreign', _lists: ['krexp'], ...o});
 
-test('체험 목록 + 구독자 대비 높음만 나라별 터진 영상 키를 받는다', () => {
-  const keys = (o) => [...load().breakoutKeys(mk(o), isHot)];   // vm 컨텍스트 배열을 일반 배열로 바꿔 비교
+test('체험 목록 + 외국인 원본 + 구독자 대비 5배·조회수 3만 회 이상만 나라별 터진 영상 키를 받는다', () => {
+  const keys = (o) => [...load().breakoutKeys(mk(o))];   // 기본 기준(5배 + 3만 회)
   assert.deepEqual(keys({_lists: ['krexp', 'jpexp', 'twexp']}), ['hot_kr', 'hot_jp', 'hot_tw']);
   assert.deepEqual(keys({_lists: ['twexp']}), ['hot_tw']);
-  assert.deepEqual(keys({views: 2000}), []);          // 3배 미만
-  assert.deepEqual(keys({_lists: ['krguk']}), []);    // 체험 목록 아님
-  for (const o of [{ref: true}, {bm: true}, {_kind: 'local'}, {_kind: 'inst'}, {subs: 0}, {subs: null}, {views: NaN}])
+  assert.deepEqual(keys({subs: 10000, views: 40000}), []);   // 4배(5배 미만)
+  assert.deepEqual(keys({subs: 1000, views: 25000}), []);    // 25배지만 조회수 3만 미만
+  assert.deepEqual(keys({_lists: ['krguk']}), []);           // 체험 목록 아님
+  for (const o of [{ref: true}, {bm: true}, {_kind: 'local'}, {_kind: 'inst'}, {_kind: 'unk'}, {subs: 0}, {subs: null}, {views: NaN}])
     assert.deepEqual(keys(o), [], JSON.stringify(o));
 });
 
@@ -39,6 +39,6 @@ test('터진 영상 목록이 아니면 카드 설명이 없고, 표본이 부�
   const {breakoutInfo} = load();
   const ratio = v => v.views / Math.max(v.subs, 1000);
   assert.equal(breakoutInfo(mk({_lists: ['krexp']}), [], ratio), null);
-  const info = breakoutInfo(mk({_lists: ['krexp', 'hot_kr']}), [], ratio);
-  assert.equal(info.sub, 5); assert.equal(info.med, null);
+  const info = breakoutInfo(mk({_lists: ['krexp', 'hot_kr'], subs: 1000, views: 30000}), [], ratio);
+  assert.equal(info.sub, 30); assert.equal(info.med, null);
 });

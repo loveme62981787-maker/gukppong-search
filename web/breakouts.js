@@ -1,8 +1,15 @@
-// 터진 영상 목록(한국·일본·대만): 체험 목록 영상 중 구독자 대비 조회수가 높은 영상을 따로 모은다.
-// 체험 목록은 기존 원본 분류와 대만 수동 검토 결과를 재사용한다.
-function breakoutKeys(v, isHot) {
+// 터진 영상 목록(한국·일본·대만): 체험 목록(외국인 원본) 영상 중 구독자 대비 5배 이상 + 조회수 3만 회 이상인 영상을 따로 모은다.
+// 체험 목록은 기존 원본 분류와 대만 수동 검토 결과를 재사용하되, 출처가 외국인 원본(_kind === 'foreign')인 영상만 남긴다.
+const BREAKOUT_MIN_RATIO = 5;
+const BREAKOUT_MIN_VIEWS = 30000;
+function isBreakout(v) {
+  if (!Number.isFinite(v.subs) || v.subs <= 0 || !Number.isFinite(v.views)) return false;
+  return v.views >= BREAKOUT_MIN_VIEWS && (v.views / Math.max(v.subs, 1000)) >= BREAKOUT_MIN_RATIO;
+}
+
+function breakoutKeys(v, isHot = isBreakout) {
   if (!Number.isFinite(v.subs) || v.subs <= 0 || !Number.isFinite(v.views) ||
-      !isHot(v) || v.ref || v.bm || ['local', 'inst'].includes(v._kind)) return [];
+      !isHot(v) || v.ref || v.bm || v._kind !== 'foreign') return [];
   const pairs = [['krexp', 'hot_kr'], ['jpexp', 'hot_jp'], ['twexp', 'hot_tw']];
   return pairs.filter(([key]) => v._lists.includes(key)).map(([, key]) => key);
 }
@@ -43,7 +50,7 @@ document.addEventListener('DOMContentLoaded', () => {
   for (const [key, label, country] of defs) {
     LISTS.splice(LISTS.findIndex(x => x[0] === 'hold'), 0, [key, label]);
     LISTKEYS.add(key); LISTTAG[key] = label;
-    LIST_NOTE[key] = `${country} 체험 목록 영상 중 구독자 대비 조회수가 높은(📈) 영상이에요. 레퍼런스·벤치마킹·현지 채널·기관 영상은 빼요. 체험 목록과 같은 추정이라 영상 내용을 보고 확인한 것은 아니에요.`;
+    LIST_NOTE[key] = `${country} 체험 목록(외국인 원본 추정) 영상 중 구독자 대비 조회수 5배 이상·조회수 3만 회 이상인 터진 영상이에요. 레퍼런스·벤치마킹·현지 국뽕 채널·기관·미확인 영상은 빼요. 체험 목록과 같은 추정이라 영상 내용을 보고 확인한 것은 아니에요.`;
     const b = document.createElement('button'); b.className = 'chip'; b.dataset.k = key; b.append(label);
     b.append(Object.assign(document.createElement('small'), {textContent: '0'}));
     b.onclick = () => { listSel.has(key) ? listSel.delete(key) : listSel.add(key); ls.set('lists', [...listSel]); render(); };
@@ -54,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const prev = computeLists;
   computeLists = function () {
     prev();
-    V.forEach(v => { v._lists = v._lists.filter(k => !BREAKOUT_KEYS.includes(k)); v._lists.push(...breakoutKeys(v, isHot)); });
+    V.forEach(v => { v._lists = v._lists.filter(k => !BREAKOUT_KEYS.includes(k)); v._lists.push(...breakoutKeys(v, isBreakout)); });
   };
   computeLists();
   refreshListCounts();
