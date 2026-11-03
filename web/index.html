@@ -88,6 +88,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 #sc-text{width:100%;min-height:190px;font-size:13px}
 .sc-tool-row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:8px 0}
 .sc-big{font-size:34px;font-weight:800;line-height:1}
+.brk{font-size:12px;font-weight:600;color:var(--acc);margin:4px 0 0}.brk span{font-weight:400;color:var(--mute)}
 .licline{font-size:12px;color:var(--mute);margin:4px 0 0}.licline a{color:var(--acc)}
 </style>
 </head>
@@ -204,6 +205,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script src="auto_scores.js" onerror="window.AUTO_SCORES={items:[]}"></script>
 <script src="cc_videos.js?v=cc65n1101" onerror="window.CC_VIDEOS=[]"></script>
 <script src="video_licenses.js?v=cc65n1101" onerror="window.VIDEO_LICENSES={schema:1,items:{}}"></script>
+<script src="breakouts.js" onerror="window.breakoutInfo=null"></script>
 <script>
 // 일반 수집 영상 + 화제·체험·일본 주제·글로벌 영상. 겹치는 영상은 표시와 길이만 합친다
 const V = (window.VIDEOS || []).slice();
@@ -975,6 +977,12 @@ function render(opts) {
         const a = document.createElement("a"); a.href = "https://www.youtube.com/watch?v=" + v.id; a.target = "_blank"; a.rel = "noopener"; a.textContent = "확인한 페이지"; li.append(a); c.querySelector(".body").insertBefore(li, c.querySelector(".act")); } }
     c.querySelector(".m").textContent = v.channel + " · " + (v.pub_actual && /^\d{4}-\d{2}-\d{2}/.test(v.published || "") ? "업로드 " + v.published.slice(0, 10) : v.viral && v.age_text ? v.age_text : /^\d{4}-\d{2}-\d{2}/.test(v.published || "") ? "업로드 " + v.published.slice(0, 10) : "업로드 날짜 미확인");   // 수집일(first_seen)은 업로드일로 보여주지 않는다
     if (v.pub_actual) c.querySelector(".m").title = "업로드 날짜는 한국시간(KST) 기준이에요.";
+    { const bi = window.breakoutInfo && window.breakoutInfo(v, V, ratio);   // 🔥 터진 영상: 구독자 대비 배수 + (표본이 충분하면) 수집 표본 중앙값 대비
+      if (bi) { const b = document.createElement("div"); b.className = "brk";
+        b.append("🔥 구독자 대비 " + (bi.sub >= 10 ? Math.round(bi.sub) : bi.sub.toFixed(1)) + "배");
+        if (v.subs < 1000) b.title = "구독자 1천 미만은 1천 명 기준으로 계산해요.";
+        if (bi.med) { const m = document.createElement("span"); m.textContent = ` · 같은 채널 수집 표본 ${bi.med.n}개 중앙값 대비 ${bi.med.x >= 10 ? Math.round(bi.med.x) : bi.med.x.toFixed(1)}배`; m.title = "채널 전체가 아니라 이 사이트가 모은 같은 형식(숏폼/롱폼) 영상 " + bi.med.n + "개의 조회수 중앙값(" + fmt(bi.med.median) + ") 기준이에요."; b.append(m); }
+        c.querySelector(".body").insertBefore(b, c.querySelector(".tags")); } }
     c.querySelectorAll(".lst").forEach(t => { t.title = "목록 분류는 제목·채널 정보로 한 추정이에요. 영상 내용을 보고 확인한 것은 아니에요. 근거: " + (v.bm ? "사용자 지정 채널 기준(벤치마킹 채널)" : v.ref ? "사용자 지정 채널 기준(별도 레퍼런스 채널이라 국뽕채널·한국에 포함)" : v._kindWhy); });   // 근거는 DOM 으로 넣어 HTML 로 해석되지 않게 한다
     const kt = c.querySelector(".kindtag"); kt.textContent = KIND_LABEL[v._kind]; kt.title = v._kindWhy;   // 근거는 DOM 으로 넣어 HTML 로 해석되지 않게 한다
     // 분류 바꾸기: 기본은 이 채널 전체, '이 영상만'을 체크하면 이 영상만. 이 브라우저에만 저장되고, 공식 기관 등급 상한에는 영향이 없다
