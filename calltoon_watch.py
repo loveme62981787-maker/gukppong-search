@@ -5,11 +5,12 @@
     python calltoon_watch.py --dry    저장 없이 요약만 출력
 
 3가지 카테고리로 콜툰 소재를 자동 수집한다:
-  1. ref      : 검증된 콜툰 레퍼런스 채널 (여보숏, 마이콜, 받을까 말까, 전화왔숑) 쇼츠 + 채널 내 아웃라이어 배수 + 출처(원본 채널) 자동 추출
-  2. orig     : 역추적된 원본 가족·육아·일상 채널 (봄타고가을타고, 리안이쑥쑥, 컴온 유머스트컴백홈, 장꾸발랄 등) 최신 쇼츠
+  1. ref      : 검증된 콜툰 레퍼런스 채널 7곳 (여보숏, 마이콜, 받을까 말까, 전화왔숑, 받아볼까, 아무튼망고, 스피커폰)
+                최신 쇼츠 + 역대 인기 쇼츠 + 채널 내 아웃라이어 배수 + 설명란 출처(원본 채널/인스타) 자동 추출
+  2. orig     : 역추적된 원본 가족·육아·일상 채널 (봄타고가을타고, 리안이쑥쑥, 컴온 유머스트컴백홈, 장꾸발랄 등) 쇼츠
   3. discover : 미개척 한국/해외 통화·육성·홈캠 키워드 발굴 쇼츠
 
-외부 패키지·API 키 없이 파이썬 표준 라이브러리만 사용한다.
+외부 패키지 없이 파이썬 표준 라이브러리만 사용한다.
 """
 import json
 import os
@@ -28,12 +29,15 @@ STORE = os.path.join(BASE, "calltoon_store.json")
 KST = timezone(timedelta(hours=9))
 UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/124.0 Safari/537.36"
 
-# 1. 검증된 콜툰 레퍼런스 채널
+# 1. 검증된 콜툰 레퍼런스 채널 (기존 4개 + 신규 발굴 3개 = 총 7개)
 REF_CHANNELS = [
-    ("여보숏", "UChQ0N_DsTLCiokzF6hiFClA", "통화 UI + 사운드 파형 정석"),
+    ("여보숏", "UChQ0N_DsTLCiokzF6hiFClA", "통화 UI 파형 + 대각선 종이툰"),
     ("마이콜", "UCivcwygiS5z833iABbxsV8Q", "3등신 2D 캐릭터 + 표정 리액션"),
-    ("받을까 말까", "UC-GEyRPFjdd_O0lyGksiMZQ", "크림 종이 배경 + 감성 드로잉"),
+    ("받을까 말까", "UC-GEyRPFjdd_O0lyGksiMZQ", "Dark 파형 & 크림 종이툰 병행"),
     ("전화왔숑", "UCJ9_3hjZ2gog5WCrApay7qQ", "가족·부부·아이 통화 일러스트"),
+    ("받아볼까", "UCEcawrJIoVFILyyifqze9ow", "누적 7,160만뷰 · 파스텔 2D 캐릭터 대화툰"),
+    ("아무튼망고", "UC8D6w-5-Twl5SDq7fwqRACA", "급성장 신흥 강자 · 상하 분할 라인아트 종이툰"),
+    ("스피커폰", "UCScuSuYLlzYMtkruY1VN2JA", "신생 통화·대화 일러스트 쇼츠"),
 ]
 
 # 2. 역추적된 원본 가족·육아·일상 채널 (콜툰 채널들의 실제 음성 출처)
@@ -50,6 +54,8 @@ DISCOVER_QUERIES = [
     ("아빠 아들 통화 쇼츠", "🇰🇷 한국 통화"),
     ("아기 통화 레전드 쇼츠", "🇰🇷 한국 육아"),
     ("남편 전화 레전드 쇼츠", "🇰🇷 한국 부부"),
+    ("할머니 손자 전화 쇼츠", "🇰🇷 한국 가족"),
+    ("동생 언니 대화 쇼츠", "🇰🇷 한국 남매/자매"),
     ("홈캠 가족 레전드 쇼츠", "🇰🇷 한국 홈캠"),
     ("toddler phone call funny shorts", "🌎 글로벌 육아"),
     ("kid calls dad funny shorts", "🌎 글로벌 통화"),
@@ -64,8 +70,8 @@ WORDPLAY_WORDS = [
 
 # 감정·상황 반전이 뚜렷해 대만/일본 수출에 특히 유리한 키워드
 EMOTION_WORDS = [
-    "엄마", "아빠", "딸", "아들", "아기", "남편", "아내", "할머니", "할아버지",
-    "울음", "식겁", "감동", "반전", "전화", "통화", "거짓말", "비밀", "뽀뽀",
+    "엄마", "아빠", "딸", "아들", "아기", "남편", "아내", "할머니", "할아버지", "동생", "언니", "오빠", "누나",
+    "울음", "식겁", "감동", "반전", "전화", "통화", "거짓말", "비밀", "뽀뽀", "트라우마", "부탁", "혼내",
     "사랑", "미안", "화난", "삐진", "장난", "toddler", "mom", "dad", "baby", "call",
 ]
 
@@ -124,6 +130,19 @@ def parse_kr_views(text):
     return 0
 
 
+def parse_iso_duration(iso_str):
+    """PT27S, PT1M5S 등을 초(int)로 변환"""
+    if not iso_str:
+        return 0
+    m = re.match(r"^PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?$", iso_str)
+    if not m:
+        return 0
+    h = int(m.group(1) or 0)
+    mi = int(m.group(2) or 0)
+    s = int(m.group(3) or 0)
+    return h * 3600 + mi * 60 + s
+
+
 def fmt_length(sec):
     if not sec or sec <= 0:
         return "쇼츠"
@@ -135,13 +154,16 @@ def extract_source_credit(desc):
     """영상 설명란에서 '출처: ...' 또는 원본 크레딧 표기를 추출"""
     if not desc:
         return ""
-    for line in desc.splitlines():
-        line_s = line.strip()
+    lines = [ln.strip() for ln in desc.splitlines() if ln.strip()]
+    for i, line_s in enumerate(lines):
         m = re.search(r"(?:출처|원본|원작|음성\s*출처|source|credit)\s*[:：\-]\s*(.+)", line_s, re.I)
         if m:
             val = m.group(1).strip()
             if val and not re.search(r"gmail\.com|naver\.com|비즈니스|문의", val, re.I):
-                return val[:60]
+                # 다음 줄에 계정 핸들이나 채널명이 이어지는 경우 함께 결합
+                if i + 1 < len(lines) and len(lines[i + 1]) <= 30 and not re.search(r"http|문의|비즈니스|구독|좋아요", lines[i + 1]):
+                    val = f"{val} ({lines[i + 1]})"
+                return val[:70]
     return ""
 
 
@@ -155,9 +177,8 @@ def evaluate_export_fit(title, desc="", length_sec=30):
                 f"⚠️ 언어유희·발음 주의 ('{w}' 포함)",
                 "번역 난이도 높음 (한국 내수용 권장)",
             )
-    # 감정/통화/반전 여부로 대만 vs 일본 스킨 추천 세분화
-    tw_strong = any(w in combined for w in ["식겁", "울음", "거짓말", "반전", "난리", "폭소", "남편", "아내", "비밀", "전화", "통화"])
-    jp_warm = any(w in combined for w in ["아기", "안정형", "귀여운", "뽀뽀", "사랑", "동심", "힐링", "순수", "딸", "아들", "toddler", "baby"])
+    tw_strong = any(w in combined for w in ["식겁", "울음", "거짓말", "반전", "난리", "폭소", "남편", "아내", "비밀", "전화", "통화", "트라우마", "혼내"])
+    jp_warm = any(w in combined for w in ["아기", "안정형", "귀여운", "귀여워서", "무해한", "부탁", "뽀뽀", "사랑", "동심", "힐링", "순수", "딸", "아들", "동생", "언니", "toddler", "baby"])
     if tw_strong and jp_warm:
         skin = "🇹🇼 대만 Dark 파형 · 🇯🇵 일본 종이툰 모두 적합"
     elif tw_strong:
@@ -172,8 +193,8 @@ def evaluate_export_fit(title, desc="", length_sec=30):
     return ("good", "🌏 해외 번역 가능", skin)
 
 
-def fetch_channel_shorts(ch_name, ch_id, category, note="", limit=35):
-    """채널의 /shorts 탭에서 쇼츠 목록 수집"""
+def fetch_channel_shorts(ch_name, ch_id, category, note="", limit=45):
+    """채널의 /shorts 탭에서 최신 쇼츠 목록 수집"""
     url = f"https://www.youtube.com/channel/{ch_id}/shorts"
     try:
         data = initial_data(get(url))
@@ -217,9 +238,50 @@ def fetch_channel_shorts(ch_name, ch_id, category, note="", limit=35):
     return out[:limit]
 
 
+def fetch_channel_popular_search(ch_name, ch_id, category, note="", limit=25):
+    """채널명으로 조회수순 검색하여 최신 탭에서 밀려난 과거 대박 쇼츠(예: 3개월 전 547만뷰)까지 보강"""
+    url = "https://www.youtube.com/results?search_query=" + urllib.parse.quote(ch_name) + "&sp=CAMSAhAB"
+    try:
+        data = initial_data(get(url))
+    except Exception:  # noqa: BLE001
+        return []
+
+    out = []
+    seen = set()
+
+    def f(o):
+        v = o.get("videoRenderer")
+        if v and "videoId" in v:
+            vid = v["videoId"]
+            if vid in seen:
+                return
+            try:
+                run = v["ownerText"]["runs"][0]
+                found_cid = run["navigationEndpoint"]["browseEndpoint"]["browseId"]
+                if found_cid != ch_id:
+                    return
+                title = "".join(r["text"] for r in v["title"]["runs"])
+                v_txt = v.get("viewCountText", {}).get("simpleText", "")
+                views = parse_kr_views(v_txt)
+                seen.add(vid)
+                out.append({
+                    "id": vid,
+                    "title": title,
+                    "channel": ch_name,
+                    "channel_id": ch_id,
+                    "category": category,
+                    "channel_note": note,
+                    "views": views,
+                })
+            except (KeyError, IndexError, TypeError):
+                pass
+
+    walk(data, f)
+    return out[:limit]
+
+
 def search_discover_shorts(query, tag, limit=12):
     """유튜브 검색(조회수순)에서 짧은 쇼츠/통화 영상을 발굴"""
-    # sp=CAMSAhAB : 조회수순
     url = "https://www.youtube.com/results?search_query=" + urllib.parse.quote(query) + "&sp=CAMSAhAB"
     try:
         data = initial_data(get(url))
@@ -230,7 +292,6 @@ def search_discover_shorts(query, tag, limit=12):
     seen = set()
 
     def f(o):
-        # 1) 일반 videoRenderer 중 길이가 짧거나(<=90초) 쇼츠인 항목
         v = o.get("videoRenderer")
         if v and "videoId" in v:
             vid = v["videoId"]
@@ -269,7 +330,6 @@ def search_discover_shorts(query, tag, limit=12):
             except (KeyError, IndexError, TypeError):
                 pass
 
-        # 2) 검색 결과 내 shortsLockupViewModel
         sl = o.get("shortsLockupViewModel")
         if sl:
             try:
@@ -299,8 +359,59 @@ def search_discover_shorts(query, tag, limit=12):
     return out[:limit]
 
 
+def get_local_yt_api_key():
+    """로컬 환경변수 또는 사용자 홈의 ~/.claude/youtube/api_key.txt 가 있으면 읽는다 (저장소 내부에는 절대 저장하지 않음)"""
+    k = os.environ.get("YOUTUBE_API_KEY", "").strip()
+    if k:
+        return k
+    p = os.path.expanduser("~/.claude/youtube/api_key.txt")
+    if os.path.exists(p):
+        try:
+            with open(p, encoding="utf-8") as f:
+                return f.read().strip()
+        except OSError:
+            return ""
+    return ""
+
+
+def fetch_details_batch_api(vids, api_key):
+    """YouTube Data API v3로 50개씩 초고속 배치 조회 (로컬 API 키가 있을 때만 사용)"""
+    out = {}
+    for i in range(0, len(vids), 50):
+        chunk = vids[i:i + 50]
+        params = urllib.parse.urlencode({
+            "part": "snippet,statistics,contentDetails",
+            "id": ",".join(chunk),
+            "key": api_key,
+        })
+        url = f"https://www.googleapis.com/youtube/v3/videos?{params}"
+        try:
+            req = urllib.request.Request(url, headers={"Accept": "application/json"})
+            with urllib.request.urlopen(req, timeout=20) as resp:
+                data = json.loads(resp.read().decode("utf-8"))
+            for item in data.get("items", []):
+                vid = item["id"]
+                sn = item.get("snippet", {})
+                st = item.get("statistics", {})
+                cd = item.get("contentDetails", {})
+                desc = sn.get("description", "") or ""
+                out[vid] = {
+                    "title": sn.get("title") or "",
+                    "channel": sn.get("channelTitle") or "",
+                    "channel_id": sn.get("channelId") or "",
+                    "views": int(st.get("viewCount") or 0),
+                    "length_sec": parse_iso_duration(cd.get("duration", "")),
+                    "published": (sn.get("publishedAt") or "")[:10],
+                    "desc": desc[:500],
+                    "source_credit": extract_source_credit(desc),
+                }
+        except Exception:  # noqa: BLE001
+            pass
+    return out
+
+
 def fetch_watch_detail(vid):
-    """개별 watch 페이지에서 정확한 조회수, 길이(초), 업로드일, 설명란(출처) 추출"""
+    """개별 watch 페이지에서 정확한 조회수, 길이(초), 업로드일, 설명란(출처) 추출 (API 키 없을 때 폴백)"""
     url = f"https://www.youtube.com/watch?v={vid}"
     try:
         page = get(url)
@@ -345,21 +456,27 @@ def main():
     ref_ids = {cid for _, cid, _ in REF_CHANNELS}
     orig_ids = {cid for _, cid, _ in ORIG_CHANNELS}
 
-    print("1) 검증된 콜툰 레퍼런스 채널 쇼츠 수집 중...")
+    print("1) 검증된 콜툰 레퍼런스 채널 7곳 (최신순 + 역대 인기순) 수집 중...")
     for ch_name, ch_id, note in REF_CHANNELS:
-        items = fetch_channel_shorts(ch_name, ch_id, "ref", note, limit=35)
-        for it in items:
-            raw_items[it["id"]] = it
-        print(f"   - {ch_name}: {len(items)}개")
-        time.sleep(0.3)
+        recent_items = fetch_channel_shorts(ch_name, ch_id, "ref", note, limit=45)
+        pop_items = fetch_channel_popular_search(ch_name, ch_id, "ref", note, limit=25)
+        combined_ch = 0
+        for it in recent_items + pop_items:
+            if it["id"] not in raw_items:
+                raw_items[it["id"]] = it
+                combined_ch += 1
+            elif it.get("views", 0) > raw_items[it["id"]].get("views", 0):
+                raw_items[it["id"]]["views"] = it["views"]
+        print(f"   - {ch_name}: {combined_ch}개 (최신 {len(recent_items)} / 인기검색 {len(pop_items)})")
+        time.sleep(0.25)
 
     print("2) 역추적된 원본 가족·육아 채널 쇼츠 수집 중...")
     for ch_name, ch_id, note in ORIG_CHANNELS:
-        items = fetch_channel_shorts(ch_name, ch_id, "orig", note, limit=25)
+        items = fetch_channel_shorts(ch_name, ch_id, "orig", note, limit=30)
         for it in items:
             raw_items.setdefault(it["id"], it)
         print(f"   - {ch_name}: {len(items)}개")
-        time.sleep(0.3)
+        time.sleep(0.25)
 
     print("3) 미개척 통화·육성 키워드 발굴 중...")
     disc_count = 0
@@ -369,27 +486,31 @@ def main():
             if it["id"] not in raw_items:
                 raw_items[it["id"]] = it
                 disc_count += 1
-        time.sleep(0.3)
+        time.sleep(0.25)
     print(f"   - 키워드 발굴 후보: {disc_count}개")
 
-    # 상세 메타데이터 보강 (캐시에 없거나 채널명/출시일이 비어있는 영상 우선, 최대 160개 병렬 조회)
     need_detail = [
         vid
         for vid, it in raw_items.items()
         if vid not in store
         or not store[vid].get("published")
+        or not store[vid].get("length_sec")
         or not it.get("channel")
-        or it["category"] == "ref" and "source_credit" not in store[vid]
-    ][:180]
+        or (it["category"] == "ref" and "source_credit" not in store[vid])
+    ]
 
+    details = {}
     if need_detail:
-        print(f"4) 상세 정보(업로드일·길이·출처 표기) 병렬 조회 중 ({len(need_detail)}개)...")
-        with ThreadPoolExecutor(10) as ex:
-            details = dict(zip(need_detail, ex.map(fetch_watch_detail, need_detail)))
-    else:
-        details = {}
+        api_key = get_local_yt_api_key()
+        if api_key:
+            print(f"4) 상세 정보(업로드일·길이·출처 표기) 고속 배치 조회 중 ({len(need_detail)}개)...")
+            details = fetch_details_batch_api(need_detail, api_key)
+        else:
+            batch = need_detail[:150]
+            print(f"4) 상세 정보(업로드일·길이·출처 표기) 웹 병렬 조회 중 ({len(batch)}개)...")
+            with ThreadPoolExecutor(8) as ex:
+                details = dict(zip(batch, ex.map(fetch_watch_detail, batch)))
 
-    # 채널별 조회수 중앙값(Median) 계산용 버킷
     ch_views = {}
     merged_list = []
 
@@ -407,14 +528,12 @@ def main():
         source_credit = det.get("source_credit") if "source_credit" in det else cached.get("source_credit", "")
         desc = det.get("desc") or cached.get("desc") or ""
 
-        # 만약 키워드 발굴로 찾았는데 레퍼런스/원본 채널 영상이면 카테고리 승격
         category = it["category"]
         if channel_id in ref_ids:
             category = "ref"
         elif channel_id in orig_ids:
             category = "orig"
 
-        # 쇼츠 기준(120초 이하)을 크게 벗어나는 롱폼은 제외 (단, 원본 채널은 180초까지 허용)
         max_sec = 180 if category == "orig" else 120
         if length_sec > max_sec:
             continue
@@ -442,7 +561,6 @@ def main():
         if channel_id and views > 0:
             ch_views.setdefault(channel_id, []).append(views)
 
-    # 채널별 중앙값(median) 대비 아웃라이어 배수(multiple) 계산
     ch_medians = {cid: max(int(statistics.median(vlist)), 1000) for cid, vlist in ch_views.items() if vlist}
 
     for item in merged_list:
@@ -452,10 +570,8 @@ def main():
         if med > 0 and len(ch_views.get(cid, [])) >= 3:
             item["multiple"] = round(item["views"] / med, 1)
         else:
-            # 단일 검색 결과는 10만 조회수 기준 상대 배수로 환산
             item["multiple"] = round(item["views"] / 100_000, 1)
 
-    # 아웃라이어 배수 높은 순 -> 조회수 높은 순 정렬
     merged_list.sort(key=lambda x: (x["multiple"], x["views"]), reverse=True)
 
     print(
@@ -466,15 +582,14 @@ def main():
     )
 
     if dry:
-        for x in merged_list[:15]:
+        for x in merged_list[:20]:
             print(
                 f"  [{x['category']}] {x['views']:>10,}회 ({x['multiple']}x) | {x['channel']} | "
                 f"{x['title'][:38]} | 출처:{x['source_credit'] or '-'}"
             )
         return
 
-    # 캐시 저장
-    new_store = {}
+    new_store = dict(store)
     for x in merged_list:
         new_store[x["id"]] = {
             "title": x["title"],
