@@ -94,7 +94,35 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 </head>
 <body>
 <header><h1>🇰🇷🇯🇵 국뽕 영상 서칭</h1><div class="sub" id="upd"></div></header>
-<div class="bar"><button class="chip on" id="mv">🎬 영상</button><button class="chip" id="mc">📺 채널 벤치마킹</button><button class="chip" id="mt" title="맨 아래 주제 목록(12갈래·140꼭지)으로 이동">📚 주제 목록 ↓</button><button class="chip" id="ms" hidden>🎯 국뽕 점수</button></div>
+<div class="bar"><button class="chip on" id="mv">🎬 영상</button><button class="chip" id="mc">📺 채널 벤치마킹</button><button class="chip" id="mct">📞 콜툰·통화 소재</button><button class="chip" id="mt" title="맨 아래 주제 목록(12갈래·140꼭지)으로 이동">📚 주제 목록 ↓</button><button class="chip" id="ms" hidden>🎯 국뽕 점수</button></div>
+<div id="ctview" hidden>
+  <div class="quick">
+    <div class="qg"><b>📂 분류</b><span id="ctcat" style="display:contents"></span></div>
+    <div class="qg"><b>🌏 해외 현지화·스킨</b><span id="ctexp" style="display:contents"></span></div>
+  </div>
+  <div class="quick">
+    <div class="qg"><b>📺 채널별</b><span id="ctch" style="display:contents"></span></div>
+  </div>
+  <div class="bar">
+    <input id="ctq" placeholder="제목·채널·원본 출처·메모 검색">
+    <select id="ctsort">
+      <option value="mult">🔥 아웃라이어 배수순 (채널 중앙값 대비 대박)</option>
+      <option value="views">조회수 높은순</option>
+      <option value="pub">업로드 최신순</option>
+      <option value="len">길이 짧은순</option>
+    </select>
+    <select id="ctmine">
+      <option value="">기본 (사용 완료·숨김 제외)</option>
+      <option value="fav">⭐ 저장만</option>
+      <option value="src">📌 원본 출처 표기 있는 영상만</option>
+      <option value="memo">📝 메모 있음</option>
+      <option value="done">✓ 사용 완료만</option>
+      <option value="hidden">🗑 숨김만</option>
+    </select>
+  </div>
+  <div class="sub" style="max-width:1200px;margin:0 auto;padding:0 16px" id="ctinfo"></div>
+  <div class="grid" id="ctgrid"></div>
+</div>
 <!-- 🎯 국뽕 점수: 점수 기준 / 채점 기록 / 간이 채점기. 내용은 아래 스크립트가 scorer.js(기준)와 scores.js(기록)로 채운다 -->
 <div id="scview" hidden>
   <div class="bar"><button class="chip sctab on" data-t="rubric">📏 점수 기준</button><button class="chip sctab" data-t="log">🏆 채점 기록 <small id="sc-n"></small></button><button class="chip sctab" data-t="tool">🧮 간이 채점기</button></div>
@@ -206,6 +234,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script src="cc_videos.js?v=cc65n1101" onerror="window.CC_VIDEOS=[]"></script>
 <script src="video_licenses.js?v=cc65n1101" onerror="window.VIDEO_LICENSES={schema:1,items:{}}"></script>
 <script src="breakouts.js" onerror="window.breakoutInfo=null"></script>
+<script src="calltoon.js" onerror="window.CALLTOON=[]"></script>
 <script>
 // 일반 수집 영상 + 화제·체험·일본 주제·글로벌 영상. 겹치는 영상은 표시와 길이만 합친다
 const V = (window.VIDEOS || []).slice();
@@ -1069,7 +1098,125 @@ function setMode(m) {   // m: false/"v" 영상 · true/"c" 채널 벤치마킹 �
   if (mode === "s") renderScore();
   if (mode === "v" && typeof render === "function" && V.length) render({keep: true});   // 영상 화면으로 돌아오면 숨겨야 할 줄(레퍼런스·지방 등)을 다시 맞춘다
 }
-document.getElementById("mv").onclick = () => setMode(false); document.getElementById("mc").onclick = () => setMode(true); document.getElementById("ms").onclick = () => setMode("s");
+// ---- 📞 콜툰·통화 소재 전용 뷰 ----
+const CT = (window.CALLTOON || []).slice();
+const CT_CAT_LABEL = {ref: "🔥 검증된 콜툰 레퍼런스", orig: "📌 원본 가족·육아 채널", discover: "💎 미개척 키워드 발굴"};
+const ctCatSel = new Set(), ctExpSel = new Set(), ctChSel = new Set();
+function mkCtMulti(parent, items, sel, total) {
+  const mk = (k, label, count) => { const b = document.createElement("button"); b.className = "chip"; b.dataset.k = k;
+    b.innerHTML = label + (count == null ? "" : `<small>${count}</small>`); parent.append(b); return b; };
+  const keys = items.map(i => i[0]);
+  const all = mk("all", "전체", total), btns = items.map(([k, l, n]) => mk(k, l, n));
+  const sync = () => { all.classList.toggle("on", !keys.some(k => sel.has(k))); btns.forEach(b => b.classList.toggle("on", sel.has(b.dataset.k))); };
+  all.onclick = () => { keys.forEach(k => sel.delete(k)); sync(); renderCt(); };
+  btns.forEach(b => b.onclick = () => { sel.has(b.dataset.k) ? sel.delete(b.dataset.k) : sel.add(b.dataset.k); sync(); renderCt(); });
+  sync();
+}
+mkCtMulti(document.getElementById("ctcat"), [
+  ["ref", "🔥 검증된 콜툰 레퍼런스", CT.filter(v => v.category === "ref").length],
+  ["orig", "📌 원본 가족·육아 채널", CT.filter(v => v.category === "orig").length],
+  ["discover", "💎 미개척 키워드 발굴", CT.filter(v => v.category === "discover").length],
+], ctCatSel, CT.length);
+mkCtMulti(document.getElementById("ctexp"), [
+  ["good", "🌏 대만·일본 수출 추천", CT.filter(v => v.export_fit === "good").length],
+  ["tw", "🇹🇼 대만 Dark 파형 적합", CT.filter(v => (v.skin_rec || "").includes("대만")).length],
+  ["jp", "🇯🇵 일본 종이툰 적합", CT.filter(v => (v.skin_rec || "").includes("일본")).length],
+  ["wordplay", "⚠️ 언어유희·발음 주의", CT.filter(v => v.export_fit === "wordplay").length],
+], ctExpSel, CT.length);
+{
+  const chMap = new Map();
+  CT.filter(v => v.category !== "discover" && v.channel).forEach(v => chMap.set(v.channel, (chMap.get(v.channel) || 0) + 1));
+  mkCtMulti(document.getElementById("ctch"), [...chMap].map(([name, cnt]) => [name, name, cnt]), ctChSel, CT.length);
+}
+function renderCt() {
+  const q = document.getElementById("ctq").value.trim().toLowerCase();
+  const sort = document.getElementById("ctsort").value;
+  const mine = document.getElementById("ctmine").value;
+  let a = CT.filter(v => {
+    if (mine === "hidden") { if (!hidden.has(v.id)) return false; }
+    else if (hidden.has(v.id)) return false;
+    if (mine === "done") { if (!done.has(v.id)) return false; }
+    else if (!mine && done.has(v.id)) return false;
+    if (mine === "fav" && !favs.has(v.id)) return false;
+    if (mine === "memo" && !memos[v.id]) return false;
+    if (mine === "src" && !v.source_credit) return false;
+    if (ctCatSel.size && !ctCatSel.has(v.category)) return false;
+    if (ctChSel.size && !ctChSel.has(v.channel)) return false;
+    if (ctExpSel.size) {
+      const ok = (ctExpSel.has("good") && v.export_fit === "good") ||
+                 (ctExpSel.has("wordplay") && v.export_fit === "wordplay") ||
+                 (ctExpSel.has("tw") && (v.skin_rec || "").includes("대만")) ||
+                 (ctExpSel.has("jp") && (v.skin_rec || "").includes("일본"));
+      if (!ok) return false;
+    }
+    if (q && !(v.title + " " + v.channel + " " + (v.source_credit || "") + " " + (memos[v.id] || "")).toLowerCase().includes(q)) return false;
+    return true;
+  });
+  a.sort((x, y) => {
+    if (sort === "views") return (y.views || 0) - (x.views || 0);
+    if (sort === "pub") return (y.published || "").localeCompare(x.published || "");
+    if (sort === "len") return (x.length_sec || 999) - (y.length_sec || 999);
+    return (y.multiple || 0) - (x.multiple || 0) || (y.views || 0) - (x.views || 0);
+  });
+  document.getElementById("ctinfo").textContent = `콜툰·통화 소재 ${a.length}개 (전체 ${CT.length}개) · 갱신 ${window.CALLTOON_UPDATED || "-"} · 카드를 누르면 바로 재생돼요`;
+  const g = document.getElementById("ctgrid"); g.innerHTML = "";
+  if (!a.length) { g.innerHTML = '<div class="empty">조건에 맞는 콜툰·통화 소재가 없어요</div>'; return; }
+  a.forEach(v => {
+    const el = document.createElement("div");
+    const bdr = v.category === "ref" ? "kd-inst" : v.category === "orig" ? "kd-foreign" : "kd-local";
+    el.className = "card " + bdr + (done.has(v.id) ? " done" : "");
+    const catCls = v.category === "ref" ? "kind-inst" : v.category === "orig" ? "kind-foreign" : "kind-local";
+    const expBadge = v.export_fit === "wordplay"
+      ? `<span class="tag" style="background:#fee2e2;color:#991b1b;font-weight:700" title="${v.export_reason || ""}">⚠️ 언어유희 주의</span>`
+      : `<span class="tag kind-ref" title="${v.export_reason || ""}">🌏 수출 추천</span>`;
+    const multBadge = v.multiple >= 3
+      ? `<span class="tag hot" title="채널 중앙값(${fmt(v.median_views)}) 대비 ${v.multiple}배 대박">🔥 중앙값 ${v.multiple}배</span>`
+      : v.multiple > 0 ? `<span class="tag">평균 ${v.multiple}배</span>` : "";
+    const srcBadge = v.source_credit
+      ? `<span class="tag" style="background:#dcfce7;color:#166534;font-weight:700">📌 출처: ${v.source_credit}</span>`
+      : "";
+    el.innerHTML = `<div class="th">${isNew(v) ? '<span class="new">NEW</span>' : ""}<button class="fav ${favs.has(v.id) ? "on" : ""}">${favs.has(v.id) ? "★" : "☆"}</button>` +
+      `<img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/mqdefault.jpg"><div class="play">▶</div></div>` +
+      `<div class="body"><a class="t" target="_blank" rel="noopener" href="https://www.youtube.com/shorts/${v.id}"></a>` +
+      `<div class="m"><a target="_blank" rel="noopener" href="https://www.youtube.com/channel/${v.channel_id}/shorts" style="color:inherit;text-decoration:none;font-weight:600"></a> · ${v.published || "-"}</div>` +
+      `<div class="tags">` +
+        `<span class="tag ${catCls}">${CT_CAT_LABEL[v.category] || v.category}</span>` +
+        `<span class="tag">👁 ${fmt(v.views)}</span>` +
+        `${multBadge}` +
+        `<span class="tag">⏱ ${v.length || "쇼츠"}</span>` +
+        `${expBadge}` +
+        `${v.skin_rec ? `<span class="tag">${v.skin_rec}</span>` : ""}` +
+        `${srcBadge}` +
+      `</div>` +
+      `<div class="act"><button class="btn ok ${done.has(v.id) ? "on" : ""}">${done.has(v.id) ? "✓ 사용 완료" : "사용 완료"}</button>` +
+      `<button class="btn memo ${memos[v.id] ? "on" : ""}">📝 메모</button><button class="btn hd">${hidden.has(v.id) ? "↩ 복구" : "🗑 숨김"}</button></div>` +
+      `<textarea hidden placeholder="대만/일본 대사 번역 아이디어, 캐릭터 설정 메모"></textarea></div>`;
+    el.querySelector(".t").textContent = v.title;
+    el.querySelector(".m a").textContent = v.channel || "채널 보기";
+    el.querySelector(".th").onclick = e => { if (!e.target.closest(".fav")) el.querySelector(".th").innerHTML = `<iframe src="https://www.youtube.com/embed/${v.id}?autoplay=1" allow="autoplay;encrypted-media" allowfullscreen></iframe>`; };
+    el.querySelector(".fav").onclick = () => { favs.has(v.id) ? favs.delete(v.id) : favs.add(v.id); saveAll(); renderCt(); };
+    el.querySelector(".ok").onclick = () => { done.has(v.id) ? done.delete(v.id) : done.add(v.id); saveAll(); renderCt(); };
+    el.querySelector(".hd").onclick = () => { hidden.has(v.id) ? hidden.delete(v.id) : hidden.add(v.id); saveAll(); renderCt(); };
+    const ta = el.querySelector("textarea"), mb = el.querySelector(".memo"); ta.value = memos[v.id] || "";
+    mb.onclick = () => { ta.hidden = !ta.hidden; if (!ta.hidden) ta.focus(); };
+    ta.oninput = () => { ta.value.trim() ? memos[v.id] = ta.value : delete memos[v.id]; mb.classList.toggle("on", !!memos[v.id]); saveAll(); };
+    g.append(el);
+  });
+}
+["ctq", "ctsort", "ctmine"].forEach(i => document.getElementById(i).addEventListener("input", renderCt));
+function setModeAll(m) {
+  const mode = m === true ? "c" : m === "s" || m === "c" || m === "ct" ? m : "v";
+  ["mv", "mc", "ms", "mct"].forEach((id, i) => document.getElementById(id).classList.toggle("on", ["v", "c", "s", "ct"][i] === mode));
+  document.querySelectorAll(".vmode").forEach(e => e.hidden = mode !== "v");
+  document.getElementById("chview").hidden = mode !== "c";
+  document.getElementById("scview").hidden = mode !== "s";
+  document.getElementById("ctview").hidden = mode !== "ct";
+  if (mode === "c") renderCh();
+  if (mode === "s") renderScore();
+  if (mode === "ct") renderCt();
+  if (mode === "v" && typeof render === "function" && V.length) render({keep: true});
+}
+document.getElementById("mv").onclick = () => setModeAll(false); document.getElementById("mc").onclick = () => setModeAll(true); document.getElementById("ms").onclick = () => setModeAll("s"); document.getElementById("mct").onclick = () => setModeAll("ct");
 ["q", "sort", "dir", "lenmode"].forEach(i => document.getElementById(i).addEventListener("input", render));
 document.getElementById("exp").onclick = () => {
   const blob = new Blob([JSON.stringify({favs: [...favs], done: [...done], hidden: [...hidden], memos, kindCh, kindVid}, null, 1)], {type: "application/json"});

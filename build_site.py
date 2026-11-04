@@ -179,6 +179,13 @@ def main():
             json.dumps(now.strftime("%Y-%m-%d %H:%M"), ensure_ascii=False), json.dumps(items, ensure_ascii=False)))
     print(f"영상 {len(items)}개 저장 (새 영상 {len(new_items)}개) → web/videos.js")
 
+    if not offline:
+        try:
+            import calltoon_watch
+            calltoon_watch.main()
+        except Exception as exc:  # noqa: BLE001
+            print(f"[콜툰 수집 건너뜀] {exc}")
+
     if notify and new_items:
         cfg = notifier.load_config()
         if not (cfg["tg_token"] and cfg["tg_chat"]):

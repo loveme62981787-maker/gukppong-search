@@ -78,6 +78,7 @@ py -3.12 build_site.py --notify   # 위 + 새 영상 텔레그램 알림
 - [x] 텔레그램 새 영상 알림 코드 (`--notify`)
 - [x] GitHub Actions 자동 갱신/배포 설정 파일
 - [x] 🪪 라이선스 탭 3개(CC BY 확인 / 무료 사용 표기 / 라이선스 미확인) + `license_watch.py` 수집기·Actions 단계 (코드 완료, Codex 검토 대기)
+- [x] 📞 콜툰·통화 소재 전용 탭 (`calltoon_watch.py` → `web/calltoon.js`, `calltoon_store.json`) 추가 — 검증된 콜툰 레퍼런스 4개 채널(여보숏·마이콜·받을까 말까·전화왔숑) + 원본 가족·육아 채널(봄타고가을타고·리안이쑥쑥·컴온 유머스트컴백홈·장꾸발랄) + 미개척 통화 키워드 발굴 + 대만·일본 스킨 추천 및 설명란 원본 출처 자동 추출
 
 미확인 / 남은 일
 - [ ] 라이선스 확인 backfill: 사이트 영상 약 14,000개 중 일부만 확인됨. 수동 실행의 `license_limit` 또는 매일 자동 실행(400개씩)으로 채워진다. 내 PC: `python license_watch.py --limit 300`, 화면 파일만 다시 만들기: `python license_watch.py --export-only`, 테스트: `node --test tests/test_license_tabs.mjs`
