@@ -38,6 +38,14 @@ REF_CHANNELS = [
     ("받아볼까", "UCEcawrJIoVFILyyifqze9ow", "누적 7,160만뷰 · 파스텔 2D 캐릭터 대화툰"),
     ("아무튼망고", "UC8D6w-5-Twl5SDq7fwqRACA", "급성장 신흥 강자 · 상하 분할 라인아트 종이툰"),
     ("스피커폰", "UCScuSuYLlzYMtkruY1VN2JA", "신생 통화·대화 일러스트 쇼츠"),
+    ("통신보안", "UCYj6uIuPGUQ6jip6UtqXjmQ", "구독 24.5만 · 누적 10.8억뷰 통화·대화 쇼츠 대형 채널"),
+    ("오늘의 통화", "UCfCH4R67ynUTE55W-r_hgSA", "구독 15.2만 · 누적 7.8억뷰 #통화녹음 대표 채널"),
+    ("인생 녹음 중", "UC1OU9eIk4JGnh9DN1yxwW9A", "구독 139만 · 누적 4.3억뷰 부부·가족 일상 녹음툰"),
+    ("목소리 극장", "UCBTMGeLEcGkEaymgAGyjVOw", "구독 3.6만 · 누적 2.6억뷰 #통화녹음 일러스트"),
+    ("통화툰", "UCfqYYRdo7vddSuN0Yw_Bw8A", "구독 7.4만 · 누적 1.6억뷰 #통화툰 전문 채널"),
+    ("여보세요?", "UCkU2qrzka8NtFvvyEKt0r1Q", "구독 2.1만 · 누적 9,167만뷰 #웃긴통화 전문"),
+    ("레코드포유 RECORD FOR U", "UCeTKRANKQYeeQWl8z8pqSsQ", "구독 2.5천 · 누적 1,002만뷰 가족 통화 레코드툰"),
+    ("당장들어", "UCoqJO9tSTMUFbDfMFy3Ovjg", "구독 3.0천 · 누적 997만뷰 가족·아이 통화 유머"),
 ]
 
 # 2. 역추적된 원본 가족·육아·일상 채널 (콜툰 채널들의 실제 음성 출처)
@@ -46,6 +54,7 @@ ORIG_CHANNELS = [
     ("리안이쑥쑥", "UC4Xg0LGE3IUiJQwbyStcbaQ", "육아·아이 말투 원본"),
     ("컴온 유머스트컴백홈", "UCi9MZe9of7XqwgThwMnXNpA", "가족 유머·통화 원본"),
     ("장꾸발랄", "UC-8hH-Q3LmGm6_WOICkEM4Q", "장난꾸러기 아이 일상 원본"),
+    ("감자네: 일기", "UC9wK7odTgYce5teR30awbkw", "누적 4,160만뷰 · 육아·형제·가족 일상 원본"),
 ]
 
 # 3. 미개척 통화·육성 키워드 발굴 (한국어 + 글로벌 영어)
