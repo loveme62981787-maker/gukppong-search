@@ -176,6 +176,40 @@ def extract_source_credit(desc):
     return ""
 
 
+KNOWN_OCR_CREDITS = {
+    "zasCdbKUkqg": "유튜브 @봄타고가을타고 (원본: ekI83vMceDY)",
+    "llB_rvP7xsI": "인스타그램 @ryu_999",
+    "XvexXfIwE84": "인스타그램 @hayooni23",
+    "-iNory-Y-Mw": "인스타그램 @hayooni23",
+    "XAvT4I75ETI": "인스타 haneun1126 (하누니)",
+}
+
+
+def build_source_url(source_credit, category="", channel_id="", vid=""):
+    """원작자 출처 문자열에서 인스타·틱톡·유튜브 직행 URL을 생성"""
+    if category == "orig" and vid:
+        return f"https://www.youtube.com/shorts/{vid}"
+    if not source_credit:
+        return ""
+    s = source_credit.strip()
+    m_vid = re.search(r"원본\s*:\s*([A-Za-z0-9_-]{11})", s)
+    if m_vid:
+        return f"https://www.youtube.com/shorts/{m_vid.group(1)}"
+    m_ig = re.search(r"(?:인스타(?:그램)?|instagram|ig)\s*[:：@]?\s*@?([A-Za-z0-9._]{2,35})", s, re.I)
+    if m_ig and m_ig.group(1).lower() not in ("그램", "릴스", "출처"):
+        return f"https://www.instagram.com/{m_ig.group(1)}/"
+    m_tt = re.search(r"(?:틱톡|tiktok)\s*[:：@]?\s*@?([A-Za-z0-9._]{2,35})", s, re.I)
+    if m_tt:
+        return f"https://www.tiktok.com/@{m_tt.group(1)}"
+    m_yt = re.search(r"(?:유튜브|youtube)\s*[:：]?\s*@([^\s/()]+)", s, re.I)
+    if m_yt:
+        return "https://www.youtube.com/@" + urllib.parse.quote(m_yt.group(1))
+    m_at = re.search(r"@([A-Za-z0-9._]{3,35})", s)
+    if m_at:
+        return f"https://www.instagram.com/{m_at.group(1)}/"
+    return "https://www.youtube.com/results?search_query=" + urllib.parse.quote(s)
+
+
 def evaluate_export_fit(title, desc="", length_sec=30):
     """대만(Dark 파형)·일본(Warm 종이툰) 현지화 적합도 및 추천 스킨 판정"""
     combined = f"{title} {desc}".lower()
@@ -561,7 +595,8 @@ def main():
             "length": fmt_length(length_sec),
             "published": published,
             "first_seen": first_seen,
-            "source_credit": source_credit,
+            "source_credit": KNOWN_OCR_CREDITS.get(vid) or source_credit or (f"유튜브 원본 @{channel}" if category == "orig" and channel else ""),
+            "source_url": build_source_url(KNOWN_OCR_CREDITS.get(vid) or source_credit or (f"유튜브 원본 @{channel}" if category == "orig" and channel else ""), category, channel_id, vid),
             "export_fit": export_fit,
             "export_reason": export_reason,
             "skin_rec": skin_rec,

@@ -257,7 +257,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script src="cc_videos.js?v=cc65n1101" onerror="window.CC_VIDEOS=[]"></script>
 <script src="video_licenses.js?v=cc65n1101" onerror="window.VIDEO_LICENSES={schema:1,items:{}}"></script>
 <script src="breakouts.js" onerror="window.breakoutInfo=null"></script>
-<script src="calltoon.js" onerror="window.CALLTOON=[]"></script>
+<script src="calltoon.js?v=src722" onerror="window.CALLTOON=[]"></script>
 <script src="kr_news.js" onerror="window.KR_NEWS=[]"></script>
 <script>
 // 일반 수집 영상 + 화제·체험·일본 주제·글로벌 영상. 겹치는 영상은 표시와 길이만 합친다
@@ -1145,6 +1145,7 @@ mkCtMulti(document.getElementById("ctexp"), [
   ["good", "🌏 대만·일본 수출 추천", CT.filter(v => v.export_fit === "good").length],
   ["tw", "🇹🇼 대만 Dark 파형 적합", CT.filter(v => (v.skin_rec || "").includes("대만")).length],
   ["jp", "🇯🇵 일본 종이툰 적합", CT.filter(v => (v.skin_rec || "").includes("일본")).length],
+  ["src_ok", "📌 원본 출처 확인됨", CT.filter(v => !!v.source_credit).length],
   ["wordplay", "⚠️ 언어유희·발음 주의", CT.filter(v => v.export_fit === "wordplay").length],
 ], ctExpSel, CT.length);
 {
@@ -1170,7 +1171,8 @@ function renderCt() {
       const ok = (ctExpSel.has("good") && v.export_fit === "good") ||
                  (ctExpSel.has("wordplay") && v.export_fit === "wordplay") ||
                  (ctExpSel.has("tw") && (v.skin_rec || "").includes("대만")) ||
-                 (ctExpSel.has("jp") && (v.skin_rec || "").includes("일본"));
+                 (ctExpSel.has("jp") && (v.skin_rec || "").includes("일본")) ||
+                 (ctExpSel.has("src_ok") && !!v.source_credit);
       if (!ok) return false;
     }
     if (q && !(v.title + " " + v.channel + " " + (v.source_credit || "") + " " + (memos[v.id] || "")).toLowerCase().includes(q)) return false;
@@ -1197,7 +1199,7 @@ function renderCt() {
       ? `<span class="tag hot" title="채널 중앙값(${fmt(v.median_views)}) 대비 ${v.multiple}배 대박">🔥 중앙값 ${v.multiple}배</span>`
       : v.multiple > 0 ? `<span class="tag">평균 ${v.multiple}배</span>` : "";
     const srcBadge = v.source_credit
-      ? `<span class="tag" style="background:#dcfce7;color:#166534;font-weight:700">📌 출처: ${v.source_credit}</span>`
+      ? (v.source_url ? `<a class="tag" target="_blank" rel="noopener" href="${v.source_url}" style="background:#dcfce7;color:#166534;font-weight:700;text-decoration:none" title="클릭하면 최초 원작자 계정/원본 영상으로 이동합니다">🔗 원본 출처: ${v.source_credit} ↗</a>` : `<span class="tag" style="background:#dcfce7;color:#166534;font-weight:700">📌 출처: ${v.source_credit}</span>`)
       : "";
     el.innerHTML = `<div class="th">${isNew(v) ? '<span class="new">NEW</span>' : ""}<button class="fav ${favs.has(v.id) ? "on" : ""}">${favs.has(v.id) ? "★" : "☆"}</button>` +
       `<img loading="lazy" src="https://i.ytimg.com/vi/${v.id}/mqdefault.jpg"><div class="play">▶</div></div>` +
