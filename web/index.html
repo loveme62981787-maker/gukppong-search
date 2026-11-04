@@ -94,7 +94,30 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 </head>
 <body>
 <header><h1>🇰🇷🇯🇵 국뽕 영상 서칭</h1><div class="sub" id="upd"></div></header>
-<div class="bar"><button class="chip on" id="mv">🎬 영상</button><button class="chip" id="mc">📺 채널 벤치마킹</button><button class="chip" id="mct">📞 콜툰·통화 소재</button><button class="chip" id="mt" title="맨 아래 주제 목록(12갈래·140꼭지)으로 이동">📚 주제 목록 ↓</button><button class="chip" id="ms" hidden>🎯 국뽕 점수</button></div>
+<div class="bar"><button class="chip on" id="mv">🎬 영상</button><button class="chip" id="mc">📺 채널 벤치마킹</button><button class="chip" id="mct">📞 콜툰·통화 소재</button><button class="chip" id="mnw">📰 이슈·정책 쇼츠 소재</button><button class="chip" id="mt" title="맨 아래 주제 목록(12갈래·140꼭지)으로 이동">📚 주제 목록 ↓</button><button class="chip" id="ms" hidden>🎯 국뽕 점수</button></div>
+<div id="nwview" hidden>
+  <div class="quick">
+    <div class="qg"><b>📂 뉴스 분류</b><span id="nwcat" style="display:contents"></span></div>
+  </div>
+  <div class="bar">
+    <input id="nwq" placeholder="기사 제목·요약·핵심 숫자·언론사 검색">
+    <select id="nwsort">
+      <option value="score">🔥 쇼츠 적합도 점수순 (숫자·비교·화제성 우선)</option>
+      <option value="pub">발행 최신순</option>
+      <option value="badges">핵심 숫자 배지 많은순</option>
+    </select>
+    <select id="nwmine">
+      <option value="">기본 (사용 완료·숨김 제외)</option>
+      <option value="fav">⭐ 저장만</option>
+      <option value="kogl">✅ 공공누리 1유형·CC-BY 사진 있는 기사만</option>
+      <option value="memo">📝 메모 있음</option>
+      <option value="done">✓ 사용 완료만</option>
+      <option value="hidden">🗑 숨김만</option>
+    </select>
+  </div>
+  <div class="sub" style="max-width:1200px;margin:0 auto;padding:0 16px" id="nwinfo"></div>
+  <div class="grid" id="nwgrid"></div>
+</div>
 <div id="ctview" hidden>
   <div class="quick">
     <div class="qg"><b>📂 분류</b><span id="ctcat" style="display:contents"></span></div>
@@ -234,7 +257,8 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script src="cc_videos.js?v=cc65n1101" onerror="window.CC_VIDEOS=[]"></script>
 <script src="video_licenses.js?v=cc65n1101" onerror="window.VIDEO_LICENSES={schema:1,items:{}}"></script>
 <script src="breakouts.js" onerror="window.breakoutInfo=null"></script>
-<script src="calltoon.js?v=373" onerror="window.CALLTOON=[]"></script>
+<script src="calltoon.js" onerror="window.CALLTOON=[]"></script>
+<script src="kr_news.js" onerror="window.KR_NEWS=[]"></script>
 <script>
 // 일반 수집 영상 + 화제·체험·일본 주제·글로벌 영상. 겹치는 영상은 표시와 길이만 합친다
 const V = (window.VIDEOS || []).slice();
@@ -1204,19 +1228,107 @@ function renderCt() {
   });
 }
 ["ctq", "ctsort", "ctmine"].forEach(i => document.getElementById(i).addEventListener("input", renderCt));
+// ---- 📰 이슈·정책 쇼츠 소재 전용 뷰 ----
+const NW = (window.KR_NEWS || []).slice();
+const NW_CAT_LABEL = {kogl1: "✅ 공공누리 1유형 (정책브리핑)", economy: "💰 경제·민생·IT 이슈", celeb: "🌟 연예·문화 이슈"};
+const nwCatSel = new Set();
+function mkNwMulti(parent, items, sel, total) {
+  const mk = (k, label, count) => { const b = document.createElement("button"); b.className = "chip"; b.dataset.k = k;
+    b.innerHTML = label + (count == null ? "" : `<small>${count}</small>`); parent.append(b); return b; };
+  const keys = items.map(i => i[0]);
+  const all = mk("all", "전체", total), btns = items.map(([k, l, n]) => mk(k, l, n));
+  const sync = () => { all.classList.toggle("on", !keys.some(k => sel.has(k))); btns.forEach(b => b.classList.toggle("on", sel.has(b.dataset.k))); };
+  all.onclick = () => { keys.forEach(k => sel.delete(k)); sync(); renderNw(); };
+  btns.forEach(b => b.onclick = () => { sel.has(b.dataset.k) ? sel.delete(b.dataset.k) : sel.add(b.dataset.k); sync(); renderNw(); });
+  sync();
+}
+mkNwMulti(document.getElementById("nwcat"), [
+  ["kogl1", "✅ 공공누리 1유형 (정책브리핑)", NW.filter(v => v.category === "kogl1").length],
+  ["economy", "💰 경제·민생·IT 이슈", NW.filter(v => v.category === "economy").length],
+  ["celeb", "🌟 연예·문화 이슈", NW.filter(v => v.category === "celeb").length],
+], nwCatSel, NW.length);
+function renderNw() {
+  const q = document.getElementById("nwq").value.trim().toLowerCase();
+  const sort = document.getElementById("nwsort").value;
+  const mine = document.getElementById("nwmine").value;
+  let a = NW.filter(v => {
+    if (mine === "hidden") { if (!hidden.has(v.id)) return false; }
+    else if (hidden.has(v.id)) return false;
+    if (mine === "done") { if (!done.has(v.id)) return false; }
+    else if (!mine && done.has(v.id)) return false;
+    if (mine === "fav" && !favs.has(v.id)) return false;
+    if (mine === "memo" && !memos[v.id]) return false;
+    if (mine === "kogl" && !(v.category === "kogl1" || v.thumb)) return false;
+    if (nwCatSel.size && !nwCatSel.has(v.category)) return false;
+    if (q && !(v.title + " " + (v.summary || "") + " " + (v.source || "") + " " + (v.badges || []).join(" ") + " " + (memos[v.id] || "")).toLowerCase().includes(q)) return false;
+    return true;
+  });
+  a.sort((x, y) => {
+    if (sort === "pub") return (y.published || "").localeCompare(x.published || "") || (y.score || 0) - (x.score || 0);
+    if (sort === "badges") return ((y.badges || []).length - (x.badges || []).length) || (y.score || 0) - (x.score || 0);
+    return (y.score || 0) - (x.score || 0);
+  });
+  document.getElementById("nwinfo").textContent = `이슈·정책 쇼츠 소재 ${a.length}개 (전체 ${NW.length}개) · 갱신 ${window.KR_NEWS_UPDATED || "-"} · 토큰 0원 자동 수집 · '🎬 딸깍 쇼츠 명령 복사'를 눌러 채팅창에 붙여넣으세요`;
+  const g = document.getElementById("nwgrid"); g.innerHTML = "";
+  if (!a.length) { g.innerHTML = '<div class="empty">조건에 맞는 뉴스 소재가 없어요</div>'; return; }
+  a.forEach(v => {
+    const el = document.createElement("div");
+    const bdr = v.category === "kogl1" ? "kd-inst" : v.category === "economy" ? "kd-foreign" : "kd-local";
+    el.className = "card " + bdr + (done.has(v.id) ? " done" : "");
+    const catCls = v.category === "kogl1" ? "kind-inst" : v.category === "economy" ? "kind-foreign" : "kind-local";
+    const badgesHtml = (v.badges || []).map(b => `<span style="border:2px solid #e60012;background:#fff;color:#e60012;font-weight:800;padding:1px 7px;border-radius:4px;font-size:11px">${b}</span>`).join("");
+    const thHtml = v.thumb
+      ? `<img loading="lazy" src="${v.thumb}" onerror="this.remove()">`
+      : `<div style="width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;align-items:center;padding:12px;text-align:center;background:#111;color:#fff;font-weight:800;font-size:15px;line-height:1.35"><span style="color:#fff">${(v.title || "").slice(0, 16)}</span><span style="color:#ff2a2a">${(v.title || "").slice(16, 32)}</span></div>`;
+    el.innerHTML = `<div class="th">${thHtml}<button class="fav ${favs.has(v.id) ? "on" : ""}">${favs.has(v.id) ? "★" : "☆"}</button></div>` +
+      `<div class="body"><a class="t" target="_blank" rel="noopener" href="${v.url}"></a>` +
+      `<div class="m">${v.source || "뉴스"} · ${v.published || "-"}</div>` +
+      `<div class="tags">` +
+        `<span class="tag ${catCls}">${NW_CAT_LABEL[v.category] || v.category}</span>` +
+        `<span class="tag hot">🎯 적합도 ${v.score || 0}점</span>` +
+        `<span class="tag" style="background:#dcfce7;color:#166534;font-weight:700">${v.license || ""}</span>` +
+      `</div>` +
+      (badgesHtml ? `<div class="tags" style="margin-top:2px">${badgesHtml}</div>` : "") +
+      `<div class="m" style="font-size:12px;line-height:1.4">${v.summary || ""}</div>` +
+      `<button class="btn on cmdcopy" style="margin-top:4px;padding:7px 6px;font-weight:800">🎬 딸깍 쇼츠 명령 복사</button>` +
+      `<div class="act"><button class="btn ok ${done.has(v.id) ? "on" : ""}">${done.has(v.id) ? "✓ 사용 완료" : "사용 완료"}</button>` +
+      `<button class="btn memo ${memos[v.id] ? "on" : ""}">📝 메모</button><button class="btn hd">${hidden.has(v.id) ? "↩ 복구" : "🗑 숨김"}</button></div>` +
+      `<textarea hidden placeholder="쇼츠 반전 포인트, 추가 비교 수치 메모"></textarea></div>`;
+    el.querySelector(".t").textContent = v.title;
+    el.querySelector(".th").onclick = e => { if (!e.target.closest(".fav")) window.open(v.url, "_blank", "noopener"); };
+    el.querySelector(".cmdcopy").onclick = e => {
+      const cmd = `kr-news-shorts 스킬로 이 기사 쇼츠 영상 만들어줘 (김wow 내 목소리 클로닝 + @ve.rris 4단 레이아웃 + 저작권 클린 에셋):\n제목: ${v.title}\n링크: ${v.url}\n핵심 숫자 배지: ${(v.badges || []).join(", ") || "자동 추출"}`;
+      navigator.clipboard.writeText(cmd).then(() => {
+        const b = e.currentTarget; const oldTxt = b.textContent;
+        b.textContent = "✅ 복사 완료! 채팅창에 붙여넣으세요";
+        setTimeout(() => b.textContent = oldTxt, 2000);
+      });
+    };
+    el.querySelector(".fav").onclick = () => { favs.has(v.id) ? favs.delete(v.id) : favs.add(v.id); saveAll(); renderNw(); };
+    el.querySelector(".ok").onclick = () => { done.has(v.id) ? done.delete(v.id) : done.add(v.id); saveAll(); renderNw(); };
+    el.querySelector(".hd").onclick = () => { hidden.has(v.id) ? hidden.delete(v.id) : hidden.add(v.id); saveAll(); renderNw(); };
+    const ta = el.querySelector("textarea"), mb = el.querySelector(".memo"); ta.value = memos[v.id] || "";
+    mb.onclick = () => { ta.hidden = !ta.hidden; if (!ta.hidden) ta.focus(); };
+    ta.oninput = () => { ta.value.trim() ? memos[v.id] = ta.value : delete memos[v.id]; mb.classList.toggle("on", !!memos[v.id]); saveAll(); };
+    g.append(el);
+  });
+}
+["nwq", "nwsort", "nwmine"].forEach(i => document.getElementById(i).addEventListener("input", renderNw));
 function setModeAll(m) {
-  const mode = m === true ? "c" : m === "s" || m === "c" || m === "ct" ? m : "v";
-  ["mv", "mc", "ms", "mct"].forEach((id, i) => document.getElementById(id).classList.toggle("on", ["v", "c", "s", "ct"][i] === mode));
+  const mode = m === true ? "c" : m === "s" || m === "c" || m === "ct" || m === "nw" ? m : "v";
+  ["mv", "mc", "ms", "mct", "mnw"].forEach((id, i) => document.getElementById(id).classList.toggle("on", ["v", "c", "s", "ct", "nw"][i] === mode));
   document.querySelectorAll(".vmode").forEach(e => e.hidden = mode !== "v");
   document.getElementById("chview").hidden = mode !== "c";
   document.getElementById("scview").hidden = mode !== "s";
   document.getElementById("ctview").hidden = mode !== "ct";
+  document.getElementById("nwview").hidden = mode !== "nw";
   if (mode === "c") renderCh();
   if (mode === "s") renderScore();
   if (mode === "ct") renderCt();
+  if (mode === "nw") renderNw();
   if (mode === "v" && typeof render === "function" && V.length) render({keep: true});
 }
-document.getElementById("mv").onclick = () => setModeAll(false); document.getElementById("mc").onclick = () => setModeAll(true); document.getElementById("ms").onclick = () => setModeAll("s"); document.getElementById("mct").onclick = () => setModeAll("ct");
+document.getElementById("mv").onclick = () => setModeAll(false); document.getElementById("mc").onclick = () => setModeAll(true); document.getElementById("ms").onclick = () => setModeAll("s"); document.getElementById("mct").onclick = () => setModeAll("ct"); document.getElementById("mnw").onclick = () => setModeAll("nw");
 ["q", "sort", "dir", "lenmode"].forEach(i => document.getElementById(i).addEventListener("input", render));
 document.getElementById("exp").onclick = () => {
   const blob = new Blob([JSON.stringify({favs: [...favs], done: [...done], hidden: [...hidden], memos, kindCh, kindVid}, null, 1)], {type: "application/json"});

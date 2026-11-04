@@ -185,6 +185,11 @@ def main():
             calltoon_watch.main()
         except Exception as exc:  # noqa: BLE001
             print(f"[콜툰 수집 건너뜀] {exc}")
+        try:
+            import kr_news_watch
+            kr_news_watch.main()
+        except Exception as exc:  # noqa: BLE001
+            print(f"[이슈·정책 뉴스 수집 건너뜀] {exc}")
 
     if notify and new_items:
         cfg = notifier.load_config()
