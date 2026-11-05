@@ -110,3 +110,11 @@ def main():
 
 if __name__ == "__main__":
     main()
+    if os.environ.get("GITHUB_ACTIONS") == "true" and "--dry" not in sys.argv:
+        # 기존 아침·수동 수집 실행에서 두 지역 자료도 다음 데이터 커밋에 포함한다.
+        import subprocess
+        import kr_regional_watch
+
+        kr_regional_watch.main()
+        subprocess.run(["git", "add", "-u", "--", "kr_regional_store.json", "web/kr_regional.js"],
+                       cwd=BASE, check=True)

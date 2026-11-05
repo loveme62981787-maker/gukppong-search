@@ -78,6 +78,7 @@ py -3.12 build_site.py --notify   # 위 + 새 영상 텔레그램 알림
 - [x] 텔레그램 새 영상 알림 코드 (`--notify`)
 - [x] GitHub Actions 자동 갱신/배포 설정 파일
 - [x] 🪪 라이선스 탭 3개(CC BY 확인 / 무료 사용 표기 / 라이선스 미확인) + `license_watch.py` 수집기·Actions 단계 (코드 완료, Codex 검토 대기)
+- [x] 🇯🇵🇹🇼 한국어 지역 해시태그 수집 (`kr_regional_watch.py` → `web/kr_regional.js`, `kr_regional_store.json`) — #후쿠오카 #도쿄 #단수이 #타이베이 등 한국어 제목의 현지 여행·체험 영상을 일본체험/대만체험에 추가. 제작자 국적은 확정하지 않음 (`docs/collab/2026-11-05-kr-regional.md`)
 - [x] 📞 콜툰·통화 소재 전용 탭 (`calltoon_watch.py` → `web/calltoon.js`, `calltoon_store.json`) 추가 — 검증된 콜툰 레퍼런스 4개 채널(여보숏·마이콜·받을까 말까·전화왔숑) + 원본 가족·육아 채널(봄타고가을타고·리안이쑥쑥·컴온 유머스트컴백홈·장꾸발랄) + 미개척 통화 키워드 발굴 + 대만·일본 스킨 추천 및 설명란 원본 출처 자동 추출
 
 미확인 / 남은 일

@@ -259,6 +259,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script src="breakouts.js" onerror="window.breakoutInfo=null"></script>
 <script src="calltoon.js?v=src722" onerror="window.CALLTOON=[]"></script>
 <script src="kr_news.js" onerror="window.KR_NEWS=[]"></script>
+<script src="kr_regional.js" onerror="window.KR_REGIONAL=[]"></script>
 <script>
 // 일반 수집 영상 + 화제·체험·일본 주제·글로벌 영상. 겹치는 영상은 표시와 길이만 합친다
 const V = (window.VIDEOS || []).slice();
@@ -275,7 +276,7 @@ function normLen(x) {
   return {sec, text: toSec(own) === sec ? own : fmtSec(sec)};
 }
 // 수집 경로(sources): 같은 영상이 여러 목록에 있으면 합집합으로 모은다. 'notion' = 노션 수집 목록, 그 밖은 자동 수집 경로
-const SRC_NAMES = new Set(["discovery", "notion", "viral", "experience", "japan", "global", "global_jp", "topic_search", "reference", "benchmark", "alert", "taiwan_exp", "cc_discovery"]);
+const SRC_NAMES = new Set(["discovery", "notion", "viral", "experience", "japan", "global", "global_jp", "topic_search", "reference", "benchmark", "alert", "taiwan_exp", "kr_regional", "cc_discovery"]);
 const addSrc = (o, s) => { if (!Array.isArray(o.sources)) o.sources = []; if (s && !o.sources.includes(s)) o.sources.push(s); };
 function absorb(x, mark, src) {   // 같은 영상이면 표시와 길이만 합치고(유효한 기존 길이를 null 로 덮지 않음), 새 영상이면 추가한다
   const o = V.find(v => v.id === x.id), n = normLen(x);
@@ -303,6 +304,7 @@ V.forEach(v => {
 (window.BENCHMARK || []).forEach(x => absorb(x, {bm: true}, "benchmark"));                                  // 벤치마킹 채널(benchmark_channels.txt): 내가 따로 관리하는 채널이라 다른 목록(체험·국뽕채널·레퍼런스)에는 넣지 않는다
 (window.ALERTS || []).forEach(x => absorb(x, {alert: true, alert_date: x.alert_date, alert_country: x.alert_country || x.country}, "alert"));   // 텔레그램 알림으로 받은 영상(alerts/*.csv): 다른 목록에도 그대로 속하고, 알림 목록에서 따로 모아 보며 점수를 확인한다. alert_country(없으면 country)로 한국·일본 텔레그램을 구분한다
 (window.TAIWAN_EXP || []).forEach(x => absorb(x, null, "taiwan_exp"));                                      // 대만 체험 영상 수집(taiwan_watch.py): 외국인이 대만을 여행·체험하는 영상을 넓게 모은다 (외국인 여부·체험 여부는 아래 규칙으로 추정)
+(window.KR_REGIONAL || []).forEach(x => absorb(x, {kr_regional: true, kr_country: x.kr_country, kr_region: x.kr_region, kr_words: x.kr_words, kr_hashtag: x.kr_hashtag}, "kr_regional"));   // 한국어 지역 해시태그 수집(kr_regional_watch.py): 같은 ID 가 이미 있어도 근거(kr_*)만 덧붙이고 기존 필드·목록은 그대로 둔다
 (window.CC_VIDEOS || []).forEach(x => absorb(x, null, "cc_discovery"));                                    // CC BY 새로 찾기(cc_discover.py): 영상 페이지에서 CC BY 로 확인된 영상만. 같은 ID 는 기존 목록·저장 상태 그대로 합친다 (외국인 여부는 미확인)
 const nRef = () => V.filter(v => v.ref).length;
 // 길이 형태: 미확인(unk) / 숏폼(short, 181초 미만) / 롱폼(long). is_short 필드와 충돌해도 길이 기준을 따른다
@@ -508,6 +510,17 @@ const NON_EN_RE = new RegExp("(?:[\\u00C0-\\u00D6\\u00D8-\\u00F6\\u00F8-\\u017F\
 // 일인칭·직접 촬영 근거: 'my/our/we/I/me', 'first time/day', 'vlog', 또는 국적+사람 표현(예: Indian student). react·tourist·living 같은 제3자도 쓰는 단어는 근거로 쓰지 않는다
 const FIRST_PERSON_RE = new RegExp("\\b(my|our|we|i|i'm|i've|me|vlog|first (time|day))\\b|\\b(" + NAT_EN + ") (" + PEOPLE_EN + ")\\b", "i");
 const CHANNEL_COUNTRY = window.CHANNEL_COUNTRY || {};
+// <kr-regional>
+// 한국어 지역 해시태그 수집(kr_regional_watch.py)으로 근거가 확인된 일본·대만 현지 여행 영상: 한국어 제목이라도 '현지 채널 편집'(local)이 아니라 일본·대만 사람이 아닌 제작자의 원본으로 본다.
+// 좁은 교정이다: 수집기가 통과시킨 영상(kr_regional)만, 소재 나라가 수집 나라와 같고 제목이 한글일 때만 적용한다. 개인 보정·공통 검토(수동 분류)가 먼저 적용되며, 제작자 국적은 확인하지 않는다 (docs/collab/2026-11-05-kr-regional.md)
+const krRegionalSubject = (v, krPlace, jpPlace, twRe) => v.kr_regional === true && (v.kr_country === "일본" || v.kr_country === "대만") && !krPlace.test(v.title || "")
+  && !(v.kr_country === "일본" ? twRe.test(v.title || "") : jpPlace.test(v.title || "")) ? v.kr_country : null;
+const krRegionalKind = v => {
+  if (v.kr_regional !== true || v.kr_country !== v._subj || !/[가-힣]{2,}/.test(v.title || "") || hasKana(v.title || "")) return null;
+  const w = Array.isArray(v.kr_words) ? v.kr_words.filter(x => typeof x === "string").slice(0, 4).join("·") : "";
+  return ["foreign", "추정: 한국어 지역명" + (v.kr_hashtag ? "(해시태그)" : "") + (v.kr_region ? " '" + String(v.kr_region) + "'" : "") + (w ? "·체험 단어(" + w + ")" : "") + " 제목의 " + v.kr_country + " 현지 여행 영상이라 " + v.kr_country + " 사람이 아닌 제작자의 원본으로 봄 (제작자 국적·채널 국적은 확인하지 않음)"];
+};
+// </kr-regional>
 const kindOf = v => {
   if (v.ref) return ["ref", "별도 레퍼런스: 사용자가 알려 준 채널의 영상 (분류 보정과 무관)"];
   if (own(kindVid, v.id)) return [kindVid[v.id], "개인 보정(이 영상)"];
@@ -515,6 +528,7 @@ const kindOf = v => {
   const cv = own(CURK.videos, v.id) ? CURK.videos[v.id] : null; if (cv && KINDS.has(cv.kind)) return [cv.kind, "공통 검토(영상, " + (cv.reviewed || "") + "): " + (cv.note || "")];
   const cc = own(CURK.channels, v.channel_id) ? CURK.channels[v.channel_id] : null; if (cc && KINDS.has(cc.kind)) return [cc.kind, "공통 검토(채널, " + (cc.reviewed || "") + "): " + (cc.note || "")];
   if (!v.title || !v.channel) return ["unk", "추정: 제목이나 채널명이 비어 있음"];
+  { const kr = krRegionalKind(v); if (kr) return kr; }   // 한국어 지역 해시태그 수집 근거 (수동 분류 아래, 아래 일반 추정 위)
   if (v._subj === "대만") {   // 대만이 소재일 때 (2026-10-27 사용자 요청: 대만체험 확대). 한국어·일본어 제목은 대만 현지 채널이 아니라 한국·일본 사람이 만든 영상이라는 근거다. 번체 중국어만 대만 현지로 본다
     if (isTradZh(v)) return ["local", "추정: 번체 중국어 제목·채널명 + 대만 소재라 대만 현지 채널로 봄"];
     const cc = Object.prototype.hasOwnProperty.call(CHANNEL_COUNTRY, v.channel_id) ? CHANNEL_COUNTRY[v.channel_id] : "";   // 채널 위치가 대만(Taiwan)이어도 판정에 쓰지 않는다: 현지에 사는 외국인 채널도 같은 값
@@ -594,6 +608,7 @@ function computeLists() {
 }
 // 대만 소재: 제목에 대만 지명이 있고 한국·일본 지명은 없으면 소재를 대만으로 본다 (국적 표현만 있는 제목은 해당 없음). 한국·일본 소재 판정(_subj)보다 우선하지만 한국·일본 지명이 함께 있으면 건드리지 않는다
 V.forEach(v => { if (TW_RE.test(v.title || "") && !KR_PLACE_RE.test(v.title || "") && !JP_PLACE_RE.test(v.title || "")) v._subj = "대만"; });
+V.forEach(v => { const c = krRegionalSubject(v, KR_PLACE_RE, JP_PLACE_RE, TW_RE); if (c) v._subj = c; });   // 단수이처럼 기존 지명 목록에 없는 한국어 지역도 수집 근거로 소재를 정한다
 // <regional-exclusions>
 // 사용자 요청(2026-10-28): 소재 나라 안에서 대표 도시를 뺀 '다른 지역' 영상만 보는 화면 필터. 데이터·점수·분류는 바꾸지 않는다. 근거: docs/collab/2026-10-28-regional-exclusions.md
 // 조건(모두 충족): 해당 나라가 소재 + 제목에 다른 지역 이름이 명시 + 제외 도시 언급 없음 + 다른 나라 지명 없음(혼합 여정 제외). 지역 근거가 없는 영상(위치 미확인)은 지방으로 추정하지 않는다
