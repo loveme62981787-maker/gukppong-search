@@ -214,10 +214,12 @@ document.addEventListener('DOMContentLoaded', () => {
     panel.replaceChildren(ce('h2', '', '숨긴 영상'), ce('p', 'sc-mute', '목록·국가 필터와 관계없이 이 브라우저에서 숨긴 영상을 모두 보여줍니다. 복원하면 기존 목록으로 돌아갑니다.'));
     const search = ce('input'); search.placeholder = '숨긴 영상 제목·채널 검색'; search.setAttribute('aria-label', search.placeholder); panel.append(search);
     const grid = ce('div', 'grid'); panel.append(grid);
+    const videosById = new Map(V.map(v => [v.id, v]));
+    const newestFirst = Array.from(hidden).reverse().map(id => videosById.get(id)).filter(Boolean);
     const show = () => {
       grid.replaceChildren();
       const q = search.value.trim().toLowerCase();
-      const rows = V.filter(v => hidden.has(v.id) && (!q || (v.title + ' ' + v.channel).toLowerCase().includes(q)));
+      const rows = newestFirst.filter(v => !q || (v.title + ' ' + v.channel).toLowerCase().includes(q));
       if (!rows.length) grid.append(ce('p', 'empty', '숨긴 영상이 없습니다.'));
       for (const v of rows) {
         const card = ce('article', 'card my-card'), a = ce('a', 't', v.title); a.href = 'https://youtu.be/' + v.id; a.target = '_blank'; a.rel = 'noopener';
