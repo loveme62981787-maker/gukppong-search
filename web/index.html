@@ -1553,12 +1553,16 @@ function renderTh() {
           `<div><b>🛠️ 자동 매칭 엔진:</b> ${v.engine_recipe || ""}</div>` +
         `</div>` +
       `</details>` +
-      `<button class="btn on thcmdcopy" style="margin-top:4px;padding:7px 6px;font-weight:800">🚀 원클릭 풀패키지 제작 명령 복사</button>` +
+      `<div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;margin-top:4px"><button class="btn on thstudio" style="padding:7px 5px;font-weight:800;background:#1d63dc;border-color:#1d63dc;color:#fff">🎬 스튜디오 앱으로 바로 열기</button><button class="btn on thcmdcopy" style="padding:7px 5px;font-weight:800">📋 채팅용 명령 복사</button></div>` +
       `<div class="act"><button class="btn ok ${done.has(v.id) ? "on" : ""}">${done.has(v.id) ? "✓ 사용 완료" : "사용 완료"}</button>` +
       `<button class="btn memo ${memos[v.id] ? "on" : ""}">📝 메모</button><button class="btn hd">${hidden.has(v.id) ? "↩ 복구" : "🗑 숨김"}</button></div>` +
       `<textarea hidden placeholder="추가할 반론 포인트, 내 생각 메모"></textarea></div>`;
     el.querySelector(".t").textContent = v.title;
     el.querySelector(".th").onclick = e => { if (!e.target.closest(".fav")) window.open(v.url, "_blank", "noopener"); };
+    el.querySelector(".thstudio").onclick = () => {
+      const studioUrl = "http://127.0.0.1:8787/?theme=" + encodeURIComponent(v.category) + "&url=" + encodeURIComponent(v.url) + "&title=" + encodeURIComponent(v.title || "");
+      window.open(studioUrl, "_blank");
+    };
     el.querySelector(".thcmdcopy").onclick = e => {
       const rTop = (bm.rising || []).slice(0, 3).map(x => `${x.kr}(${x.handle})`).join(", ");
       const bTop = (bm.best || []).slice(0, 3).map(x => `${x.kr}(${x.handle})`).join(", ");

@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-07 02:06 KST",
+  "updated": "2026-11-07 02:38 KST",
   "categories": [
     {
       "id": "cat1_politics",
@@ -1028,356 +1028,4497 @@
   ],
   "items": [
     {
-      "id": "th_pol_01",
+      "id": "yt_cat1_politics_W_JTfTyCWyM",
+      "video_id": "W_JTfTyCWyM",
       "category": "cat1_politics",
       "grade": "S",
-      "score": 97,
-      "title": "[시크릿 조합] \"도대체 회의록에 뭐가 적혀 있길래?\" 국무회의·국회 브리핑 원문 대조로 본 핵심 쟁점 3가지와 내 세금 변화",
-      "orig_title": "대한민국 정책브리핑 · 국회 영상회의록 주요 민생·예산 쟁점 브리핑 다중 교차",
-      "url": "https://www.korea.kr/news/policyBriefingList.do",
-      "source": "정책브리핑(korea.kr) · 국회 영상회의록",
-      "published": "2026-11-07",
-      "license": "공공누리 제1유형 (상업적 이용·변경 가능)",
-      "safety": 99,
+      "score": 96,
+      "title": "노상원, 윤석열 면전서 ‘쌍욕 폭발’… 尹 분노로 얼굴 터지기 직전 \"어디다 대고!\" 재판장 발칵",
+      "orig_title": "@무궁화민주 (@무궁화민주_mm) 대표 아웃라이어 · 조회수 1,509,909회",
+      "url": "https://www.youtube.com/watch?v=W_JTfTyCWyM",
+      "channel_url": "https://www.youtube.com/@무궁화민주_mm",
+      "thumb": "https://i.ytimg.com/vi/W_JTfTyCWyM/hqdefault.jpg",
+      "source": "@무궁화민주 (@무궁화민주_mm)",
+      "published": "2023-01-13",
+      "license": "공공누리 1유형 / 시사 비평 공정인용",
+      "safety": 98,
       "transform_score": 96,
       "rpm": "상 (5060 시니어 40분+)",
       "target_len": "롱폼 35~50분 + 쇼츠 3편",
       "badges": [
-        "공공누리 1유형",
-        "4대 페르소나",
-        "원문 100% 대조"
+        "⚡ 구독자 대비 31.2배",
+        "👁️ 1,509,909뷰",
+        "구독 48,400명"
       ],
       "thumb_3tier": {
-        "top": "회의록 원문 열어보니.. 대체 무슨 일이?!",
-        "mid": "국무회의·상임위 브리핑 3개 교차 검증",
-        "bot": "단 3분 만에 드러난 내 세금·연금 직격탄"
+        "top": "\"도대체 왜 이 장면이 1,509,909뷰나 터졌을까?!\"",
+        "mid": "노상원, 윤석열 면전서 ‘쌍욕 폭발’… 尹 분노로 얼굴 터",
+        "bot": "구독자 대비 31.2배 폭발한 핵심 구조 & 2차 가공 재해석"
       },
       "hook_30s": {
-        "s0_6": "[0~6초 Google Flow AI 훅] 서류철을 보며 의아해하는 원로 해설자 캐릭터: \"아니, 방송에서는 왜 이 3번째 조항 숫자를 아무도 말 안 해주는 겁니까?\"",
-        "s6_18": "[6~18초 충격 수치 & 원문 인서트] 실제 브리핑 핵심 5초 육성(`voiceonly` 클린화) + GSAP 빨간 형광펜 수치 카드 등장",
-        "s18_30": "[18~30초 Draw-on 클리프행어] `claude-drawing-skill`로 찬반 핵심 구조도를 한 획씩 그리며 \"오늘 4명의 해설자가 원문 그대로 끝까지 파헤쳐 드립니다\""
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '노상원, 윤석열 면전서 ‘쌍욕 폭발’… ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV refcheck(화이트리스트) ➔ voiceonly(0.72) ➔ 4대 페르소나 대본(해설 65%+) ➔ UV 48종 GSAP(chart/quote) ➔ CapCut 초안 + MP4"
+      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
     },
     {
-      "id": "th_pol_02",
+      "id": "yt_cat1_politics_M-MYJsPEddI",
+      "video_id": "M-MYJsPEddI",
       "category": "cat1_politics",
       "grade": "S",
-      "score": 94,
-      "title": "[시크릿 조합] \"장관님, 그 숫자는 통계청 자료랑 다르지 않습니까!\" 국정감사·청문회 질의응답 교차 팩트체크 총정리",
-      "orig_title": "국회 상임위 주요 질의응답 및 정부 부처 공식 해명자료 교차 재구성",
-      "url": "https://www.assembly.go.kr/",
-      "source": "국회 인터넷의사중계 · 정책브리핑 반박자료",
-      "published": "2026-11-07",
-      "license": "공공저작물 / 시사 보도·비평 공정인용",
+      "score": 88,
+      "title": "\"이게 우리나라 국룰입니까\" 서지영 극대노, 대통령 말엔 답 못하는 장관부터 김현지 대기쇼까지 사이다 참교육",
+      "orig_title": "@보수심장 (@보수심장777) 대표 아웃라이어 · 조회수 93,275회",
+      "url": "https://www.youtube.com/watch?v=M-MYJsPEddI",
+      "channel_url": "https://www.youtube.com/@보수심장777",
+      "thumb": "https://i.ytimg.com/vi/M-MYJsPEddI/hqdefault.jpg",
+      "source": "@보수심장 (@보수심장777)",
+      "published": "2026-09-28",
+      "license": "공공누리 1유형 / 시사 비평 공정인용",
       "safety": 98,
-      "transform_score": 95,
-      "rpm": "상 (시청지속시간 최상)",
-      "target_len": "롱폼 40분 + 쇼츠 3편",
+      "transform_score": 96,
+      "rpm": "상 (5060 시니어 40분+)",
+      "target_len": "롱폼 35~50분 + 쇼츠 3편",
       "badges": [
-        "양측 원문 대조",
-        "통계청 수치 검증",
-        "시니어 맞춤 0.93x"
+        "🔥 신생(2026-09개설)",
+        "⚡ 구독자 대비 23.3배",
+        "👁️ 93,275뷰",
+        "구독 4,000명"
       ],
       "thumb_3tier": {
-        "top": "\"그 숫자는 틀렸습니다!\" 정적 흐른 회의장",
-        "mid": "청문회 질의 vs 부처 공식 통계 1:1 대조",
-        "bot": "서류 한 장 공개되자 3초 만에 뒤집힌 분위기"
+        "top": "\"도대체 왜 이 장면이 93,275뷰나 터졌을까?!\"",
+        "mid": "\"이게 우리나라 국룰입니까\" 서지영 극대노, 대통령 말엔 ",
+        "bot": "구독자 대비 23.3배 폭발한 핵심 구조 & 2차 가공 재해석"
       },
       "hook_30s": {
-        "s0_6": "[0~6초 Cold Open] 질의 중 가장 날카로운 숫자 반박 5초 현장 육성 + Google Flow 분석가 반응 컷",
-        "s6_18": "[6~18초 Stakes] '질의 측 주장 수치 vs 통계청 실제 수치' 양면 비교 GSAP 모션카드",
-        "s18_30": "[18~30초 Bridge] \"누구 말이 맞는지 오늘 공식 보고서 원문 3개를 나란히 띄워놓고 확인해 보시죠\""
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"이게 우리나라 국룰입니까\" 서지영 극대...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "Claim-Source Verifier(Codex 수치 검수) + 4대 페르소나 중립 해설 + UV timeline/comparison 그래픽"
+      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
     },
     {
-      "id": "th_eco_01",
+      "id": "yt_cat1_politics_8zwqvdpu9UA",
+      "video_id": "8zwqvdpu9UA",
+      "category": "cat1_politics",
+      "grade": "S",
+      "score": 88,
+      "title": "한동훈 첫 국감 명장면 TOP6｜정동영·조현·강경화·차지훈 줄줄이 진땀, 김근식 “한동훈의 완승” 1위는?",
+      "orig_title": "@상식대로해 (@구독좋아요해줘요-x8k) 대표 아웃라이어 · 조회수 36,593회",
+      "url": "https://www.youtube.com/watch?v=8zwqvdpu9UA",
+      "channel_url": "https://www.youtube.com/@구독좋아요해줘요-x8k",
+      "thumb": "https://i.ytimg.com/vi/8zwqvdpu9UA/hqdefault.jpg",
+      "source": "@상식대로해 (@구독좋아요해줘요-x8k)",
+      "published": "2026-09-30",
+      "license": "공공누리 1유형 / 시사 비평 공정인용",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (5060 시니어 40분+)",
+      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-09개설)",
+        "⚡ 구독자 대비 21.4배",
+        "👁️ 36,593뷰",
+        "구독 1,710명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 36,593뷰나 터졌을까?!\"",
+        "mid": "한동훈 첫 국감 명장면 TOP6｜정동영·조현·강경화·차지훈",
+        "bot": "구독자 대비 21.4배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '한동훈 첫 국감 명장면 TOP6｜정동영·...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+    },
+    {
+      "id": "yt_cat1_politics_WwbQdIWUOcg",
+      "video_id": "WwbQdIWUOcg",
+      "category": "cat1_politics",
+      "grade": "S",
+      "score": 87,
+      "title": "한동훈은 막고, 당은 어디로? 정옥임·김종혁이 직격한 우리 편 정치 [",
+      "orig_title": "@자유view (@자유view) 대표 아웃라이어 · 조회수 43,922회",
+      "url": "https://www.youtube.com/watch?v=WwbQdIWUOcg",
+      "channel_url": "https://www.youtube.com/@자유view",
+      "thumb": "https://i.ytimg.com/vi/WwbQdIWUOcg/hqdefault.jpg",
+      "source": "@자유view (@자유view)",
+      "published": "2026-10-02",
+      "license": "공공누리 1유형 / 시사 비평 공정인용",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (5060 시니어 40분+)",
+      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-10개설)",
+        "⚡ 구독자 대비 12.7배",
+        "👁️ 43,922뷰",
+        "구독 3,470명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 43,922뷰나 터졌을까?!\"",
+        "mid": "한동훈은 막고, 당은 어디로? 정옥임·김종혁이 직격한 우리",
+        "bot": "구독자 대비 12.7배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '한동훈은 막고, 당은 어디로? 정옥임·김...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+    },
+    {
+      "id": "yt_cat1_politics_0TCElbDhlyo",
+      "video_id": "0TCElbDhlyo",
+      "category": "cat1_politics",
+      "grade": "S",
+      "score": 86,
+      "title": "\"빨리 꺼요\" 방송사고 그 이름, 김현지… 벌금 150만 원 괴문자 사건 전말 #김현지 #이재명 #인사담당자",
+      "orig_title": "@보수팩폭 (@보수팩폭) 대표 아웃라이어 · 조회수 18,079회",
+      "url": "https://www.youtube.com/watch?v=0TCElbDhlyo",
+      "channel_url": "https://www.youtube.com/@보수팩폭",
+      "thumb": "https://i.ytimg.com/vi/0TCElbDhlyo/hqdefault.jpg",
+      "source": "@보수팩폭 (@보수팩폭)",
+      "published": "2026-04-21",
+      "license": "공공누리 1유형 / 시사 비평 공정인용",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (5060 시니어 40분+)",
+      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-04개설)",
+        "⚡ 구독자 대비 8.2배",
+        "👁️ 18,079뷰",
+        "구독 2,200명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 18,079뷰나 터졌을까?!\"",
+        "mid": "\"빨리 꺼요\" 방송사고 그 이름, 김현지… 벌금 150만 ",
+        "bot": "구독자 대비 8.2배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"빨리 꺼요\" 방송사고 그 이름, 김현지...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+    },
+    {
+      "id": "yt_cat1_politics_6dB3qkn_s5U",
+      "video_id": "6dB3qkn_s5U",
+      "category": "cat1_politics",
+      "grade": "S",
+      "score": 89,
+      "title": "Moon Hyung-bae answers Lee Jin-gwan's call, 'Do you think the President is a joke, you SOB?'",
+      "orig_title": "@정치일범 (@politics_ilbeom_official) 대표 아웃라이어 · 조회수 625,020회",
+      "url": "https://www.youtube.com/watch?v=6dB3qkn_s5U",
+      "channel_url": "https://www.youtube.com/@politics_ilbeom_official",
+      "thumb": "https://i.ytimg.com/vi/6dB3qkn_s5U/hqdefault.jpg",
+      "source": "@정치일범 (@politics_ilbeom_official)",
+      "published": "2025-02-11",
+      "license": "공공누리 1유형 / 시사 비평 공정인용",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (5060 시니어 40분+)",
+      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 7.4배",
+        "👁️ 625,020뷰",
+        "구독 84,600명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 625,020뷰나 터졌을까?!\"",
+        "mid": "Moon Hyung-bae answers Lee Jin-g",
+        "bot": "구독자 대비 7.4배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Moon Hyung-bae answers...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+    },
+    {
+      "id": "yt_cat1_politics_AAp9SsTXBy4",
+      "video_id": "AAp9SsTXBy4",
+      "category": "cat1_politics",
+      "grade": "A",
+      "score": 86,
+      "title": "한동훈에게 박살 난 민주당 5인! 김의겸 '청담동' 고민정 '대법원 판결' 정청래·안민석·박범계 참교육 레전드 TOP5",
+      "orig_title": "@옳은오른쪽 (@rightsideright) 대표 아웃라이어 · 조회수 7,861회",
+      "url": "https://www.youtube.com/watch?v=AAp9SsTXBy4",
+      "channel_url": "https://www.youtube.com/@rightsideright",
+      "thumb": "https://i.ytimg.com/vi/AAp9SsTXBy4/hqdefault.jpg",
+      "source": "@옳은오른쪽 (@rightsideright)",
+      "published": "2026-09-14",
+      "license": "공공누리 1유형 / 시사 비평 공정인용",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (5060 시니어 40분+)",
+      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-09개설)",
+        "⚡ 구독자 대비 3.3배",
+        "👁️ 7,861뷰",
+        "구독 2,360명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 7,861뷰나 터졌을까?!\"",
+        "mid": "한동훈에게 박살 난 민주당 5인! 김의겸 '청담동' 고민정",
+        "bot": "구독자 대비 3.3배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '한동훈에게 박살 난 민주당 5인! 김의겸...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+    },
+    {
+      "id": "yt_cat1_politics_WyCDHd1DLBY",
+      "video_id": "WyCDHd1DLBY",
+      "category": "cat1_politics",
+      "grade": "S",
+      "score": 87,
+      "title": "\"That's off-topic!\"... Han Dong-hoon destroying arguments with logic, Foreign Affairs Committee s...",
+      "orig_title": "@경인방송 (@ifm907) 대표 아웃라이어 · 조회수 267,340회",
+      "url": "https://www.youtube.com/watch?v=WyCDHd1DLBY",
+      "channel_url": "https://www.youtube.com/@ifm907",
+      "thumb": "https://i.ytimg.com/vi/WyCDHd1DLBY/hqdefault.jpg",
+      "source": "@경인방송 (@ifm907)",
+      "published": "2011-04-04",
+      "license": "공공누리 1유형 / 시사 비평 공정인용",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (5060 시니어 40분+)",
+      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 3.1배",
+        "👁️ 267,340뷰",
+        "구독 85,900명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 267,340뷰나 터졌을까?!\"",
+        "mid": "\"That's off-topic!\"... Han Dong-",
+        "bot": "구독자 대비 3.1배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"That's off-topic!\"......'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+    },
+    {
+      "id": "yt_cat1_politics_nw6uUhOemvg",
+      "video_id": "nw6uUhOemvg",
+      "category": "cat1_politics",
+      "grade": "S",
+      "score": 99,
+      "title": "Why Chung Mong-gyu and Hong Myung-bo Don't Care What We Think! Chairman Chung's Reaction to Park ...",
+      "orig_title": "@엠빅뉴스 (@mbicnews) 대표 아웃라이어 · 조회수 3,422,394회",
+      "url": "https://www.youtube.com/watch?v=nw6uUhOemvg",
+      "channel_url": "https://www.youtube.com/@mbicnews",
+      "thumb": "https://i.ytimg.com/vi/nw6uUhOemvg/hqdefault.jpg",
+      "source": "@엠빅뉴스 (@mbicnews)",
+      "published": "2017-07-27",
+      "license": "공공누리 1유형 / 시사 비평 공정인용",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (5060 시니어 40분+)",
+      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 2.4배",
+        "👁️ 3,422,394뷰",
+        "구독 1,450,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 3,422,394뷰나 터졌을까?!\"",
+        "mid": "Why Chung Mong-gyu and Hong Myun",
+        "bot": "구독자 대비 2.4배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Why Chung Mong-gyu and...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+    },
+    {
+      "id": "yt_cat1_politics_xt_cJ1XIPEc",
+      "video_id": "xt_cJ1XIPEc",
+      "category": "cat1_politics",
+      "grade": "S",
+      "score": 89,
+      "title": "갑자기 조희대가 술술 답변하자 국힘 당혹...서영교 진행 잘하네",
+      "orig_title": "@팩트TVNEWS (@facttvonair) 대표 아웃라이어 · 조회수 787,840회",
+      "url": "https://www.youtube.com/watch?v=xt_cJ1XIPEc",
+      "channel_url": "https://www.youtube.com/@facttvonair",
+      "thumb": "https://i.ytimg.com/vi/xt_cJ1XIPEc/hqdefault.jpg",
+      "source": "@팩트TVNEWS (@facttvonair)",
+      "published": "2013-01-15",
+      "license": "공공누리 1유형 / 시사 비평 공정인용",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (5060 시니어 40분+)",
+      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 787,840뷰",
+        "구독 1,360,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 787,840뷰나 터졌을까?!\"",
+        "mid": "갑자기 조희대가 술술 답변하자 국힘 당혹...서영교 진행 ",
+        "bot": "구독자 대비 0.6배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '갑자기 조희대가 술술 답변하자 국힘 당혹...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+    },
+    {
+      "id": "yt_cat1_politics__NvV3-XqBUQ",
+      "video_id": "_NvV3-XqBUQ",
+      "category": "cat1_politics",
+      "grade": "S",
+      "score": 88,
+      "title": "국정감사 마무리 투수, AI 변호사 김경호 등판하자..식겁하더니 기를 쓰고 막는 국민의힘",
+      "orig_title": "@엠키타카MKTK (@mbcgn_tv) 대표 아웃라이어 · 조회수 475,733회",
+      "url": "https://www.youtube.com/watch?v=_NvV3-XqBUQ",
+      "channel_url": "https://www.youtube.com/@mbcgn_tv",
+      "thumb": "https://i.ytimg.com/vi/_NvV3-XqBUQ/hqdefault.jpg",
+      "source": "@엠키타카MKTK (@mbcgn_tv)",
+      "published": "2017-08-08",
+      "license": "공공누리 1유형 / 시사 비평 공정인용",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (5060 시니어 40분+)",
+      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 475,733뷰",
+        "구독 1,100,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 475,733뷰나 터졌을까?!\"",
+        "mid": "국정감사 마무리 투수, AI 변호사 김경호 등판하자..식겁",
+        "bot": "구독자 대비 0.4배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '국정감사 마무리 투수, AI 변호사 김경...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+    },
+    {
+      "id": "yt_cat1_politics_FPELlw37cPI",
+      "video_id": "FPELlw37cPI",
+      "category": "cat1_politics",
+      "grade": "S",
+      "score": 88,
+      "title": "반성없는 김세의, 다시는 방송 못하게 사비 수십억쓰는 장사의신.\"은현장의 렉카박멸\"",
+      "orig_title": "@장사의신 (@jangsin) 대표 아웃라이어 · 조회수 460,647회",
+      "url": "https://www.youtube.com/watch?v=FPELlw37cPI",
+      "channel_url": "https://www.youtube.com/@jangsin",
+      "thumb": "https://i.ytimg.com/vi/FPELlw37cPI/hqdefault.jpg",
+      "source": "@장사의신 (@jangsin)",
+      "published": "2015-11-10",
+      "license": "공공누리 1유형 / 시사 비평 공정인용",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (5060 시니어 40분+)",
+      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 460,647뷰",
+        "구독 1,500,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 460,647뷰나 터졌을까?!\"",
+        "mid": "반성없는 김세의, 다시는 방송 못하게 사비 수십억쓰는 장사",
+        "bot": "구독자 대비 0.3배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '반성없는 김세의, 다시는 방송 못하게 사...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+    },
+    {
+      "id": "yt_cat1_politics__6Jic5MJ6R8",
+      "video_id": "_6Jic5MJ6R8",
+      "category": "cat1_politics",
+      "grade": "S",
+      "score": 88,
+      "title": "경기도지사 추미애 사퇴 청원 3만명 돌파?!│2026.09.15 Ep.737 다시보기",
+      "orig_title": "@장르만여의도 (@jtbcshow) 대표 아웃라이어 · 조회수 432,157회",
+      "url": "https://www.youtube.com/watch?v=_6Jic5MJ6R8",
+      "channel_url": "https://www.youtube.com/@jtbcshow",
+      "thumb": "https://i.ytimg.com/vi/_6Jic5MJ6R8/hqdefault.jpg",
+      "source": "@장르만여의도 (@jtbcshow)",
+      "published": "2023-10-23",
+      "license": "공공누리 1유형 / 시사 비평 공정인용",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (5060 시니어 40분+)",
+      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 432,157뷰",
+        "구독 697,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 432,157뷰나 터졌을까?!\"",
+        "mid": "경기도지사 추미애 사퇴 청원 3만명 돌파?!│2026.09",
+        "bot": "구독자 대비 0.6배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '경기도지사 추미애 사퇴 청원 3만명 돌파...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+    },
+    {
+      "id": "yt_cat1_politics_K-sPznJLW_E",
+      "video_id": "K-sPznJLW_E",
+      "category": "cat1_politics",
+      "grade": "S",
+      "score": 87,
+      "title": "[4이다 2회 LIVE] 사정정국, 공포정치의 서막인가? [ft.조성은, 시사건건, 김디디]",
+      "orig_title": "@시사타파TV (@sisatapa_tv) 대표 아웃라이어 · 조회수 310,303회",
+      "url": "https://www.youtube.com/watch?v=K-sPznJLW_E",
+      "channel_url": "https://www.youtube.com/@sisatapa_tv",
+      "thumb": "https://i.ytimg.com/vi/K-sPznJLW_E/hqdefault.jpg",
+      "source": "@시사타파TV (@sisatapa_tv)",
+      "published": "2014-06-02",
+      "license": "공공누리 1유형 / 시사 비평 공정인용",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (5060 시니어 40분+)",
+      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 310,303뷰",
+        "구독 603,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 310,303뷰나 터졌을까?!\"",
+        "mid": "사정정국, 공포정치의 서막인가?",
+        "bot": "구독자 대비 0.5배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '사정정국, 공포정치의 서막인가?...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+    },
+    {
+      "id": "yt_cat1_politics_5fExnNNZWSQ",
+      "video_id": "5fExnNNZWSQ",
+      "category": "cat1_politics",
+      "grade": "S",
+      "score": 87,
+      "title": "\"국정감사는 신성한 자리인데...\"...김상욱 한마디에 뒤집어진 국힘",
+      "orig_title": "@JTV뉴스 (@jtvnews2021) 대표 아웃라이어 · 조회수 286,004회",
+      "url": "https://www.youtube.com/watch?v=5fExnNNZWSQ",
+      "channel_url": "https://www.youtube.com/@jtvnews2021",
+      "thumb": "https://i.ytimg.com/vi/5fExnNNZWSQ/hqdefault.jpg",
+      "source": "@JTV뉴스 (@jtvnews2021)",
+      "published": "2020-12-23",
+      "license": "공공누리 1유형 / 시사 비평 공정인용",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (5060 시니어 40분+)",
+      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 286,004뷰",
+        "구독 1,170,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 286,004뷰나 터졌을까?!\"",
+        "mid": "\"국정감사는 신성한 자리인데...\"...김상욱 한마디에 뒤",
+        "bot": "구독자 대비 0.2배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"국정감사는 신성한 자리인데...\"......'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+    },
+    {
+      "id": "yt_cat1_politics_oYeObV8zpPA",
+      "video_id": "oYeObV8zpPA",
+      "category": "cat1_politics",
+      "grade": "S",
+      "score": 87,
+      "title": "\"이임생, 정해성 그만 파시라구요!\"...정몽규 답변 듣다 터져버린 샤우팅 / 스포츠머그",
+      "orig_title": "@스포츠머그SPORTSMUG (@sportsmug) 대표 아웃라이어 · 조회수 215,521회",
+      "url": "https://www.youtube.com/watch?v=oYeObV8zpPA",
+      "channel_url": "https://www.youtube.com/@sportsmug",
+      "thumb": "https://i.ytimg.com/vi/oYeObV8zpPA/hqdefault.jpg",
+      "source": "@스포츠머그SPORTSMUG (@sportsmug)",
+      "published": "2020-08-24",
+      "license": "공공누리 1유형 / 시사 비평 공정인용",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (5060 시니어 40분+)",
+      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 215,521뷰",
+        "구독 464,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 215,521뷰나 터졌을까?!\"",
+        "mid": "\"이임생, 정해성 그만 파시라구요!\"...정몽규 답변 듣다",
+        "bot": "구독자 대비 0.5배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"이임생, 정해성 그만 파시라구요!\".....'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+    },
+    {
+      "id": "yt_cat2_economy_g3wrRNFc3No",
+      "video_id": "g3wrRNFc3No",
       "category": "cat2_economy",
       "grade": "S",
-      "score": 98,
-      "title": "[시크릿 조합] \"모르면 매달 34만 원씩 그냥 날립니다\" 올해 바뀌는 국민연금·기초연금·건보료 개편안 내 수령액 실전 계산표",
-      "orig_title": "보건복지부·국민연금공단·정책브리핑 연금 및 건강보험료 부과체계 안내 브리핑",
-      "url": "https://www.korea.kr/news/policyNewsList.do",
-      "source": "보건복지부 · 대한민국 정책브리핑(공공누리 1유형)",
-      "published": "2026-11-07",
-      "license": "공공누리 제1유형 (상업적 이용·변경 가능)",
-      "safety": 100,
-      "transform_score": 97,
-      "rpm": "최상 (금융·연금 고단가 광고)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
-      "badges": [
-        "55세+ 시니어 1위",
-        "월 수령액 시뮬레이션",
-        "고CPM 금융"
-      ],
-      "thumb_3tier": {
-        "top": "신청 안 하면 매달 이 돈을 못 받는다고요?!",
-        "mid": "60세·65세 이상 연금·건보료 개편 핵심 요약",
-        "bot": "내 통장에 실제로 찍히는 금액 3초 계산표"
-      },
-      "hook_30s": {
-        "s0_6": "[0~6초 Google Flow AI 훅] 연금 고지서를 들고 안경을 고쳐 쓰는 시니어 캐릭터: \"아니, 옆집 김 선생은 똑같이 냈는데 왜 나보다 30만 원을 더 받습니까?\"",
-        "s6_18": "[6~18초 핵심 숫자 충격] `huashu-art-motion` 막대그래프로 조건별 수령액 격차 실시간 렌더링",
-        "s18_30": "[18~30초 Draw-on 클리프행어] \"특히 피부양자 박탈 기준과 감액 구간, 딱 3가지만 체크하시면 매달 새는 돈을 막을 수 있습니다\""
-      },
-      "engine_recipe": "정책브리핑 원문 + Codex 가구별 모의계산표 + huashu-art-motion 경제차트 + 시니어 64px 고대비 자막"
-    },
-    {
-      "id": "th_eco_02",
-      "category": "cat2_economy",
-      "grade": "A",
-      "score": 93,
-      "title": "[시크릿 조합] \"한국은행 보고서에 찍힌 충격 숫자\" 금리·가계부채·서울 및 지방 아파트 실거래 데이터 10년 추이 완전 분석",
-      "orig_title": "한국은행 통화신용정책 보고서 · 국토교통부 실거래가 공개시스템 브리핑",
-      "url": "https://www.bok.or.kr/",
-      "source": "한국은행 · 국토교통부 · 통계청 KOSIS",
-      "published": "2026-11-07",
-      "license": "공공데이터 / 공공누리 제1유형",
-      "safety": 99,
+      "score": 91,
+      "title": "\"통장이 매일 녹습니다\" 일본 30년 공식이 깨지고 현금 쥔 고령층이 밀리는 진짜 이유 경제·시니어·연금·부동산·금리·물가·노후준비·경제상식",
+      "orig_title": "@경제판독소 (@경제판독소) 대표 아웃라이어 · 조회수 10,610회",
+      "url": "https://www.youtube.com/watch?v=g3wrRNFc3No",
+      "channel_url": "https://www.youtube.com/@경제판독소",
+      "thumb": "https://i.ytimg.com/vi/g3wrRNFc3No/hqdefault.jpg",
+      "source": "@경제판독소 (@경제판독소)",
+      "published": "2026-08-20",
+      "license": "공공누리 1유형 / 경제 데이터 해설",
+      "safety": 98,
       "transform_score": 96,
-      "rpm": "최상 (부동산·자산관리 RPM 최상위)",
-      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "rpm": "최상 (전체 1위 고단가)",
+      "target_len": "롱폼 18~28분 + 쇼츠 3편",
       "badges": [
-        "한은 공식 데이터",
-        "실거래가 차트",
-        "RPM 최상위"
+        "🔥 신생(2026-08개설)",
+        "⚡ 구독자 대비 55.8배",
+        "👁️ 10,610뷰",
+        "구독 190명"
       ],
       "thumb_3tier": {
-        "top": "한국은행 보고서 42페이지에 숨겨진 숫자!",
-        "mid": "서울·수도권·지방 아파트 10년 데이터 비교",
-        "bot": "지금 집 가진 분들이 반드시 봐야 할 3가지 신호"
+        "top": "\"도대체 왜 이 장면이 10,610뷰나 터졌을까?!\"",
+        "mid": "\"통장이 매일 녹습니다\" 일본 30년 공식이 깨지고 현금 ",
+        "bot": "구독자 대비 55.8배 폭발한 핵심 구조 & 2차 가공 재해석"
       },
       "hook_30s": {
-        "s0_6": "[0~6초 Cold Open] 한국은행 총재 브리핑 핵심 4초 발언 + 빨간색 추세선 급변 애니메이션",
-        "s6_18": "[6~18초 Stakes] 뉴스 기사가 말해주지 않는 가계부채 연령대별 비중(60대 이상 비중) 차트 공개",
-        "s18_30": "[18~30초 Bridge] \"감이나 소문이 아니라 한국은행과 국토부 공식 숫자만으로 향후 2년 시나리오를 짚어드립니다\""
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"통장이 매일 녹습니다\" 일본 30년 공...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "d3-viz / manim 데이터 애니메이션 + UV chart-line/chart-bar GSAP 오버레이 + 4대 페르소나 해설"
+      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
     },
     {
-      "id": "th_his_01",
+      "id": "yt_cat2_economy_GXSv_UIJhdo",
+      "video_id": "GXSv_UIJhdo",
+      "category": "cat2_economy",
+      "grade": "S",
+      "score": 93,
+      "title": "공무원연금 받아도 기초연금 받는다 2027년 확 바뀌는 기초연금",
+      "orig_title": "@연금닥터 (@pension_doctor) 대표 아웃라이어 · 조회수 814,301회",
+      "url": "https://www.youtube.com/watch?v=GXSv_UIJhdo",
+      "channel_url": "https://www.youtube.com/@pension_doctor",
+      "thumb": "https://i.ytimg.com/vi/GXSv_UIJhdo/hqdefault.jpg",
+      "source": "@연금닥터 (@pension_doctor)",
+      "published": "2020-12-02",
+      "license": "공공누리 1유형 / 경제 데이터 해설",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "최상 (전체 1위 고단가)",
+      "target_len": "롱폼 18~28분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 34.2배",
+        "👁️ 814,301뷰",
+        "구독 23,800명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 814,301뷰나 터졌을까?!\"",
+        "mid": "공무원연금 받아도 기초연금 받는다 2027년 확 바뀌는 기",
+        "bot": "구독자 대비 34.2배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '공무원연금 받아도 기초연금 받는다 202...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+    },
+    {
+      "id": "yt_cat2_economy_AGLqe-MD0_U",
+      "video_id": "AGLqe-MD0_U",
+      "category": "cat2_economy",
+      "grade": "S",
+      "score": 88,
+      "title": "60대 은퇴 후 월 200만원 살아보니 이런 일이 진짜 벌어졌다 충격 실화 | 50·60대라면 반드시 보세요 ㅣ은퇴생활 ㅣ노후생활비 ㅣ월200만원 ㅣ시니어생활 ㅣ국민연금",
+      "orig_title": "@인생한마디 (@인생한마디-t6q) 대표 아웃라이어 · 조회수 11,701회",
+      "url": "https://www.youtube.com/watch?v=AGLqe-MD0_U",
+      "channel_url": "https://www.youtube.com/@인생한마디-t6q",
+      "thumb": "https://i.ytimg.com/vi/AGLqe-MD0_U/hqdefault.jpg",
+      "source": "@인생한마디 (@인생한마디-t6q)",
+      "published": "2026-09-03",
+      "license": "공공누리 1유형 / 경제 데이터 해설",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "최상 (전체 1위 고단가)",
+      "target_len": "롱폼 18~28분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-09개설)",
+        "⚡ 구독자 대비 23.1배",
+        "👁️ 11,701뷰",
+        "구독 507명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 11,701뷰나 터졌을까?!\"",
+        "mid": "60대 은퇴 후 월 200만원 살아보니 이런 일이 진짜 벌",
+        "bot": "구독자 대비 23.1배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '60대 은퇴 후 월 200만원 살아보니 ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+    },
+    {
+      "id": "yt_cat2_economy_Zt8k-FD-b6s",
+      "video_id": "Zt8k-FD-b6s",
+      "category": "cat2_economy",
+      "grade": "S",
+      "score": 88,
+      "title": "\"그래도 부장까지 했는데\" 대기업 부장 출신 60대가 퇴직금 2억을 8년 만에 다 쓴 진짜 이유, 품위유지비 TOP 5",
+      "orig_title": "@퀸즈리의경제학 (@queensleeeconomics) 대표 아웃라이어 · 조회수 17,909회",
+      "url": "https://www.youtube.com/watch?v=Zt8k-FD-b6s",
+      "channel_url": "https://www.youtube.com/@queensleeeconomics",
+      "thumb": "https://i.ytimg.com/vi/Zt8k-FD-b6s/hqdefault.jpg",
+      "source": "@퀸즈리의경제학 (@queensleeeconomics)",
+      "published": "2025-12-13",
+      "license": "공공누리 1유형 / 경제 데이터 해설",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "최상 (전체 1위 고단가)",
+      "target_len": "롱폼 18~28분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2025-12개설)",
+        "⚡ 구독자 대비 21.7배",
+        "👁️ 17,909뷰",
+        "구독 825명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 17,909뷰나 터졌을까?!\"",
+        "mid": "\"그래도 부장까지 했는데\" 대기업 부장 출신 60대가 퇴직",
+        "bot": "구독자 대비 21.7배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"그래도 부장까지 했는데\" 대기업 부장 ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+    },
+    {
+      "id": "yt_cat2_economy_zb3n8malRz8",
+      "video_id": "zb3n8malRz8",
+      "category": "cat2_economy",
+      "grade": "S",
+      "score": 87,
+      "title": "Deposit just 300,000 won every month in your 50s. How to set up a bank account that automatically...",
+      "orig_title": "@지식클립 (@지식클립-l5z) 대표 아웃라이어 · 조회수 7,353회",
+      "url": "https://www.youtube.com/watch?v=zb3n8malRz8",
+      "channel_url": "https://www.youtube.com/@지식클립-l5z",
+      "thumb": "https://i.ytimg.com/vi/zb3n8malRz8/hqdefault.jpg",
+      "source": "@지식클립 (@지식클립-l5z)",
+      "published": "2025-02-05",
+      "license": "공공누리 1유형 / 경제 데이터 해설",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "최상 (전체 1위 고단가)",
+      "target_len": "롱폼 18~28분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 15.8배",
+        "👁️ 7,353뷰",
+        "구독 465명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 7,353뷰나 터졌을까?!\"",
+        "mid": "Deposit just 300,000 won every m",
+        "bot": "구독자 대비 15.8배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Deposit just 300,000 w...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+    },
+    {
+      "id": "yt_cat2_economy_a81HF6Fvmxk",
+      "video_id": "a81HF6Fvmxk",
+      "category": "cat2_economy",
+      "grade": "S",
+      "score": 87,
+      "title": "【이시형 박사】65세 이후 통장에 '이 정도 돈' 있다면 당장 돈 벌기 멈추세요! 아끼다 죽으면 다 소용없습니다! 남은 인생 이렇게 쓰고 사세요｜노후자금｜인생조언｜시니어",
+      "orig_title": "@백세인생지혜 (@백세인생지혜) 대표 아웃라이어 · 조회수 8,971회",
+      "url": "https://www.youtube.com/watch?v=a81HF6Fvmxk",
+      "channel_url": "https://www.youtube.com/@백세인생지혜",
+      "thumb": "https://i.ytimg.com/vi/a81HF6Fvmxk/hqdefault.jpg",
+      "source": "@백세인생지혜 (@백세인생지혜)",
+      "published": "2009-09-29",
+      "license": "공공누리 1유형 / 경제 데이터 해설",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "최상 (전체 1위 고단가)",
+      "target_len": "롱폼 18~28분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 14.8배",
+        "👁️ 8,971뷰",
+        "구독 606명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 8,971뷰나 터졌을까?!\"",
+        "mid": "【이시형 박사】65세 이후 통장에 '이 정도 돈' 있다면 ",
+        "bot": "구독자 대비 14.8배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '【이시형 박사】65세 이후 통장에 '이 ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+    },
+    {
+      "id": "yt_cat2_economy_6MYfvjhO4-s",
+      "video_id": "6MYfvjhO4-s",
+      "category": "cat2_economy",
+      "grade": "S",
+      "score": 87,
+      "title": "환율 1,600원 막으려다...\" 한국은행, 결국 금리 인상 '불가피' (2026년 최악의 시나리오)",
+      "orig_title": "@생활경제TV (@생활경제tv) 대표 아웃라이어 · 조회수 17,089회",
+      "url": "https://www.youtube.com/watch?v=6MYfvjhO4-s",
+      "channel_url": "https://www.youtube.com/@생활경제tv",
+      "thumb": "https://i.ytimg.com/vi/6MYfvjhO4-s/hqdefault.jpg",
+      "source": "@생활경제TV (@생활경제tv)",
+      "published": "2025-04-13",
+      "license": "공공누리 1유형 / 경제 데이터 해설",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "최상 (전체 1위 고단가)",
+      "target_len": "롱폼 18~28분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 14.7배",
+        "👁️ 17,089뷰",
+        "구독 1,160명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 17,089뷰나 터졌을까?!\"",
+        "mid": "환율 1,600원 막으려다...\" 한국은행, 결국 금리 인",
+        "bot": "구독자 대비 14.7배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '환율 1,600원 막으려다...\" 한국은...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+    },
+    {
+      "id": "yt_cat2_economy_V9sqi0K_ogI",
+      "video_id": "V9sqi0K_ogI",
+      "category": "cat2_economy",
+      "grade": "S",
+      "score": 87,
+      "title": "60세 이후에도 매달 현금이 들어오는 10가지 현실적인 자산｜노후 현금흐름 만드는 방법",
+      "orig_title": "@평범한부의법칙 (@평범한부의법칙) 대표 아웃라이어 · 조회수 9,346회",
+      "url": "https://www.youtube.com/watch?v=V9sqi0K_ogI",
+      "channel_url": "https://www.youtube.com/@평범한부의법칙",
+      "thumb": "https://i.ytimg.com/vi/V9sqi0K_ogI/hqdefault.jpg",
+      "source": "@평범한부의법칙 (@평범한부의법칙)",
+      "published": "2017-03-01",
+      "license": "공공누리 1유형 / 경제 데이터 해설",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "최상 (전체 1위 고단가)",
+      "target_len": "롱폼 18~28분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 14.5배",
+        "👁️ 9,346뷰",
+        "구독 643명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 9,346뷰나 터졌을까?!\"",
+        "mid": "60세 이후에도 매달 현금이 들어오는 10가지 현실적인 자",
+        "bot": "구독자 대비 14.5배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '60세 이후에도 매달 현금이 들어오는 1...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+    },
+    {
+      "id": "yt_cat2_economy_4nCnG2vDpRY",
+      "video_id": "4nCnG2vDpRY",
+      "category": "cat2_economy",
+      "grade": "S",
+      "score": 94,
+      "title": "\"금융소득 1000만원 넘겼더니 건강보험료 폭탄 나왔다!\" 건보료 낮추는 방법을 국세청 세무사가 알려드립니다.",
+      "orig_title": "@세금아는형 (@ntstax) 대표 아웃라이어 · 조회수 1,518,870회",
+      "url": "https://www.youtube.com/watch?v=4nCnG2vDpRY",
+      "channel_url": "https://www.youtube.com/@ntstax",
+      "thumb": "https://i.ytimg.com/vi/4nCnG2vDpRY/hqdefault.jpg",
+      "source": "@세금아는형 (@ntstax)",
+      "published": "2024-01-30",
+      "license": "공공누리 1유형 / 경제 데이터 해설",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "최상 (전체 1위 고단가)",
+      "target_len": "롱폼 18~28분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 4.6배",
+        "👁️ 1,518,870뷰",
+        "구독 329,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 1,518,870뷰나 터졌을까?!\"",
+        "mid": "\"금융소득 1000만원 넘겼더니 건강보험료 폭탄 나왔다!\"",
+        "bot": "구독자 대비 4.6배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"금융소득 1000만원 넘겼더니 건강보험...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+    },
+    {
+      "id": "yt_cat2_economy_99oK8-6j27o",
+      "video_id": "99oK8-6j27o",
+      "category": "cat2_economy",
+      "grade": "S",
+      "score": 92,
+      "title": "\"이런 발표는 난생 처음\" 기초연금 충격 개편 발칵 뒤집힌 한국 상황｜이영주 대표 풀버전",
+      "orig_title": "@김정호의경제TV (@econtv123) 대표 아웃라이어 · 조회수 1,152,956회",
+      "url": "https://www.youtube.com/watch?v=99oK8-6j27o",
+      "channel_url": "https://www.youtube.com/@econtv123",
+      "thumb": "https://i.ytimg.com/vi/99oK8-6j27o/hqdefault.jpg",
+      "source": "@김정호의경제TV (@econtv123)",
+      "published": "2018-09-30",
+      "license": "공공누리 1유형 / 경제 데이터 해설",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "최상 (전체 1위 고단가)",
+      "target_len": "롱폼 18~28분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 3.9배",
+        "👁️ 1,152,956뷰",
+        "구독 296,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 1,152,956뷰나 터졌을까?!\"",
+        "mid": "\"이런 발표는 난생 처음\" 기초연금 충격 개편 발칵 뒤집힌",
+        "bot": "구독자 대비 3.9배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"이런 발표는 난생 처음\" 기초연금 충격...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+    },
+    {
+      "id": "yt_cat2_economy_EjWwfsfz1ZI",
+      "video_id": "EjWwfsfz1ZI",
+      "category": "cat2_economy",
+      "grade": "S",
+      "score": 90,
+      "title": "\"5060대 모르면 못받습니다\" 통장에 'OO원' 있으면 기초연금 한푼도 못받는다 ㅣ Ep. 책과사람 129 (이영주 대표 2부)",
+      "orig_title": "@책과삶 (@책과삶) 대표 아웃라이어 · 조회수 888,786회",
+      "url": "https://www.youtube.com/watch?v=EjWwfsfz1ZI",
+      "channel_url": "https://www.youtube.com/@책과삶",
+      "thumb": "https://i.ytimg.com/vi/EjWwfsfz1ZI/hqdefault.jpg",
+      "source": "@책과삶 (@책과삶)",
+      "published": "2019-12-17",
+      "license": "공공누리 1유형 / 경제 데이터 해설",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "최상 (전체 1위 고단가)",
+      "target_len": "롱폼 18~28분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 888,786뷰",
+        "구독 1,290,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 888,786뷰나 터졌을까?!\"",
+        "mid": "\"5060대 모르면 못받습니다\" 통장에 'OO원' 있으면 ",
+        "bot": "구독자 대비 0.7배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"5060대 모르면 못받습니다\" 통장에 ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+    },
+    {
+      "id": "yt_cat2_economy_8z_rdy5ci44",
+      "video_id": "8z_rdy5ci44",
+      "category": "cat2_economy",
+      "grade": "S",
+      "score": 90,
+      "title": "\"대한민국 국민 누구나 연 8% 받는다\" 1억 있다면 여기 넣어두세요. 5년 뒤 2억 4천 돌려 받는다. 죽을 때까지 500만원 나와요 | 이영주 대표 풀버전 #연금",
+      "orig_title": "@재테크는두꺼비세무사 (@두꺼비세무사) 대표 아웃라이어 · 조회수 856,743회",
+      "url": "https://www.youtube.com/watch?v=8z_rdy5ci44",
+      "channel_url": "https://www.youtube.com/@두꺼비세무사",
+      "thumb": "https://i.ytimg.com/vi/8z_rdy5ci44/hqdefault.jpg",
+      "source": "@재테크는두꺼비세무사 (@두꺼비세무사)",
+      "published": "2013-06-19",
+      "license": "공공누리 1유형 / 경제 데이터 해설",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "최상 (전체 1위 고단가)",
+      "target_len": "롱폼 18~28분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 2.8배",
+        "👁️ 856,743뷰",
+        "구독 304,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 856,743뷰나 터졌을까?!\"",
+        "mid": "\"대한민국 국민 누구나 연 8% 받는다\" 1억 있다면 여기",
+        "bot": "구독자 대비 2.8배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"대한민국 국민 누구나 연 8% 받는다\"...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+    },
+    {
+      "id": "yt_cat2_economy__UKfxz4sb-0",
+      "video_id": "_UKfxz4sb-0",
+      "category": "cat2_economy",
+      "grade": "S",
+      "score": 90,
+      "title": "Receiving 530,000 KRW in Basic Pension (500M KRW House, 1.5M KRW Pension, 200M KRW Cash) / How to...",
+      "orig_title": "@연금이야기 (@pensionstory) 대표 아웃라이어 · 조회수 723,526회",
+      "url": "https://www.youtube.com/watch?v=_UKfxz4sb-0",
+      "channel_url": "https://www.youtube.com/@pensionstory",
+      "thumb": "https://i.ytimg.com/vi/_UKfxz4sb-0/hqdefault.jpg",
+      "source": "@연금이야기 (@pensionstory)",
+      "published": "2014-11-24",
+      "license": "공공누리 1유형 / 경제 데이터 해설",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "최상 (전체 1위 고단가)",
+      "target_len": "롱폼 18~28분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 4.4배",
+        "👁️ 723,526뷰",
+        "구독 166,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 723,526뷰나 터졌을까?!\"",
+        "mid": "Receiving 530,000 KRW in Basic P",
+        "bot": "구독자 대비 4.4배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Receiving 530,000 KRW ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+    },
+    {
+      "id": "yt_cat2_economy_dFPE4FGY3rI",
+      "video_id": "dFPE4FGY3rI",
+      "category": "cat2_economy",
+      "grade": "S",
+      "score": 89,
+      "title": "(Must-Watch for 60s) The Secret to Double the Interest and a Lifetime Salary Banks Will Never Tel...",
+      "orig_title": "@복지히어로 (@복지히어로-119) 대표 아웃라이어 · 조회수 356,238회",
+      "url": "https://www.youtube.com/watch?v=dFPE4FGY3rI",
+      "channel_url": "https://www.youtube.com/@복지히어로-119",
+      "thumb": "https://i.ytimg.com/vi/dFPE4FGY3rI/hqdefault.jpg",
+      "source": "@복지히어로 (@복지히어로-119)",
+      "published": "2025-04-24",
+      "license": "공공누리 1유형 / 경제 데이터 해설",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "최상 (전체 1위 고단가)",
+      "target_len": "롱폼 18~28분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 12.7배",
+        "👁️ 356,238뷰",
+        "구독 28,100명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 356,238뷰나 터졌을까?!\"",
+        "mid": "(Must-Watch for 60s) The Secret ",
+        "bot": "구독자 대비 12.7배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '(Must-Watch for 60s) T...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+    },
+    {
+      "id": "yt_cat2_economy_I4MDwQFRIa0",
+      "video_id": "I4MDwQFRIa0",
+      "category": "cat2_economy",
+      "grade": "S",
+      "score": 87,
+      "title": "[뉴스'픽'] '이 사람들도 기초연금 받아?' 정부 결국 특단의 조치",
+      "orig_title": "@OBS뉴스 (@obs뉴스) 대표 아웃라이어 · 조회수 308,228회",
+      "url": "https://www.youtube.com/watch?v=I4MDwQFRIa0",
+      "channel_url": "https://www.youtube.com/@obs뉴스",
+      "thumb": "https://i.ytimg.com/vi/I4MDwQFRIa0/hqdefault.jpg",
+      "source": "@OBS뉴스 (@obs뉴스)",
+      "published": "2019-01-16",
+      "license": "공공누리 1유형 / 경제 데이터 해설",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "최상 (전체 1위 고단가)",
+      "target_len": "롱폼 18~28분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 308,228뷰",
+        "구독 442,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 308,228뷰나 터졌을까?!\"",
+        "mid": "'이 사람들도 기초연금 받아?' 정부 결국 특단의 조치",
+        "bot": "구독자 대비 0.7배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] ''이 사람들도 기초연금 받아?' 정부 결...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+    },
+    {
+      "id": "yt_cat2_economy_gdXcOMG6odA",
+      "video_id": "gdXcOMG6odA",
+      "category": "cat2_economy",
+      "grade": "S",
+      "score": 87,
+      "title": "Are Health Insurance Premiums Calculated Jointly for Couples? A Must-Watch for Regional Subscribers",
+      "orig_title": "@연금부자연구소 (@연금부자연구소) 대표 아웃라이어 · 조회수 265,337회",
+      "url": "https://www.youtube.com/watch?v=gdXcOMG6odA",
+      "channel_url": "https://www.youtube.com/@연금부자연구소",
+      "thumb": "https://i.ytimg.com/vi/gdXcOMG6odA/hqdefault.jpg",
+      "source": "@연금부자연구소 (@연금부자연구소)",
+      "published": "2022-05-25",
+      "license": "공공누리 1유형 / 경제 데이터 해설",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "최상 (전체 1위 고단가)",
+      "target_len": "롱폼 18~28분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 2.6배",
+        "👁️ 265,337뷰",
+        "구독 103,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 265,337뷰나 터졌을까?!\"",
+        "mid": "Are Health Insurance Premiums Ca",
+        "bot": "구독자 대비 2.6배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Are Health Insurance P...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+    },
+    {
+      "id": "yt_cat3_history_lyxQaA1vwgI",
+      "video_id": "lyxQaA1vwgI",
       "category": "cat3_history",
       "grade": "S",
-      "score": 96,
-      "title": "[시크릿 조합] \"불가능하다며 세계은행도 대출을 거절했습니다\" 허허벌판 모래사장에 세계 1위 포항제철·경부고속도로를 세운 기밀문서 공개",
-      "orig_title": "국가기록원 경제개발 5개년 계획 및 포항종합제철·경부고속도로 건설 기록물 아카이브",
-      "url": "https://www.archives.go.kr/",
-      "source": "국가기록원 · 미 국립문서보관소(NARA) 공개 문서",
-      "published": "2026-11-07",
-      "license": "공공누리 / Public Domain (저작권 클린 100%)",
-      "safety": 100,
-      "transform_score": 98,
-      "rpm": "상 (55세+ 시니어 완주율 1위)",
+      "score": 99,
+      "title": "“160년 못 버린 일본의 한자”한글이 풀었다",
+      "orig_title": "@지식챔프 (@지식챔프) 대표 아웃라이어 · 조회수 187,908회",
+      "url": "https://www.youtube.com/watch?v=lyxQaA1vwgI",
+      "channel_url": "https://www.youtube.com/@지식챔프",
+      "thumb": "https://i.ytimg.com/vi/lyxQaA1vwgI/hqdefault.jpg",
+      "source": "@지식챔프 (@지식챔프)",
+      "published": "2026-10-27",
+      "license": "Public Domain / 국가기록원·NARA 사료",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (시니어 완주율 1위)",
       "target_len": "롱폼 25~40분 + 쇼츠 3편",
       "badges": [
-        "시니어 자부심 1위",
-        "국가기록원 사료",
-        "한·영·일 글로벌 확장"
+        "🔥 신생(2026-10개설)",
+        "⚡ 구독자 대비 639.1배",
+        "👁️ 187,908뷰",
+        "구독 294명"
       ],
       "thumb_3tier": {
-        "top": "\"한국에 돈 빌려주면 100% 떼인다!\" 비웃던 세계은행",
-        "mid": "1968년 미국 기밀문서에 적혀 있던 충격 보고서",
-        "bot": "단 5년 만에 전 세계 경제학자들을 침묵시킨 기적"
+        "top": "\"도대체 왜 이 장면이 187,908뷰나 터졌을까?!\"",
+        "mid": "“160년 못 버린 일본의 한자”한글이 풀었다",
+        "bot": "구독자 대비 639.1배 폭발한 핵심 구조 & 2차 가공 재해석"
       },
       "hook_30s": {
-        "s0_6": "[0~6초 Google Flow AI 훅] 1960년대 영문 타자기 보고서를 내려놓으며 고개를 젓는 서양 심사관 + \"철강 공장은커녕 쌀부터 사 먹으라던 조롱\"",
-        "s6_18": "[6~18초 1차 사료 카드] `vox-history-docu-studio` 형광펜 인용 카드로 실제 IBRD(세계은행) 부정 평가 원문 문장 하이라이트",
-        "s18_30": "[18~30초 Draw-on 지도 브릿지] 영일만 모래바람 위로 제철소 도면이 한 획씩 그려지며(`claude-drawing-skill`) 본편 시작"
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '“160년 못 버린 일본의 한자”한글이 ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + claude-drawing-skill + Suno V5 오케스트라"
+      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
     },
     {
-      "id": "th_inf_01",
-      "category": "cat4_infra",
+      "id": "yt_cat3_history_RkfcQNqzHfw",
+      "video_id": "RkfcQNqzHfw",
+      "category": "cat3_history",
       "grade": "S",
-      "score": 95,
-      "title": "[시크릿 조합] \"바다 밑 60미터 암반을 어떻게 1mm 오차로 뚫었을까?\" 해외 엔지니어들이 K-해저터널·초장대교량 공법을 보고 놀란 이유",
-      "orig_title": "국토교통부 보령해저터널·이순신대교·GTX 대심도 터널 NATM 및 TBM 공법 기술 브리핑",
-      "url": "https://www.molit.go.kr/",
-      "source": "국토교통부 · 한국도로공사 · 한국철도시설공단 공개 기술자료",
-      "published": "2026-11-07",
-      "license": "공공누리 제1유형 (기술 백서 및 브리핑)",
-      "safety": 99,
-      "transform_score": 97,
-      "rpm": "상 (남성 89% 시청층 초고몰입)",
-      "target_len": "롱폼 15~25분 + 쇼츠 3편",
+      "score": 99,
+      "title": "낙동강 방어전, 북한군은 왜 부산 앞에서 멈춰 섰나?｜6·25전쟁",
+      "orig_title": "@도시실록 (@도시실록) 대표 아웃라이어 · 조회수 58,527회",
+      "url": "https://www.youtube.com/watch?v=RkfcQNqzHfw",
+      "channel_url": "https://www.youtube.com/@도시실록",
+      "thumb": "https://i.ytimg.com/vi/RkfcQNqzHfw/hqdefault.jpg",
+      "source": "@도시실록 (@도시실록)",
+      "published": "2026-06-05",
+      "license": "Public Domain / 국가기록원·NARA 사료",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (시니어 완주율 1위)",
+      "target_len": "롱폼 25~40분 + 쇼츠 3편",
       "badges": [
-        "작동원리 3D/Manim",
-        "한·일·대만 비교",
-        "남성 시니어 89% 타깃"
+        "🔥 신생(2026-06개설)",
+        "⚡ 구독자 대비 174.7배",
+        "👁️ 58,527뷰",
+        "구독 335명"
       ],
       "thumb_3tier": {
-        "top": "수압 6기압 바닷속을 어떻게 안 무너지고 뚫었지?!",
-        "mid": "해외 토목학회가 주목한 한국 해저터널·대교 기술",
-        "bot": "단면도를 쪼개서 본 소름 돋는 0.1mm 정밀 공법"
+        "top": "\"도대체 왜 이 장면이 58,527뷰나 터졌을까?!\"",
+        "mid": "낙동강 방어전, 북한군은 왜 부산 앞에서 멈춰 섰나?｜6·",
+        "bot": "구독자 대비 174.7배 폭발한 핵심 구조 & 2차 가공 재해석"
       },
       "hook_30s": {
-        "s0_6": "[0~6초 Google Flow AI 훅] 거대한 해저 TBM 굴착기 단면과 놀란 엔지니어: \"위에는 수십만 톤 바닷물이 누르는데 어떻게 물 한 방울 안 새고 뚫어냅니까?\"",
-        "s6_18": "[6~18초 메커니즘 시각화] `manimce-best-practices`로 해저 수압 분산 아치와 고강도 숏크리트 공법을 도형 애니메이션으로 즉시 시각화",
-        "s18_30": "[18~30초 3개국 비교 브릿지] 한국·일본·유럽 해저터널 시공 단가와 공기 단축 기록을 GSAP 비교표로 제시"
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '낙동강 방어전, 북한군은 왜 부산 앞에서...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "manimce-best-practices(구조 역학 시각화) + huashu-art-motion(청사진 화풍) + 국토부 공공누리 브리핑"
+      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
     },
     {
-      "id": "th_doc_01",
-      "category": "cat5_docu",
+      "id": "yt_cat3_history_74119Xuirec",
+      "video_id": "74119Xuirec",
+      "category": "cat3_history",
+      "grade": "S",
+      "score": 97,
+      "title": "컬러영상,다큐멘터리 한국전쟁 The Korean War in Color,www.JTBC.biz",
+      "orig_title": "@2017걸작다큐 (@2017걸작다큐) 대표 아웃라이어 · 조회수 108,138회",
+      "url": "https://www.youtube.com/watch?v=74119Xuirec",
+      "channel_url": "https://www.youtube.com/@2017걸작다큐",
+      "thumb": "https://i.ytimg.com/vi/74119Xuirec/hqdefault.jpg",
+      "source": "@2017걸작다큐 (@2017걸작다큐)",
+      "published": "2016-10-18",
+      "license": "Public Domain / 국가기록원·NARA 사료",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (시니어 완주율 1위)",
+      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 110.0배",
+        "👁️ 108,138뷰",
+        "구독 983명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 108,138뷰나 터졌을까?!\"",
+        "mid": "컬러영상,다큐멘터리 한국전쟁 The Korean War i",
+        "bot": "구독자 대비 110.0배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '컬러영상,다큐멘터리 한국전쟁 The Ko...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+    },
+    {
+      "id": "yt_cat3_history_IxrZHpKA1AQ",
+      "video_id": "IxrZHpKA1AQ",
+      "category": "cat3_history",
+      "grade": "S",
+      "score": 94,
+      "title": "“우리에겐 지도가 두 장 있습니다” 세계 최고로 예민한 공장들이 한국만 선택한 진짜 이유",
+      "orig_title": "@꿀경제 (@꿀경제-79) 대표 아웃라이어 · 조회수 11,010회",
+      "url": "https://www.youtube.com/watch?v=IxrZHpKA1AQ",
+      "channel_url": "https://www.youtube.com/@꿀경제-79",
+      "thumb": "https://i.ytimg.com/vi/IxrZHpKA1AQ/hqdefault.jpg",
+      "source": "@꿀경제 (@꿀경제-79)",
+      "published": "2026-10-12",
+      "license": "Public Domain / 국가기록원·NARA 사료",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (시니어 완주율 1위)",
+      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-10개설)",
+        "⚡ 구독자 대비 79.8배",
+        "👁️ 11,010뷰",
+        "구독 138명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 11,010뷰나 터졌을까?!\"",
+        "mid": "“우리에겐 지도가 두 장 있습니다” 세계 최고로 예민한 공",
+        "bot": "구독자 대비 79.8배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '“우리에겐 지도가 두 장 있습니다” 세계...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+    },
+    {
+      "id": "yt_cat3_history_XUsfsczX5mM",
+      "video_id": "XUsfsczX5mM",
+      "category": "cat3_history",
+      "grade": "S",
+      "score": 99,
+      "title": "그래프로 보는 한국이 추월한 나라 (GDP 1960~2017)",
+      "orig_title": "@크기로보는TOP (@크기로보는top) 대표 아웃라이어 · 조회수 5,618,086회",
+      "url": "https://www.youtube.com/watch?v=XUsfsczX5mM",
+      "channel_url": "https://www.youtube.com/@크기로보는top",
+      "thumb": "https://i.ytimg.com/vi/XUsfsczX5mM/hqdefault.jpg",
+      "source": "@크기로보는TOP (@크기로보는top)",
+      "published": "2013-03-30",
+      "license": "Public Domain / 국가기록원·NARA 사료",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (시니어 완주율 1위)",
+      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 56.2배",
+        "👁️ 5,618,086뷰",
+        "구독 100,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 5,618,086뷰나 터졌을까?!\"",
+        "mid": "그래프로 보는 한국이 추월한 나라 (GDP 1960~201",
+        "bot": "구독자 대비 56.2배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '그래프로 보는 한국이 추월한 나라 (GD...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+    },
+    {
+      "id": "yt_cat3_history_eYQNOY3Y-D8",
+      "video_id": "eYQNOY3Y-D8",
+      "category": "cat3_history",
+      "grade": "S",
+      "score": 89,
+      "title": "The Man Who Erased the Impossible, Park Chung-hee's Dangerous Gamble",
+      "orig_title": "@역사와경제 (@역사와경제) 대표 아웃라이어 · 조회수 6,553회",
+      "url": "https://www.youtube.com/watch?v=eYQNOY3Y-D8",
+      "channel_url": "https://www.youtube.com/@역사와경제",
+      "thumb": "https://i.ytimg.com/vi/eYQNOY3Y-D8/hqdefault.jpg",
+      "source": "@역사와경제 (@역사와경제)",
+      "published": "2026-03-05",
+      "license": "Public Domain / 국가기록원·NARA 사료",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (시니어 완주율 1위)",
+      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-03개설)",
+        "⚡ 구독자 대비 34.1배",
+        "👁️ 6,553뷰",
+        "구독 192명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 6,553뷰나 터졌을까?!\"",
+        "mid": "The Man Who Erased the Impossibl",
+        "bot": "구독자 대비 34.1배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'The Man Who Erased the...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+    },
+    {
+      "id": "yt_cat3_history_u1EddrfHR2U",
+      "video_id": "u1EddrfHR2U",
+      "category": "cat3_history",
+      "grade": "S",
+      "score": 88,
+      "title": "한국 슬픈 역사) 한국 경제발전 과정 1910~2020 (과거~현재) | South Korea Economic Development | Miracle of Han River |",
+      "orig_title": "@dailylog (@dailylog) 대표 아웃라이어 · 조회수 75,099회",
+      "url": "https://www.youtube.com/watch?v=u1EddrfHR2U",
+      "channel_url": "https://www.youtube.com/@dailylog",
+      "thumb": "https://i.ytimg.com/vi/u1EddrfHR2U/hqdefault.jpg",
+      "source": "@dailylog (@dailylog)",
+      "published": "2019-10-29",
+      "license": "Public Domain / 국가기록원·NARA 사료",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (시니어 완주율 1위)",
+      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 21.2배",
+        "👁️ 75,099뷰",
+        "구독 3,540명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 75,099뷰나 터졌을까?!\"",
+        "mid": "한국 슬픈 역사) 한국 경제발전 과정 1910~2020 (",
+        "bot": "구독자 대비 21.2배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '한국 슬픈 역사) 한국 경제발전 과정 1...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+    },
+    {
+      "id": "yt_cat3_history_AlTu5MoPbu0",
+      "video_id": "AlTu5MoPbu0",
+      "category": "cat3_history",
+      "grade": "S",
+      "score": 88,
+      "title": "폭군 칼리굴라의 탄생… 그의 시대 여성들은 실제로 어떤 삶을 살았을까? | 로마 제국의 어두운 역사",
+      "orig_title": "@3꿈듣담1 (@3꿈듣담1) 대표 아웃라이어 · 조회수 5,973회",
+      "url": "https://www.youtube.com/watch?v=AlTu5MoPbu0",
+      "channel_url": "https://www.youtube.com/@3꿈듣담1",
+      "thumb": "https://i.ytimg.com/vi/AlTu5MoPbu0/hqdefault.jpg",
+      "source": "@3꿈듣담1 (@3꿈듣담1)",
+      "published": "2026-08-16",
+      "license": "Public Domain / 국가기록원·NARA 사료",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (시니어 완주율 1위)",
+      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-08개설)",
+        "⚡ 구독자 대비 20.7배",
+        "👁️ 5,973뷰",
+        "구독 289명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 5,973뷰나 터졌을까?!\"",
+        "mid": "폭군 칼리굴라의 탄생… 그의 시대 여성들은 실제로 어떤 삶",
+        "bot": "구독자 대비 20.7배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '폭군 칼리굴라의 탄생… 그의 시대 여성들...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+    },
+    {
+      "id": "yt_cat3_history_kBkqTQHcZHk",
+      "video_id": "kBkqTQHcZHk",
+      "category": "cat3_history",
+      "grade": "S",
+      "score": 99,
+      "title": "한 편으로 알아보는 6.25전쟁",
+      "orig_title": "@궁금소 (@궁금소) 대표 아웃라이어 · 조회수 9,458,223회",
+      "url": "https://www.youtube.com/watch?v=kBkqTQHcZHk",
+      "channel_url": "https://www.youtube.com/@궁금소",
+      "thumb": "https://i.ytimg.com/vi/kBkqTQHcZHk/hqdefault.jpg",
+      "source": "@궁금소 (@궁금소)",
+      "published": "2019-02-24",
+      "license": "Public Domain / 국가기록원·NARA 사료",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (시니어 완주율 1위)",
+      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 9.5배",
+        "👁️ 9,458,223뷰",
+        "구독 1,000,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 9,458,223뷰나 터졌을까?!\"",
+        "mid": "한 편으로 알아보는 6.25전쟁",
+        "bot": "구독자 대비 9.5배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '한 편으로 알아보는 6.25전쟁...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+    },
+    {
+      "id": "yt_cat3_history_uA-UWOBSeI4",
+      "video_id": "uA-UWOBSeI4",
+      "category": "cat3_history",
+      "grade": "S",
+      "score": 99,
+      "title": "A Complete Summary of the Korean War in 30 Minutes [A Comprehensive Look at the Korean War]",
+      "orig_title": "@별별역사 (@별별역사) 대표 아웃라이어 · 조회수 2,854,728회",
+      "url": "https://www.youtube.com/watch?v=uA-UWOBSeI4",
+      "channel_url": "https://www.youtube.com/@별별역사",
+      "thumb": "https://i.ytimg.com/vi/uA-UWOBSeI4/hqdefault.jpg",
+      "source": "@별별역사 (@별별역사)",
+      "published": "2019-03-16",
+      "license": "Public Domain / 국가기록원·NARA 사료",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (시니어 완주율 1위)",
+      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 3.4배",
+        "👁️ 2,854,728뷰",
+        "구독 837,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 2,854,728뷰나 터졌을까?!\"",
+        "mid": "A Complete Summary of the Korean",
+        "bot": "구독자 대비 3.4배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'A Complete Summary of ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+    },
+    {
+      "id": "yt_cat3_history_tmdwD3ex6zE",
+      "video_id": "tmdwD3ex6zE",
+      "category": "cat3_history",
       "grade": "S",
       "score": 98,
-      "title": "[시크릿 조합] \"할머니, 집 7채를 다 팔아서 왜 남의 밥을 차려주십니까?\" 가오슝 부두 노동자들을 50년간 먹여 살린 '10위안 도시락 할머니' 좡주위뉘(莊朱玉女)의 눈물",
-      "orig_title": "대만 가오슝 '10위안 도시락 할머니' 좡주위뉘(莊朱玉女, 1920~2015) 50년 선행 실화 다큐멘터리",
-      "url": "https://commons.wikimedia.org/",
-      "source": "대만 공공 문화 기록 · Wikimedia Commons (CC0 / CC-BY)",
-      "published": "2026-11-07",
-      "license": "CC0 / Public Domain / 자체 생성 시네마틱 아트워크 (저작권 100% 클린)",
-      "safety": 100,
-      "transform_score": 99,
-      "rpm": "상 (한국·대만·일본 3개국 동시 발행)",
-      "target_len": "롱폼 15~20분 + 파생 쇼츠 3편",
+      "title": "🌙 Read by Voice Actor Lee Ji-sun | The Annals of the Joseon Dynasty: The Fateful Meeting of Two M...",
+      "orig_title": "@잘듣세잘때듣는세계사 (@잘듣세) 대표 아웃라이어 · 조회수 2,272,148회",
+      "url": "https://www.youtube.com/watch?v=tmdwD3ex6zE",
+      "channel_url": "https://www.youtube.com/@잘듣세",
+      "thumb": "https://i.ytimg.com/vi/tmdwD3ex6zE/hqdefault.jpg",
+      "source": "@잘듣세잘때듣는세계사 (@잘듣세)",
+      "published": "2025-04-18",
+      "license": "Public Domain / 국가기록원·NARA 사료",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (시니어 완주율 1위)",
+      "target_len": "롱폼 25~40분 + 쇼츠 3편",
       "badges": [
-        "3-AI 만장일치 1호",
-        "바코드랩 4단계 서사",
-        "Rule 6 황금비율"
+        "⚡ 구독자 대비 13.1배",
+        "👁️ 2,272,148뷰",
+        "구독 173,000명"
       ],
       "thumb_3tier": {
-        "top": "집 7채를 팔아 50년간 350원짜리 밥을 파신 할머니?!",
-        "mid": "가오슝 부두 노동자들의 어머니 좡주위뉘(莊朱玉女)",
-        "bot": "장례식 날 수천 명이 거리로 쏟아져 나와 오열한 이유"
+        "top": "\"도대체 왜 이 장면이 2,272,148뷰나 터졌을까?!\"",
+        "mid": "🌙 Read by Voice Actor Lee Ji-sun",
+        "bot": "구독자 대비 13.1배 폭발한 핵심 구조 & 2차 가공 재해석"
       },
       "hook_30s": {
-        "s0_6": "[0~6초 Tier 3 하이라이트 훅] 새벽 4시 빗속에서 무거운 채소 바구니를 끌며 미소 짓는 할머니 시네마틱 모션(Google Flow 0원 ➔ Kling 백업)",
-        "s6_18": "[6~18초 숫자 대비] '물가 50배 폭등 vs 50년 동안 단돈 10위안(350원) 도시락, 대신 팔아치운 집 7채' 다크룸 에디토리얼 모션카드",
-        "s18_30": "[18~30초 수묵 Draw-on 브릿지] `huashu-art-motion` 수묵화로 가오슝 항구가 피어나며 바코드랩 1막 진입"
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '🌙 Read by Voice Actor ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "tw-docu-factory + Rule 6 하이브리드 3단 황금비율(Tier1 코드모션 90% + Tier2 Flow/LTX + Tier3 Kling) + 3개국 다국어 로컬라이징"
+      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
     },
     {
-      "id": "th_doc_02",
+      "id": "yt_cat3_history_V4jMQ_FKWDY",
+      "video_id": "V4jMQ_FKWDY",
+      "category": "cat3_history",
+      "grade": "S",
+      "score": 95,
+      "title": "[#설록] 정사에는 기록되지 않은 도파민 나오는 스토리✨야사의 신 썬킴이 들려주는 야사 모음 .zip | #또보리즘 | 취향저격 티캐스트",
+      "orig_title": "@티티팡팡TTPP (@tcastpang) 대표 아웃라이어 · 조회수 1,831,147회",
+      "url": "https://www.youtube.com/watch?v=V4jMQ_FKWDY",
+      "channel_url": "https://www.youtube.com/@tcastpang",
+      "thumb": "https://i.ytimg.com/vi/V4jMQ_FKWDY/hqdefault.jpg",
+      "source": "@티티팡팡TTPP (@tcastpang)",
+      "published": "2013-09-04",
+      "license": "Public Domain / 국가기록원·NARA 사료",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (시니어 완주율 1위)",
+      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 1,831,147뷰",
+        "구독 1,380,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 1,831,147뷰나 터졌을까?!\"",
+        "mid": "정사에는 기록되지 않은 도파민 나오는 스토리✨야사의 신 썬",
+        "bot": "구독자 대비 1.3배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '정사에는 기록되지 않은 도파민 나오는 스...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+    },
+    {
+      "id": "yt_cat3_history_gNP-sU5baYQ",
+      "video_id": "gNP-sU5baYQ",
+      "category": "cat3_history",
+      "grade": "S",
+      "score": 93,
+      "title": "조선시대로 회귀하면 생기는 일｜현대인이 조선에서 단 하루도 살 수 없는 이유",
+      "orig_title": "@교양만두 (@smartmandoo) 대표 아웃라이어 · 조회수 1,542,665회",
+      "url": "https://www.youtube.com/watch?v=gNP-sU5baYQ",
+      "channel_url": "https://www.youtube.com/@smartmandoo",
+      "thumb": "https://i.ytimg.com/vi/gNP-sU5baYQ/hqdefault.jpg",
+      "source": "@교양만두 (@smartmandoo)",
+      "published": "2020-02-18",
+      "license": "Public Domain / 국가기록원·NARA 사료",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (시니어 완주율 1위)",
+      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 1,542,665뷰",
+        "구독 1,140,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 1,542,665뷰나 터졌을까?!\"",
+        "mid": "조선시대로 회귀하면 생기는 일｜현대인이 조선에서 단 하루도",
+        "bot": "구독자 대비 1.4배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '조선시대로 회귀하면 생기는 일｜현대인이 ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+    },
+    {
+      "id": "yt_cat3_history_mQrmejPNyM4",
+      "video_id": "mQrmejPNyM4",
+      "category": "cat3_history",
+      "grade": "S",
+      "score": 89,
+      "title": "대한민국 최초 강연배틀쇼 ＜역사 이야기꾼들＞ ✨역대 우승 강연 4시간 몰아보기✨｜역사 이야기꾼들｜JTBC 251016 방송 외",
+      "orig_title": "@교양Voyage (@교양봐야지) 대표 아웃라이어 · 조회수 780,504회",
+      "url": "https://www.youtube.com/watch?v=mQrmejPNyM4",
+      "channel_url": "https://www.youtube.com/@교양봐야지",
+      "thumb": "https://i.ytimg.com/vi/mQrmejPNyM4/hqdefault.jpg",
+      "source": "@교양Voyage (@교양봐야지)",
+      "published": "2019-01-21",
+      "license": "Public Domain / 국가기록원·NARA 사료",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (시니어 완주율 1위)",
+      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 780,504뷰",
+        "구독 1,100,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 780,504뷰나 터졌을까?!\"",
+        "mid": "대한민국 최초 강연배틀쇼 ＜역사 이야기꾼들＞ ✨역대 우승 ",
+        "bot": "구독자 대비 0.7배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '대한민국 최초 강연배틀쇼 ＜역사 이야기꾼...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+    },
+    {
+      "id": "yt_cat3_history_iIrlvqHMtng",
+      "video_id": "iIrlvqHMtng",
+      "category": "cat3_history",
+      "grade": "S",
+      "score": 88,
+      "title": "How Vladimir Putin Transformed Russia",
+      "orig_title": "@investigation (@investigation) 대표 아웃라이어 · 조회수 588,620회",
+      "url": "https://www.youtube.com/watch?v=iIrlvqHMtng",
+      "channel_url": "https://www.youtube.com/@investigation",
+      "thumb": "https://i.ytimg.com/vi/iIrlvqHMtng/hqdefault.jpg",
+      "source": "@investigation (@investigation)",
+      "published": "2015-12-02",
+      "license": "Public Domain / 국가기록원·NARA 사료",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (시니어 완주율 1위)",
+      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 588,620뷰",
+        "구독 5,380,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 588,620뷰나 터졌을까?!\"",
+        "mid": "How Vladimir Putin Transformed R",
+        "bot": "구독자 대비 0.1배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'How Vladimir Putin Tra...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+    },
+    {
+      "id": "yt_cat3_history_q0bYXVyFwv8",
+      "video_id": "q0bYXVyFwv8",
+      "category": "cat3_history",
+      "grade": "S",
+      "score": 88,
+      "title": "SBS 일요 특선 다큐 성탄 특집 1부: 성경의 비밀",
+      "orig_title": "@charitybaptistchurch (@charitybaptistchurch) 대표 아웃라이어 · 조회수 562,606회",
+      "url": "https://www.youtube.com/watch?v=q0bYXVyFwv8",
+      "channel_url": "https://www.youtube.com/@charitybaptistchurch",
+      "thumb": "https://i.ytimg.com/vi/q0bYXVyFwv8/hqdefault.jpg",
+      "source": "@charitybaptistchurch (@charitybaptistchurch)",
+      "published": "2012-05-29",
+      "license": "Public Domain / 국가기록원·NARA 사료",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (시니어 완주율 1위)",
+      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 562,606뷰",
+        "구독 607,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 562,606뷰나 터졌을까?!\"",
+        "mid": "SBS 일요 특선 다큐 성탄 특집 1부: 성경의 비밀",
+        "bot": "구독자 대비 0.9배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'SBS 일요 특선 다큐 성탄 특집 1부:...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+    },
+    {
+      "id": "yt_cat4_infra_l2EHqW9XvPU",
+      "video_id": "l2EHqW9XvPU",
+      "category": "cat4_infra",
+      "grade": "S",
+      "score": 99,
+      "title": "TBM공법",
+      "orig_title": "@Srook에스와이폴라리스 (@srookthedigitalcontentspla8135) 대표 아웃라이어 · 조회수 24,743회",
+      "url": "https://www.youtube.com/watch?v=l2EHqW9XvPU",
+      "channel_url": "https://www.youtube.com/@srookthedigitalcontentspla8135",
+      "thumb": "https://i.ytimg.com/vi/l2EHqW9XvPU/hqdefault.jpg",
+      "source": "@Srook에스와이폴라리스 (@srookthedigitalcontentspla8135)",
+      "published": "2014-03-08",
+      "license": "공공누리 1유형 / 국토부·방사청 기술브리핑",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (남성 89% 타깃)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 220.9배",
+        "👁️ 24,743뷰",
+        "구독 112명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 24,743뷰나 터졌을까?!\"",
+        "mid": "TBM공법",
+        "bot": "구독자 대비 220.9배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'TBM공법...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+    },
+    {
+      "id": "yt_cat4_infra_Ud_y3xA3jnQ",
+      "video_id": "Ud_y3xA3jnQ",
+      "category": "cat4_infra",
+      "grade": "S",
+      "score": 94,
+      "title": "독일을 이긴 한국 자주포, 심장은 독일제였다 | K9 vs PzH 2000",
+      "orig_title": "@삼디포차 (@삼디포차) 대표 아웃라이어 · 조회수 3,105회",
+      "url": "https://www.youtube.com/watch?v=Ud_y3xA3jnQ",
+      "channel_url": "https://www.youtube.com/@삼디포차",
+      "thumb": "https://i.ytimg.com/vi/Ud_y3xA3jnQ/hqdefault.jpg",
+      "source": "@삼디포차 (@삼디포차)",
+      "published": "2026-09-27",
+      "license": "공공누리 1유형 / 국토부·방사청 기술브리핑",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (남성 89% 타깃)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-09개설)",
+        "⚡ 구독자 대비 81.7배",
+        "👁️ 3,105뷰",
+        "구독 38명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 3,105뷰나 터졌을까?!\"",
+        "mid": "독일을 이긴 한국 자주포, 심장은 독일제였다 | K9 vs",
+        "bot": "구독자 대비 81.7배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '독일을 이긴 한국 자주포, 심장은 독일제...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+    },
+    {
+      "id": "yt_cat4_infra_kR85kfHeZAQ",
+      "video_id": "kR85kfHeZAQ",
+      "category": "cat4_infra",
+      "grade": "S",
+      "score": 93,
+      "title": "\"6조 원 날리고 포기했습니다...\" 현대 건설사가 직접 밝힌 피라미드의 소름 돋는 진실",
+      "orig_title": "@서사의지평선 (@서사의지평선) 대표 아웃라이어 · 조회수 10,937회",
+      "url": "https://www.youtube.com/watch?v=kR85kfHeZAQ",
+      "channel_url": "https://www.youtube.com/@서사의지평선",
+      "thumb": "https://i.ytimg.com/vi/kR85kfHeZAQ/hqdefault.jpg",
+      "source": "@서사의지평선 (@서사의지평선)",
+      "published": "2026-02-17",
+      "license": "공공누리 1유형 / 국토부·방사청 기술브리핑",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (남성 89% 타깃)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-02개설)",
+        "⚡ 구독자 대비 78.1배",
+        "👁️ 10,937뷰",
+        "구독 140명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 10,937뷰나 터졌을까?!\"",
+        "mid": "\"6조 원 날리고 포기했습니다...\" 현대 건설사가 직접 ",
+        "bot": "구독자 대비 78.1배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"6조 원 날리고 포기했습니다...\" 현...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+    },
+    {
+      "id": "yt_cat4_infra_lEOVLgornak",
+      "video_id": "lEOVLgornak",
+      "category": "cat4_infra",
+      "grade": "S",
+      "score": 89,
+      "title": "세계에서 가장 경이로운 건축물 TOP 7  World's Most Wonderful Architecture Top 7",
+      "orig_title": "@마인드로드 (@mindroad1407) 대표 아웃라이어 · 조회수 30,497회",
+      "url": "https://www.youtube.com/watch?v=lEOVLgornak",
+      "channel_url": "https://www.youtube.com/@mindroad1407",
+      "thumb": "https://i.ytimg.com/vi/lEOVLgornak/hqdefault.jpg",
+      "source": "@마인드로드 (@mindroad1407)",
+      "published": "2023-11-28",
+      "license": "공공누리 1유형 / 국토부·방사청 기술브리핑",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (남성 89% 타깃)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 33.4배",
+        "👁️ 30,497뷰",
+        "구독 913명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 30,497뷰나 터졌을까?!\"",
+        "mid": "세계에서 가장 경이로운 건축물 TOP 7  World's ",
+        "bot": "구독자 대비 33.4배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '세계에서 가장 경이로운 건축물 TOP 7...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+    },
+    {
+      "id": "yt_cat4_infra_QgYxy63BoHs",
+      "video_id": "QgYxy63BoHs",
+      "category": "cat4_infra",
+      "grade": "S",
+      "score": 89,
+      "title": "\"수송기 8대 보낼게요\" 원조로 무기를 받던 한국에 지금 세계가 줄 서서 사러 오는 진짜 이유",
+      "orig_title": "@경제렌즈 (@econolens_0117) 대표 아웃라이어 · 조회수 6,725회",
+      "url": "https://www.youtube.com/watch?v=QgYxy63BoHs",
+      "channel_url": "https://www.youtube.com/@econolens_0117",
+      "thumb": "https://i.ytimg.com/vi/QgYxy63BoHs/hqdefault.jpg",
+      "source": "@경제렌즈 (@econolens_0117)",
+      "published": "2026-08-22",
+      "license": "공공누리 1유형 / 국토부·방사청 기술브리핑",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (남성 89% 타깃)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-08개설)",
+        "⚡ 구독자 대비 32.8배",
+        "👁️ 6,725뷰",
+        "구독 205명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 6,725뷰나 터졌을까?!\"",
+        "mid": "\"수송기 8대 보낼게요\" 원조로 무기를 받던 한국에 지금 ",
+        "bot": "구독자 대비 32.8배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"수송기 8대 보낼게요\" 원조로 무기를 ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+    },
+    {
+      "id": "yt_cat4_infra_rsGP2sYozQU",
+      "video_id": "rsGP2sYozQU",
+      "category": "cat4_infra",
+      "grade": "S",
+      "score": 88,
+      "title": "테슬라가 충격적인 발표를 했습니다! 새로운 엔진으로 2027년에 전기차 시장이 종말을 맞을 것이라고 합니다!",
+      "orig_title": "@넥스트스코프 (@넥스트스코프) 대표 아웃라이어 · 조회수 120,606회",
+      "url": "https://www.youtube.com/watch?v=rsGP2sYozQU",
+      "channel_url": "https://www.youtube.com/@넥스트스코프",
+      "thumb": "https://i.ytimg.com/vi/rsGP2sYozQU/hqdefault.jpg",
+      "source": "@넥스트스코프 (@넥스트스코프)",
+      "published": "2026-04-23",
+      "license": "공공누리 1유형 / 국토부·방사청 기술브리핑",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (남성 89% 타깃)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-04개설)",
+        "⚡ 구독자 대비 19.9배",
+        "👁️ 120,606뷰",
+        "구독 6,050명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 120,606뷰나 터졌을까?!\"",
+        "mid": "테슬라가 충격적인 발표를 했습니다! 새로운 엔진으로 202",
+        "bot": "구독자 대비 19.9배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '테슬라가 충격적인 발표를 했습니다! 새로...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+    },
+    {
+      "id": "yt_cat4_infra_t3Pt4n85u-Y",
+      "video_id": "t3Pt4n85u-Y",
+      "category": "cat4_infra",
+      "grade": "S",
+      "score": 99,
+      "title": "Listen to this before bed and time will fly!! Quantum Mechanics from Start to Finish: An 80-Minut...",
+      "orig_title": "@방구석과학 (@방구석과학) 대표 아웃라이어 · 조회수 2,579,775회",
+      "url": "https://www.youtube.com/watch?v=t3Pt4n85u-Y",
+      "channel_url": "https://www.youtube.com/@방구석과학",
+      "thumb": "https://i.ytimg.com/vi/t3Pt4n85u-Y/hqdefault.jpg",
+      "source": "@방구석과학 (@방구석과학)",
+      "published": "2020-04-23",
+      "license": "공공누리 1유형 / 국토부·방사청 기술브리핑",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (남성 89% 타깃)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 13.9배",
+        "👁️ 2,579,775뷰",
+        "구독 185,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 2,579,775뷰나 터졌을까?!\"",
+        "mid": "Listen to this before bed and ti",
+        "bot": "구독자 대비 13.9배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Listen to this before ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+    },
+    {
+      "id": "yt_cat4_infra_Y8XtZLbU28o",
+      "video_id": "Y8XtZLbU28o",
+      "category": "cat4_infra",
+      "grade": "S",
+      "score": 99,
+      "title": "세계 도로 해저터널 5위! 바닷속 한 가운데 해저터널은 어떻게 뚫었을까?",
+      "orig_title": "@국토교통부 (@korealand) 대표 아웃라이어 · 조회수 3,603,653회",
+      "url": "https://www.youtube.com/watch?v=Y8XtZLbU28o",
+      "channel_url": "https://www.youtube.com/@korealand",
+      "thumb": "https://i.ytimg.com/vi/Y8XtZLbU28o/hqdefault.jpg",
+      "source": "@국토교통부 (@korealand)",
+      "published": "2011-03-09",
+      "license": "공공누리 1유형 / 국토부·방사청 기술브리핑",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (남성 89% 타깃)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 13.5배",
+        "👁️ 3,603,653뷰",
+        "구독 266,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 3,603,653뷰나 터졌을까?!\"",
+        "mid": "세계 도로 해저터널 5위! 바닷속 한 가운데 해저터널은 어",
+        "bot": "구독자 대비 13.5배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '세계 도로 해저터널 5위! 바닷속 한 가...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+    },
+    {
+      "id": "yt_cat4_infra_rvnSGjkxpJE",
+      "video_id": "rvnSGjkxpJE",
+      "category": "cat4_infra",
+      "grade": "S",
+      "score": 99,
+      "title": "현대 과학으로 설명 못하는 고대의 미친 기술력 (피라미드의 소름돋는 비밀ㄷㄷ) ㅣ과학을 보다 EP.46",
+      "orig_title": "@보다BODA (@보다boda) 대표 아웃라이어 · 조회수 7,166,898회",
+      "url": "https://www.youtube.com/watch?v=rvnSGjkxpJE",
+      "channel_url": "https://www.youtube.com/@보다boda",
+      "thumb": "https://i.ytimg.com/vi/rvnSGjkxpJE/hqdefault.jpg",
+      "source": "@보다BODA (@보다boda)",
+      "published": "2013-01-20",
+      "license": "공공누리 1유형 / 국토부·방사청 기술브리핑",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (남성 89% 타깃)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 2.2배",
+        "👁️ 7,166,898뷰",
+        "구독 3,240,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 7,166,898뷰나 터졌을까?!\"",
+        "mid": "현대 과학으로 설명 못하는 고대의 미친 기술력 (피라미드의",
+        "bot": "구독자 대비 2.2배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '현대 과학으로 설명 못하는 고대의 미친 ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+    },
+    {
+      "id": "yt_cat4_infra_4ABpaA2d6qQ",
+      "video_id": "4ABpaA2d6qQ",
+      "category": "cat4_infra",
+      "grade": "S",
+      "score": 91,
+      "title": "\"뗏목에 철근 12만톤을 태워?\" 한국 '무모한 도전'에 아연실색한 사우디아라비아",
+      "orig_title": "@디씨멘터리 (@dcmentary_official) 대표 아웃라이어 · 조회수 1,151,301회",
+      "url": "https://www.youtube.com/watch?v=4ABpaA2d6qQ",
+      "channel_url": "https://www.youtube.com/@dcmentary_official",
+      "thumb": "https://i.ytimg.com/vi/4ABpaA2d6qQ/hqdefault.jpg",
+      "source": "@디씨멘터리 (@dcmentary_official)",
+      "published": "2019-06-14",
+      "license": "공공누리 1유형 / 국토부·방사청 기술브리핑",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (남성 89% 타깃)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 1,151,301뷰",
+        "구독 749,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 1,151,301뷰나 터졌을까?!\"",
+        "mid": "\"뗏목에 철근 12만톤을 태워?\" 한국 '무모한 도전'에 ",
+        "bot": "구독자 대비 1.5배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"뗏목에 철근 12만톤을 태워?\" 한국 ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+    },
+    {
+      "id": "yt_cat4_infra_pG3-hvgoZFs",
+      "video_id": "pG3-hvgoZFs",
+      "category": "cat4_infra",
+      "grade": "S",
+      "score": 89,
+      "title": "건설 혁신 다큐멘터리: 신기한 스마트 건설 기술들",
+      "orig_title": "@DL디엘 (@dl_valuecreator) 대표 아웃라이어 · 조회수 586,545회",
+      "url": "https://www.youtube.com/watch?v=pG3-hvgoZFs",
+      "channel_url": "https://www.youtube.com/@dl_valuecreator",
+      "thumb": "https://i.ytimg.com/vi/pG3-hvgoZFs/hqdefault.jpg",
+      "source": "@DL디엘 (@dl_valuecreator)",
+      "published": "2010-12-08",
+      "license": "공공누리 1유형 / 국토부·방사청 기술브리핑",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (남성 89% 타깃)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 10.3배",
+        "👁️ 586,545뷰",
+        "구독 57,200명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 586,545뷰나 터졌을까?!\"",
+        "mid": "건설 혁신 다큐멘터리: 신기한 스마트 건설 기술들",
+        "bot": "구독자 대비 10.3배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '건설 혁신 다큐멘터리: 신기한 스마트 건...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+    },
+    {
+      "id": "yt_cat4_infra_6qnGzMLpeQw",
+      "video_id": "6qnGzMLpeQw",
+      "category": "cat4_infra",
+      "grade": "S",
+      "score": 87,
+      "title": "Accelerating Next-Generation 46-Series Battery Mass Production with AI Technology",
+      "orig_title": "@LG에너지솔루션LGEnergySolution (@lgenergysolution) 대표 아웃라이어 · 조회수 220,312회",
+      "url": "https://www.youtube.com/watch?v=6qnGzMLpeQw",
+      "channel_url": "https://www.youtube.com/@lgenergysolution",
+      "thumb": "https://i.ytimg.com/vi/6qnGzMLpeQw/hqdefault.jpg",
+      "source": "@LG에너지솔루션LGEnergySolution (@lgenergysolution)",
+      "published": "2020-12-03",
+      "license": "공공누리 1유형 / 국토부·방사청 기술브리핑",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (남성 89% 타깃)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 220,312뷰",
+        "구독 266,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 220,312뷰나 터졌을까?!\"",
+        "mid": "Accelerating Next-Generation 46-",
+        "bot": "구독자 대비 0.8배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Accelerating Next-Gene...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+    },
+    {
+      "id": "yt_cat4_infra_pMSpEZZKu04",
+      "video_id": "pMSpEZZKu04",
+      "category": "cat4_infra",
+      "grade": "S",
+      "score": 87,
+      "title": "K-Defense History – The Birth of the Global Bestseller, the K9 Self-Propelled Howitzer",
+      "orig_title": "@한화에어로스페이스 (@hanwhaaerospaceofficial) 대표 아웃라이어 · 조회수 216,836회",
+      "url": "https://www.youtube.com/watch?v=pMSpEZZKu04",
+      "channel_url": "https://www.youtube.com/@hanwhaaerospaceofficial",
+      "thumb": "https://i.ytimg.com/vi/pMSpEZZKu04/hqdefault.jpg",
+      "source": "@한화에어로스페이스 (@hanwhaaerospaceofficial)",
+      "published": "2023-03-20",
+      "license": "공공누리 1유형 / 국토부·방사청 기술브리핑",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (남성 89% 타깃)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 5.8배",
+        "👁️ 216,836뷰",
+        "구독 37,500명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 216,836뷰나 터졌을까?!\"",
+        "mid": "K-Defense History – The Birth of",
+        "bot": "구독자 대비 5.8배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'K-Defense History – Th...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+    },
+    {
+      "id": "yt_cat4_infra_d15n0bISxv8",
+      "video_id": "d15n0bISxv8",
+      "category": "cat4_infra",
+      "grade": "S",
+      "score": 87,
+      "title": "Korea Is the Only Country with a Full-Stack SMR Ecosystem – Lim Chae-young, Head of Division at t...",
+      "orig_title": "@손에잡히는경제 (@손경제) 대표 아웃라이어 · 조회수 204,184회",
+      "url": "https://www.youtube.com/watch?v=d15n0bISxv8",
+      "channel_url": "https://www.youtube.com/@손경제",
+      "thumb": "https://i.ytimg.com/vi/d15n0bISxv8/hqdefault.jpg",
+      "source": "@손에잡히는경제 (@손경제)",
+      "published": "2023-12-13",
+      "license": "공공누리 1유형 / 국토부·방사청 기술브리핑",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (남성 89% 타깃)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 204,184뷰",
+        "구독 506,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 204,184뷰나 터졌을까?!\"",
+        "mid": "Korea Is the Only Country with a",
+        "bot": "구독자 대비 0.4배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Korea Is the Only Coun...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+    },
+    {
+      "id": "yt_cat4_infra_x_sUHRMEIok",
+      "video_id": "x_sUHRMEIok",
+      "category": "cat4_infra",
+      "grade": "S",
+      "score": 87,
+      "title": "The Real Reason Korea Successfully Built the 110m-Deep Undersea Tunnel the World Said Was Impossible",
+      "orig_title": "@이대표경제학 (@이대표경제학) 대표 아웃라이어 · 조회수 135,234회",
+      "url": "https://www.youtube.com/watch?v=x_sUHRMEIok",
+      "channel_url": "https://www.youtube.com/@이대표경제학",
+      "thumb": "https://i.ytimg.com/vi/x_sUHRMEIok/hqdefault.jpg",
+      "source": "@이대표경제학 (@이대표경제학)",
+      "published": "2026-07-14",
+      "license": "공공누리 1유형 / 국토부·방사청 기술브리핑",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (남성 89% 타깃)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-07개설)",
+        "⚡ 구독자 대비 5.7배",
+        "👁️ 135,234뷰",
+        "구독 23,800명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 135,234뷰나 터졌을까?!\"",
+        "mid": "The Real Reason Korea Successful",
+        "bot": "구독자 대비 5.7배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'The Real Reason Korea ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+    },
+    {
+      "id": "yt_cat4_infra_ub0HUWDfen4",
+      "video_id": "ub0HUWDfen4",
+      "category": "cat4_infra",
+      "grade": "S",
+      "score": 87,
+      "title": "방글라데시가 곧 부자가 될 것입니다. 그 이유는 다음과 같습니다!",
+      "orig_title": "@360geography (@360geography) 대표 아웃라이어 · 조회수 134,909회",
+      "url": "https://www.youtube.com/watch?v=ub0HUWDfen4",
+      "channel_url": "https://www.youtube.com/@360geography",
+      "thumb": "https://i.ytimg.com/vi/ub0HUWDfen4/hqdefault.jpg",
+      "source": "@360geography (@360geography)",
+      "published": "2024-04-14",
+      "license": "공공누리 1유형 / 국토부·방사청 기술브리핑",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (남성 89% 타깃)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 6.6배",
+        "👁️ 134,909뷰",
+        "구독 20,300명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 134,909뷰나 터졌을까?!\"",
+        "mid": "방글라데시가 곧 부자가 될 것입니다. 그 이유는 다음과 같",
+        "bot": "구독자 대비 6.6배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '방글라데시가 곧 부자가 될 것입니다. 그...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+    },
+    {
+      "id": "yt_cat5_docu_9iLkRm4xGco",
+      "video_id": "9iLkRm4xGco",
+      "category": "cat5_docu",
+      "grade": "S",
+      "score": 99,
+      "title": "감동영상 : 어머니의 이름으로  (원작 대만 TC Bank 광고)",
+      "orig_title": "@joonheelee2490 (@joonheelee2490) 대표 아웃라이어 · 조회수 105,730회",
+      "url": "https://www.youtube.com/watch?v=9iLkRm4xGco",
+      "channel_url": "https://www.youtube.com/@joonheelee2490",
+      "thumb": "https://i.ytimg.com/vi/9iLkRm4xGco/hqdefault.jpg",
+      "source": "@joonheelee2490 (@joonheelee2490)",
+      "published": "2012-12-22",
+      "license": "CC0 / Public Domain / 실화 다큐 재구성",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (글로벌 3개국 확장)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 739.4배",
+        "👁️ 105,730뷰",
+        "구독 143명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 105,730뷰나 터졌을까?!\"",
+        "mid": "감동영상 : 어머니의 이름으로  (원작 대만 TC Bank",
+        "bot": "구독자 대비 739.4배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '감동영상 : 어머니의 이름으로  (원작 ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+    },
+    {
+      "id": "yt_cat5_docu_4kAwRpGrUF0",
+      "video_id": "4kAwRpGrUF0",
+      "category": "cat5_docu",
+      "grade": "S",
+      "score": 99,
+      "title": "[목숨] 임종을 둔 마지막 하루",
+      "orig_title": "@한끼영화 (@한끼영화) 대표 아웃라이어 · 조회수 10,975,480회",
+      "url": "https://www.youtube.com/watch?v=4kAwRpGrUF0",
+      "channel_url": "https://www.youtube.com/@한끼영화",
+      "thumb": "https://i.ytimg.com/vi/4kAwRpGrUF0/hqdefault.jpg",
+      "source": "@한끼영화 (@한끼영화)",
+      "published": "2019-01-30",
+      "license": "CC0 / Public Domain / 실화 다큐 재구성",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (글로벌 3개국 확장)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 412.6배",
+        "👁️ 10,975,480뷰",
+        "구독 26,600명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 10,975,480뷰나 터졌을까?!\"",
+        "mid": "임종을 둔 마지막 하루",
+        "bot": "구독자 대비 412.6배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '임종을 둔 마지막 하루...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+    },
+    {
+      "id": "yt_cat5_docu_dJErqmebSj4",
+      "video_id": "dJErqmebSj4",
+      "category": "cat5_docu",
+      "grade": "S",
+      "score": 99,
+      "title": "【아내 없이, 장모님과 살게 됐습니다】 ㅣ실화사연ㅣ황혼연애ㅣ노후사연ㅣ오디오북ㅣ중년로맨스ㅣ인생드라마",
+      "orig_title": "@월야사록 (@월야사록) 대표 아웃라이어 · 조회수 90,333회",
+      "url": "https://www.youtube.com/watch?v=dJErqmebSj4",
+      "channel_url": "https://www.youtube.com/@월야사록",
+      "thumb": "https://i.ytimg.com/vi/dJErqmebSj4/hqdefault.jpg",
+      "source": "@월야사록 (@월야사록)",
+      "published": "2026-09-21",
+      "license": "CC0 / Public Domain / 실화 다큐 재구성",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (글로벌 3개국 확장)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-09개설)",
+        "⚡ 구독자 대비 368.7배",
+        "👁️ 90,333뷰",
+        "구독 245명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 90,333뷰나 터졌을까?!\"",
+        "mid": "【아내 없이, 장모님과 살게 됐습니다】 ㅣ실화사연ㅣ황혼연애",
+        "bot": "구독자 대비 368.7배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '【아내 없이, 장모님과 살게 됐습니다】 ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+    },
+    {
+      "id": "yt_cat5_docu_ePSWUJC2ycc",
+      "video_id": "ePSWUJC2ycc",
+      "category": "cat5_docu",
+      "grade": "S",
+      "score": 99,
+      "title": "이태석 신부 | 톤즈에서 첫날 도망갔던 그가 다시 돌아간 이유",
+      "orig_title": "@인물책방 (@인물책방) 대표 아웃라이어 · 조회수 10,746회",
+      "url": "https://www.youtube.com/watch?v=ePSWUJC2ycc",
+      "channel_url": "https://www.youtube.com/@인물책방",
+      "thumb": "https://i.ytimg.com/vi/ePSWUJC2ycc/hqdefault.jpg",
+      "source": "@인물책방 (@인물책방)",
+      "published": "2026-10-03",
+      "license": "CC0 / Public Domain / 실화 다큐 재구성",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (글로벌 3개국 확장)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-10개설)",
+        "⚡ 구독자 대비 151.4배",
+        "👁️ 10,746뷰",
+        "구독 71명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 10,746뷰나 터졌을까?!\"",
+        "mid": "이태석 신부 | 톤즈에서 첫날 도망갔던 그가 다시 돌아간 ",
+        "bot": "구독자 대비 151.4배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '이태석 신부 | 톤즈에서 첫날 도망갔던 ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+    },
+    {
+      "id": "yt_cat5_docu_X9UbJWSj4Wg",
+      "video_id": "X9UbJWSj4Wg",
       "category": "cat5_docu",
       "grade": "S",
       "score": 97,
-      "title": "[시크릿 조합] \"뒷산에 떨어진 나뭇잎을 주워서 연매출 26억을 벌었다고요?!\" 감귤 농사가 전멸한 산골 마을 80세 할머니들의 태블릿 PC 반란, 일본 가미카쓰초 '이로도리(彩)' 실화",
-      "orig_title": "일본 도쿠시마현 가미카쓰초 '이로도리(彩)' 잎사귀 비즈니스 기적 실화 다큐멘터리",
-      "url": "https://commons.wikimedia.org/",
-      "source": "일본 가미카쓰초 공개 지역활성화 백서 · Wikimedia Commons",
-      "published": "2026-11-07",
-      "license": "CC0 / CC-BY / 공공 지역활성화 백서 데이터",
-      "safety": 100,
-      "transform_score": 99,
-      "rpm": "상 (일본 초고단가 + 한국 시니어 영감)",
-      "target_len": "롱폼 15~20분 + 파생 쇼츠 3편",
+      "title": "\"진돗개요? 처음 들어봐요\" 미국 동물병원 전산에도 없던 한국 개를 본 외국인들",
+      "orig_title": "@우와한이야기 (@woowastory) 대표 아웃라이어 · 조회수 191,795회",
+      "url": "https://www.youtube.com/watch?v=X9UbJWSj4Wg",
+      "channel_url": "https://www.youtube.com/@woowastory",
+      "thumb": "https://i.ytimg.com/vi/X9UbJWSj4Wg/hqdefault.jpg",
+      "source": "@우와한이야기 (@woowastory)",
+      "published": "2026-09-19",
+      "license": "CC0 / Public Domain / 실화 다큐 재구성",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (글로벌 3개국 확장)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
       "badges": [
-        "일본 감동다큐 1호",
-        "연매출 2.6억 엔",
-        "80세 시니어 기적"
+        "🔥 신생(2026-09개설)",
+        "⚡ 구독자 대비 107.8배",
+        "👁️ 191,795뷰",
+        "구독 1,780명"
       ],
       "thumb_3tier": {
-        "top": "\"산에 널린 나뭇잎이 한 장에 천 원이라고요?!\"",
-        "mid": "감귤 얼어 죽은 절망의 산골 마을 80세 할머니들",
-        "bot": "태블릿 하나로 연매출 2.6억 엔 신화를 쓴 기적 실화"
+        "top": "\"도대체 왜 이 장면이 191,795뷰나 터졌을까?!\"",
+        "mid": "\"진돗개요? 처음 들어봐요\" 미국 동물병원 전산에도 없던 ",
+        "bot": "구독자 대비 107.8배 폭발한 핵심 구조 & 2차 가공 재해석"
       },
       "hook_30s": {
-        "s0_6": "[0~6초 Tier 3 하이라이트 훅] 단풍잎을 정성껏 선별하다가 태블릿 PC 주문 알림에 환하게 웃는 80대 할머니 모션 컷",
-        "s6_18": "[6~18초 반전 수치] '평균 연령 70~80세 · 인구 1,500명 소멸위기 마을 ➔ 일본 고급 요정 점유율 80% · 연매출 2.6억 엔' GSAP 카드",
-        "s18_30": "[18~30초 Draw-on 지도 브릿지] 도쿠시마현 산골 지도가 그려지며 1981년 영하 12도 한파의 날로 타임슬립"
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"진돗개요? 처음 들어봐요\" 미국 동물병...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "jp-docu-factory + claude-drawing-skill(Draw-on) + anidoodle(수채화 회상씬) + Rule 6 황금비율"
+      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
     },
     {
-      "id": "th_cls_01",
+      "id": "yt_cat5_docu_qXdpumDhw8k",
+      "video_id": "qXdpumDhw8k",
+      "category": "cat5_docu",
+      "grade": "S",
+      "score": 95,
+      "title": "[해외감동사연] \"비자로 갑질? 당장 짐 싸라!\" 현대차 철수 선언에 미국 발칵! 현대가 미국을 떠난 후 발생한 재앙! 전 세계 충격! | 원더풀오디오북",
+      "orig_title": "@원더풀오디오북 (@원더풀오디오북) 대표 아웃라이어 · 조회수 62,828회",
+      "url": "https://www.youtube.com/watch?v=qXdpumDhw8k",
+      "channel_url": "https://www.youtube.com/@원더풀오디오북",
+      "thumb": "https://i.ytimg.com/vi/qXdpumDhw8k/hqdefault.jpg",
+      "source": "@원더풀오디오북 (@원더풀오디오북)",
+      "published": "2026-02-17",
+      "license": "CC0 / Public Domain / 실화 다큐 재구성",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (글로벌 3개국 확장)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-02개설)",
+        "⚡ 구독자 대비 88.0배",
+        "👁️ 62,828뷰",
+        "구독 714명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 62,828뷰나 터졌을까?!\"",
+        "mid": "\"비자로 갑질? 당장 짐 싸라!\" 현대차 철수 선언에 미국",
+        "bot": "구독자 대비 88.0배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"비자로 갑질? 당장 짐 싸라!\" 현대차...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+    },
+    {
+      "id": "yt_cat5_docu_l3985tqOTno",
+      "video_id": "l3985tqOTno",
+      "category": "cat5_docu",
+      "grade": "S",
+      "score": 94,
+      "title": "[해외감동사연] 세계를 놀라게 한 진돗개의 용기와 감동실화, LA경찰이 무릎 꿇은 이유",
+      "orig_title": "@감동쇼크 (@감동쇼크) 대표 아웃라이어 · 조회수 193,402회",
+      "url": "https://www.youtube.com/watch?v=l3985tqOTno",
+      "channel_url": "https://www.youtube.com/@감동쇼크",
+      "thumb": "https://i.ytimg.com/vi/l3985tqOTno/hqdefault.jpg",
+      "source": "@감동쇼크 (@감동쇼크)",
+      "published": "2025-12-14",
+      "license": "CC0 / Public Domain / 실화 다큐 재구성",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (글로벌 3개국 확장)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2025-12개설)",
+        "⚡ 구독자 대비 73.3배",
+        "👁️ 193,402뷰",
+        "구독 2,640명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 193,402뷰나 터졌을까?!\"",
+        "mid": "세계를 놀라게 한 진돗개의 용기와 감동실화, LA경찰이 무",
+        "bot": "구독자 대비 73.3배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '세계를 놀라게 한 진돗개의 용기와 감동실...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+    },
+    {
+      "id": "yt_cat5_docu_-g00rz9LOfU",
+      "video_id": "-g00rz9LOfU",
+      "category": "cat5_docu",
+      "grade": "S",
+      "score": 91,
+      "title": "[해외감동사연] BBC 한국 다큐멘터리 시청률 1위! 인천공항 내린 영국 명문고 학생들이 말을 잃은 이유",
+      "orig_title": "@한국반전극 (@한국반전극) 대표 아웃라이어 · 조회수 34,846회",
+      "url": "https://www.youtube.com/watch?v=-g00rz9LOfU",
+      "channel_url": "https://www.youtube.com/@한국반전극",
+      "thumb": "https://i.ytimg.com/vi/-g00rz9LOfU/hqdefault.jpg",
+      "source": "@한국반전극 (@한국반전극)",
+      "published": "2026-10-12",
+      "license": "CC0 / Public Domain / 실화 다큐 재구성",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (글로벌 3개국 확장)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-10개설)",
+        "⚡ 구독자 대비 54.4배",
+        "👁️ 34,846뷰",
+        "구독 641명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 34,846뷰나 터졌을까?!\"",
+        "mid": "BBC 한국 다큐멘터리 시청률 1위! 인천공항 내린 영국 ",
+        "bot": "구독자 대비 54.4배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'BBC 한국 다큐멘터리 시청률 1위! 인...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+    },
+    {
+      "id": "yt_cat5_docu_7Q0GO7CplFU",
+      "video_id": "7Q0GO7CplFU",
+      "category": "cat5_docu",
+      "grade": "S",
+      "score": 99,
+      "title": "Religious Mysteries and Conspiracy Theories That Remain Unsolved to This Day | April Binge-Watching",
+      "orig_title": "@기묘한밤 (@기묘한밤) 대표 아웃라이어 · 조회수 2,979,328회",
+      "url": "https://www.youtube.com/watch?v=7Q0GO7CplFU",
+      "channel_url": "https://www.youtube.com/@기묘한밤",
+      "thumb": "https://i.ytimg.com/vi/7Q0GO7CplFU/hqdefault.jpg",
+      "source": "@기묘한밤 (@기묘한밤)",
+      "published": "2020-12-21",
+      "license": "CC0 / Public Domain / 실화 다큐 재구성",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (글로벌 3개국 확장)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 2.6배",
+        "👁️ 2,979,328뷰",
+        "구독 1,150,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 2,979,328뷰나 터졌을까?!\"",
+        "mid": "Religious Mysteries and Conspira",
+        "bot": "구독자 대비 2.6배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Religious Mysteries an...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+    },
+    {
+      "id": "yt_cat5_docu_MwOtalMzBhE",
+      "video_id": "MwOtalMzBhE",
+      "category": "cat5_docu",
+      "grade": "S",
+      "score": 99,
+      "title": "※Actual Footage※ A collection of scary stories from the filming of Lee Seung-yoon & Yoon Taek's \"...",
+      "orig_title": "@MPLAY엠플레이 (@_mplay) 대표 아웃라이어 · 조회수 2,548,493회",
+      "url": "https://www.youtube.com/watch?v=MwOtalMzBhE",
+      "channel_url": "https://www.youtube.com/@_mplay",
+      "thumb": "https://i.ytimg.com/vi/MwOtalMzBhE/hqdefault.jpg",
+      "source": "@MPLAY엠플레이 (@_mplay)",
+      "published": "2019-09-30",
+      "license": "CC0 / Public Domain / 실화 다큐 재구성",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (글로벌 3개국 확장)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 3.4배",
+        "👁️ 2,548,493뷰",
+        "구독 740,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 2,548,493뷰나 터졌을까?!\"",
+        "mid": "※Actual Footage※ A collection of",
+        "bot": "구독자 대비 3.4배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '※Actual Footage※ A col...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+    },
+    {
+      "id": "yt_cat5_docu_FHNPq9J_4Fc",
+      "video_id": "FHNPq9J_4Fc",
+      "category": "cat5_docu",
+      "grade": "S",
+      "score": 97,
+      "title": "Let's hear about your girlfriend's mother's job... / KNN",
+      "orig_title": "@knn_news (@knn_news) 대표 아웃라이어 · 조회수 2,279,920회",
+      "url": "https://www.youtube.com/watch?v=FHNPq9J_4Fc",
+      "channel_url": "https://www.youtube.com/@knn_news",
+      "thumb": "https://i.ytimg.com/vi/FHNPq9J_4Fc/hqdefault.jpg",
+      "source": "@knn_news (@knn_news)",
+      "published": "2013-01-17",
+      "license": "CC0 / Public Domain / 실화 다큐 재구성",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (글로벌 3개국 확장)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 2,279,920뷰",
+        "구독 1,410,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 2,279,920뷰나 터졌을까?!\"",
+        "mid": "Let's hear about your girlfriend",
+        "bot": "구독자 대비 1.6배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Let's hear about your ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+    },
+    {
+      "id": "yt_cat5_docu_nAHABgeQneQ",
+      "video_id": "nAHABgeQneQ",
+      "category": "cat5_docu",
+      "grade": "S",
+      "score": 94,
+      "title": "요양원에 버려진 노부부 아들 며느리 차가 떠나자 가방 속에서 줄줄이 나온 그것.. |고부갈등|오디오북|아들며느리|고부사연|시니어사연|",
+      "orig_title": "@황혼의나그네 (@황혼의나그네) 대표 아웃라이어 · 조회수 989,669회",
+      "url": "https://www.youtube.com/watch?v=nAHABgeQneQ",
+      "channel_url": "https://www.youtube.com/@황혼의나그네",
+      "thumb": "https://i.ytimg.com/vi/nAHABgeQneQ/hqdefault.jpg",
+      "source": "@황혼의나그네 (@황혼의나그네)",
+      "published": "2025-09-15",
+      "license": "CC0 / Public Domain / 실화 다큐 재구성",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (글로벌 3개국 확장)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2025-09개설)",
+        "⚡ 구독자 대비 35.2배",
+        "👁️ 989,669뷰",
+        "구독 28,100명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 989,669뷰나 터졌을까?!\"",
+        "mid": "요양원에 버려진 노부부 아들 며느리 차가 떠나자 가방 속에",
+        "bot": "구독자 대비 35.2배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '요양원에 버려진 노부부 아들 며느리 차가...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+    },
+    {
+      "id": "yt_cat5_docu_20W9CSTij5M",
+      "video_id": "20W9CSTij5M",
+      "category": "cat5_docu",
+      "grade": "S",
+      "score": 90,
+      "title": "전기도 안 들어오는 외딴섬에서 빗물을 받아 생활하며 혼자 살고 있는 할머니의 이야기 l 사노라면",
+      "orig_title": "@휴먼다큐사노라면 (@humanstory_mbn) 대표 아웃라이어 · 조회수 930,368회",
+      "url": "https://www.youtube.com/watch?v=20W9CSTij5M",
+      "channel_url": "https://www.youtube.com/@humanstory_mbn",
+      "thumb": "https://i.ytimg.com/vi/20W9CSTij5M/hqdefault.jpg",
+      "source": "@휴먼다큐사노라면 (@humanstory_mbn)",
+      "published": "2022-06-20",
+      "license": "CC0 / Public Domain / 실화 다큐 재구성",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (글로벌 3개국 확장)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 930,368뷰",
+        "구독 510,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 930,368뷰나 터졌을까?!\"",
+        "mid": "전기도 안 들어오는 외딴섬에서 빗물을 받아 생활하며 혼자 ",
+        "bot": "구독자 대비 1.8배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '전기도 안 들어오는 외딴섬에서 빗물을 받...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+    },
+    {
+      "id": "yt_cat5_docu_qqG8rq7Vg3A",
+      "video_id": "qqG8rq7Vg3A",
+      "category": "cat5_docu",
+      "grade": "S",
+      "score": 90,
+      "title": "Japanese Volcanic Village; Why Haven't Villagers Left? #documentary #japan #worldtour",
+      "orig_title": "@역마살로드 (@oziozi000) 대표 아웃라이어 · 조회수 838,159회",
+      "url": "https://www.youtube.com/watch?v=qqG8rq7Vg3A",
+      "channel_url": "https://www.youtube.com/@oziozi000",
+      "thumb": "https://i.ytimg.com/vi/qqG8rq7Vg3A/hqdefault.jpg",
+      "source": "@역마살로드 (@oziozi000)",
+      "published": "2024-01-24",
+      "license": "CC0 / Public Domain / 실화 다큐 재구성",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (글로벌 3개국 확장)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 838,159뷰",
+        "구독 715,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 838,159뷰나 터졌을까?!\"",
+        "mid": "Japanese Volcanic Village; Why H",
+        "bot": "구독자 대비 1.2배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Japanese Volcanic Vill...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+    },
+    {
+      "id": "yt_cat5_docu_s7reQhUS1sU",
+      "video_id": "s7reQhUS1sU",
+      "category": "cat5_docu",
+      "grade": "S",
+      "score": 89,
+      "title": "기교 없이 직진하는.. 우리네 인생 같은 감동 실화 (결말포함)",
+      "orig_title": "@고체극장 (@koche0815) 대표 아웃라이어 · 조회수 612,581회",
+      "url": "https://www.youtube.com/watch?v=s7reQhUS1sU",
+      "channel_url": "https://www.youtube.com/@koche0815",
+      "thumb": "https://i.ytimg.com/vi/s7reQhUS1sU/hqdefault.jpg",
+      "source": "@고체극장 (@koche0815)",
+      "published": "2023-07-01",
+      "license": "CC0 / Public Domain / 실화 다큐 재구성",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (글로벌 3개국 확장)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 2.9배",
+        "👁️ 612,581뷰",
+        "구독 209,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 612,581뷰나 터졌을까?!\"",
+        "mid": "기교 없이 직진하는.. 우리네 인생 같은 감동 실화 (결말",
+        "bot": "구독자 대비 2.9배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '기교 없이 직진하는.. 우리네 인생 같은...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+    },
+    {
+      "id": "yt_cat5_docu_hQbQFRhRcmU",
+      "video_id": "hQbQFRhRcmU",
+      "category": "cat5_docu",
+      "grade": "S",
+      "score": 91,
+      "title": "The story of Nicholas Winton, a touching true story that saved 669 lives.",
+      "orig_title": "@HelpersHigh헬퍼스하이 (@helpershigh) 대표 아웃라이어 · 조회수 462,649회",
+      "url": "https://www.youtube.com/watch?v=hQbQFRhRcmU",
+      "channel_url": "https://www.youtube.com/@helpershigh",
+      "thumb": "https://i.ytimg.com/vi/hQbQFRhRcmU/hqdefault.jpg",
+      "source": "@HelpersHigh헬퍼스하이 (@helpershigh)",
+      "published": "2020-09-22",
+      "license": "CC0 / Public Domain / 실화 다큐 재구성",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "상 (글로벌 3개국 확장)",
+      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 36.1배",
+        "👁️ 462,649뷰",
+        "구독 12,800명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 462,649뷰나 터졌을까?!\"",
+        "mid": "The story of Nicholas Winton, a ",
+        "bot": "구독자 대비 36.1배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'The story of Nicholas ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+    },
+    {
+      "id": "yt_cat6_classics_zfB61H0-dKI",
+      "video_id": "zfB61H0-dKI",
+      "category": "cat6_classics",
+      "grade": "S",
+      "score": 99,
+      "title": "Why Is Life So Hard for Me? 5 Lessons to Endure a Painful Life | Schopenhauer | Caigentan | Mingx...",
+      "orig_title": "@은빛지혜한스푼 (@은빛지혜한스푼) 대표 아웃라이어 · 조회수 87,493회",
+      "url": "https://www.youtube.com/watch?v=zfB61H0-dKI",
+      "channel_url": "https://www.youtube.com/@은빛지혜한스푼",
+      "thumb": "https://i.ytimg.com/vi/zfB61H0-dKI/hqdefault.jpg",
+      "source": "@은빛지혜한스푼 (@은빛지혜한스푼)",
+      "published": "2025-12-06",
+      "license": "100% Public Domain (경전·고전 원전)",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "중상 (초장편 시청시간 폭발)",
+      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2025-12개설)",
+        "⚡ 구독자 대비 182.7배",
+        "👁️ 87,493뷰",
+        "구독 479명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 87,493뷰나 터졌을까?!\"",
+        "mid": "Why Is Life So Hard for Me? 5 Le",
+        "bot": "구독자 대비 182.7배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Why Is Life So Hard fo...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+    },
+    {
+      "id": "yt_cat6_classics_0HnF07w_Jpc",
+      "video_id": "0HnF07w_Jpc",
+      "category": "cat6_classics",
+      "grade": "S",
+      "score": 99,
+      "title": "연금 180만원 받고 시작한 60대 노후, 1년만에 저지른 가장 실수!",
+      "orig_title": "@백발의품격 (@백발의품격) 대표 아웃라이어 · 조회수 91,665회",
+      "url": "https://www.youtube.com/watch?v=0HnF07w_Jpc",
+      "channel_url": "https://www.youtube.com/@백발의품격",
+      "thumb": "https://i.ytimg.com/vi/0HnF07w_Jpc/hqdefault.jpg",
+      "source": "@백발의품격 (@백발의품격)",
+      "published": "2026-10-29",
+      "license": "100% Public Domain (경전·고전 원전)",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "중상 (초장편 시청시간 폭발)",
+      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-10개설)",
+        "⚡ 구독자 대비 127.5배",
+        "👁️ 91,665뷰",
+        "구독 719명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 91,665뷰나 터졌을까?!\"",
+        "mid": "연금 180만원 받고 시작한 60대 노후, 1년만에 저지른",
+        "bot": "구독자 대비 127.5배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '연금 180만원 받고 시작한 60대 노후...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+    },
+    {
+      "id": "yt_cat6_classics_Z7eMSFOK5xo",
+      "video_id": "Z7eMSFOK5xo",
+      "category": "cat6_classics",
+      "grade": "S",
+      "score": 98,
+      "title": "품격있게 살아야 인생이 풀리는 진짜 이유 ｜ 노후에 귀티가 느껴지는 사람들의 공통점 I 자면서 듣는 부처님 말씀 4시간 l 지혜 I 오디오북 I 철학",
+      "orig_title": "@인생을밝히는지혜 (@인생을밝히는지혜) 대표 아웃라이어 · 조회수 9,329회",
+      "url": "https://www.youtube.com/watch?v=Z7eMSFOK5xo",
+      "channel_url": "https://www.youtube.com/@인생을밝히는지혜",
+      "thumb": "https://i.ytimg.com/vi/Z7eMSFOK5xo/hqdefault.jpg",
+      "source": "@인생을밝히는지혜 (@인생을밝히는지혜)",
+      "published": "2026-10-27",
+      "license": "100% Public Domain (경전·고전 원전)",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "중상 (초장편 시청시간 폭발)",
+      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-10개설)",
+        "⚡ 구독자 대비 119.6배",
+        "👁️ 9,329뷰",
+        "구독 78명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 9,329뷰나 터졌을까?!\"",
+        "mid": "품격있게 살아야 인생이 풀리는 진짜 이유 ｜ 노후에 귀티가",
+        "bot": "구독자 대비 119.6배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '품격있게 살아야 인생이 풀리는 진짜 이유...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+    },
+    {
+      "id": "yt_cat6_classics_0HK1cPihR7Q",
+      "video_id": "0HK1cPihR7Q",
+      "category": "cat6_classics",
+      "grade": "S",
+      "score": 96,
+      "title": "😴잠들며 듣는 쇼펜하우어의 지혜ㅣ⏰4시간연속듣기   #쇼펜하우어 #철학명언 #고독의지혜 #잠들기전듣는글 #행복철학  #마음의습관 #내려놓음 #절망속희망 #철학에세이 #노년의지혜",
+      "orig_title": "@인생울림심장을두드리는말 (@인생울림_1004) 대표 아웃라이어 · 조회수 152,387회",
+      "url": "https://www.youtube.com/watch?v=0HK1cPihR7Q",
+      "channel_url": "https://www.youtube.com/@인생울림_1004",
+      "thumb": "https://i.ytimg.com/vi/0HK1cPihR7Q/hqdefault.jpg",
+      "source": "@인생울림심장을두드리는말 (@인생울림_1004)",
+      "published": "2025-07-14",
+      "license": "100% Public Domain (경전·고전 원전)",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "중상 (초장편 시청시간 폭발)",
+      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2025-07개설)",
+        "⚡ 구독자 대비 94.7배",
+        "👁️ 152,387뷰",
+        "구독 1,610명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 152,387뷰나 터졌을까?!\"",
+        "mid": "😴잠들며 듣는 쇼펜하우어의 지혜ㅣ⏰4시간연속듣기   #쇼펜",
+        "bot": "구독자 대비 94.7배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '😴잠들며 듣는 쇼펜하우어의 지혜ㅣ⏰4시간...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+    },
+    {
+      "id": "yt_cat6_classics_CdJJMmc8htA",
+      "video_id": "CdJJMmc8htA",
       "category": "cat6_classics",
       "grade": "S",
       "score": 95,
-      "title": "[시크릿 조합] \"자식에게 재산을 다 주면 왜 눈물로 늙어가는가\" 다산 정약용의 『목민심서·하피첩』과 솔로몬의 잠언이 60대 이후 인생에 남긴 소름 돋는 경고",
-      "orig_title": "퍼블릭 도메인 고전(다산 정약용 하피첩·논어·솔로몬 잠언) 원전 + 5강 인기 강론 화법 3단계 역설계",
-      "url": "https://db.itkc.or.kr/",
-      "source": "한국고전번역원(공공누리) · 개역한글/KJV 성경(Public Domain)",
-      "published": "2026-11-07",
-      "license": "100% Public Domain (저작권 영구 만료 원전 + 자체 대본·음성)",
-      "safety": 100,
-      "transform_score": 97,
-      "rpm": "중상 (1~2시간 연속 재생 · 시청시간 8,000시간 치트키)",
-      "target_len": "장편 45~90분 + 중편 15분 + 쇼츠 3편",
+      "title": "진짜 지혜로운 이는 모자란 척 살아간다ㅣ탈무드, 맹자, 채근담, 석가모니, 에머슨, 데카르트, 비트겐슈타인, 다산 정약용의 인생 명언ㅣ모자란 듯 살아라 세상이 편해진다",
+      "orig_title": "@마음을울리는명언 (@마음을울리는명언) 대표 아웃라이어 · 조회수 260,051회",
+      "url": "https://www.youtube.com/watch?v=CdJJMmc8htA",
+      "channel_url": "https://www.youtube.com/@마음을울리는명언",
+      "thumb": "https://i.ytimg.com/vi/CdJJMmc8htA/hqdefault.jpg",
+      "source": "@마음을울리는명언 (@마음을울리는명언)",
+      "published": "2026-07-07",
+      "license": "100% Public Domain (경전·고전 원전)",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "중상 (초장편 시청시간 폭발)",
+      "target_len": "장편 45~90분 + 쇼츠 3편",
       "badges": [
-        "저작권 폭파 위험 0%",
-        "5강 화법 역설계",
-        "수면·힐링 초장편"
+        "🔥 신생(2026-07개설)",
+        "⚡ 구독자 대비 82.3배",
+        "👁️ 260,051뷰",
+        "구독 3,160명"
       ],
       "thumb_3tier": {
-        "top": "\"늙어서 이 3가지를 내어주면 자식도 떠납니다\"",
-        "mid": "유배지에서 다산 정약용이 피눈물로 남긴 편지",
-        "bot": "60대 이후 인생 후반전을 지키는 500년 고전의 지혜"
+        "top": "\"도대체 왜 이 장면이 260,051뷰나 터졌을까?!\"",
+        "mid": "진짜 지혜로운 이는 모자란 척 살아간다ㅣ탈무드, 맹자, 채",
+        "bot": "구독자 대비 82.3배 폭발한 핵심 구조 & 2차 가공 재해석"
       },
       "hook_30s": {
-        "s0_6": "[0~6초 수묵/손그림 훅] `huashu-art-motion` 강진 유배지 고택에 빗소리가 흐르며 치마폭(하피첩)에 붓글씨가 써지는 장면",
-        "s6_18": "[6~18초 공감 질문] 5강 강론 화법 역설계: 일상 속 가장 아픈 가족·노후 고민 한 문장으로 시청자 마음을 어루만지며 시작",
-        "s18_30": "[18~30초 원전 인용 브릿지] `anidoodle` 따뜻한 연필 수채화 타임랩스와 함께 4장 구조의 인생 이야기 진입"
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '진짜 지혜로운 이는 모자란 척 살아간다ㅣ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "5강 3단계 역설계 프롬프트(문장 표절 0%, 호흡·클리프행어 구조만 적용) + anidoodle + huashu-art-motion + ElevenLabs 차분한 강론 보이스"
+      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
     },
     {
-      "id": "th_glb_01",
+      "id": "yt_cat6_classics_iBFr4MCH5Ns",
+      "video_id": "iBFr4MCH5Ns",
+      "category": "cat6_classics",
+      "grade": "S",
+      "score": 92,
+      "title": "I Endured Life | Schopenhauer's Philosophy of Life and Happiness (1-Hour Integrated Version) | Au...",
+      "orig_title": "@황혼철학 (@황혼철학) 대표 아웃라이어 · 조회수 73,797회",
+      "url": "https://www.youtube.com/watch?v=iBFr4MCH5Ns",
+      "channel_url": "https://www.youtube.com/@황혼철학",
+      "thumb": "https://i.ytimg.com/vi/iBFr4MCH5Ns/hqdefault.jpg",
+      "source": "@황혼철학 (@황혼철학)",
+      "published": "2012-04-30",
+      "license": "100% Public Domain (경전·고전 원전)",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "중상 (초장편 시청시간 폭발)",
+      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 62.0배",
+        "👁️ 73,797뷰",
+        "구독 1,190명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 73,797뷰나 터졌을까?!\"",
+        "mid": "I Endured Life | Schopenhauer's ",
+        "bot": "구독자 대비 62.0배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'I Endured Life | Schop...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+    },
+    {
+      "id": "yt_cat6_classics_M1FT71zmig8",
+      "video_id": "M1FT71zmig8",
+      "category": "cat6_classics",
+      "grade": "S",
+      "score": 91,
+      "title": "현명한 노후 생활: 67세에 자녀에게 재산 명의를 이전하고 서명하자마자 즉각 돌변한 자녀들의 태도.",
+      "orig_title": "@따뜻한은빛기록 (@따뜻한은빛기록) 대표 아웃라이어 · 조회수 44,366회",
+      "url": "https://www.youtube.com/watch?v=M1FT71zmig8",
+      "channel_url": "https://www.youtube.com/@따뜻한은빛기록",
+      "thumb": "https://i.ytimg.com/vi/M1FT71zmig8/hqdefault.jpg",
+      "source": "@따뜻한은빛기록 (@따뜻한은빛기록)",
+      "published": "2026-10-22",
+      "license": "100% Public Domain (경전·고전 원전)",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "중상 (초장편 시청시간 폭발)",
+      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-10개설)",
+        "⚡ 구독자 대비 57.4배",
+        "👁️ 44,366뷰",
+        "구독 773명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 44,366뷰나 터졌을까?!\"",
+        "mid": "현명한 노후 생활: 67세에 자녀에게 재산 명의를 이전하고",
+        "bot": "구독자 대비 57.4배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '현명한 노후 생활: 67세에 자녀에게 재...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+    },
+    {
+      "id": "yt_cat6_classics_I-0nNMfeZd0",
+      "video_id": "I-0nNMfeZd0",
+      "category": "cat6_classics",
+      "grade": "S",
+      "score": 92,
+      "title": "평생갈 인연과 시절인연 구분하는법 | 부처님지혜 | 부처님말씀 | 석가모니 가르침 | 인생조언 |  |불교철학 | 마음챙김 | 오디오북",
+      "orig_title": "@삼불전지혜의등불청정기도법당 (@청정기도법당-등불) 대표 아웃라이어 · 조회수 276,356회",
+      "url": "https://www.youtube.com/watch?v=I-0nNMfeZd0",
+      "channel_url": "https://www.youtube.com/@청정기도법당-등불",
+      "thumb": "https://i.ytimg.com/vi/I-0nNMfeZd0/hqdefault.jpg",
+      "source": "@삼불전지혜의등불청정기도법당 (@청정기도법당-등불)",
+      "published": "2025-09-28",
+      "license": "100% Public Domain (경전·고전 원전)",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "중상 (초장편 시청시간 폭발)",
+      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2025-09개설)",
+        "⚡ 구독자 대비 55.5배",
+        "👁️ 276,356뷰",
+        "구독 4,980명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 276,356뷰나 터졌을까?!\"",
+        "mid": "평생갈 인연과 시절인연 구분하는법 | 부처님지혜 | 부처님",
+        "bot": "구독자 대비 55.5배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '평생갈 인연과 시절인연 구분하는법 | 부...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+    },
+    {
+      "id": "yt_cat6_classics_UdNMmen1-Bs",
+      "video_id": "UdNMmen1-Bs",
+      "category": "cat6_classics",
+      "grade": "S",
+      "score": 99,
+      "title": "\"틀어놓고 주무세요\" 인생에서 논어를 꼭 읽어야 하는 이유 | 밤산책 Ep.1",
+      "orig_title": "@책과삶 (@책과삶) 대표 아웃라이어 · 조회수 5,260,098회",
+      "url": "https://www.youtube.com/watch?v=UdNMmen1-Bs",
+      "channel_url": "https://www.youtube.com/@책과삶",
+      "thumb": "https://i.ytimg.com/vi/UdNMmen1-Bs/hqdefault.jpg",
+      "source": "@책과삶 (@책과삶)",
+      "published": "2019-12-17",
+      "license": "100% Public Domain (경전·고전 원전)",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "중상 (초장편 시청시간 폭발)",
+      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 4.1배",
+        "👁️ 5,260,098뷰",
+        "구독 1,290,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 5,260,098뷰나 터졌을까?!\"",
+        "mid": "\"틀어놓고 주무세요\" 인생에서 논어를 꼭 읽어야 하는 이유",
+        "bot": "구독자 대비 4.1배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"틀어놓고 주무세요\" 인생에서 논어를 꼭...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+    },
+    {
+      "id": "yt_cat6_classics_5Ox-rC8uzLg",
+      "video_id": "5Ox-rC8uzLg",
+      "category": "cat6_classics",
+      "grade": "S",
+      "score": 99,
+      "title": "[도전 성경 1독🙏] 신은경 아나운서의 잠언 전체 낭독 | 잠언 전편 | 성경읽는 신권사 | 성경통독 | 하루 20분 성경읽기",
+      "orig_title": "@매일성경읽기 (@welcomebible) 대표 아웃라이어 · 조회수 4,041,701회",
+      "url": "https://www.youtube.com/watch?v=5Ox-rC8uzLg",
+      "channel_url": "https://www.youtube.com/@welcomebible",
+      "thumb": "https://i.ytimg.com/vi/5Ox-rC8uzLg/hqdefault.jpg",
+      "source": "@매일성경읽기 (@welcomebible)",
+      "published": "2020-02-10",
+      "license": "100% Public Domain (경전·고전 원전)",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "중상 (초장편 시청시간 폭발)",
+      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 24.1배",
+        "👁️ 4,041,701뷰",
+        "구독 168,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 4,041,701뷰나 터졌을까?!\"",
+        "mid": "신은경 아나운서의 잠언 전체 낭독 | 잠언 전편 | 성경읽",
+        "bot": "구독자 대비 24.1배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '신은경 아나운서의 잠언 전체 낭독 | 잠...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+    },
+    {
+      "id": "yt_cat6_classics_foxDSSixhac",
+      "video_id": "foxDSSixhac",
+      "category": "cat6_classics",
+      "grade": "S",
+      "score": 99,
+      "title": "Listen to the whole Book of Proverbs, Listen to the Bible, Audio Bible, Bible Verses, Bible Read ...",
+      "orig_title": "@에이치존 (@hzonekorea) 대표 아웃라이어 · 조회수 3,840,586회",
+      "url": "https://www.youtube.com/watch?v=foxDSSixhac",
+      "channel_url": "https://www.youtube.com/@hzonekorea",
+      "thumb": "https://i.ytimg.com/vi/foxDSSixhac/hqdefault.jpg",
+      "source": "@에이치존 (@hzonekorea)",
+      "published": "2019-09-30",
+      "license": "100% Public Domain (경전·고전 원전)",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "중상 (초장편 시청시간 폭발)",
+      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 27.0배",
+        "👁️ 3,840,586뷰",
+        "구독 142,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 3,840,586뷰나 터졌을까?!\"",
+        "mid": "Listen to the whole Book of Prov",
+        "bot": "구독자 대비 27.0배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Listen to the whole Bo...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+    },
+    {
+      "id": "yt_cat6_classics_9k1UZJ5VIKY",
+      "video_id": "9k1UZJ5VIKY",
+      "category": "cat6_classics",
+      "grade": "S",
+      "score": 99,
+      "title": "A complete guide to the [Bible] for atheists (Old Testament)",
+      "orig_title": "@너진똑NJTBOOK (@njt_book) 대표 아웃라이어 · 조회수 2,966,123회",
+      "url": "https://www.youtube.com/watch?v=9k1UZJ5VIKY",
+      "channel_url": "https://www.youtube.com/@njt_book",
+      "thumb": "https://i.ytimg.com/vi/9k1UZJ5VIKY/hqdefault.jpg",
+      "source": "@너진똑NJTBOOK (@njt_book)",
+      "published": "2019-05-02",
+      "license": "100% Public Domain (경전·고전 원전)",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "중상 (초장편 시청시간 폭발)",
+      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 2,966,123뷰",
+        "구독 1,580,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 2,966,123뷰나 터졌을까?!\"",
+        "mid": "A complete guide to the  for ath",
+        "bot": "구독자 대비 1.9배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'A complete guide to th...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+    },
+    {
+      "id": "yt_cat6_classics_gjpiq5mLS_0",
+      "video_id": "gjpiq5mLS_0",
+      "category": "cat6_classics",
+      "grade": "S",
+      "score": 99,
+      "title": "[Tolstoy Short Stories] A masterpiece that resonates deeply no matter how many times you hear it ...",
+      "orig_title": "@지혜브런치이야기속으로 (@지혜브런치) 대표 아웃라이어 · 조회수 2,759,153회",
+      "url": "https://www.youtube.com/watch?v=gjpiq5mLS_0",
+      "channel_url": "https://www.youtube.com/@지혜브런치",
+      "thumb": "https://i.ytimg.com/vi/gjpiq5mLS_0/hqdefault.jpg",
+      "source": "@지혜브런치이야기속으로 (@지혜브런치)",
+      "published": "2025-05-11",
+      "license": "100% Public Domain (경전·고전 원전)",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "중상 (초장편 시청시간 폭발)",
+      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 45.6배",
+        "👁️ 2,759,153뷰",
+        "구독 60,500명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 2,759,153뷰나 터졌을까?!\"",
+        "mid": "A masterpiece that resonates dee",
+        "bot": "구독자 대비 45.6배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'A masterpiece that res...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+    },
+    {
+      "id": "yt_cat6_classics_i6cBroRHp_g",
+      "video_id": "i6cBroRHp_g",
+      "category": "cat6_classics",
+      "grade": "S",
+      "score": 99,
+      "title": "CBS 성경동화 전체 몰아보기(1~100편 | 11시간 43분 |😪수면동화🤰태교📖초신자 성경통독)",
+      "orig_title": "@알럽바이블 (@cbsilovebible) 대표 아웃라이어 · 조회수 2,677,210회",
+      "url": "https://www.youtube.com/watch?v=i6cBroRHp_g",
+      "channel_url": "https://www.youtube.com/@cbsilovebible",
+      "thumb": "https://i.ytimg.com/vi/i6cBroRHp_g/hqdefault.jpg",
+      "source": "@알럽바이블 (@cbsilovebible)",
+      "published": "2021-06-01",
+      "license": "100% Public Domain (경전·고전 원전)",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "중상 (초장편 시청시간 폭발)",
+      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 20.6배",
+        "👁️ 2,677,210뷰",
+        "구독 130,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 2,677,210뷰나 터졌을까?!\"",
+        "mid": "CBS 성경동화 전체 몰아보기(1~100편 | 11시간 4",
+        "bot": "구독자 대비 20.6배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'CBS 성경동화 전체 몰아보기(1~100...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+    },
+    {
+      "id": "yt_cat6_classics_aJKtoGYhGCk",
+      "video_id": "aJKtoGYhGCk",
+      "category": "cat6_classics",
+      "grade": "S",
+      "score": 99,
+      "title": "[In God] Full Reading of Proverbs #BibleListening66Books #ManReadingTheBible #RevisedKoreanVersio...",
+      "orig_title": "@InGod성경읽어주는큰아들 (@ingod1225) 대표 아웃라이어 · 조회수 2,489,444회",
+      "url": "https://www.youtube.com/watch?v=aJKtoGYhGCk",
+      "channel_url": "https://www.youtube.com/@ingod1225",
+      "thumb": "https://i.ytimg.com/vi/aJKtoGYhGCk/hqdefault.jpg",
+      "source": "@InGod성경읽어주는큰아들 (@ingod1225)",
+      "published": "2020-03-05",
+      "license": "100% Public Domain (경전·고전 원전)",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "중상 (초장편 시청시간 폭발)",
+      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 17.7배",
+        "👁️ 2,489,444뷰",
+        "구독 141,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 2,489,444뷰나 터졌을까?!\"",
+        "mid": "Full Reading of Proverbs #BibleL",
+        "bot": "구독자 대비 17.7배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Full Reading of Prover...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+    },
+    {
+      "id": "yt_cat6_classics_6zlNsNZBUiY",
+      "video_id": "6zlNsNZBUiY",
+      "category": "cat6_classics",
+      "grade": "S",
+      "score": 99,
+      "title": "120 Teachings and Quotes from the Buddha | Buddhist Philosophy | Buddha's Life Advice on Relation...",
+      "orig_title": "@지혜의바다 (@sea_of_wisdom) 대표 아웃라이어 · 조회수 2,343,496회",
+      "url": "https://www.youtube.com/watch?v=6zlNsNZBUiY",
+      "channel_url": "https://www.youtube.com/@sea_of_wisdom",
+      "thumb": "https://i.ytimg.com/vi/6zlNsNZBUiY/hqdefault.jpg",
+      "source": "@지혜의바다 (@sea_of_wisdom)",
+      "published": "2022-12-07",
+      "license": "100% Public Domain (경전·고전 원전)",
+      "safety": 98,
+      "transform_score": 96,
+      "rpm": "중상 (초장편 시청시간 폭발)",
+      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 27.1배",
+        "👁️ 2,343,496뷰",
+        "구독 86,500명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 2,343,496뷰나 터졌을까?!\"",
+        "mid": "120 Teachings and Quotes from th",
+        "bot": "구독자 대비 27.1배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '120 Teachings and Quot...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+    },
+    {
+      "id": "yt_cat7_global_4p3B52bAJnQ",
+      "video_id": "4p3B52bAJnQ",
       "category": "cat7_global",
-      "grade": "A",
-      "score": 93,
-      "title": "[시크릿 조합] \"미국 의회 보고서에 한국 이름이 47번 등장한 진짜 이유\" 백악관 브리핑·미 의회조사국(CRS)·유럽 싱크탱크 3자 교차 분석",
-      "orig_title": "미국 의회조사국(CRS) 공개 보고서 · 백악관 브리핑(Public Domain) · 해외 석학 대담 교차 재구성",
-      "url": "https://crsreports.congress.gov/",
-      "source": "미 연방정부 공개 기록(Public Domain) · 글로벌 싱크탱크 공개 세미나",
-      "published": "2026-11-07",
-      "license": "US Government Work (Public Domain) + 다중 교차 비평 공정인용",
-      "safety": 96,
-      "transform_score": 94,
-      "rpm": "상 (4060 남성 지식층 장시간 시청)",
+      "grade": "S",
+      "score": 99,
+      "title": "IMF 발표 후 일본 댓글 “한 수 아래였던 대만이나 한국에 추월당했다” ｜ 한국 1인당 GDP 첫 4만 달러 전망",
+      "orig_title": "@밖에서본한국 (@밖에서본한국) 대표 아웃라이어 · 조회수 23,415회",
+      "url": "https://www.youtube.com/watch?v=4p3B52bAJnQ",
+      "channel_url": "https://www.youtube.com/@밖에서본한국",
+      "thumb": "https://i.ytimg.com/vi/4p3B52bAJnQ/hqdefault.jpg",
+      "source": "@밖에서본한국 (@밖에서본한국)",
+      "published": "2026-10-10",
+      "license": "Public Domain(CRS/백악관) + 다중 외신 교차",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (4060 남성 지식층)",
       "target_len": "롱폼 18~30분 + 쇼츠 3편",
       "badges": [
-        "미 의회 공식문서",
-        "3개국 시각 교차",
-        "UV compile 합본"
+        "🔥 신생(2026-10개설)",
+        "⚡ 구독자 대비 172.2배",
+        "👁️ 23,415뷰",
+        "구독 136명"
       ],
       "thumb_3tier": {
-        "top": "미 의회 비공개 같던 보고서에 'KOREA'가 47번?!",
-        "mid": "미국·유럽·일본 전문가들이 동시에 지목한 변수",
-        "bot": "외신 원문 3개를 나란히 대조해보니 드러난 진짜 속내"
+        "top": "\"도대체 왜 이 장면이 23,415뷰나 터졌을까?!\"",
+        "mid": "IMF 발표 후 일본 댓글 “한 수 아래였던 대만이나 한국",
+        "bot": "구독자 대비 172.2배 폭발한 핵심 구조 & 2차 가공 재해석"
       },
       "hook_30s": {
-        "s0_6": "[0~6초 Cold Open] 백악관/싱크탱크 브리핑에서 'South Korea'를 언급하는 결정적 5초 영문 육성 + 한국어 반전 자막",
-        "s6_18": "[6~18초 원문 형광펜 카드] `vox-history-docu-studio` 스타일로 CRS 영문 보고서 원문 핵심 문장에 노란 형광펜이 그어지며 한글 번역 병기",
-        "s18_30": "[18~30초 다중 시각 브릿지] \"미국, 유럽, 일본의 시각이 어떻게 다른지 3개의 원문을 교차해서 짚어드립니다\""
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'IMF 발표 후 일본 댓글 “한 수 아래...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV compile.py(다중 소스 교차) + translate.py + vox 형광펜 원문 카드 + 4대 페르소나 지정학 해설"
+      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
     },
     {
-      "id": "th_crt_01",
-      "category": "cat8_court",
-      "grade": "A",
-      "score": 92,
-      "title": "[시크릿 조합] \"경관님, 제 트렁크는 절대 열면 안 됩니다..\" 평범한 과속 단속이 미국 주법원 역대급 재판으로 번진 바디캠·법정 기록 전말",
-      "orig_title": "미국 주정부 정보공개법(FOIA) 경찰 바디캠 및 주법원 공개 재판 기록 타임라인 재구성",
-      "url": "https://www.uscourts.gov/",
-      "source": "미국 FOIA 공개 바디캠 · 주법원 공개 공판 기록 (Public Domain)",
-      "published": "2026-11-07",
-      "license": "US FOIA Public Record (공공 기록물) + 독창적 사건 타임라인 분석",
+      "id": "yt_cat7_global_Q-xT5GGcYqA",
+      "video_id": "Q-xT5GGcYqA",
+      "category": "cat7_global",
+      "grade": "S",
+      "score": 95,
+      "title": "[일본반응] 길가던 일본 여성들에게 \"가장 결혼하고 싶은 나라의 남자는요?\" 묻고 충격받은 일본 기자. 왜 전부 한국만 선택하는거죠?",
+      "orig_title": "@초코티비 (@초코티비-f4v) 대표 아웃라이어 · 조회수 572,959회",
+      "url": "https://www.youtube.com/watch?v=Q-xT5GGcYqA",
+      "channel_url": "https://www.youtube.com/@초코티비-f4v",
+      "thumb": "https://i.ytimg.com/vi/Q-xT5GGcYqA/hqdefault.jpg",
+      "source": "@초코티비 (@초코티비-f4v)",
+      "published": "2026-05-07",
+      "license": "Public Domain(CRS/백악관) + 다중 외신 교차",
       "safety": 95,
-      "transform_score": 91,
-      "rpm": "중상 (초반 30초 잔존율 80%+ 조회수 폭발형)",
-      "target_len": "롱폼 15~25분 + 쇼츠 3편",
+      "transform_score": 96,
+      "rpm": "상 (4060 남성 지식층)",
+      "target_len": "롱폼 18~30분 + 쇼츠 3편",
       "badges": [
-        "FOIA 공공기록",
-        "타임라인 재구성",
-        "30초 잔존율 최강"
+        "🔥 신생(2026-05개설)",
+        "⚡ 구독자 대비 68.8배",
+        "👁️ 572,959뷰",
+        "구독 8,330명"
       ],
       "thumb_3tier": {
-        "top": "\"잠깐만요! 그 가방은 열면 안 됩니다!\" 떨리는 손",
-        "mid": "단순 신호위반 단속 중 바디캠에 그대로 찍힌 장면",
-        "bot": "판사마저 판결문을 읽다 멈춰버린 사건의 반전 전말"
+        "top": "\"도대체 왜 이 장면이 572,959뷰나 터졌을까?!\"",
+        "mid": "길가던 일본 여성들에게 \"가장 결혼하고 싶은 나라의 남자는",
+        "bot": "구독자 대비 68.8배 폭발한 핵심 구조 & 2차 가공 재해석"
       },
       "hook_30s": {
-        "s0_6": "[0~6초 현장 육성 Cold Open] 바디캠 특유의 타임코드 UI + 가장 긴장감 넘치는 5초 문답(`voiceonly`로 사이렌/잡음 정돈) + 한글 자막",
-        "s6_18": "[6~18초 사건 타임라인 카드] UV `timeline-*` GSAP 그래픽으로 '단속 시각 ➔ 결정적 단서 발견 ➔ 법정 선고' 3단계 구조를 5초 만에 제시",
-        "s18_30": "[18~30초 법률·심리 브릿지] \"왜 용의자는 그 순간 스스로 증거를 내놓았을까요? 공개된 공판 기록으로 사건을 처음부터 재구성합니다\""
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '길가던 일본 여성들에게 \"가장 결혼하고 ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV select/translate + voiceonly/songguard + UV timeline-* GSAP 오버레이 + CapCut 초안 생성"
+      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+    },
+    {
+      "id": "yt_cat7_global_t3SBKtbNKQo",
+      "video_id": "t3SBKtbNKQo",
+      "category": "cat7_global",
+      "grade": "S",
+      "score": 92,
+      "title": "폭풍우가 몰아친 밤 입항을 거부당했지만, 한국 부산항은 문을 열었다… 노르웨이 선장이 눈물 흘린 이유!",
+      "orig_title": "@K디펜스임팩트 (@k디펜스임팩트) 대표 아웃라이어 · 조회수 32,602회",
+      "url": "https://www.youtube.com/watch?v=t3SBKtbNKQo",
+      "channel_url": "https://www.youtube.com/@k디펜스임팩트",
+      "thumb": "https://i.ytimg.com/vi/t3SBKtbNKQo/hqdefault.jpg",
+      "source": "@K디펜스임팩트 (@k디펜스임팩트)",
+      "published": "2026-06-02",
+      "license": "Public Domain(CRS/백악관) + 다중 외신 교차",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (4060 남성 지식층)",
+      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-06개설)",
+        "⚡ 구독자 대비 66.1배",
+        "👁️ 32,602뷰",
+        "구독 493명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 32,602뷰나 터졌을까?!\"",
+        "mid": "폭풍우가 몰아친 밤 입항을 거부당했지만, 한국 부산항은 문",
+        "bot": "구독자 대비 66.1배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '폭풍우가 몰아친 밤 입항을 거부당했지만,...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+    },
+    {
+      "id": "yt_cat7_global_i8ARnyqnPcM",
+      "video_id": "i8ARnyqnPcM",
+      "category": "cat7_global",
+      "grade": "S",
+      "score": 91,
+      "title": "[일본반응] 일본은 내년 세계 6위로 밀린다는데 한국은 사상 첫 2조 달러 돌파 12위, 영국 추월 2년 앞당긴 IMF 전망에 일본 시사통신도 보도",
+      "orig_title": "@경제성지능 (@경제성지능) 대표 아웃라이어 · 조회수 50,057회",
+      "url": "https://www.youtube.com/watch?v=i8ARnyqnPcM",
+      "channel_url": "https://www.youtube.com/@경제성지능",
+      "thumb": "https://i.ytimg.com/vi/i8ARnyqnPcM/hqdefault.jpg",
+      "source": "@경제성지능 (@경제성지능)",
+      "published": "2025-07-03",
+      "license": "Public Domain(CRS/백악관) + 다중 외신 교차",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (4060 남성 지식층)",
+      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2025-07개설)",
+        "⚡ 구독자 대비 57.1배",
+        "👁️ 50,057뷰",
+        "구독 876명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 50,057뷰나 터졌을까?!\"",
+        "mid": "일본은 내년 세계 6위로 밀린다는데 한국은 사상 첫 2조 ",
+        "bot": "구독자 대비 57.1배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '일본은 내년 세계 6위로 밀린다는데 한국...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+    },
+    {
+      "id": "yt_cat7_global_kOT54YfmZQk",
+      "video_id": "kOT54YfmZQk",
+      "category": "cat7_global",
+      "grade": "S",
+      "score": 89,
+      "title": "\"세계 4번째\" 대만 방송이 본 한국 극초음속 | 현무-5 옆에 선 극초음속 활공체",
+      "orig_title": "@warfareinsight11 (@warfareinsight11) 대표 아웃라이어 · 조회수 62,912회",
+      "url": "https://www.youtube.com/watch?v=kOT54YfmZQk",
+      "channel_url": "https://www.youtube.com/@warfareinsight11",
+      "thumb": "https://i.ytimg.com/vi/kOT54YfmZQk/hqdefault.jpg",
+      "source": "@warfareinsight11 (@warfareinsight11)",
+      "published": "2026-09-30",
+      "license": "Public Domain(CRS/백악관) + 다중 외신 교차",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (4060 남성 지식층)",
+      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-09개설)",
+        "⚡ 구독자 대비 34.6배",
+        "👁️ 62,912뷰",
+        "구독 1,820명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 62,912뷰나 터졌을까?!\"",
+        "mid": "\"세계 4번째\" 대만 방송이 본 한국 극초음속 | 현무-5",
+        "bot": "구독자 대비 34.6배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"세계 4번째\" 대만 방송이 본 한국 극...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+    },
+    {
+      "id": "yt_cat7_global_jTHSreEg8Fk",
+      "video_id": "jTHSreEg8Fk",
+      "category": "cat7_global",
+      "grade": "S",
+      "score": 90,
+      "title": "\"How did this small country reach $1 trillion?\" The chilling secret behind South Korea's 70-year ...",
+      "orig_title": "@성실경제학 (@성실경제학) 대표 아웃라이어 · 조회수 119,957회",
+      "url": "https://www.youtube.com/watch?v=jTHSreEg8Fk",
+      "channel_url": "https://www.youtube.com/@성실경제학",
+      "thumb": "https://i.ytimg.com/vi/jTHSreEg8Fk/hqdefault.jpg",
+      "source": "@성실경제학 (@성실경제학)",
+      "published": "2026-07-16",
+      "license": "Public Domain(CRS/백악관) + 다중 외신 교차",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (4060 남성 지식층)",
+      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-07개설)",
+        "⚡ 구독자 대비 34.4배",
+        "👁️ 119,957뷰",
+        "구독 3,490명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 119,957뷰나 터졌을까?!\"",
+        "mid": "\"How did this small country reac",
+        "bot": "구독자 대비 34.4배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"How did this small co...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+    },
+    {
+      "id": "yt_cat7_global_gr8hVKyjgB8",
+      "video_id": "gr8hVKyjgB8",
+      "category": "cat7_global",
+      "grade": "S",
+      "score": 89,
+      "title": "[해외감동사연] 조선왕조실록을 분석하는 전 세계 전문가들... 선조들의 기록, 이제 후손들이 지켜 AI 패권을 쥐어야 한다!!",
+      "orig_title": "@코리아임팩트 (@코리아-임팩트) 대표 아웃라이어 · 조회수 92,435회",
+      "url": "https://www.youtube.com/watch?v=gr8hVKyjgB8",
+      "channel_url": "https://www.youtube.com/@코리아-임팩트",
+      "thumb": "https://i.ytimg.com/vi/gr8hVKyjgB8/hqdefault.jpg",
+      "source": "@코리아임팩트 (@코리아-임팩트)",
+      "published": "2025-06-25",
+      "license": "Public Domain(CRS/백악관) + 다중 외신 교차",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (4060 남성 지식층)",
+      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2025-06개설)",
+        "⚡ 구독자 대비 30.9배",
+        "👁️ 92,435뷰",
+        "구독 2,990명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 92,435뷰나 터졌을까?!\"",
+        "mid": "조선왕조실록을 분석하는 전 세계 전문가들... 선조들의 기",
+        "bot": "구독자 대비 30.9배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '조선왕조실록을 분석하는 전 세계 전문가들...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+    },
+    {
+      "id": "yt_cat7_global_BqjQSpjc76A",
+      "video_id": "BqjQSpjc76A",
+      "category": "cat7_global",
+      "grade": "S",
+      "score": 89,
+      "title": "SK하이닉스 해외반응 “한국 미쳤다” 석 달에 83조, 일본 주식 방송인이 소리친 이유와 도요타 1년치의 1.85배",
+      "orig_title": "@세계열광 (@세계열광) 대표 아웃라이어 · 조회수 41,373회",
+      "url": "https://www.youtube.com/watch?v=BqjQSpjc76A",
+      "channel_url": "https://www.youtube.com/@세계열광",
+      "thumb": "https://i.ytimg.com/vi/BqjQSpjc76A/hqdefault.jpg",
+      "source": "@세계열광 (@세계열광)",
+      "published": "2026-10-26",
+      "license": "Public Domain(CRS/백악관) + 다중 외신 교차",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (4060 남성 지식층)",
+      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-10개설)",
+        "⚡ 구독자 대비 29.6배",
+        "👁️ 41,373뷰",
+        "구독 1,400명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 41,373뷰나 터졌을까?!\"",
+        "mid": "SK하이닉스 해외반응 “한국 미쳤다” 석 달에 83조, 일",
+        "bot": "구독자 대비 29.6배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'SK하이닉스 해외반응 “한국 미쳤다” 석...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+    },
+    {
+      "id": "yt_cat7_global_124bG5L2fjI",
+      "video_id": "124bG5L2fjI",
+      "category": "cat7_global",
+      "grade": "S",
+      "score": 91,
+      "title": "폴란드에 이어 한국까지, 젤렌스키는 왜 우방국과 부딪치나 | 우크라이나대사 소환 러우전쟁 젤렌스키 | 이문영 교수(박은경의지식비상구 20261009)",
+      "orig_title": "@경향TV (@thekyunghyangtv) 대표 아웃라이어 · 조회수 1,117,097회",
+      "url": "https://www.youtube.com/watch?v=124bG5L2fjI",
+      "channel_url": "https://www.youtube.com/@thekyunghyangtv",
+      "thumb": "https://i.ytimg.com/vi/124bG5L2fjI/hqdefault.jpg",
+      "source": "@경향TV (@thekyunghyangtv)",
+      "published": "2012-05-11",
+      "license": "Public Domain(CRS/백악관) + 다중 외신 교차",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (4060 남성 지식층)",
+      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 1,117,097뷰",
+        "구독 614,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 1,117,097뷰나 터졌을까?!\"",
+        "mid": "폴란드에 이어 한국까지, 젤렌스키는 왜 우방국과 부딪치나 ",
+        "bot": "구독자 대비 1.8배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '폴란드에 이어 한국까지, 젤렌스키는 왜 ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+    },
+    {
+      "id": "yt_cat7_global_RA6f5Zq0TW4",
+      "video_id": "RA6f5Zq0TW4",
+      "category": "cat7_global",
+      "grade": "S",
+      "score": 88,
+      "title": "세계적인 석학이 죽기 직전 일본에 남긴 충격적인 한마디 “한국 없었으면 일본은 지도에도 없었어”",
+      "orig_title": "@디씨멘터리 (@dcmentary_official) 대표 아웃라이어 · 조회수 483,772회",
+      "url": "https://www.youtube.com/watch?v=RA6f5Zq0TW4",
+      "channel_url": "https://www.youtube.com/@dcmentary_official",
+      "thumb": "https://i.ytimg.com/vi/RA6f5Zq0TW4/hqdefault.jpg",
+      "source": "@디씨멘터리 (@dcmentary_official)",
+      "published": "2019-06-14",
+      "license": "Public Domain(CRS/백악관) + 다중 외신 교차",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (4060 남성 지식층)",
+      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 483,772뷰",
+        "구독 749,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 483,772뷰나 터졌을까?!\"",
+        "mid": "세계적인 석학이 죽기 직전 일본에 남긴 충격적인 한마디 “",
+        "bot": "구독자 대비 0.6배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '세계적인 석학이 죽기 직전 일본에 남긴 ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+    },
+    {
+      "id": "yt_cat7_global_iTVuSYNNxxM",
+      "video_id": "iTVuSYNNxxM",
+      "category": "cat7_global",
+      "grade": "S",
+      "score": 87,
+      "title": "[🔴 속보] 한미 동맹 '이상기류'  여전···회담 제외에 정보 제한까지 [이슈PLAY]",
+      "orig_title": "@뉴스TVCHOSUN (@tvchosunnews) 대표 아웃라이어 · 조회수 386,464회",
+      "url": "https://www.youtube.com/watch?v=iTVuSYNNxxM",
+      "channel_url": "https://www.youtube.com/@tvchosunnews",
+      "thumb": "https://i.ytimg.com/vi/iTVuSYNNxxM/hqdefault.jpg",
+      "source": "@뉴스TVCHOSUN (@tvchosunnews)",
+      "published": "2012-08-23",
+      "license": "Public Domain(CRS/백악관) + 다중 외신 교차",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (4060 남성 지식층)",
+      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 386,464뷰",
+        "구독 3,150,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 386,464뷰나 터졌을까?!\"",
+        "mid": "한미 동맹 '이상기류'  여전···회담 제외에 정보 제한까",
+        "bot": "구독자 대비 0.1배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '한미 동맹 '이상기류'  여전···회담 ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+    },
+    {
+      "id": "yt_cat7_global_U26Xe5m7P0g",
+      "video_id": "U26Xe5m7P0g",
+      "category": "cat7_global",
+      "grade": "S",
+      "score": 87,
+      "title": "Zelenskyy Messed With the Wrong Country. Ukraine in High Alert｜Dr. Cho Han-bum Part 4",
+      "orig_title": "@달란트투자 (@talentinvestment) 대표 아웃라이어 · 조회수 287,363회",
+      "url": "https://www.youtube.com/watch?v=U26Xe5m7P0g",
+      "channel_url": "https://www.youtube.com/@talentinvestment",
+      "thumb": "https://i.ytimg.com/vi/U26Xe5m7P0g/hqdefault.jpg",
+      "source": "@달란트투자 (@talentinvestment)",
+      "published": "2019-10-15",
+      "license": "Public Domain(CRS/백악관) + 다중 외신 교차",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (4060 남성 지식층)",
+      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 287,363뷰",
+        "구독 1,590,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 287,363뷰나 터졌을까?!\"",
+        "mid": "Zelenskyy Messed With the Wrong ",
+        "bot": "구독자 대비 0.2배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Zelenskyy Messed With ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+    },
+    {
+      "id": "yt_cat7_global_pvno8CVqcdk",
+      "video_id": "pvno8CVqcdk",
+      "category": "cat7_global",
+      "grade": "S",
+      "score": 87,
+      "title": "심상치 않은 한국 반도체 시장, 앞으로 어떻게 될까?",
+      "orig_title": "@보다BODA (@보다boda) 대표 아웃라이어 · 조회수 200,096회",
+      "url": "https://www.youtube.com/watch?v=pvno8CVqcdk",
+      "channel_url": "https://www.youtube.com/@보다boda",
+      "thumb": "https://i.ytimg.com/vi/pvno8CVqcdk/hqdefault.jpg",
+      "source": "@보다BODA (@보다boda)",
+      "published": "2013-01-20",
+      "license": "Public Domain(CRS/백악관) + 다중 외신 교차",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (4060 남성 지식층)",
+      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 200,096뷰",
+        "구독 3,240,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 200,096뷰나 터졌을까?!\"",
+        "mid": "심상치 않은 한국 반도체 시장, 앞으로 어떻게 될까?",
+        "bot": "구독자 대비 0.1배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '심상치 않은 한국 반도체 시장, 앞으로 ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+    },
+    {
+      "id": "yt_cat7_global_XZN3mn8tolg",
+      "video_id": "XZN3mn8tolg",
+      "category": "cat7_global",
+      "grade": "S",
+      "score": 87,
+      "title": "What about foreign media's assessment of the Korean economy, which Chosun Ilbo and JoongAng Ilbo ...",
+      "orig_title": "@선대인TV (@insightsun) 대표 아웃라이어 · 조회수 199,587회",
+      "url": "https://www.youtube.com/watch?v=XZN3mn8tolg",
+      "channel_url": "https://www.youtube.com/@insightsun",
+      "thumb": "https://i.ytimg.com/vi/XZN3mn8tolg/hqdefault.jpg",
+      "source": "@선대인TV (@insightsun)",
+      "published": "2012-07-13",
+      "license": "Public Domain(CRS/백악관) + 다중 외신 교차",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (4060 남성 지식층)",
+      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 199,587뷰",
+        "구독 369,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 199,587뷰나 터졌을까?!\"",
+        "mid": "What about foreign media's asses",
+        "bot": "구독자 대비 0.5배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'What about foreign med...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+    },
+    {
+      "id": "yt_cat7_global_5zgj5ufBklI",
+      "video_id": "5zgj5ufBklI",
+      "category": "cat7_global",
+      "grade": "S",
+      "score": 87,
+      "title": "President Lee finally did it! Front-page news worldwide! The moment the world went wild, saying \"...",
+      "orig_title": "@대한민국상황실 (@대한민국상황실) 대표 아웃라이어 · 조회수 195,728회",
+      "url": "https://www.youtube.com/watch?v=5zgj5ufBklI",
+      "channel_url": "https://www.youtube.com/@대한민국상황실",
+      "thumb": "https://i.ytimg.com/vi/5zgj5ufBklI/hqdefault.jpg",
+      "source": "@대한민국상황실 (@대한민국상황실)",
+      "published": "2026-03-13",
+      "license": "Public Domain(CRS/백악관) + 다중 외신 교차",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (4060 남성 지식층)",
+      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-03개설)",
+        "⚡ 구독자 대비 4.9배",
+        "👁️ 195,728뷰",
+        "구독 39,800명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 195,728뷰나 터졌을까?!\"",
+        "mid": "President Lee finally did it! Fr",
+        "bot": "구독자 대비 4.9배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'President Lee finally ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+    },
+    {
+      "id": "yt_cat7_global_vdk-lDTz6Vw",
+      "video_id": "vdk-lDTz6Vw",
+      "category": "cat7_global",
+      "grade": "S",
+      "score": 86,
+      "title": "\"It is a relief that I don't have much time left to live\": Shocking remarks by Bank of Korea Gove...",
+      "orig_title": "@부티플부의배수를높여라 (@money-multiple) 대표 아웃라이어 · 조회수 182,907회",
+      "url": "https://www.youtube.com/watch?v=vdk-lDTz6Vw",
+      "channel_url": "https://www.youtube.com/@money-multiple",
+      "thumb": "https://i.ytimg.com/vi/vdk-lDTz6Vw/hqdefault.jpg",
+      "source": "@부티플부의배수를높여라 (@money-multiple)",
+      "published": "2022-03-04",
+      "license": "Public Domain(CRS/백악관) + 다중 외신 교차",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "상 (4060 남성 지식층)",
+      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 182,907뷰",
+        "구독 1,210,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 182,907뷰나 터졌을까?!\"",
+        "mid": "\"It is a relief that I don't hav",
+        "bot": "구독자 대비 0.2배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '\"It is a relief that I...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+    },
+    {
+      "id": "yt_cat8_court_vWz3hdCW-JY",
+      "video_id": "vWz3hdCW-JY",
+      "category": "cat8_court",
+      "grade": "S",
+      "score": 99,
+      "title": "법정에서 범죄자와 판사로서 중학교 친구와 재회했을 때",
+      "orig_title": "@jaycaprica (@jaycaprica) 대표 아웃라이어 · 조회수 8,375,311회",
+      "url": "https://www.youtube.com/watch?v=vWz3hdCW-JY",
+      "channel_url": "https://www.youtube.com/@jaycaprica",
+      "thumb": "https://i.ytimg.com/vi/vWz3hdCW-JY/hqdefault.jpg",
+      "source": "@jaycaprica (@jaycaprica)",
+      "published": "2006-07-03",
+      "license": "US FOIA 바디캠·공개 법정 기록 + 프로파일러 해설",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "중상 (초반 30초 잔존율 80%+)",
+      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 2313.6배",
+        "👁️ 8,375,311뷰",
+        "구독 3,620명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 8,375,311뷰나 터졌을까?!\"",
+        "mid": "법정에서 범죄자와 판사로서 중학교 친구와 재회했을 때",
+        "bot": "구독자 대비 2313.6배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '법정에서 범죄자와 판사로서 중학교 친구와...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+    },
+    {
+      "id": "yt_cat8_court_Jap1IztwZHI",
+      "video_id": "Jap1IztwZHI",
+      "category": "cat8_court",
+      "grade": "S",
+      "score": 99,
+      "title": "치즈버거 존나 맛있게 쳐먹는 새끼",
+      "orig_title": "@ccckccck3926 (@ccckccck3926) 대표 아웃라이어 · 조회수 223,116회",
+      "url": "https://www.youtube.com/watch?v=Jap1IztwZHI",
+      "channel_url": "https://www.youtube.com/@ccckccck3926",
+      "thumb": "https://i.ytimg.com/vi/Jap1IztwZHI/hqdefault.jpg",
+      "source": "@ccckccck3926 (@ccckccck3926)",
+      "published": "2014-05-28",
+      "license": "US FOIA 바디캠·공개 법정 기록 + 프로파일러 해설",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "중상 (초반 30초 잔존율 80%+)",
+      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 1843.9배",
+        "👁️ 223,116뷰",
+        "구독 121명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 223,116뷰나 터졌을까?!\"",
+        "mid": "치즈버거 존나 맛있게 쳐먹는 새끼",
+        "bot": "구독자 대비 1843.9배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '치즈버거 존나 맛있게 쳐먹는 새끼...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+    },
+    {
+      "id": "yt_cat8_court_Dw4suV6mcis",
+      "video_id": "Dw4suV6mcis",
+      "category": "cat8_court",
+      "grade": "S",
+      "score": 99,
+      "title": "아직도 여전히 매운🌶 Cardi B(카디비) - WAP(feat. Megan Thee Stallion) [가사/해석/자막/Lyric]",
+      "orig_title": "@김섭섭 (@김섭섭-m8w) 대표 아웃라이어 · 조회수 6,635,061회",
+      "url": "https://www.youtube.com/watch?v=Dw4suV6mcis",
+      "channel_url": "https://www.youtube.com/@김섭섭-m8w",
+      "thumb": "https://i.ytimg.com/vi/Dw4suV6mcis/hqdefault.jpg",
+      "source": "@김섭섭 (@김섭섭-m8w)",
+      "published": "2020-10-22",
+      "license": "US FOIA 바디캠·공개 법정 기록 + 프로파일러 해설",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "중상 (초반 30초 잔존율 80%+)",
+      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 1671.3배",
+        "👁️ 6,635,061뷰",
+        "구독 3,970명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 6,635,061뷰나 터졌을까?!\"",
+        "mid": "아직도 여전히 매운🌶 Cardi B(카디비) - WAP(f",
+        "bot": "구독자 대비 1671.3배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '아직도 여전히 매운🌶 Cardi B(카디...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+    },
+    {
+      "id": "yt_cat8_court_T1Ewv4__OZ0",
+      "video_id": "T1Ewv4__OZ0",
+      "category": "cat8_court",
+      "grade": "S",
+      "score": 99,
+      "title": "미국경찰 클라스(성추행 아님?)",
+      "orig_title": "@sodeep3238 (@sodeep3238) 대표 아웃라이어 · 조회수 213,073회",
+      "url": "https://www.youtube.com/watch?v=T1Ewv4__OZ0",
+      "channel_url": "https://www.youtube.com/@sodeep3238",
+      "thumb": "https://i.ytimg.com/vi/T1Ewv4__OZ0/hqdefault.jpg",
+      "source": "@sodeep3238 (@sodeep3238)",
+      "published": "2017-03-25",
+      "license": "US FOIA 바디캠·공개 법정 기록 + 프로파일러 해설",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "중상 (초반 30초 잔존율 80%+)",
+      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 722.3배",
+        "👁️ 213,073뷰",
+        "구독 295명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 213,073뷰나 터졌을까?!\"",
+        "mid": "미국경찰 클라스(성추행 아님?)",
+        "bot": "구독자 대비 722.3배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '미국경찰 클라스(성추행 아님?)...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+    },
+    {
+      "id": "yt_cat8_court_Serg-1mWm_U",
+      "video_id": "Serg-1mWm_U",
+      "category": "cat8_court",
+      "grade": "S",
+      "score": 99,
+      "title": "Can't Pay Karen Challenges the WRONG Judge… One More Word and She's Going to JAIL!",
+      "orig_title": "@thejusticeaudit-b7k (@thejusticeaudit-b7k) 대표 아웃라이어 · 조회수 31,254회",
+      "url": "https://www.youtube.com/watch?v=Serg-1mWm_U",
+      "channel_url": "https://www.youtube.com/@thejusticeaudit-b7k",
+      "thumb": "https://i.ytimg.com/vi/Serg-1mWm_U/hqdefault.jpg",
+      "source": "@thejusticeaudit-b7k (@thejusticeaudit-b7k)",
+      "published": "2016-11-26",
+      "license": "US FOIA 바디캠·공개 법정 기록 + 프로파일러 해설",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "중상 (초반 30초 잔존율 80%+)",
+      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 651.1배",
+        "👁️ 31,254뷰",
+        "구독 48명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 31,254뷰나 터졌을까?!\"",
+        "mid": "Can't Pay Karen Challenges the W",
+        "bot": "구독자 대비 651.1배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Can't Pay Karen Challe...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+    },
+    {
+      "id": "yt_cat8_court_gnTrEXsTPGE",
+      "video_id": "gnTrEXsTPGE",
+      "category": "cat8_court",
+      "grade": "S",
+      "score": 99,
+      "title": "When Cops Stop the Wrong Car & IMMEDIATELY Regret It in Court! ($319K Lawsuit)",
+      "orig_title": "@justicereport-l2s (@justicereport-l2s) 대표 아웃라이어 · 조회수 14,497회",
+      "url": "https://www.youtube.com/watch?v=gnTrEXsTPGE",
+      "channel_url": "https://www.youtube.com/@justicereport-l2s",
+      "thumb": "https://i.ytimg.com/vi/gnTrEXsTPGE/hqdefault.jpg",
+      "source": "@justicereport-l2s (@justicereport-l2s)",
+      "published": "2026-10-24",
+      "license": "US FOIA 바디캠·공개 법정 기록 + 프로파일러 해설",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "중상 (초반 30초 잔존율 80%+)",
+      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "badges": [
+        "🔥 신생(2026-10개설)",
+        "⚡ 구독자 대비 245.7배",
+        "👁️ 14,497뷰",
+        "구독 59명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 14,497뷰나 터졌을까?!\"",
+        "mid": "When Cops Stop the Wrong Car & I",
+        "bot": "구독자 대비 245.7배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'When Cops Stop the Wro...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+    },
+    {
+      "id": "yt_cat8_court_SukOgPJarAU",
+      "video_id": "SukOgPJarAU",
+      "category": "cat8_court",
+      "grade": "S",
+      "score": 99,
+      "title": "어느가족 명장면4: 마지막 취조장면",
+      "orig_title": "@이여름 (@summer_ez) 대표 아웃라이어 · 조회수 115,006회",
+      "url": "https://www.youtube.com/watch?v=SukOgPJarAU",
+      "channel_url": "https://www.youtube.com/@summer_ez",
+      "thumb": "https://i.ytimg.com/vi/SukOgPJarAU/hqdefault.jpg",
+      "source": "@이여름 (@summer_ez)",
+      "published": "2013-06-04",
+      "license": "US FOIA 바디캠·공개 법정 기록 + 프로파일러 해설",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "중상 (초반 30초 잔존율 80%+)",
+      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 199.3배",
+        "👁️ 115,006뷰",
+        "구독 577명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 115,006뷰나 터졌을까?!\"",
+        "mid": "어느가족 명장면4: 마지막 취조장면",
+        "bot": "구독자 대비 199.3배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '어느가족 명장면4: 마지막 취조장면...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+    },
+    {
+      "id": "yt_cat8_court_OWfr5_AABaA",
+      "video_id": "OWfr5_AABaA",
+      "category": "cat8_court",
+      "grade": "S",
+      "score": 99,
+      "title": "속도위반으로 법원에 온 96세 노인.. 그를 본 판사의 선택",
+      "orig_title": "@송충이눈썹 (@송충이눈썹-p8f) 대표 아웃라이어 · 조회수 118,376회",
+      "url": "https://www.youtube.com/watch?v=OWfr5_AABaA",
+      "channel_url": "https://www.youtube.com/@송충이눈썹-p8f",
+      "thumb": "https://i.ytimg.com/vi/OWfr5_AABaA/hqdefault.jpg",
+      "source": "@송충이눈썹 (@송충이눈썹-p8f)",
+      "published": "2020-07-25",
+      "license": "US FOIA 바디캠·공개 법정 기록 + 프로파일러 해설",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "중상 (초반 30초 잔존율 80%+)",
+      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 176.4배",
+        "👁️ 118,376뷰",
+        "구독 671명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 118,376뷰나 터졌을까?!\"",
+        "mid": "속도위반으로 법원에 온 96세 노인.. 그를 본 판사의 선",
+        "bot": "구독자 대비 176.4배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '속도위반으로 법원에 온 96세 노인.. ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+    },
+    {
+      "id": "yt_cat8_court_HZh30qUuD2I",
+      "video_id": "HZh30qUuD2I",
+      "category": "cat8_court",
+      "grade": "S",
+      "score": 99,
+      "title": "Court Cam: Most Viewed Moments of 2021 | A&E",
+      "orig_title": "@aetv (@aetv) 대표 아웃라이어 · 조회수 28,094,314회",
+      "url": "https://www.youtube.com/watch?v=HZh30qUuD2I",
+      "channel_url": "https://www.youtube.com/@aetv",
+      "thumb": "https://i.ytimg.com/vi/HZh30qUuD2I/hqdefault.jpg",
+      "source": "@aetv (@aetv)",
+      "published": "2006-09-20",
+      "license": "US FOIA 바디캠·공개 법정 기록 + 프로파일러 해설",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "중상 (초반 30초 잔존율 80%+)",
+      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 2.4배",
+        "👁️ 28,094,314뷰",
+        "구독 11,800,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 28,094,314뷰나 터졌을까?!\"",
+        "mid": "Court Cam: Most Viewed Moments o",
+        "bot": "구독자 대비 2.4배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Court Cam: Most Viewed...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+    },
+    {
+      "id": "yt_cat8_court_-3wRZLq_DQA",
+      "video_id": "-3wRZLq_DQA",
+      "category": "cat8_court",
+      "grade": "S",
+      "score": 99,
+      "title": "Bodycam Released in Crash of UPS Airlines Flight 2976",
+      "orig_title": "@midwestsafety (@midwestsafety) 대표 아웃라이어 · 조회수 26,582,196회",
+      "url": "https://www.youtube.com/watch?v=-3wRZLq_DQA",
+      "channel_url": "https://www.youtube.com/@midwestsafety",
+      "thumb": "https://i.ytimg.com/vi/-3wRZLq_DQA/hqdefault.jpg",
+      "source": "@midwestsafety (@midwestsafety)",
+      "published": "2013-09-06",
+      "license": "US FOIA 바디캠·공개 법정 기록 + 프로파일러 해설",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "중상 (초반 30초 잔존율 80%+)",
+      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 5.4배",
+        "👁️ 26,582,196뷰",
+        "구독 4,930,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 26,582,196뷰나 터졌을까?!\"",
+        "mid": "Bodycam Released in Crash of UPS",
+        "bot": "구독자 대비 5.4배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Bodycam Released in Cr...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+    },
+    {
+      "id": "yt_cat8_court_HaYNqWBaanI",
+      "video_id": "HaYNqWBaanI",
+      "category": "cat8_court",
+      "grade": "S",
+      "score": 99,
+      "title": "The Devil Judge",
+      "orig_title": "@너덜트 (@nerdult) 대표 아웃라이어 · 조회수 14,323,992회",
+      "url": "https://www.youtube.com/watch?v=HaYNqWBaanI",
+      "channel_url": "https://www.youtube.com/@nerdult",
+      "thumb": "https://i.ytimg.com/vi/HaYNqWBaanI/hqdefault.jpg",
+      "source": "@너덜트 (@nerdult)",
+      "published": "2021-06-21",
+      "license": "US FOIA 바디캠·공개 법정 기록 + 프로파일러 해설",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "중상 (초반 30초 잔존율 80%+)",
+      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 6.5배",
+        "👁️ 14,323,992뷰",
+        "구독 2,220,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 14,323,992뷰나 터졌을까?!\"",
+        "mid": "The Devil Judge",
+        "bot": "구독자 대비 6.5배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'The Devil Judge...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+    },
+    {
+      "id": "yt_cat8_court_SP78F3l8OHs",
+      "video_id": "SP78F3l8OHs",
+      "category": "cat8_court",
+      "grade": "S",
+      "score": 99,
+      "title": "Wife Realizes Her Detective Husband Is a Predator",
+      "orig_title": "@ewubodycam (@ewubodycam) 대표 아웃라이어 · 조회수 13,551,332회",
+      "url": "https://www.youtube.com/watch?v=SP78F3l8OHs",
+      "channel_url": "https://www.youtube.com/@ewubodycam",
+      "thumb": "https://i.ytimg.com/vi/SP78F3l8OHs/hqdefault.jpg",
+      "source": "@ewubodycam (@ewubodycam)",
+      "published": "2022-03-16",
+      "license": "US FOIA 바디캠·공개 법정 기록 + 프로파일러 해설",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "중상 (초반 30초 잔존율 80%+)",
+      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 3.7배",
+        "👁️ 13,551,332뷰",
+        "구독 3,700,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 13,551,332뷰나 터졌을까?!\"",
+        "mid": "Wife Realizes Her Detective Husb",
+        "bot": "구독자 대비 3.7배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Wife Realizes Her Dete...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+    },
+    {
+      "id": "yt_cat8_court_AEcCyFHNv2A",
+      "video_id": "AEcCyFHNv2A",
+      "category": "cat8_court",
+      "grade": "S",
+      "score": 99,
+      "title": "The Horror Inside the Hollowed Tree",
+      "orig_title": "@explorewithus (@explorewithus) 대표 아웃라이어 · 조회수 13,148,329회",
+      "url": "https://www.youtube.com/watch?v=AEcCyFHNv2A",
+      "channel_url": "https://www.youtube.com/@explorewithus",
+      "thumb": "https://i.ytimg.com/vi/AEcCyFHNv2A/hqdefault.jpg",
+      "source": "@explorewithus (@explorewithus)",
+      "published": "2015-08-17",
+      "license": "US FOIA 바디캠·공개 법정 기록 + 프로파일러 해설",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "중상 (초반 30초 잔존율 80%+)",
+      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "badges": [
+        "👁️ 13,148,329뷰",
+        "구독 7,620,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 13,148,329뷰나 터졌을까?!\"",
+        "mid": "The Horror Inside the Hollowed T",
+        "bot": "구독자 대비 1.7배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'The Horror Inside the ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+    },
+    {
+      "id": "yt_cat8_court_oANYkpNzKkQ",
+      "video_id": "oANYkpNzKkQ",
+      "category": "cat8_court",
+      "grade": "S",
+      "score": 99,
+      "title": "Laugh out loud~~ The moment a juvenile offender is sentenced",
+      "orig_title": "@Berrygoodnews베리굿뉴스 (@berrygoodnews1289) 대표 아웃라이어 · 조회수 12,483,015회",
+      "url": "https://www.youtube.com/watch?v=oANYkpNzKkQ",
+      "channel_url": "https://www.youtube.com/@berrygoodnews1289",
+      "thumb": "https://i.ytimg.com/vi/oANYkpNzKkQ/hqdefault.jpg",
+      "source": "@Berrygoodnews베리굿뉴스 (@berrygoodnews1289)",
+      "published": "2019-03-02",
+      "license": "US FOIA 바디캠·공개 법정 기록 + 프로파일러 해설",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "중상 (초반 30초 잔존율 80%+)",
+      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 173.1배",
+        "👁️ 12,483,015뷰",
+        "구독 72,100명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 12,483,015뷰나 터졌을까?!\"",
+        "mid": "Laugh out loud~~ The moment a ju",
+        "bot": "구독자 대비 173.1배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Laugh out loud~~ The m...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+    },
+    {
+      "id": "yt_cat8_court_5Zy6SMMitdE",
+      "video_id": "5Zy6SMMitdE",
+      "category": "cat8_court",
+      "grade": "S",
+      "score": 99,
+      "title": "[클릭@지구촌] 경찰에게 딱 걸린 생후 10개월 아기 운전자 / KBS뉴스(News)",
+      "orig_title": "@newskbs (@newskbs) 대표 아웃라이어 · 조회수 12,217,836회",
+      "url": "https://www.youtube.com/watch?v=5Zy6SMMitdE",
+      "channel_url": "https://www.youtube.com/@newskbs",
+      "thumb": "https://i.ytimg.com/vi/5Zy6SMMitdE/hqdefault.jpg",
+      "source": "@newskbs (@newskbs)",
+      "published": "2013-08-06",
+      "license": "US FOIA 바디캠·공개 법정 기록 + 프로파일러 해설",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "중상 (초반 30초 잔존율 80%+)",
+      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 3.3배",
+        "👁️ 12,217,836뷰",
+        "구독 3,730,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 12,217,836뷰나 터졌을까?!\"",
+        "mid": "경찰에게 딱 걸린 생후 10개월 아기 운전자 / KBS뉴스",
+        "bot": "구독자 대비 3.3배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] '경찰에게 딱 걸린 생후 10개월 아기 운...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+    },
+    {
+      "id": "yt_cat8_court_ClhuRYjci-g",
+      "video_id": "ClhuRYjci-g",
+      "category": "cat8_court",
+      "grade": "S",
+      "score": 99,
+      "title": "Caught in Providence: An Honest Boy",
+      "orig_title": "@caughtinprovidence (@caughtinprovidence) 대표 아웃라이어 · 조회수 11,731,642회",
+      "url": "https://www.youtube.com/watch?v=ClhuRYjci-g",
+      "channel_url": "https://www.youtube.com/@caughtinprovidence",
+      "thumb": "https://i.ytimg.com/vi/ClhuRYjci-g/hqdefault.jpg",
+      "source": "@caughtinprovidence (@caughtinprovidence)",
+      "published": "2015-10-02",
+      "license": "US FOIA 바디캠·공개 법정 기록 + 프로파일러 해설",
+      "safety": 95,
+      "transform_score": 96,
+      "rpm": "중상 (초반 30초 잔존율 80%+)",
+      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "badges": [
+        "⚡ 구독자 대비 4.0배",
+        "👁️ 11,731,642뷰",
+        "구독 2,950,000명"
+      ],
+      "thumb_3tier": {
+        "top": "\"도대체 왜 이 장면이 11,731,642뷰나 터졌을까?!\"",
+        "mid": "Caught in Providence: An Honest ",
+        "bot": "구독자 대비 4.0배 폭발한 핵심 구조 & 2차 가공 재해석"
+      },
+      "hook_30s": {
+        "s0_6": "[0~6초 Google Flow AI 훅 / Cold Open] 'Caught in Providence: ...'의 가장 충격적인 핵심 질문 1문장으로 급제동",
+        "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
+        "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
+      },
+      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
     },
     {
       "id": "th_live_gn_8831233745",
