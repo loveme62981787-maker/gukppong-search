@@ -1411,11 +1411,22 @@ function renderThBanner() {
   const activeId = thCatSel.size === 1 ? [...thCatSel][0] : null;
   const catObj = CATS.find(c => c.id === activeId);
   if (!catObj) {
-    banner.innerHTML = `<div style="flex:1;min-width:260px"><div style="font-weight:800;font-size:14px">📊 유벤져스 1~5강 × UV 엔진 × 3-AI 선정 「8대 2차 가공·롱폼 허브」</div>` +
-      `<div class="sub">위 8개 카테고리 칩 중 원하는 주제 1개를 선택하면 맞춤 <b>[🔍 이 주제로 실시간 새 소재 찾아줘]</b>와 카드별 <b>[🚀 원클릭 풀패키지 제작 명령 복사]</b>를 바로 쓸 수 있어요. (초기 로딩 0KB 지연 로딩 적용됨)</div></div>` +
+    const profileRows = CATS.map(c => {
+      const ep = c.edit_profile || {};
+      const rTop = ((c.benchmarks && c.benchmarks.rising) || []).slice(0, 2).map(x => `<a target="_blank" rel="noopener" href="${x.url}" style="color:var(--acc);font-weight:700">${x.kr}</a>`).join(", ");
+      const bTop = ((c.benchmarks && c.benchmarks.best) || []).slice(0, 2).map(x => `<a target="_blank" rel="noopener" href="${x.url}" style="color:var(--ok);font-weight:700">${x.kr}</a>`).join(", ");
+      return `<div style="padding:6px 8px;border-bottom:1px solid var(--line);font-size:12px;line-height:1.45">` +
+        `<b>${c.short_label}</b> → <span style="color:var(--acc);font-weight:800">${ep.code || ""}</span> · 🎙️ ${ep.audio_ratio || ""} · ⏱️ ${ep.cut_pacing || ""}` +
+        (rTop ? `<br><span style="color:var(--muted)">🔥 신생 대표: ${rTop} · 🏆 베스트 대표: ${bTop} (상단 카테고리 칩 클릭 시 15곳 전체 보기)</span>` : "") +
+        `</div>`;
+    }).join("");
+    banner.innerHTML = `<div style="flex:1;min-width:260px"><div style="font-weight:800;font-size:14px">📊 유벤져스 1~5강 × UV 엔진 × 3-AI 선정 「8대 2차 가공·롱폼 허브」 (맞춤 편집 스타일 8종 & 벤치마킹 120선 탑재)</div>` +
+      `<div class="sub">위 8개 카테고리 칩 중 원하는 주제 1개를 선택하면 <b>주제별 전용 편집 스타일 프로파일(#1~#8)</b>과 <b>신생 급성장 5곳 + 베스트 10곳(총 120곳)</b>, 그리고 <b>[🚀 원클릭 풀패키지 제작 명령 복사]</b>를 바로 쓸 수 있어요.</div>` +
+      (profileRows ? `<details class="gdetails" style="margin-top:6px"><summary style="font-weight:800;color:var(--acc);cursor:pointer">🎨 8대 주제별 맞춤 편집 스타일 프로파일(#1~#8) & 대표 벤치마킹 채널 한눈에 보기</summary><div style="margin-top:6px;background:var(--bg);border-radius:8px;padding:4px">${profileRows}</div></details>` : "") +
+      `</div>` +
       `<button class="chip on" id="thfindbtn" style="font-weight:800;padding:8px 14px">🔍 전체 8대 주제 중 오늘 1등 소재 찾아줘 복사</button>`;
     document.getElementById("thfindbtn").onclick = e => {
-      const cmd = `[원클릭 소재 탐색] 8대 2차 가공 주제(①유형C 정치·시사, ②생활경제·연금·부동산, ③근현대사·지정학, ④메가인프라·기술, ⑤한·일·대만 실화다큐, ⑥성경·고전 강론, ⑦글로벌 외신 브리핑, ⑧법정·바디캠 사건) 중에서 오늘 55세+ 시니어 타깃에게 가장 조회수가 터질 S급 소재 Top 5를 찾아서 시크릿 조합 제목과 초반 6초 Google Flow 후킹 인트로 시나리오까지 브리핑해줘!`;
+      const cmd = `[원클릭 소재 탐색] 8대 2차 가공 주제(①유형C 정치·시사, ②생활경제·연금·부동산, ③근현대사·지정학, ④메가인프라·기술, ⑤한·일·대만 실화다큐, ⑥성경·고전 강론, ⑦글로벌 외신 브리핑, ⑧법정·바디캠 사건) 중에서 오늘 55세+ 시니어 타깃에게 가장 조회수가 터질 S급 소재 Top 5를 찾아서 주제별 맞춤 편집 스타일 프로파일(#1~#8), 시크릿 조합 제목, 초반 6초 Google Flow 후킹 인트로 시나리오까지 브리핑해줘!`;
       navigator.clipboard.writeText(cmd).then(() => {
         const b = e.currentTarget; const old = b.textContent;
         b.textContent = "✅ 탐색 명령 복사 완료! 채팅창에 붙여넣으세요";
@@ -1424,14 +1435,45 @@ function renderThBanner() {
     };
     return;
   }
+  const ep = catObj.edit_profile || {};
+  const bm = catObj.benchmarks || {rising: [], best: []};
+  const risingHtml = (bm.rising || []).map((x, idx) =>
+    `<div style="padding:4px 0;border-bottom:1px dashed var(--line)">` +
+    `<b>🔥 신생 ${idx + 1}. <a target="_blank" rel="noopener" href="${x.url}" style="color:var(--acc);text-decoration:underline">${x.kr}</a></b> <span style="color:var(--muted);font-size:11px">(${x.handle}) · ${x.stat}</span><br>` +
+    `<span style="font-size:11.5px">💡 ${x.point}</span></div>`
+  ).join("");
+  const bestHtml = (bm.best || []).map((x, idx) =>
+    `<div style="padding:4px 0;border-bottom:1px dashed var(--line)">` +
+    `<b>🏆 베스트 ${idx + 1}. <a target="_blank" rel="noopener" href="${x.url}" style="color:var(--ok);text-decoration:underline">${x.kr}</a></b> <span style="color:var(--muted);font-size:11px">(${x.handle}) · ${x.stat}</span><br>` +
+    `<span style="font-size:11.5px">📌 ${x.point}</span></div>`
+  ).join("");
   banner.innerHTML = `<div style="flex:1;min-width:260px">` +
     `<div style="font-weight:800;font-size:15px">${catObj.label} <span class="tag grade-S" style="margin-left:6px">🛡️ 안전도 ${catObj.safety}점</span> <span class="tag kind-ref">✨ 2차가공 ${catObj.transform_score}점</span> <span class="tag hot">💰 기대 RPM: ${catObj.rpm}</span></div>` +
     `<div class="sub" style="margin-top:3px">${catObj.desc}</div>` +
     `<div class="sub" style="margin-top:2px"><b>기본 라이선스:</b> ${catObj.license_default} · <b>매칭 엔진:</b> ${catObj.engine_stack}</div>` +
+    (ep.code ? `<div style="margin-top:6px;padding:8px 10px;border-radius:8px;background:var(--bg);border:1.5px solid #5b3df5;font-size:12px;line-height:1.45">` +
+      `<div><b>🎨 전용 편집 스타일:</b> <span style="color:var(--acc);font-weight:800">${ep.code}</span></div>` +
+      `<div><b>🎙️ 오디오 황금비율:</b> ${ep.audio_ratio}</div>` +
+      `<div><b>⏱️ 컷 전환 호흡:</b> ${ep.cut_pacing}</div>` +
+      `<div><b>🖥️ 화면 레이아웃 스킨:</b> ${ep.layout_skin}</div>` +
+    `</div>` : "") +
+    ((risingHtml || bestHtml) ? `<details class="gdetails" style="margin-top:6px"><summary style="font-weight:800;color:var(--acc);cursor:pointer">📊 이 주제의 🔥 신생·급성장 5곳 & 🏆 베스트 10곳 벤치마킹 채널 바로가기 (총 15곳)</summary>` +
+      `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-top:6px;padding:8px;border-radius:8px;background:var(--bg);font-size:12px">` +
+        `<div><div style="font-weight:800;color:var(--acc);margin-bottom:4px">🔥 신생·급성장 채널 5곳 (아웃라이어 폭발)</div>${risingHtml}</div>` +
+        `<div><div style="font-weight:800;color:var(--ok);margin-bottom:4px">🏆 베스트 롤모델 & 합법 원본 채널 10곳</div>${bestHtml}</div>` +
+      `</div></details>` : "") +
     `</div>` +
     `<button class="chip on" id="thfindcatbtn" style="font-weight:800;padding:8px 14px">🔍 '${catObj.short_label}' 실시간 새 소재 찾아줘 복사</button>`;
   document.getElementById("thfindcatbtn").onclick = e => {
-    const cmd = `[원클릭 맞춤 소재 발굴] '${catObj.label}' 주제로 오늘 가장 화제성이 높고 저작권이 100% 안전한(공공누리/Public Domain/공식브리핑) S급 소재 후보 5개를 찾아줘!\n- 적용 엔진: ${catObj.engine_stack}\n- 각 후보마다 ① 4강 시크릿 모드 조합 제목, ② 3강 테디쌤 3단 썸네일 문구, ③ 초반 0~6초 Google Flow AI 후킹 인트로 대사를 함께 제시해줘.`;
+    const rNames = (bm.rising || []).map(x => `${x.kr}(${x.handle})`).join(", ");
+    const bNames = (bm.best || []).slice(0, 5).map(x => `${x.kr}(${x.handle})`).join(", ");
+    const cmd = `[원클릭 맞춤 소재 발굴] '${catObj.label}' 주제로 오늘 가장 화제성이 높고 저작권이 100% 안전한(공공누리/Public Domain/공식브리핑) S급 소재 후보 5개를 찾아줘!\n` +
+      `- 전용 편집 스타일: ${ep.code || ""}\n` +
+      `- 오디오 황금비율: ${ep.audio_ratio || ""}\n` +
+      `- 컷 호흡 & 레이아웃: ${ep.cut_pacing || ""} / ${ep.layout_skin || ""}\n` +
+      `- 벤치마킹 레퍼런스: 신생(${rNames}) / 베스트(${bNames})\n` +
+      `- 적용 엔진: ${catObj.engine_stack}\n` +
+      `- 각 후보마다 ① 4강 시크릿 모드 조합 제목, ② 3강 테디쌤 3단 썸네일 문구, ③ 초반 0~6초 Google Flow AI 후킹 인트로 대사를 함께 제시해줘.`;
     navigator.clipboard.writeText(cmd).then(() => {
       const b = e.currentTarget; const old = b.textContent;
       b.textContent = "✅ 주제 탐색 명령 복사 완료! 채팅창에 붙여넣으세요";
@@ -1476,6 +1518,8 @@ function renderTh() {
   if (!a.length) { g.innerHTML = '<div class="empty">조건에 맞는 2차 가공 소재가 없어요</div>'; return; }
   a.forEach(v => {
     const cObj = CAT_MAP[v.category] || {short_label: v.category};
+    const ep = cObj.edit_profile || {};
+    const bm = cObj.benchmarks || {rising: [], best: []};
     const el = document.createElement("div");
     el.className = "card kd-inst" + (done.has(v.id) ? " done" : "");
     const t3 = v.thumb_3tier || {top: "", mid: "", bot: ""};
@@ -1498,12 +1542,14 @@ function renderTh() {
       `</div>` +
       (badgesHtml ? `<div class="tags" style="margin-top:2px">${badgesHtml}</div>` : "") +
       `<div class="m" style="font-size:11.5px;color:var(--ok);font-weight:700">🪪 ${v.license || ""}</div>` +
-      `<details class="gdetails" style="margin:2px 0"><summary style="font-weight:700;color:var(--acc)">⚡ 초반 0~30초 후킹 인트로 & 3단 썸네일 설계 보기</summary>` +
+      (ep.code ? `<div class="m" style="font-size:11.5px;color:var(--acc);font-weight:700">🎨 ${ep.code}</div>` : "") +
+      `<details class="gdetails" style="margin:2px 0"><summary style="font-weight:700;color:var(--acc)">⚡ 초반 0~30초 후킹 · 3단 썸네일 · 맞춤 편집 스타일 보기</summary>` +
         `<div style="font-size:12px;line-height:1.45;margin-top:6px;padding:8px;border-radius:8px;background:var(--bg)">` +
           `<div><b>🖼️ 테디쌤 3단 썸네일:</b><br>① 상단(?): ${t3.top}<br>② 중단(정체): ${t3.mid}<br>③ 하단(결과): ${t3.bot}</div>` +
           `<hr style="border:0;border-top:1px solid var(--line);margin:6px 0">` +
           `<div><b>🔥 초반 30초 후킹 (잔존율 70%+ 목표):</b><br>• ${h30.s0_6}<br>• ${h30.s6_18}<br>• ${h30.s18_30}</div>` +
           `<hr style="border:0;border-top:1px solid var(--line);margin:6px 0">` +
+          (ep.code ? `<div><b>🎨 주제 맞춤 편집 프로파일:</b> ${ep.code}<br>• 오디오: ${ep.audio_ratio}<br>• 호흡: ${ep.cut_pacing}<br>• 레이아웃: ${ep.layout_skin}</div><hr style="border:0;border-top:1px solid var(--line);margin:6px 0">` : "") +
           `<div><b>🛠️ 자동 매칭 엔진:</b> ${v.engine_recipe || ""}</div>` +
         `</div>` +
       `</details>` +
@@ -1514,14 +1560,21 @@ function renderTh() {
     el.querySelector(".t").textContent = v.title;
     el.querySelector(".th").onclick = e => { if (!e.target.closest(".fav")) window.open(v.url, "_blank", "noopener"); };
     el.querySelector(".thcmdcopy").onclick = e => {
+      const rTop = (bm.rising || []).slice(0, 3).map(x => `${x.kr}(${x.handle})`).join(", ");
+      const bTop = (bm.best || []).slice(0, 3).map(x => `${x.kr}(${x.handle})`).join(", ");
       const cmd = `[원클릭 2차가공 풀패키지 제작 요청]\n` +
         `• 카테고리: ${cObj.label || v.category}\n` +
+        `• 전용 편집 스타일: ${ep.code || ""}\n` +
+        `• 오디오 황금비율 (ko-orig 강제): ${ep.audio_ratio || ""}\n` +
+        `• 컷 전환 호흡 & 목표 길이: ${ep.cut_pacing || v.target_len}\n` +
+        `• 화면 레이아웃 스킨: ${ep.layout_skin || ""}\n` +
+        `• 벤치마킹 롤모델: 신생(${rTop}) / 베스트(${bTop})\n` +
         `• 4강 시크릿 조합 제목: ${v.title}\n` +
         `• 원본 소스 링크: ${v.url} (${v.license})\n` +
         `• 3강 테디쌤 3단 썸네일 문구: [상단] ${t3.top} / [중단] ${t3.mid} / [하단] ${t3.bot}\n` +
         `• 초반 0~30초 초강력 후킹 세팅:\n  1) ${h30.s0_6}\n  2) ${h30.s6_18}\n  3) ${h30.s18_30}\n` +
         `• 제작 엔진 레시피: ${v.engine_recipe}\n` +
-        `위 설계 그대로 초반 6초 Google Flow(울트라 웹 0원 1순위) AI 후킹 인트로 세팅하고, 본편 2차 가공 영상(MP4 + CapCut 초안)과 썸네일·소명용 출처 원장까지 원클릭으로 만들어줘!`;
+        `위 설계 그대로 초반 6초 Google Flow(울트라 웹 0원 1순위) AI 후킹 인트로 세팅하고, '${ep.code || "주제 맞춤"}' 편집 스타일로 본편 2차 가공 영상(MP4 + CapCut 초안)과 썸네일·소명용 출처 원장까지 원클릭으로 만들어줘!`;
       navigator.clipboard.writeText(cmd).then(() => {
         const b = e.currentTarget; const oldTxt = b.textContent;
         b.textContent = "✅ 원클릭 제작 명령 복사 완료! 채팅창에 붙여넣으세요";
