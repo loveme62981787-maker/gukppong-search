@@ -914,6 +914,22 @@
    "title": "24 hours in Taipei (my fave food recs)",
    "views": 92175
   },
+  "CGuue_Oz8tQ": {
+   "attempted_at": "2026-11-06T21:30:05Z",
+   "channel": "Keira Ashley",
+   "channel_id": "UCj--buW9drjGC8RQjHeP-ug",
+   "country": "일본",
+   "duration_sec": 422,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-06",
+   "id": "CGuue_Oz8tQ",
+   "length": "7:02",
+   "query": "Japanese culture experience",
+   "status": "pending",
+   "title": "DON'T do this on Japanese trains🙅🏻‍♀️",
+   "views": 2799
+  },
   "CSD5OfXDbqI": {
    "channel": "KikoBrothers",
    "channel_id": "UC0dli2ad2k9ltSAY0O3cp9w",
@@ -1576,6 +1592,20 @@
    "status": "verified",
    "title": "Korea is NOT What I Thought it Would Be ... | Seoul, South Korea Travel Vlog",
    "views": 72562
+  },
+  "MKeUS9Iqx-w": {
+   "channel": "Logan Ly",
+   "channel_id": "UCeY0v1bR2DEDEIODOrBTTpA",
+   "country": "일본",
+   "duration_sec": 2048,
+   "fail_count": 0,
+   "first_seen": "2026-11-06",
+   "id": "MKeUS9Iqx-w",
+   "length": "34:08",
+   "query": "Japanese culture experience",
+   "status": "pending",
+   "title": "Why you shouldn't miss out on Awaji Island in Japan - GAY TRAVEL",
+   "views": 227
   },
   "MSK1ZyOsXkA": {
    "channel": "Maximo's Travels",
@@ -2388,6 +2418,20 @@
    "title": "The Best Travel Destinations in Taiwan",
    "views": 63417
   },
+  "WScQ278T0ic": {
+   "channel": "GlobeTrot Bliss ",
+   "channel_id": "UCsEgssrnxbnlwVMCPcURcvQ",
+   "country": "대만",
+   "duration_sec": 1278,
+   "fail_count": 0,
+   "first_seen": "2026-11-06",
+   "id": "WScQ278T0ic",
+   "length": "21:18",
+   "query": "Taiwanese culture experience",
+   "status": "pending",
+   "title": "Exploring Southern Taiwan in 4K: EPIC Drone Adventure! [Taiwan Travel]",
+   "views": 144
+  },
   "X3awG7j-MI8": {
    "channel": "mimomosa",
    "channel_id": "UCVQIuafrGgZjimGsKIGnybA",
@@ -2624,6 +2668,20 @@
    "status": "pending",
    "title": "Eating ONLY at Japanese Convenience Stores for 24 Hours!",
    "views": 396
+  },
+  "_PdDEqn_9nY": {
+   "channel": "GlobeTrot Bliss ",
+   "channel_id": "UCsEgssrnxbnlwVMCPcURcvQ",
+   "country": "대만",
+   "duration_sec": 1539,
+   "fail_count": 0,
+   "first_seen": "2026-11-06",
+   "id": "_PdDEqn_9nY",
+   "length": "25:39",
+   "query": "Taiwanese culture experience",
+   "status": "pending",
+   "title": "Exploring Taiwan's Stunning Cities: A 4K HDR Aerial Journey Through the Heart of Asia",
+   "views": 92
   },
   "_WMfS2uLJ30": {
    "channel": "Isle Of Sev",
@@ -4290,6 +4348,22 @@
    "title": "TAIWAN travel vlog 🇹🇼 | Winter trip to Maokong & Taipei Zoo + Shilin night market! | Sittie Saheda",
    "views": 4175
   },
+  "y3xMtaC-HOE": {
+   "attempted_at": "2026-11-06T21:30:05Z",
+   "channel": "hydronmedia",
+   "channel_id": "UCB6VTlvKnL-vN3u_2Sb1GvQ",
+   "country": "한국",
+   "duration_sec": 741,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-06",
+   "id": "y3xMtaC-HOE",
+   "length": "12:21",
+   "query": "living in Korea foreigner",
+   "status": "pending",
+   "title": "'Racist Report' on Foreigners in South Korea a Gross Misinterpretation to the Trained Eye",
+   "views": 1167
+  },
   "z-2nCA-qe50": {
    "channel": "日本食冒険記Tokyo Food Adventures",
    "channel_id": "UCXz4C2UgKkskK8ZcEbgRDVA",
@@ -4359,6 +4433,20 @@
    "status": "pending",
    "title": "Taipei Taiwan Travel Video",
    "views": 599
+  },
+  "zzLUgSQmIk0": {
+   "channel": "Nomad Bears",
+   "channel_id": "UCXYBSbHg28oH5TApqmIySRQ",
+   "country": "대만",
+   "duration_sec": 246,
+   "fail_count": 0,
+   "first_seen": "2026-11-06",
+   "id": "zzLUgSQmIk0",
+   "length": "4:06",
+   "query": "Taiwanese culture experience",
+   "status": "pending",
+   "title": "10 THINGS you SHOULD KNOW about living in TAIWAN",
+   "views": 267
   }
  },
  "schema": 1,
@@ -4384,7 +4472,7 @@
    "found": 20
   },
   "대만|Taiwanese culture experience": {
-   "at": "2026-11-04T00:37:41Z",
+   "at": "2026-11-06T21:30:02Z",
    "found": 20
   },
   "대만|first time in Taiwan": {
@@ -4404,7 +4492,7 @@
    "found": 20
   },
   "일본|Japanese culture experience": {
-   "at": "2026-11-04T00:37:39Z",
+   "at": "2026-11-06T21:29:59Z",
    "found": 20
   },
   "일본|Kyoto trip": {
@@ -4456,9 +4544,9 @@
    "found": 20
   },
   "한국|living in Korea foreigner": {
-   "at": "2026-11-04T00:37:36Z",
+   "at": "2026-11-06T21:29:57Z",
    "found": 20
   }
  },
- "updated": "2026-11-06T15:56:01Z"
+ "updated": "2026-11-06T21:30:05Z"
 }
