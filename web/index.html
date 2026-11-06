@@ -94,7 +94,32 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 </head>
 <body>
 <header><h1>🇰🇷🇯🇵 국뽕 영상 서칭</h1><div class="sub" id="upd"></div></header>
-<div class="bar"><button class="chip on" id="mv">🎬 영상</button><button class="chip" id="mc">📺 채널 벤치마킹</button><button class="chip" id="mct">📞 콜툰·통화 소재</button><button class="chip" id="mnw">📰 이슈·정책 쇼츠 소재</button><button class="chip" id="mt" title="맨 아래 주제 목록(12갈래·140꼭지)으로 이동">📚 주제 목록 ↓</button><button class="chip" id="ms" hidden>🎯 국뽕 점수</button></div>
+<div class="bar"><button class="chip on" id="mv">🎬 영상</button><button class="chip" id="mc">📺 채널 벤치마킹</button><button class="chip" id="mct">📞 콜툰·통화 소재</button><button class="chip" id="mnw">📰 이슈·정책 쇼츠 소재</button><button class="chip" id="mth">🏛️ 2차 가공·롱폼 허브 (8대 주제)</button><button class="chip" id="mt" title="맨 아래 주제 목록(12갈래·140꼭지)으로 이동">📚 주제 목록 ↓</button><button class="chip" id="ms" hidden>🎯 국뽕 점수</button></div>
+<div id="thview" hidden>
+  <div class="quick">
+    <div class="qg"><b>🏛️ 8대 2차 가공 주제 선택 (클릭 시 0.05초 지연 로딩)</b><span id="thcat" style="display:contents"></span></div>
+  </div>
+  <div id="thbanner" class="fpanel" style="margin-top:8px;padding:10px 14px;display:flex;flex-wrap:wrap;gap:10px;align-items:center;justify-content:space-between"></div>
+  <div class="bar">
+    <input id="thq" placeholder="시크릿 조합 제목·원본 출처·3단 썸네일 문구·후킹 시나리오·스킬 검색">
+    <select id="thsort">
+      <option value="score">🔥 2차 가공·YPP 종합 점수순 (S등급·시니어 타깃 우선)</option>
+      <option value="safety">🛡️ 저작권 안전도순 (100점 ➔ 95점)</option>
+      <option value="transform">✨ 유튜브 2차 가공 인정도순</option>
+      <option value="pub">📅 발행·갱신 최신순</option>
+    </select>
+    <select id="thmine">
+      <option value="">기본 (사용 완료·숨김 제외)</option>
+      <option value="gradeS">🏆 S등급 핵심 소재만</option>
+      <option value="fav">⭐ 저장만</option>
+      <option value="memo">📝 메모 있음</option>
+      <option value="done">✓ 사용 완료만</option>
+      <option value="hidden">🗑 숨김만</option>
+    </select>
+  </div>
+  <div class="sub" style="max-width:1200px;margin:0 auto;padding:0 16px" id="thinfo"></div>
+  <div class="grid" id="thgrid"></div>
+</div>
 <div id="nwview" hidden>
   <div class="quick">
     <div class="qg"><b>📂 뉴스 분류</b><span id="nwcat" style="display:contents"></span></div>
@@ -1331,21 +1356,204 @@ function renderNw() {
   });
 }
 ["nwq", "nwsort", "nwmine"].forEach(i => document.getElementById(i).addEventListener("input", renderNw));
+// ---- 🏛️ 2차 가공·롱폼 허브 (8대 주제) 전용 뷰 (초기 로딩 0KB 지연 로딩) ----
+let thLoaded = false, thLoading = false;
+const thCatSel = new Set();
+function ensureTransformHubLoaded(cb) {
+  if (thLoaded || window.TRANSFORM_HUB) {
+    if (!thLoaded) initThView();
+    if (cb) cb();
+    return;
+  }
+  if (thLoading) return;
+  thLoading = true;
+  document.getElementById("thinfo").textContent = "⏳ 8대 2차 가공·롱폼 소재 허브 데이터를 불러오는 중입니다...";
+  const s = document.createElement("script");
+  s.src = "transform_hub.js?v=" + Date.now();
+  s.onload = () => { thLoading = false; initThView(); if (cb) cb(); };
+  s.onerror = () => {
+    thLoading = false;
+    document.getElementById("thinfo").textContent = "⚠️ transform_hub.js 파일을 불러오지 못했습니다. (python transform_hub_watch.py 실행 확인)";
+  };
+  document.body.appendChild(s);
+}
+function initThView() {
+  thLoaded = true;
+  const TH = (window.TRANSFORM_HUB || []).slice();
+  const CATS = (window.TRANSFORM_HUB_CATS || []).slice();
+  const parent = document.getElementById("thcat");
+  parent.innerHTML = "";
+  const mk = (k, label, count) => {
+    const b = document.createElement("button"); b.className = "chip"; b.dataset.k = k;
+    b.innerHTML = label + (count == null ? "" : `<small>${count}</small>`);
+    parent.append(b); return b;
+  };
+  const all = mk("all", "전체 8대 주제", TH.length);
+  const btns = CATS.map(c => mk(c.id, c.label, TH.filter(v => v.category === c.id).length));
+  const sync = () => {
+    all.classList.toggle("on", thCatSel.size === 0);
+    btns.forEach(b => b.classList.toggle("on", thCatSel.has(b.dataset.k)));
+    renderThBanner();
+  };
+  all.onclick = () => { thCatSel.clear(); sync(); renderTh(); };
+  btns.forEach(b => b.onclick = () => {
+    const k = b.dataset.k;
+    if (thCatSel.size === 1 && thCatSel.has(k)) thCatSel.clear();
+    else { thCatSel.clear(); thCatSel.add(k); }
+    sync(); renderTh();
+  });
+  sync();
+  ["thq", "thsort", "thmine"].forEach(i => document.getElementById(i).addEventListener("input", renderTh));
+}
+function renderThBanner() {
+  const CATS = (window.TRANSFORM_HUB_CATS || []);
+  const banner = document.getElementById("thbanner");
+  const activeId = thCatSel.size === 1 ? [...thCatSel][0] : null;
+  const catObj = CATS.find(c => c.id === activeId);
+  if (!catObj) {
+    banner.innerHTML = `<div style="flex:1;min-width:260px"><div style="font-weight:800;font-size:14px">📊 유벤져스 1~5강 × UV 엔진 × 3-AI 선정 「8대 2차 가공·롱폼 허브」</div>` +
+      `<div class="sub">위 8개 카테고리 칩 중 원하는 주제 1개를 선택하면 맞춤 <b>[🔍 이 주제로 실시간 새 소재 찾아줘]</b>와 카드별 <b>[🚀 원클릭 풀패키지 제작 명령 복사]</b>를 바로 쓸 수 있어요. (초기 로딩 0KB 지연 로딩 적용됨)</div></div>` +
+      `<button class="chip on" id="thfindbtn" style="font-weight:800;padding:8px 14px">🔍 전체 8대 주제 중 오늘 1등 소재 찾아줘 복사</button>`;
+    document.getElementById("thfindbtn").onclick = e => {
+      const cmd = `[원클릭 소재 탐색] 8대 2차 가공 주제(①유형C 정치·시사, ②생활경제·연금·부동산, ③근현대사·지정학, ④메가인프라·기술, ⑤한·일·대만 실화다큐, ⑥성경·고전 강론, ⑦글로벌 외신 브리핑, ⑧법정·바디캠 사건) 중에서 오늘 55세+ 시니어 타깃에게 가장 조회수가 터질 S급 소재 Top 5를 찾아서 시크릿 조합 제목과 초반 6초 Google Flow 후킹 인트로 시나리오까지 브리핑해줘!`;
+      navigator.clipboard.writeText(cmd).then(() => {
+        const b = e.currentTarget; const old = b.textContent;
+        b.textContent = "✅ 탐색 명령 복사 완료! 채팅창에 붙여넣으세요";
+        setTimeout(() => b.textContent = old, 2200);
+      });
+    };
+    return;
+  }
+  banner.innerHTML = `<div style="flex:1;min-width:260px">` +
+    `<div style="font-weight:800;font-size:15px">${catObj.label} <span class="tag grade-S" style="margin-left:6px">🛡️ 안전도 ${catObj.safety}점</span> <span class="tag kind-ref">✨ 2차가공 ${catObj.transform_score}점</span> <span class="tag hot">💰 기대 RPM: ${catObj.rpm}</span></div>` +
+    `<div class="sub" style="margin-top:3px">${catObj.desc}</div>` +
+    `<div class="sub" style="margin-top:2px"><b>기본 라이선스:</b> ${catObj.license_default} · <b>매칭 엔진:</b> ${catObj.engine_stack}</div>` +
+    `</div>` +
+    `<button class="chip on" id="thfindcatbtn" style="font-weight:800;padding:8px 14px">🔍 '${catObj.short_label}' 실시간 새 소재 찾아줘 복사</button>`;
+  document.getElementById("thfindcatbtn").onclick = e => {
+    const cmd = `[원클릭 맞춤 소재 발굴] '${catObj.label}' 주제로 오늘 가장 화제성이 높고 저작권이 100% 안전한(공공누리/Public Domain/공식브리핑) S급 소재 후보 5개를 찾아줘!\n- 적용 엔진: ${catObj.engine_stack}\n- 각 후보마다 ① 4강 시크릿 모드 조합 제목, ② 3강 테디쌤 3단 썸네일 문구, ③ 초반 0~6초 Google Flow AI 후킹 인트로 대사를 함께 제시해줘.`;
+    navigator.clipboard.writeText(cmd).then(() => {
+      const b = e.currentTarget; const old = b.textContent;
+      b.textContent = "✅ 주제 탐색 명령 복사 완료! 채팅창에 붙여넣으세요";
+      setTimeout(() => b.textContent = old, 2200);
+    });
+  };
+}
+function renderTh() {
+  if (!thLoaded && !window.TRANSFORM_HUB) { ensureTransformHubLoaded(); return; }
+  const TH = (window.TRANSFORM_HUB || []).slice();
+  const CATS = (window.TRANSFORM_HUB_CATS || []);
+  const CAT_MAP = Object.fromEntries(CATS.map(c => [c.id, c]));
+  const q = document.getElementById("thq").value.trim().toLowerCase();
+  const sort = document.getElementById("thsort").value;
+  const mine = document.getElementById("thmine").value;
+  let a = TH.filter(v => {
+    if (mine === "hidden") { if (!hidden.has(v.id)) return false; }
+    else if (hidden.has(v.id)) return false;
+    if (mine === "done") { if (!done.has(v.id)) return false; }
+    else if (!mine && done.has(v.id)) return false;
+    if (mine === "fav" && !favs.has(v.id)) return false;
+    if (mine === "memo" && !memos[v.id]) return false;
+    if (mine === "gradeS" && v.grade !== "S") return false;
+    if (thCatSel.size && !thCatSel.has(v.category)) return false;
+    if (q) {
+      const hay = [v.title, v.orig_title, v.source, v.license, v.engine_recipe, ...(v.badges || []),
+        v.thumb_3tier ? Object.values(v.thumb_3tier).join(" ") : "",
+        v.hook_30s ? Object.values(v.hook_30s).join(" ") : "",
+        memos[v.id] || ""].join(" ").toLowerCase();
+      if (!hay.includes(q)) return false;
+    }
+    return true;
+  });
+  a.sort((x, y) => {
+    if (sort === "safety") return (y.safety || 0) - (x.safety || 0) || (y.score || 0) - (x.score || 0);
+    if (sort === "transform") return (y.transform_score || 0) - (x.transform_score || 0) || (y.score || 0) - (x.score || 0);
+    if (sort === "pub") return (y.published || "").localeCompare(x.published || "") || (y.score || 0) - (x.score || 0);
+    return (y.score || 0) - (x.score || 0);
+  });
+  document.getElementById("thinfo").textContent = `2차 가공·롱폼 허브 소재 ${a.length}개 (전체 ${TH.length}개) · 갱신 ${window.TRANSFORM_HUB_UPDATED || "-"} · '🚀 원클릭 풀패키지 제작 명령 복사'를 눌러 채팅창에 붙여넣으면 초반 6초 AI 후킹 인트로부터 캡컷 초안·MP4까지 자동 제작돼요`;
+  const g = document.getElementById("thgrid"); g.innerHTML = "";
+  if (!a.length) { g.innerHTML = '<div class="empty">조건에 맞는 2차 가공 소재가 없어요</div>'; return; }
+  a.forEach(v => {
+    const cObj = CAT_MAP[v.category] || {short_label: v.category};
+    const el = document.createElement("div");
+    el.className = "card kd-inst" + (done.has(v.id) ? " done" : "");
+    const t3 = v.thumb_3tier || {top: "", mid: "", bot: ""};
+    const h30 = v.hook_30s || {s0_6: "", s6_18: "", s18_30: ""};
+    const badgesHtml = (v.badges || []).map(b => `<span style="border:1.5px solid #5b3df5;background:var(--bg);color:var(--acc);font-weight:700;padding:1px 7px;border-radius:6px;font-size:11px">${b}</span>`).join("");
+    const thVisual = v.thumb
+      ? `<img loading="lazy" src="${v.thumb}" onerror="this.remove()">`
+      : `<div style="width:100%;height:100%;display:flex;flex-direction:column;justify-content:center;padding:10px 12px;background:linear-gradient(135deg,#13111c,#251e3e);color:#fff;font-size:12px;line-height:1.35">` +
+        `<div style="color:#fde047;font-weight:800;font-size:13px;margin-bottom:3px">❓ ${t3.top || ""}</div>` +
+        `<div style="color:#e2e8f0;font-weight:600;font-size:11.5px;margin-bottom:3px">👤 ${t3.mid || ""}</div>` +
+        `<div style="color:#f87171;font-weight:800;font-size:12px">⚡ ${t3.bot || ""}</div></div>`;
+    el.innerHTML = `<div class="th">${thVisual}<button class="fav ${favs.has(v.id) ? "on" : ""}">${favs.has(v.id) ? "★" : "☆"}</button></div>` +
+      `<div class="body"><a class="t" target="_blank" rel="noopener" href="${v.url}"></a>` +
+      `<div class="m">${v.source || ""} · ${v.published || "-"} · 권장 ${v.target_len || "롱폼+쇼츠"}</div>` +
+      `<div class="tags">` +
+        `<span class="tag kind-inst">${cObj.short_label}</span>` +
+        `<span class="tag grade-${v.grade || "A"}">🏆 ${v.grade || "A"}등급 (${v.score || 90}점)</span>` +
+        `<span class="tag kind-ref">🛡️ 안전도 ${v.safety || 95}점</span>` +
+        `<span class="tag hot">💰 RPM ${v.rpm || "상"}</span>` +
+      `</div>` +
+      (badgesHtml ? `<div class="tags" style="margin-top:2px">${badgesHtml}</div>` : "") +
+      `<div class="m" style="font-size:11.5px;color:var(--ok);font-weight:700">🪪 ${v.license || ""}</div>` +
+      `<details class="gdetails" style="margin:2px 0"><summary style="font-weight:700;color:var(--acc)">⚡ 초반 0~30초 후킹 인트로 & 3단 썸네일 설계 보기</summary>` +
+        `<div style="font-size:12px;line-height:1.45;margin-top:6px;padding:8px;border-radius:8px;background:var(--bg)">` +
+          `<div><b>🖼️ 테디쌤 3단 썸네일:</b><br>① 상단(?): ${t3.top}<br>② 중단(정체): ${t3.mid}<br>③ 하단(결과): ${t3.bot}</div>` +
+          `<hr style="border:0;border-top:1px solid var(--line);margin:6px 0">` +
+          `<div><b>🔥 초반 30초 후킹 (잔존율 70%+ 목표):</b><br>• ${h30.s0_6}<br>• ${h30.s6_18}<br>• ${h30.s18_30}</div>` +
+          `<hr style="border:0;border-top:1px solid var(--line);margin:6px 0">` +
+          `<div><b>🛠️ 자동 매칭 엔진:</b> ${v.engine_recipe || ""}</div>` +
+        `</div>` +
+      `</details>` +
+      `<button class="btn on thcmdcopy" style="margin-top:4px;padding:7px 6px;font-weight:800">🚀 원클릭 풀패키지 제작 명령 복사</button>` +
+      `<div class="act"><button class="btn ok ${done.has(v.id) ? "on" : ""}">${done.has(v.id) ? "✓ 사용 완료" : "사용 완료"}</button>` +
+      `<button class="btn memo ${memos[v.id] ? "on" : ""}">📝 메모</button><button class="btn hd">${hidden.has(v.id) ? "↩ 복구" : "🗑 숨김"}</button></div>` +
+      `<textarea hidden placeholder="추가할 반론 포인트, 내 생각 메모"></textarea></div>`;
+    el.querySelector(".t").textContent = v.title;
+    el.querySelector(".th").onclick = e => { if (!e.target.closest(".fav")) window.open(v.url, "_blank", "noopener"); };
+    el.querySelector(".thcmdcopy").onclick = e => {
+      const cmd = `[원클릭 2차가공 풀패키지 제작 요청]\n` +
+        `• 카테고리: ${cObj.label || v.category}\n` +
+        `• 4강 시크릿 조합 제목: ${v.title}\n` +
+        `• 원본 소스 링크: ${v.url} (${v.license})\n` +
+        `• 3강 테디쌤 3단 썸네일 문구: [상단] ${t3.top} / [중단] ${t3.mid} / [하단] ${t3.bot}\n` +
+        `• 초반 0~30초 초강력 후킹 세팅:\n  1) ${h30.s0_6}\n  2) ${h30.s6_18}\n  3) ${h30.s18_30}\n` +
+        `• 제작 엔진 레시피: ${v.engine_recipe}\n` +
+        `위 설계 그대로 초반 6초 Google Flow(울트라 웹 0원 1순위) AI 후킹 인트로 세팅하고, 본편 2차 가공 영상(MP4 + CapCut 초안)과 썸네일·소명용 출처 원장까지 원클릭으로 만들어줘!`;
+      navigator.clipboard.writeText(cmd).then(() => {
+        const b = e.currentTarget; const oldTxt = b.textContent;
+        b.textContent = "✅ 원클릭 제작 명령 복사 완료! 채팅창에 붙여넣으세요";
+        setTimeout(() => b.textContent = oldTxt, 2200);
+      });
+    };
+    el.querySelector(".fav").onclick = () => { favs.has(v.id) ? favs.delete(v.id) : favs.add(v.id); saveAll(); renderTh(); };
+    el.querySelector(".ok").onclick = () => { done.has(v.id) ? done.delete(v.id) : done.add(v.id); saveAll(); renderTh(); };
+    el.querySelector(".hd").onclick = () => { hidden.has(v.id) ? hidden.delete(v.id) : hidden.add(v.id); saveAll(); renderTh(); };
+    const ta = el.querySelector("textarea"), mb = el.querySelector(".memo"); ta.value = memos[v.id] || "";
+    mb.onclick = () => { ta.hidden = !ta.hidden; if (!ta.hidden) ta.focus(); };
+    ta.oninput = () => { ta.value.trim() ? memos[v.id] = ta.value : delete memos[v.id]; mb.classList.toggle("on", !!memos[v.id]); saveAll(); };
+    g.append(el);
+  });
+}
 function setModeAll(m) {
-  const mode = m === true ? "c" : m === "s" || m === "c" || m === "ct" || m === "nw" ? m : "v";
-  ["mv", "mc", "ms", "mct", "mnw"].forEach((id, i) => document.getElementById(id).classList.toggle("on", ["v", "c", "s", "ct", "nw"][i] === mode));
+  const mode = m === true ? "c" : m === "s" || m === "c" || m === "ct" || m === "nw" || m === "th" ? m : "v";
+  ["mv", "mc", "ms", "mct", "mnw", "mth"].forEach((id, i) => document.getElementById(id).classList.toggle("on", ["v", "c", "s", "ct", "nw", "th"][i] === mode));
   document.querySelectorAll(".vmode").forEach(e => e.hidden = mode !== "v");
   document.getElementById("chview").hidden = mode !== "c";
   document.getElementById("scview").hidden = mode !== "s";
   document.getElementById("ctview").hidden = mode !== "ct";
   document.getElementById("nwview").hidden = mode !== "nw";
+  document.getElementById("thview").hidden = mode !== "th";
   if (mode === "c") renderCh();
   if (mode === "s") renderScore();
   if (mode === "ct") renderCt();
   if (mode === "nw") renderNw();
+  if (mode === "th") ensureTransformHubLoaded(() => renderTh());
   if (mode === "v" && typeof render === "function" && V.length) render({keep: true});
 }
-document.getElementById("mv").onclick = () => setModeAll(false); document.getElementById("mc").onclick = () => setModeAll(true); document.getElementById("ms").onclick = () => setModeAll("s"); document.getElementById("mct").onclick = () => setModeAll("ct"); document.getElementById("mnw").onclick = () => setModeAll("nw");
+document.getElementById("mv").onclick = () => setModeAll(false); document.getElementById("mc").onclick = () => setModeAll(true); document.getElementById("ms").onclick = () => setModeAll("s"); document.getElementById("mct").onclick = () => setModeAll("ct"); document.getElementById("mnw").onclick = () => setModeAll("nw"); document.getElementById("mth").onclick = () => setModeAll("th");
 ["q", "sort", "dir", "lenmode"].forEach(i => document.getElementById(i).addEventListener("input", render));
 document.getElementById("exp").onclick = () => {
   const blob = new Blob([JSON.stringify({favs: [...favs], done: [...done], hidden: [...hidden], memos, kindCh, kindVid}, null, 1)], {type: "application/json"});
