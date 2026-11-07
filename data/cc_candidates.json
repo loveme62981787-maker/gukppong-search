@@ -1298,6 +1298,22 @@
    "title": "Gwangjang Market Korean Street Food in Seoul, Korea | #AmazingMeraki",
    "views": 5
   },
+  "Hg55JswBLII": {
+   "attempted_at": "2026-11-07T14:54:44Z",
+   "channel": "RON ON THE GO",
+   "channel_id": "UCStgfMG5QH2mhqBA5btOzOw",
+   "country": "일본",
+   "duration_sec": 681,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-07",
+   "id": "Hg55JswBLII",
+   "length": "11:21",
+   "query": "Japan convenience store food",
+   "status": "pending",
+   "title": "MY TOUR/REVIEW OF 7-11 IN JAPAN | A QUICK RUNDOWN OF THE STORE",
+   "views": 947
+  },
   "I82BYX0S0lY": {
    "attempted_at": "2026-11-01T09:11:48Z",
    "channel": "accidental_clickks",
@@ -1356,6 +1372,22 @@
    "status": "pending",
    "title": "Taiwan 2025 Ximending Food | SECRET to Free Dining",
    "views": 1968
+  },
+  "In10_xHvfXQ": {
+   "attempted_at": "2026-11-07T14:54:44Z",
+   "channel": "Disrupt Capital",
+   "channel_id": "UCzm1GvXlVjj0VeoJdvvQFbw",
+   "country": "일본",
+   "duration_sec": 468,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-07",
+   "id": "In10_xHvfXQ",
+   "length": "7:48",
+   "query": "Japan convenience store food",
+   "status": "pending",
+   "title": "Japan continues to go WAYYY beyond the US experience.",
+   "views": 876
   },
   "Ir3Y0UBB3UI": {
    "attempted_at": "2026-10-31T16:15:33Z",
@@ -1502,6 +1534,20 @@
    "status": "pending",
    "title": "TRIP to TAIWAN w/ my 'THE ONE' (Sarap ng WEATHER) | Wowie and Ronan",
    "views": 11743
+  },
+  "KgT_jjt3XAk": {
+   "channel": "Taiwan 4K",
+   "channel_id": "UCdfMnSj2RSWvW8rY6qMEpmA",
+   "country": "대만",
+   "duration_sec": 532,
+   "fail_count": 0,
+   "first_seen": "2026-11-07",
+   "id": "KgT_jjt3XAk",
+   "length": "8:52",
+   "query": "Taiwan convenience store food",
+   "status": "pending",
+   "title": "[4K] Shop Tour - Tainan, Taiwan OFF DAY 4 | July 2021",
+   "views": 37
   },
   "KjQdimh-pPI": {
    "attempted_at": "2026-10-31T16:15:42Z",
@@ -4558,7 +4604,7 @@
    "found": 20
   },
   "대만|Taiwan convenience store food": {
-   "at": "2026-11-04T19:45:59Z",
+   "at": "2026-11-07T14:54:41Z",
    "found": 20
   },
   "대만|Taiwan street food": {
@@ -4586,7 +4632,7 @@
    "found": 20
   },
   "일본|Japan convenience store food": {
-   "at": "2026-11-04T19:45:56Z",
+   "at": "2026-11-07T14:54:39Z",
    "found": 20
   },
   "일본|Japan travel vlog": {
@@ -4626,7 +4672,7 @@
    "found": 20
   },
   "한국|Korea convenience store food": {
-   "at": "2026-11-04T19:45:54Z",
+   "at": "2026-11-07T14:54:36Z",
    "found": 20
   },
   "한국|Korea travel vlog": {
@@ -4650,5 +4696,5 @@
    "found": 20
   }
  },
- "updated": "2026-11-07T06:00:00Z"
+ "updated": "2026-11-07T14:54:44Z"
 }
