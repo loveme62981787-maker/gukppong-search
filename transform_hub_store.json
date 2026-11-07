@@ -1,5 +1,5 @@
 {
-  "updated": "2026-11-07 02:38 KST",
+  "updated": "2026-11-07 12:00 KST (v5.0 · STEP 0 동종채널 DNA 분석 + 8분 30초+ 중간광고 100% 보장)",
   "categories": [
     {
       "id": "cat1_politics",
@@ -14,7 +14,7 @@
       "edit_profile": {
         "code": "Profile #1 · Debate & Briefing Board (다중 쟁점 대조 보드형)",
         "audio_ratio": "한국어 4대 페르소나 해설 65% : 국회·브리핑 현장 육성 35% (Orig ASR: ko-orig 강제)",
-        "cut_pacing": "6~10초 단위 교차 (권장 길이: 롱폼 35~50분 + 쇼츠 3편)",
+        "cut_pacing": "최소 8분 30초~25분+ (16파트 · 중간광고 보장) · 6~10초 단위 교차 (권장 길이: 롱폼 35~50분 + 쇼츠 3편)",
         "layout_skin": "좌/우 발언자 2분할 대조 프레임 + 하단 회의록 원문 노란 형광펜 바 + UV quote/comparison GSAP 카드 + 시니어 64px 자막"
       },
       "benchmarks": {
@@ -127,6 +127,42 @@
             "point": "우리 '4대 페르소나 해설'의 실사판 레퍼런스"
           }
         ]
+      },
+      "competitor_dna": {
+        "theme_id": "cat1_politics",
+        "theme_name": "① 🏛️ 유형C: 정치·시사 브리핑",
+        "verified_kr_channels": [
+          {
+            "name": "@여의도판독기 / 국회 브리핑 해설형",
+            "orig_asr": "ko",
+            "audio_mix": "한국어 4대 페르소나 해설 75% + 국회·브리핑 원음 25% 더킹"
+          },
+          {
+            "name": "@비디오머그 / @스브스뉴스 시사 심층형",
+            "orig_asr": "ko",
+            "audio_mix": "핵심 발언 5초 인용 후 즉각 제도·생활 영향 분석"
+          }
+        ],
+        "clean_raw_sources": [
+          "NATV 국회방송 (공공누리 / 무자막 상임위·본회의 원본)",
+          "KTV 국민방송 (제1유형 공공누리 / 국무회의·부처 브리핑 무자막 원본)",
+          "대한민국 청와대/대통령실·각 부처 공식 유튜브 무자막 브리핑"
+        ],
+        "banned_sources": [
+          "타 정치 유튜버의 얼굴/로고/자막이 크게 박힌 2차 편집본",
+          "욕설·선동·허위 날조가 포함된 렉카 채널 영상"
+        ],
+        "script_structure_dna": [
+          "1단계 [0~15초 훅]: 오늘 회의록/브리핑에서 나온 가장 결정적인 발언 1문장 인용 + '이 결정이 내 연금·세금에 어떤 영향을 미칠까요?' 질문",
+          "2단계 [사실 확인자]: 날짜·회의명·발언자 직함과 실제 회의록 원문 팩트 제시",
+          "3단계 [제도 해설자]: 어려운 법률·예산·정책 용어를 55세+ 시니어 눈높이 일상 비유로 풀이",
+          "4단계 [생활 영향 & 양측 반론]: 찬성 측 논리와 반대 측 우려를 50:50 균형 있게 대조하고 시청자 의견 질문으로 마무리"
+        ],
+        "visual_rules": {
+          "crop_filter": "crop=iw*0.88:ih*0.78:iw*0.06:ih*0.06,scale=1920:1080,setsar=1,fps=30",
+          "field_audio_volume": 0.2,
+          "top_left_badge_prefix": "▎대한민국 국회·정부 공개 브리핑 기록 · "
+        }
       }
     },
     {
@@ -255,6 +291,42 @@
             "point": "통화신용정책 보고서·경제전망 브리핑 합법 원천 소스"
           }
         ]
+      },
+      "competitor_dna": {
+        "theme_id": "cat2_economy",
+        "theme_name": "② 💰 생활경제·연금·부동산",
+        "verified_kr_channels": [
+          {
+            "name": "@할미언니 / @시니어연금연구소 스타일",
+            "orig_asr": "ko",
+            "audio_mix": "한국어 재무·연금 계산 해설 88% + 브리핑 앰비언스 12%"
+          },
+          {
+            "name": "@경제브리핑 / KDI·복지부 정책 해설형",
+            "orig_asr": "ko",
+            "audio_mix": "가구별 수령액 전·후 비교 사례 중심 100% 한국어 해설"
+          }
+        ],
+        "clean_raw_sources": [
+          "보건복지부 / 국민연금공단 공식 브리핑 무자막 원본",
+          "KTV 국민방송 경제·연금·부동산 정책 발표 원본",
+          "한국은행 금융통화위원회 공식 브리핑"
+        ],
+        "banned_sources": [
+          "타 경제 유튜버의 칠판/슬라이드 화면 무단 캡처",
+          "영문 텍스트가 가득한 해외 뉴스 화면"
+        ],
+        "script_structure_dna": [
+          "1단계 [0~15초 지갑 훅]: '올해부터 이 신청을 안 하시면 매달 받던 연금에서 34만 원이 깎입니다' 구체적 금액 제시",
+          "2단계 [개편 핵심 기준]: 소득인정액·재산 과표·건보료 피부양자 탈락 커트라인 수치 명확화",
+          "3단계 [가구별 실전 계산기]: '월 150만 원 수령 63세 부부' vs '자가 1채 보유 68세 단독가구' 실제 시뮬레이션 비교",
+          "4단계 [오늘 당장 해야 할 3가지 행동]: 주민센터/복지로 신청 기한 및 서류 체크리스트 정리"
+        ],
+        "visual_rules": {
+          "crop_filter": "crop=iw*0.88:ih*0.78:iw*0.06:ih*0.06,scale=1920:1080,setsar=1,fps=30",
+          "field_audio_volume": 0.14,
+          "top_left_badge_prefix": "▎보건복지부·국민연금 공식 정책 브리핑 · "
+        }
       }
     },
     {
@@ -270,7 +342,7 @@
       "edit_profile": {
         "code": "Profile #3 · Archive Cinema 2.5D (2.5D 사료 패럴랙스 & 작전지도형)",
         "audio_ratio": "한국어 다큐 내레이션 80% : 역사 기록음·육성 20% (Orig ASR: ko-orig 강제)",
-        "cut_pacing": "10~15초 시네마틱 호흡 (권장 길이: 롱폼 20~45분 + 쇼츠 3편)",
+        "cut_pacing": "최소 8분 30초~25분+ (16파트 · 중간광고 보장) · 10~15초 시네마틱 호흡 (권장 길이: 롱폼 20~45분 + 쇼츠 3편)",
         "layout_skin": "vox-history-docu-studio 2.5D 흑백 사료 패럴랙스 + 한 획씩 그려지는 진격·무역로 고증 지도 + 기밀문서 노란 형광펜 줌인"
       },
       "benchmarks": {
@@ -383,6 +455,37 @@
             "point": "대한뉴스·경제개발 5개년 계획 흑백 영상 사료 1차 공급처"
           }
         ]
+      },
+      "competitor_dna": {
+        "theme_id": "cat3_history",
+        "theme_name": "③ 📜 한국 근현대사·경제성장사·지정학",
+        "verified_kr_channels": [
+          {
+            "name": "@기묘한교양E / @지식해적단 / @역사다큐 스타일",
+            "orig_asr": "ko",
+            "audio_mix": "중후한 한국어 다큐 내레이션 85% + 사료 현장음 15%"
+          }
+        ],
+        "clean_raw_sources": [
+          "국가기록원 / 대한뉴스 제1유형 공공누리 흑백·컬러 아카이브",
+          "미국 국립문서보관소(NARA) 한국전쟁·산업화 Public Domain 필름",
+          "KTV 대한늬우스 공식 아카이브"
+        ],
+        "banned_sources": [
+          "타 역사 유튜버의 워터마크·자막이 들어간 편집본",
+          "방송국(KBS/MBC/SBS) 다큐멘터리 로고 노출본"
+        ],
+        "script_structure_dna": [
+          "1단계 [0~15초 불가능의 숫자 훅]: 연도·장소·세계가 불가능하다고 비웃었던 기밀문서 속 절망적 수치 제시",
+          "2단계 [역경과 결단]: 당시 한국 기술자·장병·지도자들이 마주했던 물리적 한계와 기발한 돌파구",
+          "3단계 [결정적 전환점]: 구체적인 날짜·장비·인원수(Rule 12 순우리말 수관형사 준수)로 묘사하는 클라이맥스",
+          "4단계 [오늘날의 유산]: 그날의 땀방울이 오늘날 세계 1위 대한민국 산업·안보로 이어진 감동적 연결"
+        ],
+        "visual_rules": {
+          "crop_filter": "crop=iw*0.88:ih*0.78:iw*0.06:ih*0.06,scale=1920:1080,setsar=1,fps=30",
+          "field_audio_volume": 0.16,
+          "top_left_badge_prefix": "▎국가기록원·NARA 공개 역사 사료 · "
+        }
       }
     },
     {
@@ -398,7 +501,7 @@
       "edit_profile": {
         "code": "Profile #4 · Blueprint X-Ray 3D (공학 단면도 & 스펙 대결형)",
         "audio_ratio": "한국어 공학·원리 해설 80% : 현장 가동음·기술 브리핑 20% (Orig ASR: ko-orig 강제)",
-        "cut_pacing": "5~8초 역동적 전개 (권장 길이: 롱폼 15~25분 + 쇼츠 3편)",
+        "cut_pacing": "최소 8분 30초~25분+ (16파트 · 중간광고 보장) · 5~8초 역동적 전개 (권장 길이: 롱폼 15~25분 + 쇼츠 3편)",
         "layout_skin": "manimce 도형·수압·역학 벡터 시각화 + 청사진(Blueprint) 단면도 + 좌측 실사 인프라 & 우측 한·일·유럽 스펙 비교 게이지"
       },
       "benchmarks": {
@@ -511,6 +614,36 @@
             "point": "K-방산 실사 사격·기동 고화질 공공누리 원본 공급처"
           }
         ]
+      },
+      "competitor_dna": {
+        "theme_id": "cat4_infra",
+        "theme_name": "④ 🚄 메가 인프라·기술·방산 작동원리",
+        "verified_kr_channels": [
+          {
+            "name": "@공학도서관 / @밀리터리·인프라 메커니즘 해설형",
+            "orig_asr": "ko",
+            "audio_mix": "한국어 공학·스펙 해설 82% + 현장 장비 가동음 18%"
+          }
+        ],
+        "clean_raw_sources": [
+          "국토교통부 / 국가철도공단 공식 시공 아카이브",
+          "방위사업청(DAPA) / 국방홍보원 K-방산 기동 시험 무자막 원본",
+          "미국 국방부 DVIDS Public Domain 훈련 영상"
+        ],
+        "banned_sources": [
+          "해외 유튜버 워터마크가 박힌 리뷰 영상"
+        ],
+        "script_structure_dna": [
+          "1단계 [0~15초 극한 스펙 훅]: '수심 60미터, 수압 6기압의 바닷속을 오차 0.1밀리미터로 뚫는 방법' 공학적 호기심 자극",
+          "2단계 [작동 원리 해부]: TBM 굴착기·현수교 케이블·다연장 로켓의 핵심 메커니즘을 단계별로 설명",
+          "3단계 [한·일·유럽 3개국 스펙 대결]: 공사 기간, 킬로미터당 단가, 내구연한 수치 비교",
+          "4단계 [글로벌 수주 파급력]: 전 세계가 한국 표준 공법을 채택할 수밖에 없는 이유"
+        ],
+        "visual_rules": {
+          "crop_filter": "crop=iw*0.88:ih*0.78:iw*0.06:ih*0.06,scale=1920:1080,setsar=1,fps=30",
+          "field_audio_volume": 0.18,
+          "top_left_badge_prefix": "▎국토교통부·방위사업청 공개 기술 기록 · "
+        }
       }
     },
     {
@@ -526,7 +659,7 @@
       "edit_profile": {
         "code": "Profile #5 · Full-Bleed Empathy Cinema (바코드랩 4단계 서사 & 황금비율형)",
         "audio_ratio": "한국어 감성 스토리텔러 90% : 현장 앰비언스·효과음 10% (Orig ASR: ko-orig 강제)",
-        "cut_pacing": "12~18초 감정선 유지 호흡 (권장 길이: 15~25분 / 사연형 50분 + 쇼츠 3편)",
+        "cut_pacing": "최소 8분 30초~25분+ (16파트 · 중간광고 보장) · 12~18초 감정선 유지 호흡 (권장 길이: 15~25분 / 사연형 50분 + 쇼츠 3편)",
         "layout_skin": "Rule 6 하이브리드 3단 황금비율(Tier1 수묵/수채화 Draw-on 90% + Tier2 Google Flow 0원/LTX 풍경 3~4컷 + Tier3 Kling 눈물 클로즈업 1컷)"
       },
       "benchmarks": {
@@ -639,6 +772,35 @@
             "point": "다크룸 에디토리얼 숫자 카드와 웅장한 사운드 디자인"
           }
         ]
+      },
+      "competitor_dna": {
+        "theme_id": "cat5_docu",
+        "theme_name": "⑤ 😭 한·일·대만 기적의 실화·인물 다큐",
+        "verified_kr_channels": [
+          {
+            "name": "@바코드랩 / @감동실화 다큐멘터리 표준",
+            "orig_asr": "ko",
+            "audio_mix": "한국어 감성 스토리텔러 90% + 현장 앰비언스 10%"
+          }
+        ],
+        "clean_raw_sources": [
+          "공공기관 표창 기록 / 지자체 공식 아카이브",
+          "Wikimedia Commons CC0/CC-BY 현지 풍경 및 인물 사료"
+        ],
+        "banned_sources": [
+          "NHK·민방·대만 방송국 로고 및 자막이 그대로 노출된 캡처본"
+        ],
+        "script_structure_dna": [
+          "1단계 [1막 - 기이한 행동과 의문]: 모두가 비웃거나 이해하지 못했던 주인공의 외로운 행동과 구체적 숫자(집 7채, 10위안, 80세)",
+          "2단계 [2막 - 숨겨진 눈물의 과거]: 주인공이 왜 그렇게까지 희생할 수밖에 없었는지 밝혀지는 사연",
+          "3단계 [3막 - 기적의 반전]: 마을 사람들과 세상이 진실을 알게 되며 벌어지는 눈물의 변화",
+          "4단계 [4막 - 깊은 여운]: 오늘을 살아가는 우리에게 던지는 따뜻한 울림"
+        ],
+        "visual_rules": {
+          "crop_filter": "crop=iw*0.88:ih*0.78:iw*0.06:ih*0.06,scale=1920:1080,setsar=1,fps=30",
+          "field_audio_volume": 0.12,
+          "top_left_badge_prefix": "▎감동 실화 다큐멘터리 아카이브 · "
+        }
       }
     },
     {
@@ -654,7 +816,7 @@
       "edit_profile": {
         "code": "Profile #6 · Zen Ink & Watercolor Scroll (움직이는 수묵·수채화 명상 화첩형)",
         "audio_ratio": "한국어 강론·낭독 보이스 100% + 빗소리·가야금·피아노 앰비언스 (Orig ASR: ko-orig 100%)",
-        "cut_pacing": "20~35초 느린 명상 호흡 (권장 길이: 초장편 45~90분 + 쇼츠 3편)",
+        "cut_pacing": "최소 8분 30초~25분+ (16파트 · 중간광고 보장) · 20~35초 느린 명상 호흡 (권장 길이: 초장편 45~90분 + 쇼츠 3편)",
         "layout_skin": "정지화 1장 방치(AI Slop) 절대 금지! huashu 살아 움직이는 수묵 산수·매화·학 + anidoodle 연필 수채화 타임랩스 + 고전 서예 타이포"
       },
       "benchmarks": {
@@ -767,6 +929,35 @@
             "point": "조선왕조실록·문집·다산시문집 등 무제한 합법 고전 원문 공급처"
           }
         ]
+      },
+      "competitor_dna": {
+        "theme_id": "cat6_classics",
+        "theme_name": "⑥ 📖 성경·고전·역사 명연설 역설계 강론",
+        "verified_kr_channels": [
+          {
+            "name": "@고전의지혜 / @다산강론 / @성경묵상 오디오북형",
+            "orig_asr": "ko",
+            "audio_mix": "한국어 강론 보이스 100% (Orig ASR: ko 100%)"
+          }
+        ],
+        "clean_raw_sources": [
+          "퍼블릭 도메인 경전·고전 원문 (개역한글 성경, 다산 정약용 하피첩·목민심서, 논어, 장자)",
+          "수묵 산수화 / 고전 명화 Public Domain 아카이브"
+        ],
+        "banned_sources": [
+          "타 교회/철학 유튜버의 창작 설교 대본 고유 비유 무단 복제"
+        ],
+        "script_structure_dna": [
+          "1단계 [초반 20초 인생 질문 훅]: 60대 이후 자식·재산·인간관계에서 겪는 가장 현실적인 아픔 공감",
+          "2단계 [고전·경전 원문 인용]: 수천 년을 버텨온 성경/다산/고전의 핵심 구절 낭독과 배경 일화",
+          "3단계 [일상 실천 지혜 3가지]: 오늘부터 내 마음을 지키고 품격을 높이는 구체적인 태도",
+          "4단계 [평안의 마무리]: 시청자의 가정과 노후를 축복하는 따뜻한 맺음말"
+        ],
+        "visual_rules": {
+          "crop_filter": "crop=iw*0.90:ih*0.80:iw*0.05:ih*0.05,scale=1920:1080,setsar=1,fps=30",
+          "field_audio_volume": 0.08,
+          "top_left_badge_prefix": "▎고전·경전 지혜 강론 · "
+        }
       }
     },
     {
@@ -782,7 +973,7 @@
       "edit_profile": {
         "code": "Profile #7 · Multi-Press Split Room (다중 외신 헤드라인 & 3자 교차형)",
         "audio_ratio": "한국어 지정학·경제 해설 70% : 해외 석학·앵커 원문 육성 30% (Orig ASR: ko-orig 강제)",
-        "cut_pacing": "6~9초 뉴스룸 호흡 (권장 길이: 롱폼 18~35분 + 쇼츠 3편)",
+        "cut_pacing": "최소 8분 30초~25분+ (16파트 · 중간광고 보장) · 6~9초 뉴스룸 호흡 (권장 길이: 롱폼 18~35분 + 쇼츠 3편)",
         "layout_skin": "UV compile.py 다중 클립 합본 + 외신 기사/CRS 보고서 원문 노란 형광펜 & 한국어 번역 오버레이 + 미·일·유럽 3자 시각 비교 보드"
       },
       "benchmarks": {
@@ -895,6 +1086,35 @@
             "point": "빅테크 CEO 키노트·어닝콜 다중 교차 요약"
           }
         ]
+      },
+      "competitor_dna": {
+        "theme_id": "cat7_global",
+        "theme_name": "⑦ 🌍 글로벌 외신·해외 전문가 교차 브리핑",
+        "verified_kr_channels": [
+          {
+            "name": "@글로벌브리핑 / @외신교차분석형",
+            "orig_asr": "ko",
+            "audio_mix": "한국어 지정학·경제 해설 78% + 해외 브리핑 현장음 22% 더킹"
+          }
+        ],
+        "clean_raw_sources": [
+          "미국 백악관 / 국무부 / 국방부 / 의회(C-SPAN) Public Domain 공식 브리핑",
+          "유럽연합(EU) / UN 공식 무자막 브리핑 아카이브"
+        ],
+        "banned_sources": [
+          "타 국뽕/해외반응 채널의 자막·워터마크가 박힌 편집본"
+        ],
+        "script_structure_dna": [
+          "1단계 [0~15초 외신 원문 훅]: 미 의회 보고서·백악관 브리핑에 등장한 한국 관련 결정적 수치와 발언 인용",
+          "2단계 [미국 측 시각 분석]: 워싱턴 정책 입안자들이 한국을 파트너로 지목한 진짜 전략적 이유",
+          "3단계 [일본·유럽 측 반응 대조]: 경쟁국 전문가들이 충격받은 기술·경제 격차 데이터 비교",
+          "4단계 [한국의 향후 과제와 기회]: 냉철한 국익 관점에서의 종합 결론"
+        ],
+        "visual_rules": {
+          "crop_filter": "crop=iw*0.88:ih*0.78:iw*0.06:ih*0.06,scale=1920:1080,setsar=1,fps=30",
+          "field_audio_volume": 0.18,
+          "top_left_badge_prefix": "▎미국 의회·정부 공식 브리핑 기록 · "
+        }
       }
     },
     {
@@ -908,10 +1128,10 @@
       "engine_stack": "UV select/translate + timeline-* GSAP 그래픽 + voiceonly 현장음 클린화",
       "desc": "미국 주정부 정보공개법(FOIA) 바디캠 및 공개 법정 기록을 사건 타임라인 그래픽과 한국어 정밀 해설로 재구성하는 고몰입 사건 파일",
       "edit_profile": {
-        "code": "Profile #8 · EWU Forensic Caseboard (수사 보드 & 심리 프리즈프레임형)",
-        "audio_ratio": "한국어 사건·심리·법률 해설 70% : 바디캠·법정 현장 육성 30% (Orig ASR: ko-orig 강제! @미국수사비디오처럼 en-orig 방치 금지)",
-        "cut_pacing": "초반 6초 급제동 훅 + 7~10초 교차 호흡 (권장 길이: 롱폼 15~22분 + 쇼츠 3편)",
-        "layout_skin": "결정적 모순 순간 화면 정지(Freeze-frame) + 빨간 원·심리 상태 화살표 + UV timeline-* 사건 타임라인 + 거짓말 vs 증거 대조 보드"
+        "code": "Profile #8 · US Police FOIA Clean Bodycam (미클·캠켰어·미국경찰수첩 수익화 표준)",
+        "audio_ratio": "한국어 사건·법률 내레이션 78% + 현장 바디캠 앰비언스 22% (파트당 3.2초 현장음 숨고르기 · Orig ASR: ko 100%)",
+        "cut_pacing": "총 16파트 구성 · 최소 8분 30초~12분+ 보장 (유튜브 8분 이상 중간광고 100% 활성)",
+        "layout_skin": "우측 상단 AXON BODY 4 원본 마크 보존 + 하단 24% 아카이브 로고 완벽 제거 + 상단 2줄 사건 요약 배너 + 하단 한국어 내레이션 자막"
       },
       "benchmarks": {
         "rising": [
@@ -1023,6 +1243,46 @@
             "point": "양형 이유와 법정 공방 쟁점을 시니어 눈높이로 해설"
           }
         ]
+      },
+      "competitor_dna": {
+        "theme_id": "cat8_court",
+        "theme_name": "⑧ ⚖️ 실제 법정 재판·바디캠 사건 재구성",
+        "verified_kr_channels": [
+          {
+            "name": "@미국경찰 클립 : 미클 (구독자 5.66만 · 조회수 15.2만)",
+            "orig_asr": "ko",
+            "audio_mix": "한국어 사건·심리 해설 100% + 실제 바디캠/취조실 현장음 22% 더킹"
+          },
+          {
+            "name": "@캠켰어 (조회수 1.8만 · AXON BODY 원본 활용)",
+            "orig_asr": "ko",
+            "audio_mix": "우상단 AXON BODY 노란 삼각형 보존 + 노란색/흰색 2단 자막"
+          },
+          {
+            "name": "@미국경찰수첩 (조회수 2.2만 · 좌상단 관할 배지형)",
+            "orig_asr": "ko (보정)",
+            "audio_mix": "좌상단 주/카운티 배지 + 전 구간 실제 추격·체포 바디캠 연속 재생"
+          }
+        ],
+        "clean_raw_sources": [
+          "@PoliceActivity (미국 경찰청 FOIA 무자막·무성우 AXON BODY 3/4 순수 원본)",
+          "@CodeBlueCam / @LawAndCrime Network (무자막 법정·취조실 공식 기록)"
+        ],
+        "banned_sources": [
+          "@ExploreWithUs (화면 중앙 움직이는 분홍색 뇌 로고 + 하단 영어 자막 + 영어 성우 오염본 사용 절대 금지!)",
+          "Pixabay 엉뚱한 스톡 영상(체스판·가짜 도로) 및 정지 슬라이드쇼 사용 절대 금지!"
+        ],
+        "script_structure_dna": [
+          "1단계 [0~15초 현장 급제동 훅]: 바디캠/순찰차 사이렌과 함께 가장 긴박한 현장 대사 1문장 번역 + 사건 발생 주/카운티 브리핑",
+          "2단계 [수상한 정황과 진술 모순]: 경찰관의 정당한 검문/명령에 불응하거나 거짓말을 늘어놓는 용의자의 행동 묘사",
+          "3단계 [결정적 발각 및 추격·제압]: 스파이크·테이저건·트렁크 수색·수갑 체포 등 바디캠 하이라이트 장면을 시간순으로 생생하게 중계",
+          "4단계 [적용 혐의 및 최종 판결]: 검찰 기소 죄목과 법원의 중형 선고 결과 및 사법적 교훈 정리"
+        ],
+        "visual_rules": {
+          "crop_filter": "crop=iw*0.88:ih*0.76:iw*0.06:0,scale=1920:1080,setsar=1,fps=30",
+          "field_audio_volume": 0.22,
+          "top_left_badge_prefix": "▎미국 경찰청 공식 FOIA 바디캠 · "
+        }
       }
     }
   ],
@@ -1044,8 +1304,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (5060 시니어 40분+)",
-      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 31.2배",
         "👁️ 1,509,909뷰",
         "구독 48,400명"
@@ -1060,7 +1321,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat1_politics_M-MYJsPEddI",
@@ -1079,12 +1346,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (5060 시니어 40분+)",
-      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-09개설)",
         "⚡ 구독자 대비 23.3배",
-        "👁️ 93,275뷰",
-        "구독 4,000명"
+        "👁️ 93,275뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 93,275뷰나 터졌을까?!\"",
@@ -1096,7 +1363,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat1_politics_8zwqvdpu9UA",
@@ -1115,12 +1388,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (5060 시니어 40분+)",
-      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-09개설)",
         "⚡ 구독자 대비 21.4배",
-        "👁️ 36,593뷰",
-        "구독 1,710명"
+        "👁️ 36,593뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 36,593뷰나 터졌을까?!\"",
@@ -1132,7 +1405,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat1_politics_WwbQdIWUOcg",
@@ -1151,12 +1430,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (5060 시니어 40분+)",
-      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-10개설)",
         "⚡ 구독자 대비 12.7배",
-        "👁️ 43,922뷰",
-        "구독 3,470명"
+        "👁️ 43,922뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 43,922뷰나 터졌을까?!\"",
@@ -1168,7 +1447,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat1_politics_0TCElbDhlyo",
@@ -1187,12 +1472,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (5060 시니어 40분+)",
-      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-04개설)",
         "⚡ 구독자 대비 8.2배",
-        "👁️ 18,079뷰",
-        "구독 2,200명"
+        "👁️ 18,079뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 18,079뷰나 터졌을까?!\"",
@@ -1204,7 +1489,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat1_politics_6dB3qkn_s5U",
@@ -1223,8 +1514,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (5060 시니어 40분+)",
-      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 7.4배",
         "👁️ 625,020뷰",
         "구독 84,600명"
@@ -1239,7 +1531,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat1_politics_AAp9SsTXBy4",
@@ -1258,12 +1556,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (5060 시니어 40분+)",
-      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-09개설)",
         "⚡ 구독자 대비 3.3배",
-        "👁️ 7,861뷰",
-        "구독 2,360명"
+        "👁️ 7,861뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 7,861뷰나 터졌을까?!\"",
@@ -1275,7 +1573,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat1_politics_WyCDHd1DLBY",
@@ -1294,8 +1598,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (5060 시니어 40분+)",
-      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 3.1배",
         "👁️ 267,340뷰",
         "구독 85,900명"
@@ -1310,7 +1615,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat1_politics_nw6uUhOemvg",
@@ -1329,8 +1640,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (5060 시니어 40분+)",
-      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 2.4배",
         "👁️ 3,422,394뷰",
         "구독 1,450,000명"
@@ -1345,7 +1657,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat1_politics_xt_cJ1XIPEc",
@@ -1364,8 +1682,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (5060 시니어 40분+)",
-      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 787,840뷰",
         "구독 1,360,000명"
       ],
@@ -1379,7 +1698,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat1_politics__NvV3-XqBUQ",
@@ -1398,8 +1723,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (5060 시니어 40분+)",
-      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 475,733뷰",
         "구독 1,100,000명"
       ],
@@ -1413,7 +1739,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat1_politics_FPELlw37cPI",
@@ -1432,8 +1764,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (5060 시니어 40분+)",
-      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 460,647뷰",
         "구독 1,500,000명"
       ],
@@ -1447,7 +1780,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat1_politics__6Jic5MJ6R8",
@@ -1466,8 +1805,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (5060 시니어 40분+)",
-      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 432,157뷰",
         "구독 697,000명"
       ],
@@ -1481,7 +1821,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat1_politics_K-sPznJLW_E",
@@ -1500,8 +1846,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (5060 시니어 40분+)",
-      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 310,303뷰",
         "구독 603,000명"
       ],
@@ -1515,7 +1862,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat1_politics_5fExnNNZWSQ",
@@ -1534,8 +1887,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (5060 시니어 40분+)",
-      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 286,004뷰",
         "구독 1,170,000명"
       ],
@@ -1549,7 +1903,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat1_politics_oYeObV8zpPA",
@@ -1568,8 +1928,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (5060 시니어 40분+)",
-      "target_len": "롱폼 35~50분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 215,521뷰",
         "구독 464,000명"
       ],
@@ -1583,7 +1944,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV refcheck ➔ voiceonly(0.72) ➔ 4대 페르소나 해설(65%+) ➔ UV compare/quote GSAP",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat2_economy_g3wrRNFc3No",
@@ -1604,10 +1971,10 @@
       "rpm": "최상 (전체 1위 고단가)",
       "target_len": "롱폼 18~28분 + 쇼츠 3편",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-08개설)",
         "⚡ 구독자 대비 55.8배",
-        "👁️ 10,610뷰",
-        "구독 190명"
+        "👁️ 10,610뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 10,610뷰나 터졌을까?!\"",
@@ -1619,7 +1986,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat2_economy_GXSv_UIJhdo",
@@ -1640,6 +2013,7 @@
       "rpm": "최상 (전체 1위 고단가)",
       "target_len": "롱폼 18~28분 + 쇼츠 3편",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 34.2배",
         "👁️ 814,301뷰",
         "구독 23,800명"
@@ -1654,7 +2028,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat2_economy_AGLqe-MD0_U",
@@ -1675,10 +2055,10 @@
       "rpm": "최상 (전체 1위 고단가)",
       "target_len": "롱폼 18~28분 + 쇼츠 3편",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-09개설)",
         "⚡ 구독자 대비 23.1배",
-        "👁️ 11,701뷰",
-        "구독 507명"
+        "👁️ 11,701뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 11,701뷰나 터졌을까?!\"",
@@ -1690,7 +2070,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat2_economy_Zt8k-FD-b6s",
@@ -1711,10 +2097,10 @@
       "rpm": "최상 (전체 1위 고단가)",
       "target_len": "롱폼 18~28분 + 쇼츠 3편",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2025-12개설)",
         "⚡ 구독자 대비 21.7배",
-        "👁️ 17,909뷰",
-        "구독 825명"
+        "👁️ 17,909뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 17,909뷰나 터졌을까?!\"",
@@ -1726,7 +2112,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat2_economy_zb3n8malRz8",
@@ -1747,6 +2139,7 @@
       "rpm": "최상 (전체 1위 고단가)",
       "target_len": "롱폼 18~28분 + 쇼츠 3편",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 15.8배",
         "👁️ 7,353뷰",
         "구독 465명"
@@ -1761,7 +2154,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat2_economy_a81HF6Fvmxk",
@@ -1782,6 +2181,7 @@
       "rpm": "최상 (전체 1위 고단가)",
       "target_len": "롱폼 18~28분 + 쇼츠 3편",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 14.8배",
         "👁️ 8,971뷰",
         "구독 606명"
@@ -1796,7 +2196,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat2_economy_6MYfvjhO4-s",
@@ -1817,6 +2223,7 @@
       "rpm": "최상 (전체 1위 고단가)",
       "target_len": "롱폼 18~28분 + 쇼츠 3편",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 14.7배",
         "👁️ 17,089뷰",
         "구독 1,160명"
@@ -1831,7 +2238,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat2_economy_V9sqi0K_ogI",
@@ -1852,6 +2265,7 @@
       "rpm": "최상 (전체 1위 고단가)",
       "target_len": "롱폼 18~28분 + 쇼츠 3편",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 14.5배",
         "👁️ 9,346뷰",
         "구독 643명"
@@ -1866,7 +2280,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat2_economy_4nCnG2vDpRY",
@@ -1887,6 +2307,7 @@
       "rpm": "최상 (전체 1위 고단가)",
       "target_len": "롱폼 18~28분 + 쇼츠 3편",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 4.6배",
         "👁️ 1,518,870뷰",
         "구독 329,000명"
@@ -1901,7 +2322,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat2_economy_99oK8-6j27o",
@@ -1922,6 +2349,7 @@
       "rpm": "최상 (전체 1위 고단가)",
       "target_len": "롱폼 18~28분 + 쇼츠 3편",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 3.9배",
         "👁️ 1,152,956뷰",
         "구독 296,000명"
@@ -1936,7 +2364,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat2_economy_EjWwfsfz1ZI",
@@ -1957,6 +2391,7 @@
       "rpm": "최상 (전체 1위 고단가)",
       "target_len": "롱폼 18~28분 + 쇼츠 3편",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 888,786뷰",
         "구독 1,290,000명"
       ],
@@ -1970,7 +2405,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat2_economy_8z_rdy5ci44",
@@ -1991,6 +2432,7 @@
       "rpm": "최상 (전체 1위 고단가)",
       "target_len": "롱폼 18~28분 + 쇼츠 3편",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 2.8배",
         "👁️ 856,743뷰",
         "구독 304,000명"
@@ -2005,7 +2447,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat2_economy__UKfxz4sb-0",
@@ -2026,6 +2474,7 @@
       "rpm": "최상 (전체 1위 고단가)",
       "target_len": "롱폼 18~28분 + 쇼츠 3편",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 4.4배",
         "👁️ 723,526뷰",
         "구독 166,000명"
@@ -2040,7 +2489,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat2_economy_dFPE4FGY3rI",
@@ -2061,6 +2516,7 @@
       "rpm": "최상 (전체 1위 고단가)",
       "target_len": "롱폼 18~28분 + 쇼츠 3편",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 12.7배",
         "👁️ 356,238뷰",
         "구독 28,100명"
@@ -2075,7 +2531,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat2_economy_I4MDwQFRIa0",
@@ -2096,6 +2558,7 @@
       "rpm": "최상 (전체 1위 고단가)",
       "target_len": "롱폼 18~28분 + 쇼츠 3편",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 308,228뷰",
         "구독 442,000명"
       ],
@@ -2109,7 +2572,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat2_economy_gdXcOMG6odA",
@@ -2130,6 +2599,7 @@
       "rpm": "최상 (전체 1위 고단가)",
       "target_len": "롱폼 18~28분 + 쇼츠 3편",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 2.6배",
         "👁️ 265,337뷰",
         "구독 103,000명"
@@ -2144,7 +2614,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑/한은 데이터 + 가구별 수령액 계산표(72px) + huashu 막대/선 차트",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat3_history_lyxQaA1vwgI",
@@ -2163,12 +2639,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (시니어 완주율 1위)",
-      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-10개설)",
         "⚡ 구독자 대비 639.1배",
-        "👁️ 187,908뷰",
-        "구독 294명"
+        "👁️ 187,908뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 187,908뷰나 터졌을까?!\"",
@@ -2180,7 +2656,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat3_history_RkfcQNqzHfw",
@@ -2199,12 +2681,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (시니어 완주율 1위)",
-      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-06개설)",
         "⚡ 구독자 대비 174.7배",
-        "👁️ 58,527뷰",
-        "구독 335명"
+        "👁️ 58,527뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 58,527뷰나 터졌을까?!\"",
@@ -2216,7 +2698,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat3_history_74119Xuirec",
@@ -2235,8 +2723,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (시니어 완주율 1위)",
-      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 110.0배",
         "👁️ 108,138뷰",
         "구독 983명"
@@ -2251,7 +2740,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat3_history_IxrZHpKA1AQ",
@@ -2270,12 +2765,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (시니어 완주율 1위)",
-      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-10개설)",
         "⚡ 구독자 대비 79.8배",
-        "👁️ 11,010뷰",
-        "구독 138명"
+        "👁️ 11,010뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 11,010뷰나 터졌을까?!\"",
@@ -2287,7 +2782,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat3_history_XUsfsczX5mM",
@@ -2306,8 +2807,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (시니어 완주율 1위)",
-      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 56.2배",
         "👁️ 5,618,086뷰",
         "구독 100,000명"
@@ -2322,7 +2824,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat3_history_eYQNOY3Y-D8",
@@ -2341,12 +2849,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (시니어 완주율 1위)",
-      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-03개설)",
         "⚡ 구독자 대비 34.1배",
-        "👁️ 6,553뷰",
-        "구독 192명"
+        "👁️ 6,553뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 6,553뷰나 터졌을까?!\"",
@@ -2358,7 +2866,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat3_history_u1EddrfHR2U",
@@ -2377,8 +2891,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (시니어 완주율 1위)",
-      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 21.2배",
         "👁️ 75,099뷰",
         "구독 3,540명"
@@ -2393,7 +2908,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat3_history_AlTu5MoPbu0",
@@ -2412,12 +2933,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (시니어 완주율 1위)",
-      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-08개설)",
         "⚡ 구독자 대비 20.7배",
-        "👁️ 5,973뷰",
-        "구독 289명"
+        "👁️ 5,973뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 5,973뷰나 터졌을까?!\"",
@@ -2429,7 +2950,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat3_history_kBkqTQHcZHk",
@@ -2448,8 +2975,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (시니어 완주율 1위)",
-      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 9.5배",
         "👁️ 9,458,223뷰",
         "구독 1,000,000명"
@@ -2464,7 +2992,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat3_history_uA-UWOBSeI4",
@@ -2483,8 +3017,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (시니어 완주율 1위)",
-      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 3.4배",
         "👁️ 2,854,728뷰",
         "구독 837,000명"
@@ -2499,7 +3034,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat3_history_tmdwD3ex6zE",
@@ -2518,8 +3059,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (시니어 완주율 1위)",
-      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 13.1배",
         "👁️ 2,272,148뷰",
         "구독 173,000명"
@@ -2534,7 +3076,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat3_history_V4jMQ_FKWDY",
@@ -2553,8 +3101,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (시니어 완주율 1위)",
-      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 1,831,147뷰",
         "구독 1,380,000명"
       ],
@@ -2568,7 +3117,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat3_history_gNP-sU5baYQ",
@@ -2587,8 +3142,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (시니어 완주율 1위)",
-      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 1,542,665뷰",
         "구독 1,140,000명"
       ],
@@ -2602,7 +3158,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat3_history_mQrmejPNyM4",
@@ -2621,8 +3183,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (시니어 완주율 1위)",
-      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 780,504뷰",
         "구독 1,100,000명"
       ],
@@ -2636,7 +3199,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat3_history_iIrlvqHMtng",
@@ -2655,8 +3224,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (시니어 완주율 1위)",
-      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 588,620뷰",
         "구독 5,380,000명"
       ],
@@ -2670,7 +3240,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat3_history_q0bYXVyFwv8",
@@ -2689,8 +3265,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (시니어 완주율 1위)",
-      "target_len": "롱폼 25~40분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 562,606뷰",
         "구독 607,000명"
       ],
@@ -2704,7 +3281,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ vox-history-docu-studio(2.5D 패럴랙스 + 고증지도 + 형광펜 사료카드) + Draw-on",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat4_infra_l2EHqW9XvPU",
@@ -2723,8 +3306,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (남성 89% 타깃)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 220.9배",
         "👁️ 24,743뷰",
         "구독 112명"
@@ -2739,7 +3323,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat4_infra_Ud_y3xA3jnQ",
@@ -2758,12 +3348,12 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (남성 89% 타깃)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-09개설)",
         "⚡ 구독자 대비 81.7배",
-        "👁️ 3,105뷰",
-        "구독 38명"
+        "👁️ 3,105뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 3,105뷰나 터졌을까?!\"",
@@ -2775,7 +3365,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat4_infra_kR85kfHeZAQ",
@@ -2794,12 +3390,12 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (남성 89% 타깃)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-02개설)",
         "⚡ 구독자 대비 78.1배",
-        "👁️ 10,937뷰",
-        "구독 140명"
+        "👁️ 10,937뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 10,937뷰나 터졌을까?!\"",
@@ -2811,7 +3407,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat4_infra_lEOVLgornak",
@@ -2830,8 +3432,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (남성 89% 타깃)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 33.4배",
         "👁️ 30,497뷰",
         "구독 913명"
@@ -2846,7 +3449,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat4_infra_QgYxy63BoHs",
@@ -2865,12 +3474,12 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (남성 89% 타깃)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-08개설)",
         "⚡ 구독자 대비 32.8배",
-        "👁️ 6,725뷰",
-        "구독 205명"
+        "👁️ 6,725뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 6,725뷰나 터졌을까?!\"",
@@ -2882,7 +3491,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat4_infra_rsGP2sYozQU",
@@ -2901,12 +3516,12 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (남성 89% 타깃)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-04개설)",
         "⚡ 구독자 대비 19.9배",
-        "👁️ 120,606뷰",
-        "구독 6,050명"
+        "👁️ 120,606뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 120,606뷰나 터졌을까?!\"",
@@ -2918,7 +3533,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat4_infra_t3Pt4n85u-Y",
@@ -2937,8 +3558,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (남성 89% 타깃)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 13.9배",
         "👁️ 2,579,775뷰",
         "구독 185,000명"
@@ -2953,7 +3575,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat4_infra_Y8XtZLbU28o",
@@ -2972,8 +3600,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (남성 89% 타깃)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 13.5배",
         "👁️ 3,603,653뷰",
         "구독 266,000명"
@@ -2988,7 +3617,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat4_infra_rvnSGjkxpJE",
@@ -3007,8 +3642,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (남성 89% 타깃)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 2.2배",
         "👁️ 7,166,898뷰",
         "구독 3,240,000명"
@@ -3023,7 +3659,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat4_infra_4ABpaA2d6qQ",
@@ -3042,8 +3684,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (남성 89% 타깃)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 1,151,301뷰",
         "구독 749,000명"
       ],
@@ -3057,7 +3700,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat4_infra_pG3-hvgoZFs",
@@ -3076,8 +3725,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (남성 89% 타깃)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 10.3배",
         "👁️ 586,545뷰",
         "구독 57,200명"
@@ -3092,7 +3742,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat4_infra_6qnGzMLpeQw",
@@ -3111,8 +3767,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (남성 89% 타깃)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 220,312뷰",
         "구독 266,000명"
       ],
@@ -3126,7 +3783,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat4_infra_pMSpEZZKu04",
@@ -3145,8 +3808,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (남성 89% 타깃)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 5.8배",
         "👁️ 216,836뷰",
         "구독 37,500명"
@@ -3161,7 +3825,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat4_infra_d15n0bISxv8",
@@ -3180,8 +3850,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (남성 89% 타깃)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 204,184뷰",
         "구독 506,000명"
       ],
@@ -3195,7 +3866,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat4_infra_x_sUHRMEIok",
@@ -3214,12 +3891,12 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (남성 89% 타깃)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-07개설)",
         "⚡ 구독자 대비 5.7배",
-        "👁️ 135,234뷰",
-        "구독 23,800명"
+        "👁️ 135,234뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 135,234뷰나 터졌을까?!\"",
@@ -3231,7 +3908,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat4_infra_ub0HUWDfen4",
@@ -3250,8 +3933,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (남성 89% 타깃)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 6.6배",
         "👁️ 134,909뷰",
         "구독 20,300명"
@@ -3266,7 +3950,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ manimce(구조·역학 도형 시각화) + 청사진 단면도 + 한·일·유럽 스펙 비교표",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat5_docu_9iLkRm4xGco",
@@ -3285,8 +3975,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (글로벌 3개국 확장)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 739.4배",
         "👁️ 105,730뷰",
         "구독 143명"
@@ -3301,7 +3992,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat5_docu_4kAwRpGrUF0",
@@ -3320,8 +4017,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (글로벌 3개국 확장)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 412.6배",
         "👁️ 10,975,480뷰",
         "구독 26,600명"
@@ -3336,7 +4034,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat5_docu_dJErqmebSj4",
@@ -3355,12 +4059,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (글로벌 3개국 확장)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-09개설)",
         "⚡ 구독자 대비 368.7배",
-        "👁️ 90,333뷰",
-        "구독 245명"
+        "👁️ 90,333뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 90,333뷰나 터졌을까?!\"",
@@ -3372,7 +4076,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat5_docu_ePSWUJC2ycc",
@@ -3391,12 +4101,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (글로벌 3개국 확장)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-10개설)",
         "⚡ 구독자 대비 151.4배",
-        "👁️ 10,746뷰",
-        "구독 71명"
+        "👁️ 10,746뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 10,746뷰나 터졌을까?!\"",
@@ -3408,7 +4118,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat5_docu_X9UbJWSj4Wg",
@@ -3427,12 +4143,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (글로벌 3개국 확장)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-09개설)",
         "⚡ 구독자 대비 107.8배",
-        "👁️ 191,795뷰",
-        "구독 1,780명"
+        "👁️ 191,795뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 191,795뷰나 터졌을까?!\"",
@@ -3444,7 +4160,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat5_docu_qXdpumDhw8k",
@@ -3463,12 +4185,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (글로벌 3개국 확장)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-02개설)",
         "⚡ 구독자 대비 88.0배",
-        "👁️ 62,828뷰",
-        "구독 714명"
+        "👁️ 62,828뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 62,828뷰나 터졌을까?!\"",
@@ -3480,7 +4202,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat5_docu_l3985tqOTno",
@@ -3499,12 +4227,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (글로벌 3개국 확장)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2025-12개설)",
         "⚡ 구독자 대비 73.3배",
-        "👁️ 193,402뷰",
-        "구독 2,640명"
+        "👁️ 193,402뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 193,402뷰나 터졌을까?!\"",
@@ -3516,7 +4244,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat5_docu_-g00rz9LOfU",
@@ -3535,12 +4269,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (글로벌 3개국 확장)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-10개설)",
         "⚡ 구독자 대비 54.4배",
-        "👁️ 34,846뷰",
-        "구독 641명"
+        "👁️ 34,846뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 34,846뷰나 터졌을까?!\"",
@@ -3552,7 +4286,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat5_docu_7Q0GO7CplFU",
@@ -3571,8 +4311,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (글로벌 3개국 확장)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 2.6배",
         "👁️ 2,979,328뷰",
         "구독 1,150,000명"
@@ -3587,7 +4328,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat5_docu_MwOtalMzBhE",
@@ -3606,8 +4353,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (글로벌 3개국 확장)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 3.4배",
         "👁️ 2,548,493뷰",
         "구독 740,000명"
@@ -3622,7 +4370,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat5_docu_FHNPq9J_4Fc",
@@ -3641,8 +4395,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (글로벌 3개국 확장)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 2,279,920뷰",
         "구독 1,410,000명"
       ],
@@ -3656,7 +4411,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat5_docu_nAHABgeQneQ",
@@ -3675,12 +4436,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (글로벌 3개국 확장)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2025-09개설)",
         "⚡ 구독자 대비 35.2배",
-        "👁️ 989,669뷰",
-        "구독 28,100명"
+        "👁️ 989,669뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 989,669뷰나 터졌을까?!\"",
@@ -3692,7 +4453,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat5_docu_20W9CSTij5M",
@@ -3711,8 +4478,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (글로벌 3개국 확장)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 930,368뷰",
         "구독 510,000명"
       ],
@@ -3726,7 +4494,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat5_docu_qqG8rq7Vg3A",
@@ -3745,8 +4519,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (글로벌 3개국 확장)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 838,159뷰",
         "구독 715,000명"
       ],
@@ -3760,7 +4535,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat5_docu_s7reQhUS1sU",
@@ -3779,8 +4560,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (글로벌 3개국 확장)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 2.9배",
         "👁️ 612,581뷰",
         "구독 209,000명"
@@ -3795,7 +4577,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat5_docu_hQbQFRhRcmU",
@@ -3814,8 +4602,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "상 (글로벌 3개국 확장)",
-      "target_len": "롱폼 18~25분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 36.1배",
         "👁️ 462,649뷰",
         "구독 12,800명"
@@ -3830,7 +4619,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 바코드랩 4단계 서사 + Rule 6 황금비율(Tier1 수묵 90% + Tier2 Flow/LTX + Tier3 Kling)",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat6_classics_zfB61H0-dKI",
@@ -3849,12 +4644,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "중상 (초장편 시청시간 폭발)",
-      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2025-12개설)",
         "⚡ 구독자 대비 182.7배",
-        "👁️ 87,493뷰",
-        "구독 479명"
+        "👁️ 87,493뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 87,493뷰나 터졌을까?!\"",
@@ -3866,7 +4661,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat6_classics_0HnF07w_Jpc",
@@ -3885,12 +4686,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "중상 (초장편 시청시간 폭발)",
-      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-10개설)",
         "⚡ 구독자 대비 127.5배",
-        "👁️ 91,665뷰",
-        "구독 719명"
+        "👁️ 91,665뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 91,665뷰나 터졌을까?!\"",
@@ -3902,7 +4703,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat6_classics_Z7eMSFOK5xo",
@@ -3921,12 +4728,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "중상 (초장편 시청시간 폭발)",
-      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-10개설)",
         "⚡ 구독자 대비 119.6배",
-        "👁️ 9,329뷰",
-        "구독 78명"
+        "👁️ 9,329뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 9,329뷰나 터졌을까?!\"",
@@ -3938,7 +4745,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat6_classics_0HK1cPihR7Q",
@@ -3957,12 +4770,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "중상 (초장편 시청시간 폭발)",
-      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2025-07개설)",
         "⚡ 구독자 대비 94.7배",
-        "👁️ 152,387뷰",
-        "구독 1,610명"
+        "👁️ 152,387뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 152,387뷰나 터졌을까?!\"",
@@ -3974,7 +4787,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat6_classics_CdJJMmc8htA",
@@ -3993,12 +4812,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "중상 (초장편 시청시간 폭발)",
-      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-07개설)",
         "⚡ 구독자 대비 82.3배",
-        "👁️ 260,051뷰",
-        "구독 3,160명"
+        "👁️ 260,051뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 260,051뷰나 터졌을까?!\"",
@@ -4010,7 +4829,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat6_classics_iBFr4MCH5Ns",
@@ -4029,8 +4854,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "중상 (초장편 시청시간 폭발)",
-      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 62.0배",
         "👁️ 73,797뷰",
         "구독 1,190명"
@@ -4045,7 +4871,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat6_classics_M1FT71zmig8",
@@ -4064,12 +4896,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "중상 (초장편 시청시간 폭발)",
-      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-10개설)",
         "⚡ 구독자 대비 57.4배",
-        "👁️ 44,366뷰",
-        "구독 773명"
+        "👁️ 44,366뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 44,366뷰나 터졌을까?!\"",
@@ -4081,7 +4913,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat6_classics_I-0nNMfeZd0",
@@ -4100,12 +4938,12 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "중상 (초장편 시청시간 폭발)",
-      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2025-09개설)",
         "⚡ 구독자 대비 55.5배",
-        "👁️ 276,356뷰",
-        "구독 4,980명"
+        "👁️ 276,356뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 276,356뷰나 터졌을까?!\"",
@@ -4117,7 +4955,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat6_classics_UdNMmen1-Bs",
@@ -4136,8 +4980,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "중상 (초장편 시청시간 폭발)",
-      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 4.1배",
         "👁️ 5,260,098뷰",
         "구독 1,290,000명"
@@ -4152,7 +4997,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat6_classics_5Ox-rC8uzLg",
@@ -4171,8 +5022,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "중상 (초장편 시청시간 폭발)",
-      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 24.1배",
         "👁️ 4,041,701뷰",
         "구독 168,000명"
@@ -4187,7 +5039,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat6_classics_foxDSSixhac",
@@ -4206,8 +5064,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "중상 (초장편 시청시간 폭발)",
-      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 27.0배",
         "👁️ 3,840,586뷰",
         "구독 142,000명"
@@ -4222,7 +5081,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat6_classics_9k1UZJ5VIKY",
@@ -4241,8 +5106,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "중상 (초장편 시청시간 폭발)",
-      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 2,966,123뷰",
         "구독 1,580,000명"
       ],
@@ -4256,7 +5122,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat6_classics_gjpiq5mLS_0",
@@ -4275,8 +5147,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "중상 (초장편 시청시간 폭발)",
-      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 45.6배",
         "👁️ 2,759,153뷰",
         "구독 60,500명"
@@ -4291,7 +5164,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat6_classics_i6cBroRHp_g",
@@ -4310,8 +5189,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "중상 (초장편 시청시간 폭발)",
-      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 20.6배",
         "👁️ 2,677,210뷰",
         "구독 130,000명"
@@ -4326,7 +5206,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat6_classics_aJKtoGYhGCk",
@@ -4345,8 +5231,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "중상 (초장편 시청시간 폭발)",
-      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 17.7배",
         "👁️ 2,489,444뷰",
         "구독 141,000명"
@@ -4361,7 +5248,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat6_classics_6zlNsNZBUiY",
@@ -4380,8 +5273,9 @@
       "safety": 98,
       "transform_score": 96,
       "rpm": "중상 (초장편 시청시간 폭발)",
-      "target_len": "장편 45~90분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 27.1배",
         "👁️ 2,343,496뷰",
         "구독 86,500명"
@@ -4396,7 +5290,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 5강 대본 3단계 역설계(표절 0%) + huashu 살아 움직이는 수묵화 + anidoodle 수채화 타임랩스",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat7_global_4p3B52bAJnQ",
@@ -4415,12 +5315,12 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (4060 남성 지식층)",
-      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-10개설)",
         "⚡ 구독자 대비 172.2배",
-        "👁️ 23,415뷰",
-        "구독 136명"
+        "👁️ 23,415뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 23,415뷰나 터졌을까?!\"",
@@ -4432,7 +5332,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat7_global_Q-xT5GGcYqA",
@@ -4451,12 +5357,12 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (4060 남성 지식층)",
-      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-05개설)",
         "⚡ 구독자 대비 68.8배",
-        "👁️ 572,959뷰",
-        "구독 8,330명"
+        "👁️ 572,959뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 572,959뷰나 터졌을까?!\"",
@@ -4468,7 +5374,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat7_global_t3SBKtbNKQo",
@@ -4487,12 +5399,12 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (4060 남성 지식층)",
-      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-06개설)",
         "⚡ 구독자 대비 66.1배",
-        "👁️ 32,602뷰",
-        "구독 493명"
+        "👁️ 32,602뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 32,602뷰나 터졌을까?!\"",
@@ -4504,7 +5416,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat7_global_i8ARnyqnPcM",
@@ -4523,12 +5441,12 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (4060 남성 지식층)",
-      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2025-07개설)",
         "⚡ 구독자 대비 57.1배",
-        "👁️ 50,057뷰",
-        "구독 876명"
+        "👁️ 50,057뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 50,057뷰나 터졌을까?!\"",
@@ -4540,7 +5458,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat7_global_kOT54YfmZQk",
@@ -4559,12 +5483,12 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (4060 남성 지식층)",
-      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-09개설)",
         "⚡ 구독자 대비 34.6배",
-        "👁️ 62,912뷰",
-        "구독 1,820명"
+        "👁️ 62,912뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 62,912뷰나 터졌을까?!\"",
@@ -4576,7 +5500,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat7_global_jTHSreEg8Fk",
@@ -4595,12 +5525,12 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (4060 남성 지식층)",
-      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-07개설)",
         "⚡ 구독자 대비 34.4배",
-        "👁️ 119,957뷰",
-        "구독 3,490명"
+        "👁️ 119,957뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 119,957뷰나 터졌을까?!\"",
@@ -4612,7 +5542,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat7_global_gr8hVKyjgB8",
@@ -4631,12 +5567,12 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (4060 남성 지식층)",
-      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2025-06개설)",
         "⚡ 구독자 대비 30.9배",
-        "👁️ 92,435뷰",
-        "구독 2,990명"
+        "👁️ 92,435뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 92,435뷰나 터졌을까?!\"",
@@ -4648,7 +5584,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat7_global_BqjQSpjc76A",
@@ -4667,12 +5609,12 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (4060 남성 지식층)",
-      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-10개설)",
         "⚡ 구독자 대비 29.6배",
-        "👁️ 41,373뷰",
-        "구독 1,400명"
+        "👁️ 41,373뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 41,373뷰나 터졌을까?!\"",
@@ -4684,7 +5626,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat7_global_124bG5L2fjI",
@@ -4703,8 +5651,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (4060 남성 지식층)",
-      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 1,117,097뷰",
         "구독 614,000명"
       ],
@@ -4718,7 +5667,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat7_global_RA6f5Zq0TW4",
@@ -4737,8 +5692,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (4060 남성 지식층)",
-      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 483,772뷰",
         "구독 749,000명"
       ],
@@ -4752,7 +5708,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat7_global_iTVuSYNNxxM",
@@ -4771,8 +5733,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (4060 남성 지식층)",
-      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 386,464뷰",
         "구독 3,150,000명"
       ],
@@ -4786,7 +5749,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat7_global_U26Xe5m7P0g",
@@ -4805,8 +5774,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (4060 남성 지식층)",
-      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 287,363뷰",
         "구독 1,590,000명"
       ],
@@ -4820,7 +5790,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat7_global_pvno8CVqcdk",
@@ -4839,8 +5815,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (4060 남성 지식층)",
-      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 200,096뷰",
         "구독 3,240,000명"
       ],
@@ -4854,7 +5831,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat7_global_XZN3mn8tolg",
@@ -4873,8 +5856,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (4060 남성 지식층)",
-      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 199,587뷰",
         "구독 369,000명"
       ],
@@ -4888,7 +5872,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat7_global_5zgj5ufBklI",
@@ -4907,12 +5897,12 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (4060 남성 지식층)",
-      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-03개설)",
         "⚡ 구독자 대비 4.9배",
-        "👁️ 195,728뷰",
-        "구독 39,800명"
+        "👁️ 195,728뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 195,728뷰나 터졌을까?!\"",
@@ -4924,7 +5914,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat7_global_vdk-lDTz6Vw",
@@ -4943,8 +5939,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상 (4060 남성 지식층)",
-      "target_len": "롱폼 18~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 182,907뷰",
         "구독 1,210,000명"
       ],
@@ -4958,7 +5955,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ UV compile.py(다중 클립 합본) + 외신 원문 노란 형광펜 카드 + 미·일·유럽 3자 비교",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat8_court_vWz3hdCW-JY",
@@ -4977,8 +5980,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "중상 (초반 30초 잔존율 80%+)",
-      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 2313.6배",
         "👁️ 8,375,311뷰",
         "구독 3,620명"
@@ -4993,7 +5997,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat8_court_Jap1IztwZHI",
@@ -5012,8 +6022,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "중상 (초반 30초 잔존율 80%+)",
-      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 1843.9배",
         "👁️ 223,116뷰",
         "구독 121명"
@@ -5028,7 +6039,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat8_court_Dw4suV6mcis",
@@ -5047,8 +6064,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "중상 (초반 30초 잔존율 80%+)",
-      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 1671.3배",
         "👁️ 6,635,061뷰",
         "구독 3,970명"
@@ -5063,7 +6081,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat8_court_T1Ewv4__OZ0",
@@ -5082,8 +6106,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "중상 (초반 30초 잔존율 80%+)",
-      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 722.3배",
         "👁️ 213,073뷰",
         "구독 295명"
@@ -5098,7 +6123,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat8_court_Serg-1mWm_U",
@@ -5117,8 +6148,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "중상 (초반 30초 잔존율 80%+)",
-      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 651.1배",
         "👁️ 31,254뷰",
         "구독 48명"
@@ -5133,7 +6165,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat8_court_gnTrEXsTPGE",
@@ -5152,12 +6190,12 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "중상 (초반 30초 잔존율 80%+)",
-      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "🔥 신생(2026-10개설)",
         "⚡ 구독자 대비 245.7배",
-        "👁️ 14,497뷰",
-        "구독 59명"
+        "👁️ 14,497뷰"
       ],
       "thumb_3tier": {
         "top": "\"도대체 왜 이 장면이 14,497뷰나 터졌을까?!\"",
@@ -5169,7 +6207,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat8_court_SukOgPJarAU",
@@ -5188,8 +6232,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "중상 (초반 30초 잔존율 80%+)",
-      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 199.3배",
         "👁️ 115,006뷰",
         "구독 577명"
@@ -5204,7 +6249,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat8_court_OWfr5_AABaA",
@@ -5223,8 +6274,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "중상 (초반 30초 잔존율 80%+)",
-      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 176.4배",
         "👁️ 118,376뷰",
         "구독 671명"
@@ -5239,7 +6291,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat8_court_HZh30qUuD2I",
@@ -5258,8 +6316,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "중상 (초반 30초 잔존율 80%+)",
-      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 2.4배",
         "👁️ 28,094,314뷰",
         "구독 11,800,000명"
@@ -5274,7 +6333,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat8_court_-3wRZLq_DQA",
@@ -5293,8 +6358,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "중상 (초반 30초 잔존율 80%+)",
-      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 5.4배",
         "👁️ 26,582,196뷰",
         "구독 4,930,000명"
@@ -5309,7 +6375,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat8_court_HaYNqWBaanI",
@@ -5328,8 +6400,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "중상 (초반 30초 잔존율 80%+)",
-      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 6.5배",
         "👁️ 14,323,992뷰",
         "구독 2,220,000명"
@@ -5344,7 +6417,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat8_court_SP78F3l8OHs",
@@ -5363,8 +6442,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "중상 (초반 30초 잔존율 80%+)",
-      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 3.7배",
         "👁️ 13,551,332뷰",
         "구독 3,700,000명"
@@ -5379,7 +6459,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat8_court_AEcCyFHNv2A",
@@ -5398,8 +6484,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "중상 (초반 30초 잔존율 80%+)",
-      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "👁️ 13,148,329뷰",
         "구독 7,620,000명"
       ],
@@ -5413,7 +6500,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat8_court_oANYkpNzKkQ",
@@ -5432,8 +6525,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "중상 (초반 30초 잔존율 80%+)",
-      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 173.1배",
         "👁️ 12,483,015뷰",
         "구독 72,100명"
@@ -5448,7 +6542,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat8_court_5Zy6SMMitdE",
@@ -5467,8 +6567,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "중상 (초반 30초 잔존율 80%+)",
-      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 3.3배",
         "👁️ 12,217,836뷰",
         "구독 3,730,000명"
@@ -5483,7 +6584,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "yt_cat8_court_ClhuRYjci-g",
@@ -5502,8 +6609,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "중상 (초반 30초 잔존율 80%+)",
-      "target_len": "롱폼 15~22분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "⚡ 구독자 대비 4.0배",
         "👁️ 11,731,642뷰",
         "구독 2,950,000명"
@@ -5518,7 +6626,13 @@
         "s6_18": "[6~18초 핵심 쟁점 & 숫자 카드] 원본 핵심 모순/수치 제시 + 50종 GSAP 모션그래픽 오버레이",
         "s18_30": "[18~30초 한국어 해설 진입] Orig ASR: ko-orig(한국어 해설 70%+) 구조로 사건/배경/영향을 입체 재구성"
       },
-      "engine_recipe": "EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ EWU Forensic Caseboard: 한국어 사건·심리 해설 70%(ko-orig 강제) + 프리즈프레임(빨간 원) + timeline-steps",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "th_live_gn_8831233745",
@@ -5535,8 +6649,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "최상",
-      "target_len": "롱폼 15~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "10년",
         "월 34만원"
       ],
@@ -5550,7 +6665,13 @@
         "s6_18": "[6~18초 핵심 숫자 카드] 브리핑 원문 핵심(파이낸셜뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작...) + GSAP 수치 강조 배지(10년, 월 34만원)",
         "s18_30": "[18~30초 Draw-on 클리프행어] 4대 페르소나(사실 확인·제도 해설·생활 영향·반론 검토)가 입체적으로 분석 시작"
       },
-      "engine_recipe": "정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "th_live_gn_3429901288",
@@ -5567,8 +6688,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "최상",
-      "target_len": "롱폼 15~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "10년"
       ],
       "thumb_3tier": {
@@ -5581,7 +6703,13 @@
         "s6_18": "[6~18초 핵심 숫자 카드] 브리핑 원문 핵심(네이버페이 머니스토리 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작...) + GSAP 수치 강조 배지(10년)",
         "s18_30": "[18~30초 Draw-on 클리프행어] 4대 페르소나(사실 확인·제도 해설·생활 영향·반론 검토)가 입체적으로 분석 시작"
       },
-      "engine_recipe": "정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "th_live_kogl_148974989",
@@ -5598,12 +6726,12 @@
       "safety": 99,
       "transform_score": 96,
       "rpm": "상",
-      "target_len": "롱폼 15~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "10%",
         "7%",
-        "136만 명",
-        "75만 원"
+        "136만 명"
       ],
       "thumb_3tier": {
         "top": "브리핑 원문 열어보니.. \"10%\"?!",
@@ -5615,7 +6743,13 @@
         "s6_18": "[6~18초 핵심 숫자 카드] 브리핑 원문 핵심(오는 12월 1일부터희귀·중증난치질환자의 건강보험 급여 진료비 본인부담률이 10%에서 7%로 낮아진다. 개정안이 시행되면 ...) + GSAP 수치 강조 배지(10%, 7%)",
         "s18_30": "[18~30초 Draw-on 클리프행어] 4대 페르소나(사실 확인·제도 해설·생활 영향·반론 검토)가 입체적으로 분석 시작"
       },
-      "engine_recipe": "정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "th_live_gn_8256327244",
@@ -5632,8 +6766,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상",
-      "target_len": "롱폼 15~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "1위"
       ],
       "thumb_3tier": {
@@ -5646,7 +6781,13 @@
         "s6_18": "[6~18초 핵심 숫자 카드] 브리핑 원문 핵심(전자신문 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작...) + GSAP 수치 강조 배지(1위)",
         "s18_30": "[18~30초 Draw-on 클리프행어] 4대 페르소나(사실 확인·제도 해설·생활 영향·반론 검토)가 입체적으로 분석 시작"
       },
-      "engine_recipe": "정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "th_live_gn_1979270749",
@@ -5663,8 +6804,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상",
-      "target_len": "롱폼 15~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "20%"
       ],
       "thumb_3tier": {
@@ -5677,7 +6819,13 @@
         "s6_18": "[6~18초 핵심 숫자 카드] 브리핑 원문 핵심(시사저널 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작...) + GSAP 수치 강조 배지(20%)",
         "s18_30": "[18~30초 Draw-on 클리프행어] 4대 페르소나(사실 확인·제도 해설·생활 영향·반론 검토)가 입체적으로 분석 시작"
       },
-      "engine_recipe": "정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "th_live_gn_3844107335",
@@ -5694,8 +6842,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "최상",
-      "target_len": "롱폼 15~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "공공누리 1유형",
         "원문 브리핑"
       ],
@@ -5709,7 +6858,13 @@
         "s6_18": "[6~18초 핵심 숫자 카드] 브리핑 원문 핵심(연합뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작...) + GSAP 수치 강조 배지(공공누리 1유형, 원문 브리핑)",
         "s18_30": "[18~30초 Draw-on 클리프행어] 4대 페르소나(사실 확인·제도 해설·생활 영향·반론 검토)가 입체적으로 분석 시작"
       },
-      "engine_recipe": "정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "th_live_gn_2918247092",
@@ -5726,8 +6881,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "최상",
-      "target_len": "롱폼 15~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "공공누리 1유형",
         "원문 브리핑"
       ],
@@ -5741,7 +6897,13 @@
         "s6_18": "[6~18초 핵심 숫자 카드] 브리핑 원문 핵심(국제뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작...) + GSAP 수치 강조 배지(공공누리 1유형, 원문 브리핑)",
         "s18_30": "[18~30초 Draw-on 클리프행어] 4대 페르소나(사실 확인·제도 해설·생활 영향·반론 검토)가 입체적으로 분석 시작"
       },
-      "engine_recipe": "정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "th_live_gn_1799736168",
@@ -5758,8 +6920,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "최상",
-      "target_len": "롱폼 15~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "공공누리 1유형",
         "원문 브리핑"
       ],
@@ -5773,7 +6936,13 @@
         "s6_18": "[6~18초 핵심 숫자 카드] 브리핑 원문 핵심(머니투데이 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작...) + GSAP 수치 강조 배지(공공누리 1유형, 원문 브리핑)",
         "s18_30": "[18~30초 Draw-on 클리프행어] 4대 페르소나(사실 확인·제도 해설·생활 영향·반론 검토)가 입체적으로 분석 시작"
       },
-      "engine_recipe": "정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "th_live_gn_4366458352",
@@ -5790,8 +6959,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "최상",
-      "target_len": "롱폼 15~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "공공누리 1유형",
         "원문 브리핑"
       ],
@@ -5805,7 +6975,13 @@
         "s6_18": "[6~18초 핵심 숫자 카드] 브리핑 원문 핵심(한국NGO신문 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작...) + GSAP 수치 강조 배지(공공누리 1유형, 원문 브리핑)",
         "s18_30": "[18~30초 Draw-on 클리프행어] 4대 페르소나(사실 확인·제도 해설·생활 영향·반론 검토)가 입체적으로 분석 시작"
       },
-      "engine_recipe": "정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "th_live_gn_6687069135",
@@ -5822,8 +6998,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "최상",
-      "target_len": "롱폼 15~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "공공누리 1유형",
         "원문 브리핑"
       ],
@@ -5837,7 +7014,13 @@
         "s6_18": "[6~18초 핵심 숫자 카드] 브리핑 원문 핵심(지디넷코리아 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작...) + GSAP 수치 강조 배지(공공누리 1유형, 원문 브리핑)",
         "s18_30": "[18~30초 Draw-on 클리프행어] 4대 페르소나(사실 확인·제도 해설·생활 영향·반론 검토)가 입체적으로 분석 시작"
       },
-      "engine_recipe": "정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "th_live_gn_7517380980",
@@ -5854,8 +7037,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "최상",
-      "target_len": "롱폼 15~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "공공누리 1유형",
         "원문 브리핑"
       ],
@@ -5869,7 +7053,13 @@
         "s6_18": "[6~18초 핵심 숫자 카드] 브리핑 원문 핵심(한국경제 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작...) + GSAP 수치 강조 배지(공공누리 1유형, 원문 브리핑)",
         "s18_30": "[18~30초 Draw-on 클리프행어] 4대 페르소나(사실 확인·제도 해설·생활 영향·반론 검토)가 입체적으로 분석 시작"
       },
-      "engine_recipe": "정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "th_live_gn_5443165439",
@@ -5886,8 +7076,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상",
-      "target_len": "롱폼 15~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "154조원"
       ],
       "thumb_3tier": {
@@ -5900,7 +7091,13 @@
         "s6_18": "[6~18초 핵심 숫자 카드] 브리핑 원문 핵심(매일일보 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작...) + GSAP 수치 강조 배지(154조원)",
         "s18_30": "[18~30초 Draw-on 클리프행어] 4대 페르소나(사실 확인·제도 해설·생활 영향·반론 검토)가 입체적으로 분석 시작"
       },
-      "engine_recipe": "정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "th_live_kogl_148974590",
@@ -5917,8 +7114,9 @@
       "safety": 99,
       "transform_score": 96,
       "rpm": "상",
-      "target_len": "롱폼 15~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "2030년",
         "178건"
       ],
@@ -5932,7 +7130,13 @@
         "s6_18": "[6~18초 핵심 숫자 카드] 브리핑 원문 핵심(한국 컨테이너선 '팬스타 아크로호'가 국내 최초로 북극항로를 통해 유럽을 왕복하자 세계 주요 언론들이 새로운 해상 물류항로...) + GSAP 수치 강조 배지(2030년, 178건)",
         "s18_30": "[18~30초 Draw-on 클리프행어] 4대 페르소나(사실 확인·제도 해설·생활 영향·반론 검토)가 입체적으로 분석 시작"
       },
-      "engine_recipe": "정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     },
     {
       "id": "th_live_gn_3765403043",
@@ -5949,8 +7153,9 @@
       "safety": 95,
       "transform_score": 96,
       "rpm": "상",
-      "target_len": "롱폼 15~30분 + 쇼츠 3편",
+      "target_len": "8분 30초~15분+ (16파트 · 중간광고 보장)",
       "badges": [
+        "⏱️ 8분30초+ 중간광고 보장",
         "공공누리 1유형",
         "원문 브리핑"
       ],
@@ -5964,7 +7169,13 @@
         "s6_18": "[6~18초 핵심 숫자 카드] 브리핑 원문 핵심(빅데이터뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작...) + GSAP 수치 강조 배지(공공누리 1유형, 원문 브리핑)",
         "s18_30": "[18~30초 Draw-on 클리프행어] 4대 페르소나(사실 확인·제도 해설·생활 영향·반론 검토)가 입체적으로 분석 시작"
       },
-      "engine_recipe": "정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4"
+      "engine_recipe": "STEP 0 동종채널 DNA 분석 ➔ 16파트(8분 30초+) 대본 ➔ 정책브리핑 공공누리 원문 + 4대 페르소나 해설 + huashu/GSAP 데이터 차트 + CapCut 초안 & MP4",
+      "competitor_dna_summary": {
+        "target_duration": "최소 8분 30초+ (16파트 · 유튜브 중간광고 100% 활성)",
+        "verified_channels": [],
+        "script_4stage": [],
+        "audio_rule": "Orig ASR: ko 강제"
+      }
     }
   ]
 }

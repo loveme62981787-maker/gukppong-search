@@ -1456,6 +1456,7 @@ function renderThBanner() {
       `<div><b>🎙️ 오디오 황금비율:</b> ${ep.audio_ratio}</div>` +
       `<div><b>⏱️ 컷 전환 호흡:</b> ${ep.cut_pacing}</div>` +
       `<div><b>🖥️ 화면 레이아웃 스킨:</b> ${ep.layout_skin}</div>` +
+      (catObj.competitor_dna ? `<div style="margin-top:6px;padding-top:6px;border-top:1px dashed var(--line);color:#047857;font-weight:700">📊 [STEP 0 동종 수익화 채널 DNA 자동 반영] ${(catObj.competitor_dna.verified_channels || []).map(x => `${x.name}(${x.avg_len})`).join(" · ")} ➔ 4단계 대본 구조 + 16파트(8분 30초+ 중간광고 보장) 자동 세팅</div>` : "") +
     `</div>` : "") +
     ((risingHtml || bestHtml) ? `<details class="gdetails" style="margin-top:6px"><summary style="font-weight:800;color:var(--acc);cursor:pointer">📊 이 주제의 🔥 신생·급성장 5곳 & 🏆 베스트 10곳 벤치마킹 채널 바로가기 (총 15곳)</summary>` +
       `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:10px;margin-top:6px;padding:8px;border-radius:8px;background:var(--bg);font-size:12px">` +
@@ -1550,6 +1551,7 @@ function renderTh() {
           `<div><b>🔥 초반 30초 후킹 (잔존율 70%+ 목표):</b><br>• ${h30.s0_6}<br>• ${h30.s6_18}<br>• ${h30.s18_30}</div>` +
           `<hr style="border:0;border-top:1px solid var(--line);margin:6px 0">` +
           (ep.code ? `<div><b>🎨 주제 맞춤 편집 프로파일:</b> ${ep.code}<br>• 오디오: ${ep.audio_ratio}<br>• 호흡: ${ep.cut_pacing}<br>• 레이아웃: ${ep.layout_skin}</div><hr style="border:0;border-top:1px solid var(--line);margin:6px 0">` : "") +
+          (v.competitor_dna_summary ? `<div><b>📊 [STEP 0 사전 분석] 동종 수익화 채널 DNA & 8분+ 중간광고 규격:</b><br>• 검증 채널: ${(v.competitor_dna_summary.verified_channels || []).join(", ")}<br>• 보장 길이: <b>${v.competitor_dna_summary.target_duration}</b><br>• 4단계 대본: ${(v.competitor_dna_summary.script_4stage || []).join(" ➔ ")}</div><hr style="border:0;border-top:1px solid var(--line);margin:6px 0">` : "") +
           `<div><b>🛠️ 자동 매칭 엔진:</b> ${v.engine_recipe || ""}</div>` +
         `</div>` +
       `</details>` +
