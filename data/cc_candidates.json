@@ -685,6 +685,20 @@
    "title": "New Taipei Nightlife Tour in 4K - Lehua Night Market Walk",
    "views": 503
   },
+  "8zltQeTvGNY": {
+   "channel": "Logan Ly",
+   "channel_id": "UCeY0v1bR2DEDEIODOrBTTpA",
+   "country": "일본",
+   "duration_sec": 1320,
+   "fail_count": 0,
+   "first_seen": "2026-11-09",
+   "id": "8zltQeTvGNY",
+   "length": "22:00",
+   "query": "Japanese culture experience",
+   "status": "pending",
+   "title": "Staying in a Ryokan in Japan's Iya Valley - Traditional Japanese Experience - GAY TRAVEL",
+   "views": 141
+  },
   "9-A5WRZAp14": {
    "attempted_at": "2026-10-31T16:15:40Z",
    "channel": "Tomodachi Ken in Japan",
@@ -2544,6 +2558,22 @@
    "title": "First Timer’s Guide to Buses in Jeju",
    "views": 6507
   },
+  "SM9NIiH-tn0": {
+   "attempted_at": "2026-11-09T18:50:31Z",
+   "channel": "Yang Production",
+   "channel_id": "UCydpeiDkmELW6q1RvZ9TXMA",
+   "country": "한국",
+   "duration_sec": 552,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-09",
+   "id": "SM9NIiH-tn0",
+   "length": "9:12",
+   "query": "Jeju island travel",
+   "status": "pending",
+   "title": "Exploring East side of Jeju Island in a day | What to Eat, See and Do",
+   "views": 216
+  },
   "SSJA4CXePrA": {
    "channel": "Annella Nissa",
    "channel_id": "UCaGopcdjC261whdsyPg3KjA",
@@ -3022,6 +3052,20 @@
    "title": "eating ONLY korean convenience store foods for 24 HOURS",
    "views": 95663
   },
+  "ZKrUUakBGjU": {
+   "channel": "Surrender Monkey Travels ",
+   "channel_id": "UC93w2LlrYndj0ZVNhf7rXGQ",
+   "country": "일본",
+   "duration_sec": 1368,
+   "fail_count": 0,
+   "first_seen": "2026-11-09",
+   "id": "ZKrUUakBGjU",
+   "length": "22:48",
+   "query": "Japanese culture experience",
+   "status": "pending",
+   "title": "Exploring Japan | Episode 1: Tokyo (4 Days of Food, Neon and Culture)",
+   "views": 6198
+  },
   "ZoEKoeaeHT8": {
    "channel": "Nomad Journal",
    "channel_id": "UCPEJfPBrEZJXUp0OUeLgL4w",
@@ -3467,6 +3511,22 @@
    "status": "pending",
    "title": "The Taiwan Experience",
    "views": 2145
+  },
+  "eUmAnSrW9HA": {
+   "attempted_at": "2026-11-09T18:50:31Z",
+   "channel": "WILLGO Travel",
+   "channel_id": "UCP6tWMc_FnDg703T6JnBiiw",
+   "country": "한국",
+   "duration_sec": 504,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-09",
+   "id": "eUmAnSrW9HA",
+   "length": "8:24",
+   "query": "Jeju island travel",
+   "status": "pending",
+   "title": "First-Class cabin to Jeju Island ⛴FERRY trip from Yeosu to Jeju, Korea｜골드스텔라호",
+   "views": 3153
   },
   "eVQUERPyehw": {
    "attempted_at": "2026-10-31T17:16:07Z",
@@ -4660,6 +4720,20 @@
    "title": "Walking Around Shilin Night Market - Taipei, Taiwan",
    "views": 174
   },
+  "rLxWXVdk5Q8": {
+   "channel": "NTM Multilingual Tour",
+   "channel_id": "UCJhp_wZSDzEDRIS1m0XnC5A",
+   "country": "대만",
+   "duration_sec": 237,
+   "fail_count": 0,
+   "first_seen": "2026-11-09",
+   "id": "rLxWXVdk5Q8",
+   "length": "3:57",
+   "query": "Taiwanese culture experience",
+   "status": "pending",
+   "title": "One of the best options for International Students to Explore Taiwan! (Feedback from Docent Felix)",
+   "views": 244
+  },
   "s8mxqzJc_mQ": {
    "channel": "The Faia Family",
    "channel_id": "UChX3H2t0QhmwdqeX-Pfy2Hg",
@@ -5289,7 +5363,7 @@
    "found": 20
   },
   "대만|Taiwanese culture experience": {
-   "at": "2026-11-06T21:30:02Z",
+   "at": "2026-11-09T18:50:02Z",
    "found": 20
   },
   "대만|first time in Taiwan": {
@@ -5309,7 +5383,7 @@
    "found": 20
   },
   "일본|Japanese culture experience": {
-   "at": "2026-11-06T21:29:59Z",
+   "at": "2026-11-09T18:50:00Z",
    "found": 20
   },
   "일본|Kyoto trip": {
@@ -5337,7 +5411,7 @@
    "found": 20
   },
   "한국|Jeju island travel": {
-   "at": "2026-11-07T05:59:26Z",
+   "at": "2026-11-09T18:49:57Z",
    "found": 20
   },
   "한국|Korea convenience store food": {
@@ -5365,5 +5439,5 @@
    "found": 20
   }
  },
- "updated": "2026-11-09T06:32:20Z"
+ "updated": "2026-11-09T18:50:31Z"
 }
