@@ -615,6 +615,20 @@
    "title": "Taiwanese Street Food 4K：Oyster Fritter , Scallion Pancake（with pork）, Wheel Pies - Chiayi Minxiong",
    "views": 230
   },
+  "7cRxZPOVwjk": {
+   "channel": "THESHELLBULLET8",
+   "channel_id": "UCk8hQzJ7FVuhdwtMCnb2JsQ",
+   "country": "일본",
+   "duration_sec": 1894,
+   "fail_count": 0,
+   "first_seen": "2026-11-10",
+   "id": "7cRxZPOVwjk",
+   "length": "31:34",
+   "query": "Japan convenience store food",
+   "status": "pending",
+   "title": "Eating Japan on a Budget Ep. 5: Konbini Food Haul: Snack Foods Challenge Japan's Konbini Delights!",
+   "views": 48
+  },
   "7iDYsgdV0AQ": {
    "channel": "LNE",
    "channel_id": "UC_lGfn7NtG-dRG5UcD1VOtg",
@@ -846,6 +860,22 @@
    "status": "pending",
    "title": "TAIWAN travel vlog 🇹🇼 | WINTER daytrip to Yehliu, Jiufen & Shifen! ❄️ | Sittie Saheda",
    "views": 6598
+  },
+  "ASphrHQMbyE": {
+   "attempted_at": "2026-11-10T12:40:39Z",
+   "channel": "Sarah Sarosh",
+   "channel_id": "UCyw5iZvI_c15lMFf4kfjRaQ",
+   "country": "한국",
+   "duration_sec": 2082,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-10",
+   "id": "ASphrHQMbyE",
+   "length": "34:42",
+   "query": "Korea travel vlog",
+   "status": "pending",
+   "title": "I tried *VIRAL KOREAN ITEMS* 18step Scalp treatment, 7/11 coffee, Ube & more! #TravelWSar",
+   "views": 150157
   },
   "AegiLUSIUp8": {
    "channel": "Food and Footprints- Greg and Jumi",
@@ -3528,6 +3558,20 @@
    "title": "The Taiwan Experience",
    "views": 2145
   },
+  "eUWuFDe0Mys": {
+   "channel": "Norman Vargas",
+   "channel_id": "UCYRKmc2lMBwD6JKX1u8np9A",
+   "country": "일본",
+   "duration_sec": 581,
+   "fail_count": 0,
+   "first_seen": "2026-11-10",
+   "id": "eUWuFDe0Mys",
+   "length": "9:41",
+   "query": "Japan convenience store food",
+   "status": "pending",
+   "title": "27 MUST-KNOW Phrases used at Japanese Convenience Stores | Basic Japanese FOR TRAVELERS",
+   "views": 14507
+  },
   "eUmAnSrW9HA": {
    "attempted_at": "2026-11-09T18:50:31Z",
    "channel": "WILLGO Travel",
@@ -4296,6 +4340,20 @@
    "title": "Summer days in Jeju | Night Market, Ghibli Café, Secret Forest and Ocean View Stay 🍊🌊",
    "views": 1956
   },
+  "lWkC2F1syRg": {
+   "channel": "Blind Man Travels",
+   "channel_id": "UCEy8qkzfUDjA7cBhv2vuNuA",
+   "country": "일본",
+   "duration_sec": 3814,
+   "fail_count": 0,
+   "first_seen": "2026-11-10",
+   "id": "lWkC2F1syRg",
+   "length": "1:03:34",
+   "query": "Japan convenience store food",
+   "status": "pending",
+   "title": "Japanese Convenience Store Food for 24 Hours Challenge!",
+   "views": 221
+  },
   "llaZVDIMh5Y": {
    "channel": "bria ♡ ",
    "channel_id": "UCMbihVwxB1l0GIH2jxsIfyQ",
@@ -4763,6 +4821,22 @@
    "status": "pending",
    "title": "One of the best options for International Students to Explore Taiwan! (Feedback from Docent Felix)",
    "views": 244
+  },
+  "s8MuWPQNpxY": {
+   "attempted_at": "2026-11-10T12:40:39Z",
+   "channel": "Walking Tour 4K",
+   "channel_id": "UCi04T7J4DIwM8ULSSnXXmmA",
+   "country": "한국",
+   "duration_sec": 2019,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-10",
+   "id": "s8MuWPQNpxY",
+   "length": "33:39",
+   "query": "Korea travel vlog",
+   "status": "pending",
+   "title": "EP 917) Nov. Latest❗ +7°C Seoul, Korea Walk❗ Myeong-dong Special Tourist Zone, Seoul, South Korea.",
+   "views": 2135
   },
   "s8mxqzJc_mQ": {
    "channel": "The Faia Family",
@@ -5393,7 +5467,7 @@
    "found": 20
   },
   "대만|Taiwan convenience store food": {
-   "at": "2026-11-07T14:54:41Z",
+   "at": "2026-11-10T12:40:37Z",
    "found": 20
   },
   "대만|Taiwan street food": {
@@ -5421,7 +5495,7 @@
    "found": 20
   },
   "일본|Japan convenience store food": {
-   "at": "2026-11-07T14:54:39Z",
+   "at": "2026-11-10T12:40:34Z",
    "found": 20
   },
   "일본|Japan travel vlog": {
@@ -5465,7 +5539,7 @@
    "found": 20
   },
   "한국|Korea travel vlog": {
-   "at": "2026-11-07T20:14:34Z",
+   "at": "2026-11-10T12:40:32Z",
    "found": 20
   },
   "한국|Korean culture experience": {
@@ -5485,5 +5559,5 @@
    "found": 20
   }
  },
- "updated": "2026-11-10T02:45:39Z"
+ "updated": "2026-11-10T12:40:39Z"
 }
