@@ -1228,6 +1228,22 @@
    "title": "Ultimate Japan Guide for first-time-travelers in October 2026",
    "views": 8622
   },
+  "E77gEcv6Ikk": {
+   "attempted_at": "2026-11-10T02:45:39Z",
+   "channel": "Do It Yesterday",
+   "channel_id": "UCgO5kB2hr_GdPQR2fyfA_2w",
+   "country": "일본",
+   "duration_sec": 5624,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-10",
+   "id": "E77gEcv6Ikk",
+   "length": "1:33:44",
+   "query": "living in Japan foreigner",
+   "status": "pending",
+   "title": "Everyday Life in Japan 🇯🇵 | Real Talk with Two Foreigners Living in Japan (LIVE)",
+   "views": 3
+  },
   "EAHEuGLczwI": {
    "channel": "Eat See Wander",
    "channel_id": "UCNQZ5cgKsq5wDQPxdsQIAHw",
@@ -4535,6 +4551,20 @@
    "title": "What I Miss About Living In Japan",
    "views": 181
   },
+  "otvc2X9Qs9k": {
+   "channel": "Life By Abe",
+   "channel_id": "UCFqIYkjz505Wg0u4zW9JRbQ",
+   "country": "일본",
+   "duration_sec": 1249,
+   "fail_count": 0,
+   "first_seen": "2026-11-10",
+   "id": "otvc2X9Qs9k",
+   "length": "20:49",
+   "query": "living in Japan foreigner",
+   "status": "pending",
+   "title": "Spencer's Pros and Cons of Living in Japan",
+   "views": 76
+  },
   "p2QrBi-p0Ds": {
    "channel": "RAM The World",
    "channel_id": "UCy5857VMXZNQlVnaCSoTgZw",
@@ -5325,6 +5355,22 @@
    "title": "Taipei Taiwan Travel Video",
    "views": 599
   },
+  "zw_olzCKvkc": {
+   "attempted_at": "2026-11-10T02:45:38Z",
+   "channel": "유리조아Yurijoa",
+   "channel_id": "UCBpTprffc9A7KZyONCHQTIw",
+   "country": "한국",
+   "duration_sec": 564,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-10",
+   "id": "zw_olzCKvkc",
+   "length": "9:24",
+   "query": "Korea convenience store food",
+   "status": "pending",
+   "title": "No stealing at the 24 hours Ramen convenience store in Korea",
+   "views": 93551
+  },
   "zzLUgSQmIk0": {
    "channel": "Nomad Bears",
    "channel_id": "UCXYBSbHg28oH5TApqmIySRQ",
@@ -5371,7 +5417,7 @@
    "found": 20
   },
   "대만|living in Taiwan foreigner": {
-   "at": "2026-11-07T05:59:31Z",
+   "at": "2026-11-10T02:45:36Z",
    "found": 20
   },
   "일본|Japan convenience store food": {
@@ -5403,7 +5449,7 @@
    "found": 20
   },
   "일본|living in Japan foreigner": {
-   "at": "2026-11-07T05:59:29Z",
+   "at": "2026-11-10T02:45:33Z",
    "found": 20
   },
   "한국|Busan trip": {
@@ -5415,7 +5461,7 @@
    "found": 20
   },
   "한국|Korea convenience store food": {
-   "at": "2026-11-07T14:54:36Z",
+   "at": "2026-11-10T02:45:30Z",
    "found": 20
   },
   "한국|Korea travel vlog": {
@@ -5439,5 +5485,5 @@
    "found": 20
   }
  },
- "updated": "2026-11-09T18:50:31Z"
+ "updated": "2026-11-10T02:45:39Z"
 }
