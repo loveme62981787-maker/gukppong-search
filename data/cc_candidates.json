@@ -4500,6 +4500,20 @@
    "title": "Summer days in Jeju | Night Market, Ghibli Café, Secret Forest and Ocean View Stay 🍊🌊",
    "views": 1956
   },
+  "lUNhCpOw2do": {
+   "channel": "Wandering Niz",
+   "channel_id": "UCkwmPoR1vVYkxXnIDBEnlUQ",
+   "country": "대만",
+   "duration_sec": 483,
+   "fail_count": 0,
+   "first_seen": "2026-11-11",
+   "id": "lUNhCpOw2do",
+   "length": "8:03",
+   "query": "Taipei night market",
+   "status": "pending",
+   "title": "Taipei Might Be Asia's Most Underrated City | 5 Day Solo Trip",
+   "views": 11
+  },
   "lWkC2F1syRg": {
    "channel": "Blind Man Travels",
    "channel_id": "UCEy8qkzfUDjA7cBhv2vuNuA",
@@ -5280,6 +5294,22 @@
    "title": "Cheap Japanese Groceries in Tokyo! Hidden Maruyasu Supermarket Tour",
    "views": 2127
   },
+  "v4L3wBUoMK8": {
+   "attempted_at": "2026-11-11T16:11:29Z",
+   "channel": "Isa Sung",
+   "channel_id": "UCR4NgvR9eW5teo43gQrKSzA",
+   "country": "일본",
+   "duration_sec": 640,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-11",
+   "id": "v4L3wBUoMK8",
+   "length": "10:40",
+   "query": "Tokyo street food",
+   "status": "pending",
+   "title": "japan diaries ˖°🍡🍵 kimonos, street food, sanrio world!",
+   "views": 61527
+  },
   "vPPJ_UOcklQ": {
    "channel": "Tomodachi Ken in Japan",
    "channel_id": "UCNOv_i0af8z9HXQymBiaqrA",
@@ -5489,6 +5519,22 @@
    "title": "'Racist Report' on Foreigners in South Korea a Gross Misinterpretation to the Trained Eye",
    "views": 1167
   },
+  "y5ry18tKD9g": {
+   "attempted_at": "2026-11-11T16:11:29Z",
+   "channel": "mimomosa",
+   "channel_id": "UCVQIuafrGgZjimGsKIGnybA",
+   "country": "일본",
+   "duration_sec": 504,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-11",
+   "id": "y5ry18tKD9g",
+   "length": "8:24",
+   "query": "Tokyo street food",
+   "status": "pending",
+   "title": "tokyo vlog 🥚 — egg sandos, standing sushi, Shibuya views 🌇",
+   "views": 819
+  },
   "yMv4ds70HSQ": {
    "channel": "Solo Travel Taiwan",
    "channel_id": "UCDY00qzWvrVgWVYFaqRmyIg",
@@ -5667,7 +5713,7 @@
  "schema": 1,
  "searches": {
   "대만|Taipei night market": {
-   "at": "2026-11-08T06:02:37Z",
+   "at": "2026-11-11T16:11:26Z",
    "found": 20
   },
   "대만|Taiwan convenience store food": {
@@ -5719,7 +5765,7 @@
    "found": 20
   },
   "일본|Tokyo street food": {
-   "at": "2026-11-08T06:02:34Z",
+   "at": "2026-11-11T16:11:24Z",
    "found": 20
   },
   "일본|first time in Japan": {
@@ -5731,7 +5777,7 @@
    "found": 20
   },
   "한국|Busan trip": {
-   "at": "2026-11-08T15:14:20Z",
+   "at": "2026-11-11T16:11:21Z",
    "found": 20
   },
   "한국|Jeju island travel": {
@@ -5763,5 +5809,5 @@
    "found": 20
   }
  },
- "updated": "2026-11-11T06:23:22Z"
+ "updated": "2026-11-11T16:11:29Z"
 }
