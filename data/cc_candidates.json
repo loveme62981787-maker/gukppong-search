@@ -1258,6 +1258,22 @@
    "title": "exploring osaka and kyoto, japan! ⛩ $50 kobe beef, viral ramen, private karaoke & MORE!",
    "views": 57193
   },
+  "DnsrSMsWDjo": {
+   "attempted_at": "2026-11-11T22:42:14Z",
+   "channel": "Food and Footprints- Greg and Jumi",
+   "channel_id": "UCn3xotTBbZ7CaH8Zv5WtHHg",
+   "country": "대만",
+   "duration_sec": 409,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-11",
+   "id": "DnsrSMsWDjo",
+   "length": "6:49",
+   "query": "Taiwan street food",
+   "status": "pending",
+   "title": "NINGXIA Night Market Taipei STREET FOOD in TAIWAN",
+   "views": 1350
+  },
   "DyBp8sj-6QM": {
    "channel": "ashleybchoi",
    "channel_id": "UCfB2E_culXfbKpxr7KqzV3Q",
@@ -1747,6 +1763,22 @@
    "status": "pending",
    "title": "Why I Went to Korea... The First Time",
    "views": 35
+  },
+  "JqI2uhjh14w": {
+   "attempted_at": "2026-11-11T22:42:14Z",
+   "channel": "Escaping Comfort Zone",
+   "channel_id": "UCfcAOpjdCP7Kn9_CczQwK4w",
+   "country": "일본",
+   "duration_sec": 462,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-11",
+   "id": "JqI2uhjh14w",
+   "length": "7:42",
+   "query": "Osaka food tour",
+   "status": "pending",
+   "title": "Amazing food of Kyoto | Exploring Kyoto",
+   "views": 225
   },
   "JtAaykHRdQ8": {
    "channel": "Logan Ly",
@@ -5721,7 +5753,7 @@
    "found": 20
   },
   "대만|Taiwan street food": {
-   "at": "2026-11-08T15:14:25Z",
+   "at": "2026-11-11T22:42:11Z",
    "found": 20
   },
   "대만|Taiwan travel vlog": {
@@ -5761,7 +5793,7 @@
    "found": 20
   },
   "일본|Osaka food tour": {
-   "at": "2026-11-08T15:14:23Z",
+   "at": "2026-11-11T22:42:08Z",
    "found": 20
   },
   "일본|Tokyo street food": {
@@ -5793,7 +5825,7 @@
    "found": 20
   },
   "한국|Korean culture experience": {
-   "at": "2026-11-08T20:29:09Z",
+   "at": "2026-11-11T22:42:06Z",
    "found": 20
   },
   "한국|Seoul street food": {
@@ -5809,5 +5841,5 @@
    "found": 20
   }
  },
- "updated": "2026-11-11T16:11:29Z"
+ "updated": "2026-11-11T22:42:14Z"
 }
