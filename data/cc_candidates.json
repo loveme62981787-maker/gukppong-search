@@ -43,6 +43,22 @@
    "title": "OFW TAIWAN // Tamsui and Shilin Night Market Food Trip",
    "views": 35
   },
+  "-L0t-zHadeQ": {
+   "attempted_at": "2026-11-12T07:12:34Z",
+   "channel": "THE HICKS FAMILY",
+   "channel_id": "UCuAaQGqBzw13Nn7uBYPl-8g",
+   "country": "일본",
+   "duration_sec": 1506,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-12",
+   "id": "-L0t-zHadeQ",
+   "length": "25:06",
+   "query": "Kyoto trip",
+   "status": "pending",
+   "title": "JAPAN VLOG: OSAKA, KYOTO, AND MIYAJIMA",
+   "views": 2055
+  },
   "-duXpC2gTIo": {
    "channel": "Kuselo",
    "channel_id": "UCmAIrkggaqjlbB-n4M8a8bA",
@@ -4301,6 +4317,22 @@
    "title": "The Taiwanese Experience: Adjusting to life on the other side of the world",
    "views": 404
   },
+  "jcE7FOW9wGo": {
+   "attempted_at": "2026-11-12T07:12:34Z",
+   "channel": "Udatsu Family Adventures",
+   "channel_id": "UC0o35m-Q6ZtlIVjjqMj8Qlg",
+   "country": "일본",
+   "duration_sec": 587,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-12",
+   "id": "jcE7FOW9wGo",
+   "length": "9:47",
+   "query": "Kyoto trip",
+   "status": "pending",
+   "title": "Kyoto: Great Food and Awesome Sights - Dad's Trip",
+   "views": 143
+  },
   "jhvET6vKXxQ": {
    "channel": "Princess Williams",
    "channel_id": "UCeDvIFDKN8L7fh_6fAYsKFQ",
@@ -5027,6 +5059,20 @@
    "status": "pending",
    "title": "One of the best options for International Students to Explore Taiwan! (Feedback from Docent Felix)",
    "views": 244
+  },
+  "rQ82jMHf8gU": {
+   "channel": "David Lexter Vina",
+   "channel_id": "UCqDFfnu4vVdKaLxACaWYpeg",
+   "country": "대만",
+   "duration_sec": 192,
+   "fail_count": 0,
+   "first_seen": "2026-11-12",
+   "id": "rQ82jMHf8gU",
+   "length": "3:12",
+   "query": "Taiwan trip",
+   "status": "pending",
+   "title": "🐉 Taiwan Trip Day 5 | Pagodas, Food & Lotus Pond Serenity in Kaohsiung 🇹🇼🍜",
+   "views": 47
   },
   "s8MuWPQNpxY": {
    "attempted_at": "2026-11-10T12:40:39Z",
@@ -5761,7 +5807,7 @@
    "found": 20
   },
   "대만|Taiwan trip": {
-   "at": "2026-11-09T06:32:17Z",
+   "at": "2026-11-12T07:12:31Z",
    "found": 20
   },
   "대만|Taiwanese culture experience": {
@@ -5789,7 +5835,7 @@
    "found": 20
   },
   "일본|Kyoto trip": {
-   "at": "2026-11-09T06:32:15Z",
+   "at": "2026-11-12T07:12:29Z",
    "found": 20
   },
   "일본|Osaka food tour": {
@@ -5837,9 +5883,9 @@
    "found": 20
   },
   "한국|living in Korea foreigner": {
-   "at": "2026-11-09T06:32:12Z",
+   "at": "2026-11-12T07:12:26Z",
    "found": 20
   }
  },
- "updated": "2026-11-11T22:42:14Z"
+ "updated": "2026-11-12T07:12:34Z"
 }
