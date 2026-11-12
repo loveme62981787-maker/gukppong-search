@@ -4180,6 +4180,20 @@
    "title": "Best Street Food In Osaka! 😋 Top 20 Unique Japanese Dishes You Have To Try",
    "views": 963
   },
+  "iLQOMv-TVAY": {
+   "channel": "Atelier Loee",
+   "channel_id": "UCy_4y-4j6pFCsMdxhSztIdg",
+   "country": "한국",
+   "duration_sec": 601,
+   "fail_count": 0,
+   "first_seen": "2026-11-12",
+   "id": "iLQOMv-TVAY",
+   "length": "10:01",
+   "query": "Jeju island travel",
+   "status": "pending",
+   "title": "Exploring Jeju 🍊🇰🇷 Hallim Park, Lava Beach, Osullok Tea and Innisfree House (part 2)",
+   "views": 602
+  },
   "iLeFxYfpY_4": {
    "channel": "Robby's Virtual Table",
    "channel_id": "UCxsOjXXw8WxaWC9eEt9tzsA",
@@ -4653,6 +4667,20 @@
    "title": "Visiting Halal Street in Seoul VLOG",
    "views": 893641
   },
+  "mL87gfSQjB4": {
+   "channel": "Dee A",
+   "channel_id": "UC0bzMvxeAbyEA3MHhAElnUA",
+   "country": "일본",
+   "duration_sec": 986,
+   "fail_count": 0,
+   "first_seen": "2026-11-12",
+   "id": "mL87gfSQjB4",
+   "length": "16:26",
+   "query": "Japanese culture experience",
+   "status": "pending",
+   "title": "Traveling Solo in Japan as a Black Woman: What You Need to Know",
+   "views": 238
+  },
   "msk_UNEImVA": {
    "attempted_at": "2026-11-06T06:49:02Z",
    "channel": "hikangs 4K",
@@ -5104,6 +5132,22 @@
    "title": "Exploring Shinjuku with kids: Family Vlog",
    "views": 3145
   },
+  "sA-7bTM8LJc": {
+   "attempted_at": "2026-11-12T16:49:36Z",
+   "channel": "StayPaca",
+   "channel_id": "UCebPQomJPELeD7UMRVbs0Tg",
+   "country": "한국",
+   "duration_sec": 1246,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-12",
+   "id": "sA-7bTM8LJc",
+   "length": "20:46",
+   "query": "Jeju island travel",
+   "status": "pending",
+   "title": "Jeju Summer Travel | Hydrangeas, Snorkeling, Cozy Cat Café and Luxury Forest Resort 🍊🌊",
+   "views": 398
+  },
   "sVVkJCLlmFM": {
    "attempted_at": "2026-11-01T12:49:52Z",
    "channel": "Philippinemartialartandfitness",
@@ -5136,6 +5180,22 @@
    "status": "pending",
    "title": "I Can't Believe This Seoul Street Food Spot Serves SMOKED RIBS",
    "views": 3956
+  },
+  "srv8rfaJsEo": {
+   "attempted_at": "2026-11-12T16:49:36Z",
+   "channel": "Brad Ogden ",
+   "channel_id": "UCu9QqLSgBCGibZYSzhe8xwA",
+   "country": "한국",
+   "duration_sec": 489,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-12",
+   "id": "srv8rfaJsEo",
+   "length": "8:09",
+   "query": "Jeju island travel",
+   "status": "pending",
+   "title": "KOREA VLOG | JeJu Island PT.2",
+   "views": 81
   },
   "t5CjJV6NOzQ": {
    "attempted_at": "2026-11-01T12:49:54Z",
@@ -5811,7 +5871,7 @@
    "found": 20
   },
   "대만|Taiwanese culture experience": {
-   "at": "2026-11-09T18:50:02Z",
+   "at": "2026-11-12T16:49:33Z",
    "found": 20
   },
   "대만|first time in Taiwan": {
@@ -5831,7 +5891,7 @@
    "found": 20
   },
   "일본|Japanese culture experience": {
-   "at": "2026-11-09T18:50:00Z",
+   "at": "2026-11-12T16:49:31Z",
    "found": 20
   },
   "일본|Kyoto trip": {
@@ -5859,7 +5919,7 @@
    "found": 20
   },
   "한국|Jeju island travel": {
-   "at": "2026-11-09T18:49:57Z",
+   "at": "2026-11-12T16:49:28Z",
    "found": 20
   },
   "한국|Korea convenience store food": {
@@ -5887,5 +5947,5 @@
    "found": 20
   }
  },
- "updated": "2026-11-12T07:12:34Z"
+ "updated": "2026-11-12T16:49:36Z"
 }
