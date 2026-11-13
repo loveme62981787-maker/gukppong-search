@@ -1059,6 +1059,20 @@
    "title": "Taiwan Vlog | Traveling with Senior Parents for the First Time",
    "views": 194
   },
+  "BKb8Y85no10": {
+   "channel": "Travel with Doc",
+   "channel_id": "UCgClzd--z9e_vKR6aqthnlg",
+   "country": "한국",
+   "duration_sec": 627,
+   "fail_count": 0,
+   "first_seen": "2026-11-13",
+   "id": "BKb8Y85no10",
+   "length": "10:27",
+   "query": "Korea travel vlog",
+   "status": "pending",
+   "title": "SEOUL Travel Vlog   Video 3 🇰🇷ㅣKorea Travel GuideㅣSeoul Travel TipsㅣSouth Korea places to visit 🏯🌸🍜🎎",
+   "views": 181
+  },
   "BUZXoWqkqJM": {
    "channel": "Archita Kala",
    "channel_id": "UCFEQIb8I3OznzwRatB_VqBQ",
@@ -1935,6 +1949,22 @@
    "status": "pending",
    "title": "20 Japan Travel Tips for First-Time Visitors 2025 🇯🇵 | What No One Tells You!",
    "views": 1230
+  },
+  "L6J5ehGD1C4": {
+   "attempted_at": "2026-11-13T12:14:34Z",
+   "channel": "HeyyTosh - Telugu",
+   "channel_id": "UCsF0P4iDzRmVgAEUVFviRcA",
+   "country": "한국",
+   "duration_sec": 866,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-13",
+   "id": "L6J5ehGD1C4",
+   "length": "14:26",
+   "query": "Korea travel vlog",
+   "status": "pending",
+   "title": "Korea Nightlife Shocking Reality!🇰🇷 Shocked by the Korean Lifestyle 😱 | SFO to Seoul Travel Vlog ✈️",
+   "views": 11
   },
   "LPQMfQSuwbM": {
    "channel": "J&K Lovett",
@@ -3893,6 +3923,22 @@
    "status": "pending",
    "title": "FIRST TIME at Universal Studios Japan - Harry Potter, Mario & More!",
    "views": 1803
+  },
+  "flEjf3WjEi4": {
+   "attempted_at": "2026-11-13T12:14:34Z",
+   "channel": "Life in KiloJulez",
+   "channel_id": "UC1Eqsxd-pVj_WSkzwrsNTPQ",
+   "country": "한국",
+   "duration_sec": 904,
+   "error": "blocked",
+   "fail_count": 1,
+   "first_seen": "2026-11-13",
+   "id": "flEjf3WjEi4",
+   "length": "15:04",
+   "query": "Korea travel vlog",
+   "status": "pending",
+   "title": "Seoul Travel Vlog Mangwon Market & Hongdae",
+   "views": 768
   },
   "fvvvALa--4w": {
    "channel": "日本食冒険記Tokyo Food Adventures",
@@ -5859,7 +5905,7 @@
    "found": 20
   },
   "대만|Taiwan convenience store food": {
-   "at": "2026-11-10T12:40:37Z",
+   "at": "2026-11-13T12:14:31Z",
    "found": 20
   },
   "대만|Taiwan street food": {
@@ -5887,7 +5933,7 @@
    "found": 20
   },
   "일본|Japan convenience store food": {
-   "at": "2026-11-10T12:40:34Z",
+   "at": "2026-11-13T12:14:28Z",
    "found": 20
   },
   "일본|Japan travel vlog": {
@@ -5931,7 +5977,7 @@
    "found": 20
   },
   "한국|Korea travel vlog": {
-   "at": "2026-11-10T12:40:32Z",
+   "at": "2026-11-13T12:14:26Z",
    "found": 20
   },
   "한국|Korean culture experience": {
@@ -5951,5 +5997,5 @@
    "found": 20
   }
  },
- "updated": "2026-11-13T01:05:50Z"
+ "updated": "2026-11-13T12:14:34Z"
 }
