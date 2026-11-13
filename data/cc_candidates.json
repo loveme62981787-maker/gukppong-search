@@ -16,11 +16,13 @@
    "views": 1272
   },
   "-BJFDlcBLko": {
+   "attempted_at": "2026-11-13T01:05:49Z",
    "channel": "Solo Travel Taiwan",
    "channel_id": "UCDY00qzWvrVgWVYFaqRmyIg",
    "country": "대만",
    "duration_sec": 375,
-   "fail_count": 0,
+   "error": "blocked",
+   "fail_count": 1,
    "first_seen": "2026-11-06",
    "id": "-BJFDlcBLko",
    "length": "6:15",
@@ -30,11 +32,13 @@
    "views": 100
   },
   "-DgRPVFlBr0": {
+   "attempted_at": "2026-11-13T01:05:50Z",
    "channel": "Jenny Cesar Vlogs",
    "channel_id": "UCyL3L84fxFn4ZUrN4ErtWng",
    "country": "대만",
    "duration_sec": 193,
-   "fail_count": 0,
+   "error": "blocked",
+   "fail_count": 1,
    "first_seen": "2026-11-04",
    "id": "-DgRPVFlBr0",
    "length": "3:13",
@@ -5879,7 +5883,7 @@
    "found": 19
   },
   "대만|living in Taiwan foreigner": {
-   "at": "2026-11-10T02:45:36Z",
+   "at": "2026-11-13T01:05:47Z",
    "found": 20
   },
   "일본|Japan convenience store food": {
@@ -5911,7 +5915,7 @@
    "found": 20
   },
   "일본|living in Japan foreigner": {
-   "at": "2026-11-10T02:45:33Z",
+   "at": "2026-11-13T01:05:44Z",
    "found": 20
   },
   "한국|Busan trip": {
@@ -5923,7 +5927,7 @@
    "found": 20
   },
   "한국|Korea convenience store food": {
-   "at": "2026-11-10T02:45:30Z",
+   "at": "2026-11-13T01:05:42Z",
    "found": 20
   },
   "한국|Korea travel vlog": {
@@ -5947,5 +5951,5 @@
    "found": 20
   }
  },
- "updated": "2026-11-12T16:49:36Z"
+ "updated": "2026-11-13T01:05:50Z"
 }
