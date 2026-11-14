@@ -2,7 +2,7 @@ name: 영상 라이선스 상태 확인 (4시간마다)
 
 # 영상 라이선스(CC BY / 무료 사용 표기) 확인만 따로 돈다. 매일 도는 전체 수집(update.yml)은 건드리지 않는다.
 # - 사이트가 쓰는 모든 영상 ID(알림 가져오기로 들어온 새 영상 포함)를 매번 현재 저장소 기준으로 다시 모은다. 새 영상 절반 + 가장 오래된 영상 절반을 먼저 확인하고, 그다음 재확인 순으로 돈다.
-# - 결정적인 메타데이터 파싱뿐이라 API 키나 모델 호출이 필요 없다.
+# - YOUTUBE_API_KEY가 있으면 공식 API로 확인하고, 없으면 watch 메타데이터를 확인한다. 모델 호출은 없다.
 # - 실행은 update.yml 과 같은 concurrency 그룹(update)이라 서로 겹치지 않고, 같은 순서로 대기한다. 일정/수동 실행만 있고 push 트리거는 없으며,
 #   GITHUB_TOKEN 으로 한 push 는 다른 워크플로를 다시 깨우지 않아 루프가 생기지 않는다.
 # - 어떤 단계가 실패해도 기존 기록은 지워지지 않고, 바뀐 것이 있을 때만 저장·배포한다.
@@ -48,12 +48,15 @@ jobs:
       - name: CC BY 새로 찾기 (나라마다 검색 1개·후보 5개, 차단 보이면 즉시 중단 / 실패해도 계속)
         continue-on-error: true
         timeout-minutes: 5
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
         run: python cc_discover.py --per-country 1 --max-candidates 5 --workers 2
 
       - name: 영상 라이선스 확인 (최대 10분, 실패해도 계속)
         continue-on-error: true
         timeout-minutes: 10
         env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
           LICENSE_LIMIT: ${{ github.event.inputs.license_limit || '200' }}
         run: python license_watch.py --limit "$LICENSE_LIMIT" --workers 4 --max-seconds 480
 
