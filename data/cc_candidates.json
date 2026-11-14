@@ -1419,76 +1419,87 @@
    "views": 56
   },
   "CnZAGB-SnBY": {
-   "attempted_at": "2026-11-08T15:14:30Z",
+   "attempted_at": "2026-11-14T18:03:37Z",
    "channel": "hikangs 4K",
    "channel_id": "UCO8-0mWq3f8meUmrJFLLfdg",
    "country": "한국",
    "duration_sec": 2366,
-   "error": "blocked",
-   "fail_count": 1,
+   "error": null,
+   "fail_count": 0,
    "first_seen": "2026-11-08",
    "id": "CnZAGB-SnBY",
    "length": "39:26",
+   "published": "2026-05-20",
    "query": "Busan trip",
-   "status": "pending",
+   "status": "verified",
    "title": "4K🇰🇷 이런 부산은 처음일걸? CINEMATIC WALKING TOUR STREET VIEW BUSAN KOREA 40분힐링여행 부산명소 시네마틱 워킹투어 부산여행 전에 꼭보세요",
    "views": 1149
   },
   "CrFEBfp6V3U": {
+   "attempted_at": "2026-11-14T18:03:37Z",
    "channel": "小貝米漿 Logan Beck",
    "channel_id": "UCXpbSh6g1ZWHxk-UQv86VzA",
    "country": "대만",
    "duration_sec": 662,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-03",
    "id": "CrFEBfp6V3U",
    "length": "11:02",
+   "published": "2017-11-09",
    "query": "Taiwan trip",
-   "status": "pending",
+   "status": "verified",
    "title": "我最愛台灣文化 I Love Taiwan Culture (4K) - Life in Taiwan #88",
    "views": 40788
   },
   "CwGlowV42eQ": {
+   "attempted_at": "2026-11-14T18:03:38Z",
    "channel": "Tyler Gong",
    "channel_id": "UCKA37dSKeS0ivRo2se7R6Ag",
    "country": "일본",
    "duration_sec": 412,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-06",
    "id": "CwGlowV42eQ",
    "length": "6:52",
+   "published": "2018-08-07",
    "query": "Kyoto trip",
-   "status": "pending",
+   "status": "verified",
    "title": "A day trip to KYOTO, JAPAN [ Ep. 4 ]",
    "views": 115
   },
   "CyIlbV3_lA4": {
+   "attempted_at": "2026-11-14T18:03:38Z",
    "channel": "New idea",
    "channel_id": "UCWZ8gd0ge4k-vx4ySnVNtwA",
    "country": "일본",
    "duration_sec": 229,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-10-31",
    "id": "CyIlbV3_lA4",
    "length": "3:49",
+   "published": "2019-02-11",
    "query": "Tokyo street food",
-   "status": "pending",
+   "status": "verified",
    "title": "Street Food In Japan| Amazing Street Foods In japan",
    "views": 206
   },
   "D2VRVKSTqtg": {
-   "attempted_at": "2026-11-02T18:24:07Z",
+   "attempted_at": "2026-11-14T18:03:39Z",
    "channel": "Travel with Doc",
    "channel_id": "UCgClzd--z9e_vKR6aqthnlg",
    "country": "한국",
    "duration_sec": 817,
-   "error": "blocked",
-   "fail_count": 1,
+   "error": null,
+   "fail_count": 0,
    "first_seen": "2026-11-02",
    "id": "D2VRVKSTqtg",
    "length": "13:37",
+   "published": "2025-02-02",
    "query": "first time in Korea",
-   "status": "pending",
+   "status": "verified",
    "title": "SEOUL Travel Vlog - Video 1 🇰🇷ㅣKorea Travel GuideㅣSeoul Travel TipsㅣSouth Korea places to visit 🏯🌸🍜🎎",
    "views": 21444
   },
@@ -1510,30 +1521,36 @@
    "views": 30
   },
   "Dc-80MqRK48": {
+   "attempted_at": "2026-11-14T18:03:39Z",
    "channel": "Nomad Journal",
    "channel_id": "UCPEJfPBrEZJXUp0OUeLgL4w",
    "country": "대만",
    "duration_sec": 339,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-01",
    "id": "Dc-80MqRK48",
    "length": "5:39",
+   "published": "2025-03-14",
    "query": "Taiwan street food",
-   "status": "pending",
+   "status": "verified",
    "title": "Top 10 Savory Street Foods in Taipei for Under $5! 🇹🇼 Affordable Eats You Have to Try!",
    "views": 1095
   },
   "DmRU6on4-kc": {
+   "attempted_at": "2026-11-14T18:03:40Z",
    "channel": "Carrie Dayton Vlogs",
    "channel_id": "UCMXBBb6GLVJI8-Lie7QAMkQ",
    "country": "일본",
    "duration_sec": 1373,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-06",
    "id": "DmRU6on4-kc",
    "length": "22:53",
+   "published": "2023-04-08",
    "query": "Osaka food tour",
-   "status": "pending",
+   "status": "verified",
    "title": "exploring osaka and kyoto, japan! ⛩ $50 kobe beef, viral ramen, private karaoke & MORE!",
    "views": 57193
   },
@@ -1624,6 +1641,23 @@
    "status": "pending",
    "title": "Ningxia Night Market Taipei 🇹🇼 | Saturday Night Street Food Tour 2025 | Taiwan Night Market Walk",
    "views": 1517
+  },
+  "EFPt7op_eLM": {
+   "attempted_at": "2026-11-14T18:03:43Z",
+   "channel": "Kayen.c",
+   "channel_id": "UC5tdaeHLqRmd_16M4w_QNAQ",
+   "country": "대만",
+   "duration_sec": 571,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-14",
+   "id": "EFPt7op_eLM",
+   "length": "9:31",
+   "published": "2024-01-31",
+   "query": "living in Taiwan foreigner",
+   "status": "verified",
+   "title": "Taiwan Vlog 2024 🇹🇼 | what to eat & where to go in Tainan✨cafe, nightmart",
+   "views": 8185
   },
   "EVSPVLOvV8E": {
    "attempted_at": "2026-11-05T21:59:48Z",
@@ -3113,6 +3147,23 @@
    "title": "2 Days in Seogwipo, Jeju Island 🇰🇷 Cheonjiyeon Waterfall, Lee Jung Seop Street & Cafes / Nishi V",
    "views": 231
   },
+  "RThfKd8M0Dk": {
+   "attempted_at": "2026-11-14T18:03:40Z",
+   "channel": "Watchers Club",
+   "channel_id": "UCSkaixM5p8mYuBIdy2J0ZHw",
+   "country": "한국",
+   "duration_sec": 653,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-14",
+   "id": "RThfKd8M0Dk",
+   "length": "10:53",
+   "published": "2021-11-07",
+   "query": "Korea travel vlog",
+   "status": "verified",
+   "title": "Korea Night Walk Tour 360VR Walking Around Tourist Spot in Seoul  Kondae Street 불토 건대맛의거리 ソウルの燃えるの夜",
+   "views": 240027
+  },
   "R_QQV-ClodY": {
    "channel": "adventurewithpc",
    "channel_id": "UCEQGFY8EzUa2z26f0K9WytA",
@@ -3934,6 +3985,23 @@
    "title": "Korea Vlog Feb 2020 | My First Trip",
    "views": 44
   },
+  "af9J9OJ1AmY": {
+   "attempted_at": "2026-11-14T18:03:41Z",
+   "channel": "Victoria Rose",
+   "channel_id": "UCi8IX8CVCHRKiLV_eCWEKNA",
+   "country": "일본",
+   "duration_sec": 491,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-14",
+   "id": "af9J9OJ1AmY",
+   "length": "8:11",
+   "published": "2019-02-23",
+   "query": "living in Japan foreigner",
+   "status": "verified",
+   "title": "I MISS AMERICAN FOOD (foreigner in Japan update)",
+   "views": 19410
+  },
   "asieZ3F7_Kw": {
    "channel": "Abdul’s World | Bay Area Travel",
    "channel_id": "UC3E6-S6YqdxXdmGIPqzmqdQ",
@@ -3989,6 +4057,23 @@
    "status": "pending",
    "title": "Tokyo Street Food That Will Blow Your Mind! 🍢🔥🇯🇵",
    "views": 219
+  },
+  "bXz8pckrYoo": {
+   "attempted_at": "2026-11-14T18:03:42Z",
+   "channel": "jenny",
+   "channel_id": "UCiLlq_Ga7ue-47YSWobKdDA",
+   "country": "일본",
+   "duration_sec": 910,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-14",
+   "id": "bXz8pckrYoo",
+   "length": "15:10",
+   "published": "2026-08-09",
+   "query": "living in Japan foreigner",
+   "status": "verified",
+   "title": "Getting Moles Removed in Japan as a Foreigner 🇯🇵 | My Honest Experience, Cost & Aftercare",
+   "views": 488
   },
   "bY38Z3o-Wu8": {
    "channel": "Solo Travel Taiwan",
@@ -4360,6 +4445,23 @@
    "status": "pending",
    "title": "Taiwanese Street Food",
    "views": 13
+  },
+  "eqLm0z4AC9w": {
+   "attempted_at": "2026-11-14T18:03:44Z",
+   "channel": "ZEO家の冒険",
+   "channel_id": "UCpHyc0WYE_tN0IznyjnGL3A",
+   "country": "대만",
+   "duration_sec": 1817,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-14",
+   "id": "eqLm0z4AC9w",
+   "length": "30:17",
+   "published": "2025-04-19",
+   "query": "living in Taiwan foreigner",
+   "status": "verified",
+   "title": "【台湾旅】名所から秘境まで！誰も知らない台湾の魅力を紹介！",
+   "views": 124438
   },
   "fF3p3j3V-_E": {
    "channel": "World's Best",
@@ -5409,6 +5511,23 @@
    "title": "Traveling Solo in Japan as a Black Woman: What You Need to Know",
    "views": 238
   },
+  "mqSQKry1SRk": {
+   "attempted_at": "2026-11-14T18:03:41Z",
+   "channel": "アリスコーナー | Arisu corner | Living in Japan",
+   "channel_id": "UCDrvZ6OchN0V4nztFUxRQeA",
+   "country": "일본",
+   "duration_sec": 319,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-14",
+   "id": "mqSQKry1SRk",
+   "length": "5:19",
+   "published": "2024-12-22",
+   "query": "living in Japan foreigner",
+   "status": "verified",
+   "title": "🇯🇵 A Day in Life of a Foreigner in Tokyo: A Christmas Market Adventure | Living in Japan",
+   "views": 214
+  },
   "msk_UNEImVA": {
    "attempted_at": "2026-11-06T06:49:02Z",
    "channel": "hikangs 4K",
@@ -5812,6 +5931,23 @@
    "status": "pending",
    "title": "8 Ways to Enjoy Food in Tokyo",
    "views": 398
+  },
+  "qLq_9iKGk9I": {
+   "attempted_at": "2026-11-14T18:03:43Z",
+   "channel": "強運少女RU",
+   "channel_id": "UCjybxgN2zwMM63x2X2r-qbg",
+   "country": "대만",
+   "duration_sec": 429,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-14",
+   "id": "qLq_9iKGk9I",
+   "length": "7:09",
+   "published": "2018-05-11",
+   "query": "living in Taiwan foreigner",
+   "status": "verified",
+   "title": "台灣的星巴克比日本好喝？日本人來台灣旅遊感到驚訝的事情...！| 日本人が台湾旅行に衝撃を受けたこと！！",
+   "views": 209463
   },
   "qOp1qSIDIUA": {
    "channel": "LackySteps",
@@ -6442,6 +6578,23 @@
    "title": "🌄 Taiwan Trip Day 2 | Northern Taiwan Tour + Taipei MRT Ride 🚇🇹🇼",
    "views": 266
   },
+  "xXm9uLYNNKE": {
+   "attempted_at": "2026-11-14T18:03:42Z",
+   "channel": "TravelComic",
+   "channel_id": "UCsPlsWjaxz_y8ZFdpW44Brw",
+   "country": "대만",
+   "duration_sec": 307,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-14",
+   "id": "xXm9uLYNNKE",
+   "length": "5:07",
+   "published": "2020-03-01",
+   "query": "living in Taiwan foreigner",
+   "status": "verified",
+   "title": "Roadtrip | Traveling around TAIWAN with my mom VLOG #51",
+   "views": 14876
+  },
   "xc0_sbkXpU0": {
    "attempted_at": "2026-11-01T09:11:48Z",
    "channel": "Mimi Travel",
@@ -6773,8 +6926,8 @@
    "found": 19
   },
   "대만|living in Taiwan foreigner": {
-   "at": "2026-11-13T01:05:47Z",
-   "found": 20
+   "at": "2026-11-14T18:03:34Z",
+   "found": 25
   },
   "일본|Japan convenience store food": {
    "at": "2026-11-13T12:14:28Z",
@@ -6805,8 +6958,8 @@
    "found": 19
   },
   "일본|living in Japan foreigner": {
-   "at": "2026-11-13T01:05:44Z",
-   "found": 20
+   "at": "2026-11-14T18:03:32Z",
+   "found": 25
   },
   "한국|Busan trip": {
    "at": "2026-11-14T11:28:59Z",
@@ -6821,8 +6974,8 @@
    "found": 25
   },
   "한국|Korea travel vlog": {
-   "at": "2026-11-13T12:14:26Z",
-   "found": 20
+   "at": "2026-11-14T18:03:29Z",
+   "found": 25
   },
   "한국|Korean culture experience": {
    "at": "2026-11-14T13:47:22Z",
@@ -6841,5 +6994,5 @@
    "found": 20
   }
  },
- "updated": "2026-11-14T15:51:09Z"
+ "updated": "2026-11-14T18:03:45Z"
 }
