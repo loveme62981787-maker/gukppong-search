@@ -1147,46 +1147,53 @@
    "views": 304
   },
   "B-rpi16Kyos": {
+   "attempted_at": "2026-11-14T15:51:00Z",
    "channel": "日本食冒険記Tokyo Food Adventures",
    "channel_id": "UCXz4C2UgKkskK8ZcEbgRDVA",
    "country": "일본",
    "duration_sec": 1325,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-02",
    "id": "B-rpi16Kyos",
    "length": "22:05",
+   "published": "2025-09-21",
    "query": "first time in Japan",
-   "status": "pending",
+   "status": "verified",
    "title": "Japanese sushi leaves a foreigner speechless... Fish-hating foreigner astonished at first raw fish",
    "views": 1484734
   },
   "B-vOARc_zGw": {
-   "attempted_at": "2026-11-04T00:37:44Z",
+   "attempted_at": "2026-11-14T15:51:00Z",
    "channel": "Shan Stag",
    "channel_id": "UCslDOyyhtjKHuHiSpgyTFSg",
    "country": "한국",
    "duration_sec": 434,
-   "error": "blocked",
-   "fail_count": 1,
+   "error": null,
+   "fail_count": 0,
    "first_seen": "2026-11-04",
    "id": "B-vOARc_zGw",
    "length": "7:14",
+   "published": "2024-07-06",
    "query": "living in Korea foreigner",
-   "status": "pending",
+   "status": "verified",
    "title": "What I Spend in a Month Living in Seoul, Korea",
    "views": 10271
   },
   "B4wv35tjR98": {
+   "attempted_at": "2026-11-14T15:51:01Z",
    "channel": "Vincent Fu",
    "channel_id": "UC6J2mj5weFp8zw1uTrL_0IQ",
    "country": "대만",
    "duration_sec": 677,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-07",
    "id": "B4wv35tjR98",
    "length": "11:17",
+   "published": "2018-01-12",
    "query": "Taiwan travel vlog",
-   "status": "pending",
+   "status": "verified",
    "title": "Taiwan Winter Trip 2017-2018 Episode 1",
    "views": 865
   },
@@ -1208,30 +1215,36 @@
    "views": 18890
   },
   "BATfzyVgBL8": {
+   "attempted_at": "2026-11-14T15:51:01Z",
    "channel": "Kirsty Hewitt",
    "channel_id": "UCvtphspUIn8-GIfbK4HTuoQ",
    "country": "일본",
    "duration_sec": 1912,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-07",
    "id": "BATfzyVgBL8",
    "length": "31:52",
+   "published": "2025-07-01",
    "query": "Japan travel vlog",
-   "status": "pending",
+   "status": "verified",
    "title": "Japan Travel Day! Haneda Airport, Hotel Gracery Shinjuku & 7-Eleven Egg Sandwich | DAY1 JUNE25",
    "views": 7066
   },
   "BIs14mSBq-s": {
+   "attempted_at": "2026-11-14T15:51:03Z",
    "channel": "Retirement Slow Travel, What’s Next?",
    "channel_id": "UCoTvut19ZiBmBrunpG0G6Jw",
    "country": "일본",
    "duration_sec": 1029,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-09",
    "id": "BIs14mSBq-s",
    "length": "17:09",
+   "published": "2026-10-19",
    "query": "Kyoto trip",
-   "status": "pending",
+   "status": "verified",
    "title": "How to do Retirement Slow Travel Day 6 Kyoto Japan with @russandjulie",
    "views": 196
   },
@@ -1253,72 +1266,87 @@
    "views": 194
   },
   "BKb8Y85no10": {
+   "attempted_at": "2026-11-14T15:51:03Z",
    "channel": "Travel with Doc",
    "channel_id": "UCgClzd--z9e_vKR6aqthnlg",
    "country": "한국",
    "duration_sec": 627,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-13",
    "id": "BKb8Y85no10",
    "length": "10:27",
+   "published": "2025-02-02",
    "query": "Korea travel vlog",
-   "status": "pending",
+   "status": "verified",
    "title": "SEOUL Travel Vlog   Video 3 🇰🇷ㅣKorea Travel GuideㅣSeoul Travel TipsㅣSouth Korea places to visit 🏯🌸🍜🎎",
    "views": 181
   },
   "BUZXoWqkqJM": {
+   "attempted_at": "2026-11-14T15:51:04Z",
    "channel": "Archita Kala",
    "channel_id": "UCFEQIb8I3OznzwRatB_VqBQ",
    "country": "한국",
    "duration_sec": 1816,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-05",
    "id": "BUZXoWqkqJM",
    "length": "30:16",
+   "published": "2025-03-15",
    "query": "Korea travel vlog",
-   "status": "pending",
+   "status": "verified",
    "title": "Ultimate 10-Day South Korea Itinerary from India  in 2026🇮🇳✈️🇰🇷 | Budget Breakdown & Travel Guide",
    "views": 21614
   },
   "BXTUis-KBQM": {
+   "attempted_at": "2026-11-14T15:51:05Z",
    "channel": "hey, it's mikee",
    "channel_id": "UCP4d-6eI9Bq7vfMHUSeEzkg",
    "country": "일본",
    "duration_sec": 1971,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-03",
    "id": "BXTUis-KBQM",
    "length": "32:51",
+   "published": "2024-07-25",
    "query": "Kyoto trip",
-   "status": "pending",
+   "status": "verified",
    "title": "First time in Kyoto and I want to move here 🇯🇵",
    "views": 6022
   },
   "BYimxS4FxyM": {
+   "attempted_at": "2026-11-14T15:51:06Z",
    "channel": "The Travelling Event Manager",
    "channel_id": "UCcGeO3hqdO6T_h2MM2y1Ejw",
    "country": "대만",
    "duration_sec": 324,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-04",
    "id": "BYimxS4FxyM",
    "length": "5:24",
+   "published": "2026-03-01",
    "query": "Taiwanese culture experience",
-   "status": "pending",
+   "status": "verified",
    "title": "How to Do a Kavalan Whisky Tasting Tour in Taipei (Taiwan’s Best Whisky!)",
    "views": 409
   },
   "BeB0ZAM6Aq0": {
+   "attempted_at": "2026-11-14T15:51:06Z",
    "channel": "Ouma KazutoCh",
    "channel_id": "UCs7a3YIuNkfiJdZp97uC3ng",
    "country": "일본",
    "duration_sec": 1624,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-09",
    "id": "BeB0ZAM6Aq0",
    "length": "27:04",
+   "published": "2020-03-31",
    "query": "Kyoto trip",
-   "status": "pending",
+   "status": "verified",
    "title": "Kazu Vlog #6 - Kyoto Trip Inari Shrine 1000 gate (Special episode)",
    "views": 19
   },
@@ -1340,46 +1368,53 @@
    "views": 1004
   },
   "BkbxV_TMDlQ": {
+   "attempted_at": "2026-11-14T15:51:07Z",
    "channel": "Isa Sung",
    "channel_id": "UCR4NgvR9eW5teo43gQrKSzA",
    "country": "대만",
    "duration_sec": 583,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-01",
    "id": "BkbxV_TMDlQ",
    "length": "9:43",
+   "published": "2024-04-22",
    "query": "Taiwan convenience store food",
-   "status": "pending",
+   "status": "verified",
    "title": "24 hours in Taipei (my fave food recs)",
    "views": 92175
   },
   "CGuue_Oz8tQ": {
-   "attempted_at": "2026-11-06T21:30:05Z",
+   "attempted_at": "2026-11-14T15:51:07Z",
    "channel": "Keira Ashley",
    "channel_id": "UCj--buW9drjGC8RQjHeP-ug",
    "country": "일본",
    "duration_sec": 422,
-   "error": "blocked",
-   "fail_count": 1,
+   "error": null,
+   "fail_count": 0,
    "first_seen": "2026-11-06",
    "id": "CGuue_Oz8tQ",
    "length": "7:02",
+   "published": "2018-11-26",
    "query": "Japanese culture experience",
-   "status": "pending",
+   "status": "verified",
    "title": "DON'T do this on Japanese trains🙅🏻‍♀️",
    "views": 2799
   },
   "CSD5OfXDbqI": {
+   "attempted_at": "2026-11-14T15:51:08Z",
    "channel": "KikoBrothers",
    "channel_id": "UC0dli2ad2k9ltSAY0O3cp9w",
    "country": "일본",
    "duration_sec": 575,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-04",
    "id": "CSD5OfXDbqI",
    "length": "9:35",
+   "published": "2020-12-04",
    "query": "living in Japan foreigner",
-   "status": "pending",
+   "status": "verified",
    "title": "3 Things I Didn't Like About Living in Japan",
    "views": 56
   },
@@ -6438,6 +6473,23 @@
    "title": "My First Trip to Japan - JoCat Storytime | 僕の日本への初めての旅です -  ジョキャットのストーリータイム",
    "views": 885565
   },
+  "xui8ydY7oic": {
+   "attempted_at": "2026-11-14T15:51:05Z",
+   "channel": "Kiddy City",
+   "channel_id": "UCHbIBvnrn6CKAzc0hKN3W7w",
+   "country": "대만",
+   "duration_sec": 193,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-14",
+   "id": "xui8ydY7oic",
+   "length": "3:13",
+   "published": "2025-03-23",
+   "query": "Taiwanese culture experience",
+   "status": "verified",
+   "title": "My trip to Taiwan",
+   "views": 40
+  },
   "y-7RHPYOONM": {
    "channel": "Sittie Saheda",
    "channel_id": "UCgDFYPzL5249Esd9KordJZw",
@@ -6628,6 +6680,23 @@
    "title": "My Roller Coaster Japanese Food Tour: 25 Osaka Foods in A Day",
    "views": 305
   },
+  "z_DBKYNcOg4": {
+   "attempted_at": "2026-11-14T15:51:04Z",
+   "channel": "Wikipedia Fan",
+   "channel_id": "UCMeSYAu27EY1aslaUSaL6VA",
+   "country": "대만",
+   "duration_sec": 286,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-14",
+   "id": "z_DBKYNcOg4",
+   "length": "4:46",
+   "published": "2018-11-02",
+   "query": "Taiwanese culture experience",
+   "status": "verified",
+   "title": "Taiwanese tea culture | Wikipedia audio article",
+   "views": 36
+  },
   "zjCZWR4O9hY": {
    "channel": "Jack The Human",
    "channel_id": "UCais83lEsRef8ibNuRaRbPQ",
@@ -6696,8 +6765,8 @@
    "found": 20
   },
   "대만|Taiwanese culture experience": {
-   "at": "2026-11-12T16:49:33Z",
-   "found": 20
+   "at": "2026-11-14T15:50:58Z",
+   "found": 25
   },
   "대만|first time in Taiwan": {
    "at": "2026-11-14T00:53:43Z",
@@ -6716,8 +6785,8 @@
    "found": 20
   },
   "일본|Japanese culture experience": {
-   "at": "2026-11-12T16:49:31Z",
-   "found": 20
+   "at": "2026-11-14T15:50:56Z",
+   "found": 25
   },
   "일본|Kyoto trip": {
    "at": "2026-11-14T14:05:41Z",
@@ -6748,8 +6817,8 @@
    "found": 20
   },
   "한국|Korea convenience store food": {
-   "at": "2026-11-13T01:05:42Z",
-   "found": 20
+   "at": "2026-11-14T15:50:53Z",
+   "found": 25
   },
   "한국|Korea travel vlog": {
    "at": "2026-11-13T12:14:26Z",
@@ -6772,5 +6841,5 @@
    "found": 20
   }
  },
- "updated": "2026-11-14T15:48:04Z"
+ "updated": "2026-11-14T15:51:09Z"
 }
