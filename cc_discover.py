@@ -221,9 +221,14 @@ def run(per_country, max_candidates, workers, get=discover.get, fetch=discover.g
             new_ids += add_candidates(store, found, country, q, lic["items"], now, max_candidates)
             sleep(2)
         if not stopped:
-            todo = new_ids + [i for i, it in store["items"].items() if it["status"] == "pending" and i not in new_ids and is_due(it, now)]
             cap = max_candidates * len(QUERIES)
-            todo = todo[:cap]
+            pending = [i for i, it in store["items"].items()
+                       if it["status"] == "pending" and i not in new_ids
+                       and (is_due(it, now) or
+                            (os.environ.get("YOUTUBE_API_KEY") and it.get("error") == "blocked"))]
+            # 오래된 대기 후보에도 절반을 배분해 신규 후보가 계속 들어와도 재확인한다.
+            reserved = pending[:cap // 2]
+            todo = (reserved + new_ids + pending[len(reserved):])[:cap]
             blocks = 0
             with ThreadPoolExecutor(max_workers=min(max(workers, 1), 2)) as ex:
                 for s in range(0, len(todo), 2):

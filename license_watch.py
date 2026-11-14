@@ -16,7 +16,8 @@ import random
 import re
 import sys
 import time
-from urllib.parse import urlparse
+from urllib.parse import urlparse, urlencode
+from urllib.request import urlopen
 from concurrent.futures import ThreadPoolExecutor
 from datetime import datetime, timedelta, timezone
 
@@ -405,8 +406,38 @@ def pick_targets(inventory, items, limit, now):
 
 
 # ---------------------------------------------------------------- 수집
+def fetch_api_license(vid, key, opener=urlopen):
+    """공식 videos.list의 해당 영상 status.license만 사용한다. 오류에 키 URL을 출력하지 않는다."""
+    query = urlencode({"part": "status,snippet", "id": vid, "key": key})
+    try:
+        with opener("https://www.googleapis.com/youtube/v3/videos?" + query, timeout=25) as response:
+            data = json.load(response)
+    except Exception:
+        return "err", "http_error"
+    rows = data.get("items", [])
+    if not rows:
+        return "err", "unavailable"
+    if len(rows) != 1 or rows[0].get("id") != vid:
+        return "err", "identity_mismatch"
+    row = rows[0]
+    license_value = {"creativeCommon": "cc_by", "youtube": "standard"}.get(
+        row.get("status", {}).get("license"))
+    if not license_value:
+        return "err", "unavailable"
+    snippet = row.get("snippet", {})
+    return "ok", {
+        "license": license_value,
+        "has_desc": "description" in snippet,
+        "free_rule": free_use_rule(snippet.get("description", "")),
+        "published": upload_date({"publishDate": snippet.get("publishedAt")}),
+    }
+
+
 def fetch_one(vid, fetch=discover.get, sleep=time.sleep, tries=3):
     """네트워크 오류는 지수 백오프로 재시도. 반환은 parse_watch 와 같은 ('ok'|'err', ...)"""
+    api_key = os.environ.get("YOUTUBE_API_KEY")
+    if api_key and fetch is discover.get:
+        return fetch_api_license(vid, api_key)
     code = "network"
     for k in range(tries):
         try:
