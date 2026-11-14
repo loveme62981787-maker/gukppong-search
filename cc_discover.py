@@ -56,8 +56,49 @@ def now_utc():
 
 
 # ---------------------------------------------------------------- 검색
+def search_cc_api(query, key, opener=lw.urlopen):
+    """공식 검색 API로 후보를 수집한다. 라이선스 확정은 영상별 재확인 단계에서 한다."""
+    def request(resource, params):
+        params["key"] = key
+        try:
+            with opener("https://www.googleapis.com/youtube/v3/" + resource + "?" + urllib.parse.urlencode(params), timeout=25) as response:
+                return json.load(response)
+        except Exception:
+            raise RuntimeError("공식 검색 API 요청 실패") from None
+
+    result = request("search", {"part": "snippet", "q": query, "type": "video",
+                                "videoLicense": "creativeCommon", "maxResults": 25})
+    ids = [x.get("id", {}).get("videoId", "") for x in result.get("items", [])]
+    ids = [i for i in ids if lw.ID_RE.fullmatch(i)]
+    if not ids:
+        return []
+    details = request("videos", {"part": "snippet,contentDetails,statistics", "id": ",".join(ids)})
+    out = []
+    for item in details.get("items", []):
+        if item.get("id") not in ids:
+            continue
+        snippet = item.get("snippet", {})
+        duration = item.get("contentDetails", {}).get("duration", "")
+        match = re.fullmatch(r"PT(?:(\d+)H)?(?:(\d+)M)?(?:(\d+)S)?", duration)
+        if not match or not any(match.groups()):
+            continue
+        h, m, sec = (int(x or 0) for x in match.groups())
+        seconds = h * 3600 + m * 60 + sec
+        length = f"{seconds // 60}:{seconds % 60:02d}"
+        try:
+            views = int(item.get("statistics", {}).get("viewCount", 0))
+        except (TypeError, ValueError):
+            views = 0
+        out.append({"id": item["id"], "title": snippet.get("title", ""),
+                    "channel": snippet.get("channelTitle", ""), "channel_id": snippet.get("channelId", ""),
+                    "views": views, "length": length, "duration_sec": seconds})
+    return out
+
+
 def search_cc(query, get=discover.get):
     """CC 필터 검색 1페이지 → 후보 목록(공개 메타데이터만). 예외는 호출자가 차단으로 처리한다"""
+    if os.environ.get("YOUTUBE_API_KEY") and get is discover.get:
+        return search_cc_api(query, os.environ["YOUTUBE_API_KEY"])
     page = get("https://www.youtube.com/results?search_query=" + urllib.parse.quote(query) + "&sp=" + CC_SP)
     d = discover.initial_data(page)
     out = []
