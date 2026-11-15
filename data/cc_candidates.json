@@ -857,6 +857,23 @@
    "title": "Taiwan Street Food   Street Food Satisfying Videos #foodlovers #gdworld",
    "views": 109
   },
+  "7xccYsbv-P4": {
+   "attempted_at": "2026-11-15T15:40:17Z",
+   "channel": "jayson valencia",
+   "channel_id": "UCDuPFSB_RdQpfY9x1Y1Cn8w",
+   "country": "한국",
+   "duration_sec": 399,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-15",
+   "id": "7xccYsbv-P4",
+   "length": "6:39",
+   "published": "2017-08-16",
+   "query": "Busan trip",
+   "status": "verified",
+   "title": "TRIP TO BUSAN HAEUNDAE BEACH 2017",
+   "views": 1052
+  },
   "7yXylBM71Sk": {
    "attempted_at": "2026-11-14T14:06:12Z",
    "channel": "Steve McCarty",
@@ -1724,6 +1741,23 @@
    "title": "Korean Food at the Famous Gwangjang Market",
    "views": 618
   },
+  "EhUtKtYKNKo": {
+   "attempted_at": "2026-11-15T15:40:17Z",
+   "channel": "armshie",
+   "channel_id": "UCXiNI3G81KcCs0_YwiTsIJw",
+   "country": "한국",
+   "duration_sec": 10209,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-15",
+   "id": "EhUtKtYKNKo",
+   "length": "170:09",
+   "published": "2025-01-01",
+   "query": "Busan trip",
+   "status": "verified",
+   "title": "A Family Trip to Busan Part 2",
+   "views": 32
+  },
   "F0E0gGPJYok": {
    "attempted_at": "2026-11-14T23:55:45Z",
    "channel": "Food and Footprints- Greg and Jumi",
@@ -1740,6 +1774,23 @@
    "status": "verified",
    "title": "Walking in TAIPEI FOOD TOUR Taiwan and JIUFEN Day Trip",
    "views": 2153
+  },
+  "F3lbRuX7ZHM": {
+   "attempted_at": "2026-11-15T15:40:19Z",
+   "channel": "Retirement Slow Travel, What’s Next?",
+   "channel_id": "UCoTvut19ZiBmBrunpG0G6Jw",
+   "country": "일본",
+   "duration_sec": 1416,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-15",
+   "id": "F3lbRuX7ZHM",
+   "length": "23:36",
+   "published": "2026-09-02",
+   "query": "first time in Japan",
+   "status": "verified",
+   "title": "How to do Retirement Slow Travel, Japan, Senso Ji and Meji Shrine, What's Next? Day 1 and 2",
+   "views": 541
   },
   "F4kX6buUMH4": {
    "attempted_at": "2026-11-14T23:55:44Z",
@@ -2065,16 +2116,19 @@
    "views": 4751
   },
   "HwxEwvmkG7o": {
+   "attempted_at": "2026-11-15T15:40:13Z",
    "channel": "Streed Food and Travel TV",
    "channel_id": "UCfZiMBCtft9OajctgopuBvg",
    "country": "대만",
    "duration_sec": 612,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-08",
    "id": "HwxEwvmkG7o",
    "length": "10:12",
+   "published": "2017-09-10",
    "query": "Taiwan street food",
-   "status": "pending",
+   "status": "verified",
    "title": "Taiwan Street Food Teppanyaki and More Delicious Delicacies | STREET FOOD AND TRAVEL",
    "views": 110
   },
@@ -2096,60 +2150,70 @@
    "views": 197
   },
   "IB2vpY9OnuA": {
+   "attempted_at": "2026-11-15T15:40:13Z",
    "channel": "RICHARD GALIDO",
    "channel_id": "UC_sR1IZnmEbyJWHJHlCe01g",
    "country": "일본",
    "duration_sec": 290,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-06",
    "id": "IB2vpY9OnuA",
    "length": "4:50",
+   "published": "2020-07-13",
    "query": "Kyoto trip",
-   "status": "pending",
+   "status": "verified",
    "title": "Kyoto Travel 2020 | Memoirs of Kyoto",
    "views": 1911
   },
   "ITXMGaq0Ar4": {
+   "attempted_at": "2026-11-15T15:40:14Z",
    "channel": "Nize Ocden",
    "channel_id": "UC3LtpMg-5byUVnDwgYrvzPg",
    "country": "대만",
    "duration_sec": 195,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-01",
    "id": "ITXMGaq0Ar4",
    "length": "3:15",
+   "published": "2019-12-09",
    "query": "Taiwan convenience store food",
-   "status": "pending",
+   "status": "verified",
    "title": "TAIWAN VLOG- WOW! 711 IN XIMENDING, TAIPEI TAIWAN",
    "views": 308
   },
   "ImADF3AtyJs": {
+   "attempted_at": "2026-11-15T15:40:14Z",
    "channel": "Viaje KuMarie ",
    "channel_id": "UCmonUMlb8XrHtlESN_jUFHg",
    "country": "대만",
    "duration_sec": 2178,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-04",
    "id": "ImADF3AtyJs",
    "length": "36:18",
+   "published": "2025-09-06",
    "query": "Taiwan convenience store food",
-   "status": "pending",
+   "status": "verified",
    "title": "Taiwan 2025 Ximending Food | SECRET to Free Dining",
    "views": 1968
   },
   "In10_xHvfXQ": {
-   "attempted_at": "2026-11-07T14:54:44Z",
+   "attempted_at": "2026-11-15T15:40:15Z",
    "channel": "Disrupt Capital",
    "channel_id": "UCzm1GvXlVjj0VeoJdvvQFbw",
    "country": "일본",
    "duration_sec": 468,
-   "error": "blocked",
-   "fail_count": 1,
+   "error": null,
+   "fail_count": 0,
    "first_seen": "2026-11-07",
    "id": "In10_xHvfXQ",
    "length": "7:48",
+   "published": "2025-01-22",
    "query": "Japan convenience store food",
-   "status": "pending",
+   "status": "verified",
    "title": "Japan continues to go WAYYY beyond the US experience.",
    "views": 876
   },
@@ -2171,30 +2235,36 @@
    "views": 12092650
   },
   "J3MejXgbh8A": {
+   "attempted_at": "2026-11-15T15:40:15Z",
    "channel": "Jacob and Juliana",
    "channel_id": "UC0h9Mvuv25NuZeSfaB0c4ug",
    "country": "한국",
    "duration_sec": 313,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-04",
    "id": "J3MejXgbh8A",
    "length": "5:13",
+   "published": "2025-12-14",
    "query": "Jeju island travel",
-   "status": "pending",
+   "status": "verified",
    "title": "Jeju Island Blew Us Away in ONE Day 🇰🇷 Waterfalls, Street Food & Black Pork",
    "views": 448
   },
   "JPhYp00JDXE": {
+   "attempted_at": "2026-11-15T15:40:16Z",
    "channel": "Nomad Journal",
    "channel_id": "UCPEJfPBrEZJXUp0OUeLgL4w",
    "country": "일본",
    "duration_sec": 571,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-01",
    "id": "JPhYp00JDXE",
    "length": "9:31",
+   "published": "2025-11-08",
    "query": "Japan convenience store food",
-   "status": "pending",
+   "status": "verified",
    "title": "Japan's Convenience Store Food is Next Level!",
    "views": 946
   },
@@ -3250,6 +3320,23 @@
    "title": "MUST VISIT IN TAIWAN 🫧✩ 台北夜市吃什麼? ✨🍜🥟 Taipei 101, tea ceremony?! shopping, night market, etc.",
    "views": 23011
   },
+  "RDfRo6ZFxBk": {
+   "attempted_at": "2026-11-15T15:40:16Z",
+   "channel": "Drewkulet🍫",
+   "channel_id": "UCv0awSbDj77vokbf0sZmBQA",
+   "country": "한국",
+   "duration_sec": 482,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-15",
+   "id": "RDfRo6ZFxBk",
+   "length": "8:02",
+   "published": "2018-05-17",
+   "query": "Busan trip",
+   "status": "verified",
+   "title": "Road trip in BUSAN...",
+   "views": 59
+  },
   "RF8DSPuOFbU": {
    "channel": "Modern Day Dad",
    "channel_id": "UCIyKqN6yM0h1_XG0gE_y7wg",
@@ -3813,6 +3900,23 @@
    "status": "pending",
    "title": "I Moved to Japan Alone at 16",
    "views": 61136
+  },
+  "YW4mzAYymeI": {
+   "attempted_at": "2026-11-15T15:40:19Z",
+   "channel": "日本食冒険記Tokyo Food Adventures",
+   "channel_id": "UCXz4C2UgKkskK8ZcEbgRDVA",
+   "country": "일본",
+   "duration_sec": 1506,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-15",
+   "id": "YW4mzAYymeI",
+   "length": "25:06",
+   "published": "2026-10-20",
+   "query": "first time in Japan",
+   "status": "verified",
+   "title": "家族で初来日「娘に日本の寿司を食べさせたい」本場の寿司に大感動",
+   "views": 464786
   },
   "YaDm6Y6lwYo": {
    "attempted_at": "2026-11-07T06:00:00Z",
@@ -4399,6 +4503,23 @@
    "status": "verified",
    "title": "3 days in Kyoto. JAPAN Travel Itinerary 2023. Breathtaking destinations 4k",
    "views": 2506
+  },
+  "doFZ-uSgbtE": {
+   "attempted_at": "2026-11-15T15:40:18Z",
+   "channel": "아빠엘부 DadElbu",
+   "channel_id": "UCZxA2o2cgDqR8SeCWwe_0kw",
+   "country": "한국",
+   "duration_sec": 315,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-15",
+   "id": "doFZ-uSgbtE",
+   "length": "5:15",
+   "published": "2026-11-13",
+   "query": "Busan trip",
+   "status": "verified",
+   "title": "🇰🇷부산 자유여행 1일차 | 국내여행",
+   "views": 41
   },
   "dolWYGkh3JQ": {
    "channel": "J&K Lovett",
@@ -5505,6 +5626,20 @@
    "title": "eating ONLY Korean convenience store food for 24 hours 🇰🇷 |7-EVELEN, GS25| CocoChickyy|",
    "views": 15039
   },
+  "kUM-b_8udPg": {
+   "channel": "I am Saave",
+   "channel_id": "UCugKzEB4zeZXXEzkoen1-Hg",
+   "country": "대만",
+   "duration_sec": 351,
+   "fail_count": 0,
+   "first_seen": "2026-11-15",
+   "id": "kUM-b_8udPg",
+   "length": "5:51",
+   "query": "first time in Taiwan",
+   "status": "pending",
+   "title": "Planning a Trip to Taiwan? Watch This First | Travel with Saave Clips",
+   "views": 22
+  },
   "ke7qel7nCL8": {
    "attempted_at": "2026-11-04T00:37:44Z",
    "channel": "Logan Ly",
@@ -6377,6 +6512,23 @@
    "title": "Japan street food YAKISOBA / Fukuoka Street Food",
    "views": 113
   },
+  "t1ENxQeB7aI": {
+   "attempted_at": "2026-11-15T15:40:18Z",
+   "channel": "Whatever with Destiny ",
+   "channel_id": "UCvzEFRagsyB3lIX1CBGPLIw",
+   "country": "한국",
+   "duration_sec": 241,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-15",
+   "id": "t1ENxQeB7aI",
+   "length": "4:01",
+   "published": "2023-02-05",
+   "query": "Busan trip",
+   "status": "verified",
+   "title": "ដំណើរកំសាន្តនៅប៊ូសាន 🇰🇷 | Busan Trip | Haeundae Beach | Gwangalli Beach | 부산여행 01",
+   "views": 87
+  },
   "t5CjJV6NOzQ": {
    "attempted_at": "2026-11-01T12:49:54Z",
    "channel": "MrUniverse+",
@@ -7023,6 +7175,20 @@
    "title": "japan vlog ♡ my first day in tokyo! shopping in harajuku & ikebukuro~",
    "views": 23901
   },
+  "z21EC1o9dt8": {
+   "channel": "DINKWAP Show",
+   "channel_id": "UCMkoknN1SCy3aEU5m1hpmyA",
+   "country": "대만",
+   "duration_sec": 1876,
+   "fail_count": 0,
+   "first_seen": "2026-11-15",
+   "id": "z21EC1o9dt8",
+   "length": "31:16",
+   "query": "first time in Taiwan",
+   "status": "pending",
+   "title": "Taiwan Adventures: Exploring Markets, Food Delights, and Finding Local Gems | 014",
+   "views": 65
+  },
   "z5LY5ltNKCw": {
    "channel": "PTSD",
    "channel_id": "UCdFjCCgXjeKAi5MlwsBFjjg",
@@ -7050,6 +7216,23 @@
    "status": "pending",
    "title": "My Roller Coaster Japanese Food Tour: 25 Osaka Foods in A Day",
    "views": 305
+  },
+  "zBsRTVMZ2bY": {
+   "attempted_at": "2026-11-15T15:40:21Z",
+   "channel": "Andy: Life In Video",
+   "channel_id": "UCdoLimUr0KlsdB0HpyRBEJw",
+   "country": "일본",
+   "duration_sec": 452,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-15",
+   "id": "zBsRTVMZ2bY",
+   "length": "7:32",
+   "published": "2023-05-29",
+   "query": "first time in Japan",
+   "status": "verified",
+   "title": "My First Day In Japan: 10 Years Ago | Andy Talks Japandy",
+   "views": 586
   },
   "z_DBKYNcOg4": {
    "attempted_at": "2026-11-14T15:51:04Z",
@@ -7140,8 +7323,8 @@
    "found": 25
   },
   "대만|first time in Taiwan": {
-   "at": "2026-11-14T00:53:43Z",
-   "found": 19
+   "at": "2026-11-15T15:40:11Z",
+   "found": 25
   },
   "대만|living in Taiwan foreigner": {
    "at": "2026-11-14T18:03:34Z",
@@ -7172,16 +7355,16 @@
    "found": 20
   },
   "일본|first time in Japan": {
-   "at": "2026-11-14T00:53:40Z",
-   "found": 19
+   "at": "2026-11-15T15:40:08Z",
+   "found": 25
   },
   "일본|living in Japan foreigner": {
    "at": "2026-11-14T18:03:32Z",
    "found": 25
   },
   "한국|Busan trip": {
-   "at": "2026-11-14T11:28:59Z",
-   "found": 20
+   "at": "2026-11-15T15:40:05Z",
+   "found": 25
   },
   "한국|Jeju island travel": {
    "at": "2026-11-14T15:48:02Z",
@@ -7212,5 +7395,5 @@
    "found": 20
   }
  },
- "updated": "2026-11-15T06:34:16Z"
+ "updated": "2026-11-15T15:40:22Z"
 }
