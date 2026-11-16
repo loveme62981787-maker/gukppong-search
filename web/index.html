@@ -298,6 +298,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script src="calltoon.js?v=src722" onerror="window.CALLTOON=[]"></script>
 <script src="kr_news.js" onerror="window.KR_NEWS=[]"></script>
 <script src="kr_regional.js" onerror="window.KR_REGIONAL=[]"></script>
+<script src="longform_exp.js?v=lf1116" onerror="window.LONGFORM_EXP=[]"></script>
 <script src="hot_shorts.js?v=hs1116" onerror="window.HOT_SHORTS={channels:[],videos:[],criteria:null,countries:{KR:'한국',JP:'일본',TW:'대만'}}"></script>
 <script>
 // 일반 수집 영상 + 화제·체험·일본 주제·글로벌 영상. 겹치는 영상은 표시와 길이만 합친다
@@ -315,7 +316,7 @@ function normLen(x) {
   return {sec, text: toSec(own) === sec ? own : fmtSec(sec)};
 }
 // 수집 경로(sources): 같은 영상이 여러 목록에 있으면 합집합으로 모은다. 'notion' = 노션 수집 목록, 그 밖은 자동 수집 경로
-const SRC_NAMES = new Set(["discovery", "notion", "viral", "experience", "japan", "global", "global_jp", "topic_search", "reference", "benchmark", "alert", "taiwan_exp", "kr_regional", "cc_discovery"]);
+const SRC_NAMES = new Set(["discovery", "notion", "viral", "experience", "japan", "global", "global_jp", "topic_search", "reference", "benchmark", "alert", "taiwan_exp", "kr_regional", "longform_exp", "cc_discovery"]);
 const addSrc = (o, s) => { if (!Array.isArray(o.sources)) o.sources = []; if (s && !o.sources.includes(s)) o.sources.push(s); };
 function absorb(x, mark, src) {   // 같은 영상이면 표시와 길이만 합치고(유효한 기존 길이를 null 로 덮지 않음), 새 영상이면 추가한다
   const o = V.find(v => v.id === x.id), n = normLen(x);
@@ -344,6 +345,7 @@ V.forEach(v => {
 (window.ALERTS || []).forEach(x => absorb(x, {alert: true, alert_date: x.alert_date, alert_country: x.alert_country || x.country}, "alert"));   // 텔레그램 알림으로 받은 영상(alerts/*.csv): 다른 목록에도 그대로 속하고, 알림 목록에서 따로 모아 보며 점수를 확인한다. alert_country(없으면 country)로 한국·일본 텔레그램을 구분한다
 (window.TAIWAN_EXP || []).forEach(x => absorb(x, null, "taiwan_exp"));                                      // 대만 체험 영상 수집(taiwan_watch.py): 외국인이 대만을 여행·체험하는 영상을 넓게 모은다 (외국인 여부·체험 여부는 아래 규칙으로 추정)
 (window.KR_REGIONAL || []).forEach(x => absorb(x, {kr_regional: true, kr_country: x.kr_country, kr_region: x.kr_region, kr_words: x.kr_words, kr_hashtag: x.kr_hashtag}, "kr_regional"));   // 한국어 지역 해시태그 수집(kr_regional_watch.py): 같은 ID 가 이미 있어도 근거(kr_*)만 덧붙이고 기존 필드·목록은 그대로 둔다
+(window.LONGFORM_EXP || []).forEach(x => absorb(x, null, "longform_exp"));                                  // 12분 이상 롱폼 여행·체험·외국인 반응(longform_watch.py): 같은 ID 는 기존 영상에 출처만 덧붙인다. 외국인 여부는 제목 근거 추정(lf_basis)
 (window.CC_VIDEOS || []).forEach(x => absorb(x, null, "cc_discovery"));                                    // CC BY 새로 찾기(cc_discover.py): 영상 페이지에서 CC BY 로 확인된 영상만. 같은 ID 는 기존 목록·저장 상태 그대로 합친다 (외국인 여부는 미확인)
 const nRef = () => V.filter(v => v.ref).length;
 // 길이 형태: 미확인(unk) / 숏폼(short, 181초 미만) / 롱폼(long). is_short 필드와 충돌해도 길이 기준을 따른다

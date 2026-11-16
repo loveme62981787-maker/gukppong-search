@@ -20,8 +20,22 @@ concurrency:
 jobs:
   build:
     runs-on: ubuntu-latest
+    outputs:
+      collect_failed: ${{ steps.collect.outcome == 'failure' }}
+      export_failed: ${{ steps.export.outcome == 'failure' }}
+      publish_failed: ${{ steps.publish.outcome == 'failure' }}
+      published: ${{ steps.publish.outcome == 'success' }}
     steps:
+      # 대기 중이던 실행이 옛 커밋(트리거 시점)을 checkout 하지 않게 main 최신을 직접 받는다 (concurrency 만으로는 막히지 않는다)
       - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: 작업 시작 시점의 원격 main 최신으로 맞추기
+        run: |
+          git fetch origin main
+          git merge --ff-only origin/main
 
       - uses: actions/setup-python@v5
         with:
@@ -31,7 +45,8 @@ jobs:
       # 실패해도 기존 저장분은 그대로 남고, 아래 단계는 기존 파일로 화면 파일을 다시 만든다.
       # 저장은 임시 파일 교체(atomic)이고, 저장분이 잘못된 JSON 이면 덮어쓰지 않고 오류로 끝난다. 오류 로그는 Actions 로그에 남는다(키는 출력하지 않는다).
       # 자동 발굴(--discover)은 여기서 돌리지 않는다: 후보는 사람이 실제 영상 제목을 확인해 시드에 올리기 전에는 공개되지 않는다.
-      - name: 터진 쇼츠 수집 (실패해도 기존 데이터 유지, 사이트 배포는 계속)
+      - name: 터진 쇼츠 수집 (실패해도 기존 데이터 유지)
+        id: collect
         continue-on-error: true
         timeout-minutes: 20
         env:
@@ -39,26 +54,43 @@ jobs:
         run: python hot_shorts_watch.py
 
       - name: 화면 파일 다시 만들기 (네트워크 없음)
+        id: export
         continue-on-error: true
         run: python hot_shorts_watch.py --export-only
 
-      - name: 데이터 저장
+      # 저장분을 원격 최신 위에 영상·채널 ID 기준으로 합쳐 다시 만들고 fast-forward push (거절되면 처음부터 재시도). 생성 JS 를 rebase 로 합치지 않는다.
+      # 실패해도 사이트 배포는 계속하되 마지막 verdict 작업이 실행을 실패로 표시한다 (성공으로 위장하지 않는다)
+      - name: 데이터 저장 (원격 최신에 합쳐 push)
+        id: publish
+        continue-on-error: true
         run: |
           git config user.name "github-actions"
           git config user.email "actions@users.noreply.github.com"
-          git add hot_shorts_store.json web/hot_shorts.js
-          git diff --cached --quiet || git commit -m "터진 쇼츠 데이터 업데이트"
-          git pull --rebase
-          git push
+          python safe_publish.py hot_shorts
 
+      # 게시에 실패하면 메모리에만 있던 수집 결과(collection/checkpoint_*.json, gitignored)를 비공개 아티팩트로 7일 보관한다 (다음 실행이 덮어쓰기 전에 복구 가능)
+      - name: 게시 실패 시 수집 결과 체크포인트 보관
+        if: always() && steps.publish.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: checkpoint-hot_shorts
+          path: collection/
+          if-no-files-found: ignore
+          retention-days: 7
+
+      # 게시(push)가 성공했을 때만 배포한다: 실패한 working tree(저장소에 없는 데이터)를 Pages 에 올리면 git 과 사이트가 어긋난다.
+      # 성공했다면 working tree 는 방금 push 한 원격 최신과 같다 (nochange 도 원격 최신 + 합친 화면 파일).
       - uses: actions/configure-pages@v5
+        if: steps.publish.outcome == 'success'
 
       - uses: actions/upload-pages-artifact@v3
+        if: steps.publish.outcome == 'success'
         with:
           path: web
 
   deploy:
     needs: build
+    if: needs.build.outputs.published == 'true'
     runs-on: ubuntu-latest
     environment:
       name: github-pages
@@ -66,3 +98,25 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  verdict:
+    needs: [build, deploy]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      # continue-on-error 로 넘어간 단계 실패(수집·화면 파일·저장)와 배포 실패를 성공으로 위장하지 않고 실행 실패로 표시한다
+      - name: 단계 결과 확인
+        env:
+          COLLECT_FAILED: ${{ needs.build.outputs.collect_failed }}
+          EXPORT_FAILED: ${{ needs.build.outputs.export_failed }}
+          PUBLISH_FAILED: ${{ needs.build.outputs.publish_failed }}
+          BUILD_RESULT: ${{ needs.build.result }}
+          DEPLOY_RESULT: ${{ needs.deploy.result }}
+        run: |
+          fail=0
+          if [ "$BUILD_RESULT" != "success" ]; then echo "::error::build 작업이 성공으로 끝나지 않았습니다: $BUILD_RESULT"; fail=1; fi
+          if [ "$COLLECT_FAILED" = "true" ]; then echo "::error::터진 쇼츠 수집 단계가 실패했습니다 (기존 저장분은 유지됨)."; fail=1; fi
+          if [ "$EXPORT_FAILED" = "true" ]; then echo "::error::화면 파일 생성 단계가 실패했습니다."; fail=1; fi
+          if [ "$PUBLISH_FAILED" = "true" ]; then echo "::error::터진 쇼츠 데이터가 원격에 저장되지 않았습니다 (안전 게시 실패). 사이트도 배포하지 않았습니다 (저장소와 어긋나지 않게). 체크포인트 아티팩트를 확인하세요."; fail=1; fi
+          if [ "$DEPLOY_RESULT" = "failure" ]; then echo "::error::Pages 배포가 실패했습니다."; fail=1; fi
+          exit $fail

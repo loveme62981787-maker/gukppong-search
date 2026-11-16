@@ -64,6 +64,11 @@ def today():
     return datetime.now(KST).strftime("%Y-%m-%d")
 
 
+def now_utc():
+    """관측 시각(UTC ISO, 초 단위). 날짜(checked)만으로는 같은 날 6시간 간격 실행의 선후를 가릴 수 없다"""
+    return datetime.now(timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ")
+
+
 # ---------------------------------------------------------------- 공식 API
 def api_key():
     return os.environ.get("YOUTUBE_API_KEY") or os.environ.get("GOOGLE_API_KEY") or ""
@@ -309,13 +314,14 @@ def topic_visible(seed, country, title):
     return topic_ok(title, country)
 
 
-def build_channel(seed, info, videos, tab, prev_channel, checked):
+def build_channel(seed, info, videos, tab, prev_channel, checked, collected_at=None):
     """채널 한 개의 기록. videos 는 최신순 전체(fetch_n). 반환 dict(channel + hot videos)"""
+    stamp = collected_at or now_utc()
     prev_members = {v["id"]: v for v in (prev_channel or {}).get("videos", [])}
-    prev_flags = {i: {"short": v.get("short"), "checked": v.get("short_checked")} for i, v in prev_members.items() if v.get("short") in (True, False)}
+    prev_flags = {i: {"short": v.get("short"), "checked": v.get("short_checked"), "collected_at": v.get("collected_at")} for i, v in prev_members.items() if v.get("short") in (True, False)}
     for i, f in ((prev_channel or {}).get("membership_cache") or {}).items():   # 표본 전체의 이전 확인 결과 (터진 영상만이 아니라) → 탭이 막혀도 표본 통계가 이어진다
         if isinstance(f, dict) and f.get("short") in (True, False):
-            prev_flags[i] = {"short": f["short"], "checked": f.get("checked")}
+            prev_flags[i] = {"short": f["short"], "checked": f.get("checked"), "collected_at": f.get("collected_at")}
     for i, f in ((prev_channel or {}).get("flags") or {}).items():   # 예전 형식(flags): 확정된 쇼츠(True)만 이어받는다
         if f is True:
             prev_flags.setdefault(i, {"short": True, "checked": (prev_channel or {}).get("checked")})
@@ -348,7 +354,7 @@ def build_channel(seed, info, videos, tab, prev_channel, checked):
             "duration_sec": v.get("duration_sec"), "sub_multiple": sub_m, "sub_multiple_floor": sub_multiples(v["views"], info.get("subs"))[1], "median_multiple": med_m,
             "topic_hit": topic_hit(v.get("title")),
             "short": True, "short_signal": signal, "short_checked": when,
-            "checked": when,
+            "checked": when, "collected_at": stamp,  # Shorts 확인 근거가 캐시여도 조회수는 이번 API 관측이다
         })
     fetched = {v["id"] for v in videos}
     for old in (prev_channel or {}).get("videos", []):   # 읽은 범위에서 밀려난 기존 터진 쇼츠는 개수 제한 없이 누적 보존 (조회수 갱신만 멈춤)
@@ -361,9 +367,11 @@ def build_channel(seed, info, videos, tab, prev_channel, checked):
     rec = {
         "id": seed["id"], "title": info.get("title", ""), "handle": info.get("handle", ""), "name_ko": seed.get("name_ko", ""), "country": country, "country_basis": basis,
         "topic_evidence": seed.get("topic_evidence", []), "kind": seed.get("kind") if seed.get("kind") in KINDS else "unverified", "note": seed.get("note", ""),
-        "subs": info.get("subs"), "median_views": int(median) if median else None, "checked": checked, "tab_checked": bool(tab),
+        "subs": info.get("subs"), "median_views": int(median) if median else None, "checked": checked, "collected_at": stamp, "tab_checked": bool(tab),
         "pending_hot": pending_hot, "topic_held": held, "topic_filter": seed.get("topic_filter") is not False, "topic_hits": topic_hits, "user_reference": bool(seed.get("user_reference")), **st, "videos": hot,
-        "membership_cache": {i: {"short": m[0], "checked": (prev_flags.get(i) or {}).get("checked") or checked if m[1] == "kept" else checked}
+        "membership_cache": {i: ({"short": m[0], "checked": (prev_flags.get(i) or {}).get("checked") or checked,
+                                  "collected_at": (prev_flags.get(i) or {}).get("collected_at") or (prev_flags.get(i) or {}).get("checked") or checked} if m[1] == "kept"
+                                 else {"short": m[0], "checked": checked, "collected_at": stamp})
                              for i, m in members.items() if m[0] in (True, False)},
     }
     return rec
@@ -385,7 +393,7 @@ def days_between(d0, d1):
         return 0
 
 
-def collect_channel(seed, prev_channel, checked, infos, tab_fetch=fetch_shorts_tab):
+def collect_channel(seed, prev_channel, checked, infos, tab_fetch=fetch_shorts_tab, collected_at=None):
     cid = seed["id"]
     info = infos.get(cid)
     if not info or not info.get("uploads"):
@@ -447,7 +455,7 @@ def collect_channel(seed, prev_channel, checked, infos, tab_fetch=fetch_shorts_t
                 if not bf.get("done"):
                     bf["token"] = token
     tab = ((tab or []) + [{"id": i, "title": "", "views_text": ""} for i in short_ids]) or None
-    rec = build_channel(seed, info, videos, tab, prev_channel, checked)
+    rec = build_channel(seed, info, videos, tab, prev_channel, checked, collected_at)
     if bf:
         rec["backfill"] = bf
     return rec
@@ -507,7 +515,7 @@ def export(store, path=OUT, exclusions=None, seeds=None):
     for c in channels:
         if c["id"] in exclusions.get("channels", {}) or seed_by.get(c["id"], {}).get("exclude"):
             continue
-        ch = {k: v for k, v in c.items() if k not in ("videos", "flags", "membership_cache", "backfill")}
+        ch = {k: v for k, v in c.items() if k not in ("videos", "flags", "membership_cache", "backfill", "collected_at")}
         # 저장분에 이미 들어 있는 영상도 제목 근거가 없으면 공개하지 않는다 (export-only 로도 같은 규칙)
         ok_v = [v for v in c.get("videos", []) if v["id"] not in exclusions.get("videos", {})]
         visible = [v for v in ok_v if topic_visible(seed_by.get(c["id"]), c.get("country", ""), v.get("title"))]
@@ -538,6 +546,7 @@ def extra_excluded(path=SEEDS):
 def run(seeds, store, checked, infos=None, tab_fetch=fetch_shorts_tab):
     """시드 전체를 수집해 store 를 갱신해 돌려준다 (네트워크 접근은 infos/tab_fetch 로 주입 가능)"""
     channels = dict(store.get("channels", {}))
+    stamp = now_utc()
     for cid in [c for c in extra_excluded()]:
         channels.pop(cid, None)
     if infos is None:
@@ -547,8 +556,71 @@ def run(seeds, store, checked, infos=None, tab_fetch=fetch_shorts_tab):
             print("채널 정보 조회 실패, 기존 저장분 유지:", e)
             infos = {}
     for s in seeds:
-        channels[s["id"]] = collect_channel(s, channels.get(s["id"]), checked, infos, tab_fetch)
+        channels[s["id"]] = collect_channel(s, channels.get(s["id"]), checked, infos, tab_fetch, stamp)
     return {"schema": SCHEMA, "updated": checked, "channels": channels}
+
+
+_NO_BASE = object()   # base 를 모를 때(옛 호출): 백필 커서는 원격 우선으로 보수적으로 둔다
+
+
+def _later(a, b):
+    """관측 시각(UTC ISO) 또는 옛 날짜(YYYY-MM-DD) 비교: a 가 b 보다 엄격히 늦으면 True (같거나 비면 False → 호출한 쪽이 원격 기준을 고른다)"""
+    return bool(a) and (not b or str(a) > str(b))
+
+
+def _stamp(d):
+    """기록의 관측 시각. 옛 기록은 날짜만 있으므로 같은 날의 timestamp 기록보다 이르게 취급한다"""
+    d = d or {}
+    return d.get("collected_at") or d.get("checked") or ""
+
+
+def merge_cursor(remote_bf, ours_bf, base_bf=_NO_BASE):
+    """3-way: 원격이 수집 시작 기준(base)과 같으면 원격은 그 사이 전진하지 않았으므로 우리 커서를 채택한다.
+    원격이 따로 전진했으면 원격을 보존한다 (앞서 간 쪽을 덮으면 건너뛴 구간이 생긴다). base 를 모르면 원격 우선"""
+    if base_bf is _NO_BASE:
+        return remote_bf or ours_bf
+    return ours_bf if remote_bf == base_bf else remote_bf
+
+
+def merge_channel(remote, ours, base=_NO_BASE):
+    """같은 채널의 원격 기록과 이번 수집 기록을 합친다: 더 늦게 관측한 쪽이 통계 기준, 영상·쇼츠 확인 캐시는 합집합(누적), 백필 커서는 3-way(base=수집 시작 시점 기록)"""
+    if not remote:
+        return ours
+    if not ours:
+        return remote
+    base_rec, other = (ours, remote) if _later(_stamp(ours), _stamp(remote)) else (remote, ours)
+    rec = dict(base_rec)
+    vids = {v["id"]: v for v in base_rec.get("videos", [])}
+    for v in other.get("videos", []):
+        cur = vids.get(v["id"])
+        if cur is None or _later(_stamp(v), _stamp(cur)):
+            vids[v["id"]] = v
+    rec["videos"] = sorted(vids.values(), key=lambda x: -(x.get("views") or 0))
+    cache = dict(other.get("membership_cache") or {})
+    for i, f in (base_rec.get("membership_cache") or {}).items():
+        if i not in cache or not _later(_stamp(cache[i]), _stamp(f)):
+            cache[i] = f
+    rec["membership_cache"] = cache
+    bf = merge_cursor(remote.get("backfill"), ours.get("backfill"), _NO_BASE if base is _NO_BASE else (base or {}).get("backfill"))
+    if bf:
+        rec["backfill"] = bf
+    else:
+        rec.pop("backfill", None)
+    return rec
+
+
+def merge_stores(remote, ours, base=_NO_BASE):
+    """원격 최신 저장분(remote)에 이번 수집분(ours)을 합친다. 어느 쪽 채널·영상도 버리지 않고, 더 오래된 관측으로 덮어쓰지 않는다.
+    base: 이번 수집을 시작한 시점의 저장분 (None 이면 빈 저장분). 주면 백필 커서를 3-way 로 합친다"""
+    channels = {}
+    drop = set(extra_excluded())
+    base_ch = _NO_BASE if base is _NO_BASE else (base or {}).get("channels", {})
+    for cid in set((remote or {}).get("channels", {})) | set((ours or {}).get("channels", {})):
+        if cid in drop:
+            continue
+        channels[cid] = merge_channel((remote or {}).get("channels", {}).get(cid), (ours or {}).get("channels", {}).get(cid), _NO_BASE if base_ch is _NO_BASE else base_ch.get(cid))
+    upd = max((x for x in ((remote or {}).get("updated"), (ours or {}).get("updated")) if x), default="")
+    return {"schema": SCHEMA, "updated": upd, "channels": channels}
 
 
 def summary(store):

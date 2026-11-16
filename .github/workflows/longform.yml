@@ -1,0 +1,117 @@
+name: 롱폼 체험 영상 수집 + 사이트 배포
+
+# 12분 이상 한국·일본·대만 여행·체험·외국인 반응 롱폼만 따로 수집한다 (기존 전체 수집 update.yml 은 느려서 쓰지 않는다).
+#   저장: longform_exp_store.json, web/longform_exp.js (이 워크플로만 쓴다). 하루 2회 × 검색 12개 × 100유닛 = 약 2,400유닛 (일일 한도 안).
+# concurrency 그룹을 update.yml·hot_shorts.yml 과 같은 'update' 로 써서 저장·배포가 동시에 일어나지 않는다.
+on:
+  schedule:
+    - cron: "40 1,13 * * *"   # 하루 2회 (UTC 01:40/13:40 = 한국시간 10:40/22:40)
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: update
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      collect_failed: ${{ steps.collect.outcome == 'failure' }}
+      export_failed: ${{ steps.export.outcome == 'failure' }}
+      publish_failed: ${{ steps.publish.outcome == 'failure' }}
+      published: ${{ steps.publish.outcome == 'success' }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: 작업 시작 시점의 원격 main 최신으로 맞추기
+        run: |
+          git fetch origin main
+          git merge --ff-only origin/main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      # 공식 API(키는 Secrets 의 YOUTUBE_API_KEY, 출력하지 않는다). 쿼터가 없으면 공개 검색 파서로 대신한다. 실패해도 기존 저장분은 그대로 남는다
+      - name: 롱폼 수집 (실패해도 기존 데이터 유지)
+        id: collect
+        continue-on-error: true
+        timeout-minutes: 15
+        env:
+          YOUTUBE_API_KEY: ${{ secrets.YOUTUBE_API_KEY }}
+        shell: bash   # -eo pipefail: tee 뒤에서도 수집 실패가 단계 실패로 남는다
+        run: python longform_watch.py | tee -a "$GITHUB_STEP_SUMMARY"
+
+      - name: 화면 파일 다시 만들기 (네트워크 없음)
+        id: export
+        continue-on-error: true
+        run: python longform_watch.py --export-only
+
+      - name: 데이터 저장 (원격 최신에 합쳐 push)
+        id: publish
+        continue-on-error: true
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@users.noreply.github.com"
+          python safe_publish.py longform
+
+      # 게시에 실패하면 메모리에만 있던 수집 결과(collection/checkpoint_*.json, gitignored)를 비공개 아티팩트로 7일 보관한다 (다음 실행이 덮어쓰기 전에 복구 가능)
+      - name: 게시 실패 시 수집 결과 체크포인트 보관
+        if: always() && steps.publish.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: checkpoint-longform
+          path: collection/
+          if-no-files-found: ignore
+          retention-days: 7
+
+      # 게시(push)가 성공했을 때만 배포한다: 실패한 working tree(저장소에 없는 데이터)를 Pages 에 올리면 git 과 사이트가 어긋난다.
+      # 성공했다면 working tree 는 방금 push 한 원격 최신과 같다 (nochange 도 원격 최신 + 합친 화면 파일).
+      - uses: actions/configure-pages@v5
+        if: steps.publish.outcome == 'success'
+
+      - uses: actions/upload-pages-artifact@v3
+        if: steps.publish.outcome == 'success'
+        with:
+          path: web
+
+  deploy:
+    needs: build
+    if: needs.build.outputs.published == 'true'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
+
+  verdict:
+    needs: [build, deploy]
+    if: always()
+    runs-on: ubuntu-latest
+    steps:
+      # continue-on-error 로 넘어간 단계 실패(수집·화면 파일·저장)와 배포 실패를 성공으로 위장하지 않고 실행 실패로 표시한다
+      - name: 단계 결과 확인
+        env:
+          COLLECT_FAILED: ${{ needs.build.outputs.collect_failed }}
+          EXPORT_FAILED: ${{ needs.build.outputs.export_failed }}
+          PUBLISH_FAILED: ${{ needs.build.outputs.publish_failed }}
+          BUILD_RESULT: ${{ needs.build.result }}
+          DEPLOY_RESULT: ${{ needs.deploy.result }}
+        run: |
+          fail=0
+          if [ "$BUILD_RESULT" != "success" ]; then echo "::error::build 작업이 성공으로 끝나지 않았습니다: $BUILD_RESULT"; fail=1; fi
+          if [ "$COLLECT_FAILED" = "true" ]; then echo "::error::롱폼 수집 단계가 실패했습니다 (기존 저장분은 유지됨)."; fail=1; fi
+          if [ "$EXPORT_FAILED" = "true" ]; then echo "::error::화면 파일 생성 단계가 실패했습니다."; fail=1; fi
+          if [ "$PUBLISH_FAILED" = "true" ]; then echo "::error::롱폼 데이터가 원격에 저장되지 않았습니다 (안전 게시 실패). 사이트도 배포하지 않았습니다 (저장소와 어긋나지 않게). 체크포인트 아티팩트를 확인하세요."; fail=1; fi
+          if [ "$DEPLOY_RESULT" = "failure" ]; then echo "::error::Pages 배포가 실패했습니다."; fail=1; fi
+          exit $fail

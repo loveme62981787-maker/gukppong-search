@@ -180,7 +180,7 @@ class BuildTests(unittest.TestCase):
         first = hs.build_channel(seed(), info(), vs, [{"id": v["id"]} for v in vs[:18]], None, "2026-11-10")
         self.assertEqual(first["videos"], [])
         self.assertEqual(len(first["membership_cache"]), 18)   # 터진 영상이 없어도 표본 전체 확인이 저장된다
-        self.assertEqual(set(first["membership_cache"][vs[0]["id"]]), {"short", "checked"})   # 비공개 원문 없음
+        self.assertEqual(set(first["membership_cache"][vs[0]["id"]]), {"short", "checked", "collected_at"})   # 비공개 원문 없음 (관측 시각만 추가)
         again = hs.build_channel(seed(), info(), vs, None, first, "2026-11-16")   # 클라우드에서 탭 차단
         self.assertEqual((again["sample_shorts"], again["shorts_ratio"], again["shorts_centered"]), (18, 0.9, True))
         self.assertEqual(again["membership_cache"][vs[0]["id"]]["checked"], "2026-11-10")   # 확인일은 보존
@@ -321,7 +321,11 @@ class WorkflowTests(unittest.TestCase):
         self.assertIn("python hot_shorts_watch.py", y)
         self.assertIn("continue-on-error: true", y)
         self.assertNotIn("python build_site.py", y)   # 기존 전체 갱신을 돌리지 않는다
-        self.assertRegex(y, r"git add [^\n]*hot_shorts_store\.json[^\n]*web/hot_shorts\.js")
+        self.assertIn("python safe_publish.py hot_shorts", y)   # 저장은 원격 최신에 합쳐 push 하는 안전 게시 helper (git pull --rebase 로 생성 JS 를 합치지 않는다)
+        self.assertNotIn("git pull --rebase", y)
+        self.assertRegex(y, r"ref: main\s*\n\s*fetch-depth: 0")
+        self.assertIn("git merge --ff-only origin/main", y)
+        self.assertIn("publish_failed", y)   # 저장 실패는 실행 실패로 드러난다
 
 
 
@@ -456,3 +460,16 @@ class StorageSafetyTests(unittest.TestCase):
         vs = twenty()
         rec = hs.build_channel(seed(), info(), vs, [{"id": v["id"]} for v in vs], None, "d")
         self.assertEqual(rec["sample_shorts"], 20)
+
+
+class CachedEvidenceFreshViewsTests(unittest.TestCase):
+    def test_cached_short_evidence_keeps_fresh_statistics_timestamp(self):
+        a = vid(1, "2026-11-16T00:00:00Z", 20000)
+        se = {"id": "UC" + "a" * 22, "country_hint": "TW", "topic_filter": False}
+        inf = {"title": "channel", "subs": 1000}
+        first = hs.build_channel(se, inf, [a], [{"id": a["id"]}], None, "2026-11-16", "2026-11-16T01:00:00Z")
+        fresh = hs.build_channel(se, inf, [dict(a, views=30000)], None, first, "2026-11-16", "2026-11-16T07:00:00Z")
+        self.assertEqual(fresh["videos"][0]["short_signal"], "kept")
+        merged = hs.merge_channel(first, fresh)
+        self.assertEqual(merged["videos"][0]["views"], 30000)
+        self.assertEqual(merged["videos"][0]["collected_at"], "2026-11-16T07:00:00Z")

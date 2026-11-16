@@ -104,3 +104,10 @@ py -3.12 build_site.py --notify   # 위 + 새 영상 텔레그램 알림
 - GitHub Actions가 6시간마다 새 영상·조회수를 갱신하고 과거 재생목록은 커서로 이어서 수집합니다. 실패하면 기존 데이터를 보존합니다.
 - 일반 체험 목록은 조회수 하한이 없어 12분 이상 저조회수 롱폼도 수집합니다. 터진 영상 전용 목록의 3만 조회수·구독자 대비 5배 기준과는 별개입니다.
 - 세부 변경과 검증: [쇼츠 확장 기록](docs/collab/2026-11-16-hot-shorts-expand.md).
+
+### 롱폼 체험 수집(12분 이상)과 안전 게시 (2026-11-16)
+
+- `longform_watch.py`: 한국·일본·대만 여행·체험·외국인 반응 **12분(720초) 이상** 롱폼만 따로 수집 → `longform_exp_store.json`, `web/longform_exp.js`. 조회수 하한 없음, Shorts 제외. 공식 API(`YOUTUBE_API_KEY`/`GOOGLE_API_KEY`) 검색은 실행당 12개(국가별 4개씩 풀을 돌려 사용), 하루 2회(`.github/workflows/longform.yml`)로 일일 쿼터 안. 쿼터가 없으면 공개 검색 파서로 대신한다(이때 게시일은 비움).
+- 나라·주제·외국인 여부는 **제목 근거 추정**(`lf_basis`: `foreign_title`/`ko_region`)이다. 채널 정보로 외국인·제작자 국적을 확정하지 않으며 설명글 원문은 저장하지 않는다. 이미 사이트에 있는 ID 는 새 영상으로 세지 않고, `index.html` 의 `absorb` 가 같은 ID 를 기존 영상에 합친다(기존 3~12분 롱폼·터진 쇼츠 기준은 그대로).
+- `safe_publish.py`: 데이터 push 를 원격 main 최신 위에서 ID 기준으로 합쳐 다시 만든 뒤 fast-forward push(거절되면 재시도). 옛 커밋을 checkout 한 실행의 `git pull --rebase` 저장 충돌(run 43841193201)을 막는다. `hot_shorts.yml`·`longform.yml` 모두 사용하며, 저장 실패는 마지막 `verdict` 작업이 실행 실패로 표시한다. 상세: [기록](docs/collab/2026-11-16-longform-safe-publish.md)
+- 테스트: `python -m unittest tests.test_safe_publish tests.test_longform_watch tests.test_hot_shorts`
