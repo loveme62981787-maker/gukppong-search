@@ -44,15 +44,14 @@ UA = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like 
 # 기준 상수: 화면 문구(web/hot_shorts_view.js)는 내보낸 이 값을 그대로 읽는다
 CRITERIA = {
     "sample_n": 20,             # 최근 업로드 표본 개수(uploads playlist 의 최신순). 20개 미만이면 쇼츠중심 판정을 하지 않는다
-    "fetch_n": 50,              # 터진 쇼츠 후보로 읽는 최근 업로드 최대 개수
+    "fetch_n": 200,             # 터진 쇼츠 후보로 읽는 최근 업로드 최대 개수 (공식 playlistItems 페이지당 1유닛이라 쿼터가 작다)
+    "shorts_n": 300,            # 채널 Shorts 전용 재생목록(UUSH…, 공식 API)에서 추가로 읽는 최대 개수. 여기 있으면 Shorts 확인 신호다
     "center_ratio": 0.9,        # 표본 중 Shorts 확인 비율이 이 이상이면 '쇼츠 중심'
-    "min_views": 100000,        # 터진 쇼츠 최소 조회수
-    "min_sub_multiple": 3.0,    # 구독자 대비 배수 (조회수 / 구독자) 이 이상이거나
-    "min_abs_views": 1000000,   # 이 조회수 이상이면 배수와 무관하게 터진 쇼츠 (대형 채널·전부 대박 채널 보정)
-    "sub_floor": 1000,          # 선별용 구독자 분모 최소값 (표시하는 구독자 대비 배수는 실제 views/subs)
-    "min_median_multiple": 2.0,  # 표본 중앙값 대비 배수가 이 이상 (표본 중 Shorts 확인 영상이 min_median_sample 개 이상일 때만 계산)
-    "min_median_sample": 5,
-    "max_per_channel": 12,      # 채널당 표시하는 터진 쇼츠 상한
+    "min_views": 10000,         # 터진 쇼츠 입장 조건: 조회수 1만 이상 (한국·일본·대만 공통). 구독자·중앙값 배수는 입장 조건이 아니다
+    "sub_floor": 1000,          # 표시·정렬 보조용 구독자 분모 최소값 (표시하는 구독자 대비 배수는 실제 views/subs)
+    "backfill_pages": 4,        # 실행당 채널별 과거 Shorts 재생목록 이어받기 페이지 수(페이지당 50개, 쿼터 약 2유닛). nextPageToken 을 채널 기록(backfill)에 저장해 다음 실행에서 이어간다
+    "backfill_reset_days": 14,  # 끝까지 읽은(done) 채널은 이만큼 지나면 커서를 비우고 처음부터 다시 훑는다(조회수 갱신·삭제로 어긋난 구간 보정). 새 영상은 매 실행 head 읽기가 따로 맡는다
+    "min_median_sample": 5,     # 표본 중앙값(표시·정렬 보조)은 Shorts 확인 영상이 이 개수 이상일 때만 계산
 }
 COUNTRIES = {"KR": "한국", "JP": "일본", "TW": "대만"}
 KINDS = ("travel_original", "reaction_edit", "unverified")   # unverified: 원본 여부를 확인하지 못함 (원본으로 쓰지 않는다)
@@ -117,8 +116,9 @@ def fetch_channels(ids):
     return out
 
 
-def fetch_upload_ids(playlist_id, n):
-    ids, token = [], ""
+def fetch_playlist_ids(playlist_id, n, token=""):
+    """재생목록을 token 부터 최대 n 개 읽는다. (ids, 다음 페이지 token) — 끝이면 token 은 빈 문자열"""
+    ids = []
     while len(ids) < n:
         p = {"part": "contentDetails", "playlistId": playlist_id, "maxResults": min(50, n - len(ids))}
         if token:
@@ -128,7 +128,11 @@ def fetch_upload_ids(playlist_id, n):
         token = r.get("nextPageToken", "")
         if not token:
             break
-    return ids[:n]
+    return ids[:n], token
+
+
+def fetch_upload_ids(playlist_id, n):
+    return fetch_playlist_ids(playlist_id, n)[0]
 
 
 def iso_sec(d):
@@ -258,14 +262,10 @@ def sub_multiples(views, subs):
 
 
 def is_hot(views, subs, median):
-    """(터짐 여부, 실제 구독자 대비 배수, 중앙값 대비 배수). 선별은 CRITERIA 그대로 (분모 최소값·절대 조회수 포함)"""
-    sub_m, floor_m = sub_multiples(views, subs)
+    """(터짐 여부, 실제 구독자 대비 배수, 중앙값 대비 배수). 입장 조건은 조회수 min_views 이상뿐이다. 두 배수는 표시·정렬 보조"""
+    sub_m = sub_multiples(views, subs)[0]
     med_m = round(views / median, 2) if views is not None and median else None   # median 0/None 은 분모 예외 방어
-    ok = views is not None and views >= CRITERIA["min_views"] and (
-        views >= CRITERIA["min_abs_views"]
-        or (floor_m is not None and floor_m >= CRITERIA["min_sub_multiple"])
-        or (med_m is not None and med_m >= CRITERIA["min_median_multiple"]))
-    return ok, sub_m, med_m
+    return views is not None and views >= CRITERIA["min_views"], sub_m, med_m
 
 
 TOPIC_WORDS = ("외국인", "한국", "일본", "대만", "台灣", "台湾", "外國人", "外国人", "日本", "韓國", "韓国", "korea", "japan", "taiwan", "foreigner", "reaction", "反應", "反応", "體驗", "体験", "旅行", "travel", "visit")
@@ -274,6 +274,39 @@ TOPIC_WORDS = ("외국인", "한국", "일본", "대만", "台灣", "台湾", "�
 def topic_hit(title):
     t = (title or "").lower()
     return any(w.lower() in t for w in TOPIC_WORDS)
+
+
+# 혼합 주제 채널 방어: 영상 제목에 '외국인(또는 대상국이 아닌 국적)'과 '대상국'이 함께 있어야 공개한다. 제목만으로 시청 완료·원본 여부를 주장하지 않는다.
+# 제목으로 확인되지 않으면 공개하지 않고 보류(topic_held)로 센다. 시드 topic_filter=false 는 사용자가 직접 지정한 채널에만 쓴다.
+FOREIGN_WORDS = ("외국인", "外國人", "外国人", "外國遊客", "外国人観光客", "老外", "foreigner", "tourist", "海外の反応", "海外反応")
+NATIONALS = {
+    "KR": ("한국인", "韓國人", "韓国人", "korean"),
+    "JP": ("일본인", "日本人", "japanese"),
+    "TW": ("대만인", "台灣人", "台湾人", "taiwanese"),
+    "OTHER": ("미국인", "美國人", "american", "アメリカ人", "영국", "英國", "英国", "british", "イギリス人", "베트남", "越南", "인도인", "印度人",
+              "중국인", "中國人", "中国人", "프랑스", "法國", "フランス人", "독일", "德國", "ドイツ人"),
+}
+COUNTRY_WORDS = {
+    "KR": ("한국", "韓國", "韓国", "korea", "서울", "seoul"),
+    "JP": ("일본", "日本", "japan", "도쿄", "東京", "tokyo"),
+    "TW": ("대만", "台灣", "台湾", "臺灣", "taiwan", "타이베이", "台北", "taipei"),
+}
+
+
+def topic_ok(title, country):
+    """제목에 외국인(대상국 사람 제외) 신호와 대상국 신호가 모두 있는가"""
+    t = (title or "").lower()
+    if country not in COUNTRY_WORDS or not any(w.lower() in t for w in COUNTRY_WORDS[country]):
+        return False
+    foreign = FOREIGN_WORDS + tuple(w for k, ws in NATIONALS.items() if k != country for w in ws)
+    return any(w.lower() in t for w in foreign)
+
+
+def topic_visible(seed, country, title):
+    """기본은 엄격 필터. 시드의 topic_filter=false 만 면제"""
+    if (seed or {}).get("topic_filter") is False:
+        return True
+    return topic_ok(title, country)
 
 
 def build_channel(seed, info, videos, tab, prev_channel, checked):
@@ -296,7 +329,7 @@ def build_channel(seed, info, videos, tab, prev_channel, checked):
             country, basis = seed[k], "seed_manual"
             break
     topic_hits = sum(1 for v in sample if topic_hit(v.get("title")))
-    hot, pending_hot = [], 0
+    hot, pending_hot, held = [], 0, 0
     for v in videos:
         short, signal = members[v["id"]]
         ok, sub_m, med_m = is_hot(v.get("views"), info.get("subs"), median)
@@ -304,6 +337,9 @@ def build_channel(seed, info, videos, tab, prev_channel, checked):
             continue
         if short is not True:
             pending_hot += 1 if short is None else 0   # 터질 만한 조회수지만 쇼츠 증거 부족 → 목록에 넣지 않고 개수만 센다
+            continue
+        if not topic_visible(seed, country, v.get("title")):
+            held += 1   # 제목으로 외국인+대상국 근거를 확인 못 함 → 보류(공개 안 함)
             continue
         old = prev_members.get(v["id"], {})
         when = ((prev_flags.get(v["id"]) or {}).get("checked") or old.get("short_checked") or (prev_channel or {}).get("checked") or checked) if signal == "kept" else checked   # 보존한 값은 이번 확인일이 아니라 이전 확인일
@@ -314,17 +350,19 @@ def build_channel(seed, info, videos, tab, prev_channel, checked):
             "short": True, "short_signal": signal, "short_checked": when,
             "checked": when,
         })
-    hot.sort(key=lambda x: -x["views"])
-    hot = hot[:CRITERIA["max_per_channel"]]
     fetched = {v["id"] for v in videos}
-    for old in (prev_channel or {}).get("videos", []):   # 최근 업로드 창에서 밀려난 기존 터진 쇼츠는 그대로 보존 (조회수 갱신만 멈춤)
-        if old["id"] not in fetched and len(hot) < CRITERIA["max_per_channel"] and old.get("short") is True:
+    for old in (prev_channel or {}).get("videos", []):   # 읽은 범위에서 밀려난 기존 터진 쇼츠는 개수 제한 없이 누적 보존 (조회수 갱신만 멈춤)
+        if old["id"] not in fetched and old.get("short") is True:
+            if not topic_visible(seed, country, old.get("title")):
+                held += 1
+                continue
             hot.append(dict(old, short_signal="kept"))
+    hot.sort(key=lambda x: -x["views"])
     rec = {
-        "id": seed["id"], "title": info.get("title", ""), "handle": info.get("handle", ""), "country": country, "country_basis": basis,
-        "kind": seed.get("kind") if seed.get("kind") in KINDS else "unverified", "note": seed.get("note", ""),
+        "id": seed["id"], "title": info.get("title", ""), "handle": info.get("handle", ""), "name_ko": seed.get("name_ko", ""), "country": country, "country_basis": basis,
+        "topic_evidence": seed.get("topic_evidence", []), "kind": seed.get("kind") if seed.get("kind") in KINDS else "unverified", "note": seed.get("note", ""),
         "subs": info.get("subs"), "median_views": int(median) if median else None, "checked": checked, "tab_checked": bool(tab),
-        "pending_hot": pending_hot, "topic_hits": topic_hits, "user_reference": bool(seed.get("user_reference")), **st, "videos": hot,
+        "pending_hot": pending_hot, "topic_held": held, "topic_filter": seed.get("topic_filter") is not False, "topic_hits": topic_hits, "user_reference": bool(seed.get("user_reference")), **st, "videos": hot,
         "membership_cache": {i: {"short": m[0], "checked": (prev_flags.get(i) or {}).get("checked") or checked if m[1] == "kept" else checked}
                              for i, m in members.items() if m[0] in (True, False)},
     }
@@ -340,6 +378,13 @@ def merge_failed(prev_channel, seed, reason, checked):
             "sample_not_short": 0, "sample_pending": 0, "shorts_ratio": 0.0, "shorts_centered": False, "all_shorts_strict": False, "user_reference": bool(seed.get("user_reference")), "videos": [], "last_error": reason, "last_error_at": checked}
 
 
+def days_between(d0, d1):
+    try:
+        return (datetime.strptime(d1, "%Y-%m-%d") - datetime.strptime(d0, "%Y-%m-%d")).days
+    except (TypeError, ValueError):
+        return 0
+
+
 def collect_channel(seed, prev_channel, checked, infos, tab_fetch=fetch_shorts_tab):
     cid = seed["id"]
     info = infos.get(cid)
@@ -351,8 +396,61 @@ def collect_channel(seed, prev_channel, checked, infos, tab_fetch=fetch_shorts_t
     except ApiError as e:
         return merge_failed(prev_channel, seed, str(e), checked)
     videos = [vm[i] for i in ids if i in vm]   # playlist 순서 = 최신순
-    tab = tab_fetch(cid)
-    return build_channel(seed, info, videos, tab, prev_channel, checked)
+    tab = None   # API 우선: Shorts 재생목록이 성공하면 웹 /shorts 탭은 읽지 않는다(지연·차단 방지). 재생목록이 실패했을 때만 탭을 읽는다
+    # 공식 API 의 Shorts 전용 재생목록(UUSH…): 목록에 있으면 Shorts 확인 신호. 없다는 것은 증거가 아니다. 업로드 창 밖의 쇼츠까지 더 읽는다
+    short_ids, head_token, head_ok = [], "", False
+    spid = "UUSH" + cid[2:]
+    try:
+        short_ids, head_token = fetch_playlist_ids(spid, CRITERIA["shorts_n"])
+        head_ok = True
+    except ApiError as e:
+        print(f"  경고: {cid} Shorts 재생목록 실패: {e}", file=sys.stderr)
+    if not head_ok:
+        tab = tab_fetch(cid)
+        if tab is None:
+            print(f"  경고: {cid} Shorts 탭 첫 페이지를 읽지 못함 (이전 확인 결과 유지)", file=sys.stderr)
+    have = {v["id"] for v in videos}
+
+    def add_details(ids_):
+        new_ = [i for i in ids_ if i not in have]
+        if new_:
+            more = fetch_videos(new_)   # 표본(앞 sample_n 개)은 업로드 최신순 그대로 두고 뒤에 붙인다
+            videos.extend(more[i] for i in new_ if i in more)
+            have.update(more)
+
+    try:
+        add_details(short_ids)
+    except ApiError as e:
+        print(f"  경고: {cid} 추가 쇼츠 상세 실패: {e}", file=sys.stderr)
+    bf = dict((prev_channel or {}).get("backfill") or {})
+    if head_ok:   # head 읽기가 성공했을 때만 커서를 움직인다. 실패하면 이전 커서를 그대로 둔다
+        if bf.get("done") and days_between(bf.get("done_at"), checked) >= CRITERIA["backfill_reset_days"]:
+            bf = {}   # 완주 후 일정 기간이 지나면 처음부터 다시
+        if not bf.get("done"):
+            token = bf.get("token") or head_token   # 커서가 없으면 head 가 끝난 지점부터
+            if not token:
+                bf = {"done": True, "done_at": checked, "pages": bf.get("pages", 0)}
+            else:
+                for _ in range(CRITERIA["backfill_pages"]):
+                    try:
+                        ids_, nxt = fetch_playlist_ids(spid, 50, token)
+                        add_details(ids_)   # 상세까지 성공해야 커서를 전진한다
+                    except ApiError as e:
+                        print(f"  경고: {cid} 과거 Shorts 이어받기 실패(커서 유지): {e}", file=sys.stderr)
+                        break
+                    short_ids += ids_
+                    bf["pages"] = bf.get("pages", 0) + 1
+                    token = nxt
+                    if not nxt:
+                        bf = {"done": True, "done_at": checked, "pages": bf["pages"]}
+                        break
+                if not bf.get("done"):
+                    bf["token"] = token
+    tab = ((tab or []) + [{"id": i, "title": "", "views_text": ""} for i in short_ids]) or None
+    rec = build_channel(seed, info, videos, tab, prev_channel, checked)
+    if bf:
+        rec["backfill"] = bf
+    return rec
 
 
 # ---------------------------------------------------------------- 저장·내보내기
@@ -365,30 +463,61 @@ def load_json(path, default):
         return default
 
 
+class StoreCorrupt(Exception):
+    pass
+
+
+def load_store_strict(path):
+    """저장분을 읽는다. 파일이 없으면 빈 저장분, 있는데 잘못된 JSON 이면 덮어쓰지 않도록 예외"""
+    if not os.path.exists(path):
+        return {}
+    try:
+        with open(path, encoding="utf-8") as f:
+            d = json.load(f)
+    except (OSError, ValueError) as e:
+        raise StoreCorrupt(f"{os.path.basename(path)} 을 읽을 수 없음({type(e).__name__}): 덮어쓰지 않고 중단") from e
+    if not isinstance(d, dict):
+        raise StoreCorrupt(f"{os.path.basename(path)} 형식이 객체가 아님: 덮어쓰지 않고 중단")
+    return d
+
+
+def write_atomic(path, text):
+    """임시 파일에 쓰고 교체한다: 쓰는 중 중단돼도 기존 파일이 반쯤 쓰인 채 남지 않는다"""
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        f.write(text)
+        f.flush()
+        os.fsync(f.fileno())
+    os.replace(tmp, path)
+
+
 def js_safe(obj):
     """<script> 안에서도 안전한 JSON: 닫는 태그·HTML 주석을 만들 수 있는 문자를 이스케이프한다"""
     s = json.dumps(obj, ensure_ascii=False, separators=(",", ":"))
     return s.replace("<", "\\u003c").replace(">", "\\u003e").replace("&", "\\u0026").replace("\u2028", "\\u2028").replace("\u2029", "\\u2029")
 
 
-def export(store, path=OUT, exclusions=None):
+def export(store, path=OUT, exclusions=None, seeds=None):
     # Argon 검토 후 확인한 주제 무관 채널·영상은 재수집되어도 공개 목록에서 제외한다.
     if exclusions is None:
         exclusions = load_json(os.path.join(BASE, "hot_shorts_exclusions.json"), {})
+    seed_by = {s["id"]: s for s in (seeds if seeds is not None else load_json(SEEDS, [])) if isinstance(s, dict) and "id" in s}
     channels = sorted(store.get("channels", {}).values(), key=lambda c: (c.get("country", ""), -(c.get("subs") or 0)))
     out_ch, out_v = [], []
     for c in channels:
-        if c["id"] in exclusions.get("channels", {}):
+        if c["id"] in exclusions.get("channels", {}) or seed_by.get(c["id"], {}).get("exclude"):
             continue
-        ch = {k: v for k, v in c.items() if k not in ("videos", "flags", "membership_cache")}
-        visible = [v for v in c.get("videos", []) if v["id"] not in exclusions.get("videos", {})]
+        ch = {k: v for k, v in c.items() if k not in ("videos", "flags", "membership_cache", "backfill")}
+        # 저장분에 이미 들어 있는 영상도 제목 근거가 없으면 공개하지 않는다 (export-only 로도 같은 규칙)
+        ok_v = [v for v in c.get("videos", []) if v["id"] not in exclusions.get("videos", {})]
+        visible = [v for v in ok_v if topic_visible(seed_by.get(c["id"]), c.get("country", ""), v.get("title"))]
+        ch["topic_held"] = len(ok_v) - len(visible)
         ch["hot_n"] = len(visible)
         out_ch.append(ch)
         for v in visible:
             out_v.append(dict(v, channel_id=c["id"], country=c.get("country", "")))
     payload = {"schema": SCHEMA, "updated": store.get("updated", ""), "criteria": CRITERIA, "countries": COUNTRIES, "channels": out_ch, "videos": out_v}
-    with open(path, "w", encoding="utf-8") as f:
-        f.write("window.HOT_SHORTS=" + js_safe(payload) + ";\n")
+    write_atomic(path, "window.HOT_SHORTS=" + js_safe(payload) + ";\n")
     return len(out_ch), len(out_v)
 
 
@@ -433,21 +562,25 @@ def summary(store):
 DISCOVER_QUERIES = {
     "KR": ["외국인 한국 여행 체험 쇼츠", "외국인 한국 친절 반응 shorts", "foreigner Korea experience shorts", "외국인 한국 시골 체험 shorts", "foreigners reaction Korea kindness shorts"],
     "JP": ["외국인 일본 여행 체험 쇼츠", "外国人 日本 体験 反応 ショート", "外国人 日本 親切 感動 shorts", "foreigner Japan experience shorts", "海外の反応 日本 旅行 ショート"],
-    "TW": ["外國人 台灣 體驗 反應 shorts", "外國人 台灣 人情味 感動 shorts", "foreigner Taiwan experience shorts", "外國人 來台灣 旅遊 驚訝 shorts", "外國人 台灣 夜市 反應"],
+    "TW": ["外國人 台灣 體驗 反應 shorts", "外國人 台灣 人情味 感動 shorts", "foreigner Taiwan experience shorts", "外國人 來台灣 旅遊 驚訝 shorts", "外國人 台灣 夜市 反應",
+           "外國人 台灣 小吃 第一次 shorts", "老外 台灣 感動 shorts", "外國遊客 台灣 親切 故事", "美國人 台灣 旅行 shorts", "日本人 台灣 旅行 反應 shorts", "韓國人 台灣 旅行 反應 shorts",
+           "外國人 愛上台灣 shorts", "foreigners love Taiwan shorts", "tourist Taiwan kindness shorts", "外國人 台灣 捷運 便利商店 驚訝", "外國夫妻 台灣 後悔沒早點來"],
 }
 SEARCH_LANG = {"KR": "ko", "JP": "ja", "TW": "zh-Hant"}
 
 
-def discover(checked, max_per_query=25):
-    """search.list 로 후보 채널 ID 를 모아(쿼리당 100 유닛) 같은 검증을 돌리고 요약만 저장한다. 시드는 자동으로 바꾸지 않는다"""
+def discover(checked, queries=None, max_per_query=25):
+    """search.list 로 후보 채널 ID 를 모아(쿼리당 100 유닛) 같은 검증을 돌리고 요약만 저장한다.
+    시드는 자동으로 바꾸지 않는다 (후보는 공개 목록에 자동 반영되지 않는다: 사람이 실제 영상 제목을 보고 시드에 올린다).
+    이미 시드인 채널과 이전 후보 파일에 있는 채널은 다시 검증하지 않고 이전 결과를 재사용한다 (낭비 절약)"""
     seen = {}
-    for cc, qs in DISCOVER_QUERIES.items():
+    for cc, qs in (queries or DISCOVER_QUERIES).items():
         for q in qs:
             try:
                 r = api_get("search", {"part": "snippet", "q": q, "type": "video", "videoDuration": "short", "order": "viewCount", "maxResults": max_per_query,
                                        "regionCode": cc, "relevanceLanguage": SEARCH_LANG[cc]})
             except ApiError as e:
-                print("검색 실패:", e)
+                print("검색 실패:", e, file=sys.stderr)
                 continue
             for it in r.get("items", []):
                 cid = it["snippet"].get("channelId", "")
@@ -455,9 +588,11 @@ def discover(checked, max_per_query=25):
                     e = seen.setdefault(cid, {"queries": [], "cc": cc})
                     e["queries"].append(q)
     known = {s["id"] for s in load_seeds()}
-    cand = [{"id": c} for c in seen if c not in known]
+    prev = load_json(CANDIDATES, {}).get("candidates", [])
+    prev_by = {c["id"]: c for c in prev if isinstance(c, dict) and CH_RE.match(c.get("id", ""))}
+    cand = [{"id": c} for c in seen if c not in known and c not in prev_by]
     infos = fetch_channels([c["id"] for c in cand]) if cand else {}
-    out = []
+    out = list(prev_by.values())
     for c in cand:
         info = infos.get(c["id"])
         if not info:
@@ -466,10 +601,10 @@ def discover(checked, max_per_query=25):
         seed = {"id": c["id"], "kind": "unverified", "country_hint": seen[c["id"]]["cc"]}
         rec = collect_channel(seed, None, checked, infos)
         out.append({k: rec[k] for k in ("id", "title", "handle", "country", "subs", "sample_n", "sample_shorts", "shorts_ratio", "shorts_centered", "all_shorts_strict", "pending_hot")}
-                   | {"hot_n": len(rec["videos"]), "queries": seen[c["id"]]["queries"][:3]})
+                   | {"hot_n": len(rec["videos"]), "queries": seen[c["id"]]["queries"][:3],
+                      "sample_titles": [v.get("title", "") for v in rec["videos"][:3]], "auto_public": False})
     out.sort(key=lambda r: (-r["hot_n"], -(r["subs"] or 0)))
-    with open(CANDIDATES, "w", encoding="utf-8") as f:
-        json.dump({"checked": checked, "criteria": CRITERIA, "candidates": out}, f, ensure_ascii=False, indent=1)
+    write_atomic(CANDIDATES, json.dumps({"checked": checked, "criteria": CRITERIA, "candidates": out}, ensure_ascii=False, indent=1))
     return out
 
 
@@ -479,7 +614,11 @@ def main():
     ap.add_argument("--export-only", action="store_true")
     ap.add_argument("--discover", action="store_true")
     a = ap.parse_args()
-    store = load_json(STORE, {})
+    try:
+        store = load_store_strict(STORE)
+    except StoreCorrupt as e:
+        print("오류:", e, file=sys.stderr)
+        return 1
     if a.export_only:
         print("채널 %d개 · 터진 쇼츠 %d개 내보냄" % export(store))
         return 0
@@ -501,8 +640,7 @@ def main():
     print(summary(new))
     if a.dry:
         return 0
-    with open(STORE, "w", encoding="utf-8") as f:
-        json.dump(new, f, ensure_ascii=False, indent=1)
+    write_atomic(STORE, json.dumps(new, ensure_ascii=False, indent=1))
     print("채널 %d개 · 터진 쇼츠 %d개 저장" % export(new))
     return 0
 

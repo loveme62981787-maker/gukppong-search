@@ -4,7 +4,8 @@
   "kind": "reaction_edit",
   "note": "@lianxinfanyin: 채널 소개는 명상음악이지만 실제 업로드(쇼츠)가 기준. 외국인 대만 체험·친절 이야기 - 벤치마킹 전용",
   "country_hint": "TW",
-  "user_reference": true
+  "user_reference": true,
+  "topic_filter": false
  },
  {
   "id": "UCVmIE6goEr6VF_9ot-HkO5g",
@@ -140,5 +141,508 @@
   "id": "UCGYHv7VJcu9XvA6pSPXtASg",
   "kind": "unverified",
   "note": "미국·일본 국제가족 쇼츠 - 원본 여부 확인 전"
+ },
+ {
+  "id": "UCRTrhV75M201G2PO7Y7DS8w",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "한국인 요셉TV",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "韓國人初次體驗台灣牛排的反應 #shorts",
+   "韓國人初次體驗台灣牛排的反應 #shorts"
+  ]
+ },
+ {
+  "id": "UCokOmKCQAugpV1t6lombFFA",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "콰이디안 TV(快點TV)",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님 | 2026-11-16 제외: 혼합 주제 뉴스 채널(iPhone 선물·할머니 매실장난 등 무관 영상 확인)",
+  "topic_evidence": [
+   "【期間限定體驗】防空警報大響！外國人遇台灣演習狂奔配合避難 #shorts"
+  ],
+  "exclude": true
+ },
+ {
+  "id": "UCOLQRs3ze0bOOCDwCbS3CEw",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "외국인의 놀라운 대만 여행",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "台灣怎麼像日本 義大利人看傻了 #Shorts",
+   "在日本待了十年 第一次來台灣 #Shorts"
+  ]
+ },
+ {
+  "id": "UC-ubc8iOPKz4BkvhgUV_37Q",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "한국 치치(韓勾七七)",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "第一次來夜市吃香腸 #Shorts#韓國人在台灣#韓國人第一次#韓國人體驗#台灣生活#台灣環島#熱門影片#韓國人反應#探",
+   "外國人愛台灣環島  #Shorts#韓國人在台灣#韓國人第一次#韓國人體驗#台灣生活#台灣環島#熱門影片#韓國人反應#探"
+  ]
+ },
+ {
+  "id": "UC1SKF3llqYj32S_3WePvGew",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "대만 호감도",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "[外國人反應] &quot;這麼簡單的雞排，怎麼可以這麼好吃！&quot; 英國旅人的夜市初體驗 #Shorts",
+   "[外國人反應] &quot;這麼簡單的雞排，怎麼可以這麼好吃！&quot; 英國旅人的夜市初體驗 #Shorts"
+  ]
+ },
+ {
+  "id": "UCbt5Izj6Hc_fDuMtlTVKZyQ",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "외국인의 대만 기담",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "投影畫面裡城市被佔領？ 日本女生跟著尖叫 #Shorts",
+   "第一次吃芋頭麻糬 日本女生：味道像地瓜？ #Shorts"
+  ]
+ },
+ {
+  "id": "UCIwMc7Nj7W97FgXzdIuhuGQ",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "자유 심호흡",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "老外怒揭台灣五大罪狀💥！結局卻讓全網淚崩 #外國人看台灣#台灣 #熱門 #分享 #taiwan #Shorts#感動#台",
+   "老外怒揭台灣五大罪狀💥！結局卻讓全網淚崩 #外國人看台灣#台灣 #熱門 #分享 #taiwan #Shorts#感動#台"
+  ]
+ },
+ {
+  "id": "UCmEzgDu7EuL1ek9RmVoKk0Q",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "지구 발자취",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "🔥剛到機場秒大崩潰！老外淚控「被台灣寵壞回不去」，這衝擊太致命！ #台灣人情味 #外國人被寵壞 #旅遊日常 #熱門推薦 "
+  ]
+ },
+ {
+  "id": "UClV8pVxZwdHmDRWuif9RQBA",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "애각성소",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "英國媽怒嗆「那裡超危險」💔貴族女校來台破防痛哭😭#台灣 #外國人在台灣 #台灣人情味 #台灣捷運 #感動哭 #台灣治安 ",
+   "英國記者在台灣街頭失控痛哭😭暴雨塞車竟「死寂」⁉️#台灣 #台灣人情味 #台灣風景 #台灣交通 #台灣生活 #台灣感動 "
+  ]
+ },
+ {
+  "id": "UCo5XcC-VQbK0F6DHykSIESQ",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "차계 관찰",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "英國媽狂警告「去那裡會沒命」😱貴族千金來台直接大破防暴哭#台灣#外國人在台灣#台灣人情味#台灣治安#文化衝擊#破防痛哭#"
+  ]
+ },
+ {
+  "id": "UCJnJSjh715H2Ai6_wO7jVvA",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "보도 수련 수첩",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "吃了十幾年冷便當！北歐少年初嚐台灣營養午餐竟當眾爆哭？！😭🍱#營養午餐 #台灣人情味 #外國人在台灣 #瑞典交換生 #老",
+   "畢旅改去台灣？英國媽氣炸拍桌🤬6天後視訊畫面讓她當場爆哭🤯#shorts #台灣 #台灣人情味 #英國媽媽 #神反轉 #"
+  ]
+ },
+ {
+  "id": "UCio0uYD-UUrHZOrQiEVk-3w",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "판선 관란",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "英國媽痛罵台灣落後！6天後看見「半夜這畫面」崩潰爆哭道歉#台灣人情味 #外國人看台灣 #文化衝擊 #台灣治安 #英國媽媽",
+   "「台灣人為什麼要這樣對我？」委內瑞拉女孩遠嫁台灣，見這日常竟崩潰大哭！#台灣生活 #外國人在台灣 #異國婚姻 #台灣人情"
+  ]
+ },
+ {
+  "id": "UCYBHhMcZI--8s7PWCxNR9aA",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "보도 신일상",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "🤯美籍妹子全嚇傻！台灣鄉下辦桌電音狂轟，刺青壯漢突伸手…她當場哭出來#流水席#台灣辦桌#台灣人情味#紐約妹#外國人看台灣"
+  ]
+ },
+ {
+  "id": "UCtFtRNTklN1A-tDhbI2vbKQ",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "세계 호박",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "【台灣人情味破防！】法國浪子聽懂神曲，竟當場跪哭認錯？！#台灣人情味 #台灣生活 #外國人在台灣  #浪子回頭 #感動淚",
+   "💥震驚！奧地利媽爆哭：搬來台灣才敢生二胎😭 #台灣健保 #外國人看台灣 #台灣醫療 #台灣人情味 #感動落淚 #救命奇蹟"
+  ]
+ },
+ {
+  "id": "UC91ZgUT8G5SlFNbDPU_o8kA",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "대만 인정미",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "在巴黎早就不見了！法國遊客夜市弄丟錢包，一進警局看到「這畫面」，感動到說不出話...😭❤️ #台灣人情味 #taiwan",
+   "台灣小學生太狂了！日本媽媽去接女兒放學，被「這畫面」震撼：以後一定要嫁台灣人！🤯🇹🇼 #taiwan #台灣之光 #分享"
+  ]
+ },
+ {
+  "id": "UCSiPIqQ8zXqHDNfYE2x-4kQ",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "어르신 만사통",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "都說國旅超雷⁉️越南女孩初訪台灣…真相讓人看傻眼😳#台灣旅遊#台灣捷運#台灣奇蹟#台灣治安#台灣人情味#感動瞬間#外國人"
+  ]
+ },
+ {
+  "id": "UCrarPxA8rM3RgjMHA_T4GfA",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "지활 가이드",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "英國媽拒讓女兒來台！🤬「那裡超落後」6天後視訊爆哭認錯😭#shorts#台灣#台灣之光#外國人在台灣#台灣人情味#台灣治"
+  ]
+ },
+ {
+  "id": "UC20p_VCID4Kcrh0I1KfTP8g",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "맛있는 대만",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "Foreigner&#39;s Reaction to Stinky Tofu, A Taiwanese Street "
+  ]
+ },
+ {
+  "id": "UCiC6Ozd5hWPCrYey9TxDdZA",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "스토리TW28",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "外國人驚訝台灣的便利商店 #台灣 #日常 #便利商店 #shorts"
+  ]
+ },
+ {
+  "id": "UCBHfnLES6MFplzTFfB8Bh6g",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "럭키 패밀리 행운가정",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "韓國家庭第一次台灣夜市的地瓜球！真實的反應? 這味道第一次耶！│好運家庭 럭키패밀리"
+  ]
+ },
+ {
+  "id": "UCRTfU0WFpwy1HTpmPgDy2ZQ",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "플레이TV 대만",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "讓外國人超困惑的台灣特色！？地震、夜市、垃圾車全入歌"
+  ]
+ },
+ {
+  "id": "UCW6-eKmgSVTLXqzfP2naIKg",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "안녕 대만",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "台灣夜市烤香菇澳洲人嚇傻原因 #外國人來台灣 #外國人看台灣#外國人在台灣",
+   "夜市煎鳥蛋初體驗外國人啞口無言原因  #台灣旅遊  #外國人看台灣  #台灣旅行"
+  ]
+ },
+ {
+  "id": "UCAfs6KBQkDozHWDyeIIFtDw",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "세계가 보는 대만",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "寧夏夜市第一口 外國人直呼太扯了 #Shorts"
+  ]
+ },
+ {
+  "id": "UCwrz5xgMHdOrDkaqoAPwD0A",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "심도 전략",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "老外驚嘆😲台灣夜市竟將“地獄器官”轉化為無上美味！🤤 #台灣美食 #台灣夜市 #台灣小吃 #深度策略 #七裏香 #大腸包"
+  ]
+ },
+ {
+  "id": "UCSruSvPeYmxr_xjGSaJgWMw",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "세계 여행자의 대만 관찰실",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "花蓮東大門夜市 外國人：人這麼多還這麼乾淨？ #Shorts",
+   "夜市的蝦子怎麼剝？ 韓國人試了好幾次 #Shorts"
+  ]
+ },
+ {
+  "id": "UCddxEQncBzkQ6_Dd5sHu1RA",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "대만복 Hwan&Nic",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "韓國朋友第一次吃到臭豆腐 ！ 結果⋯ #shorts #台韓夫夫"
+  ]
+ },
+ {
+  "id": "UCU7OGCOASGkRnXJ9ru0fDrg",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "영현 김융(英玹)",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "#韓國人在台灣 第一次喝18天"
+  ]
+ },
+ {
+  "id": "UCulYJ-pId6MAXSsmERbkasg",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "쉐마 Xuema",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "外國女生第一次挑戰台灣娃娃機！#shorts #沙發馬鈴薯尊賢旗艦店 #娃娃機 #xuema #薛瑪",
+   "土耳其女生第一次嘗試台灣零食😋 #shorts #台灣零食 #xuema #薛瑪 #外國美女"
+  ]
+ },
+ {
+  "id": "UCNmQ9EU5TKxumN70Cn4sIwA",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "한 그루 나무의 이수(一棵樹的一樹)",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "日本人第一次吃｢科學麵｣#Shorts",
+   "外國人在台灣第一次吃「羊肉爐」#Shorts"
+  ]
+ },
+ {
+  "id": "UClLldsCpN7dbYv3sNkB3f1A",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "여행자 눈에 비친 보도 비경",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "日本女生第一次吃地瓜球 一吃就停不下來 #Shorts"
+  ]
+ },
+ {
+  "id": "UCzNrKbfM4uhYGiP797ja3zg",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "극치 대만혼",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "😭丹麥宜居第一全破滅？！外媒記者直播淚崩：台灣這真相太震撼！#台灣#丹麥#台灣人情味#最宜居國家#台灣治安#老外在台灣#"
+  ]
+ },
+ {
+  "id": "UCX2914i1K-kGbgg1ZrLKDSQ",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "애완커 iWalker(三立)",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "老外到白沙屯追媽祖超感動？！｜#愛玩客 #shorts"
+  ]
+ },
+ {
+  "id": "UCjjh58fpDdDzLZnPaFJGmQg",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "사카이 히나타",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "日本人眼中的台灣👀#台日友好 #日本人 #日本文化 #日本 #日常生活 #台灣 #台灣人 #文化 #外國人 #short"
+  ]
+ },
+ {
+  "id": "UCNPh8DFzAsUtFhAagO2Tzng",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "바오니와 바오마 한국모녀",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "無視台灣冬天的韓國人最後..🇰🇷🇹🇼 #shorts",
+   "看到下雪時台灣人跟韓國人的反應完全不一樣?!🇹🇼🇰🇷 #shorts"
+  ]
+ },
+ {
+  "id": "UCOcT0Kv528pTwHFkf4oS9Rw",
+  "kind": "unverified",
+  "country_hint": "TW",
+  "name_ko": "외국인 in 대만 - 안드 렌즈 속 세상",
+  "note": "외국인 대만 여행·체험 반응 쇼츠(실제 영상 제목 근거). 편집·재구성 채널일 수 있어 벤치마킹 참고용, 재사용 가능한 원본 아님",
+  "topic_evidence": [
+   "來 #台灣 1年 vs 10年的 #外國人  - 安德鏡頭下的世界"
+  ]
+ },
+ {
+  "id": "UCZLG3Wx6RSMayQ2bI49Qurw",
+  "kind": "unverified",
+  "country_hint": "JP",
+  "name_ko": "1분 세계(1minutesekai)",
+  "note": "외국인 일본 여행·체험 반응 쇼츠(실제 영상 제목 근거). 원본 여부 미확인·편집 채널일 수 있어 벤치마킹 참고용",
+  "topic_evidence": [
+   "敵だと教えられた夫婦が日本で知った真実",
+   "日本に複雑な思いを抱いていた中国人男性の告白"
+  ]
+ },
+ {
+  "id": "UCTavo_qPc-kP3gFrXEovdog",
+  "kind": "unverified",
+  "country_hint": "JP",
+  "name_ko": "사무라이 플래그",
+  "note": "외국인 일본 여행·체험 반응 쇼츠(실제 영상 제목 근거). 원본 여부 미확인·편집 채널일 수 있어 벤치마킹 참고용",
+  "topic_evidence": [
+   "外国人が日本人を信頼したらまさかの結末に…",
+   "ヴィーガンの外国人観光客が初めて日本のスーパーへ行った結果？ #海外の反応"
+  ]
+ },
+ {
+  "id": "UCiooq5avgQXBlyJNUKlxRfw",
+  "kind": "unverified",
+  "country_hint": "JP",
+  "name_ko": "외국인의 반응",
+  "note": "외국인 일본 여행·체험 반응 쇼츠(실제 영상 제목 근거). 원본 여부 미확인·편집 채널일 수 있어 벤치마킹 참고용",
+  "topic_evidence": [
+   "日本の鮨がすごすぎてに仰天する外国人 #外国人の反応",
+   "イタリア人寿司絶賛！"
+  ]
+ },
+ {
+  "id": "UCtOh_tNEvtfqF8wlUbOkFvg",
+  "kind": "travel_original",
+  "country_hint": "JP",
+  "name_ko": "트래블게이트 JP",
+  "note": "외국인 일본 체험 인터뷰 쇼츠(실제 영상 제목 근거). 재사용 권리는 영상별 확인",
+  "topic_evidence": [
+   "最高のすき焼きに感動で言葉がでてこない⁉【外国人にインタビュー】#shorts #海外の反応 #外国人インタビュー  #",
+   "日本の硬貨の秘密を教えたら反応が想像以上だった！【外国人にインタビュー】#shorts #海外の反応 #外国人  #外国"
+  ]
+ },
+ {
+  "id": "UCRVOiI7_w_aMf9o1Uv__UMg",
+  "kind": "unverified",
+  "country_hint": "JP",
+  "name_ko": "닉실리아",
+  "note": "외국인 일본 여행·체험 반응 쇼츠(실제 영상 제목 근거). 원본 여부 미확인·편집 채널일 수 있어 벤치마킹 참고용",
+  "topic_evidence": [
+   "Japan has a \"Rage Bait Theme Park\"",
+   "Locked in a Coffin for 20 Minutes"
+  ]
+ },
+ {
+  "id": "UCJm5fJmn984w2Ra6UtidbNA",
+  "kind": "unverified",
+  "country_hint": "JP",
+  "name_ko": "와사비 Inc",
+  "note": "외국인 일본 여행·체험 반응 쇼츠(실제 영상 제목 근거). 원본 여부 미확인·편집 채널일 수 있어 벤치마킹 참고용",
+  "topic_evidence": [
+   "ドイツ人が理解出来ない日本の人口",
+   "ドイツ人が理解出来ない日本の漫画3選"
+  ]
+ },
+ {
+  "id": "UCZkjqFCvTZgOv6paMBdZRyQ",
+  "kind": "unverified",
+  "country_hint": "KR",
+  "note": "외국인 한국 여행·체험 반응 쇼츠(실제 영상 제목 근거). 원본 여부 미확인·편집 채널일 수 있어 벤치마킹 참고용",
+  "topic_evidence": [
+   "I Transformed a Stranger Into a Kpop Idol",
+   "Living In Korea as a black guy"
+  ]
+ },
+ {
+  "id": "UCM7GjNAeqrwrEou4TLQy2AA",
+  "kind": "unverified",
+  "country_hint": "KR",
+  "note": "외국인 한국 여행·체험 반응 쇼츠(실제 영상 제목 근거). 원본 여부 미확인·편집 채널일 수 있어 벤치마킹 참고용",
+  "topic_evidence": [
+   "한복 한가인과 경복궁에 등장! 난리난 실시간 현장 반응 ㄷㄷ..",
+   "한국 Top여배우와 한복을 입으면 벌어지는 일..!"
+  ]
+ },
+ {
+  "id": "UC4i1qf8CUH93DLSbD9efqig",
+  "kind": "unverified",
+  "country_hint": "KR",
+  "note": "외국인 한국 여행·체험 반응 쇼츠(실제 영상 제목 근거). 원본 여부 미확인·편집 채널일 수 있어 벤치마킹 참고용",
+  "topic_evidence": [
+   "?! 야 이거 반찬이랑 같이 먹어봐 #어서와한국은처음이지 #외국인",
+   "미나리와 푸짐한 K-삼겹살 #어서와한국은처음이지 #외국인"
+  ]
+ },
+ {
+  "id": "UCg9PotrutORkqpb_2dxXzQA",
+  "kind": "unverified",
+  "country_hint": "KR",
+  "note": "외국인 한국 여행·체험 반응 쇼츠(실제 영상 제목 근거). 원본 여부 미확인·편집 채널일 수 있어 벤치마킹 참고용",
+  "topic_evidence": [
+   "간짜장 먹다가 죽을뻔한 미국 상여자 외국인 #외국인반응 #외국인 #shorts",
+   "간짜장 흡입하는 미국 상여자 외국인 #외국인반응 #외국인 #shorts"
+  ]
+ },
+ {
+  "id": "UCW0T3NA5b1AEsqN5eC4MuGQ",
+  "kind": "unverified",
+  "country_hint": "KR",
+  "note": "외국인 한국 여행·체험 반응 쇼츠(실제 영상 제목 근거). 원본 여부 미확인·편집 채널일 수 있어 벤치마킹 참고용",
+  "topic_evidence": [
+   "외국인이 찍어 올린 해외에서 난리 난 인천공항 영상",
+   "드라마 참교육 때문에 부작용 온 외국인들 근황"
+  ]
+ },
+ {
+  "id": "UCJUGpS69lgCuzgiX7UwWzkQ",
+  "kind": "unverified",
+  "country_hint": "KR",
+  "note": "외국인 한국 여행·체험 반응 쇼츠(실제 영상 제목 근거). 원본 여부 미확인·편집 채널일 수 있어 벤치마킹 참고용",
+  "topic_evidence": [
+   "한국 스님 때문에 당황한 코난 #koreatravel #shorts #외국인반응",
+   "모두까기인형 노엘 갤러거는 유명한 한국 덕후 #shorts  #외국인반응 #한국떼창"
+  ]
+ },
+ {
+  "id": "UCNRJKxIqSH2P41bGjtSl8Pg",
+  "kind": "unverified",
+  "country_hint": "KR",
+  "note": "외국인 한국 여행·체험 반응 쇼츠(실제 영상 제목 근거). 원본 여부 미확인·편집 채널일 수 있어 벤치마킹 참고용",
+  "topic_evidence": [
+   "외국인이 느끼는 한국 여행 난이도",
+   "한국 마을 미래를 걱정하는 외국인"
+  ]
  }
 ]

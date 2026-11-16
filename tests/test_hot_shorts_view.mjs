@@ -46,14 +46,31 @@ test('기준 문구는 내보낸 criteria 값에서 만들어진다 (코드 상�
   const V = ctx.HotShortsView, c = D.criteria;
   const t = V.criteriaText(c);
   assert.ok(t.includes(c.min_views.toLocaleString('ko-KR')));
-  assert.ok(t.includes(`구독자 대비 ${c.min_sub_multiple}배`));
-  assert.ok(t.includes(`중앙값 대비 ${c.min_median_multiple}배`));
+  assert.ok(t.includes('구독자 수와 무관'));   // 구독자·중앙값 배수는 입장 조건이 아니라 표시·정렬 보조
+  assert.ok(!/구독자 대비 [0-9.]+배 이상/.test(t));
+  assert.ok(t.includes(`최근 업로드 ${c.fetch_n}개`));
   assert.ok(t.includes(`최근 업로드 ${c.sample_n}개`));
   assert.ok(t.includes(`${Math.round(c.center_ratio * 100)}%`));
   assert.match(t, /최근 표본 기준/);
+  assert.match(t, /이어받고/);
+  assert.match(t, /제목에 외국인 신호와 대상국 이름이 함께/);
   assert.match(t, /3분 이하\)만으로는 쇼츠로 확정하지 않고/);
   const other = V.criteriaText({...c, min_views: 777000, sample_n: 33});
   assert.ok(other.includes('777,000') && other.includes('33개'));
+});
+
+test('JP·TW 채널명은 한국어 병기명이 있으면 함께 보여준다', () => {
+  const {ctx} = boot();
+  const V = ctx.HotShortsView;
+  assert.equal(V.chName(ch({title: '外國人看台灣', name_ko: '외국인이 본 대만'})), '外國人看台灣 (외국인이 본 대만)');
+  assert.equal(V.chName(ch({title: '코리아', name_ko: ''})), '코리아');
+  assert.equal(V.chName(ch({title: '같은', name_ko: '같은'})), '같은');
+});
+
+test('나라별로 60개씩만 그리고 더 보기로 늘린다 (수집 한도 아님)', () => {
+  const src2 = fs.readFileSync(new URL('../web/hot_shorts_view.js', import.meta.url), 'utf8');
+  assert.match(src2, /PAGE = 60/);
+  assert.match(src2, /더 보기/);
 });
 
 test('배지: 쇼츠 중심과 엄격한 전부 쇼츠는 별개이고 영구 단정 문구가 없다', () => {

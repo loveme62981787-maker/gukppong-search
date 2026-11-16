@@ -17,14 +17,19 @@
   const num = n => typeof n === "number" && isFinite(n) ? n : null;
   const fmtN = n => n == null ? "?" : n >= 1e6 ? (n / 1e6).toFixed(1) + "M" : n >= 1e3 ? (n / 1e3).toFixed(1) + "K" : String(n);
   const fmtX = n => n == null ? "-" : (Math.round(n * 10) / 10) + "배";
+  // JP·TW 채널은 한국어 병기명(name_ko)이 있으면 "원어명 (한국어명)" 으로 보여준다
+  const chName = ch => !ch ? "채널" : (ch.title || ch.handle || "채널") + (ch.name_ko && ch.name_ko !== ch.title ? " (" + ch.name_ko + ")" : "");
   const pct = r => Math.round((num(r) || 0) * 100) + "%";
 
   // 기준 문구: criteria(내보낸 코드 상수)에서 만든다
   function criteriaText(c) {
-    return `터진 쇼츠 = Shorts 탭에서 실제 확인된 영상 중 조회수 ${c.min_views.toLocaleString("ko-KR")}회 이상이면서 (구독자 대비 ${c.min_sub_multiple}배 이상 또는 표본 중앙값 대비 ${c.min_median_multiple}배 이상, 또는 조회수 ${(c.min_abs_views || 0).toLocaleString("ko-KR")}회 이상). 화면의 구독자 대비 배수는 실제 조회수÷구독자이고, 선별에만 구독자 ${(c.sub_floor || 1000).toLocaleString("ko-KR")}명 미만을 ${(c.sub_floor || 1000).toLocaleString("ko-KR")}명으로 보정해요. ` +
+    return `터진 쇼츠 = Shorts 탭·Shorts 재생목록에서 실제 확인된 영상 중 조회수 ${c.min_views.toLocaleString("ko-KR")}회 이상 (한국·일본·대만 공통, 구독자 수와 무관). ` +
+      `화면의 '구독자 대비'와 '표본 중앙값 대비' 배수는 입장 조건이 아니라 표시·정렬 보조예요 (구독자 대비는 실제 조회수÷구독자). ` +
+      `채널 하나에서 보여주는 개수는 제한하지 않고, 최근 업로드 ${c.fetch_n || "?"}개와 Shorts 재생목록 ${c.shorts_n || "?"}개까지 읽어요 (그보다 오래된 Shorts는 실행마다 ${c.backfill_pages || "?"}페이지(페이지당 50개)씩 이어받고, 이미 확인한 영상은 누적 보존). ` +
       `표본 = 채널의 최근 업로드 ${c.sample_n}개 (중앙값은 그중 Shorts 확인 영상이 ${c.min_median_sample}개 이상일 때만 계산). ` +
       `쇼츠 중심 = 표본이 ${c.sample_n}개 이상이고 Shorts 확인 비율(보류 포함 전체 표본 기준) ${Math.round(c.center_ratio * 100)}% 이상. 전부 쇼츠 = 같은 표본 전부가 Shorts로 확인됨. ` +
-      `둘 다 '최근 표본 기준'일 뿐 앞으로도 쇼츠만 올린다는 뜻이 아니에요. 길이(3분 이하)만으로는 쇼츠로 확정하지 않고, 증거가 부족하면 보류해요. Shorts 탭 첫 페이지에 없다는 것만으로는 '쇼츠 아님'으로 확정하지 않아요 (고정·오래된 영상 때문). 3분 초과 영상만 쇼츠 아님으로 확정해요.`;
+      `둘 다 '최근 표본 기준'일 뿐 앞으로도 쇼츠만 올린다는 뜻이 아니에요. 길이(3분 이하)만으로는 쇼츠로 확정하지 않고, 증거가 부족하면 보류해요. Shorts 탭 첫 페이지에 없다는 것만으로는 '쇼츠 아님'으로 확정하지 않아요 (고정·오래된 영상 때문). 3분 초과 영상만 쇼츠 아님으로 확정해요. ` +
+      `채널 주제(외국인이 나오는 한국·일본·대만 여행 체험·반응)는 채널 소개가 아니라 실제 영상 제목 근거로 사람이 확인해 시드에 올린 것이고, 자동 발굴 후보는 근거 확인 전에는 공개하지 않아요. 여러 주제를 섞는 채널은 영상 제목에 외국인 신호와 대상국 이름이 함께 있는 쇼츠만 보여주고, 나머지는 보류해요 (제목만 본 것이라 영상을 직접 시청해 확인했다는 뜻이 아니에요).`;
   }
 
   // 채널 배지: [문구, 클래스, 설명]
@@ -42,7 +47,7 @@
     return out;
   }
 
-  const hay = (v, ch, memos) => ((v.title || "") + " " + (ch ? ch.title + " " + ch.handle : "") + " " + ((memos && memos[v.id]) || "")).toLowerCase();
+  const hay = (v, ch, memos) => ((v.title || "") + " " + (ch ? ch.title + " " + ch.handle + " " + (ch.name_ko || "") : "") + " " + ((memos && memos[v.id]) || "")).toLowerCase();
 
   // 보기 필터: 같은 영상 ID 의 숨김·사용 완료 상태는 영상 화면과 같은 집합을 쓴다 (기본은 둘 다 제외)
   function filterVideos(videos, chById, o) {
@@ -79,7 +84,7 @@
   function channelCard(ch) {
     const c = el("div", "card " + (ch.kind === "travel_original" ? "kd-foreign" : "kd-local"));
     const b = el("div", "body");
-    const t = link(ch.title || ch.handle || "채널", chUrl(ch.id), "t"); b.append(t);
+    const t = link(chName(ch), chUrl(ch.id), "t"); b.append(t);
     const m = el("div", "m");
     m.append(ch.handle ? ch.handle + " · " : "", "구독자 " + fmtN(num(ch.subs)), " · 확인 " + (ch.checked || "-"));
     b.append(m);
@@ -109,7 +114,7 @@
     const b = el("div", "body");
     b.append(link(v.title || "(제목 없음)", "https://www.youtube.com/shorts/" + id, "t"));
     const m = el("div", "m");
-    m.append(link((ch && (ch.title || ch.handle)) || "채널", chUrl(v.channel_id), "chl"), " · 업로드 " + (v.published || "-"));
+    m.append(link(chName(ch), chUrl(v.channel_id), "chl"), " · 업로드 " + (v.published || "-"));
     b.append(m);
     const tags = el("div", "tags");
     tags.append(tag("👁 " + fmtN(num(v.views)), "", (num(v.views) || 0).toLocaleString("ko-KR") + "회"));
@@ -142,6 +147,8 @@
 
   const data = () => root.HOT_SHORTS || {channels: [], videos: [], criteria: null, countries: {}};
   let countrySel = "all";
+  // 채널당 개수 제한은 없지만 화면에는 나라별로 PAGE 개씩 보여주고 '더 보기'로 늘린다 (카드 수천 개를 한 번에 그리지 않으려는 표시 한도이지 수집 한도가 아니다)
+  const PAGE = 60, shown = {KR: PAGE, JP: PAGE, TW: PAGE};
   function setCountry(cc) { countrySel = cc === "KR" || cc === "JP" || cc === "TW" ? cc : "all"; }
 
   function render() {
@@ -176,14 +183,19 @@
       sec.append(el("h3", "", `🔥 터진 쇼츠 (${name}) 영상`));
       const vg = el("div", "grid");
       if (!vids.length) vg.append(el("div", "empty", "조건에 맞는 터진 쇼츠가 없어요"));
-      vids.forEach(v => vg.append(videoCard(v, chById[v.channel_id], st, onChange)));
+      vids.slice(0, shown[cc]).forEach(v => vg.append(videoCard(v, chById[v.channel_id], st, onChange)));
       sec.append(vg);
+      if (vids.length > shown[cc]) {
+        const more = el("button", "btn", `더 보기 (${shown[cc]}/${vids.length})`);
+        more.onclick = () => { shown[cc] += PAGE; render(); };
+        sec.append(more);
+      }
       body.append(sec);
     });
   }
   root.renderHotShorts = render;
   root.setHotCountry = cc => { setCountry(cc); };
-  root.HotShortsView = {safeVideoId, safeChannelId, criteriaText, channelBadges, setCountry, filterVideos, sortVideos, channelCard, videoCard, KIND_BADGE, render};
+  root.HotShortsView = {chName, safeVideoId, safeChannelId, criteriaText, channelBadges, setCountry, filterVideos, sortVideos, channelCard, videoCard, KIND_BADGE, render};
   if (typeof document !== "undefined" && document.getElementById) {
     ["hsq", "hssort", "hskind", "hsmine"].forEach(i => { const e = document.getElementById(i); if (e) e.addEventListener("input", render); });
   }

@@ -96,13 +96,12 @@ class StatsTests(unittest.TestCase):
 
 class HotTests(unittest.TestCase):
     def test_hot_rule_matches_criteria(self):
-        ok, sub_m, med_m = hs.is_hot(C["min_views"], 10000, 40000)
-        self.assertEqual((ok, sub_m, med_m), (True, 10.0, 2.5))
-        self.assertFalse(hs.is_hot(C["min_views"] - 1, 100, 1000)[0])                 # 조회수 최소 미달
-        self.assertFalse(hs.is_hot(150000, 1000000, 100000)[0])                       # 배수 둘 다 미달
-        self.assertTrue(hs.is_hot(150000, 1000000, 70000)[0])                         # 중앙값 대비만 충족(2.14배)
-        self.assertTrue(hs.is_hot(300000, 100000, None)[0])                           # 중앙값 없음 + 구독자 3배
-        self.assertEqual(hs.is_hot(150000, None, None)[0], False)                     # 구독자 비공개 + 중앙값 없음 → 근거 부족
+        ok, sub_m, med_m = hs.is_hot(C["min_views"], 10000, 4000)
+        self.assertEqual((ok, sub_m, med_m), (True, 1.0, 2.5))
+        self.assertFalse(hs.is_hot(C["min_views"] - 1, 100, 1000)[0])                 # 조회수 1만 미만은 입장 불가
+        self.assertEqual(C["min_views"], 10000)
+        self.assertTrue(hs.is_hot(C["min_views"], 50_000_000, 5_000_000)[0])          # 구독자 배수·중앙값 배수가 아주 낮아도 1만 이상이면 입장
+        self.assertTrue(hs.is_hot(C["min_views"], None, None)[0])                     # 구독자 비공개·중앙값 없음이어도 입장
 
     def test_displayed_multiple_is_real_and_floor_is_selection_only(self):
         real, floor = hs.sub_multiples(100000, 100)
@@ -110,10 +109,10 @@ class HotTests(unittest.TestCase):
         self.assertEqual(hs.is_hot(100000, 100, None)[1], 1000.0)
         self.assertEqual(hs.sub_multiples(1000, 0), (None, None))
 
-    def test_absolute_views_pass_for_big_channels_and_zero_median_is_safe(self):
-        self.assertTrue(hs.is_hot(C["min_abs_views"], 50_000_000, 5_000_000)[0])      # 대형 채널·전부 대박 채널도 100만 이상이면 통과
-        self.assertFalse(hs.is_hot(C["min_abs_views"] - 1, 50_000_000, 5_000_000)[0])
+    def test_zero_median_is_safe_and_multiples_are_display_only(self):
         self.assertEqual(hs.is_hot(200000, 50_000_000, 0)[2], None)                   # 중앙값 0 은 분모 예외 방어
+        for k in ("min_sub_multiple", "min_median_multiple", "min_abs_views", "max_per_channel"):
+            self.assertNotIn(k, C)                                                    # 입장 조건에서 제거됨
 
     def test_median_needs_enough_confirmed_shorts(self):
         sample = [vid(i, "2026-11-10T00:00:00Z", 1000 * (i + 1)) for i in range(10)]
@@ -124,7 +123,7 @@ class HotTests(unittest.TestCase):
 
 
 def seed(**kw):
-    return dict({"id": "UC" + "a" * 22, "kind": "reaction_edit", "note": "n"}, **kw)
+    return dict({"id": "UC" + "a" * 22, "kind": "reaction_edit", "note": "n", "topic_filter": False}, **kw)   # 기존 테스트는 일반 제목이라 제목 필터 면제. 필터는 아래 TopicFilterTests 에서 따로 검증
 
 
 def info(**kw):
@@ -140,7 +139,7 @@ class BuildTests(unittest.TestCase):
         vs = twenty()
         tab = [{"id": v["id"]} for v in vs[:19]]   # 마지막 하나는 탭에 없음
         rec = hs.build_channel(seed(), info(), vs, tab, None, "2026-11-16")
-        self.assertEqual(len(rec["videos"]), C["max_per_channel"])   # 19개가 터졌어도 채널당 상한
+        self.assertEqual(len(rec["videos"]), 19)   # 채널당 개수 제한 없음: 탭에서 확인된 19개 전부
         self.assertTrue(all(v["short"] is True and v["short_signal"] == "shorts_tab" for v in rec["videos"]))
         self.assertTrue(rec["shorts_centered"] and not rec["all_shorts_strict"])
         self.assertTrue(rec["tab_checked"])
@@ -172,7 +171,7 @@ class BuildTests(unittest.TestCase):
         vs = twenty()
         first = hs.build_channel(seed(), info(), vs, [{"id": v["id"]} for v in vs], None, "2026-11-10")
         again = hs.build_channel(seed(), info(), vs, None, first, "2026-11-16")   # 이번엔 탭이 막힘
-        self.assertEqual(len(again["videos"]), C["max_per_channel"])
+        self.assertEqual(len(again["videos"]), 20)
         self.assertTrue(all(v["short_signal"] == "kept" and v["short_checked"] == "2026-11-10" for v in again["videos"]))
         self.assertTrue(again["shorts_centered"])   # 이전 확인이 표본 통계에도 이어진다
 
@@ -203,7 +202,7 @@ class BuildTests(unittest.TestCase):
         first = hs.build_channel(seed(), info(), vs, [{"id": v["id"]} for v in vs], None, "2026-11-10")
         shifted = [vid(100 + i, f"2026-12-{20 - i:02d}T00:00:00Z", 1000) for i in range(20)]
         again = hs.build_channel(seed(), info(), shifted, [{"id": v["id"]} for v in shifted], first, "2026-11-16")
-        self.assertEqual(len(again["videos"]), C["max_per_channel"])   # 새 영상은 조회수 미달, 밀려난 기존 터진 쇼츠가 보존됨
+        self.assertEqual(len(again["videos"]), 20)   # 새 영상은 조회수 미달(1000), 밀려난 기존 터진 쇼츠 20개가 개수 제한 없이 누적 보존됨
         self.assertTrue(all(v["short_signal"] == "kept" for v in again["videos"]))
 
 
@@ -272,7 +271,6 @@ class SiteDataTests(unittest.TestCase):
             self.assertIs(v["short"], True)
             self.assertIn(v["short_signal"], ("shorts_tab", "kept"))
             self.assertGreaterEqual(v["views"], C["min_views"])
-            self.assertTrue((v["sub_multiple"] or 0) >= C["min_sub_multiple"] or (v["median_multiple"] or 0) >= C["min_median_multiple"] or v["views"] >= C["min_abs_views"])
             self.assertIn(v["country"], hs.COUNTRIES)
             self.assertRegex(v["checked"], r"^\d{4}-\d{2}-\d{2}$")
 
@@ -293,8 +291,9 @@ class SiteDataTests(unittest.TestCase):
 
     def test_store_and_export_agree(self):
         ex = json.loads((ROOT / "hot_shorts_exclusions.json").read_text(encoding="utf-8"))
-        chs = [c for c in self.store["channels"].values() if c["id"] not in ex["channels"]]
-        expected = {v["id"] for c in chs for v in c["videos"] if v["id"] not in ex["videos"]}
+        seeds = {x["id"]: x for x in json.loads((ROOT / "hot_shorts_seeds.json").read_text(encoding="utf-8"))}
+        chs = [c for c in self.store["channels"].values() if c["id"] not in ex["channels"] and not seeds.get(c["id"], {}).get("exclude")]
+        expected = {v["id"] for c in chs for v in c["videos"] if v["id"] not in ex["videos"] and hs.topic_visible(seeds.get(c["id"]), c.get("country", ""), v.get("title"))}
         self.assertEqual(len(chs), len(self.d["channels"]))
         self.assertEqual(expected, {v["id"] for v in self.d["videos"]})
 
@@ -325,5 +324,135 @@ class WorkflowTests(unittest.TestCase):
         self.assertRegex(y, r"git add [^\n]*hot_shorts_store\.json[^\n]*web/hot_shorts\.js")
 
 
+
+class TopicFilterTests(unittest.TestCase):
+    def test_title_needs_foreigner_and_target_country(self):
+        self.assertTrue(hs.topic_ok("외국인이 한국 시골에서 놀란 이유", "KR"))
+        self.assertTrue(hs.topic_ok("美國人第一次來台灣夜市", "TW"))
+        self.assertTrue(hs.topic_ok("韓國人 台灣 旅行 反應", "TW"))
+        self.assertFalse(hs.topic_ok("iPhone 선물", "TW"))
+        self.assertFalse(hs.topic_ok("台灣 新聞 快訊", "TW"))            # 대상국만 있음 (일반 뉴스)
+        self.assertFalse(hs.topic_ok("外國人 日本 旅行", "TW"))          # 다른 나라 이야기
+        self.assertFalse(hs.topic_ok("韓國人 在台灣", "KR"))              # 대상국 사람은 외국인 신호가 아님 + 대상국어 없음
+
+    def test_mixed_channel_publishes_only_title_matched_videos(self):
+        vs = twenty()
+        vs[0]["title"] = "外國人 台灣 夜市 反應"
+        tab = [{"id": v["id"]} for v in vs]
+        rec = hs.build_channel(seed(topic_filter=None), info(), vs, tab, None, "d")
+        self.assertEqual([v["id"] for v in rec["videos"]], [vs[0]["id"]])
+        self.assertEqual(rec["topic_held"], 19)
+
+    def test_old_kept_videos_are_filtered_too(self):
+        vs = twenty()
+        first = hs.build_channel(seed(), info(), vs, [{"id": v["id"]} for v in vs], None, "d")
+        shifted = [vid(100 + i, f"2026-12-{20 - i:02d}T00:00:00Z", 1000) for i in range(20)]
+        again = hs.build_channel(seed(topic_filter=None), info(), shifted, [{"id": v["id"]} for v in shifted], first, "d")
+        self.assertEqual(again["videos"], [])
+
+    def test_export_hides_unmatched_and_excluded_seed_without_network(self):
+        import tempfile
+        import os
+        vs = twenty()
+        mixed = hs.build_channel(seed(), info(), vs, [{"id": v["id"]} for v in vs], None, "d")
+        bad = hs.build_channel(seed(id="UC" + "b" * 22), info(), vs, [{"id": v["id"]} for v in vs], None, "d")
+        store = {"updated": "d", "channels": {mixed["id"]: mixed, bad["id"]: bad}}
+        with tempfile.TemporaryDirectory() as d:
+            n = hs.export(store, os.path.join(d, "o.js"), exclusions={}, seeds=[seed(topic_filter=None), seed(id=bad["id"], exclude=True)])
+        self.assertEqual(n, (1, 0))   # exclude 채널은 빠지고, 필터 채널의 제목 근거 없는 영상은 공개되지 않는다
+
+
+class BackfillTests(unittest.TestCase):
+    def setUp(self):
+        self.orig = (hs.fetch_playlist_ids, hs.fetch_videos)
+        self.pages = {"": (["a%010d" % i for i in range(3)], "T1"), "T1": (["b%010d" % i for i in range(3)], "T2"), "T2": (["c%010d" % i for i in range(3)], "")}
+        self.fail_token = None
+
+        def fpi(pid, n, token=""):
+            if pid.startswith("UUSH"):
+                if token and token == self.fail_token:
+                    raise hs.ApiError("boom")
+                if token == "":
+                    return ["h%010d" % 0], "T1"   # head 는 한 페이지 크기만 읽고 다음 토큰을 준다
+                return self.pages[token]
+            return [], ""
+        hs.fetch_playlist_ids = fpi
+        hs.fetch_videos = lambda ids: {i: {"id": i, "title": "외국인 한국 " + i, "published_at": "2020-01-01T00:00:00Z", "views": 50000, "duration_sec": 30} for i in ids}
+        hs.fetch_shorts_tab = lambda cid: None
+
+    def tearDown(self):
+        hs.fetch_playlist_ids, hs.fetch_videos = self.orig
+
+    def run_once(self, prev, day="2026-11-16"):
+        s = seed(country_hint="KR")
+        return hs.collect_channel(s, prev, day, {s["id"]: info(uploads="UUx")}, tab_fetch=lambda c: None)
+
+    def test_cursor_advances_resumes_and_completes_keeping_old_videos(self):
+        saved = hs.CRITERIA["backfill_pages"]
+        hs.CRITERIA["backfill_pages"] = 1
+        try:
+            r1 = self.run_once(None)
+            self.assertEqual(r1["backfill"], {"token": "T2", "pages": 1})   # head 의 T1 부터 한 페이지(T1 → b…) 읽고 T2 저장
+            r2 = self.run_once(r1)
+            self.assertEqual(r2["backfill"]["done"], True)
+            ids = {v["id"] for v in r2["videos"]}
+            self.assertTrue({"a%010d" % 0, "b%010d" % 0, "c%010d" % 0} <= ids or len(ids) >= 7)
+        finally:
+            hs.CRITERIA["backfill_pages"] = saved
+
+    def test_failure_keeps_cursor_and_old_videos(self):
+        saved = hs.CRITERIA["backfill_pages"]
+        hs.CRITERIA["backfill_pages"] = 1
+        try:
+            r1 = self.run_once(None)
+            self.fail_token = "T2"
+            r2 = self.run_once(r1)
+            self.assertEqual(r2["backfill"]["token"], "T2")   # 실패해도 커서 그대로
+            self.assertTrue({v["id"] for v in r1["videos"]} <= {v["id"] for v in r2["videos"]})
+        finally:
+            hs.CRITERIA["backfill_pages"] = saved
+
+    def test_done_resets_after_interval_but_not_before(self):
+        done = {"done": True, "done_at": "2026-11-10", "pages": 5}
+        prev = dict(self.run_once(None), backfill=done)
+        self.assertEqual(self.run_once(prev, "2026-11-16")["backfill"], done)   # 6일: 유지
+        self.assertEqual(self.run_once(prev, "2026-11-30")["backfill"]["done_at"], "2026-11-30")   # 20일: 커서를 비우고 다시 훑어 새 완료일
+
+
 if __name__ == "__main__":
     unittest.main()
+
+
+class StorageSafetyTests(unittest.TestCase):
+    def test_corrupt_store_is_not_overwritten(self):
+        import os
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            p = os.path.join(d, "store.json")
+            with open(p, "w", encoding="utf-8") as f:
+                f.write('{"schema": 1, "channels": {')   # 잘린 JSON
+            with self.assertRaises(hs.StoreCorrupt):
+                hs.load_store_strict(p)
+            with open(p, encoding="utf-8") as f:
+                self.assertEqual(f.read(), '{"schema": 1, "channels": {')   # 그대로
+            self.assertEqual(hs.load_store_strict(os.path.join(d, "none.json")), {})   # 파일 없음은 빈 저장분
+
+    def test_atomic_write_replaces_without_leftover_tmp(self):
+        import os
+        import tempfile
+        with tempfile.TemporaryDirectory() as d:
+            p = os.path.join(d, "a.json")
+            hs.write_atomic(p, "one")
+            hs.write_atomic(p, "two")
+            with open(p, encoding="utf-8") as f:
+                self.assertEqual(f.read(), "two")
+            self.assertEqual(os.listdir(d), ["a.json"])
+
+    def test_name_ko_and_topic_evidence_are_carried(self):
+        rec = hs.build_channel(seed(name_ko="외국인이 본 대만", topic_evidence=["제목 근거"]), info(), twenty(), None, None, "d")
+        self.assertEqual((rec["name_ko"], rec["topic_evidence"]), ("외국인이 본 대만", ["제목 근거"]))
+
+    def test_shorts_playlist_ids_count_as_shorts_evidence_beyond_tab(self):
+        vs = twenty()
+        rec = hs.build_channel(seed(), info(), vs, [{"id": v["id"]} for v in vs], None, "d")
+        self.assertEqual(rec["sample_shorts"], 20)
