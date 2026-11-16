@@ -223,7 +223,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
   <div class="qg" id="scgrp" hidden><b>🎯 내 채점</b><span id="scg" style="display:contents"></span><span id="scv" style="display:contents"></span></div>
   <div class="qg"><b>소재</b><span id="typ" style="display:contents"></span></div>
   <div class="qg"><b>나라</b><span id="cty" style="display:contents"></span></div>
-  <div class="qg"><b>길이</b><select id="lenmode" title="기본은 숏폼(180초 이하)을 뺀 목록이에요. 길이를 모르는 영상은 기본에서도 보여요."><option value="default">기본 (숏폼 제외)</option><option value="all">전체</option><option value="long">롱폼만 (181초+)</option><option value="short">숏폼만 (180초 이하)</option><option value="unk">길이 미확인만</option></select></div>
+  <div class="qg"><b>길이</b><select id="lenmode" title="일반 롱폼은 10분 초과만 보여요(10분 이하 롱폼은 목록에서 제외). 기본은 숏폼(180초 이하)도 뺀 목록이고, 길이를 모르는 영상은 기본에서도 보여요."><option value="default">기본 (숏폼 제외)</option><option value="all">전체</option><option value="long">롱폼만 (10분 초과)</option><option value="short">숏폼만 (180초 이하)</option><option value="unk">길이 미확인만</option></select></div>
 </div>
 <details class="sub note vmode"><summary>🏆 등급은 <b>잠정 검수</b>예요 (제목·조회수 기준) — 눌러서 자세히</summary>클릭률 예측이 아니라 조회수·화제성 기준이에요. 제목·조회수만 봤고 영상 내용·출처는 직접 확인하지 않았어요. 칩에 마우스를 올리면 설명, 카드의 등급 배지에 올리면 점수 근거가 보여요.<br><b>🎯 내 채점</b>은 이것과 달라요: 스크립트(자막) 전문을 읽고 '국뽕 소재로 얼마나 쓸 만한가'를 100점 만점으로 매긴 결과이고, 채점한 영상에만 붙어요. 기준은 위의 <b>🎯 국뽕 점수</b> 화면에서 볼 수 있어요.</details>
 <div class="active vmode" id="active"></div>
@@ -350,6 +350,10 @@ V.forEach(v => {
 const nRef = () => V.filter(v => v.ref).length;
 // 길이 형태: 미확인(unk) / 숏폼(short, 181초 미만) / 롱폼(long). is_short 필드와 충돌해도 길이 기준을 따른다
 V.forEach(v => { const n = normLen(v); v.duration_sec = n.sec; v.length = n.text; v._form = n.sec == null ? "unk" : n.sec >= LONG_MIN_SEC ? "long" : "short"; });
+// 일반 목록 경량화: 10분(600초) 이하 롱폼(181~600초)은 어느 경로(배포 데이터·로컬·우회 유입)로 들어와도 뺀다. 숏폼(180초 이하)·길이 미확인·10분 초과는 유지하고,
+// 저장·메모·사용 완료·숨김 상태(localStorage)는 건드리지 않는다. 숏폼 분류(LONG_MIN_SEC=181)는 그대로다. 배포 데이터는 prepare_pages.py 가 같은 기준으로 미리 줄인다
+const GENERAL_LONG_MIN_SEC = 601;
+for (let i = V.length - 1; i >= 0; i--) if (V[i].duration_sec != null && V[i].duration_sec >= LONG_MIN_SEC && V[i].duration_sec < GENERAL_LONG_MIN_SEC) V.splice(i, 1);
 // 체험 종류는 수집기(experience_watch.py)의 TOPICS 기준으로, 기존 영상까지 제목·채널명으로 같이 판별한다
 const EXPT = window.EXP_TOPICS || {};
 V.forEach(v => { const t = (v.title + " " + v.channel).toLowerCase(); v._topics = Object.keys(EXPT).filter(n => EXPT[n].some(w => t.includes(w))); });
@@ -1068,7 +1072,7 @@ function render(opts) {
     // 충돌 조건 (Codex 검토 반영): 숏폼은 등급 칩(길이 확인 필요 포함)·유형을 하나라도 고르면 항상 0건. 미확인은 유형을 고르거나, 등급 S/A/B 를 '길이 확인 필요' 없이 고를 때만 0건(등급 칩은 OR 이라 '길이 확인 필요'가 같이 있으면 통과)
     const shortConflict = lm === "short" && (grdSel.size > 0 || typSel.size > 0);
     const unkConflict = lm === "unk" && (typSel.size > 0 || (["S", "A", "B"].some(k => grdSel.has(k)) && !grdSel.has("len")));
-    const why = shortConflict ? "숏폼(180초 이하)은 등급을 받지 않아요. 등급은 181초 이상 영상에만 붙어요." : unkConflict ? "길이를 모르는 영상은 아직 등급을 판정하지 못해요." : "";
+    const why = shortConflict ? "숏폼(180초 이하)은 등급을 받지 않아요. 등급은 10분 초과 롱폼에만 붙어요." : unkConflict ? "길이를 모르는 영상은 아직 등급을 판정하지 못해요." : "";
     box.append((why ? why + " " : "") + "조건에 맞는 영상이 없어요. 위의 선택한 필터에서 하나씩 해제해 보세요.");
     if (why) { box.append(document.createElement("br")); const bt = document.createElement("button"); bt.className = "chip"; bt.textContent = "길이 조건을 '전체'로"; bt.onclick = () => { document.getElementById("lenmode").value = "all"; render(); }; box.append(bt); }
     g.append(box);

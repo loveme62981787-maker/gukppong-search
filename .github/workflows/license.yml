@@ -83,10 +83,13 @@ jobs:
       - uses: actions/configure-pages@v5
         if: steps.save.outputs.changed == 'true'
 
+      - name: Pages 배포용 사본 만들기 (일반 목록 10분 이하 롱폼 제외)
+        if: steps.save.outputs.changed == 'true'
+        run: python prepare_pages.py --src web --out _site
       - uses: actions/upload-pages-artifact@v3
         if: steps.save.outputs.changed == 'true'
         with:
-          path: web
+          path: _site
 
   deploy:
     needs: build

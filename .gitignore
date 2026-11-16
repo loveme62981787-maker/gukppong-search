@@ -17,3 +17,7 @@ __pycache__/
 .mcp.json
 
 alerts_src/
+
+# Pages 배포용 사본 (prepare_pages.py)
+_site/
+_site_chk/
