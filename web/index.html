@@ -171,6 +171,19 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
   <div class="sub" style="max-width:1200px;margin:0 auto;padding:0 16px" id="ctinfo"></div>
   <div class="grid" id="ctgrid"></div>
 </div>
+<!-- 🔥 터진 쇼츠: 독립 화면 (롱폼 기본 필터와 무관). 내용은 hot_shorts_view.js 가 hot_shorts.js 데이터로 채운다. 같은 영상 ID 의 저장·사용 완료·숨김·메모는 영상 화면과 공유 -->
+<div id="hsview" hidden>
+  <div class="quick"><div class="qg"><b>🌏 영상 주제 국가</b><span id="hscty" style="display:contents"></span></div></div>
+  <div class="bar">
+    <input id="hsq" placeholder="제목·채널·메모 검색">
+    <select id="hssort"><option value="views">👁 조회수 높은순</option><option value="sub">🔥 구독자 대비 배수순</option><option value="median">📊 표본 중앙값 대비 배수순</option><option value="pub">업로드 최신순</option></select>
+    <select id="hskind"><option value="">채널 성격 전체</option><option value="reaction_edit">🎞 해외반응·편집 채널</option><option value="travel_original">🧳 원본 여행자 채널</option><option value="unverified">❔ 성격 미확인</option></select>
+    <select id="hsmine"><option value="">기본 (사용 완료·숨김 제외)</option><option value="fav">⭐ 저장만</option><option value="memo">📝 메모 있음</option><option value="done">✓ 사용 완료만</option><option value="hidden">🗑 숨김만</option></select>
+  </div>
+  <details class="sub note" style="max-width:1200px;margin:0 auto;padding:0 16px"><summary>📐 '터진 쇼츠'·'쇼츠 중심' 기준 (눌러서 보기)</summary><span id="hscrit"></span><br>편집·해외반응 채널의 영상은 벤치마킹 참고용이며 재사용 가능한 원본이 아니에요. CC BY 라이선스 판정과는 별개예요.</details>
+  <div class="sub" style="max-width:1200px;margin:0 auto;padding:0 16px" id="hsinfo"></div>
+  <div class="sc-wrap" id="hsbody"></div>
+</div>
 <!-- 🎯 국뽕 점수: 점수 기준 / 채점 기록 / 간이 채점기. 내용은 아래 스크립트가 scorer.js(기준)와 scores.js(기록)로 채운다 -->
 <div id="scview" hidden>
   <div class="bar"><button class="chip sctab on" data-t="rubric">📏 점수 기준</button><button class="chip sctab" data-t="log">🏆 채점 기록 <small id="sc-n"></small></button><button class="chip sctab" data-t="tool">🧮 간이 채점기</button></div>
@@ -192,7 +205,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
   <input id="q" placeholder="제목·채널·메모 검색">
   <select id="sort"><option value="new">새로 들어온 순</option><option value="pub">업로드 최신순</option><option value="views">조회수순</option><option value="ratio">구독자 대비 조회수순</option><option value="score">🏆 검토 우선순위(점수)순</option><option value="myscore">🎯 내 채점 점수순 (채점한 영상만 앞에)</option><option value="subs">구독자순</option><option value="length">영상 길이순</option></select>
   <select id="dir"><option value="desc">내림차순 (큰 것부터)</option><option value="asc">오름차순 (작은 것부터)</option></select></div>
-<div class="quick vmode kindrow">
+<div class="quick kindrow" id="listrow">
   <div class="qg kindseg"><b>📂 목록</b><span id="lists" style="display:contents"></span></div>
 </div>
 <div class="sub vmode" id="listnote" style="max-width:1200px;margin:0 auto;padding:0 16px 4px"></div>
@@ -285,6 +298,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script src="calltoon.js?v=src722" onerror="window.CALLTOON=[]"></script>
 <script src="kr_news.js" onerror="window.KR_NEWS=[]"></script>
 <script src="kr_regional.js" onerror="window.KR_REGIONAL=[]"></script>
+<script src="hot_shorts.js?v=hs1116" onerror="window.HOT_SHORTS={channels:[],videos:[],criteria:null,countries:{KR:'한국',JP:'일본',TW:'대만'}}"></script>
 <script>
 // 일반 수집 영상 + 화제·체험·일본 주제·글로벌 영상. 겹치는 영상은 표시와 길이만 합친다
 const V = (window.VIDEOS || []).slice();
@@ -744,10 +758,14 @@ const inList = v => !listSel.size || [...listSel].some(k => k === "hold" ? v._ho
 const listCount = k => k === "all" ? V.length : V.filter(v => k === "hold" ? v._hold : v._lists.includes(k)).length;
 const listsEl = document.getElementById("lists");
 LISTS.forEach(([k, l]) => { const b = document.createElement("button"); b.className = "chip"; b.dataset.k = k; b.append(l); const s = document.createElement("small"); s.textContent = listCount(k); b.append(s);
-  b.onclick = () => { if (k === "all") listSel.clear(); else if (listSel.has(k)) listSel.delete(k); else listSel.add(k); ls.set("lists", [...listSel]); render(); }; listsEl.append(b);
+  b.onclick = () => { if (!document.getElementById("hsview").hidden) setModeAll(false); if (k === "all") listSel.clear(); else if (listSel.has(k)) listSel.delete(k); else listSel.add(k); ls.set("lists", [...listSel]); render(); }; listsEl.append(b);
   // 그룹 구분선: 전체 | 노션 | 체험 | 국뽕채널 | 레퍼런스·벤치마킹 | 텔레그램 | 분류 보류 (다른 스크립트가 칩을 같은 그룹 안에 끼워 넣어도 구분선은 그룹 끝에 남는다)
   if (["all", "notion", "jpexp", "twguk", "bm", "alert_jp"].includes(k)) { const s = document.createElement("span"); s.className = "lsep"; s.textContent = "|"; s.setAttribute("aria-hidden", "true"); listsEl.append(s); } });
-const refreshListCounts = () => listsEl.querySelectorAll(".chip").forEach(b => { const n = listCount(b.dataset.k); b.querySelector("small").textContent = n; if (b.dataset.k === "alert_kr" || b.dataset.k === "alert_jp") b.hidden = !n; });   // 텔레그램 알림 영상이 없으면 그 나라 칩은 숨긴다
+// 🔥 터진 쇼츠 (한국/일본/대만): 분류 보류 바로 오른쪽. 길이 필터와 무관한 별도 화면(hsview)으로 전환하고, 목록 칩을 누르면 다시 영상 화면으로 돌아온다
+[["KR", "🔥 터진 쇼츠 (한국)"], ["JP", "🔥 터진 쇼츠 (일본)"], ["TW", "🔥 터진 쇼츠 (대만)"]].forEach(([cc, l]) => { const b = document.createElement("button"); b.className = "chip"; b.dataset.hs = cc; b.textContent = l; b.title = "Shorts 탭에서 확인된 조회수 터진 쇼츠 (길이 필터 없음)";
+  b.onclick = () => { if (window.setHotCountry) window.setHotCountry(cc); setModeAll("hs"); }; listsEl.append(b); });
+window.syncHotButtons = cc => listsEl.querySelectorAll("[data-hs]").forEach(b => b.classList.toggle("on", !document.getElementById("hsview").hidden && b.dataset.hs === cc));
+const refreshListCounts = () => listsEl.querySelectorAll(".chip:not([data-hs])").forEach(b => { const n = listCount(b.dataset.k); b.querySelector("small").textContent = n; if (b.dataset.k === "alert_kr" || b.dataset.k === "alert_jp") b.hidden = !n; });   // 텔레그램 알림 영상이 없으면 그 나라 칩은 숨긴다
 refreshListCounts();
 mkMulti(kindsEl, Object.keys(KIND_LABEL).map(k => [k, KIND_LABEL[k], V.filter(v => v._kind === k).length]), kindSel, V.length, () => render());
 { const kt = {ref: "내가 채널 이름을 알려 준 별도 레퍼런스 채널의 영상 전부 (국뽕채널·한국 목록에 포함돼요).", foreign: "외국인이 직접 찍은 원본으로 추정되는 영상 (외국어 제목 + 일인칭·체험 표현, 한글 채널명·기관·벤치마킹 채널 아님). 확정이 아니라 추정이에요.", local: "한국인·일본인 등 현지 국뽕 채널이 편집·번역해서 소개하는 영상 — 내 채널과 비슷한 채널 (한국어 제목 등)", inst: "방송·기관·정부·공식 매체 채널 (공식 소개로 확인한 채널 ID 목록)", unk: "근거가 부족해서 아직 분류하지 못한 영상. 카드의 '분류 바꾸기'로 확정할 수 있어요."};
@@ -994,7 +1012,7 @@ function render(opts) {
   document.getElementById("rggrp").hidden = !hasList("krexp");   // 지방 여행 바로가기는 한국 체험 목록을 고른 때만
   document.getElementById("srcgrp").hidden = !(hasList("notion") && V.some(v => v._notion));   // 중복 수집 필터는 노션 목록을 고른 때만
   document.getElementById("rgq").classList.toggle("on", rgSel.has("_any"));
-  document.querySelectorAll("#lists .chip").forEach(b => b.classList.toggle("on", b.dataset.k === "all" ? !listSel.size : listSel.has(b.dataset.k)));
+  document.querySelectorAll("#lists .chip:not([data-hs])").forEach(b => b.classList.toggle("on", b.dataset.k === "all" ? !listSel.size : listSel.has(b.dataset.k)));
   document.getElementById("listnote").textContent = !listSel.size ? LIST_NOTE.all : listSel.size === 1 ? LIST_NOTE[[...listSel][0]] : "고른 " + listSel.size + "개 목록 중 하나라도 속한 영상을 합쳐서 보여줘요. 같은 영상은 한 번만 나와요.";
   const q =document.getElementById("q").value.trim().toLowerCase(), sort = document.getElementById("sort").value;
   const catFns = CATS.filter(c => catSel.has(c[0])).map(c => c[2]);
@@ -1597,19 +1615,23 @@ function renderTh() {
   });
 }
 function setModeAll(m) {
-  const mode = m === true ? "c" : m === "s" || m === "c" || m === "ct" || m === "nw" || m === "th" ? m : "v";
+  const mode = m === true ? "c" : m === "s" || m === "c" || m === "ct" || m === "nw" || m === "th" || m === "hs" ? m : "v";
   ["mv", "mc", "ms", "mct", "mnw", "mth"].forEach((id, i) => document.getElementById(id).classList.toggle("on", ["v", "c", "s", "ct", "nw", "th"][i] === mode));
+  document.getElementById("listrow").hidden = mode !== "v" && mode !== "hs";   // 목록 줄은 영상·터진 쇼츠 화면에서만
+  if (mode !== "hs" && window.syncHotButtons) window.syncHotButtons("");
   document.querySelectorAll(".vmode").forEach(e => e.hidden = mode !== "v");
   document.getElementById("chview").hidden = mode !== "c";
   document.getElementById("scview").hidden = mode !== "s";
   document.getElementById("ctview").hidden = mode !== "ct";
   document.getElementById("nwview").hidden = mode !== "nw";
   document.getElementById("thview").hidden = mode !== "th";
+  document.getElementById("hsview").hidden = mode !== "hs";
   if (mode === "c") renderCh();
   if (mode === "s") renderScore();
   if (mode === "ct") renderCt();
   if (mode === "nw") renderNw();
   if (mode === "th") ensureTransformHubLoaded(() => renderTh());
+  if (mode === "hs" && window.renderHotShorts) window.renderHotShorts();   // 🔥 터진 쇼츠 (hot_shorts_view.js)
   if (mode === "v" && typeof render === "function" && V.length) render({keep: true});
 }
 document.getElementById("mv").onclick = () => setModeAll(false); document.getElementById("mc").onclick = () => setModeAll(true); document.getElementById("ms").onclick = () => setModeAll("s"); document.getElementById("mct").onclick = () => setModeAll("ct"); document.getElementById("mnw").onclick = () => setModeAll("nw"); document.getElementById("mth").onclick = () => setModeAll("th");
@@ -1734,6 +1756,7 @@ function showEstimate(out, r, vk) {
 }
 render(); ls.set("lastVisit", new Date().toISOString().slice(0, 10));
 </script>
+<script src="hot_shorts_view.js?v=hs1116"></script>
 </body>
 </html>
 
