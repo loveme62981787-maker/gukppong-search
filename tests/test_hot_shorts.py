@@ -252,9 +252,16 @@ class SiteDataTests(unittest.TestCase):
         ch = {c["id"]: c for c in self.d["channels"]}["UC0MUbD8ISz4koLlo0LfgNng"]
         self.assertEqual(ch["country"], "TW")
         self.assertEqual(ch["kind"], "reaction_edit")
-        self.assertFalse(ch["shorts_centered"])   # 실제 최근 표본에 롱폼(명상음악)이 섞여 있어 쇼츠 중심(90%)이 아님
-        self.assertEqual((ch["sample_shorts"], ch["sample_n"], ch["shorts_ratio"]), (16, 20, 0.8))   # 16/20=80% 그대로 표시, 전부 쇼츠로 날조하지 않음
-        self.assertFalse(ch["all_shorts_strict"])
+        # 수집 때마다 바뀌는 특정 날짜 스냅샷(예: 16/20)에 고정하지 않고, 저장소 레코드와 export 값의 일치 + 비율/플래그 의미만 검증한다.
+        # (16/20=80% 케이스 자체는 StatsTests.test_16_of_20_is_80_percent_not_centered 단위 fixture가 보장)
+        rec = self.store["channels"]["UC0MUbD8ISz4koLlo0LfgNng"]
+        for k in ("sample_shorts", "sample_n", "shorts_ratio", "shorts_centered", "all_shorts_strict"):
+            self.assertEqual(ch[k], rec[k], k)
+        self.assertGreaterEqual(ch["sample_n"], 1)
+        self.assertLessEqual(ch["sample_shorts"], ch["sample_n"])
+        self.assertAlmostEqual(ch["shorts_ratio"], ch["sample_shorts"] / ch["sample_n"], places=2)   # 있는 그대로 표시, 쇼츠로 날조하지 않음
+        self.assertEqual(ch["shorts_centered"], ch["sample_n"] >= C["sample_n"] and ch["shorts_ratio"] >= C["center_ratio"])
+        self.assertEqual(ch["all_shorts_strict"], ch["sample_n"] >= C["sample_n"] and ch["sample_shorts"] == ch["sample_n"])
         self.assertTrue(ch["user_reference"])
         self.assertGreater(ch["hot_n"], 0)
 
