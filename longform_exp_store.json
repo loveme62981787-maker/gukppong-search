@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "updated": "2026-11-18",
+ "updated": "2026-11-19",
  "cursor": {
-  "KR": 0,
-  "JP": 0,
-  "TW": 0
+  "KR": 4,
+  "JP": 4,
+  "TW": 4
  },
  "items": {
   "dymrsnOOCps": {
@@ -5514,7 +5514,92 @@
    "lf_country": "TW",
    "lf_basis": "ko_region",
    "lf_query": "대만 현지 체험 일상 한달살기"
+  },
+  "7myAcSBtHPs": {
+   "id": "7myAcSBtHPs",
+   "title": "What It's Like as a Foreigner to Visit a Korean Bathhouse (for the first time!)",
+   "channel": "Backpacking Bananas",
+   "channel_id": "UCdRDNshQXxmr9DkcVVxjyag",
+   "subs": null,
+   "views": 42944,
+   "country": "한국",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 721,
+   "published": "2024-01-10",
+   "first_seen": "2026-11-19",
+   "lf_country": "KR",
+   "lf_basis": "foreign_title",
+   "lf_query": "foreigner first time Korea travel vlog"
+  },
+  "AISgAskuDkM": {
+   "id": "AISgAskuDkM",
+   "title": "한국여행에서 본 경고문에 뚜껑열린 中틱톡커| 중국에서 한국칭찬 해버린 외국인에게 빡친 중국MZ들",
+   "channel": "쉬는시간",
+   "channel_id": "UCChCGzA-yKpyDH7vSvBJoIA",
+   "subs": null,
+   "views": 262097,
+   "country": "한국",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 805,
+   "published": "2026-09-18",
+   "first_seen": "2026-11-19",
+   "lf_country": "KR",
+   "lf_basis": "foreign_title",
+   "lf_query": "외국인 한국 여행 체험"
+  },
+  "vZZ_q7WS_Ls": {
+   "id": "vZZ_q7WS_Ls",
+   "title": "\"한국 시골 계곡에서 죽을 뻔했다\" 유럽인 여행자 한국 이런 곳인지 몰랐다?! \"제 생명의 은인이세요!!\"",
+   "channel": "셀린의한국",
+   "channel_id": "UC3WHsrWByxcK-JN2_m2fbTQ",
+   "subs": null,
+   "views": 38,
+   "country": "한국",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 1613,
+   "published": "2026-07-19",
+   "first_seen": "2026-11-19",
+   "lf_country": "KR",
+   "lf_basis": "foreign_title",
+   "lf_query": "외국인 한국 시골 체험"
+  },
+  "xkARl4d193c": {
+   "id": "xkARl4d193c",
+   "title": "Reality Foreigner living in Japan | Kamakura beach town | Day in the life",
+   "channel": "Sundai Love",
+   "channel_id": "UCOmHP6iwKup0Sf2Ag0p76NQ",
+   "subs": null,
+   "views": 60710,
+   "country": "일본",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 788,
+   "published": "2025-05-25",
+   "first_seen": "2026-11-19",
+   "lf_country": "JP",
+   "lf_basis": "foreign_title",
+   "lf_query": "foreigner first time Japan travel vlog"
+  },
+  "kpQxekChWq8": {
+   "id": "kpQxekChWq8",
+   "title": "【言葉にできない‥】日本一の桜に感動が止まらない外国人家族",
+   "channel": "テリちゃんねるの人生🇯🇵",
+   "channel_id": "UCnuB7s_AnmLVHEw27murNsg",
+   "subs": null,
+   "views": 407296,
+   "country": "일본",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 1270,
+   "published": "2024-06-10",
+   "first_seen": "2026-11-19",
+   "lf_country": "JP",
+   "lf_basis": "foreign_title",
+   "lf_query": "外国人 日本 初めて 感動"
   }
  },
- "collected_at": "2026-11-18T09:02:24Z"
+ "collected_at": "2026-11-18T21:34:27Z"
 }
