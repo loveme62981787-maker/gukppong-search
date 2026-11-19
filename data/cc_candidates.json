@@ -3874,6 +3874,20 @@
    "title": "Taiwan Travel Vlog ( By Taam Voratham & Rikonek Tv )",
    "views": 314
   },
+  "UTM9iVqOe8Y": {
+   "channel": "armshie",
+   "channel_id": "UCXiNI3G81KcCs0_YwiTsIJw",
+   "country": "한국",
+   "duration_sec": 2457,
+   "fail_count": 0,
+   "first_seen": "2026-11-19",
+   "id": "UTM9iVqOe8Y",
+   "length": "40:57",
+   "query": "Busan trip",
+   "status": "pending",
+   "title": "A Family Trip to Busan Part 2",
+   "views": 37
+  },
   "UVWqzmPvPHM": {
    "channel": "Chrysler Cabana",
    "channel_id": "UCRKrDmg-NxpB_MX_Hur4R3Q",
@@ -7789,7 +7803,7 @@
    "found": 25
   },
   "한국|Busan trip": {
-   "at": "2026-11-15T15:40:05Z",
+   "at": "2026-11-19T01:52:42Z",
    "found": 25
   },
   "한국|Jeju island travel": {
@@ -7821,5 +7835,5 @@
    "found": 25
   }
  },
- "updated": "2026-11-18T17:15:55Z"
+ "updated": "2026-11-19T01:52:44Z"
 }
