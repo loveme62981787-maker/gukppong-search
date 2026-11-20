@@ -1095,6 +1095,23 @@
    "title": "Don’t Visit Tokyo Without Seeing These Hidden Food Alleys",
    "views": 426
   },
+  "9OKaTigar7o": {
+   "attempted_at": "2026-11-20T16:58:31Z",
+   "channel": "Juyeong",
+   "channel_id": "UCaR0F0Vq04Iy8CDxfIF6dyA",
+   "country": "일본",
+   "duration_sec": 471,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-20",
+   "id": "9OKaTigar7o",
+   "length": "7:51",
+   "published": "2016-06-04",
+   "query": "Osaka food tour",
+   "status": "verified",
+   "title": "[ENG SUB] 오사카 먹거리, 맛집 / Osaka food",
+   "views": 80311
+  },
   "9SY1C8RMbEQ": {
    "attempted_at": "2026-11-14T14:06:16Z",
    "channel": "Lizz",
@@ -4205,16 +4222,19 @@
    "views": 2211
   },
   "VlMCWqTZBxk": {
+   "attempted_at": "2026-11-20T16:58:27Z",
    "channel": "Food and Footprints- Greg and Jumi",
    "channel_id": "UCn3xotTBbZ7CaH8Zv5WtHHg",
    "country": "대만",
    "duration_sec": 825,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-08",
    "id": "VlMCWqTZBxk",
    "length": "13:45",
+   "published": "2018-10-04",
    "query": "Taipei night market",
-   "status": "pending",
+   "status": "verified",
    "title": "TAIPEI Street Food Tour FEAST | Yehliu Geopark | Xiangshan TAIPEI 101 SUNSET",
    "views": 1787
   },
@@ -4270,16 +4290,19 @@
    "views": 661
   },
   "WScQ278T0ic": {
+   "attempted_at": "2026-11-20T16:58:27Z",
    "channel": "GlobeTrot Bliss ",
    "channel_id": "UCsEgssrnxbnlwVMCPcURcvQ",
    "country": "대만",
    "duration_sec": 1278,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-06",
    "id": "WScQ278T0ic",
    "length": "21:18",
+   "published": "2024-10-14",
    "query": "Taiwanese culture experience",
-   "status": "pending",
+   "status": "verified",
    "title": "Exploring Southern Taiwan in 4K: EPIC Drone Adventure! [Taiwan Travel]",
    "views": 144
   },
@@ -4301,58 +4324,70 @@
    "views": 86246
   },
   "X3awG7j-MI8": {
+   "attempted_at": "2026-11-20T16:58:28Z",
    "channel": "mimomosa",
    "channel_id": "UCVQIuafrGgZjimGsKIGnybA",
    "country": "일본",
    "duration_sec": 694,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-03",
    "id": "X3awG7j-MI8",
    "length": "11:34",
+   "published": "2023-07-08",
    "query": "Tokyo street food",
-   "status": "pending",
+   "status": "verified",
    "title": "tokyo vlog🗼 — what i ate on the first day (with prices!)",
    "views": 3671
   },
   "XHFCLfF6xDE": {
+   "attempted_at": "2026-11-20T16:58:28Z",
    "channel": "J&K Lovett",
    "channel_id": "UCiZZYObHX2T4SvEpBLYou8Q",
    "country": "한국",
    "duration_sec": 1338,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-03",
    "id": "XHFCLfF6xDE",
    "length": "22:18",
+   "published": "2023-04-14",
    "query": "Korean culture experience",
-   "status": "pending",
+   "status": "verified",
    "title": "Podcast: Bathing culture in South Korea",
    "views": 4088
   },
   "XKqWAKSTZY8": {
+   "attempted_at": "2026-11-20T16:58:30Z",
    "channel": "HOLIK-holic korea",
    "channel_id": "UCDCUk_-XdpUUmQNUFVs3cFQ",
    "country": "한국",
    "duration_sec": 244,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-07",
    "id": "XKqWAKSTZY8",
    "length": "4:04",
+   "published": "2019-03-13",
    "query": "Jeju island travel",
-   "status": "pending",
+   "status": "verified",
    "title": "[HOLIK]Welcome to Jeju island! travel guide & vlog 2019 │SouthKorea Tourist's spot & vlog",
    "views": 2072
   },
   "XVzI7WqKu8Q": {
+   "attempted_at": "2026-11-20T16:58:30Z",
    "channel": "CookingBoy 쿠킹보이",
    "channel_id": "UCO49_DweUo6iHQvVEm60z4g",
    "country": "한국",
    "duration_sec": 5054,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-03",
    "id": "XVzI7WqKu8Q",
    "length": "1:24:14",
+   "published": "2020-09-17",
    "query": "Seoul street food",
-   "status": "pending",
+   "status": "verified",
    "title": "[TOP 10] Best 10 famous Sundae restaurants in Seoul, Korea / Korean street food",
    "views": 735429
   },
@@ -4391,18 +4426,19 @@
    "views": 222146
   },
   "XpTWQbhVUJM": {
-   "attempted_at": "2026-11-04T19:46:02Z",
+   "attempted_at": "2026-11-20T16:58:31Z",
    "channel": "Daniel Hough",
    "channel_id": "UC9DXOHBgmhOjqejKr7gKfSQ",
    "country": "한국",
    "duration_sec": 508,
-   "error": "blocked",
-   "fail_count": 1,
+   "error": null,
+   "fail_count": 0,
    "first_seen": "2026-11-04",
    "id": "XpTWQbhVUJM",
    "length": "8:28",
+   "published": "2015-08-23",
    "query": "Korea convenience store food",
-   "status": "pending",
+   "status": "verified",
    "title": "Korean Eats - Episode 6 - Ramyun/Ramen (라면)",
    "views": 3258
   },
@@ -4424,16 +4460,19 @@
    "views": 17331
   },
   "YK7ggk4oyg0": {
+   "attempted_at": "2026-11-20T16:58:32Z",
    "channel": "BECOME",
    "channel_id": "UCnb4iXSQDzQCHZRTXOpQu5Q",
    "country": "일본",
    "duration_sec": 484,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-01",
    "id": "YK7ggk4oyg0",
    "length": "8:04",
+   "published": "2024-04-14",
    "query": "living in Japan foreigner",
-   "status": "pending",
+   "status": "verified",
    "title": "I Moved to Japan Alone at 16",
    "views": 61136
   },
@@ -4455,46 +4494,53 @@
    "views": 464786
   },
   "YaDm6Y6lwYo": {
-   "attempted_at": "2026-11-07T06:00:00Z",
+   "attempted_at": "2026-11-20T16:58:32Z",
    "channel": "EMO TRIP",
    "channel_id": "UCDb1E1vJlBT2NVbzwvKlH9Q",
    "country": "한국",
    "duration_sec": 1385,
-   "error": "blocked",
-   "fail_count": 1,
+   "error": null,
+   "fail_count": 0,
    "first_seen": "2026-11-07",
    "id": "YaDm6Y6lwYo",
    "length": "23:05",
+   "published": "2024-03-31",
    "query": "Jeju island travel",
-   "status": "pending",
+   "status": "verified",
    "title": "JEJU ISLAND 10 Best Places to Visit and Things to do | Travel Guide",
    "views": 502
   },
   "YunW9_gnwzE": {
+   "attempted_at": "2026-11-20T16:58:33Z",
    "channel": "小貝米漿 Logan Beck",
    "channel_id": "UCXpbSh6g1ZWHxk-UQv86VzA",
    "country": "대만",
    "duration_sec": 682,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-01",
    "id": "YunW9_gnwzE",
    "length": "11:22",
+   "published": "2017-08-10",
    "query": "living in Taiwan foreigner",
-   "status": "pending",
+   "status": "verified",
    "title": "美國媽媽吃台灣小吃 My Mom Eating Taiwanese Food (4K) - Life in Taiwan #65",
    "views": 712687
   },
   "YxlbpUR1O-g": {
+   "attempted_at": "2026-11-20T16:58:33Z",
    "channel": "cokeacolab",
    "channel_id": "UCqY0rMnieGasVtmJUO18eeg",
    "country": "한국",
    "duration_sec": 851,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-05",
    "id": "YxlbpUR1O-g",
    "length": "14:11",
+   "published": "2024-11-25",
    "query": "first time in Korea",
-   "status": "pending",
+   "status": "verified",
    "title": "korea vlog 🇰🇷 first time in seoul (ft. exploring seoul, everything i ate)",
    "views": 2254
   },
@@ -4516,46 +4562,53 @@
    "views": 318
   },
   "ZA-vNjEg1cE": {
+   "attempted_at": "2026-11-20T16:58:34Z",
    "channel": "WHOLESOMEANTONYO",
    "channel_id": "UCupzO7R5CIetcxLfIaL70UQ",
    "country": "대만",
    "duration_sec": 1257,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-06",
    "id": "ZA-vNjEg1cE",
    "length": "20:57",
+   "published": "2025-12-31",
    "query": "Taiwan trip",
-   "status": "pending",
+   "status": "verified",
    "title": "hello taiwan | my first international trip vlog (episode 1)",
    "views": 107
   },
   "ZGgRzXbZ_kQ": {
+   "attempted_at": "2026-11-20T16:58:34Z",
    "channel": "Japanophile Journeys",
    "channel_id": "UCdUYdCoRj7RSQBH2TtS29FQ",
    "country": "일본",
    "duration_sec": 760,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-07",
    "id": "ZGgRzXbZ_kQ",
    "length": "12:40",
+   "published": "2024-05-27",
    "query": "living in Japan foreigner",
-   "status": "pending",
+   "status": "verified",
    "title": "What are the CHEAPEST Cities To LIVE in Japan?",
    "views": 3994
   },
   "ZHAH9WMNJ90": {
-   "attempted_at": "2026-11-01T20:30:44Z",
+   "attempted_at": "2026-11-20T16:58:35Z",
    "channel": "iicotten Cloud",
    "channel_id": "UCYLUMD88yHE9hGcqw_v_Lsw",
    "country": "한국",
    "duration_sec": 553,
-   "error": "blocked",
-   "fail_count": 1,
+   "error": null,
+   "fail_count": 0,
    "first_seen": "2026-11-01",
    "id": "ZHAH9WMNJ90",
    "length": "9:13",
+   "published": "2025-05-24",
    "query": "Korea convenience store food",
-   "status": "pending",
+   "status": "verified",
    "title": "eating ONLY korean convenience store foods for 24 HOURS",
    "views": 95663
   },
@@ -8108,7 +8161,7 @@
    "found": 25
   },
   "대만|first time in Taiwan": {
-   "at": "2026-11-15T15:40:11Z",
+   "at": "2026-11-20T16:58:25Z",
    "found": 25
   },
   "대만|living in Taiwan foreigner": {
@@ -8132,7 +8185,7 @@
    "found": 25
   },
   "일본|Osaka food tour": {
-   "at": "2026-11-16T06:31:23Z",
+   "at": "2026-11-20T16:58:23Z",
    "found": 25
   },
   "일본|Tokyo street food": {
@@ -8156,7 +8209,7 @@
    "found": 25
   },
   "한국|Korea convenience store food": {
-   "at": "2026-11-17T13:27:59Z",
+   "at": "2026-11-20T16:58:20Z",
    "found": 25
   },
   "한국|Korea travel vlog": {
@@ -8180,5 +8233,5 @@
    "found": 25
   }
  },
- "updated": "2026-11-20T07:17:59Z"
+ "updated": "2026-11-20T16:58:36Z"
 }
