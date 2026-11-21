@@ -2,9 +2,9 @@
  "schema": 1,
  "updated": "2026-11-21",
  "cursor": {
-  "KR": 8,
-  "JP": 8,
-  "TW": 8
+  "KR": 0,
+  "JP": 0,
+  "TW": 0
  },
  "items": {
   "dymrsnOOCps": {
@@ -7214,7 +7214,75 @@
    "lf_country": "TW",
    "lf_basis": "ko_region",
    "lf_query": "타이베이 대만 여행 브이로그"
+  },
+  "xOIjePOiBSc": {
+   "id": "xOIjePOiBSc",
+   "title": "【海外の反応】中国旅行と日本旅行、反応が真逆。「こんな混雑、人生で初めて…」サウジ姉妹が上海で疲れ果てた旅と、直前に訪れた日本で見た真逆の光景とは？！",
+   "channel": "ニッポン再発見【海外の反応】",
+   "channel_id": "UCE1b_sgM9WP_gDilNS-SVQQ",
+   "subs": null,
+   "views": 44557,
+   "country": "일본",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 923,
+   "published": "2026-11-20",
+   "first_seen": "2026-11-21",
+   "lf_country": "JP",
+   "lf_basis": "foreign_title",
+   "lf_query": "海外の反応 日本 旅行"
+  },
+  "kck1UlbuFEw": {
+   "id": "kck1UlbuFEw",
+   "title": "【海外の反応】北海道を訪れた外国人カップルが驚いた！雪の小樽で大はしゃぎ…初めて見る冬の日本とは？",
+   "channel": "ここ、日本",
+   "channel_id": "UCsWGFCVAAgICnqj4tr65H-Q",
+   "subs": null,
+   "views": 10214,
+   "country": "일본",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 1137,
+   "published": "2026-11-20",
+   "first_seen": "2026-11-21",
+   "lf_country": "JP",
+   "lf_basis": "foreign_title",
+   "lf_query": "海外の反応 日本 旅行"
+  },
+  "VYDdx2akrog": {
+   "id": "VYDdx2akrog",
+   "title": "【海外の反応】「日本旅行で一度もハズレがなかった…！」外国人が衝撃を受けた日本の食文化！「適当に入った店まで全部美味しいってどういうこと!?」",
+   "channel": "「日本への視点」",
+   "channel_id": "UCFIwfu66mb-94V5zkUbmNSg",
+   "subs": null,
+   "views": 10745,
+   "country": "일본",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 833,
+   "published": "2026-10-23",
+   "first_seen": "2026-11-21",
+   "lf_country": "JP",
+   "lf_basis": "foreign_title",
+   "lf_query": "海外の反応 日本 旅行"
+  },
+  "rdGZJ-v9jBc": {
+   "id": "rdGZJ-v9jBc",
+   "title": "Its Just Snowed For The First Time This Winter At My $6000 House in The Japanese Countryside (Ep.39)",
+   "channel": "Matt Guy",
+   "channel_id": "UCqH1BGUWypvb4m3g8x7mvqA",
+   "subs": null,
+   "views": 11812,
+   "country": "일본",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 4024,
+   "published": "2025-11-19",
+   "first_seen": "2026-11-21",
+   "lf_country": "JP",
+   "lf_basis": "foreign_title",
+   "lf_query": "Japan countryside ryokan onsen foreigner vlog"
   }
  },
- "collected_at": "2026-11-20T21:29:28Z"
+ "collected_at": "2026-11-21T08:43:27Z"
 }
