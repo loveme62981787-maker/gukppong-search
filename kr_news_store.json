@@ -1,8 +1,56 @@
 {
-  "updated": "2026-11-21 12:00",
+  "updated": "2026-11-22 01:45",
   "items": [
     {
-      "id": "gn_3460475131",
+      "id": "gn_5983966520",
+      "category": "economy",
+      "title": "국민연금공단, 기초연금 온라인 신청 퀴즈 이벤트",
+      "summary": "전민일보 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMibEFVX3lxTE1EcXVwMWZzOTc3d09fMFkxdU9aNWdjY2ktbVlQbGgtZzB6OXBheGFRbm04bGpCX1ZYWVJIYzBQUGpKbHBZUjhiVnk5Q25wdGNVa0tVcGFuV1UtU0E0eU96SmkxcmJmdjQyd0dETg?oc=5",
+      "thumb": "",
+      "source": "전민일보",
+      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
+      "published": "2026-11-21",
+      "badges": [],
+      "score": 99,
+      "hook": "국민연금공단, 기초연금 온라인 신청 퀴즈 이벤트"
+    },
+    {
+      "id": "gn_6485969294",
+      "category": "economy",
+      "title": "국민연금 '이렇게' 하면 월 100만원→136만원…전문가가 꼽은 비법은",
+      "summary": "뉴시스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE5aSXo3VUsxZ3pWSFV2dzBWLTJNMHNXdzhFeU10ai1xZm5wWEc1a0ZoUjJWcTV6ckpnUGExc3duU3JpOUIyS2hidHpNS3AtclBjcFQ4TTh4M0pyOWZLV3Awc9IBeEFVX3lxTE5TSXBNUnU2akY2elRLRjJCd0UtbEVqVkVqTW1qWTllZmhybTg0ZzRRRjN2RklmNjkwUmdSVDdZMXRqWWp0S0J3dVV6Z0MxRW9DYVlURTRkTWJWblBqYV9ub2tEMEdlamNaaExiV2dKQTVwMFV1YWhPMA?oc=5",
+      "thumb": "",
+      "source": "뉴시스",
+      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
+      "published": "2026-11-21",
+      "badges": [
+        "월 100만원",
+        "136만원"
+      ],
+      "score": 98,
+      "hook": "국민연금 '이렇게' 하면 월 100만원→136만 [월 100만원]"
+    },
+    {
+      "id": "gn_8215058681",
+      "category": "economy",
+      "title": "[기획] 기초연금 3만 원 올라도 손에 쥐는 돈은 그대로… '줬다 뺏는 기초연금' 78만 명의 셈법",
+      "summary": "캐어유 뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1pMmJjb08wWWg3OTdhd010MEZnRy00OWlndlJoSGtxaVRBUGZ0TTVhbDYwN2Fvc1hCeTl0NlRMUkhMYm1sS2tPbW1oVHlwSDdUVEhBMEhVNXoxRTk1MHlNWFNYQzBYb1VNZVRBRW93?oc=5",
+      "thumb": "",
+      "source": "캐어유 뉴스",
+      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
+      "published": "2026-11-21",
+      "badges": [
+        "3만 원",
+        "78만 명"
+      ],
+      "score": 98,
+      "hook": "기초연금 3만 원 올라도 손에 쥐는 돈은 그대로 [3만 원]"
+    },
+    {
+      "id": "gn_5740950277",
       "category": "economy",
       "title": "유럽 스마트폰 출하량 13년 만에 최저… 삼성·애플 합산 점유율은 66%로",
       "summary": "Chosunbiz 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -19,20 +67,40 @@
       "hook": "유럽 스마트폰 출하량 13년 만에 최저… 삼성· [13년]"
     },
     {
-      "id": "gn_7039335939",
-      "category": "economy",
-      "title": "국민연금 대체투자 240조원…AI 전력·인프라 투자 : 금융",
-      "summary": "재경일보 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiS0FVX3lxTFBFSFNVR1pfRUU3Rm5YNzVQSGhtdjVGbENJYVNtdC05MHZUdm55X3hqOG84VmRwR1I3TEl0azFIV2lUVjRXSVh3RktJaw?oc=5",
-      "thumb": "",
-      "source": "재경일보",
-      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-20",
+      "id": "kogl_148976224",
+      "category": "kogl1",
+      "title": "이재명 대통령, 울산 전통시장 방문 관련 안귀령 부대변인 서면 브리핑",
+      "summary": "이재명 대통령은 오늘(21일) 오후 울산 SK AI데이터센터 현장 방문을 마친 뒤 울산 동구에 위치한 동울산종합시장을 찾아 장바구니 물가와 경기 상황을 점검하고, 지역 골목상권의",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148976224",
+      "thumb": "https://www.korea.kr/images/event/korea_logo_2024.jpg",
+      "source": "대한민국 정책브리핑",
+      "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
+      "published": "2026-11-21",
       "badges": [
-        "240조원"
+        "1983년",
+        "2024년",
+        "3년"
       ],
-      "score": 89,
-      "hook": "국민연금 대체투자 240조원…AI 전력·인프라  [240조원]"
+      "score": 83,
+      "hook": "이재명 대통령, 울산 전통시장 방문 관련 안귀령 [1983년]"
+    },
+    {
+      "id": "kogl_148976084",
+      "category": "kogl1",
+      "title": "최근 3년 놓친 실손보험금, 내년부터 '실손24'서 확인·청구",
+      "summary": "내년 1분기부터 '실손24'에서 최근 3년간 청구하지 않은 실손보험금을 한 번에 확인하고, 연계된 병·의원의 진료비는 앱에서 바로 청구할 수 있게 된다. 오는 23일부터는 초기 실",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148976084",
+      "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/19/c7fc0711398fe2e9b2510bbc4e50eb15.jpg",
+      "source": "대한민국 정책브리핑",
+      "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
+      "published": "2026-10-24",
+      "badges": [
+        "3년",
+        "5세",
+        "50%"
+      ],
+      "score": 83,
+      "hook": "최근 3년 놓친 실손보험금, 내년부터 '실손24 [3년]"
     },
     {
       "id": "kogl_148976190",
@@ -53,26 +121,7 @@
       "hook": "'민주유공자법 제정안' 26년 만에 국회 통과… [26년]"
     },
     {
-      "id": "kogl_148976090",
-      "category": "kogl1",
-      "title": "한국 수출 사상 첫 '1조 달러' 돌파…독·미·중 이어 세계 4번째",
-      "summary": "우리나라 연간 수출액이사상 처음으로 '수출 1조 달러'를 넘어섰다. 독일, 미국, 중국에 이어 세계에서 네번째다. 1964년 수출 1억 달러를 최초로 달성한 이후 62년 만에 수출",
-      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148976090",
-      "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/19/0ebf75f3afeec6a39ca6eda168e8aed1.jpg",
-      "source": "대한민국 정책브리핑",
-      "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
-      "published": "2026-11-20",
-      "badges": [
-        "1964년",
-        "62년",
-        "1년",
-        "2007년"
-      ],
-      "score": 81,
-      "hook": "한국 수출 사상 첫 '1조 달러' 돌파…독·미· [1964년]"
-    },
-    {
-      "id": "gn_7866311954",
+      "id": "gn_8419293593",
       "category": "economy",
       "title": "유럽 스마트폰 시장, 삼성·애플 합산 점유율 66%로 확대",
       "summary": "매일일보 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -88,49 +137,51 @@
       "hook": "유럽 스마트폰 시장, 삼성·애플 합산 점유율 6 [66%]"
     },
     {
-      "id": "gn_1976746344",
+      "id": "gn_7488066456",
       "category": "economy",
-      "title": "국민연금공단, 파리에서 한불 사회보장협정 설명회",
-      "summary": "월드코리안뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1jZ1hBUkFXRXVDTU0tZ2hyUEdxSEp3R2o3amVLU29pUFl3RV9RcjllQVR5NWo5a3Jsb29yMTNhTnNvTkoyVEh4aWQyWnEwUEFmRjFOMWJPWUJwN05aaVZzV0pSYVhUVmRXSXVLVWtR?oc=5",
+      "title": "가격 상승에 유럽 스마트폰 시장 13년 만에 최저…삼성·애플 선방",
+      "summary": "서울신문 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMiV0FVX3lxTFBISFRjTHB1dlE5NUdqR3BUU2FIVEdkMXUtd01KelEtTmZMalNHc0cwYXVKTV82TlNBM2V2S01rT0R1LWNmaldOS0xWTW5QMWZ6eUVlUThFTQ?oc=5",
       "thumb": "",
-      "source": "월드코리안뉴스",
+      "source": "서울신문",
       "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
       "published": "2026-11-20",
-      "badges": [],
-      "score": 80,
-      "hook": "국민연금공단, 파리에서 한불 사회보장협정 설명회"
+      "badges": [
+        "13년"
+      ],
+      "score": 81,
+      "hook": "가격 상승에 유럽 스마트폰 시장 13년 만에 최 [13년]"
     },
     {
-      "id": "gn_5665522911",
+      "id": "gn_1169608096",
       "category": "economy",
-      "title": "증권사도 잇달아 전주行…국민연금 거래 확보 경쟁",
-      "summary": "서울경제TV 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9wWktCRXdBckdtMjZ2Vk53QkN4dlhSbzZqYVpkTFdoMUV5d3hQcTZBWkV3aVBLNFNhRHAwYmpGVnQzM1dsMndTNTRIY3l6ams1azRkRlFFT0o3ZWFCbEgtV2VjcFc?oc=5",
+      "title": "2026 제4차 다가치포럼, 국민연금·실업급여·건강보험 현안 종합 논의...\"공정한 제도 속 정당한 권리 보장 원한다\"",
+      "summary": "EKW이코리아월드(동포세계신문) 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE5EeWpyb0M5RDRYSGREZmJVMWY1UEF0Mi01NFRhT3BHSnhkQ3B5T2x3ckZJMzRMeTVqT28xdVUzZGRlck9mdUhXZHV6UW8zMmdOVGMtd0RkNDBSU1ZYdHNOU09GZXoyZw?oc=5",
       "thumb": "",
-      "source": "서울경제TV",
+      "source": "EKW이코리아월드(동포세계신문)",
       "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-20",
+      "published": "2026-11-21",
       "badges": [],
       "score": 80,
-      "hook": "증권사도 잇달아 전주行…국민연금 거래 확보 경쟁"
+      "hook": "2026 제4차 다가치포럼, 국민연금·실업급여·"
     },
     {
-      "id": "gn_3600252694",
+      "id": "gn_3518029053",
       "category": "economy",
-      "title": "청년 생애 첫 국민연금 보험료 지원 놓치지 마세요.",
-      "summary": "화성저널 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE92RENyUVkzY0dDQWsxbnNRcmc0ak5fSjVlblJkRmVFMERESVR0T3JOLURLaXVTbWFCQzQwZFFZcjZsbWpCLWNCN0lhOUdQelp3WXlZT0NTVlNkRWg3UXFrUTR0RjFLZw?oc=5",
+      "title": "국민연금, 9600억 팔아치운 종목 뭐길래…'뜻밖의 결과'",
+      "summary": "TradingView 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTFBMekdsNzRLRFFBTzlqb25LdzVoa1BLWWFfSW5QanNvek00ckhuRnBPLXpVWUg4dVlrNk9rRGVQNVlNOUZFVVdOOUVpR3ljdnIzUjh2VWpnTHViTEgtVGsydjZhdVlqODNW?oc=5",
       "thumb": "",
-      "source": "화성저널",
+      "source": "TradingView",
       "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-20",
+      "published": "2026-11-21",
       "badges": [],
       "score": 80,
-      "hook": "청년 생애 첫 국민연금 보험료 지원 놓치지 마세"
+      "hook": "국민연금, 9600억 팔아치운 종목 뭐길래…'뜻"
     },
     {
-      "id": "gn_7486501491",
+      "id": "gn_5244741267",
       "category": "economy",
       "title": "[분석] 유럽 스마트폰 13년만의 최저…삼성전자 점유율 1위 늘린 사이 중국 '추락'",
       "summary": "파이낸셜포스트 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -147,7 +198,7 @@
       "hook": "유럽 스마트폰 13년만의 최저…삼성전자 점유율  [13년]"
     },
     {
-      "id": "gn_1025712560",
+      "id": "gn_4110008522",
       "category": "economy",
       "title": "유럽 스마트폰 시장 13년 만에 최악…삼성 점유율 1위",
       "summary": "연합뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -164,21 +215,7 @@
       "hook": "유럽 스마트폰 시장 13년 만에 최악…삼성 점유 [13년]"
     },
     {
-      "id": "gn_4810690168",
-      "category": "economy",
-      "title": "애플, 아이맥 OLED 백지화 검토…삼성디스플레이 공급 비상",
-      "summary": "한국신용신문 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFAtZHk2em5BdXYxWmZaMDktQXNONjRlZkxyUGRPYXowRkJiSkZNNFg1T1pYeU9KNXVKOXNGeE51S3ZvMDZHMFEtX19JTnEwcFdCMzRiQkVVRWg5WmVBOWxyWnFldFZvY0p5M0FV?oc=5",
-      "thumb": "",
-      "source": "한국신용신문",
-      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-19",
-      "badges": [],
-      "score": 72,
-      "hook": "애플, 아이맥 OLED 백지화 검토…삼성디스플레"
-    },
-    {
-      "id": "gn_3185621291",
+      "id": "gn_4668953639",
       "category": "economy",
       "title": "[장애인뉴스] 구로구, 장애인전용주차구역 위반 과태료 모바일 전자고지 시행 外",
       "summary": "베이비뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -192,36 +229,36 @@
       "hook": "구로구, 장애인전용주차구역 위반 과태료 모바일 "
     },
     {
-      "id": "gn_1151384364",
+      "id": "gn_4673454437",
       "category": "economy",
-      "title": "수능 끝, 이통3사 '수험생 모시기' 전쟁…지원금 60만원에 여행상품권까지",
-      "summary": "뉴시스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTFAySHl0NzhUUnpqazc4NTVFNVU3MS10YmdCQTh2aW43Zl9SRS1RN0h0R1RtbjN5YXJyTEVPRGJ0S1JqLXoweEZ1NHpEanpJcm1WUWhJUlN3QUcwdWFFQWhqQtIBeEFVX3lxTE1UZmhESTN3OVlscjA4RnBISWtpRjJ5cGtseUNIVHhVdDVVTGVsYkhOekg5OGlVLXRmV2xVMDBMMlRJUlBuRE5ZMHU1WDVUM3c0MTd5X0xfS1ZuZVY1N0UzS1ZZZjkzZkFBZkhRSTFRaGZVWC1XNmRzNg?oc=5",
+      "title": "전남광주 지자체, 추석 민생 지원금 최대 50만 원…‘못 받는 곳은 어쩌나’",
+      "summary": "쿠키뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE4wdDEtXzJzX3REeHZ2Wk5OSElxdkIwUHVyUmF4YkJQSGN4WXBVcTBOc2dqMVQwTWNKdWZTS21IQWM0UWkzczUzRGFPVzRqUm1xU2NwekxzckRyUk4yR09kQkJmRQ?oc=5",
       "thumb": "",
-      "source": "뉴시스",
+      "source": "쿠키뉴스",
       "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
       "published": "2026-11-21",
       "badges": [
-        "60만원"
+        "50만 원"
       ],
       "score": 69,
-      "hook": "수능 끝, 이통3사 '수험생 모시기' 전쟁…지원 [60만원]"
+      "hook": "전남광주 지자체, 추석 민생 지원금 최대 50만 [50만 원]"
     },
     {
-      "id": "gn_4833924788",
+      "id": "gn_3295678001",
       "category": "economy",
-      "title": "광주 북구, 차수판 '과다 견적' 인정하고 1년…지원금 지급·사후관리 무엇을 바로잡았나",
-      "summary": "지이코노미 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTFBEd1pldE8wUHdCZ0dsM0lBRGhXVGo1SnBoV3hha0tWTHlLUXZia3RMUEkzU2VFbUdJZTVSMkVSamtxYzJ0dUdHWU5UUS1iQVFFLUpBS2tjY0RlSmlhVENRLUtPN2Q?oc=5",
+      "title": "당진시 내년 예산 1조5795억원..지원금 늘고 안전 예산 줄어",
+      "summary": "당진신문 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE1Qb3hqdVZWZVJ1eURRQnJSRnZQWl9PM1JtM3JSaEF6M3NhU0JLR3ZSUGJiR3FjcUtRVGJPeFFVNEs0X0FveW9pNGp5VHhzQVJKMW5lWWdXLVBWSFMzZGxRaDRsSWpyalhj?oc=5",
       "thumb": "",
-      "source": "지이코노미",
+      "source": "당진신문",
       "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
       "published": "2026-11-21",
       "badges": [
-        "1년"
+        "5795억원"
       ],
       "score": 69,
-      "hook": "광주 북구, 차수판 '과다 견적' 인정하고 1년 [1년]"
+      "hook": "당진시 내년 예산 1조5795억원..지원금 늘고 [5795억원]"
     },
     {
       "id": "kogl_148976213",
@@ -279,7 +316,26 @@
       "hook": "내년 지방교부세 산정 기준 개선…재난안전·취약계 [3년]"
     },
     {
-      "id": "gn_4626083860",
+      "id": "kogl_148976159",
+      "category": "kogl1",
+      "title": "한국, UN 전자정부평가 '세계 1위'…정부24·모바일 신분증 등 호평",
+      "summary": "대한민국이 유엔(UN)의 '2026년 전자정부평가'에서 194개국 중 세계 1위를 차지하며 2014년 이후 12년 만에 정상에 올랐다. 정부24를 통한 생애주기별 맞춤형 서비스와",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148976159",
+      "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/20/4d6fad54fc2774b347f1f91e509cc5d6.jpg",
+      "source": "대한민국 정책브리핑",
+      "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
+      "published": "2026-11-20",
+      "badges": [
+        "1위",
+        "2026년",
+        "2014년",
+        "12년"
+      ],
+      "score": 69,
+      "hook": "한국, UN 전자정부평가 '세계 1위'…정부24 [1위]"
+    },
+    {
+      "id": "gn_7298979020",
       "category": "economy",
       "title": "\"농지 임대 수익 10배\"…석탄발전소 지원금으로 일군 '햇빛 배당'[넷제로케이스스터디] - 머니투데이",
       "summary": "머니투데이 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -295,23 +351,23 @@
       "hook": "\"농지 임대 수익 10배\"…석탄발전소 지원금으로 [10배]"
     },
     {
-      "id": "gn_3971336281",
+      "id": "gn_8039597057",
       "category": "economy",
-      "title": "전기요금 72% 올랐는데…김수봉 의원 지적",
-      "summary": "경남포스트 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE5vbkhRZjM2akZZdk15cnpwYkFqV2pTUFZxWFF3T0lSWEo4R2JPRi1ieWRENDBEeC1qZ0pWa2lIX01fU1pqeU1oR2JYa2c0dlhS?oc=5",
+      "title": "“스마트폰 비싸서 못 사겠다” 13년 만에 최악의 상황…삼성폰은 잘나갔다",
+      "summary": "서울경제 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBqRE1Pc2RaUHBlYmhCcjhXZ3Y1ZEY3X3VwNEltRjNsUmNnNWZqeU5QNk1ESzZjV3J1cmlUWEVMak82aW1kNTg1VkRpcWlMRkY3dEHSAVNBVV95cUxPdTZ0WGhFd3NsOTR4UzFYWVRTZDdWeEd1RVVFclFqTG16cHlHaFEtRXlzN2lkQjNRUTB5ZFREdi0xS0trdzg5TzVqS2R5cU1YSHRzaw?oc=5",
       "thumb": "",
-      "source": "경남포스트",
+      "source": "서울경제",
       "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-19",
+      "published": "2026-11-21",
       "badges": [
-        "72%"
+        "13년"
       ],
       "score": 65,
-      "hook": "전기요금 72% 올랐는데…김수봉 의원 지적 [72%]"
+      "hook": "“스마트폰 비싸서 못 사겠다” 13년 만에 최악 [13년]"
     },
     {
-      "id": "gn_3062865832",
+      "id": "gn_4267458768",
       "category": "celeb",
       "title": "'와 손흥민 연봉 150억' 미국 MLS에서도 전체 4위다...1위 메시와 격차 2.5배",
       "summary": "조선일보 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -329,7 +385,7 @@
       "hook": "'와 손흥민 연봉 150억' 미국 MLS에서도  [4위]"
     },
     {
-      "id": "gn_7385399646",
+      "id": "gn_3161211404",
       "category": "celeb",
       "title": "1위 리센느, 2위 에이티즈, 3위 임영웅",
       "summary": "스타뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -347,18 +403,21 @@
       "hook": "1위 리센느, 2위 에이티즈, 3위 임영웅 [1위]"
     },
     {
-      "id": "gn_7029858477",
-      "category": "economy",
-      "title": "NHN링크, 청년문화예술패스 추가 지원금 티켓링크서 사용 가능",
-      "summary": "파이낸셜투데이 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5PTm9jb0F2YnRKbGdIcHFtQzRjczNHSE9fMEtqeEVfRDk3UFdJVjNDdWFuV1JpVmFWOGxmb2xOelVjVUJMV2l5ZjRlRFlOVVpXeVBWeVFyMzZabHltSHBPM05wNGtsLWM1dGfSAW5BVV95cUxPOGUtMWZwY2NzdVhlWjh5VFE4NEJteXRKVkJieHRfc2loNGlwZ21MN1lNQ2lkYjNueDF1bFVDWmZ0VUZ4NF9lRkRKNDJ0SE1Fa1UzSjhzVnVpZ2wxcFBCSGxkaDlMMzVQTkJMYW9OZw?oc=5",
-      "thumb": "",
-      "source": "파이낸셜투데이",
-      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
+      "id": "kogl_148976223",
+      "category": "kogl1",
+      "title": "이재명 대통령, 울산 SK AI데이터센터 현장 방문 관련 안귀령 부대변인 서면 브리핑",
+      "summary": "이재명 대통령은 오늘(21일) 오전, 울산 남구 미포국가산업단지 내 SK AI데이터센터 건설 현장을 방문해 메가프로젝트 추진 상황을 점검했습니다.이번 방문은 이재명 대통령이 지난해",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148976223",
+      "thumb": "https://www.korea.kr/images/event/korea_logo_2024.jpg",
+      "source": "대한민국 정책브리핑",
+      "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
       "published": "2026-11-21",
-      "badges": [],
-      "score": 60,
-      "hook": "NHN링크, 청년문화예술패스 추가 지원금 티켓링"
+      "badges": [
+        "2027년",
+        "71%"
+      ],
+      "score": 63,
+      "hook": "이재명 대통령, 울산 SK AI데이터센터 현장  [2027년]"
     },
     {
       "id": "kogl_148976210",
@@ -375,7 +434,7 @@
       "hook": "이 대통령 \"수능 부정행위 철저 추적…국가시험 "
     },
     {
-      "id": "gn_7353413788",
+      "id": "gn_6280556139",
       "category": "economy",
       "title": "[카드뉴스] 출생신고 한 달 안에 하지 않으면 과태료가 나올 수 있어요",
       "summary": "베이비뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -389,7 +448,7 @@
       "hook": "출생신고 한 달 안에 하지 않으면 과태료가 나올"
     },
     {
-      "id": "gn_5161265312",
+      "id": "gn_9176848889",
       "category": "economy",
       "title": "유럽 스마트폰 시장 13년 만에 최악...3분기 출하량 18% 급감",
       "summary": "M이코노미뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -406,7 +465,7 @@
       "hook": "유럽 스마트폰 시장 13년 만에 최악...3분기 [13년]"
     },
     {
-      "id": "gn_4118059330",
+      "id": "gn_2955407780",
       "category": "celeb",
       "title": "'축구의 신 맞네!' 메시 연봉 379억, 손흥민의 2.5배 받는다…손흥민 MLS 전체 연봉 4위 - 머니투데이",
       "summary": "머니투데이 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -423,32 +482,18 @@
       "hook": "'축구의 신 맞네!' 메시 연봉 379억, 손흥 [2.5배]"
     },
     {
-      "id": "gn_7011402635",
+      "id": "gn_3658762696",
       "category": "economy",
-      "title": "애플, 아이맥 OLED 탑재 백지화 검토",
-      "summary": "디일렉 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiZkFVX3lxTE1pNzZkN1lhTEliYjIwMkNlZzZ2TDZWc1BCRDdacW9Wb0FCWmE5QUs0VG8zTlA1VHBEU291dEFFYkgtZW5rWmpXaVNVdjRoeVdlTjRjeHFCU3dkejY4MUVLMlkxTnF5Zw?oc=5",
+      "title": "양식업 전기요금 부담 완화 논의…수산종자 전담 논의체 구성 추진",
+      "summary": "한국영농신문 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBONTA1eGs3Y21DU2UtN3U4eEZxelVRcUFlczZ2Yy0wMlV1R3VlcUhJWW9FZWViTmJ3VHNncVdtM1hPSlVUSkl4MEZXZzN3SWJXZk9Td3ljMWtUU1ZOYnVrZDRVbENTaFV4dU9lMmdn?oc=5",
       "thumb": "",
-      "source": "디일렉",
+      "source": "한국영농신문",
       "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-19",
+      "published": "2026-11-21",
       "badges": [],
       "score": 56,
-      "hook": "애플, 아이맥 OLED 탑재 백지화 검토"
-    },
-    {
-      "id": "gn_6379415972",
-      "category": "economy",
-      "title": "농어업특위, 제3차 스마트 수산 TF…전기요금 완화·ESG 지표 점검",
-      "summary": "데일리안 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMigwJBVV95cUxOUy1yOUN2NVdiMlNEN3RaTUxRV0Jxd3hiRzlZclNwbFF4US10cDE2cmlETzRVb1puYjFKbUxfUmlGNHl0WWlGSnRNZE9nbGR5R2JrcUlQZEpadnVsRFAwTHVvLWJjV3o1N0ZRNXl4eVVYNl9PdzZxbUFYT19XSWYtSFdiRTVHUXlHQkt6MVNqRmRSQ0NiMWFJV0cxVW1icTdaVnJhYnRDeDhNSFpIMHVpYTJabDZyNmsxSVVhU2pWbzdMTFpLams0dXpFcV90ZnMyN0JjanJEdmxiYndFNUQteUd1UXZOT1k4VjZwaVZ4T0JfLVhtRW9SMklfQVc2b1lDajQw?oc=5",
-      "thumb": "",
-      "source": "데일리안",
-      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-19",
-      "badges": [],
-      "score": 56,
-      "hook": "농어업특위, 제3차 스마트 수산 TF…전기요금 "
+      "hook": "양식업 전기요금 부담 완화 논의…수산종자 전담 "
     },
     {
       "id": "kogl_148976218",
@@ -499,7 +544,7 @@
       "hook": "국군사관학교 2029년 출범…1·4학년 통합,  [2029년]"
     },
     {
-      "id": "gn_2957751950",
+      "id": "gn_7837181344",
       "category": "celeb",
       "title": "방탄소년단, '해외 아티스트 최초' 日 누적 스트리밍 100억 회 돌파",
       "summary": "싱글리스트 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -513,7 +558,7 @@
       "hook": "방탄소년단, '해외 아티스트 최초' 日 누적 스"
     },
     {
-      "id": "gn_5747516812",
+      "id": "gn_7619124140",
       "category": "celeb",
       "title": "방탄소년단 진, 마이원픽 주간랭킹 누적 141주 1위..4주 연속 'No.1'",
       "summary": "스타뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -529,7 +574,23 @@
       "hook": "방탄소년단 진, 마이원픽 주간랭킹 누적 141주 [1위]"
     },
     {
-      "id": "gn_2592851922",
+      "id": "gn_8181259420",
+      "category": "celeb",
+      "title": "BTS, 美‘빌보드 200’ 6번째 1위·日오리콘 차트서 신기록",
+      "summary": "JTBC 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMiVEFVX3lxTFBKSHZ3ZUQ5dGRsUHBVSV9HTjU2R2xVVlp2bkNaX01palQzZklSSjdkajg2dmxwYmZYZVZkQW1rRFoyWTctYWh3SnNCS1hZR2RaZ2dJQg?oc=5",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/9/97/17-05-30-M_R_%C5%A0tef%C3%A1nik_Airport-DSC_1822.jpg/960px-17-05-30-M_R_%C5%A0tef%C3%A1nik_Airport-DSC_1822.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source": "JTBC",
+      "license": "✅ Wikimedia CC BY 3.0 de (사진 출처: Ralf Roletschek)",
+      "published": "2026-11-19",
+      "badges": [
+        "1위"
+      ],
+      "score": 49,
+      "hook": "BTS, 美‘빌보드 200’ 6번째 1위·日오리 [1위]"
+    },
+    {
+      "id": "gn_3891687247",
       "category": "celeb",
       "title": "리센느, BTS도 제쳤다 11월 아이돌 브랜드평판 1위",
       "summary": "진일보 | 전남일보 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -543,22 +604,6 @@
       ],
       "score": 49,
       "hook": "리센느, BTS도 제쳤다 11월 아이돌 브랜드평 [1위]"
-    },
-    {
-      "id": "gn_6277216557",
-      "category": "celeb",
-      "title": "방탄소년단 진, '팬앤스타' 솔로랭킹 55주 연속 1위…아시아 투어 앞두고 막강 인기 입증",
-      "summary": "더팩트 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTFBqTlZpSGd1LVRXNjFLSHRDZV9EQUF6cjBpcWprcV9GU0pMNldfdVJfYmp0MHlRV0ZxLWEzcFVFR2h2Tmk5ZE9EMHl2dkZJZEtOZHlobXUwZEkxcE14UERmamVxOA?oc=5",
-      "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/48/BTS_LG_G7_ThinQ_mobile_advertisement_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source": "더팩트",
-      "license": "✅ Wikimedia CC BY 2.0 (사진 출처: LG전자 \n\n\n\n\n\nThis file)",
-      "published": "2026-11-18",
-      "badges": [
-        "1위"
-      ],
-      "score": 49,
-      "hook": "방탄소년단 진, '팬앤스타' 솔로랭킹 55주 연 [1위]"
     },
     {
       "id": "kogl_148975789",
@@ -645,7 +690,7 @@
       "hook": "청년 고용정책·지역 채용정보 한곳에…청주·전주서"
     },
     {
-      "id": "gn_3413875235",
+      "id": "gn_5911948739",
       "category": "economy",
       "title": "“에기평, 공정한 채용환경 조성 인정받았다”",
       "summary": "에너지데일리 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -659,7 +704,7 @@
       "hook": "“에기평, 공정한 채용환경 조성 인정받았다”"
     },
     {
-      "id": "gn_7675759614",
+      "id": "gn_8151339404",
       "category": "economy",
       "title": "[오늘Who] 'SM엔터 시세조종 의혹' 카카오 창업자 김범수 항소심 무죄, \"AI 시대 새 성장 길 열어야\"",
       "summary": "비즈니스포스트 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -673,7 +718,7 @@
       "hook": "'SM엔터 시세조종 의혹' 카카오 창업자 김범수"
     },
     {
-      "id": "gn_5184887391",
+      "id": "gn_7634922825",
       "category": "celeb",
       "title": "방탄소년단, 일본 음원 100억회…해외 가수 첫 기록",
       "summary": "스페셜경제 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -687,46 +732,18 @@
       "hook": "방탄소년단, 일본 음원 100억회…해외 가수 첫"
     },
     {
-      "id": "gn_8707881261",
+      "id": "gn_8921837753",
       "category": "celeb",
-      "title": "방탄소년단, 日 스트리밍 100억 회 달성",
-      "summary": "www.bntnews.co.kr 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE8yZ0E2aVRPcEVlZGJCVTZsNFg0dHoyV3NNYjlCc1Vrd0R4VWdYOGlTYnZtYkRYTVU0ZVc4UlV4WnJEV01VNFpfWXVhV1dZYTdmdkNyVVhhT040ZGJuR1pxR2l2YzE?oc=5",
+      "title": "방탄소년단, '100억 스트리밍 신화' 썼다…日 차트 석권에 공연 특집까지",
+      "summary": "EPN엔피나우 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5DMkRIMjN5LXNDeUl6MWd2YTU2QW5NUWVqak1TZ2gxVDMwMW5zc2F3akhlS3l3UUo1aVltemEyX2RkVDc0NmdtcGRURWpsWTIyTktpaEdlekQySTB0bEFSRm1FSm92V1E10gFsQVVfeXFMT1paMENjdXByVmF0WDJzblpqZHR1QTZiNEtoUmR0eVFoMGZnQTdyeFpMT095ZFRwZTcxZHk1NmltSjlZUlFtNUxvUGRDZHRfNmRTREtwSlVySDhtZlNWMzJ1VUVNSnRJMUk2UWdv?oc=5",
       "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/48/BTS_LG_G7_ThinQ_mobile_advertisement_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source": "www.bntnews.co.kr",
+      "source": "EPN엔피나우",
       "license": "✅ Wikimedia CC BY 2.0 (사진 출처: LG전자 \n\n\n\n\n\nThis file)",
       "published": "2026-11-20",
       "badges": [],
       "score": 40,
-      "hook": "방탄소년단, 日 스트리밍 100억 회 달성"
-    },
-    {
-      "id": "gn_6506603513",
-      "category": "economy",
-      "title": "[EE칼럼] 재원을 마련하여 지원해야 배출권거래제도가 산다",
-      "summary": "기후에너지데이터뱅크 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE5mN010UThkdmtCSnBXME9tLTdDQWlPS1dwZl9IdE9vZWx2MmREakFydFhQellvenFaTGQxWWhLWHJ0X1E3bVdXRnhrMEJxenVZdzgyRWdGWjVWQnYwR0E?oc=5",
-      "thumb": "",
-      "source": "기후에너지데이터뱅크",
-      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-19",
-      "badges": [],
-      "score": 40,
-      "hook": "재원을 마련하여 지원해야 배출권거래제도가 산다"
-    },
-    {
-      "id": "gn_7367613397",
-      "category": "economy",
-      "title": "[머니 취향템 연구소] 보험료 반값에 솔깃했는데…카카오페이손보 운전자보험 '따져보니' : 네이버 블로그",
-      "summary": "Naver Blog 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNMm1rLWsxQjl2VnRTUzBIUzI0eEotOTNCUFZMRzQ5Y1hnekhiZHYxRkJNdlVsR1BuLVVYZjhkZS1FN0pVOWU5U2tncnJ5Q0tybkZ3NVB0MnJURDkzdmNqOEkzWXI0SnhGYmpFenFhSU1oclNfMUUtNWhLYlRhMnBwTld2VG0xRFJXbE1IMVdEcw?oc=5",
-      "thumb": "",
-      "source": "Naver Blog",
-      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-19",
-      "badges": [],
-      "score": 40,
-      "hook": "보험료 반값에 솔깃했는데…카카오페이손보 운전자보"
+      "hook": "방탄소년단, '100억 스트리밍 신화' 썼다…日"
     }
   ]
 }
