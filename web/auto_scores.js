@@ -76,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const style = ce('style');
   style.textContent = '#my-score-view[hidden]{display:none} #my-score-view .grid{padding:0;margin:16px 0} #my-score-view .bar{padding:0;margin:10px 0} #my-score-view .my-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px} #my-score-view .my-card{padding:12px} #my-score-view .my-card>a{color:var(--ink);text-decoration:none} #my-score-view .my-card h3{font-size:15px;line-height:1.5;margin:10px 0}';
   document.head.append(style);
-  // 모든 영상 카드에 점수(🎯 자막채점 + 🏆 메타/알고리즘 점수)와 등급 필터·점수순 정렬을 표시한다.
+  // 모든 기존 영상에 점수(🏆 점수·등급)와 등급 필터·점수순 정렬을 항상 표시한다.
   const state = {lists:new Set(listSel), grade:'scored', query:'', sort:'score'};
   let active = false;
   const poolFor = () => V.filter(v => !hidden.has(v.id) && (!state.lists.size || [...state.lists].some(k => k === 'hold' ? v._hold : v._lists.includes(k))));
@@ -118,7 +118,7 @@ document.addEventListener('DOMContentLoaded', () => {
       for(const v of rows.slice(0,visible)){
         const card=ce('article','card my-card'), link=ce('a');link.href='https://www.youtube.com/watch?v='+encodeURIComponent(v.id);link.target='_blank';link.rel='noopener';
         const img=ce('img','my-thumb');img.src='https://i.ytimg.com/vi/'+encodeURIComponent(v.id)+'/hqdefault.jpg';img.alt=v.title;img.loading='lazy';link.append(img,ce('h3','',v.title));card.append(link,ce('p','sc-mute',(v.channel||'')+' · '+(v.published||'')));
-        card.append(v._sc?scTagEl(v._sc):ce('span','tag','미채점'));
+        card.append(v._sc?scTagEl(v._sc):ce('span','tag grade-'+(v._grade||'B'),'🏆 예비 '+(v._score??0)+'점 · '+(v._grade||'C')+'등급 (자막 미채점)'));
         if(v._sc)card.append(scDetailEl(v._sc,false));
         const actions=ce('div','bar'), used=ce('button','chip',(done.has(v.id)?'☑':'☐')+' 사용 완료'), memo=ce('button','chip',memos[v.id]?'📝 메모 있음':'📝 메모');
         used.onclick=()=>{done.has(v.id)?done.delete(v.id):done.add(v.id);saveAll();cards();};

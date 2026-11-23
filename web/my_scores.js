@@ -12,22 +12,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const panel = ce('section', 'sc-wrap'); panel.id = 'my-score-view'; panel.hidden = true;
   document.getElementById('scview').after(panel);
   const style = ce('style');
-  style.textContent = '#scgrp{display:none!important} #my-score-view[hidden]{display:none} #my-score-view .grid{padding:0;margin:16px 0} #my-score-view .bar{padding:0;margin:10px 0} #my-score-view .my-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px} #my-score-view .my-card{padding:12px} #my-score-view .my-card>a{color:var(--ink);text-decoration:none} #my-score-view .my-card h3{font-size:15px;line-height:1.5;margin:10px 0}';
+  style.textContent = '#my-score-view[hidden]{display:none} #my-score-view .grid{padding:0;margin:16px 0} #my-score-view .bar{padding:0;margin:10px 0} #my-score-view .my-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px} #my-score-view .my-card{padding:12px} #my-score-view .my-card>a{color:var(--ink);text-decoration:none} #my-score-view .my-card h3{font-size:15px;line-height:1.5;margin:10px 0}';
   document.head.append(style);
-  // 제목·조회수로 추정한 등급은 표시하지 않는다. 기존 선택도 해제한다.
-  document.getElementById('grd')?.closest('.qg')?.setAttribute('hidden', '');
-  for (const detail of document.querySelectorAll('details.vmode')) {
-    if (detail.querySelector('summary')?.textContent.includes('등급은')) detail.hidden = true;
-  }
-  style.textContent += ' .qg[hidden],details.vmode[hidden],.tag.grade-S,.tag.grade-A,.tag.grade-B{display:none!important}';
-  grdSel.clear(); scGSel.clear(); scVSel.clear(); MULTIS.forEach(m => m.sync());
-  for (const option of document.querySelectorAll('select option')) {
-    if (option.textContent.includes('검토 우선순위(점수)')) {
-      const select = option.parentElement;
-      if (option.selected) select.selectedIndex = 0;
-      option.remove();
-    }
-  }
+  // 모든 기존 영상에 점수(🏆 점수·등급)와 등급 필터·점수순 정렬을 항상 표시한다.
   const state = {lists:new Set(listSel), grade:'scored', query:'', sort:'score'};
   let active = false;
   const poolFor = () => V.filter(v => !hidden.has(v.id) && (!state.lists.size || [...state.lists].some(k => k === 'hold' ? v._hold : v._lists.includes(k))));
@@ -69,7 +56,7 @@ document.addEventListener('DOMContentLoaded', () => {
       for(const v of rows.slice(0,visible)){
         const card=ce('article','card my-card'), link=ce('a');link.href='https://www.youtube.com/watch?v='+encodeURIComponent(v.id);link.target='_blank';link.rel='noopener';
         const img=ce('img','my-thumb');img.src='https://i.ytimg.com/vi/'+encodeURIComponent(v.id)+'/hqdefault.jpg';img.alt=v.title;img.loading='lazy';link.append(img,ce('h3','',v.title));card.append(link,ce('p','sc-mute',(v.channel||'')+' · '+(v.published||'')));
-        card.append(v._sc?scTagEl(v._sc):ce('span','tag','미채점'));
+        card.append(v._sc?scTagEl(v._sc):ce('span','tag grade-'+(v._grade||'B'),'🏆 예비 '+(v._score??0)+'점 · '+(v._grade||'C')+'등급 (자막 미채점)'));
         if(v._sc)card.append(scDetailEl(v._sc,false));
         const actions=ce('div','bar'), used=ce('button','chip',(done.has(v.id)?'☑':'☐')+' 사용 완료'), memo=ce('button','chip',memos[v.id]?'📝 메모 있음':'📝 메모');
         used.onclick=()=>{done.has(v.id)?done.delete(v.id):done.add(v.id);saveAll();cards();};
