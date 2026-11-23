@@ -2,9 +2,9 @@
  "schema": 1,
  "updated": "2026-11-23",
  "cursor": {
-  "KR": 0,
-  "JP": 0,
-  "TW": 0
+  "KR": 4,
+  "JP": 4,
+  "TW": 4
  },
  "items": {
   "dymrsnOOCps": {
@@ -7860,7 +7860,109 @@
    "lf_country": "TW",
    "lf_basis": "ko_region",
    "lf_query": "대만 현지 체험 일상 한달살기"
+  },
+  "A_dNkzWML98": {
+   "id": "A_dNkzWML98",
+   "title": "🇰🇷Mastering Korean Dining: The Foreigner’s Guide to Eating Like a Local #Seoul #southkorea",
+   "channel": "Snowflake Travels",
+   "channel_id": "UC4tgXq5u9VNB0m-PiZdnrPA",
+   "subs": null,
+   "views": 22671,
+   "country": "한국",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 1514,
+   "published": "2025-01-06",
+   "first_seen": "2026-11-23",
+   "lf_country": "KR",
+   "lf_basis": "foreign_title",
+   "lf_query": "foreigners Korea trip experience"
+  },
+  "WWYMSa_v27o": {
+   "id": "WWYMSa_v27o",
+   "title": "How Enkostay is Changing Housing in Korea for Foreigners: Interview with Founder Jay",
+   "channel": "Kim Ninja",
+   "channel_id": "UCaR3IaZ6ggX90XvLq-WTbYQ",
+   "subs": null,
+   "views": 1336857,
+   "country": "한국",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 1454,
+   "published": "2026-04-05",
+   "first_seen": "2026-11-23",
+   "lf_country": "KR",
+   "lf_basis": "foreign_title",
+   "lf_query": "foreigners Korea trip experience"
+  },
+  "HbbAYZwOZEg": {
+   "id": "HbbAYZwOZEg",
+   "title": "한국여행 온 외국 세자매에게 사진을 선물 했더니 벌어진 일",
+   "channel": "안녕코리아 ANNYEONGKOREA",
+   "channel_id": "UC0TG6cICAQDpm9oUo-B6QAA",
+   "subs": null,
+   "views": 223035,
+   "country": "한국",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 787,
+   "published": "2026-09-21",
+   "first_seen": "2026-11-23",
+   "lf_country": "KR",
+   "lf_basis": "foreign_title",
+   "lf_query": "외국인 한국 여행 체험"
+  },
+  "C5gBmiAr-sw": {
+   "id": "C5gBmiAr-sw",
+   "title": "コレが日本...！？ 外国人が初めての渋谷に大感動！",
+   "channel": "いいなリーナ",
+   "channel_id": "UCpopAfLok8RB6UfjfZ7KGGw",
+   "subs": null,
+   "views": 6099,
+   "country": "일본",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 783,
+   "published": "2026-11-22",
+   "first_seen": "2026-11-23",
+   "lf_country": "JP",
+   "lf_basis": "foreign_title",
+   "lf_query": "foreigner first time Japan travel vlog"
+  },
+  "nTg60nV4Osc": {
+   "id": "nTg60nV4Osc",
+   "title": "Our first time in JAPAN! 🇯🇵 (4 FUN days in TOKYO)",
+   "channel": "Adventures of A+K",
+   "channel_id": "UCU2XpPnwebf9VwOuddBb9NQ",
+   "subs": null,
+   "views": 310497,
+   "country": "일본",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 2477,
+   "published": "2025-11-02",
+   "first_seen": "2026-11-23",
+   "lf_country": "JP",
+   "lf_basis": "foreign_title",
+   "lf_query": "tourist Japan local experience"
+  },
+  "I4cm7xf-h8o": {
+   "id": "I4cm7xf-h8o",
+   "title": "「中国と比べたら、日本のほうがずっと…」北京を経由した外国人美女が大阪到着から30分で日本に感動した本当の理由!?",
+   "channel": "ミオキャスター",
+   "channel_id": "UCqTFxB5ORf_LyahJ4-H8uog",
+   "subs": null,
+   "views": 119711,
+   "country": "일본",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 1655,
+   "published": "2026-11-22",
+   "first_seen": "2026-11-23",
+   "lf_country": "JP",
+   "lf_basis": "foreign_title",
+   "lf_query": "外国人 日本 初めて 感動"
   }
  },
- "collected_at": "2026-11-22T20:27:46Z"
+ "collected_at": "2026-11-23T09:41:58Z"
 }
