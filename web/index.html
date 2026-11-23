@@ -304,6 +304,8 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script>
 // 일반 수집 영상 + 화제·체험·일본 주제·글로벌 영상. 겹치는 영상은 표시와 길이만 합친다
 const V = (window.VIDEOS || []).slice();
+const _vById = new Map();
+for (let _i = 0; _i < V.length; _i++) { const _v = V[_i]; if (_v && _v.id && !_vById.has(_v.id)) _vById.set(_v.id, _v); }
 const LONG_MIN_SEC = 181;   // 롱폼 최소 길이(초). 180초 이하는 숏폼. discover.ini 의 longform_min_sec 기본값과 같은 값 (근거: docs/collab/2026-10-15-shorts-handling.md)
 const toSec = s => { const m = /^(\d+):([0-5]\d)(?::([0-5]\d))?$/.exec((s || "").trim()); return m ? (m[3] === undefined ? +m[1] * 60 + +m[2] : +m[1] * 3600 + +m[2] * 60 + +m[3]) : null; };
 const validSec = n => typeof n === "number" && isFinite(n) && n >= 0;
@@ -319,10 +321,10 @@ function normLen(x) {
 // 수집 경로(sources): 같은 영상이 여러 목록에 있으면 합집합으로 모은다. 'notion' = 노션 수집 목록, 그 밖은 자동 수집 경로
 const SRC_NAMES = new Set(["discovery", "notion", "viral", "experience", "japan", "global", "global_jp", "topic_search", "reference", "benchmark", "alert", "taiwan_exp", "kr_regional", "longform_exp", "cc_discovery"]);
 const addSrc = (o, s) => { if (!Array.isArray(o.sources)) o.sources = []; if (s && !o.sources.includes(s)) o.sources.push(s); };
-function absorb(x, mark, src) {   // 같은 영상이면 표시와 길이만 합치고(유효한 기존 길이를 null 로 덮지 않음), 새 영상이면 추가한다
-  const o = V.find(v => v.id === x.id), n = normLen(x);
+function absorb(x, mark, src) {   // 같은 영상이면 표시와 길이만 합치고(유효한 기존 길이를 null 로 덮지 않음), 새 영상이면 추가한다 (Map O(1) 조회로 초기 병합 300배 가속)
+  const o = _vById.get(x.id), n = normLen(x);
   if (o) { if (mark) Object.assign(o, mark); if (n.sec != null) { o.duration_sec = n.sec; o.length = n.text; } if (src === "cc_discovery" && x.published) { o.published = x.published; o.pub_actual = true; } else if (!o.published && x.published) o.published = x.published; addSrc(o, src); }   // 실제 업로드일(KST)은 화제 영상의 추정 날짜보다 우선
-  else { x.duration_sec = n.sec; x.length = n.text; if (src === "cc_discovery" && x.published) x.pub_actual = true; addSrc(x, src); V.push(x); }
+  else { x.duration_sec = n.sec; x.length = n.text; if (src === "cc_discovery" && x.published) x.pub_actual = true; addSrc(x, src); V.push(x); if (x.id) _vById.set(x.id, x); }
 }
 (window.VIRAL || []).forEach(x => absorb(x, {viral: true, buzz: x.buzz, age_text: x.age_text}, "viral"));   // 화제 영상(오래된 영상 포함)
 (window.EXPERIENCE || []).forEach(x => absorb(x, {exp: true}, "experience"));                              // 체험 영상(야구장·한복·찜질방 ...)
@@ -491,13 +493,15 @@ V.forEach(v => { const a = Object.prototype.hasOwnProperty.call(EXA, v.id) ? EXA
   if (a && !v.x_status && Array.isArray(a) && XST[a[0]]) { v.x_status = a[0]; v.x_cats = Array.isArray(a[1]) ? a[1] : []; v.x_topics = (Array.isArray(a[2]) ? a[2] : []).map(t => ({label: t[0], evidence: t[1], cat: t[2]})); } });
 // 두 분류 체계 합치기: Codex 후보의 갈래(id)와 꼭지(제목 근거)를 같은 12갈래에 합집합으로 넣는다. 갈래 순서는 양쪽이 같다
 const XCAT_IDS = ["safety", "transport", "convenience", "food", "cafe", "nightlife", "beauty", "nature", "tradition", "society", "etiquette", "popculture"];
+const _GT_ITEM_SET = new Set(GT.flatMap(g => g.items.map(i => i.name)));
+const _GTJ_ITEM_SET = new Set(GTJ.flatMap(g => g.items.map(i => i.name)));
 V.forEach(v => {
   v._xst = XST[v.x_status] ? v.x_status : "";
   if (!v._xst) return;
-  const isJp = v._subj === "일본", T = isJp ? GTJ : GT, gc = isJp ? v._jgc : v._gc, gi = isJp ? v._jgi : v._gi;
+  const isJp = v._subj === "일본", T = isJp ? GTJ : GT, itemSet = isJp ? _GTJ_ITEM_SET : _GT_ITEM_SET, gc = isJp ? v._jgc : v._gc, gi = isJp ? v._jgi : v._gi;
   if (v._subj !== "한국" && !isJp) return;
   (Array.isArray(v.x_cats) ? v.x_cats : []).forEach(id => { const g = T[XCAT_IDS.indexOf(id)]; if (g && !gc.includes(g.cat)) gc.push(g.cat); });
-  (Array.isArray(v.x_topics) ? v.x_topics : []).forEach(t => { const nm = t && t.label; if (T.some(g => g.items.some(i => i.name === nm)) && !gi.includes(nm)) gi.push(nm); });
+  (Array.isArray(v.x_topics) ? v.x_topics : []).forEach(t => { const nm = t && t.label; if (nm && itemSet.has(nm) && !gi.includes(nm)) gi.push(nm); });
 });
 // 외국인 한국 여행: 한국이 주제 + 외국인 업로드 + 여행 단어. 일본인 등 다른 나라 사람이 한국을 여행하는 영상도 외국인이므로 일본어 채널도 포함한다
 // 한국 여행은 'Korean' 같은 단어가 아니라 실제 한국 장소명이 있어야 하고, 해외 도시(Boston·Toronto 등)가 나오면 제외한다 ('해외 도시의 한국 음식' 오분류 방지)
@@ -675,10 +679,12 @@ const RX_ABROAD = {   // 다른 나라 지명이 함께 있으면 혼합 여정�
 const RX_SUBJ = {kr_ex: "한국", jp_ex: "일본", tw_ex: "대만"};
 const rxMatch = (v, k) => {
   if (v._subj !== RX_SUBJ[k]) return false;
+  if (v._rxCache && k in v._rxCache) return v._rxCache[k];
   const t = v.title || "";
   const t2 = k === "tw_ex" ? t.replace(RX_NEW_TAIPEI_RE, " ") : t;
-  if (RX_EXCL[k].test(t2) || RX_ABROAD[k].some(re => re.test(t))) return false;
-  return k === "kr_ex" ? regionsOf(v).rg.some(r => r !== "jeju") : RX_OTHER[k].test(t);
+  const res = !(RX_EXCL[k].test(t2) || RX_ABROAD[k].some(re => re.test(t))) && (k === "kr_ex" ? (v._rg ? v._rg.some(r => r !== "jeju") : regionsOf(v).rg.some(r => r !== "jeju")) : RX_OTHER[k].test(t));
+  (v._rxCache || (v._rxCache = Object.create(null)))[k] = res;
+  return res;
 };
 // </regional-exclusions>
 computeKinds();
@@ -772,7 +778,18 @@ LISTS.forEach(([k, l]) => { const b = document.createElement("button"); b.classN
 [["KR", "🔥 터진 쇼츠 (한국)"], ["JP", "🔥 터진 쇼츠 (일본)"], ["TW", "🔥 터진 쇼츠 (대만)"]].forEach(([cc, l]) => { const b = document.createElement("button"); b.className = "chip"; b.dataset.hs = cc; b.textContent = l; b.title = "Shorts 탭에서 확인된 조회수 터진 쇼츠 (길이 필터 없음)";
   b.onclick = () => { if (window.setHotCountry) window.setHotCountry(cc); setModeAll("hs"); }; listsEl.append(b); });
 window.syncHotButtons = cc => listsEl.querySelectorAll("[data-hs]").forEach(b => b.classList.toggle("on", !document.getElementById("hsview").hidden && b.dataset.hs === cc));
-const refreshListCounts = () => listsEl.querySelectorAll(".chip:not([data-hs])").forEach(b => { const n = listCount(b.dataset.k); b.querySelector("small").textContent = n; if (b.dataset.k === "alert_kr" || b.dataset.k === "alert_jp") b.hidden = !n; });   // 텔레그램 알림 영상이 없으면 그 나라 칩은 숨긴다
+const refreshListCounts = () => {
+  const m = Object.create(null); let hCnt = 0;
+  for (let i = 0; i < V.length; i++) {
+    const v = V[i]; if (v._hold) hCnt++;
+    const ls = v._lists; if (ls) for (let j = 0; j < ls.length; j++) m[ls[j]] = (m[ls[j]] || 0) + 1;
+  }
+  listsEl.querySelectorAll(".chip:not([data-hs])").forEach(b => {
+    const k = b.dataset.k, n = k === "all" ? V.length : k === "hold" ? hCnt : (m[k] || 0);
+    b.querySelector("small").textContent = n;
+    if (k === "alert_kr" || k === "alert_jp") b.hidden = !n;
+  });
+};   // 텔레그램 알림 영상이 없으면 그 나라 칩은 숨긴다
 refreshListCounts();
 mkMulti(kindsEl, Object.keys(KIND_LABEL).map(k => [k, KIND_LABEL[k], V.filter(v => v._kind === k).length]), kindSel, V.length, () => render());
 { const kt = {ref: "내가 채널 이름을 알려 준 별도 레퍼런스 채널의 영상 전부 (국뽕채널·한국 목록에 포함돼요).", foreign: "외국인이 직접 찍은 원본으로 추정되는 영상 (외국어 제목 + 일인칭·체험 표현, 한글 채널명·기관·벤치마킹 채널 아님). 확정이 아니라 추정이에요.", local: "한국인·일본인 등 현지 국뽕 채널이 편집·번역해서 소개하는 영상 — 내 채널과 비슷한 채널 (한국어 제목 등)", inst: "방송·기관·정부·공식 매체 채널 (공식 소개로 확인한 채널 ID 목록)", unk: "근거가 부족해서 아직 분류하지 못한 영상. 카드의 '분류 바꾸기'로 확정할 수 있어요."};
@@ -826,9 +843,11 @@ if (V.some(v => v._xst)) {   // 주제 검색 후보가 데이터에 있을 때�
   if (bc.size) mkMulti(document.getElementById("bmch"), [...bc].sort((a, b) => b[1].n - a[1].n).map(([id, o]) => [id, o.name, o.n]), bmSel, V.filter(v => v.bm).length, () => render()); }
 document.querySelectorAll("#rgs .chip").forEach(b => { b.title = b.dataset.k === "_any" ? "서울·부산이 아닌 지역 이름이 제목에 있는 영상 (서울·부산이 함께 나오면 '서울·부산 언급'으로 표시)" : "제목에 이 지역의 장소 이름이 있는 영상"; });
 mkMulti(document.getElementById("trvjp"), [["jp", "🇯🇵 외국인 일본 여행", V.filter(v => v._jpTrip).length]], trvSel, V.length, () => render());
-mkMulti(document.getElementById("jts"), Object.keys(JPT).map(t => [t, t, V.filter(v => v._jt.includes(t)).length]), jtSel, V.length, () => render());
+const _countArrField = fld => { const m = Object.create(null); for (let i = 0; i < V.length; i++) { const a = V[i][fld]; if (a) for (let j = 0; j < a.length; j++) m[a[j]] = (m[a[j]] || 0) + 1; } return m; };
+const _jtCnt = _countArrField("_jt"), _gcCnt = _countArrField("_gc"), _giCnt = _countArrField("_gi"), _jgcCnt = _countArrField("_jgc"), _jgiCnt = _countArrField("_jgi");
+mkMulti(document.getElementById("jts"), Object.keys(JPT).map(t => [t, t, _jtCnt[t] || 0]), jtSel, V.length, () => render());
 document.querySelectorAll("#jts .chip").forEach(b => { const t = (window.JP_TOPICS || {})[b.dataset.k]; if (t) b.title = "참고 지표: " + t.info; });
-mkMulti(document.getElementById("gts"), GT.map(g => [g.cat, g.cat, V.filter(v => v._gc.includes(g.cat)).length]), gcSel, V.filter(v => v._gc.length).length, () => render());
+mkMulti(document.getElementById("gts"), GT.map(g => [g.cat, g.cat, _gcCnt[g.cat] || 0]), gcSel, V.filter(v => v._gc.length).length, () => render());
 document.querySelectorAll("#gts .chip").forEach(b => { const g = GT.find(x => x.cat === b.dataset.k); if (g) b.title = g.note + " · 꼭지 " + g.items.length + "개"; });
 // 꼭지(세부 항목) 칩: 갈래별로 묶어서 펼쳐 보이게 한다. 하나라도 고르면 갈래 선택보다 꼭지 선택이 우선한다
 const giBox = document.getElementById("gitems");
@@ -837,14 +856,14 @@ GT.forEach(g => {
   wrap.innerHTML = `<b></b>`; wrap.firstChild.textContent = g.cat;
   g.items.forEach(i => {
     const b = document.createElement("button"); b.className = "chip"; b.dataset.k = i.name;
-    b.innerHTML = ""; b.append(i.name); const s = document.createElement("small"); s.textContent = V.filter(v => v._gi.includes(i.name)).length; b.append(s);
+    b.innerHTML = ""; b.append(i.name); const s = document.createElement("small"); s.textContent = _giCnt[i.name] || 0; b.append(s);
     b.onclick = () => { giSel.has(i.name) ? giSel.delete(i.name) : giSel.add(i.name); b.classList.toggle("on", giSel.has(i.name)); render(); };
     wrap.append(b);
   });
   giBox.append(wrap);
 });
 // 일본 버전 갈래·꼭지 칩 (한국 버전과 같은 방식)
-mkMulti(document.getElementById("jgts"), GTJ.map(g => [g.cat, g.cat, V.filter(v => v._jgc.includes(g.cat)).length]), jgcSel, V.filter(v => v._jgc.length).length, () => render());
+mkMulti(document.getElementById("jgts"), GTJ.map(g => [g.cat, g.cat, _jgcCnt[g.cat] || 0]), jgcSel, V.filter(v => v._jgc.length).length, () => render());
 document.querySelectorAll("#jgts .chip").forEach(b => { const g = GTJ.find(x => x.cat === b.dataset.k); if (g) b.title = g.note + " · 꼭지 " + g.items.length + "개"; });
 const jgBox = document.getElementById("jgitems");
 GTJ.forEach(g => {
@@ -852,7 +871,7 @@ GTJ.forEach(g => {
   wrap.innerHTML = `<b></b>`; wrap.firstChild.textContent = g.cat;
   g.items.forEach(i => {
     const b = document.createElement("button"); b.className = "chip"; b.dataset.k = i.name;
-    b.append(i.name); const s = document.createElement("small"); s.textContent = V.filter(v => v._jgi.includes(i.name)).length; b.append(s);
+    b.append(i.name); const s = document.createElement("small"); s.textContent = _jgiCnt[i.name] || 0; b.append(s);
     b.onclick = () => { jgiSel.has(i.name) ? jgiSel.delete(i.name) : jgiSel.add(i.name); b.classList.toggle("on", jgiSel.has(i.name)); render(); };
     wrap.append(b);
   });
@@ -863,14 +882,14 @@ MULTIS.push({parent: jgBox, sel: jgiSel, keys: GTJ.flatMap(g => g.items.map(i =>
 document.getElementById("jgclear").onclick = () => { jgiSel.clear(); jgSync(); render(); };
 // 맨 아래 '해당 주제 목록': 12갈래·140꼭지를 한국/일본별로 보여주고, 꼭지를 누르면 그 꼭지만 고른 상태로 위 목록을 필터한다
 function renderTopicRef(c) {
-  const T = c === "kr" ? GT : GTJ, fld = c === "kr" ? "_gi" : "_jgi", box = document.getElementById("trgroups"); box.textContent = "";
+  const T = c === "kr" ? GT : GTJ, cntMap = c === "kr" ? _giCnt : _jgiCnt, box = document.getElementById("trgroups"); box.textContent = "";
   document.querySelectorAll("#topicref .bar .chip").forEach(b => b.classList.toggle("on", b.dataset.c === c));
   T.forEach(g => {
     const d = document.createElement("div"); d.className = "tg";
     const h = document.createElement("h3"); h.textContent = g.cat + " (" + g.items.length + ")"; d.append(h);
     const p = document.createElement("p"); p.textContent = g.note || ""; d.append(p);
     const it = document.createElement("div"); it.className = "items";
-    g.items.forEach(i => { const b = document.createElement("button"); b.className = "chip"; b.append(i.name); const s = document.createElement("small"); s.textContent = V.filter(v => v[fld].includes(i.name)).length; b.append(s);
+    g.items.forEach(i => { const b = document.createElement("button"); b.className = "chip"; b.append(i.name); const s = document.createElement("small"); s.textContent = cntMap[i.name] || 0; b.append(s);
       b.onclick = () => { giSel.clear(); jgiSel.clear(); gcSel.clear(); jgcSel.clear(); (c === "kr" ? giSel : jgiSel).add(i.name);
         listSel.clear(); ls.set("lists", []);   // 주제는 한국·일본 모든 영상에서 찾는다 (선택돼 있던 다른 나라 목록 때문에 0건이 되지 않게 '전체'로 바꾼다)
         MULTIS.forEach(m => m.sync()); render(); window.scrollTo({top: 0, behavior: "smooth"}); };
@@ -926,12 +945,18 @@ document.addEventListener("DOMContentLoaded", () => {
     if (LIC_KEYS.some(k => viewSel.has(k))) mv.classList.remove("on"); else if (inVideoMode()) mv.classList.add("on");
   };
   MULTIS.push({parent: anchor.parentNode, sel: viewSel, keys: LIC_KEYS, sync});
-  const refresh = () => {   // 개수는 지금 고른 📂 목록 기준 (목록을 바꾸거나 숨김·분류 보정을 해도 render 마다 다시 센다)
-    const inL = V.filter(inList), unk = {};
-    btns.forEach(b => { b.querySelector("small").textContent = inL.filter(v => licMatch(licRec(v.id), b.dataset.k)).length; });
-    inL.forEach(v => { const w = licUnkWhy(licRec(v.id)); if (w) unk[w] = (unk[w] || 0) + 1; });
+  const refresh = () => {   // 개수는 지금 고른 📂 목록 기준 (1회 순회로 집계해 렌더링 지연 제거)
+    const inL = V.filter(inList), unk = {}, lCnt = {lic_cc: 0, lic_free: 0, lic_unk: 0}; let checkedN = 0;
+    for (let i = 0; i < inL.length; i++) {
+      const r = licRec(inL[i].id);
+      if (r && r.c) checkedN++;
+      if (r && r.l === "cc_by") lCnt.lic_cc++;
+      if (r && r.f) lCnt.lic_free++;
+      if (!r || r.l === "unknown") { lCnt.lic_unk++; const w = licUnkWhy(r); if (w) unk[w] = (unk[w] || 0) + 1; }
+    }
+    btns.forEach(b => { b.querySelector("small").textContent = lCnt[b.dataset.k] || 0; });
     const up = (VLD.updated || "").slice(0, 10), n = x => (x || 0).toLocaleString();
-    document.getElementById("licnote").textContent = (Object.keys(VL).length ? `이 목록 ${n(inL.length)}개 중 ${n(inL.filter(v => (licRec(v.id) || {}).c).length)}개의 watch 페이지를 확인${up ? " (" + up + " 갱신)" : ""}` + ` · 미확인 ${n(inL.filter(v => licMatch(licRec(v.id), "lic_unk")).length)}개 = 확인 전 ${n(unk.unchecked)} + 확인 실패 ${n(unk.failed)} + CC 표기 없음 ${n(unk.no_marker)}` + (unk.unrecognized ? ` + 알 수 없는 표기 ${n(unk.unrecognized)}` : "") : "라이선스 확인 기록이 아직 없어요 (license_watch.py 실행 전)") + " · 참고용 상태이며 재사용 허가를 보증하지 않아요. 쓰기 전에 원본 영상 페이지를 직접 확인하세요.";
+    document.getElementById("licnote").textContent = (Object.keys(VL).length ? `이 목록 ${n(inL.length)}개 중 ${n(checkedN)}개의 watch 페이지를 확인${up ? " (" + up + " 갱신)" : ""}` + ` · 미확인 ${n(lCnt.lic_unk)}개 = 확인 전 ${n(unk.unchecked)} + 확인 실패 ${n(unk.failed)} + CC 표기 없음 ${n(unk.no_marker)}` + (unk.unrecognized ? ` + 알 수 없는 표기 ${n(unk.unrecognized)}` : "") : "라이선스 확인 기록이 아직 없어요 (license_watch.py 실행 전)") + " · 참고용 상태이며 재사용 허가를 보증하지 않아요. 쓰기 전에 원본 영상 페이지를 직접 확인하세요.";
   };
   let activating = false;
   const prevMode = setMode;

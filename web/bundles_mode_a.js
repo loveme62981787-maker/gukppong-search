@@ -144,8 +144,10 @@
   let curQuery = "";
   let hideDoneInBundles = true;
   let remixSeed = 0;
-  let visibleCount = 40;
+  const BATCH_SIZE = 24;
+  let visibleCount = BATCH_SIZE;
   let cachedBundles = [];
+  const bundleResultCache = new Map();
 
   let FULL_POOL = null;
   const TW_MATCH_RE = /\btaiwan\b|taipei|kaohsiung|tainan|taichung|hualien|taitung|jiufen|shifen|alishan|sun moon lake|kenting|tamsui|danshui|ximending|shilin|raohe|yilan|taroko|台灣|臺灣|台湾|台北|高雄|台南|台中|花蓮|花莲|九份|대만|타이완|타이베이|가오슝|타이난|타이중|지우펀/i;
@@ -266,20 +268,23 @@
    * 가장 잘 맞는 테마 슬롯으로 분류합니다.
    */
   function classifySlot(v, cKey) {
+    if (v._slotCache && v._slotCache[cKey] !== undefined) return v._slotCache[cKey];
     const rules = COURSE_RULES[cKey];
     const text = ((v.title || "") + " " + (v._gi || []).join(" ") + " " + (v._jgi || []).join(" ") + " " + (v._topics || []).join(" ")).toLowerCase();
     const m1 = rules[0].re.test(text);
     const m2 = rules[1].re.test(text);
     const m3 = rules[2].re.test(text);
     const m4 = rules[3].re.test(text);
-    if (m1 && !m2 && !m3) return 1;
-    if (m2 && !m1 && !m3) return 2;
-    if (m3 && !m1 && !m2) return 3;
-    if (m1) return 1;
-    if (m2) return 2;
-    if (m3) return 3;
-    if (m4) return 4;
-    return 0; // 종합 브이로그(Day 1, Travel Vlog 등)
+    let res = 0;
+    if (m1 && !m2 && !m3) res = 1;
+    else if (m2 && !m1 && !m3) res = 2;
+    else if (m3 && !m1 && !m2) res = 3;
+    else if (m1) res = 1;
+    else if (m2) res = 2;
+    else if (m3) res = 3;
+    else if (m4) res = 4;
+    (v._slotCache || (v._slotCache = Object.create(null)))[cKey] = res;
+    return res;
   }
 
   function getCountryVideos(cKey) {
@@ -598,8 +603,14 @@
   let lastBuildResult = null;
 
   function rebuildAndRender(keepVisibleCount) {
-    if (!keepVisibleCount) visibleCount = 40;
-    lastBuildResult = buildModeABundles(curCountry);
+    if (!keepVisibleCount) visibleCount = BATCH_SIZE;
+    const cacheKey = `${curCountry}|${curSize}|${curPoolMode}|${curSort}|${remixSeed}|${curQuery}|${hideDoneInBundles}|${done.size}|${hidden.size}`;
+    if (bundleResultCache.has(cacheKey)) {
+      lastBuildResult = bundleResultCache.get(cacheKey);
+    } else {
+      lastBuildResult = buildModeABundles(curCountry);
+      bundleResultCache.set(cacheKey, lastBuildResult);
+    }
     cachedBundles = lastBuildResult.bundles;
     renderVisibleBundles();
   }
@@ -759,9 +770,14 @@
         rebuildAndRender(false);
       };
     });
+    let bdSearchTimer = null;
     document.getElementById("bdq").oninput = e => {
-      curQuery = e.target.value.trim().toLowerCase();
-      rebuildAndRender(false);
+      clearTimeout(bdSearchTimer);
+      const val = e.target.value.trim().toLowerCase();
+      bdSearchTimer = setTimeout(() => {
+        curQuery = val;
+        rebuildAndRender(false);
+      }, 140);
     };
     document.getElementById("bdsort").onchange = e => {
       curSort = e.target.value;
