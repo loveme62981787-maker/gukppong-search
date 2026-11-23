@@ -6449,18 +6449,19 @@
    "views": 1974
   },
   "iPlg9SorLug": {
-   "attempted_at": "2026-11-10T21:48:55Z",
+   "attempted_at": "2026-11-23T14:40:31Z",
    "channel": "Dee Shanell TV",
    "channel_id": "UCO11MeHgFejntXiaqFLyo_w",
    "country": "일본",
    "duration_sec": 1875,
-   "error": "blocked",
-   "fail_count": 1,
+   "error": null,
+   "fail_count": 0,
    "first_seen": "2026-11-10",
    "id": "iPlg9SorLug",
    "length": "31:15",
+   "published": "2024-10-01",
    "query": "Japan travel vlog",
-   "status": "pending",
+   "status": "verified",
    "title": "Solo in Tokyo, Japan - What It's Like Traveling Alone.",
    "views": 40857
   },
@@ -6482,16 +6483,19 @@
    "views": 422
   },
   "ibL0i9EUJws": {
+   "attempted_at": "2026-11-23T14:40:31Z",
    "channel": "Solo Travel Taiwan",
    "channel_id": "UCDY00qzWvrVgWVYFaqRmyIg",
    "country": "대만",
    "duration_sec": 350,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-01",
    "id": "ibL0i9EUJws",
    "length": "5:50",
+   "published": "2021-08-21",
    "query": "Taiwan street food",
-   "status": "pending",
+   "status": "verified",
    "title": "Taiwanese street food - oyster omelet making skills - Yanping North Road Tourist Night Market",
    "views": 195
   },
@@ -6530,44 +6534,53 @@
    "views": 1503439
   },
   "ivgUxxEIGZY": {
+   "attempted_at": "2026-11-23T14:40:32Z",
    "channel": "Justin Cosplay",
    "channel_id": "UCcCTnkWFtV4tgbAdTdWznbQ",
    "country": "일본",
    "duration_sec": 399,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-07",
    "id": "ivgUxxEIGZY",
    "length": "6:39",
+   "published": "2019-01-12",
    "query": "Japan travel vlog",
-   "status": "pending",
+   "status": "verified",
    "title": "Its always Sunny in Harajuku  || Japan Trip Ep 08",
    "views": 943
   },
   "ixorXvZQkdA": {
+   "attempted_at": "2026-11-23T14:40:32Z",
    "channel": "Marc B",
    "channel_id": "UCSlFF-vQNa6BZjCvE3Bd3eg",
    "country": "일본",
    "duration_sec": 601,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-01",
    "id": "ixorXvZQkdA",
    "length": "10:01",
+   "published": "2018-03-06",
    "query": "Osaka food tour",
-   "status": "pending",
+   "status": "verified",
    "title": "7 WTF Crazy Foods in Osaka - Japan Vlog",
    "views": 664
   },
   "j9T3BlhMcv4": {
+   "attempted_at": "2026-11-23T14:40:34Z",
    "channel": "chiyomii",
    "channel_id": "UCuggCMI9yiANNI7UU-4caLA",
    "country": "대만",
    "duration_sec": 4318,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-05",
    "id": "j9T3BlhMcv4",
    "length": "1:11:58",
+   "published": "2025-08-23",
    "query": "first time in Taiwan",
-   "status": "pending",
+   "status": "verified",
    "title": "a week in taiwan | siblings trip travel vlog ₊˚⊹ᰔ",
    "views": 337
   },
@@ -6606,60 +6619,70 @@
    "views": 117
   },
   "jcE7FOW9wGo": {
-   "attempted_at": "2026-11-12T07:12:34Z",
+   "attempted_at": "2026-11-23T14:40:34Z",
    "channel": "Udatsu Family Adventures",
    "channel_id": "UC0o35m-Q6ZtlIVjjqMj8Qlg",
    "country": "일본",
    "duration_sec": 587,
-   "error": "blocked",
-   "fail_count": 1,
+   "error": null,
+   "fail_count": 0,
    "first_seen": "2026-11-12",
    "id": "jcE7FOW9wGo",
    "length": "9:47",
+   "published": "2025-02-22",
    "query": "Kyoto trip",
-   "status": "pending",
+   "status": "verified",
    "title": "Kyoto: Great Food and Awesome Sights - Dad's Trip",
    "views": 143
   },
   "jhvET6vKXxQ": {
+   "attempted_at": "2026-11-23T14:40:35Z",
    "channel": "Princess Williams",
    "channel_id": "UCeDvIFDKN8L7fh_6fAYsKFQ",
    "country": "한국",
    "duration_sec": 708,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-02",
    "id": "jhvET6vKXxQ",
    "length": "11:48",
+   "published": "2026-07-30",
    "query": "Korea travel vlog",
-   "status": "pending",
+   "status": "verified",
    "title": "solo trippin in SEOUL??? (korea travel vlog pt. 1)",
    "views": 560
   },
   "ji6aeRq9DAE": {
+   "attempted_at": "2026-11-23T14:40:36Z",
    "channel": "mikababey",
    "channel_id": "UC4YH07tFfR--QVvizyUDwPg",
    "country": "일본",
    "duration_sec": 808,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-13",
    "id": "ji6aeRq9DAE",
    "length": "13:28",
+   "published": "2025-07-23",
    "query": "Japan travel vlog",
-   "status": "pending",
+   "status": "verified",
    "title": "japan vlog ♡ sanrio puroland & otaku shopping in ikebukuro",
    "views": 12498
   },
   "jpIFrjzUYd8": {
+   "attempted_at": "2026-11-23T14:40:37Z",
    "channel": "Foods N Products",
    "channel_id": "UCinwHCJ8QRrW7_j3_2bNybA",
    "country": "한국",
    "duration_sec": 331,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-11",
    "id": "jpIFrjzUYd8",
    "length": "5:31",
+   "published": "2023-03-12",
    "query": "Seoul street food",
-   "status": "pending",
+   "status": "verified",
    "title": "The Official Guide to Korean Street Food Video फूड वीडियो",
    "views": 28
   },
@@ -6679,58 +6702,70 @@
    "views": 913
   },
   "jsd__qHN6PU": {
+   "attempted_at": "2026-11-23T14:40:37Z",
    "channel": "Assiatique",
    "channel_id": "UC9T7QiyfRU_ogiTdcRSKYPQ",
    "country": "한국",
    "duration_sec": 1470,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-08",
    "id": "jsd__qHN6PU",
    "length": "24:30",
+   "published": "2026-04-11",
    "query": "Seoul street food",
-   "status": "pending",
+   "status": "verified",
    "title": "We try Korean street food (a disaster?)",
    "views": 58440
   },
   "jwY1KaNSQ3w": {
+   "attempted_at": "2026-11-23T14:40:38Z",
    "channel": "Isa Sung",
    "channel_id": "UCR4NgvR9eW5teo43gQrKSzA",
    "country": "대만",
    "duration_sec": 1024,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-06",
    "id": "jwY1KaNSQ3w",
    "length": "17:04",
+   "published": "2023-01-08",
    "query": "Taiwan street food",
-   "status": "pending",
+   "status": "verified",
    "title": "eating my way through taipei",
    "views": 382381
   },
   "k2HGppkXlbA": {
+   "attempted_at": "2026-11-23T14:40:38Z",
    "channel": "Tomodachi Ken in Japan",
    "channel_id": "UCNOv_i0af8z9HXQymBiaqrA",
    "country": "일본",
    "duration_sec": 1071,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-05",
    "id": "k2HGppkXlbA",
    "length": "17:51",
+   "published": "2026-06-11",
    "query": "Japan travel vlog",
-   "status": "pending",
+   "status": "verified",
    "title": "SHOPPING AT JAPAN’S BUDGET FASHION STORE 🇯🇵 SHIMAMURA TOKYO VLOG! Clothes, Haikyuu Merch & More!",
    "views": 5728
   },
   "k5CEt1XQC_I": {
+   "attempted_at": "2026-11-23T14:40:39Z",
    "channel": "Lizz",
    "channel_id": "UC4GFiS_uGf7cQEUWsPQbBWg",
    "country": "대만",
    "duration_sec": 493,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-10",
    "id": "k5CEt1XQC_I",
    "length": "8:13",
+   "published": "2019-11-12",
    "query": "Taiwan travel vlog",
-   "status": "pending",
+   "status": "verified",
    "title": "Exploring Taipei : Vacation to Taiwan (Part III)",
    "views": 80
   },
@@ -7916,6 +7951,23 @@
    "title": "Day in the Life of an English Teacher in Korea",
    "views": 25397
   },
+  "u8THz7_4gSk": {
+   "attempted_at": "2026-11-23T14:40:36Z",
+   "channel": "Chrysler Cabana",
+   "channel_id": "UCRKrDmg-NxpB_MX_Hur4R3Q",
+   "country": "대만",
+   "duration_sec": 2240,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-23",
+   "id": "u8THz7_4gSk",
+   "length": "37:20",
+   "published": "2026-04-04",
+   "query": "Taiwan travel vlog",
+   "status": "verified",
+   "title": "🇹🇼 DIY Taiwan Trip ✈️ Day 5 Houtong Cat Village, Jiufen Old Street, Ximending, Yonghe Soy Milk",
+   "views": 306
+  },
   "u8luz0XMgus": {
    "channel": "BackSideMetal Tv",
    "channel_id": "UCr7xzM2Q0iW8w6H4WsUtQ9A",
@@ -8046,6 +8098,23 @@
    "status": "pending",
    "title": "Cheap Japanese Groceries in Tokyo! Hidden Maruyasu Supermarket Tour",
    "views": 2127
+  },
+  "ulEwTPORb2E": {
+   "attempted_at": "2026-11-23T14:40:35Z",
+   "channel": "Vince Lawrence",
+   "channel_id": "UC6mFbwcdsSoCrCUbpEKredg",
+   "country": "대만",
+   "duration_sec": 921,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-23",
+   "id": "ulEwTPORb2E",
+   "length": "15:21",
+   "published": "2025-07-04",
+   "query": "Taiwan travel vlog",
+   "status": "verified",
+   "title": "Manila to Kaohsiung, Taiwan | Cebu Pacific Piso Sale | Travel Vlog",
+   "views": 1271
   },
   "v4L3wBUoMK8": {
    "attempted_at": "2026-11-11T16:11:29Z",
@@ -8659,7 +8728,7 @@
    "found": 25
   },
   "대만|Taiwan travel vlog": {
-   "at": "2026-11-20T07:17:48Z",
+   "at": "2026-11-23T14:40:29Z",
    "found": 25
   },
   "대만|Taiwan trip": {
@@ -8699,7 +8768,7 @@
    "found": 25
   },
   "일본|Tokyo street food": {
-   "at": "2026-11-20T07:17:46Z",
+   "at": "2026-11-23T14:40:27Z",
    "found": 25
   },
   "일본|first time in Japan": {
@@ -8715,7 +8784,7 @@
    "found": 25
   },
   "한국|Jeju island travel": {
-   "at": "2026-11-20T07:17:43Z",
+   "at": "2026-11-23T14:40:24Z",
    "found": 25
   },
   "한국|Korea convenience store food": {
@@ -8743,5 +8812,5 @@
    "found": 25
   }
  },
- "updated": "2026-11-23T00:54:58Z"
+ "updated": "2026-11-23T14:40:40Z"
 }
