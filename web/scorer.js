@@ -29,7 +29,7 @@
   ];
   const gradeOf = n => (GRADES.find(x => n >= x.min) || GRADES[GRADES.length - 1]).g;
   // 포인트 1개 = 외국인이 (a) 한국·일본의 구체적 장면을 직접 겪고 (b) 놀람·감탄·비교 같은 반응을 보인 것. 반응이 약하면 0.5개
-  const POINT_RULE = "외국인이 한국·일본의 구체적 장면을 직접 겪고, 놀람·감탄·비교·충격 같은 반응을 보인 것이 1개예요. 장면만 있고 반응이 약하면 0.5개, 같은 장면의 반복은 1개로 합쳐요.";
+  const POINT_RULE = "외국인이 한국·일본·대만의 구체적 장면을 직접 겪고, 놀람·감탄·비교·충격 같은 반응을 보인 것이 1개예요. 장면만 있고 반응이 약하면 0.5개, 같은 장면의 반복은 1개로 합쳐요.";
 
   // ---- 2) 국뽕 포인트 갈래 (한국 12갈래 / 일본 12갈래) ----
   const CATS = {
@@ -60,6 +60,20 @@
       {id: "otaku", name: "쇼핑·애니·게임", words: ["akihabara", "anime", "manga", "pokemon", "pokémon", "uniqlo", "don quijote", "donki", "figure", "gachapon", "arcade", "daiso", "애니", "포켓몬", "다이소"]},
       {id: "manners", name: "사람·예의·질서", words: ["queue", "line up", "orderly", "respectful", "manners", "no one crosses", "bow", "예의", "질서"]},
       {id: "price", name: "물가·가성비", words: ["cheap", "affordable", "reasonable", "so cheap", "yen", "price", "가성비", "저렴"]}
+    ],
+    tw: [
+      {id: "people_tw", name: "사람·친절·인정미(人情味)", words: ["kind", "friendly", "helpful", "warm", "welcoming", "locals", "hospitality", "generous", "gave us", "helped", "친절", "인정미", "人情味"]},
+      {id: "safety_tw", name: "안전·치안·청결", words: ["safe", "safety", "clean", "spotless", "at night", "walk alone", "no trash", "안전", "치안", "청결"]},
+      {id: "transport_tw", name: "교통·이동·이지카드(悠遊卡)", words: ["mrt", "hsr", "high speed rail", "bullet train", "easycard", "easy card", "youbike", "ubike", "metro", "train", "bus", "교통", "이지카드", "고속철", "捷運", "悠遊卡"]},
+      {id: "konbini_tw", name: "24시 편의점·생활시스템", words: ["7-eleven", "seven eleven", "familymart", "family mart", "convenience store", "receipt lottery", "garbage truck", "tea egg", "편의점", "영수증", "쓰레기차", "超商"]},
+      {id: "nightmarket_tw", name: "야시장·길거리 미식", words: ["night market", "raohe", "shilin", "ningxia", "liuhe", "fengjia", "stinky tofu", "pepper bun", "street food", "oyster omelette", "fried chicken", "야시장", "취두부", "지파이", "夜市"]},
+      {id: "breakfast_tw", name: "아침식사(早餐店)·로컬식당", words: ["breakfast", "danbing", "soy milk", "beef noodle", "luroufan", "braised pork", "xiao long bao", "dumpling", "hot pot", "hotpot", "우육면", "아침식사", "루로우판", "훠궈"]},
+      {id: "tea_fruit_tw", name: "차·카페·디저트·열대과일", words: ["boba", "bubble tea", "milk tea", "oolong", "tea", "mango", "shaved ice", "pineapple cake", "guava", "fruit", "cafe", "버블티", "망고빙수", "우롱차", "과일"]},
+      {id: "nature_tw", name: "해양·산악·자연풍경", words: ["taroko", "alishan", "sun moon lake", "kenting", "teapot mountain", "yehliu", "gorge", "ocean", "coast", "mountain", "sunrise", "hiking", "아리산", "타이루거", "컨딩", "바다"]},
+      {id: "regional_tw", name: "지방 도시·환도(環島) 매력", words: ["tainan", "kaohsiung", "taitung", "hualien", "yilan", "taichung", "jiufen", "shifen", "cycling", "round island", "타이난", "가오슝", "타이둥", "화롄", "지우펀", "환도"]},
+      {id: "culture_tw", name: "전통·종교·온천·문화유산", words: ["temple", "longshan", "palace museum", "hot spring", "beitou", "wulai", "jiaoxi", "lantern", "indigenous", "사원", "용산사", "온천", "고궁박물원", "천등"]},
+      {id: "stay_tw", name: "숙소·환대·체류연장", words: ["hotel", "homestay", "minsu", "host", "extend", "stay longer", "don't want to leave", "숙소", "민박", "호스트"]},
+      {id: "value_tw", name: "물가·가성비(高CP值)·타국 비교", words: ["cheap", "affordable", "value", "reasonable", "price", "underrated", "better than", "compared to", "가성비", "저렴"]}
     ]
   };
 
@@ -140,7 +154,7 @@
   // 간이 채점: 반환값의 모든 항목은 키워드 규칙으로 센 값이라 사람이 읽고 매긴 점수와 다를 수 있다 (참고용)
   function estimate(text, opts) {
     const o = Object.assign({ver: "kr", minutes: null}, opts || {});
-    const cats = CATS[o.ver === "jp" ? "jp" : "kr"];
+    const cats = CATS[o.ver === "jp" ? "jp" : o.ver === "tw" ? "tw" : "kr"];
     const p = prepare(text);
     const flags = [];
     const lang = languageHint(p.clean, p.words);

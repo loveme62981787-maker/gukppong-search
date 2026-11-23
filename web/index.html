@@ -298,6 +298,7 @@ textarea{width:100%;min-height:64px;resize:vertical;font-size:13px}
 <script src="calltoon.js?v=src722" onerror="window.CALLTOON=[]"></script>
 <script src="kr_news.js" onerror="window.KR_NEWS=[]"></script>
 <script src="kr_regional.js" onerror="window.KR_REGIONAL=[]"></script>
+<script src="bundles_mode_a.js" defer></script>
 <script src="longform_exp.js?v=lf1116" onerror="window.LONGFORM_EXP=[]"></script>
 <script src="hot_shorts.js?v=hs1116" onerror="window.HOT_SHORTS={channels:[],videos:[],criteria:null,countries:{KR:'한국',JP:'일본',TW:'대만'}}"></script>
 <script>
@@ -691,7 +692,7 @@ const scGrade = x => x.held ? "H" : GS.gradeOf(scTot(x));
 const SC_BY_ID = new Map(SCI.filter(x => typeof x.id === "string" && x.id).map(x => [x.id, x]));
 V.forEach(v => { v._sc = SC_BY_ID.get(v.id) || null; });
 const ce = (tag, cls, text) => { const e = document.createElement(tag); if (cls) e.className = cls; if (text != null) e.textContent = text; return e; };   // 텍스트는 항상 textContent 로 넣어 HTML 로 해석되지 않게 한다
-const SC_VER = {kr: "🇰🇷 한국판", jp: "🇯🇵 일본판"};
+const SC_VER = {kr: "🇰🇷 한국판", jp: "🇯🇵 일본판", tw: "🇹🇼 대만판"};
 const scBadge = x => x.held ? "채점 보류" : scTot(x) + "점 · " + scGrade(x) + "등급";
 function scTagEl(x) {   // 카드의 점수 배지 (마우스를 올리면 항목별 점수)
   const t = ce("span", "tag sc-" + scGrade(x), "🎯 " + (x.held ? "채점 보류" : scTot(x) + " · " + scGrade(x)) + " " + (x.ver === "jp" ? "🇯🇵" : "🇰🇷"));
@@ -1690,8 +1691,8 @@ function buildScoreRubric() {
   const s4 = ce("div", "sc-sec"); s4.append(ce("h2", "", "③ 등급"));
   const gr = ce("div", "sc-grades"); GS.GRADES.forEach(g => { const d = ce("div"); d.append(ce("b", "tag sc-" + g.g, g.g), ce("span", "", g.g === "C" ? "54점 이하" : g.min + "점 이상")); d.append(ce("div", "sc-mute", g.label)); gr.append(d); });
   s4.append(gr, ce("p", "sc-mute", "대사가 거의 없는 영상(음악·자막 비어 있음)은 점수를 내지 않고 '보류'로 둬요. 억지로 낸 점수는 의미가 없기 때문이에요."));
-  const s5 = ce("div", "sc-sec"); s5.append(ce("h2", "", "④ 국뽕 포인트 갈래 (한국 12갈래 · 일본 12갈래)"));
-  [["kr", "🇰🇷 한국판"], ["jp", "🇯🇵 일본판"]].forEach(([k, l]) => { s5.append(ce("h3", "", l)); const w = ce("div", "tags"); GS.CATS[k].forEach(c => w.append(ce("span", "tag", c.name))); s5.append(w); });
+  const s5 = ce("div", "sc-sec"); s5.append(ce("h2", "", "④ 나라별 감탄 포인트 정식 12갈래 (한국 12갈래 · 일본 12갈래 · 대만 12갈래 — 점수판정기준_Argon용.md 기준)"));
+  [["kr", "🇰🇷 한국판 (@코리아탐방록 · a25a1307)"], ["jp", "🇯🇵 일본판 (@ニッポン反応ラボ · b7f5aa8d)"], ["tw", "🇹🇼 대만판 (@世界讚台灣 · 1c939cde)"]].forEach(([k, l]) => { if (!GS.CATS[k]) return; s5.append(ce("h3", "", l)); const w = ce("div", "tags"); GS.CATS[k].forEach(c => w.append(ce("span", "tag", c.name))); s5.append(w); });
   const s6 = ce("div", "sc-sec"); s6.append(ce("h2", "", "⑤ 채점 방법과 지켜야 할 원칙"));
   const ol = ce("ol"); ["스크립트를 Claude에 붙여넣으면 한국판(gukppong-score-kr) 또는 일본판(gukppong-score-jp) 스킬이 점수·포인트 목록·핵심 반전·쓰기 좋은/빼는 부분을 알려줘요.",
     "결과를 web/scores.js 에 한 줄 추가하면 이 사이트의 영상 카드(영상 ID가 같을 때)와 '채점 기록'에 반영돼요.",
@@ -1706,7 +1707,7 @@ function renderScoreLog() {
   const done = SCI.filter(x => !x.held), held = SCI.filter(x => x.held), avg = a => a.length ? Math.round(a.reduce((s, x) => s + scTot(x), 0) / a.length) : "-";
   const st = ce("div", "sc-sec"); st.append(ce("h2", "", "🏆 채점 기록"));
   const stat = ce("div", "sc-stat");
-  [["채점 완료", done.length + "개"], ["🇰🇷 한국판 평균", avg(done.filter(x => x.ver === "kr")) + "점 (" + done.filter(x => x.ver === "kr").length + "개)"], ["🇯🇵 일본판 평균", avg(done.filter(x => x.ver === "jp")) + "점 (" + done.filter(x => x.ver === "jp").length + "개)"], ["보류", held.length + "개"]].forEach(([k, v]) => { const d = ce("div"); d.append(k + " ", ce("b", "", v)); stat.append(d); });
+  [["채점 완료", done.length + "개"], ["🇰🇷 한국판 평균", avg(done.filter(x => x.ver === "kr")) + "점 (" + done.filter(x => x.ver === "kr").length + "개)"], ["🇯🇵 일본판 평균", avg(done.filter(x => x.ver === "jp")) + "점 (" + done.filter(x => x.ver === "jp").length + "개)"], ["🇹🇼 대만판 평균", avg(done.filter(x => x.ver === "tw")) + "점 (" + done.filter(x => x.ver === "tw").length + "개)"], ["보류", held.length + "개"]].forEach(([k, v]) => { const d = ce("div"); d.append(k + " ", ce("b", "", v)); stat.append(d); });
   st.append(stat);
   const bins = [["S", "S 85+"], ["A", "A 70~84"], ["B", "B 55~69"], ["C", "C ~54"]], cnt = Object.fromEntries(bins.map(([g]) => [g, done.filter(x => scGrade(x) === g).length])), mx = Math.max(1, ...Object.values(cnt));
   const hist = ce("div", "sc-hist"); bins.forEach(([g, l]) => { const c = ce("div"), i = ce("i"); i.style.height = Math.round(cnt[g] / mx * 52) + "px"; c.append(i, ce("div", "", l + " · " + cnt[g])); hist.append(c); });
@@ -1715,7 +1716,7 @@ function renderScoreLog() {
   // 필터·정렬
   const bar = ce("div", "bar"); bar.style.padding = "0";
   const chips = (arr, key) => arr.forEach(([k, l]) => { const b = ce("button", "chip" + (scLog[key] === k ? " on" : ""), l); b.onclick = () => { scLog[key] = k; renderScoreLog(); }; bar.append(b); });
-  chips([["all", "전체"], ["kr", "🇰🇷 한국판"], ["jp", "🇯🇵 일본판"]], "ver"); bar.append(ce("span", "sc-mute", "·"));
+  chips([["all", "전체"], ["kr", "🇰🇷 한국판"], ["jp", "🇯🇵 일본판"], ["tw", "🇹🇼 대만판"]], "ver"); bar.append(ce("span", "sc-mute", "·"));
   chips([["all", "모든 등급"], ["A", "A 이상 (70+)"], ["B", "B"], ["C", "C"]], "grade");
   const sel = ce("select"); [["score", "점수 높은 순"], ["points", "포인트 많은 순"], ["min", "긴 영상 순"], ["new", "기록 최신 순"]].forEach(([k, l]) => { const o = ce("option", "", l); o.value = k; sel.append(o); }); sel.value = scLog.sort; sel.onchange = () => { scLog.sort = sel.value; renderScoreLog(); }; bar.append(sel);
   const lab = ce("label", "sc-mute"), cb = ce("input"); lab.style.cssText = "display:inline-flex;gap:6px;align-items:center;white-space:nowrap"; cb.type = "checkbox"; cb.checked = scLog.held; cb.style.cssText = "flex:none;min-width:0;width:16px;padding:0"; cb.onchange = () => { scLog.held = cb.checked; renderScoreLog(); }; lab.append(cb, " 보류 포함"); bar.append(lab);
@@ -1740,7 +1741,7 @@ function buildScoreTool() {
   s.append(ce("p", "", "유튜브 스크립트를 붙여넣으면 감탄어·국뽕 갈래 키워드를 규칙으로 세서 예비 점수를 내요. 브라우저 안에서만 계산하고 어디로도 보내지 않아요."));
   const w = ce("div", "sc-warn"); w.append(ce("b", "", "⚠ 정확하지 않아요. "), "키워드로 센 값이라 사람이 읽고 매긴 점수와 ±10점 이상 다를 수 있어요. 영어 스크립트에 가장 잘 맞고, 다른 언어는 정확도가 많이 낮아요. 반전·희소성은 특히 거칠게 추정해요. 점수가 애매하거나 실제로 쓸 영상이면 Claude 스킬로 정밀 채점하세요.");
   const ta = ce("textarea"); ta.id = "sc-text"; ta.placeholder = "여기에 유튜브 스크립트(자막)를 붙여넣어 주세요";
-  const row = ce("div", "sc-tool-row"), ver = ce("select"); [["kr", "🇰🇷 한국판"], ["jp", "🇯🇵 일본판"]].forEach(([k, l]) => { const o = ce("option", "", l); o.value = k; ver.append(o); });
+  const row = ce("div", "sc-tool-row"), ver = ce("select"); [["kr", "🇰🇷 한국판"], ["jp", "🇯🇵 일본판"], ["tw", "🇹🇼 대만판"]].forEach(([k, l]) => { const o = ce("option", "", l); o.value = k; ver.append(o); });
   const mins = ce("input"); mins.type = "number"; mins.min = "1"; mins.placeholder = "영상 길이(분, 모르면 비워 두세요)"; mins.style.maxWidth = "240px";
   const go = ce("button", "chip on", "점수 계산"), clr = ce("button", "chip", "지우기");
   const out = ce("div"); out.id = "sc-out";
