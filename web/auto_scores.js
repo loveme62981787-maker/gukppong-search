@@ -74,22 +74,9 @@ document.addEventListener('DOMContentLoaded', () => {
   const panel = ce('section', 'sc-wrap'); panel.id = 'my-score-view'; panel.hidden = true;
   document.getElementById('scview').after(panel);
   const style = ce('style');
-  style.textContent = '#scgrp{display:none!important} #my-score-view[hidden]{display:none} #my-score-view .grid{padding:0;margin:16px 0} #my-score-view .bar{padding:0;margin:10px 0} #my-score-view .my-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px} #my-score-view .my-card{padding:12px} #my-score-view .my-card>a{color:var(--ink);text-decoration:none} #my-score-view .my-card h3{font-size:15px;line-height:1.5;margin:10px 0}';
+  style.textContent = '#my-score-view[hidden]{display:none} #my-score-view .grid{padding:0;margin:16px 0} #my-score-view .bar{padding:0;margin:10px 0} #my-score-view .my-thumb{width:100%;aspect-ratio:16/9;object-fit:cover;border-radius:10px} #my-score-view .my-card{padding:12px} #my-score-view .my-card>a{color:var(--ink);text-decoration:none} #my-score-view .my-card h3{font-size:15px;line-height:1.5;margin:10px 0}';
   document.head.append(style);
-  // 제목·조회수로 추정한 등급은 표시하지 않는다. 기존 선택도 해제한다.
-  document.getElementById('grd')?.closest('.qg')?.setAttribute('hidden', '');
-  for (const detail of document.querySelectorAll('details.vmode')) {
-    if (detail.querySelector('summary')?.textContent.includes('등급은')) detail.hidden = true;
-  }
-  style.textContent += ' .qg[hidden],details.vmode[hidden],.tag.grade-S,.tag.grade-A,.tag.grade-B{display:none!important}';
-  grdSel.clear(); scGSel.clear(); scVSel.clear(); MULTIS.forEach(m => m.sync());
-  for (const option of document.querySelectorAll('select option')) {
-    if (option.textContent.includes('검토 우선순위(점수)')) {
-      const select = option.parentElement;
-      if (option.selected) select.selectedIndex = 0;
-      option.remove();
-    }
-  }
+  // 모든 영상 카드에 점수(🎯 자막채점 + 🏆 메타/알고리즘 점수)와 등급 필터·점수순 정렬을 표시한다.
   const state = {lists:new Set(listSel), grade:'scored', query:'', sort:'score'};
   let active = false;
   const poolFor = () => V.filter(v => !hidden.has(v.id) && (!state.lists.size || [...state.lists].some(k => k === 'hold' ? v._hold : v._lists.includes(k))));
