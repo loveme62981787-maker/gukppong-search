@@ -12,6 +12,7 @@
 사용: python prepare_pages.py [--src web] [--out _site] [--dry-run] [--report 파일.json]
 """
 import argparse
+import channel_exclusions as channel_block
 import json
 import math
 import re
@@ -168,6 +169,9 @@ def prepare(src, out, dry_run=False):
         for name, _, spans, _ in scan_js_text(texts[f])[0]:
             arrays.setdefault(name, []).extend(v for _, _, v in spans)
     excluded, conflict = compute_excluded(arrays)
+    block_path = src.parent / "channel_exclusions.json"
+    block_config = json.loads(block_path.read_text("utf-8")) if block_path.exists() else {}
+    block_ids = channel_block.blocked_ids((f.read_text("utf-8") for f in src.rglob("*.js")), block_config) if block_config else set()
     report = {"min_sec_excl": MID_MIN_EXCL, "max_sec_incl": MID_MAX_INCL, "files": {}, "skipped_vars": {}, "parse_errors": [],
               "conflict_preserved_ids": sorted(conflict)}
     all_ids, total_before, total_after = set(), 0, 0
@@ -191,7 +195,12 @@ def prepare(src, out, dry_run=False):
                                             "kept_records": kept, "bytes_before": len(raw), "bytes_after": len(new_raw)}
                     if not dry_run:
                         (out / rel).write_bytes(new_raw)
+        if block_config:
+            new_raw = channel_block.filter_text(new_raw.decode("utf-8"), block_config, block_ids).encode("utf-8")
+            if not dry_run and new_raw != raw:
+                (out / rel).write_bytes(new_raw)
         total_after += len(new_raw)
+    report["channel_blocked_ids"] = sorted(block_ids)
     report["removed_unique_ids"] = len(all_ids)
     report["removed_ids"] = sorted(all_ids)
     report["bytes_before"] = total_before

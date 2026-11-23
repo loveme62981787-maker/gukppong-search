@@ -12,7 +12,7 @@ on:
         default: "400"
   push:
     branches: [main]
-    paths: ["web/hot_shorts.js", "web/hot_shorts_view.js", "web/index.html", "web/reference.js", "web/benchmark.js", "web/taiwan_exp.js", "web/alerts.js", "alerts/**", "web/videos.js", "web/global_topics_jp.js", "web/topic_candidates.js", "web/experience_assignments.js", "web/scorer.js", "web/scores.js", "web/auto_scores.js", "web/video_licenses.js", "data/video_licenses.json", "web/cc_videos.js", "data/cc_candidates.json", ".github/workflows/update.yml"]   # 화면만 고쳤을 때는 수집 없이 바로 배포
+    paths: ["channel_exclusions.json", "channel_exclusions.py", "prepare_pages.py", "web/hot_shorts.js", "web/hot_shorts_view.js", "web/index.html", "web/reference.js", "web/benchmark.js", "web/taiwan_exp.js", "web/alerts.js", "alerts/**", "web/videos.js", "web/global_topics_jp.js", "web/topic_candidates.js", "web/experience_assignments.js", "web/scorer.js", "web/scores.js", "web/auto_scores.js", "web/video_licenses.js", "data/video_licenses.json", "web/cc_videos.js", "data/cc_candidates.json", ".github/workflows/update.yml"]   # 화면만 고쳤을 때는 수집 없이 바로 배포
 
 permissions:
   contents: write

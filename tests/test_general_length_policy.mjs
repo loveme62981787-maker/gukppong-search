@@ -8,7 +8,7 @@ import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
 
 // index.html 의 일반 목록 길이 정책(10분 이하 롱폼 제외)을 실제 코드 그대로 꺼내 실행한다
-const html = fs.readFileSync(new URL('../web/index.html', import.meta.url), 'utf8');
+const html = fs.readFileSync(new URL('../web/index.html', import.meta.url), 'utf8').replace(/\r\n/g, '\n');
 const m = /const GENERAL_LONG_MIN_SEC = 601;\n(for \(let i = V\.length[^\n]*\n)/.exec(html);
 
 test('일반 목록은 181~600초만 빼고 숏폼·길이 미확인·601초+ 는 유지한다', () => {
@@ -47,9 +47,10 @@ function mergedIds(dir) {
 test('로컬 V 와 배포 V 의 ID 집합이 같다', () => {
   const src = fileURLToPath(new URL('../web', import.meta.url));
   const out = fs.mkdtempSync(path.join(os.tmpdir(), 'pp-')) + path.sep + '_site';
-  const r = spawnSync('python', ['prepare_pages.py', '--src', src, '--out', out], {cwd: fileURLToPath(new URL('..', import.meta.url)), encoding: 'utf8'});
+  const r = spawnSync('python', ['prepare_pages.py', '--src', src, '--out', out, '--report', out + '.report.json'], {cwd: fileURLToPath(new URL('..', import.meta.url)), encoding: 'utf8'});
   assert.equal(r.status, 0, r.stderr);
   const local = mergedIds(src), dep = mergedIds(out);
   assert.ok(local.size > 1000, 'V 가 비어 있음');
-  assert.deepEqual([...dep].sort(), [...local].sort());
+  const blocked = new Set(JSON.parse(fs.readFileSync(out + '.report.json', 'utf8')).channel_blocked_ids || []);
+  assert.deepEqual([...dep].sort(), [...local].filter(id => !blocked.has(id)).sort());
 });
