@@ -1,10 +1,10 @@
 {
  "schema": 1,
- "updated": "2026-11-25",
+ "updated": "2026-11-26",
  "cursor": {
-  "KR": 8,
-  "JP": 8,
-  "TW": 8
+  "KR": 0,
+  "JP": 0,
+  "TW": 0
  },
  "items": {
   "dymrsnOOCps": {
@@ -8795,7 +8795,92 @@
    "lf_country": "TW",
    "lf_basis": "ko_region",
    "lf_query": "단수이 지우펀 대만 여행 브이로그"
+  },
+  "ylhmQFGIsxY": {
+   "id": "ylhmQFGIsxY",
+   "title": "【蓁享趣釣蝦】EP.04 外國人體驗台灣釣蝦文化 竟把六兩大公蝦請出池子｜采蓁 Patti FT.馮韋元",
+   "channel": "iampatti采蓁（Patti Huang）",
+   "channel_id": "UCEZXqUh6hHaNYwgxZzPnm6A",
+   "subs": null,
+   "views": 33006,
+   "country": "대만",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 936,
+   "published": "2019-10-04",
+   "first_seen": "2026-11-26",
+   "lf_country": "TW",
+   "lf_basis": "foreign_title",
+   "lf_query": "外國人 韓國 旅行 體驗"
+  },
+  "-lxLQwy6G0E": {
+   "id": "-lxLQwy6G0E",
+   "title": "【海外の反応】「こんなイカれた日本人、初めて見た」四国の山奥の食堂で店の女性に指をさされた米国人自転車夫婦が顔を見合わせた理由",
+   "channel": "ダルマ号外",
+   "channel_id": "UCl0cuf2B_eEanRdNw4AGmfA",
+   "subs": null,
+   "views": 127156,
+   "country": "일본",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 879,
+   "published": "2026-11-18",
+   "first_seen": "2026-11-26",
+   "lf_country": "JP",
+   "lf_basis": "foreign_title",
+   "lf_query": "海外の反応 日本 旅行"
+  },
+  "Z2FJmqnLXsg": {
+   "id": "Z2FJmqnLXsg",
+   "title": "【海外の反応】「なぜ世界中の外国人が日本に行きたがるのか？」15カ国の旅行者データから判明した驚きの事実とは…外国人観光客の本音がこちら",
+   "channel": "世界が認めた日本文化【海外の反応】",
+   "channel_id": "UCwAXhNSQtE512aXWa0-r1Vw",
+   "subs": null,
+   "views": 312299,
+   "country": "일본",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 1253,
+   "published": "2026-04-17",
+   "first_seen": "2026-11-26",
+   "lf_country": "JP",
+   "lf_basis": "foreign_title",
+   "lf_query": "日本 旅行 外國人 體驗"
+  },
+  "0yAzG6keZyw": {
+   "id": "0yAzG6keZyw",
+   "title": "일본 하코네 가족여행 #01 🚙 XIV 엑시브 료칸 호캉스 | 도쿄 육아맘의 일상",
+   "channel": "LunLuns",
+   "channel_id": "UC6lNIbU1SSA9YjveOx9a_oA",
+   "subs": null,
+   "views": 658783,
+   "country": "일본",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 1125,
+   "published": "2020-07-30",
+   "first_seen": "2026-11-26",
+   "lf_country": "JP",
+   "lf_basis": "ko_region",
+   "lf_query": "일본 소도시 현지 체험 일상"
+  },
+  "atF9eC88L5Y": {
+   "id": "atF9eC88L5Y",
+   "title": "帶外國人首次過年！南投夜市讓他傻眼...",
+   "channel": "Dinner Lin",
+   "channel_id": "UCuvTW_fQ21lbSlLWemlHcig",
+   "subs": null,
+   "views": 40876,
+   "country": "대만",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 2730,
+   "published": "2026-09-18",
+   "first_seen": "2026-11-26",
+   "lf_country": "TW",
+   "lf_basis": "foreign_title",
+   "lf_query": "台灣 外國人 人情味 小吃"
   }
  },
- "collected_at": "2026-11-25T10:24:01Z"
+ "collected_at": "2026-11-25T22:42:10Z"
 }
