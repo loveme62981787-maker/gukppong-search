@@ -1,63 +1,87 @@
 {
-  "updated": "2026-11-25 05:06",
+  "updated": "2026-11-25 13:47",
   "items": [
     {
-      "id": "gn_4883810565",
+      "id": "gn_2694657665",
       "category": "economy",
-      "title": "국민연금 수급개시 연령 68세로 연장?",
-      "summary": "대한민국 정책브리핑 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE5pTFVoV3MwOFBtb1JrWGRWREc3QjhXYi1WcmM1eDA2Snk3enFQcW95WndQcGgzcVlueEJxLVdBVzc0dnlOUmxTaEhNWVhWLUhPNHRWY3lxVmpReWJRTzJBQlZaTk0?oc=5",
+      "title": "국민연금 65세→68세 연장설에… 정은경 \"검토 안 해\" |",
+      "summary": "대전일보 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMic0FVX3lxTE5HOUVISUd2aTdCOHNpeWhTYUFSOUZ2V01sQThLbmxEaDBLY0hONTRBWE5GNVVwN0JpdHUtdlZ0eUFtZUxOVlVoN2xfVFdvdUQ5OXlTN09NdUJtd3VqRjczY3FROXFOUXNiU1FmVlRBakdkSGs?oc=5",
       "thumb": "",
-      "source": "대한민국 정책브리핑",
+      "source": "대전일보",
+      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
+      "published": "2026-11-25",
+      "badges": [
+        "65세",
+        "68세"
+      ],
+      "score": 98,
+      "hook": "국민연금 65세→68세 연장설에… 정은경 \"검토 [65세]"
+    },
+    {
+      "id": "gn_7134180854",
+      "category": "economy",
+      "title": "삼성전자 1억 넣으면 3700만원 vs 1억5300만원…‘7만원·29만원 전망’ 뜯어보니 [숫자 뒤의 진실]",
+      "summary": "세계일보 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMiUEFVX3lxTE92N3Y4UVNBV29KeVp0UGRNdWthRWhCU1ZOcEZjRTFTSmVVUmJDVmxlWlJMSm92NDhUVktKalM5eW0xTlZiRUpIWUw2V2N3dDBt0gFUQVVfeXFMT20xOXRBdlA5UzBxYnNlQ2VqMFZrNjJQTUdudWxWQzkwTUZBc3huWHFvb1pUcWtmMlVuWGs5TVkwVXA1dy1XdnoyT29EUHM1YjB5dXda?oc=5",
+      "thumb": "",
+      "source": "세계일보",
       "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
       "published": "2026-11-24",
       "badges": [
-        "68세"
+        "3700만원",
+        "5300만원",
+        "7만원",
+        "29만원"
       ],
-      "score": 99,
-      "hook": "국민연금 수급개시 연령 68세로 연장? [68세]"
-    },
-    {
-      "id": "gn_1375352114",
-      "category": "economy",
-      "title": "기초연금 개편안, 하후상박 아니라 자승자박이다 [왜냐면]",
-      "summary": "한겨레 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE0tRFZTc0xTN2JyQjdReFFpbGNCRExSajRhNHRPZWRqb1VRclgyUFBYY2p1SU1nUW1KLVNZUzUxdURtaEZFVDVCd2VBVWRHVWRzYW9ZeVdRUy1Hb1l5VHJpWi1KbVltU00?oc=5",
-      "thumb": "",
-      "source": "한겨레",
-      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-24",
-      "badges": [],
-      "score": 99,
-      "hook": "기초연금 개편안, 하후상박 아니라 자승자박이다"
-    },
-    {
-      "id": "gn_1642631779",
-      "category": "economy",
-      "title": "참여연대 “기초연금 졸속 개편 안 돼”…노후보장 원칙부터 다시 세워야",
-      "summary": "한국NGO신문 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE95SWhKWmxuYzBBc1dyaGN5cHdQbDFEeFE1QmFIWXdxcnZjSlJLUFhzem1oM01RWUlrMU5vQ0xmbWdZaVB5d1h2YlEyaklIX2hzM1lrZWdBVE5wblF5QTY3Y0toY2lhc3dy?oc=5",
-      "thumb": "",
-      "source": "한국NGO신문",
-      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-24",
-      "badges": [],
-      "score": 94,
-      "hook": "참여연대 “기초연금 졸속 개편 안 돼”…노후보장"
-    },
-    {
-      "id": "gn_9097158012",
-      "category": "economy",
-      "title": "국민연금 중국 손에 넘어갈 수 있다?…이지스자산운용 매각의 진실은",
-      "summary": "주간경향 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiXkFVX3lxTE93Rl92eTNvbjdKT2VtaUZfZzJ0WHZYSXZLaWFUSVQ2enROT3JleVlYbkhmOW5vREpjODRzdy1wUkRUY25rZkltZlk3dERmd3FpWk10Q2NEeE1yRHZaR2c?oc=5",
-      "thumb": "",
-      "source": "주간경향",
-      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-24",
-      "badges": [],
       "score": 90,
-      "hook": "국민연금 중국 손에 넘어갈 수 있다?…이지스자산"
+      "hook": "삼성전자 1억 넣으면 3700만원 vs 1억53 [3700만원]"
+    },
+    {
+      "id": "gn_1465547420",
+      "category": "economy",
+      "title": "국민연금공단 \"유족연금 50% 상향, 사회적 합의 선행돼야\"",
+      "summary": "YTN 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMidkFVX3lxTFB0UW9PNC1ia2c4TEpqZEQ5cFQ5X0dVUVh3VlRkSVc4S1pVOU5NTUVKMEQ5X3ViS1pMSElseEZCRDBkSW9PTWRJYWlLdzVUSF82ZldJMXBmQUdHdElvS1o1aWRKcmtxcE5FaDhRWG4zOVZtdllsS0E?oc=5",
+      "thumb": "",
+      "source": "YTN",
+      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
+      "published": "2026-11-25",
+      "badges": [
+        "50%"
+      ],
+      "score": 89,
+      "hook": "국민연금공단 \"유족연금 50% 상향, 사회적 합 [50%]"
+    },
+    {
+      "id": "gn_3811654802",
+      "category": "economy",
+      "title": "국민연금공단, 유족연금 중복지급률 50% 상향에 ’신중론’",
+      "summary": "연합뉴스TV 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMiZ0FVX3lxTE9FOWpwMldLcEZNM1NCTXJOWkpTZ2EzU0NYblRiX3hnMEpLNkFURjdqRXZPUTN3M05RaDIyeC10NFh3ZkRLREtKMlJoRW00dElEX2poU1lzb1BFRVQ5NDNCOERNQS1yNnc?oc=5",
+      "thumb": "",
+      "source": "연합뉴스TV",
+      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
+      "published": "2026-11-24",
+      "badges": [
+        "50%"
+      ],
+      "score": 89,
+      "hook": "국민연금공단, 유족연금 중복지급률 50% 상향에 [50%]"
+    },
+    {
+      "id": "gn_6087471523",
+      "category": "economy",
+      "title": "많은 사람들이 좋아했던 아이폰 미니를 애플이 왜 생산 중단했을까요? | 폰그램 - آي",
+      "summary": "آي-فون إسلام 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMixwFBVV95cUxNeFZOV05pdFJ3OVdhcGxFdFVwQmVJVkNCRG04UHVJenBuS2c2ZUFZdlJubW1KU0FjWWQ5d0V4ZmNzVnl4eHdFTmRWTkt6bktNWndwZ1NtOGJydWlXZFp5bkdBcWthbFBadmVpcDl3alR4NWRBNXphb2RuTUhSOFhtaGZVbGZ2YWtNSzFPcG1oS3ZQa0h6NHQ5RFo3OGVVR2NTeXdxOERpMGdhaUdTWGdwR3A1bURxMDR4RktCUmtENjMtcmw1Tkdj?oc=5",
+      "thumb": "",
+      "source": "آي-فون إسلام",
+      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
+      "published": "2026-11-23",
+      "badges": [],
+      "score": 82,
+      "hook": "많은 사람들이 좋아했던 아이폰 미니를 애플이 왜"
     },
     {
       "id": "kogl_148976090",
@@ -79,7 +103,7 @@
       "hook": "한국 수출 사상 첫 '1조 달러' 돌파…독·미· [1964년]"
     },
     {
-      "id": "gn_3325919984",
+      "id": "gn_5225049901",
       "category": "economy",
       "title": "메모리값 폭등에 저가폰도 '비상'…삼성 갤럭시A 20% 감산 추진",
       "summary": "더퍼블릭 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -95,66 +119,77 @@
       "hook": "메모리값 폭등에 저가폰도 '비상'…삼성 갤럭시A [20%]"
     },
     {
-      "id": "gn_1310848271",
+      "id": "gn_7905721758",
       "category": "economy",
-      "title": "국민연금 '첫달 납부금'의 비밀 [한경 프리미엄9 TODAY]",
+      "title": "한투운용, 전주사무소 개소…\"국민연금과 협력 강화 기대\"",
       "summary": "한국경제 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE1xYXd4d2stOEhMT1V5R0JmTWVhTGhZX0JzQlRGR19FLWZTd2F5RV96UWZIcjZiaXhQVUNpOFBiVm9MU09hTUJhZkhhVFp6Z01ZcWsyOGF5Zzg5Zw?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiWkFVX3lxTE03TzItcFBCTjZIdGtVVVU4UVo3bkcwd1hwRzdGVDE2R0xlZmJ3NWpTRENvUU9VTGRneDRIYmNCcURxdWVORHo5dXJSMFhFcFBjSlUtakFMQVNrZw?oc=5",
       "thumb": "",
       "source": "한국경제",
       "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-24",
+      "published": "2026-11-25",
       "badges": [],
       "score": 80,
-      "hook": "국민연금 '첫달 납부금'의 비밀"
+      "hook": "한투운용, 전주사무소 개소…\"국민연금과 협력 강"
     },
     {
-      "id": "gn_8728397431",
+      "id": "gn_5989399986",
       "category": "economy",
-      "title": "KCGI자산운용, 전주사무소 개소… 국민연금과 소통 강화 - 머니투데이",
-      "summary": "머니투데이 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE81UEc2ZTlkX0dOM3BxUHNHTzBscTk5aTJkcTNNWEl1TXhSNVdvbXRaTXZMeVBzOHdPX3hCbnhFcExWRVAtdUpVTGd3ZmRHOWlpN1Yyc2JweVBQTkYzQjVEVnNFTi1sQm5x0gFuQVVfeXFMTVlUOTZnN1Vuel9uTXBHdC03NUx1OEhVQ1Z4LTFhcmxGVU5OVVd0eU1INHd5NU5MekM1Q1NmZmZTRFRZMlJvWE8tX0h4d195dkRYLVVfZ3phbm9UWjUwTnNBdWw1Rm9qVzFTU1ZjdUE?oc=5",
+      "title": "한투·KCGI 자산운용, 전주사무소 열고 국민연금과 협력 강화",
+      "summary": "매일경제 마켓 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMiUkFVX3lxTFBFMnNqN3ppcDZTb25mNmRJeHhPcnNQeTU0UjZGSFU5UmVLLVZORHVLSWtKYjlWVGRyTFBmSDJfclNWR2lhWGxLRmxMTHkyZnY5b0E?oc=5",
       "thumb": "",
-      "source": "머니투데이",
+      "source": "매일경제 마켓",
       "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-24",
+      "published": "2026-11-25",
       "badges": [],
       "score": 80,
-      "hook": "KCGI자산운용, 전주사무소 개소… 국민연금과 "
+      "hook": "한투·KCGI 자산운용, 전주사무소 열고 국민연"
     },
     {
-      "id": "gn_9002836206",
+      "id": "gn_8196319437",
       "category": "economy",
-      "title": "영암군, 기초연금 사각지대 해소 노력 인정받아 장관 표창",
+      "title": "한투운용, 전주사무소 개소…국민연금과 협력 강화",
       "summary": "매일일보 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE4wVlZ4WWRrcDVkSHdGZ3hsSVNXS3NrVXB5SU03NGg0SkVQenR3ZGN3ejdHTjUwdUZSdzloQkdKRktmM1M1NVV2ZF9fd3l1LUpndWlnVVhhRWlBQUM1V3RZeEg3Rlc?oc=5",
+      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE1BUkxxR0Q0UzJuazBMOG1PQjFWVFZOTUstTEFwTnY0SlpWeUtTQTgwVXk1TU9zVHJBVHQtQzlhSHJTVWZreFdXRVZUY2d3aldWY2xzaXAzSThPNGlNWjBaRUhlbGo?oc=5",
       "thumb": "",
       "source": "매일일보",
       "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-24",
+      "published": "2026-11-25",
       "badges": [],
       "score": 80,
-      "hook": "영암군, 기초연금 사각지대 해소 노력 인정받아 "
+      "hook": "한투운용, 전주사무소 개소…국민연금과 협력 강화"
     },
     {
-      "id": "kogl_148976350",
-      "category": "kogl1",
-      "title": "수능 부정행위 신고 포상금, 최대 5억 원 지급",
-      "summary": "■ 수능 부정행위 신고 포상금- 건당 최소 1억 원 이상 최대 5억 원 지급 ※ 「공익신고자 보호법 시행령」 제25조의3에 따라 5억 원까지 포상금 지급 가능 · 신고로 적발된 부",
-      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148976350",
-      "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/24/c93ad75620193264becaa35aab7fd5d9.jpg",
-      "source": "대한민국 정책브리핑",
-      "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
-      "published": "2026-11-20",
-      "badges": [
-        "5억 원",
-        "1억 원"
-      ],
-      "score": 75,
-      "hook": "수능 부정행위 신고 포상금, 최대 5억 원 지급 [5억 원]"
+      "id": "gn_4599442603",
+      "category": "economy",
+      "title": "[기자수첩]\"국민연금처럼 되지 말자\"…일본도 경계한 '연못 속 고래'",
+      "summary": "뉴시스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1QOFROQnFnWG1sVHRobnVaZGlJdnBBTlR6RWlUZmxLaC0yamhUN19Wa096N3k2Y1lacExXOWdmTXN3WTE0dTFPSldWdGdwZkl5MEQzYWhzTnZ3dFRBOWROTtIBeEFVX3lxTE8yYXhMUERXRnN6RG1ncGJzN2x2SzY2YmFLb1ZGdkVUNk93RDZ3MHk5Zmt4aDZnSVRNTDA4SzJaeVp1a2l2eXlzdjd0UW1SWnZMVHBLT2RKal95YVRscW5jUEh2Q1ZmQlpZWnNRMWpRNWFhRGVEc3NDNw?oc=5",
+      "thumb": "",
+      "source": "뉴시스",
+      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
+      "published": "2026-11-25",
+      "badges": [],
+      "score": 80,
+      "hook": "\"국민연금처럼 되지 말자\"…일본도 경계한 '연못"
     },
     {
-      "id": "gn_8534477683",
+      "id": "gn_5512014564",
+      "category": "economy",
+      "title": "D램값 폭등에 삼성·애플도 출하 목표 줄였다⋯글로벌 스마트폰 업계 '감산 도미노'",
+      "summary": "엠투데이 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMib0FVX3lxTE9uMXoyZmkxSmQ0Mkt1SVdqVGRWa0RaRjRHUm5WNlFVT3NNdTJoQzZCRHlEcWNXbTF6Wm9sYkNXSjRnLWpydjlaRlhKRm9SaU1fRkN1WFFjWG9wdDM4ckRMUUs1WFJfRTVfcGhSMUoydw?oc=5",
+      "thumb": "",
+      "source": "엠투데이",
+      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
+      "published": "2026-11-25",
+      "badges": [],
+      "score": 72,
+      "hook": "D램값 폭등에 삼성·애플도 출하 목표 줄였다⋯글"
+    },
+    {
+      "id": "gn_7788123183",
       "category": "economy",
       "title": "칩플레이션에 삼성전자 내년 갤럭시Z9도 카메라·메모리 사양 동결 전망, 최원준 판매량보다 수익성에 방점 찍나",
       "summary": "비즈니스포스트 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -176,7 +211,7 @@
       "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/24/b1571cd954e8af04e4ceb63468399914.jpg",
       "source": "대한민국 정책브리핑",
       "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
-      "published": "2026-11-24",
+      "published": "2026-11-25",
       "badges": [
         "23.9%",
         "98.3%",
@@ -194,7 +229,7 @@
       "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/24/428281e90bb105ca58ed9bf11338db11.jpg",
       "source": "대한민국 정책브리핑",
       "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
-      "published": "2026-11-24",
+      "published": "2026-11-25",
       "badges": [
         "2026년",
         "2025년",
@@ -212,7 +247,7 @@
       "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/23/14d78c3b7a6c87a68a6fcf297d3ffb8c.jpg",
       "source": "대한민국 정책브리핑",
       "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
-      "published": "2026-11-24",
+      "published": "2026-11-25",
       "badges": [
         "2030년",
         "35%",
@@ -223,23 +258,7 @@
       "hook": "생계급여 기준 2030년 중위소득 35%로…기초 [2030년]"
     },
     {
-      "id": "kogl_148976349",
-      "category": "kogl1",
-      "title": "국가장학금 지원, 오늘부터 신청하세요!",
-      "summary": "국가장학금 신청, 빠트리지 마롱~ ■ 학자금 지원구간 체계 개편2027년 1학기부터 지급단가에 따라 (현행) 10구간 체계에서 (개편) '가,나,다,라,마' 5구간 체계로 학자금",
-      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148976349",
-      "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/24/38b6d92d1775c8a4a67a4f38a969c1a7.jpg",
-      "source": "대한민국 정책브리핑",
-      "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
-      "published": "2026-11-24",
-      "badges": [
-        "2027년"
-      ],
-      "score": 68,
-      "hook": "국가장학금 지원, 오늘부터 신청하세요! [2027년]"
-    },
-    {
-      "id": "gn_4104477482",
+      "id": "gn_3309919085",
       "category": "economy",
       "title": "김해 50인 이상 업체·50억 원 이상 건설 사업장, 위험성평가 위반 땐 과태료",
       "summary": "경남도민일보 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -263,7 +282,7 @@
       "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/24/5dbb748da63189d3084621d70d75ef85.jpg",
       "source": "대한민국 정책브리핑",
       "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
-      "published": "2026-11-24",
+      "published": "2026-11-25",
       "badges": [
         "2년"
       ],
@@ -288,20 +307,6 @@
       "hook": "스테이블코인, 은행 과반 지분 컨소시엄부터 발행 [20%]"
     },
     {
-      "id": "gn_4945691322",
-      "category": "economy",
-      "title": "시의회 \"국힘, 통합지원금 삭감 요구 철회하라\"",
-      "summary": "KBC광주방송 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE01N3lZX29EeTVOTVlyX2pXNzZQaDgzcm9la1ZQQnRHM3N0dTlvX0c0eWJjUGFkdGhseFhBVnVFLTFnNjZNVlV1WDh1bUMwa21SMl9hUGt1cFcteWNLWFBLeA?oc=5",
-      "thumb": "",
-      "source": "KBC광주방송",
-      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-24",
-      "badges": [],
-      "score": 60,
-      "hook": "시의회 \"국힘, 통합지원금 삭감 요구 철회하라\""
-    },
-    {
       "id": "kogl_148976210",
       "category": "kogl1",
       "title": "이 대통령 \"수능 부정행위 철저 추적…국가시험 A부터 Z까지 개편\"",
@@ -310,13 +315,46 @@
       "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/20/091af41051f9fc1e051dea146a708c8c.jpg",
       "source": "대한민국 정책브리핑",
       "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
-      "published": "2026-11-20",
+      "published": "2026-11-25",
       "badges": [],
       "score": 59,
       "hook": "이 대통령 \"수능 부정행위 철저 추적…국가시험 "
     },
     {
-      "id": "gn_8197900880",
+      "id": "gn_1125132432",
+      "category": "economy",
+      "title": "수능 끝난 자녀에 새 폰 선물하려다 “가격이 왜 이래?”…최신폰 최고 509만원",
+      "summary": "서울경제 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMiU0FVX3lxTE00UzZOaVBMaS1nNTRkME1OcV9ieFV3RTljTEk0amk5UHVFaTBhNkFjSk9qSndRNEJxN3ZUeVpTWHFKaW8wTlZaQnZvamNNbGtSRXEw0gFTQVVfeXFMTTRTNk5pUExpLWc1NGQwTU5xX2J4VXdFOWNMSTRqaTlQdUVpMGE2QWNKT2pKd1E0QnE3dlR5WlNYcUppbzBOVlpCdm9qY01sa1JFcTA?oc=5",
+      "thumb": "",
+      "source": "서울경제",
+      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
+      "published": "2026-11-23",
+      "badges": [
+        "509만원"
+      ],
+      "score": 59,
+      "hook": "수능 끝난 자녀에 새 폰 선물하려다 “가격이 왜 [509만원]"
+    },
+    {
+      "id": "gn_1744400974",
+      "category": "celeb",
+      "title": "에이티즈, 빌보드 200 네 번째 1위...스트레이 키즈·BTS 이어 K팝 그룹 역대 3위",
+      "summary": "국제뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTFBGLWwzUUdyN1dSVU1uUzdlNmdQS0lCdW9zMVozcjNCUHo5aDlfekpFd1NDNUVKcnVGZ3JnWklKbXowcWxYeGE1QWhnZmZDQzJHXzhZWkl2aFZtdi1CdmFHR2pnemdEcXhqT1BLN0Z3?oc=5",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/ATEEZ_in_October_2020.jpg/960px-ATEEZ_in_October_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source": "국제뉴스",
+      "license": "✅ Wikimedia CC BY 3.0 (사진 출처: 아이돌라이브TV - ARATV)",
+      "published": "2026-11-24",
+      "badges": [
+        "1위",
+        "3위"
+      ],
+      "score": 58,
+      "hook": "에이티즈, 빌보드 200 네 번째 1위...스트 [1위]"
+    },
+    {
+      "id": "gn_5402072003",
       "category": "economy",
       "title": "베트남, 가정용에도 ‘시간대별 전기요금’ 적용 ‘초읽기’…개정 전력법",
       "summary": "인사이드비나 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -330,34 +368,6 @@
       "hook": "베트남, 가정용에도 ‘시간대별 전기요금’ 적용 "
     },
     {
-      "id": "gn_3288319452",
-      "category": "economy",
-      "title": "삼성바이오, 임원 승진 인사…30대 여성 임원 탄생",
-      "summary": "연합뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE0wSUxvRlNCNTJtZ3VxVktBMmVHcWwtRWhQbzBNMUZ3S3RQbVZ2MDBzc09LSS10R2o5RGZqSlRHUUdTdm95bUJOT3Q4Rk9Sb1BITEFLSzI5dlZVUDBPMUNLdNIBYEFVX3lxTE0wSUxvRlNCNTJtZ3VxVktBMmVHcWwtRWhQbzBNMUZ3S3RQbVZ2MDBzc09LSS10R2o5RGZqSlRHUUdTdm95bUJOT3Q4Rk9Sb1BITEFLSzI5dlZVUDBPMUNLdA?oc=5",
-      "thumb": "",
-      "source": "연합뉴스",
-      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-24",
-      "badges": [],
-      "score": 56,
-      "hook": "삼성바이오, 임원 승진 인사…30대 여성 임원 "
-    },
-    {
-      "id": "gn_8525209712",
-      "category": "economy",
-      "title": "삼성·LG, 中 초대형 TV 가격 공세에…미니 LED로 돌파구 찾는다",
-      "summary": "매일일보 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiZEFVX3lxTE9LWU9ENkgwYXpoM1F3ZDlXOUFQMzYta2tEazBaNTlyekd6bHFCalhzYUQtc3RhQTRvamxyM3dPdlBQN25KeHJmd05oTlpIZzhGRGYxVWkzY0NOazVPcklKZkk5S1A?oc=5",
-      "thumb": "",
-      "source": "매일일보",
-      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-22",
-      "badges": [],
-      "score": 56,
-      "hook": "삼성·LG, 中 초대형 TV 가격 공세에…미니 "
-    },
-    {
       "id": "kogl_148976408",
       "category": "kogl1",
       "title": "경찰청, 5·18 진압·삼청교육 관련 정부포상 104점 취소",
@@ -366,7 +376,7 @@
       "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/24/0113d2089e834fc753b7509fb6cf8fec.jpg",
       "source": "대한민국 정책브리핑",
       "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
-      "published": "2026-11-24",
+      "published": "2026-11-25",
       "badges": [
         "1980년"
       ],
@@ -374,23 +384,7 @@
       "hook": "경찰청, 5·18 진압·삼청교육 관련 정부포상  [1980년]"
     },
     {
-      "id": "kogl_148976424",
-      "category": "kogl1",
-      "title": "김혜경 여사, 권양숙 여사·노건호 씨와 오찬 환담 관련 안귀령 부대변인 서면 브리핑",
-      "summary": "김혜경 여사는 오늘(24일) 낮 서울 한남동 관저에서 노무현 전 대통령의 부인 권양숙 여사와 아들 노건호 씨를 만나 오찬을 함께하며 환담을 나눴습니다. 이번 만남은 권양숙 여사의",
-      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148976424",
-      "thumb": "https://www.korea.kr/images/event/korea_logo_2024.jpg",
-      "source": "대한민국 정책브리핑",
-      "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
-      "published": "2026-11-24",
-      "badges": [
-        "2시간"
-      ],
-      "score": 54,
-      "hook": "김혜경 여사, 권양숙 여사·노건호 씨와 오찬 환 [2시간]"
-    },
-    {
-      "id": "gn_4101597415",
+      "id": "gn_4337699748",
       "category": "economy",
       "title": "[김해시] 산업현장 위험성평가 제도 개편 대응…시민 응급처치 교육 확대",
       "summary": "웹이코노미 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -404,7 +398,7 @@
       "hook": "산업현장 위험성평가 제도 개편 대응…시민 응급처"
     },
     {
-      "id": "gn_9128318659",
+      "id": "gn_4663931024",
       "category": "economy",
       "title": "[초점] 석유화학 구조개편 ‘골든타임’…정부, 연내 사업재편 확정 주문",
       "summary": "에너지데일리 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -416,34 +410,6 @@
       "badges": [],
       "score": 54,
       "hook": "석유화학 구조개편 ‘골든타임’…정부, 연내 사업"
-    },
-    {
-      "id": "gn_5049756301",
-      "category": "economy",
-      "title": "김해시, 위험성평가 개편 맞춰 교육·홍보 강화…내년 4월까지",
-      "summary": "https://www.newfilenews.com/ 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMibkFVX3lxTE1aVEozVHV3bkZCaTlFSGtXdTMxQ0d1QURMdWJ6UWhQbndnYnd3NXVsc1ZlbVRDTEhvLWVvTnNIRERmaTc1LTZ1YWdPcENXTzB3cDM3YS1WLURKYlpZcU9DajduY0V1SzZuSHRzNWF3?oc=5",
-      "thumb": "",
-      "source": "https://www.newfilenews.com/",
-      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-23",
-      "badges": [],
-      "score": 54,
-      "hook": "김해시, 위험성평가 개편 맞춰 교육·홍보 강화…"
-    },
-    {
-      "id": "gn_3042261942",
-      "category": "economy",
-      "title": "김해시, 위험성평가 제도 개편 대응 산업재해 예방 강화",
-      "summary": "경남도민뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiY0FVX3lxTE5xTmlmRlVZQWQ4UmVETWlGNUQwUC1VRXRtS21tR2pQMXlMNHNxZ1Z6bW9QR2JWN0dERFh3NlFzRWkwaDdEZy1JS3lXRjlpMWRBSjRJQmJ0NktTVUdXdjg5T3lrOA?oc=5",
-      "thumb": "",
-      "source": "경남도민뉴스",
-      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-22",
-      "badges": [],
-      "score": 54,
-      "hook": "김해시, 위험성평가 제도 개편 대응 산업재해 예"
     },
     {
       "id": "kogl_148975989",
@@ -462,21 +428,7 @@
       "hook": "국군사관학교 2029년 출범…1·4학년 통합,  [2029년]"
     },
     {
-      "id": "gn_6111337603",
-      "category": "economy",
-      "title": "스마트폰값 급등에 '수능 특수' 흔들…이통 3사 할인 경쟁에도 소비자 지갑 닫히나",
-      "summary": "충청시사신문 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTE9hUHJUeDlyMjhaMnFEOFlXOUpQTVBrQ0ROX3NFRHNGNmZSYlFpd0xaZXR2cUJpejJGcFRYSFZTM1NPTndvZ255ajVsMHBSSnRQN3B4NGVwTUVoZDI5dWF3dUVXV01PTThXNzRJ?oc=5",
-      "thumb": "",
-      "source": "충청시사신문",
-      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-23",
-      "badges": [],
-      "score": 52,
-      "hook": "스마트폰값 급등에 '수능 특수' 흔들…이통 3사"
-    },
-    {
-      "id": "gn_3481408380",
+      "id": "gn_5433300298",
       "category": "celeb",
       "title": "손흥민 선수 vs. 정상빈 선수, MLS 플레이오프 '코리안 더비' 결과는? ⚽",
       "summary": "뉴닉 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -490,7 +442,23 @@
       "hook": "손흥민 선수 vs. 정상빈 선수, MLS 플레이"
     },
     {
-      "id": "gn_8585827776",
+      "id": "gn_4512764282",
+      "category": "celeb",
+      "title": "에이티즈, '핫 100' 세 번째 진입…박재범 롱샷, '빌보드 200' 118위 첫 입성",
+      "summary": "뉴시스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMieEFVX3lxTE1DbTVaa212UU9lX0dVUWx4b1hNblQ2Rk9saG01Sm54WUg4VWFleGlHTFp3VlVUZ0VHc0FXX1IxcUZfZEoyZTRIMlRRREt2S3o4ekNoQ3o2UjVkTHk5eEtrSWV0SHRDM1o3TnRwOFVYOGprRkFzZU1jY9IBeEFVX3lxTE1DbTVaa212UU9lX0dVUWx4b1hNblQ2Rk9saG01Sm54WUg4VWFleGlHTFp3VlVUZ0VHc0FXX1IxcUZfZEoyZTRIMlRRREt2S3o4ekNoQ3o2UjVkTHk5eEtrSWV0SHRDM1o3TnRwOFVYOGprRkFzZU1jYw?oc=5",
+      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/ATEEZ_in_October_2020.jpg/960px-ATEEZ_in_October_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
+      "source": "뉴시스",
+      "license": "✅ Wikimedia CC BY 3.0 (사진 출처: 아이돌라이브TV - ARATV)",
+      "published": "2026-11-24",
+      "badges": [
+        "118위"
+      ],
+      "score": 49,
+      "hook": "에이티즈, '핫 100' 세 번째 진입…박재범  [118위]"
+    },
+    {
+      "id": "gn_7216832173",
       "category": "celeb",
       "title": "블랙핑크 지수, ‘꽃’ 글로벌 유튜브 송 차트 2주 연속 1위",
       "summary": "JTBC 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -506,7 +474,7 @@
       "hook": "블랙핑크 지수, ‘꽃’ 글로벌 유튜브 송 차트  [1위]"
     },
     {
-      "id": "gn_3859868273",
+      "id": "gn_7538176992",
       "category": "celeb",
       "title": "방탄소년단, '팬앤스타' 그룹랭킹 81주 연속 1위…'2026 MAMA' 5관왕",
       "summary": "더팩트 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -522,68 +490,74 @@
       "hook": "방탄소년단, '팬앤스타' 그룹랭킹 81주 연속  [1위]"
     },
     {
-      "id": "gn_1285608325",
-      "category": "economy",
-      "title": "수능 끝나도 선뜻 못 사주는 스마트폰…300만원 넘는 폰값에 부모들 부담",
-      "summary": "현대경제 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMia0FVX3lxTFBLTWJZSTBKUWNOcnRmVTFlaVIyZDdxT0QwUVowVG91Q0x2eWtyM1lzaEV4Tkd4bUJXcHBzYTlMLUhNbG04MVB1am5WM3dPcTlIRXNDc3J2MVFtUFBqOTEwRklWOWhhZm1DdUFB?oc=5",
-      "thumb": "",
-      "source": "현대경제",
-      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-23",
-      "badges": [
-        "300만원"
-      ],
-      "score": 49,
-      "hook": "수능 끝나도 선뜻 못 사주는 스마트폰…300만원 [300만원]"
+      "id": "kogl_148976381",
+      "category": "kogl1",
+      "title": "국가자격시험에 전파탐지기 도입…이동형 CCTV·감독관 보디캠도",
+      "summary": "국가자격시험에서인공지능(AI)을 활용한 부정행위를 근절하기 위해 한국방송통신전파진흥원이 개발 중인 전파탐지기 도입 및전원이 꺼진 상태에서도 기기를 탐지할 수 있는 추가 적발 수단을",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148976381",
+      "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/24/aa2372a99eb3f6e8b727c1a0ec35404f.jpg",
+      "source": "대한민국 정책브리핑",
+      "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
+      "published": "2026-11-25",
+      "badges": [],
+      "score": 45,
+      "hook": "국가자격시험에 전파탐지기 도입…이동형 CCTV·"
     },
     {
-      "id": "gn_2074406757",
-      "category": "celeb",
-      "title": "'선한 영향력 아이콘' 방탄소년단 진, 마이원픽 10월 기부스타 1위",
-      "summary": "스타뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE9oeWhaaVZrVFlzOHo5NmN2NkVTQVJ1QUpSNGgtQkREcmpyZnQyMTA0QV9KVWMtc3Jhd3oyQm50X0lSSUs0Zmo4Mm1ZdUtWenFmVi1TTEhoclRXQVlaMlQ0RWlZQ1JfS0tpVmY1ekRJbHVKMmpW?oc=5",
-      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a6/%28Venice%29_The_parable_of_the_Good_Samaritan_by_Domenico_Fetti_-_Gallerie_Accademia.jpg/960px-%28Venice%29_The_parable_of_the_Good_Samaritan_by_Domenico_Fetti_-_Gallerie_Accademia.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source": "스타뉴스",
-      "license": "✅ Wikimedia Public domain (사진 출처: Didier Descouens)",
-      "published": "2026-11-23",
-      "badges": [
-        "1위"
-      ],
-      "score": 49,
-      "hook": "'선한 영향력 아이콘' 방탄소년단 진, 마이원픽 [1위]"
+      "id": "kogl_148976411",
+      "category": "kogl1",
+      "title": "한 총리, 과거 국가시험 철저 조사 지시…시험제도 전반 혁신 주문",
+      "summary": "한성숙 국무총리는 24일 과거에 치러진 국가시험에서 인공지능(AI)·첨단장비를 활용한 부정행위 의심사례에 대한 철저한 조사를 지시했다. 이에 각 국가시험 주관부처들은 언론 등에서",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148976411",
+      "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/24/4aa59da74948b291ca17ed97343f91d0.jpg",
+      "source": "대한민국 정책브리핑",
+      "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
+      "published": "2026-11-25",
+      "badges": [],
+      "score": 45,
+      "hook": "한 총리, 과거 국가시험 철저 조사 지시…시험제"
     },
     {
-      "id": "gn_6035588186",
-      "category": "celeb",
-      "title": "에이티즈, 美 빌보드 200 차트 1위… 통산 4번째",
-      "summary": "Chosunbiz 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPWmh3VjEta05nMVdvbkZNanhuSGtfcDU2VV9SazFIcFlRTkhGWm01Z2J4YWNON3JZM0d4em5ZZlMzWVFNbGRyREd3S0hSclc4NmhJbW1RWTN1LWNZQmcySGt6QUxXSnhkQUJ5a3RCT2YtTkZiem1XeU5sYzJuaGlTMDFLZGg3TDBBMXU1QkJGNmlPakXSAacBQVVfeXFMUHVGMEZWby1NZ0Q2UmJ5bmxUclN4aENCTW9RaWE1X256M3dYRFZyMW9reWozVnRNUllNbDVmVW1IQ1ltb2RlU3pueWNTNWlBTVFZeEFKdzdOODNUa0MxcXpQOV95VEdDay1YWVFkZzNrdmJVTHp1SzdYSTFkVFlLZzV2ZTlmZUxCYjJWWTJMaFZ3TWFNSVpVNDRFZXBhLUVzcklJb3Rjbk0?oc=5",
-      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/ATEEZ_in_October_2020.jpg/960px-ATEEZ_in_October_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source": "Chosunbiz",
-      "license": "✅ Wikimedia CC BY 3.0 (사진 출처: 아이돌라이브TV - ARATV)",
-      "published": "2026-11-23",
-      "badges": [
-        "1위"
-      ],
-      "score": 49,
-      "hook": "에이티즈, 美 빌보드 200 차트 1위… 통산  [1위]"
+      "id": "kogl_148976387",
+      "category": "kogl1",
+      "title": "내신시험 스마트기기 적발 시 당일 전과목 0점…최대 퇴학 처리",
+      "summary": "중등학교 내신평가 시험에서도 스마트기기를 활용한 부정행위를 차단하기 위해 학교 시험장 관리·감독을 대학수학능력시험 수준으로 강화하기로 했다. 스마트기기를 소지하거나 사용하다 적발되",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148976387",
+      "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/24/6317503a01dd42deea68ea77a1b9ece0.jpg",
+      "source": "대한민국 정책브리핑",
+      "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
+      "published": "2026-11-25",
+      "badges": [],
+      "score": 45,
+      "hook": "내신시험 스마트기기 적발 시 당일 전과목 0점…"
     },
     {
-      "id": "gn_9169393691",
-      "category": "celeb",
-      "title": "에이티즈 “빌보드 네 번째 1위 벅차고 감사…초심 잃지 않겠다”",
-      "summary": "헤럴드경제 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiVkFVX3lxTE4waTZOeERoQ3lJQS1ETmZGcERVaWZiRjNPTEZ5Yk13Q1dlam9hYjNYY29QWkNXejhJWS1tU1pWdTZfbXlWSElXaHRicHhrejNFb2cwOG1n?oc=5",
-      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/4/4d/ATEEZ_in_October_2020.jpg/960px-ATEEZ_in_October_2020.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source": "헤럴드경제",
-      "license": "✅ Wikimedia CC BY 3.0 (사진 출처: 아이돌라이브TV - ARATV)",
-      "published": "2026-11-23",
-      "badges": [
-        "1위"
-      ],
-      "score": 49,
-      "hook": "에이티즈 “빌보드 네 번째 1위 벅차고 감사…초 [1위]"
+      "id": "kogl_148976397",
+      "category": "kogl1",
+      "title": "'12·3 국민주권의 날' 정부기념일 지정…국민 용기와 행동 기린다",
+      "summary": "올해부터 매년 12월 3일 '12·3국민주권의 날' 정부 주관 기념식이 열리고, 기념일 전후 1주일은 문화·학술행사를 포함한 기념주간으로 운영된다. 대통령 직속 빛의 위원회는 이",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148976397",
+      "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/24/e051bc0b80e885be54fa101e8f8d24c8.jpg",
+      "source": "대한민국 정책브리핑",
+      "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
+      "published": "2026-11-25",
+      "badges": [],
+      "score": 45,
+      "hook": "'12·3 국민주권의 날' 정부기념일 지정…국민"
+    },
+    {
+      "id": "kogl_148975981",
+      "category": "kogl1",
+      "title": "수능 필기구 '흑색연필'만 허용…사인펜·수정테이프·지우개·샤프심 시험장 지급",
+      "summary": "오는 19일 치러지는 2027학년도 대학수학능력시험에서는 개인이 가져갈 수 있는 필기구가 흑색 연필로 제한된다. 기존에 시험 중 휴대가 가능했던 검은색 컴퓨터용 사인펜과 흰색 수정",
+      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148975981",
+      "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/18/bd5cbaa3ba20d17dcede01d232c4f89c.jpg",
+      "source": "대한민국 정책브리핑",
+      "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
+      "published": "2026-11-25",
+      "badges": [],
+      "score": 45,
+      "hook": "수능 필기구 '흑색연필'만 허용…사인펜·수정테이"
     },
     {
       "id": "kogl_148976395",
@@ -600,77 +574,49 @@
       "hook": "교육부 '수능 부정행위 전담 대응팀' 본격 가동"
     },
     {
-      "id": "kogl_148976387",
-      "category": "kogl1",
-      "title": "내신시험 스마트기기 적발 시 당일 전과목 0점…최대 퇴학 처리",
-      "summary": "중등학교 내신평가 시험에서도 스마트기기를 활용한 부정행위를 차단하기 위해 학교 시험장 관리·감독을 대학수학능력시험 수준으로 강화하기로 했다. 스마트기기를 소지하거나 사용하다 적발되",
-      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148976387",
-      "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/24/6317503a01dd42deea68ea77a1b9ece0.jpg",
-      "source": "대한민국 정책브리핑",
-      "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
-      "published": "2026-11-24",
+      "id": "gn_8629059906",
+      "category": "economy",
+      "title": "새로운 농업 방식을 도입하여 현대적인 농촌 지역을 조성합니다.",
+      "summary": "Vietnam.vn 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMigAFBVV95cUxOYjFqSmJ4QmpRRzA2bTJ2RFVRYkNYOHkxMUdpckd6ODFoNGk2dTcxQWt6ZmJpUmMwSjB3ZGdaWHJyN1lQN3NpczVab0YyM0dUWEtfWGM0WFd1VEpsejI3SXBxbjZ1b2Uzam9ZdzlGdnhEdTI3LS1BS1JBLWlTMFc1Wg?oc=5",
+      "thumb": "",
+      "source": "Vietnam.vn",
+      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
+      "published": "2026-11-25",
       "badges": [],
-      "score": 45,
-      "hook": "내신시험 스마트기기 적발 시 당일 전과목 0점…"
+      "score": 40,
+      "hook": "새로운 농업 방식을 도입하여 현대적인 농촌 지역"
     },
     {
-      "id": "kogl_148976355",
-      "category": "kogl1",
-      "title": "집주인도, 중개인도 모두 '한 팀'이었습니다",
-      "summary": "/집주인도, 중개인도 모두 한 팀이었습니다집주인도, 중개인도 모두 한 팀이었습니다집주인도, 중개인도 모두 한 팀이었습니다집주인도, 중개인도 모두 한 팀이었습니다집주인도, 중개인도",
-      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148976355",
-      "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/24/ead96ada712e678a251ee43725fe759a.jpg",
-      "source": "대한민국 정책브리핑",
-      "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
-      "published": "2026-11-24",
+      "id": "gn_1958709511",
+      "category": "economy",
+      "title": "[국회철강포럼] 주요 국회의원 “철강 생태계 강건화 후속 입법” 주문",
+      "summary": "철강금속신문 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE1aMjB5UnRLOXVSSHpnMFNCU0ZkcE9hcnRvZkJBZV9uNXRfMkNaR0tmcVhpc0ZFaFNDb3pqSUdhUEtMSTIyVy10dVhBMHV3SVFCLXRxNjR3TlJGc3N6YWR1Snp6eXg3Qk9PY1E?oc=5",
+      "thumb": "",
+      "source": "철강금속신문",
+      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
+      "published": "2026-11-25",
       "badges": [],
-      "score": 45,
-      "hook": "집주인도, 중개인도 모두 '한 팀'이었습니다"
+      "score": 40,
+      "hook": "주요 국회의원 “철강 생태계 강건화 후속 입법”"
     },
     {
-      "id": "kogl_148976381",
-      "category": "kogl1",
-      "title": "국가자격시험에 전파탐지기 도입…이동형 CCTV·감독관 보디캠도",
-      "summary": "국가자격시험에서인공지능(AI)을 활용한 부정행위를 근절하기 위해 한국방송통신전파진흥원이 개발 중인 전파탐지기 도입 및전원이 꺼진 상태에서도 기기를 탐지할 수 있는 추가 적발 수단을",
-      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148976381",
-      "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/24/aa2372a99eb3f6e8b727c1a0ec35404f.jpg",
-      "source": "대한민국 정책브리핑",
-      "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
-      "published": "2026-11-20",
+      "id": "gn_7185212092",
+      "category": "economy",
+      "title": "국회철강포럼, ‘대전환기’ 한국 철강의 활로 찾는다…국회세미나 개최",
+      "summary": "철강금속신문 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMiakFVX3lxTE5zY0NmbXJHOVk2d3cwRHFXSEJhSjg2ajBXOG5YUl9ZUkQ2TTVTaFprSGFOZm5qMldVUWRxZ1hrdVFVTU94a2V6eUJ2aDluOVJKWE9jSm1HUXNtREZscWluS0piTVEzOEg2dVE?oc=5",
+      "thumb": "",
+      "source": "철강금속신문",
+      "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
+      "published": "2026-11-25",
       "badges": [],
-      "score": 45,
-      "hook": "국가자격시험에 전파탐지기 도입…이동형 CCTV·"
+      "score": 40,
+      "hook": "국회철강포럼, ‘대전환기’ 한국 철강의 활로 찾"
     },
     {
-      "id": "kogl_148976411",
-      "category": "kogl1",
-      "title": "한 총리, 과거 국가시험 철저 조사 지시…시험제도 전반 혁신 주문",
-      "summary": "한성숙 국무총리는 24일 과거에 치러진 국가시험에서 인공지능(AI)·첨단장비를 활용한 부정행위 의심사례에 대한 철저한 조사를 지시했다. 이에 각 국가시험 주관부처들은 언론 등에서",
-      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148976411",
-      "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/24/4aa59da74948b291ca17ed97343f91d0.jpg",
-      "source": "대한민국 정책브리핑",
-      "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
-      "published": "2026-11-20",
-      "badges": [],
-      "score": 45,
-      "hook": "한 총리, 과거 국가시험 철저 조사 지시…시험제"
-    },
-    {
-      "id": "kogl_148976397",
-      "category": "kogl1",
-      "title": "'12·3 국민주권의 날' 정부기념일 지정…국민 용기와 행동 기린다",
-      "summary": "올해부터 매년 12월 3일 '12·3국민주권의 날' 정부 주관 기념식이 열리고, 기념일 전후 1주일은 문화·학술행사를 포함한 기념주간으로 운영된다. 대통령 직속 빛의 위원회는 이",
-      "url": "https://www.korea.kr/news/policyNewsView.do?newsId=148976397",
-      "thumb": "https://www.korea.kr/newsWeb/resources/attaches/2026.11/24/e051bc0b80e885be54fa101e8f8d24c8.jpg",
-      "source": "대한민국 정책브리핑",
-      "license": "✅ 공공누리 제1유형 (사진·본문 상업적 무료)",
-      "published": "2026-07-20",
-      "badges": [],
-      "score": 45,
-      "hook": "'12·3 국민주권의 날' 정부기념일 지정…국민"
-    },
-    {
-      "id": "gn_9222781682",
+      "id": "gn_5568896897",
       "category": "economy",
       "title": "낸드 현물 가격 하락…내년에는 SSD 가격 싸질까 [고든 정의 TECH+]",
       "summary": "서울신문 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -684,7 +630,7 @@
       "hook": "낸드 현물 가격 하락…내년에는 SSD 가격 싸질"
     },
     {
-      "id": "gn_4735801154",
+      "id": "gn_9217432858",
       "category": "economy",
       "title": "김해시 ‘위험성평가’ 사업장 교육 강화",
       "summary": "경남일보 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -698,21 +644,21 @@
       "hook": "김해시 ‘위험성평가’ 사업장 교육 강화"
     },
     {
-      "id": "gn_5327350439",
+      "id": "gn_8941051234",
       "category": "celeb",
-      "title": "'침묵' 손흥민, '1골 1도움' 정상빈에 덜미…MLS컵 PO 1R 탈락 위기(종합)",
-      "summary": "뉴시스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE9PYjdITVdNa1l3cXpoU25CUmc0Z2tObWFRTjVscnlCb1hLVEE0cWFjUGRmSkFSQXplbWVOd01UYnFWM2pXV3pTMlZ6NTRCU3lqOFhLWDYzNVNPRFkzRXdjZ9IBeEFVX3lxTE9RM25qbmhYSVlKX3h4UTVLbDdCYkZMRTY1eEpsenBkM1dDTEZhcEFleDRVNUFaSHloR2NNWUtReWxBQ2otNG9GNjBzalNIck9WQkZ4bkVNdlpmSHc4ZExaTDVsUTRsbEZSRjdrczltN3BsWExrVFp5Ug?oc=5",
-      "thumb": "https://thumb.wikimedia.org/wikipedia/commons/thumb/f/fd/20110102_Zoroastrian_Towers_of_Silence_Yazd_Iran.jpg/960px-20110102_Zoroastrian_Towers_of_Silence_Yazd_Iran.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail",
-      "source": "뉴시스",
-      "license": "✅ Wikimedia CC BY-SA 4.0 (사진 출처: Ggia)",
+      "title": "방탄소년단 진 '에피파니', 할리우드 영화 '케이팝 슈퍼스타' 예고편 깜짝 등장..강렬 여운",
+      "summary": "스타뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMidEFVX3lxTE12QkVDWVZ4UzBDZHVBZkhJUkpQcTMzZmxGNUtYWHkxVnNnWENISUNKbXBPQU1SZm1jQ2dXcktMTmxWWnFBNzlyd2F0UWxFT3pTWUttQkQ3cXFObnhmemJ4VEtVVHdfNE00WE5kQUZpMklSUkVL?oc=5",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/48/BTS_LG_G7_ThinQ_mobile_advertisement_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source": "스타뉴스",
+      "license": "✅ Wikimedia CC BY 2.0 (사진 출처: LG전자 \n\n\n\n\n\nThis file)",
       "published": "2026-11-24",
       "badges": [],
       "score": 40,
-      "hook": "'침묵' 손흥민, '1골 1도움' 정상빈에 덜미"
+      "hook": "방탄소년단 진 '에피파니', 할리우드 영화 '케"
     },
     {
-      "id": "gn_1631407832",
+      "id": "gn_7498677067",
       "category": "celeb",
       "title": "'10살 차이' 국가대표 후배가 손흥민 울렸다... '공식 MVP 등극' 정상빈 1골 1도움 '특급 맹활약' - 머니투데이",
       "summary": "머니투데이 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -726,7 +672,21 @@
       "hook": "'10살 차이' 국가대표 후배가 손흥민 울렸다."
     },
     {
-      "id": "gn_3989417221",
+      "id": "gn_7540734649",
+      "category": "celeb",
+      "title": "'롤모델' 손흥민 앞에서…'1골 1도움' 정상빈 MVP",
+      "summary": "SBS 뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMijAFBVV95cUxPSU43T1FoNTFYRmNORE9EcVByaF9RNWtyUE00QXVFeS1PaDhrZWlZTWltVjlwbmJZSUc5eEwwZXNMWGpJX2xLWEo4QnU1QVNoazQxdk9EMkthSThnbEx0VkdIaDIzSGt5T0FtcUwySmREbzVMQjB0TS0wc3Nsb184ZWRQUUUtdTgwd1FQRtIBZkFVX3lxTE9Dcm1tWExyQWJUVHljRFZ3b09zdFhiaGpEVXZXNWhVbGlpb0RuTmg0dFY5Rk9ZZnd1dkVsQ3d6T0NpMnNvcUV4Qy1nRWh6NDBaUUdYcVJYSG1JSWxMbWVzZGsyUzVjdw?oc=5",
+      "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/42/Object-Role_Model_Overview.gif?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
+      "source": "SBS 뉴스",
+      "license": "✅ Wikimedia Public domain (사진 출처: Stephen M. Richard)",
+      "published": "2026-11-24",
+      "badges": [],
+      "score": 40,
+      "hook": "'롤모델' 손흥민 앞에서…'1골 1도움' 정상빈"
+    },
+    {
+      "id": "gn_4533685264",
       "category": "celeb",
       "title": "정상빈 1골 1도움, 손흥민과 코리안 더비서 웃었다…LAFC 탈락 위기",
       "summary": "이투데이 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
@@ -740,46 +700,32 @@
       "hook": "정상빈 1골 1도움, 손흥민과 코리안 더비서 웃"
     },
     {
-      "id": "gn_1069817412",
-      "category": "celeb",
-      "title": "방탄소년단, ‘위버스 고’로 싱가포르 대형 프로젝트…전 세계 팬 소통 강화",
-      "summary": "EPN엔피나우 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiaEFVX3lxTE5NanBYUzRpZU1UdDdaTDdwRGdQOHBzSU9QZkNxTlpta2JUR01JS0dFN3k2bFRfS1U3U08tdUpJTm1SX1AyZWllUGF0VWVUM2ZPYmhPbS1hOHI0LU5ZX3p0a1Y0QUpqTGtn0gFsQVVfeXFMUHY1czYwVmNIUldRYjdHTGxjNEVYY0c3cUgwSU9nbHNYOWg2bHJPOGJBejBKczNaSEN4MU1FZU1GWFZjZkxpN3pFZlRHbnB0SkFVNVdYMDlvTVBOXzl4SlVpLWVXUXhuZFl0aEpm?oc=5",
-      "thumb": "https://upload.wikimedia.org/wikipedia/commons/4/48/BTS_LG_G7_ThinQ_mobile_advertisement_%28cropped%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=imageinfo&utm_content=thumbnail_unscaled",
-      "source": "EPN엔피나우",
-      "license": "✅ Wikimedia CC BY 2.0 (사진 출처: LG전자 \n\n\n\n\n\nThis file)",
-      "published": "2026-11-24",
-      "badges": [],
-      "score": 40,
-      "hook": "방탄소년단, ‘위버스 고’로 싱가포르 대형 프로"
-    },
-    {
-      "id": "gn_7733041967",
+      "id": "gn_6119839782",
       "category": "economy",
-      "title": "[미국 특징주] 소비재 업계 불황 속 '프리미엄 신제품'으로 승부",
-      "summary": "뉴스핌 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiXEFVX3lxTE9zZDJITC04dXdlM21iVzVvd3pCX3JPMWw0Q1JIMTRkUDNnU3VRUmNDUzMtTWp6YmFUTzVSUkJEYWNNcUpiczBNbHhHRXIzOW5UTU5WZlIwQW5Fenkz?oc=5",
+      "title": "산업장관, 석유화학 사업재편 \"연내 매듭지어야\"",
+      "summary": "연합뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMiYEFVX3lxTE1kNVozaE1YMW1HeTlMOUowYjRkYnYzaGh5WnNXNHBRMW5VU0ZXRUYtZmxEWHpCVDNTU1hLWFlQS3VBT1l0bVVzMjZ6cDhKTWd0QVJNTGx6dEpjSVdXWHhDetIBYEFVX3lxTE1kNVozaE1YMW1HeTlMOUowYjRkYnYzaGh5WnNXNHBRMW5VU0ZXRUYtZmxEWHpCVDNTU1hLWFlQS3VBT1l0bVVzMjZ6cDhKTWd0QVJNTGx6dEpjSVdXWHhDeg?oc=5",
       "thumb": "",
-      "source": "뉴스핌",
+      "source": "연합뉴스",
       "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
       "published": "2026-11-23",
       "badges": [],
       "score": 40,
-      "hook": "소비재 업계 불황 속 '프리미엄 신제품'으로 승"
+      "hook": "산업장관, 석유화학 사업재편 \"연내 매듭지어야\""
     },
     {
-      "id": "gn_7640879178",
-      "category": "economy",
-      "title": "메모리값에 흔들리는 저가폰 공식… 가격 올리고 물량 줄인다",
-      "summary": "Chosunbiz 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
-      "url": "https://news.google.com/rss/articles/CBMiggFBVV95cUxNOVE4OGh2ZkkxZWJCd3ZPeTlYWDlDa1dPNGRiYzluSzRpd0t0MjdUdDFWYTRGVm53aDdEOFRfZkdUVVc4Z1I0NTFON1hveUNPMkZ0SWw1NmYwSW4xV3JHanBIT2prc2kxNXg3VWhPd1F6MWRSNnNSdGw1MFdVYTZ4ZWxB0gGWAUFVX3lxTE9ZS3BhX3ozenU2WHk5NWVjMC1iaXVvdUxYSXZOcGZkVTZVaHZzWVBrcjU3QzJkLWJ2ekZzYlFjS0UtUkh5SXZtNkl5TjFLM2NFT2NzQzJKX1lGYTZwemJXQTA5TkxrUW5FN3l1cjZJNk10NnhWMlgyelBsQnpldzhDZE9iZ1R6a0FpQnk4bmZ6NzRSNXNzUQ?oc=5",
+      "id": "gn_8873352014",
+      "category": "celeb",
+      "title": "[센터엔터] 방탄소년단, '2026 MAMA' 5관왕 올라 外",
+      "summary": "연합뉴스 보도 · 핵심 숫자/팩트를 추출해 음슴체 비교 대본 및 자체 뉴스 브리핑 카드로 안전 제작",
+      "url": "https://news.google.com/rss/articles/CBMiW0FVX3lxTE9wM29IaWFuMHhGekhKMjZDWURJZWxuX19ZUkk5c3ViX25felpWWkljMHRmcUdCdlZfaEkwdzhEY0FnejNoYWNYeWtLS1JHWU1maDl1LU5SaVUxeFXSAWBBVV95cUxPQjM3V0I4MlJJWFZZdGw4YkVYQ1ZHVGlVYm9rX0Z1d2J6Q3dWZi1JVElka29RemJPUXBCb0ZpOVYtWmx5MnNsYl9Cd0Y3bTNTTktTNFZYbVhyanFCZTNFRWw?oc=5",
       "thumb": "",
-      "source": "Chosunbiz",
+      "source": "연합뉴스",
       "license": "🛡 팩트·숫자만 추출 (자체 인용카드 + Pixabay 스톡 사용)",
-      "published": "2026-11-22",
+      "published": "2026-11-23",
       "badges": [],
       "score": 40,
-      "hook": "메모리값에 흔들리는 저가폰 공식… 가격 올리고 "
+      "hook": "방탄소년단, '2026 MAMA' 5관왕 올라 "
     }
   ]
 }
