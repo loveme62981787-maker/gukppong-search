@@ -350,6 +350,16 @@
    "miss_count": 0,
    "unknown_reason": "never_verified"
   },
+  "-ArcJJV-52I": {
+   "attempted_at": "2026-11-26T00:21:52Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "-AsUjnnXzLI": {
    "attempted_at": "2026-11-18T18:11:41Z",
    "checked_at": "2026-11-18",
@@ -1185,6 +1195,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-20",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "-V9ftrAFW4E": {
+   "attempted_at": "2026-11-26T00:21:53Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -2050,6 +2070,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "-p2Y2P-n2cI": {
+   "attempted_at": "2026-11-26T00:21:53Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "-pg515TeX-A": {
    "attempted_at": "2026-11-15T21:03:45Z",
    "checked_at": "2026-11-15",
@@ -2316,6 +2346,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-15",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "-wCDr0sKfqg": {
+   "attempted_at": "2026-11-26T00:21:44Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -3451,6 +3491,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "0OoaSP30588": {
+   "attempted_at": "2026-11-26T00:21:42Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "0OzS8kKAZB0": {
    "attempted_at": "2026-11-25T19:25:53Z",
    "checked_at": "2026-11-25",
@@ -3556,6 +3606,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-21",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "0Q1_BaHjdcs": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -5983,6 +6043,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "1I0NjKqKWjg": {
+   "attempted_at": "2026-11-26T00:21:52Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "1ICCy2u4w58": {
    "attempted_at": "2026-11-14T15:48:14Z",
    "checked_at": "2026-11-14",
@@ -6009,6 +6079,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-16",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "1J-Lkfwn5-0": {
+   "attempted_at": "2026-11-26T00:21:52Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -6326,9 +6406,9 @@
    "miss_count": 0
   },
   "1QRoRMv5Mxo": {
-   "attempted_at": "2026-11-21T21:40:20Z",
+   "attempted_at": "2026-11-26T00:21:54Z",
    "error": "unavailable",
-   "fail_count": 5,
+   "fail_count": 6,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -7163,6 +7243,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "1pX35ZRC3SA": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "1piTvAac5nM": {
    "attempted_at": "2026-11-20T04:09:30Z",
    "checked_at": "2026-11-20",
@@ -7248,6 +7338,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-20",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "1sJDFRj45_s": {
+   "attempted_at": "2026-11-26T00:21:49Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -7368,6 +7468,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-17",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "1v1-yEi477M": {
+   "attempted_at": "2026-11-26T00:21:48Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -7683,6 +7793,16 @@
    "license": "cc_by",
    "miss_count": 0
   },
+  "22HNOVAuUrE": {
+   "attempted_at": "2026-11-26T00:21:52Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "23-ZFZ1knSo": {
    "attempted_at": "2026-11-23T00:55:07Z",
    "checked_at": "2026-11-23",
@@ -7779,6 +7899,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-19",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "276W1hNIfU0": {
+   "attempted_at": "2026-11-26T00:21:45Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -8195,6 +8325,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "2GkxOq-JEMo": {
+   "attempted_at": "2026-11-26T00:21:52Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "2Gmpoue7eOQ": {
    "attempted_at": "2026-11-19T04:12:41Z",
    "checked_at": "2026-11-19",
@@ -8425,6 +8565,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "2Om5tINDsWE": {
+   "attempted_at": "2026-11-26T00:21:44Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "2OsaDtB3fAM": {
    "attempted_at": "2026-11-16T19:45:30Z",
    "checked_at": "2026-11-16",
@@ -8606,6 +8756,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "2TIPmhLgOqA": {
+   "attempted_at": "2026-11-26T00:21:49Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "2TMFC-f6aNI": {
    "attempted_at": "2026-11-21T17:02:17Z",
    "checked_at": "2026-11-21",
@@ -8676,6 +8836,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "2V2XcbFBCys": {
+   "attempted_at": "2026-11-26T00:21:45Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "2VVFhOu-NzY": {
    "attempted_at": "2026-11-25T19:25:55Z",
    "checked_at": "2026-11-25",
@@ -8742,6 +8912,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-17",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "2YLfC66JWwc": {
+   "attempted_at": "2026-11-26T00:21:50Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -8822,6 +9002,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-16",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "2_dQvb7nC_4": {
+   "attempted_at": "2026-11-26T00:21:44Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -9188,6 +9378,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "2jx6GvPhLl0": {
+   "attempted_at": "2026-11-26T00:21:48Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "2kM-sj4OobQ": {
    "attempted_at": "2026-11-23T03:25:13Z",
    "checked_at": "2026-11-23",
@@ -9324,6 +9524,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-18",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "2pUzpzSp-pE": {
+   "attempted_at": "2026-11-26T00:21:51Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -13091,6 +13301,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "4Gq1hsmpWs8": {
+   "attempted_at": "2026-11-26T00:21:43Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "4Gtl8lhqsek": {
    "attempted_at": "2026-11-16T02:57:53Z",
    "checked_at": "2026-11-16",
@@ -14935,6 +15155,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "53OE8BIdRr4": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "53PD3ZioZqs": {
    "attempted_at": "2026-11-18T17:16:00Z",
    "checked_at": "2026-11-18",
@@ -16289,6 +16519,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "5_1p3AzBWgk": {
+   "attempted_at": "2026-11-26T00:21:51Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "5_8rjTspXGo": {
    "attempted_at": "2026-11-19T23:03:53Z",
    "checked_at": "2026-11-19",
@@ -16355,6 +16595,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-23",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "5aWNfw7Jh10": {
+   "attempted_at": "2026-11-26T00:21:51Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -16504,6 +16754,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-16",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "5ex5iC_YnYo": {
+   "attempted_at": "2026-11-26T00:21:52Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -16664,6 +16924,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-21",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "5jGL_eRx7Lc": {
+   "attempted_at": "2026-11-26T00:21:52Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -17119,6 +17389,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "5vMB3F2YRf8": {
+   "attempted_at": "2026-11-26T00:21:47Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "5vV-TRTswV8": {
    "attempted_at": "2026-11-18T04:14:15Z",
    "checked_at": "2026-11-18",
@@ -17179,12 +17459,32 @@
    "license": "standard",
    "miss_count": 0
   },
+  "5wZ9aIHqCX8": {
+   "attempted_at": "2026-11-26T00:21:45Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "5wr1fqYkNXI": {
    "attempted_at": "2026-11-22T06:50:35Z",
    "checked_at": "2026-11-22",
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-22",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "5xLCKfBy2EU": {
+   "attempted_at": "2026-11-26T00:21:45Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -18091,6 +18391,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "6PTMn9ZWIBM": {
+   "attempted_at": "2026-11-26T00:21:45Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "6PWSYYqeYJk": {
    "attempted_at": "2026-11-16T19:45:14Z",
    "checked_at": "2026-11-16",
@@ -18441,6 +18751,15 @@
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
+  },
+  "6WOBjfz3f3U": {
+   "attempted_at": "2026-11-26T00:21:53Z",
+   "error": "unavailable",
+   "fail_count": 1,
+   "free_use": 0,
+   "license": "unknown",
+   "miss_count": 0,
+   "unknown_reason": "never_verified"
   },
   "6W_Z-T1SPqc": {
    "attempted_at": "2026-11-17T05:38:34Z",
@@ -19060,6 +19379,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-21",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "6nyjGR76VH0": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -20145,6 +20474,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "7Kntr4PS2VA": {
+   "attempted_at": "2026-11-26T00:21:43Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "7KtNimPwELI": {
    "attempted_at": "2026-11-25T19:26:02Z",
    "checked_at": "2026-11-25",
@@ -20506,6 +20845,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "7TLFrxltxIs": {
+   "attempted_at": "2026-11-26T00:21:48Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "7TYunauO70M": {
    "attempted_at": "2026-11-14T18:03:50Z",
    "checked_at": "2026-11-14",
@@ -20807,6 +21156,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "7aBObuI03p4": {
+   "attempted_at": "2026-11-26T00:21:44Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "7aN9s03q_mI": {
    "attempted_at": "2026-11-21T12:40:52Z",
    "checked_at": "2026-11-21",
@@ -21024,6 +21383,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-23",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "7grLZd4GN5s": {
+   "attempted_at": "2026-11-26T00:21:48Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -21338,6 +21707,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "7mXkKwe-x6M": {
+   "attempted_at": "2026-11-26T00:21:43Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "7mgHY1ercrI": {
    "attempted_at": "2026-11-22T17:20:16Z",
    "checked_at": "2026-11-22",
@@ -21484,6 +21863,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-15",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "7pkdgIFgLes": {
+   "attempted_at": "2026-11-26T00:21:45Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -21699,9 +22088,9 @@
    "miss_count": 0
   },
   "7vd8czHj3RM": {
-   "attempted_at": "2026-11-21T21:40:19Z",
+   "attempted_at": "2026-11-26T00:21:53Z",
    "error": "unavailable",
-   "fail_count": 5,
+   "fail_count": 6,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -23585,6 +23974,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "8bi0SfYssec": {
+   "attempted_at": "2026-11-26T00:21:52Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "8bo6N3C13Lc": {
    "attempted_at": "2026-11-20T04:09:39Z",
    "checked_at": "2026-11-20",
@@ -23731,6 +24130,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-14",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "8fn1B0xG-X8": {
+   "attempted_at": "2026-11-26T00:21:48Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -25525,6 +25934,16 @@
    "license": "cc_by",
    "miss_count": 0
   },
+  "9SaU13qXZFQ": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "9SeOFZoEXEY": {
    "attempted_at": "2026-11-18T04:14:19Z",
    "checked_at": "2026-11-18",
@@ -25701,6 +26120,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-19",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "9WnTD9f_4fA": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -26041,6 +26470,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-14",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "9dWiBR7hZGQ": {
+   "attempted_at": "2026-11-26T00:21:50Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -26948,6 +27387,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "A2rGZMEeFjg": {
+   "attempted_at": "2026-11-26T00:21:45Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "A2rqF4G4JiY": {
    "attempted_at": "2026-11-17T18:40:15Z",
    "checked_at": "2026-11-17",
@@ -27776,9 +28225,9 @@
    "miss_count": 0
   },
   "AJODtWKfQMw": {
-   "attempted_at": "2026-11-21T21:40:20Z",
+   "attempted_at": "2026-11-26T00:21:54Z",
    "error": "unavailable",
-   "fail_count": 5,
+   "fail_count": 6,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -27981,6 +28430,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-17",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "ANoiIYMqVfw": {
+   "attempted_at": "2026-11-26T00:21:43Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -28912,6 +29371,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-22",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "AhnFRSt1tyY": {
+   "attempted_at": "2026-11-26T00:21:50Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -31663,6 +32132,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "BgZ_q_hsUTg": {
+   "attempted_at": "2026-11-26T00:21:47Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "BgysJMIrFSM": {
    "attempted_at": "2026-11-24T02:54:46Z",
    "checked_at": "2026-11-24",
@@ -31839,6 +32318,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-20",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "BkWnFD5ZVFM": {
+   "attempted_at": "2026-11-26T00:21:51Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -34932,6 +35421,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "D6NdKhDMe20": {
+   "attempted_at": "2026-11-26T00:21:44Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "D6nrVJ2WK-w": {
    "attempted_at": "2026-11-24T20:24:28Z",
    "checked_at": "2026-11-24",
@@ -35183,9 +35682,9 @@
    "miss_count": 0
   },
   "DEYsL-87b9E": {
-   "attempted_at": "2026-11-23T21:26:39Z",
+   "attempted_at": "2026-11-26T00:21:54Z",
    "error": "unavailable",
-   "fail_count": 4,
+   "fail_count": 5,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -36093,6 +36592,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "DcogPTQi7U4": {
+   "attempted_at": "2026-11-26T00:21:48Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "DdbiQL5pvho": {
    "attempted_at": "2026-11-17T23:31:13Z",
    "checked_at": "2026-11-17",
@@ -36165,9 +36674,9 @@
    "miss_count": 0
   },
   "Dfx8foEtTGs": {
-   "attempted_at": "2026-11-23T21:26:39Z",
+   "attempted_at": "2026-11-26T00:21:54Z",
    "error": "unavailable",
-   "fail_count": 4,
+   "fail_count": 5,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -36451,6 +36960,16 @@
    "free_checked_at": "2026-11-24",
    "free_use": 0,
    "license": "cc_by",
+   "miss_count": 0
+  },
+  "DlEcJF2ad60": {
+   "attempted_at": "2026-11-26T00:21:47Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
    "miss_count": 0
   },
   "DlFxfg3qqT4": {
@@ -38940,6 +39459,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "Empu3hU876Q": {
+   "attempted_at": "2026-11-26T00:21:48Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "Emy6SeRZRLk": {
    "attempted_at": "2026-11-15T15:40:29Z",
    "checked_at": "2026-11-15",
@@ -39317,6 +39846,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-23",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "EvOOx7T5PDc": {
+   "attempted_at": "2026-11-26T00:21:44Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -40323,6 +40862,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "FH1jWxZkvwY": {
+   "attempted_at": "2026-11-26T00:21:49Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "FH6C4lEoBew": {
    "attempted_at": "2026-11-16T02:57:54Z",
    "checked_at": "2026-11-16",
@@ -40976,9 +41525,9 @@
    "miss_count": 0
   },
   "FWHkZOeCnb8": {
-   "attempted_at": "2026-11-21T21:40:19Z",
+   "attempted_at": "2026-11-26T00:21:53Z",
    "error": "unavailable",
-   "fail_count": 5,
+   "fail_count": 6,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -42097,6 +42646,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "FxmY9pPK5GY": {
+   "attempted_at": "2026-11-26T00:21:43Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "Fxpgqp5QedA": {
    "attempted_at": "2026-11-15T02:49:56Z",
    "checked_at": "2026-11-15",
@@ -43154,6 +43713,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-20",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "GKXTM3ynrUQ": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -44933,9 +45502,9 @@
    "miss_count": 0
   },
   "GxjIDA1CCyY": {
-   "attempted_at": "2026-11-21T21:40:20Z",
+   "attempted_at": "2026-11-26T00:21:54Z",
    "error": "unavailable",
-   "fail_count": 5,
+   "fail_count": 6,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -46979,6 +47548,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "HwX2ZK3FaOw": {
+   "attempted_at": "2026-11-26T00:21:44Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "HwxEwvmkG7o": {
    "attempted_at": "2026-11-15T15:40:13Z",
    "checked_at": "2026-11-15",
@@ -47005,6 +47584,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-23",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "HxwYxQJHWPw": {
+   "attempted_at": "2026-11-26T00:21:51Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -47045,6 +47634,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-19",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "HyyAv2DWnoU": {
+   "attempted_at": "2026-11-26T00:21:43Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -49912,6 +50511,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "J5CLRhdAzOE": {
+   "attempted_at": "2026-11-26T00:21:49Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "J5bP8ThOOZQ": {
    "attempted_at": "2026-11-15T21:03:43Z",
    "checked_at": "2026-11-15",
@@ -50425,6 +51034,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "JISWtQlze4Y": {
+   "attempted_at": "2026-11-26T00:21:52Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "JIeqJ3UkrMM": {
    "attempted_at": "2026-11-24T02:54:53Z",
    "checked_at": "2026-11-24",
@@ -50562,6 +51181,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-18",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "JLlq1g3aJRw": {
+   "attempted_at": "2026-11-26T00:21:43Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -51459,9 +52088,9 @@
    "miss_count": 0
   },
   "JhkR1TlNjHI": {
-   "attempted_at": "2026-11-23T21:26:39Z",
+   "attempted_at": "2026-11-26T00:21:54Z",
    "error": "unavailable",
-   "fail_count": 4,
+   "fail_count": 5,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -54044,6 +54673,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "Kpa-zyctVFg": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "Kpf_wOS-_gg": {
    "attempted_at": "2026-11-22T17:20:12Z",
    "checked_at": "2026-11-22",
@@ -54332,6 +54971,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-15",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "Kx3CKiucQ_I": {
+   "attempted_at": "2026-11-26T00:21:42Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -54644,6 +55293,16 @@
    "free_checked_at": "2026-11-14",
    "free_use": 0,
    "license": "cc_by",
+   "miss_count": 0
+  },
+  "L3XcV192-xM": {
+   "attempted_at": "2026-11-26T00:21:51Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
    "miss_count": 0
   },
   "L3dPhrGGjYk": {
@@ -55357,6 +56016,26 @@
    "license": "standard",
    "miss_count": 0
   },
+  "LLDxcyOMkwg": {
+   "attempted_at": "2026-11-26T00:21:43Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "LLExW-Q79rQ": {
+   "attempted_at": "2026-11-26T00:21:43Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "LLHSBl7ZQXE": {
    "attempted_at": "2026-11-16T02:57:34Z",
    "checked_at": "2026-11-16",
@@ -55644,6 +56323,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-15",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "LSD64LpfHRU": {
+   "attempted_at": "2026-11-26T00:21:48Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -58743,6 +59432,16 @@
    "miss_count": 0,
    "unknown_reason": "no_marker"
   },
+  "MdiFtBX9hm4": {
+   "attempted_at": "2026-11-26T00:21:42Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "MefVvojtJUs": {
    "attempted_at": "2026-11-24T14:53:52Z",
    "checked_at": "2026-11-24",
@@ -58784,9 +59483,9 @@
    "miss_count": 0
   },
   "Mf1aFT9DoTI": {
-   "attempted_at": "2026-11-23T21:26:39Z",
+   "attempted_at": "2026-11-26T00:21:54Z",
    "error": "unavailable",
-   "fail_count": 4,
+   "fail_count": 5,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -59273,6 +59972,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "MrWvPfnZbUE": {
+   "attempted_at": "2026-11-26T00:21:44Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "MrcyKZNI1YI": {
    "attempted_at": "2026-11-20T04:09:28Z",
    "checked_at": "2026-11-20",
@@ -59442,6 +60151,16 @@
    "license": "unknown",
    "miss_count": 0,
    "unknown_reason": "no_marker"
+  },
+  "MuykJOGPrt8": {
+   "attempted_at": "2026-11-26T00:21:51Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
   },
   "Mv0WtjZDAB8": {
    "attempted_at": "2026-11-17T02:56:30Z",
@@ -61996,12 +62715,32 @@
    "license": "standard",
    "miss_count": 0
   },
+  "Ns88Dyc-RlA": {
+   "attempted_at": "2026-11-26T00:21:53Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "NsYhASUK6ho": {
    "attempted_at": "2026-11-23T00:55:09Z",
    "checked_at": "2026-11-23",
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-23",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "NseE6fzHGR4": {
+   "attempted_at": "2026-11-26T00:21:43Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -63107,6 +63846,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "OM6j7pSDiNI": {
+   "attempted_at": "2026-11-26T00:21:45Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "OMk4VmSZxN8": {
    "attempted_at": "2026-11-15T16:35:07Z",
    "checked_at": "2026-11-15",
@@ -63342,6 +64091,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-19",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "OT1obcgG3eA": {
+   "attempted_at": "2026-11-26T00:21:48Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -64639,6 +65398,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "OzNbCfQoj6U": {
+   "attempted_at": "2026-11-26T00:21:50Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "OzWFpKxqIIU": {
    "attempted_at": "2026-11-15T21:03:42Z",
    "checked_at": "2026-11-15",
@@ -65862,6 +66631,16 @@
    "miss_count": 0,
    "unknown_reason": "no_marker"
   },
+  "PUUDky_LvvA": {
+   "attempted_at": "2026-11-26T00:21:51Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "PUc_NETI1Jg": {
    "attempted_at": "2026-11-20T04:09:43Z",
    "checked_at": "2026-11-20",
@@ -65942,6 +66721,16 @@
    "license": "unknown",
    "miss_count": 0,
    "unknown_reason": "no_marker"
+  },
+  "PWaUTgAxslA": {
+   "attempted_at": "2026-11-26T00:21:47Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
   },
   "PWj72KV8DL8": {
    "attempted_at": "2026-11-21T17:02:09Z",
@@ -66494,6 +67283,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "PjP5vNkf1h4": {
+   "attempted_at": "2026-11-26T00:21:42Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "Pk6S8qidcjk": {
    "attempted_at": "2026-11-20T07:18:02Z",
    "checked_at": "2026-11-20",
@@ -66820,6 +67619,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-22",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "Ptqe9-bwYM0": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -68337,6 +69146,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "QV84znRTaxQ": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "QVyDDE83dXU": {
    "attempted_at": "2026-11-23T21:26:24Z",
    "checked_at": "2026-11-23",
@@ -69608,6 +70427,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "R27xCtDOHGY": {
+   "attempted_at": "2026-11-26T00:21:44Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "R2ZZpsIQKa0": {
    "attempted_at": "2026-11-18T18:11:35Z",
    "checked_at": "2026-11-18",
@@ -70366,6 +71195,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-19",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "RMcZdY22aWw": {
+   "attempted_at": "2026-11-26T00:21:53Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -71790,6 +72629,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "Rz3GEc4fGFA": {
+   "attempted_at": "2026-11-26T00:21:49Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "RzRNBbHyI_M": {
    "attempted_at": "2026-11-19T04:12:56Z",
    "checked_at": "2026-11-19",
@@ -72138,6 +72987,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "S7K-zX58GXM": {
+   "attempted_at": "2026-11-26T00:21:47Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "S7aSOOhXr9Q": {
    "attempted_at": "2026-11-25T19:26:00Z",
    "checked_at": "2026-11-25",
@@ -72464,6 +73323,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-14",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "SFaaoR_arRA": {
+   "attempted_at": "2026-11-26T00:21:50Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -73656,6 +74525,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-23",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "SkYH0gPGKD0": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -76341,6 +77220,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "TrwDHiywm1Q": {
+   "attempted_at": "2026-11-26T00:21:49Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "Ts8aCLdX5Fc": {
    "attempted_at": "2026-11-19T18:24:11Z",
    "checked_at": "2026-11-19",
@@ -77472,6 +78361,16 @@
    "license": "cc_by",
    "miss_count": 0
   },
+  "UMyvjTQomEY": {
+   "attempted_at": "2026-11-26T00:21:53Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "UN6vi7N0gVg": {
    "attempted_at": "2026-11-20T04:09:44Z",
    "checked_at": "2026-11-20",
@@ -77798,6 +78697,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-16",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "UUbTT8Gls0E": {
+   "attempted_at": "2026-11-26T00:21:47Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -78320,6 +79229,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-20",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "UhqHYsONd28": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -79484,9 +80403,9 @@
    "miss_count": 0
   },
   "VEEFHaJg74c": {
-   "attempted_at": "2026-11-23T21:26:39Z",
+   "attempted_at": "2026-11-26T00:21:54Z",
    "error": "unavailable",
-   "fail_count": 4,
+   "fail_count": 5,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -79547,6 +80466,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-15",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "VGmtgTL3wWw": {
+   "attempted_at": "2026-11-26T00:21:43Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -79842,9 +80771,9 @@
    "miss_count": 0
   },
   "VP2ZZB3mbpo": {
-   "attempted_at": "2026-11-24T20:24:44Z",
+   "attempted_at": "2026-11-26T00:21:54Z",
    "error": "unavailable",
-   "fail_count": 3,
+   "fail_count": 4,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -80217,6 +81146,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-23",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "VYf4u3SJ3Z4": {
+   "attempted_at": "2026-11-26T00:21:44Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -80627,6 +81566,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-22",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "VigifvL2Y2I": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -81683,6 +82632,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "WB9HM_6jw5g": {
+   "attempted_at": "2026-11-26T00:21:44Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "WBNP-eozj0k": {
    "attempted_at": "2026-11-15T21:03:41Z",
    "checked_at": "2026-11-15",
@@ -81769,6 +82728,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-24",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "WCl-siyP1QQ": {
+   "attempted_at": "2026-11-26T00:21:53Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -82191,6 +83160,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "WOAisHUCfyY": {
+   "attempted_at": "2026-11-26T00:21:52Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "WOAsBms9UME": {
    "attempted_at": "2026-11-17T18:40:12Z",
    "checked_at": "2026-11-17",
@@ -82510,6 +83489,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-21",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "WWRtwIWLxvw": {
+   "attempted_at": "2026-11-26T00:21:49Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -83982,6 +84971,16 @@
    "license": "cc_by",
    "miss_count": 0
   },
+  "X3iGxjt25ts": {
+   "attempted_at": "2026-11-26T00:21:50Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "X3xr25iI79A": {
    "attempted_at": "2026-11-22T17:19:58Z",
    "checked_at": "2026-11-22",
@@ -84536,6 +85535,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "XFe1YypoDm8": {
+   "attempted_at": "2026-11-26T00:21:50Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "XFv5tOQ76PY": {
    "attempted_at": "2026-11-19T18:24:20Z",
    "checked_at": "2026-11-19",
@@ -84744,6 +85753,16 @@
    "free_checked_at": "2026-11-23",
    "free_use": 0,
    "license": "standard",
+   "miss_count": 0
+  },
+  "XK3lTFvjClg": {
+   "attempted_at": "2026-11-26T00:21:50Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "cc_by",
    "miss_count": 0
   },
   "XK6c8s2ATpM": {
@@ -85532,6 +86551,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-21",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "XckcFIFXkAA": {
+   "attempted_at": "2026-11-26T00:21:50Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -89067,6 +90096,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "Z-FDizpWfSw": {
+   "attempted_at": "2026-11-26T00:21:53Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "Z-PUx1kt8D8": {
    "attempted_at": "2026-11-19T18:24:27Z",
    "checked_at": "2026-11-19",
@@ -92545,6 +93584,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "_OUFBxe5P3o": {
+   "attempted_at": "2026-11-26T00:21:42Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "_Osl5GEbEs8": {
    "attempted_at": "2026-11-16T19:45:33Z",
    "checked_at": "2026-11-16",
@@ -92987,6 +94036,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "_ZL81sHZ1ZY": {
+   "attempted_at": "2026-11-26T00:21:48Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "_ZV1M2pcxok": {
    "attempted_at": "2026-11-21T04:22:33Z",
    "checked_at": "2026-11-21",
@@ -93353,6 +94412,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-15",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "_hUywxj7fxU": {
+   "attempted_at": "2026-11-26T00:21:50Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -93804,6 +94873,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-20",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "_vGo9WDV6Qc": {
+   "attempted_at": "2026-11-26T00:21:51Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -95600,6 +96679,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "acTtmnqsP90": {
+   "attempted_at": "2026-11-26T00:21:53Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "acwg71zR1gs": {
    "attempted_at": "2026-11-25T00:45:17Z",
    "checked_at": "2026-11-25",
@@ -96155,6 +97244,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-15",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "asdf4eQrQ6s": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -96898,6 +97997,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "bDJjhXz1KfY": {
+   "attempted_at": "2026-11-26T00:21:52Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "bDSvPpiQt_U": {
    "attempted_at": "2026-11-18T17:16:05Z",
    "checked_at": "2026-11-18",
@@ -97481,6 +98590,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "bSuc5hyhjx0": {
+   "attempted_at": "2026-11-26T00:21:51Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "bT0Prn7elFc": {
    "attempted_at": "2026-11-23T03:24:53Z",
    "checked_at": "2026-11-23",
@@ -97557,6 +98676,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-18",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "bVPwH_0Hutw": {
+   "attempted_at": "2026-11-26T00:21:45Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -97798,6 +98927,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-16",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "b_pDbCXlFco": {
+   "attempted_at": "2026-11-26T00:21:51Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -98189,6 +99328,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-21",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "bknHhvBbZV0": {
+   "attempted_at": "2026-11-26T00:21:51Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -99285,6 +100434,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "cDEnUYWuIH8": {
+   "attempted_at": "2026-11-26T00:21:52Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "cDJ5Y6Xze2s": {
    "attempted_at": "2026-11-24T20:24:31Z",
    "checked_at": "2026-11-24",
@@ -99433,6 +100592,16 @@
    "free_checked_at": "2026-11-21",
    "free_use": 0,
    "license": "cc_by",
+   "miss_count": 0
+  },
+  "cH8OgrsIJAc": {
+   "attempted_at": "2026-11-26T00:21:45Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
    "miss_count": 0
   },
   "cHEtIoSXGN0": {
@@ -100086,6 +101255,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "cWA-dS3T5UI": {
+   "attempted_at": "2026-11-26T00:21:53Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "cWA9UhxFWaA": {
    "attempted_at": "2026-11-19T13:10:18Z",
    "checked_at": "2026-11-19",
@@ -100293,6 +101472,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-19",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "cb02nIC4dYw": {
+   "attempted_at": "2026-11-26T00:21:45Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -100760,6 +101949,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-19",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "cnfYXSvleH4": {
+   "attempted_at": "2026-11-26T00:21:45Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -101800,9 +102999,9 @@
    "miss_count": 0
   },
   "dFyz0weQmxw": {
-   "attempted_at": "2026-11-23T21:26:39Z",
+   "attempted_at": "2026-11-26T00:21:54Z",
    "error": "unavailable",
-   "fail_count": 4,
+   "fail_count": 5,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -102612,6 +103811,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-25",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "ddhSN0v0kRI": {
+   "attempted_at": "2026-11-26T00:21:43Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -104097,6 +105306,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "eBaik8OltJY": {
+   "attempted_at": "2026-11-26T00:21:49Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "eBqEtJKnMNI": {
    "attempted_at": "2026-10-31T16:17:49Z",
    "checked_at": "2026-10-31",
@@ -104505,6 +105724,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-23",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "eL2gGxAd-GQ": {
+   "attempted_at": "2026-11-26T00:21:48Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -104981,6 +106210,16 @@
    "license": "unknown",
    "miss_count": 0,
    "unknown_reason": "no_marker"
+  },
+  "eXebgmYU_lU": {
+   "attempted_at": "2026-11-26T00:21:43Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
   },
   "eXmnfR_4XB8": {
    "attempted_at": "2026-11-01T12:51:15Z",
@@ -105501,6 +106740,16 @@
    "license": "unknown",
    "miss_count": 0,
    "unknown_reason": "no_marker"
+  },
+  "ejc-8Ca-Ddk": {
+   "attempted_at": "2026-11-26T00:21:44Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
   },
   "ejdfjg1FKZw": {
    "attempted_at": "2026-11-21T01:32:18Z",
@@ -106331,6 +107580,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "f6n17SZ2D30": {
+   "attempted_at": "2026-11-26T00:21:49Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "f7i6_WeiIY4": {
    "attempted_at": "2026-11-18T04:14:09Z",
    "checked_at": "2026-11-18",
@@ -106672,6 +107931,16 @@
    "license": "cc_by",
    "miss_count": 0
   },
+  "fF6RcSM_yTA": {
+   "attempted_at": "2026-11-26T00:21:47Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "fGeJlSFLj5k": {
    "attempted_at": "2026-11-22T06:50:32Z",
    "checked_at": "2026-11-22",
@@ -106728,6 +107997,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-17",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "fIBL1sbPJ7o": {
+   "attempted_at": "2026-11-26T00:21:52Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -106853,9 +108132,9 @@
    "miss_count": 0
   },
   "fK_WiPJGhSA": {
-   "attempted_at": "2026-11-24T20:24:44Z",
+   "attempted_at": "2026-11-26T00:21:54Z",
    "error": "unavailable",
-   "fail_count": 3,
+   "fail_count": 4,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -107459,6 +108738,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "faPJHUmOZBQ": {
+   "attempted_at": "2026-11-26T00:21:48Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "faSiWAorVD8": {
    "attempted_at": "2026-11-15T15:40:34Z",
    "checked_at": "2026-11-15",
@@ -107935,6 +109224,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-20",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "flySLJ9dwgM": {
+   "attempted_at": "2026-11-26T00:21:51Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -111049,6 +112348,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "h3QLkWv8ydU": {
+   "attempted_at": "2026-11-26T00:21:49Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "h3SN4o01FDc": {
    "attempted_at": "2026-11-20T17:57:46Z",
    "checked_at": "2026-11-20",
@@ -111214,6 +112523,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-18",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "h7F8dZ-zfGk": {
+   "attempted_at": "2026-11-26T00:21:52Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -111651,9 +112970,9 @@
    "miss_count": 0
   },
   "hGo5aSKK2j4": {
-   "attempted_at": "2026-11-23T21:26:39Z",
+   "attempted_at": "2026-11-26T00:21:54Z",
    "error": "unavailable",
-   "fail_count": 4,
+   "fail_count": 5,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -113485,6 +114804,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "hy_faW4n_lM": {
+   "attempted_at": "2026-11-26T00:21:44Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "hybcQa514jk": {
    "attempted_at": "2026-11-24T06:42:20Z",
    "checked_at": "2026-11-24",
@@ -114098,9 +115427,9 @@
    "miss_count": 0
   },
   "i8fiXxkI4b4": {
-   "attempted_at": "2026-11-21T21:40:19Z",
+   "attempted_at": "2026-11-26T00:21:53Z",
    "error": "unavailable",
-   "fail_count": 5,
+   "fail_count": 6,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -114232,6 +115561,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-15",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "iB0-OgG3DaQ": {
+   "attempted_at": "2026-11-26T00:21:49Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -114442,6 +115781,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-18",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "iHGCi2XfFEA": {
+   "attempted_at": "2026-11-26T00:21:53Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -114673,6 +116022,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-24",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "iNLgF9vBQUc": {
+   "attempted_at": "2026-11-26T00:21:50Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -114979,9 +116338,9 @@
    "miss_count": 0
   },
   "iUbx5TQ1zqg": {
-   "attempted_at": "2026-11-21T21:40:20Z",
+   "attempted_at": "2026-11-26T00:21:53Z",
    "error": "unavailable",
-   "fail_count": 5,
+   "fail_count": 6,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -117570,6 +118929,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "jTO5KjFqssA": {
+   "attempted_at": "2026-11-26T00:21:42Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "jTivHrlMIOU": {
    "attempted_at": "2026-11-19T18:24:30Z",
    "checked_at": "2026-11-19",
@@ -117775,6 +119144,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-17",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "jWVnkOZS8JI": {
+   "attempted_at": "2026-11-26T00:21:47Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -118191,6 +119570,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "jh8StLydT04": {
+   "attempted_at": "2026-11-26T00:21:49Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "jhBGAeU1uqA": {
    "attempted_at": "2026-11-19T18:24:14Z",
    "checked_at": "2026-11-19",
@@ -118249,6 +119638,16 @@
    "free_checked_at": "2026-11-23",
    "free_use": 0,
    "license": "cc_by",
+   "miss_count": 0
+  },
+  "jida4qsowzE": {
+   "attempted_at": "2026-11-26T00:21:47Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
    "miss_count": 0
   },
   "jieWFn0_1pc": {
@@ -118738,6 +120137,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-18",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "jv19IldbGN0": {
+   "attempted_at": "2026-11-26T00:21:47Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -120384,6 +121793,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "kaXDaYkkQd0": {
+   "attempted_at": "2026-11-26T00:21:36Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "cc_by",
+   "miss_count": 0
+  },
   "kaZSiXZZs0U": {
    "attempted_at": "2026-11-25T19:25:48Z",
    "checked_at": "2026-11-25",
@@ -121289,6 +122708,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-21",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "ku7zTtYyQsE": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -124072,6 +125501,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "lwmn1IG9Aic": {
+   "attempted_at": "2026-11-26T00:21:42Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "lxZyzaMbJFg": {
    "attempted_at": "2026-11-24T14:53:42Z",
    "checked_at": "2026-11-24",
@@ -124212,6 +125651,16 @@
    "license": "unknown",
    "miss_count": 0,
    "unknown_reason": "no_marker"
+  },
+  "m-QZ-4kmQ20": {
+   "attempted_at": "2026-11-26T00:21:45Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
   },
   "m-vnpZn6x7Q": {
    "attempted_at": "2026-11-22T03:14:41Z",
@@ -124898,6 +126347,16 @@
    "miss_count": 0,
    "unknown_reason": "no_marker"
   },
+  "mGKytTJPKNs": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "mGwk_-vzJCw": {
    "attempted_at": "2026-11-25T00:45:14Z",
    "checked_at": "2026-11-25",
@@ -125149,9 +126608,9 @@
    "miss_count": 0
   },
   "mO4IkzhTf2M": {
-   "attempted_at": "2026-11-23T21:26:39Z",
+   "attempted_at": "2026-11-26T00:21:54Z",
    "error": "unavailable",
-   "fail_count": 4,
+   "fail_count": 5,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -127348,6 +128807,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "nNIzVw8_Plk": {
+   "attempted_at": "2026-11-26T00:21:48Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "nNL82eH-ZpA": {
    "attempted_at": "2026-11-15T15:40:27Z",
    "checked_at": "2026-11-15",
@@ -128859,6 +130328,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "nzop9VJWyI0": {
+   "attempted_at": "2026-11-26T00:21:48Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "o-HAXyEv8ys": {
    "attempted_at": "2026-10-31T14:41:02Z",
    "checked_at": "2026-10-31",
@@ -129747,6 +131226,16 @@
    "miss_count": 0,
    "unknown_reason": "no_marker"
   },
+  "oMiopCAObWg": {
+   "attempted_at": "2026-11-26T00:21:48Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "oMpYp-_PlX8": {
    "attempted_at": "2026-11-14T15:51:18Z",
    "checked_at": "2026-11-14",
@@ -129813,6 +131302,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-25",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "oNhBH6pJmi4": {
+   "attempted_at": "2026-11-26T00:21:48Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -130935,6 +132434,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-24",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "osRZaGldfcs": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -132702,6 +134211,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "pZvcXvi30Ug": {
+   "attempted_at": "2026-11-26T00:21:49Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "p_CNPdJxITQ": {
    "attempted_at": "2026-11-16T02:57:37Z",
    "checked_at": "2026-11-16",
@@ -133861,9 +135380,9 @@
    "miss_count": 0
   },
   "q2kdXzSk_bw": {
-   "attempted_at": "2026-11-23T21:26:39Z",
+   "attempted_at": "2026-11-26T00:21:54Z",
    "error": "unavailable",
-   "fail_count": 4,
+   "fail_count": 5,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -134089,6 +135608,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "qAfniSEocME": {
+   "attempted_at": "2026-11-26T00:21:47Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "qAjtpcl66iE": {
    "attempted_at": "2026-11-19T13:10:23Z",
    "checked_at": "2026-11-19",
@@ -134105,6 +135634,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-22",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "qB_pcpg3jhI": {
+   "attempted_at": "2026-11-26T00:21:51Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -134676,6 +136215,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-22",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "qQhhhrgIXjU": {
+   "attempted_at": "2026-11-26T00:21:42Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -138073,6 +139622,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "rtI4T2QhW7U": {
+   "attempted_at": "2026-11-26T00:21:51Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "rtS1Rutc5zk": {
    "attempted_at": "2026-11-19T01:52:44Z",
    "checked_at": "2026-11-19",
@@ -139674,6 +141233,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "sZWGY1QPjSw": {
+   "attempted_at": "2026-11-26T00:21:43Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "s_Rvp5-ENeQ": {
    "attempted_at": "2026-11-16T02:57:47Z",
    "checked_at": "2026-11-16",
@@ -140144,6 +141713,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "sliizgJCyBM": {
+   "attempted_at": "2026-11-26T00:21:52Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "slmy94g7SoE": {
    "attempted_at": "2026-11-25T14:24:22Z",
    "checked_at": "2026-11-25",
@@ -140180,6 +141759,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-21",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "smxT-y6MVyg": {
+   "attempted_at": "2026-11-26T00:21:49Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -140892,6 +142481,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-24",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "t1tLLfExGLg": {
+   "attempted_at": "2026-11-26T00:21:43Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -142138,6 +143737,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "tU_fgARaVh0": {
+   "attempted_at": "2026-11-26T00:21:33Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "cc_by",
+   "miss_count": 0
+  },
   "tUxLCZRqyQM": {
    "attempted_at": "2026-11-21T04:22:38Z",
    "checked_at": "2026-11-21",
@@ -142226,6 +143835,16 @@
    "free_checked_at": "2026-11-22",
    "free_use": 0,
    "license": "standard",
+   "miss_count": 0
+  },
+  "tY1mT9EPw4o": {
+   "attempted_at": "2026-11-26T00:21:33Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "cc_by",
    "miss_count": 0
   },
   "tY4E0QyUDlE": {
@@ -142457,6 +144076,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "t_pCDNPnye0": {
+   "attempted_at": "2026-11-26T00:21:34Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "cc_by",
+   "miss_count": 0
+  },
   "t_xYJGnfqDU": {
    "attempted_at": "2026-11-17T18:40:19Z",
    "checked_at": "2026-11-17",
@@ -142593,6 +144222,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-15",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "tcqHa1Lc5Co": {
+   "attempted_at": "2026-11-26T00:21:47Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -142817,6 +144456,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "titEaPtaZHA": {
+   "attempted_at": "2026-11-26T00:21:44Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "tiwL9aEcMDw": {
    "attempted_at": "2026-11-23T03:24:52Z",
    "checked_at": "2026-11-23",
@@ -143005,6 +144654,16 @@
    "free_checked_at": "2026-11-17",
    "free_use": 0,
    "license": "standard",
+   "miss_count": 0
+  },
+  "tom2MFDJTTY": {
+   "attempted_at": "2026-11-26T00:21:34Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "cc_by",
    "miss_count": 0
   },
   "topID8MmjJo": {
@@ -143599,6 +145258,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "u6kyxgi_zJY": {
+   "attempted_at": "2026-11-26T00:21:53Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "u6vnR1945sE": {
    "attempted_at": "2026-11-21T12:40:47Z",
    "checked_at": "2026-11-21",
@@ -143729,6 +145398,26 @@
    "license": "standard",
    "miss_count": 0
   },
+  "u8luz0XMgus": {
+   "attempted_at": "2026-11-26T00:21:35Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "cc_by",
+   "miss_count": 0
+  },
+  "u9ZzDl9npWs": {
+   "attempted_at": "2026-11-26T00:21:35Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "cc_by",
+   "miss_count": 0
+  },
   "u9fLxeDBPLU": {
    "attempted_at": "2026-11-01T12:51:30Z",
    "checked_at": "2026-11-01",
@@ -143748,6 +145437,16 @@
    "free_checked_at": "2026-11-15",
    "free_use": 0,
    "license": "standard",
+   "miss_count": 0
+  },
+  "u9sc3SSgj3Q": {
+   "attempted_at": "2026-11-26T00:21:36Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "cc_by",
    "miss_count": 0
   },
   "uA3foy09FnU": {
@@ -143872,13 +145571,14 @@
    "miss_count": 0
   },
   "uDuFqYUhRY8": {
-   "attempted_at": "2026-11-11T06:23:22Z",
-   "error": "blocked",
-   "fail_count": 1,
+   "attempted_at": "2026-11-26T00:21:37Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
-   "license": "unknown",
-   "miss_count": 0,
-   "unknown_reason": "never_verified"
+   "license": "cc_by",
+   "miss_count": 0
   },
   "uDy0ONE8sRY": {
    "attempted_at": "2026-11-23T21:26:36Z",
@@ -143970,6 +145670,16 @@
    "free_checked_at": "2026-11-19",
    "free_use": 0,
    "license": "standard",
+   "miss_count": 0
+  },
+  "uGA9LyR3YrI": {
+   "attempted_at": "2026-11-26T00:21:37Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "cc_by",
    "miss_count": 0
   },
   "uGGz7wu5VlA": {
@@ -144353,6 +146063,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "uRb94ADbNuQ": {
+   "attempted_at": "2026-11-26T00:21:38Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "cc_by",
+   "miss_count": 0
+  },
   "uS8xtE0XeLc": {
    "attempted_at": "2026-11-25T05:44:02Z",
    "checked_at": "2026-11-25",
@@ -144381,6 +146101,16 @@
    "free_checked_at": "2026-11-15",
    "free_use": 0,
    "license": "standard",
+   "miss_count": 0
+  },
+  "uT8CLZ3dkOk": {
+   "attempted_at": "2026-11-26T00:21:38Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "cc_by",
    "miss_count": 0
   },
   "uTg7eh8Y5J4": {
@@ -144622,6 +146352,16 @@
    "free_checked_at": "2026-11-19",
    "free_use": 0,
    "license": "standard",
+   "miss_count": 0
+  },
+  "uauJTcfQL7U": {
+   "attempted_at": "2026-11-26T00:21:39Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "cc_by",
    "miss_count": 0
   },
   "ub-XTwlio5U": {
@@ -145073,6 +146813,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "un64lisjN8s": {
+   "attempted_at": "2026-11-26T00:21:51Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "uo2OigWHPm8": {
    "attempted_at": "2026-11-14T15:48:12Z",
    "checked_at": "2026-11-14",
@@ -145314,6 +147064,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "usODxbuPf4c": {
+   "attempted_at": "2026-11-26T00:21:45Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "ut5-YG2UXN0": {
    "attempted_at": "2026-11-19T23:03:59Z",
    "checked_at": "2026-11-19",
@@ -145516,6 +147276,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "uy4-ZoJzeu4": {
+   "attempted_at": "2026-11-26T00:21:50Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "uyLvZ_bE0WU": {
    "attempted_at": "2026-11-23T00:55:07Z",
    "checked_at": "2026-11-23",
@@ -145689,9 +147459,9 @@
    "miss_count": 0
   },
   "v1xfvwLR3mc": {
-   "attempted_at": "2026-11-24T20:24:44Z",
+   "attempted_at": "2026-11-26T00:21:54Z",
    "error": "unavailable",
-   "fail_count": 3,
+   "fail_count": 4,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -145778,13 +147548,14 @@
    "miss_count": 0
   },
   "v4L3wBUoMK8": {
-   "attempted_at": "2026-11-11T16:11:29Z",
-   "error": "blocked",
-   "fail_count": 1,
+   "attempted_at": "2026-11-26T00:21:39Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
-   "license": "unknown",
-   "miss_count": 0,
-   "unknown_reason": "never_verified"
+   "license": "cc_by",
+   "miss_count": 0
   },
   "v4LtWICII8M": {
    "attempted_at": "2026-11-24T06:42:24Z",
@@ -145867,9 +147638,9 @@
    "miss_count": 0
   },
   "v7Mp2fjfFDg": {
-   "attempted_at": "2026-11-23T21:26:39Z",
+   "attempted_at": "2026-11-26T00:21:54Z",
    "error": "unavailable",
-   "fail_count": 4,
+   "fail_count": 5,
    "free_use": 0,
    "license": "unknown",
    "miss_count": 0,
@@ -146171,6 +147942,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-17",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "vFqymUm2nI8": {
+   "attempted_at": "2026-11-26T00:21:47Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -146496,6 +148277,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "vPPJ_UOcklQ": {
+   "attempted_at": "2026-11-26T00:21:40Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "cc_by",
+   "miss_count": 0
+  },
   "vPjrjOwKY_c": {
    "attempted_at": "2026-11-23T03:24:56Z",
    "checked_at": "2026-11-23",
@@ -146671,6 +148462,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-16",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "vV4o91UXQGA": {
+   "attempted_at": "2026-11-26T00:21:43Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -147679,6 +149480,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-24",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "vqeo7oSMl-4": {
+   "attempted_at": "2026-11-26T00:21:45Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -149206,6 +151017,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "wQiWAmjY0G0": {
+   "attempted_at": "2026-11-26T00:21:50Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "wQtG6rYh2aw": {
    "attempted_at": "2026-11-18T04:14:19Z",
    "checked_at": "2026-11-18",
@@ -149372,6 +151193,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-25",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "wT_5JP3TvHM": {
+   "attempted_at": "2026-11-26T00:21:50Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -150634,6 +152465,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "x4M1lwHXWcY": {
+   "attempted_at": "2026-11-26T00:21:52Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "x4QZFsheE8s": {
    "attempted_at": "2026-11-22T06:50:31Z",
    "checked_at": "2026-11-22",
@@ -150710,6 +152551,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-17",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "x5oCbuSW7RE": {
+   "attempted_at": "2026-11-26T00:21:50Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -150871,6 +152722,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-23",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "xASC7BXN6Is": {
+   "attempted_at": "2026-11-26T00:21:49Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -152204,6 +154065,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-18",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "xg1yV8_AlrE": {
+   "attempted_at": "2026-11-26T00:21:49Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -154226,6 +156097,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "yRB5VS10KEU": {
+   "attempted_at": "2026-11-26T00:21:43Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "yRgJZQ20LA4": {
    "attempted_at": "2026-11-17T05:38:36Z",
    "checked_at": "2026-11-17",
@@ -155368,6 +157249,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "yuMPXLW7qnA": {
+   "attempted_at": "2026-11-26T00:21:45Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "yuYdcC1o3Ds": {
    "attempted_at": "2026-11-01T09:12:43Z",
    "checked_at": "2026-11-01",
@@ -156016,6 +157907,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-23",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "zAx0SWk7Gf4": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -157048,6 +158949,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "zZsLmGSO7cA": {
+   "attempted_at": "2026-11-26T00:21:50Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "z_DBKYNcOg4": {
    "attempted_at": "2026-11-14T15:51:04Z",
    "checked_at": "2026-11-14",
@@ -157369,6 +159280,16 @@
    "license": "standard",
    "miss_count": 0
   },
+  "zgrfmiDeIbc": {
+   "attempted_at": "2026-11-26T00:21:46Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
   "zgtqbi2ZlHE": {
    "attempted_at": "2026-11-14T15:48:07Z",
    "checked_at": "2026-11-14",
@@ -157684,6 +159605,16 @@
    "error": null,
    "fail_count": 0,
    "free_checked_at": "2026-11-16",
+   "free_use": 0,
+   "license": "standard",
+   "miss_count": 0
+  },
+  "zoSWuC7HwWs": {
+   "attempted_at": "2026-11-26T00:21:44Z",
+   "checked_at": "2026-11-26",
+   "error": null,
+   "fail_count": 0,
+   "free_checked_at": "2026-11-26",
    "free_use": 0,
    "license": "standard",
    "miss_count": 0
@@ -158030,5 +159961,5 @@
   }
  },
  "schema": 1,
- "updated": "2026-11-25T19:26:13Z"
+ "updated": "2026-11-26T00:21:55Z"
 }
