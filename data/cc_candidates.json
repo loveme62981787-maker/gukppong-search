@@ -1690,6 +1690,23 @@
    "title": "24 hours in Taipei (my fave food recs)",
    "views": 92175
   },
+  "C4sw8EdPfHQ": {
+   "attempted_at": "2026-11-27T13:53:25Z",
+   "channel": "J&K Lovett",
+   "channel_id": "UCiZZYObHX2T4SvEpBLYou8Q",
+   "country": "한국",
+   "duration_sec": 376,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-27",
+   "id": "C4sw8EdPfHQ",
+   "length": "6:16",
+   "published": "2021-06-03",
+   "query": "Jeju island travel",
+   "status": "verified",
+   "title": "Best Airbnb in Jeju-do Korea - Vlog 10",
+   "views": 1352
+  },
   "CGuue_Oz8tQ": {
    "attempted_at": "2026-11-14T15:51:07Z",
    "channel": "Keira Ashley",
@@ -5071,6 +5088,23 @@
    "title": "EATING AT TAIWANESE CONVENIENCE STORE FOR 24 HOURS  🇹🇼 🧃",
    "views": 7675
   },
+  "_p4nhBhZnGc": {
+   "attempted_at": "2026-11-27T13:53:26Z",
+   "channel": "Yin Hanna TV",
+   "channel_id": "UCXZ4hjZYQT9pXkCjVjWCE_A",
+   "country": "한국",
+   "duration_sec": 566,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-27",
+   "id": "_p4nhBhZnGc",
+   "length": "9:26",
+   "published": "2026-11-01",
+   "query": "Jeju island travel",
+   "status": "verified",
+   "title": "Last day in Jeju | Vlog [English, Catalan, Spanish] [SUBS]",
+   "views": 92
+  },
   "_x1uAO_CpOw": {
    "attempted_at": "2026-11-21T01:32:06Z",
    "channel": "Eat See Wander",
@@ -7501,13 +7535,13 @@
    "views": 571
   },
   "oNNeQv9ufao": {
-   "attempted_at": "2026-11-25T14:24:18Z",
+   "attempted_at": "2026-11-27T13:53:21Z",
    "channel": "SlimSync",
    "channel_id": "UCNNxICfDrR9a85nco2flRdg",
    "country": "일본",
    "duration_sec": 723,
    "error": "unavailable",
-   "fail_count": 3,
+   "fail_count": 4,
    "first_seen": "2026-11-04",
    "id": "oNNeQv9ufao",
    "length": "12:03",
@@ -8381,6 +8415,23 @@
    "title": "My Korean Mom Didn't Warn Me | My Blasian Culture Shock Experience in Korea",
    "views": 487693
   },
+  "uU6PEVMjH_s": {
+   "attempted_at": "2026-11-27T13:53:26Z",
+   "channel": "Aussie Singh | Kirtan Singh",
+   "channel_id": "UCRsB0E_xwPQZXnrViUHcL1w",
+   "country": "일본",
+   "duration_sec": 270,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-27",
+   "id": "uU6PEVMjH_s",
+   "length": "4:30",
+   "published": "2025-05-30",
+   "query": "first time in Japan",
+   "status": "verified",
+   "title": "Our first time at DisenySea! | Things to do in Japan",
+   "views": 50
+  },
   "uVE-PgJZEKo": {
    "attempted_at": "2026-11-01T09:11:46Z",
    "channel": "Didi의 한국문화 Podcast",
@@ -8822,104 +8873,121 @@
    "views": 411
   },
   "yiNG-42OS8o": {
-   "attempted_at": "2026-11-08T15:14:28Z",
+   "attempted_at": "2026-11-27T13:53:21Z",
    "channel": "TheTimoTalks",
    "channel_id": "UCQQFtMqkX13_Ig8z_L3PRLg",
    "country": "한국",
    "duration_sec": 796,
-   "error": "blocked",
-   "fail_count": 1,
+   "error": null,
+   "fail_count": 0,
    "first_seen": "2026-11-08",
    "id": "yiNG-42OS8o",
    "length": "13:16",
+   "published": "2026-11-08",
    "query": "Busan trip",
-   "status": "pending",
+   "status": "verified",
    "title": "Is Busan Worth 2 Days on a One-Week Korea Trip?",
    "views": 8
   },
   "ypYiOKqtA7c": {
+   "attempted_at": "2026-11-27T13:53:22Z",
    "channel": "TreDiscover",
    "channel_id": "UCWOnmWotUJe65Ni0ZQr4nsg",
    "country": "일본",
    "duration_sec": 499,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-11",
    "id": "ypYiOKqtA7c",
    "length": "8:19",
+   "published": "2024-07-13",
    "query": "first time in Japan",
-   "status": "pending",
+   "status": "verified",
    "title": "First Time to Japan? Tokyo Travel Secrets: Japan Travel Guide",
    "views": 162
   },
   "yu6fnM9nk-g": {
+   "attempted_at": "2026-11-27T13:53:22Z",
    "channel": "Jamila Kay",
    "channel_id": "UC9spvbdVPycZ79RHceP86iQ",
    "country": "한국",
    "duration_sec": 617,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-07",
    "id": "yu6fnM9nk-g",
    "length": "10:17",
+   "published": "2022-06-10",
    "query": "Jeju island travel",
-   "status": "pending",
+   "status": "verified",
    "title": "Jeju Island 🏝 food market, cafes, tangerine heaven",
    "views": 456
   },
   "yyB3bhKiffM": {
-   "attempted_at": "2026-11-07T23:39:46Z",
+   "attempted_at": "2026-11-27T13:53:23Z",
    "channel": "Gothamist",
    "channel_id": "UCY_2VeS5Q9_sMZRhtvF0c5Q",
    "country": "한국",
    "duration_sec": 300,
-   "error": "blocked",
-   "fail_count": 1,
+   "error": null,
+   "fail_count": 0,
    "first_seen": "2026-11-07",
    "id": "yyB3bhKiffM",
    "length": "5:00",
+   "published": "2016-08-03",
    "query": "first time in Korea",
-   "status": "pending",
+   "status": "verified",
    "title": "How To Eat Korean BBQ: A Beginner's Guide",
    "views": 1481250
   },
   "z-2nCA-qe50": {
+   "attempted_at": "2026-11-27T13:53:23Z",
    "channel": "日本食冒険記Tokyo Food Adventures",
    "channel_id": "UCXz4C2UgKkskK8ZcEbgRDVA",
    "country": "일본",
    "duration_sec": 1752,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-04",
    "id": "z-2nCA-qe50",
    "length": "29:12",
+   "published": "2025-07-20",
    "query": "Japanese culture experience",
-   "status": "pending",
+   "status": "verified",
    "title": "First experience with sushi on honeymoon! A foreigner on his first visit to Japan was astonished ...",
    "views": 586259
   },
   "z2-UIBDe6jk": {
+   "attempted_at": "2026-11-27T13:53:25Z",
    "channel": "mikababey",
    "channel_id": "UC4YH07tFfR--QVvizyUDwPg",
    "country": "일본",
    "duration_sec": 696,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-02",
    "id": "z2-UIBDe6jk",
    "length": "11:36",
+   "published": "2025-06-03",
    "query": "Japan travel vlog",
-   "status": "pending",
+   "status": "verified",
    "title": "japan vlog ♡ my first day in tokyo! shopping in harajuku & ikebukuro~",
    "views": 23901
   },
   "z21EC1o9dt8": {
+   "attempted_at": "2026-11-27T13:53:27Z",
    "channel": "DINKWAP Show",
    "channel_id": "UCMkoknN1SCy3aEU5m1hpmyA",
    "country": "대만",
    "duration_sec": 1876,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-15",
    "id": "z21EC1o9dt8",
    "length": "31:16",
+   "published": "2025-07-10",
    "query": "first time in Taiwan",
-   "status": "pending",
+   "status": "verified",
    "title": "Taiwan Adventures: Exploring Markets, Food Delights, and Finding Local Gems | 014",
    "views": 65
   },
@@ -8941,30 +9009,36 @@
    "views": 123017
   },
   "z5LY5ltNKCw": {
+   "attempted_at": "2026-11-27T13:53:27Z",
    "channel": "PTSD",
    "channel_id": "UCdFjCCgXjeKAi5MlwsBFjjg",
    "country": "대만",
    "duration_sec": 1734,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-02",
    "id": "z5LY5ltNKCw",
    "length": "28:54",
+   "published": "2024-03-01",
    "query": "first time in Taiwan",
-   "status": "pending",
+   "status": "verified",
    "title": "Kai Cenat's First Time In Taiwan With Ray! REACTION",
    "views": 9964
   },
   "zBiJo2RWRuo": {
+   "attempted_at": "2026-11-27T13:53:28Z",
    "channel": "Noah Kartha",
    "channel_id": "UCmymPswznAYljjiHt0X2eaQ",
    "country": "일본",
    "duration_sec": 374,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-01",
    "id": "zBiJo2RWRuo",
    "length": "6:14",
+   "published": "2023-05-29",
    "query": "Osaka food tour",
-   "status": "pending",
+   "status": "verified",
    "title": "My Roller Coaster Japanese Food Tour: 25 Osaka Foods in A Day",
    "views": 305
   },
@@ -9020,32 +9094,36 @@
    "views": 1221
   },
   "zjCZWR4O9hY": {
+   "attempted_at": "2026-11-27T13:53:28Z",
    "channel": "Jack The Human",
    "channel_id": "UCais83lEsRef8ibNuRaRbPQ",
    "country": "대만",
    "duration_sec": 206,
+   "error": null,
    "fail_count": 0,
    "first_seen": "2026-11-05",
    "id": "zjCZWR4O9hY",
    "length": "3:26",
+   "published": "2017-12-21",
    "query": "Taiwan travel vlog",
-   "status": "pending",
+   "status": "verified",
    "title": "Taipei Taiwan Travel Video",
    "views": 599
   },
   "zw_olzCKvkc": {
-   "attempted_at": "2026-11-10T02:45:38Z",
+   "attempted_at": "2026-11-27T13:53:29Z",
    "channel": "유리조아Yurijoa",
    "channel_id": "UCBpTprffc9A7KZyONCHQTIw",
    "country": "한국",
    "duration_sec": 564,
-   "error": "blocked",
-   "fail_count": 1,
+   "error": null,
+   "fail_count": 0,
    "first_seen": "2026-11-10",
    "id": "zw_olzCKvkc",
    "length": "9:24",
+   "published": "2022-02-02",
    "query": "Korea convenience store food",
-   "status": "pending",
+   "status": "verified",
    "title": "No stealing at the 24 hours Ramen convenience store in Korea",
    "views": 93551
   },
@@ -9071,7 +9149,7 @@
    "found": 25
   },
   "대만|Taiwan convenience store food": {
-   "at": "2026-11-23T00:54:47Z",
+   "at": "2026-11-27T13:53:19Z",
    "found": 25
   },
   "대만|Taiwan street food": {
@@ -9123,7 +9201,7 @@
    "found": 25
   },
   "일본|first time in Japan": {
-   "at": "2026-11-23T00:54:45Z",
+   "at": "2026-11-27T13:53:17Z",
    "found": 25
   },
   "일본|living in Japan foreigner": {
@@ -9135,7 +9213,7 @@
    "found": 25
   },
   "한국|Jeju island travel": {
-   "at": "2026-11-23T14:40:24Z",
+   "at": "2026-11-27T13:53:14Z",
    "found": 25
   },
   "한국|Korea convenience store food": {
@@ -9163,5 +9241,5 @@
    "found": 25
   }
  },
- "updated": "2026-11-27T00:36:05Z"
+ "updated": "2026-11-27T13:53:30Z"
 }
