@@ -2,9 +2,9 @@
  "schema": 1,
  "updated": "2026-11-27",
  "cursor": {
-  "KR": 8,
-  "JP": 8,
-  "TW": 8
+  "KR": 0,
+  "JP": 0,
+  "TW": 0
  },
  "items": {
   "dymrsnOOCps": {
@@ -9458,7 +9458,41 @@
    "lf_country": "TW",
    "lf_basis": "ko_region",
    "lf_query": "단수이 지우펀 대만 여행 브이로그"
+  },
+  "NdHd8Yg788o": {
+   "id": "NdHd8Yg788o",
+   "title": "【海外の反応】日本から帰った外国人旅行者が語る「一番の後悔」とは？全世界が共感の嵐【日本賞賛】",
+   "channel": "JAPAN感動速報【海外の反応】",
+   "channel_id": "UCpEP85DO6gAeC_ZX0UfJnFQ",
+   "subs": null,
+   "views": 46614,
+   "country": "일본",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 1889,
+   "published": "2026-04-19",
+   "first_seen": "2026-11-27",
+   "lf_country": "JP",
+   "lf_basis": "foreign_title",
+   "lf_query": "日本 旅行 外國人 體驗"
+  },
+  "A98mfkmba9c": {
+   "id": "A98mfkmba9c",
+   "title": "「這才是真正的先進國家！」26歲矽谷工程師看到台灣醫療帳單，在美食街當場痛哭…！#台灣醫療 #全民健保 #外國人看台灣 #台灣人情味 #感人故事 #故事分享 #台灣 #Taiwan",
+   "channel": "blocker forfuture",
+   "channel_id": "UCHI-weXjKUgNBnOwZ752eNA",
+   "subs": null,
+   "views": 136,
+   "country": "대만",
+   "section": "longform_exp",
+   "length": null,
+   "duration_sec": 1538,
+   "published": "2026-11-20",
+   "first_seen": "2026-11-27",
+   "lf_country": "TW",
+   "lf_basis": "foreign_title",
+   "lf_query": "台灣 外國人 人情味 小吃"
   }
  },
- "collected_at": "2026-11-26T22:34:15Z"
+ "collected_at": "2026-11-27T10:05:40Z"
 }
