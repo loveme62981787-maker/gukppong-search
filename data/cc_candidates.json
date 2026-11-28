@@ -2047,6 +2047,23 @@
    "title": "A Family Trip to Busan Part 2",
    "views": 32
   },
+  "EqkDJ6823Kw": {
+   "attempted_at": "2026-11-28T07:50:59Z",
+   "channel": "Pesantren Korea",
+   "channel_id": "UCL8UARrKoA8_KCRq8vcqQDw",
+   "country": "한국",
+   "duration_sec": 1003,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-28",
+   "id": "EqkDJ6823Kw",
+   "length": "16:43",
+   "published": "2025-09-26",
+   "query": "Korea travel vlog",
+   "status": "verified",
+   "title": "Ada Apa di YONSEI UNIVERSITY? #KoreaUnivTour4",
+   "views": 2077
+  },
   "EsTYaglyQVY": {
    "attempted_at": "2026-11-16T06:31:31Z",
    "channel": "Lonckoo, with oooooooo",
@@ -3321,6 +3338,23 @@
    "status": "verified",
    "title": "The Sweet Truth: Taiwan vs. Philippines - Tastes, Tourists, and Transportation Tales | 015",
    "views": 49
+  },
+  "N3YkGvfJuGc": {
+   "attempted_at": "2026-11-28T07:50:59Z",
+   "channel": "Explore Tayo!",
+   "channel_id": "UCK9__QTI2lOh-cT1QrCWIyw",
+   "country": "대만",
+   "duration_sec": 725,
+   "error": null,
+   "fail_count": 0,
+   "first_seen": "2026-11-28",
+   "id": "N3YkGvfJuGc",
+   "length": "12:05",
+   "published": "2026-11-28",
+   "query": "first time in Taiwan",
+   "status": "verified",
+   "title": "Taipei Travel: Our First-Time Experience",
+   "views": 51
   },
   "N3kdeSsi4SU": {
    "attempted_at": "2026-11-17T13:28:13Z",
@@ -9223,7 +9257,7 @@
    "found": 25
   },
   "대만|first time in Taiwan": {
-   "at": "2026-11-24T02:54:30Z",
+   "at": "2026-11-28T07:50:57Z",
    "found": 25
   },
   "대만|living in Taiwan foreigner": {
@@ -9247,7 +9281,7 @@
    "found": 25
   },
   "일본|Osaka food tour": {
-   "at": "2026-11-24T02:54:28Z",
+   "at": "2026-11-28T07:50:54Z",
    "found": 25
   },
   "일본|Tokyo street food": {
@@ -9275,7 +9309,7 @@
    "found": 25
   },
   "한국|Korea travel vlog": {
-   "at": "2026-11-24T14:53:34Z",
+   "at": "2026-11-28T07:50:52Z",
    "found": 25
   },
   "한국|Korean culture experience": {
@@ -9295,5 +9329,5 @@
    "found": 25
   }
  },
- "updated": "2026-11-28T00:03:52Z"
+ "updated": "2026-11-28T07:51:00Z"
 }
